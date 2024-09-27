@@ -1,0 +1,7 @@
+private namespace slovakia;
+
+observe earth:Region named slovakia_test_area
+    over space(shape='POLYGON ((20.5846406 48.884577, 21.2011633 48.884577, 21.2011633 48.47623, 20.5846406 48.47623, 20.5846406 48.884577))',
+    		grid="100 m",
+    		projection="EPSG:4326"),
+    time(start=2021, end=2022, step=1.year); 
