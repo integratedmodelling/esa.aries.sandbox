@@ -5,3 +5,6 @@ observe earth:Region named slovakia_test_area
     		grid="100 m",
     		projection="EPSG:4326"),
     time(start=2021, end=2022, step=1.year); 
+    
+number 'local:stefano.balbi:esa.aries.sandbox:openeo.eunis#output_warp=true&synchronous=true'
+       as openeo_eunis_test; 

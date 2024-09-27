@@ -1,0 +1,86 @@
+{
+  "urn" : "local:stefano.balbi:esa.aries.sandbox:openeo.eunis",
+  "version" : "0.0.1",
+  "adapterType" : "openeo",
+  "localPath" : "esa.aries.sandbox/resources/openeo.eunis.v0.0.1",
+  "geometry" : "t1{ttype=GRID}S2",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "openeo.eunis",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1727446195372,
+  "metadata" : {
+    "dc:description" : "Loads the prepared 2021 habitat map for SK in EUNIS2012 topology for requested topology level. Returns a single band RasterCube.",
+    "dc:comment" : "Loads the preprocessed habitat map for SK for the alpha0 release.",
+    "dc:title" : "Loads the prepared 2021 habitat map for SK in EUNIS2012 topology for requested topology level"
+  },
+  "parameters" : {
+    "space.shape" : "geometry",
+    "time.year" : "year",
+    "processId" : "udp_inference_module_alpha0",
+    "serviceUrl" : "https://openeo.vgt.vito.be/bc3research/openeo",
+    "namespace" : "https://raw.githubusercontent.com/ESA-WEED-project/OpenEO-UDP-UDF-catalogue/refs/heads/main/UDP/json/udp_inference_module_alpha0.json",
+    "space.projection" : "output_epsg",
+    "nodata" : "-9999",
+    "space.resolution" : "resolution"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : [ {
+    "name" : "topology",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "topology_level",
+    "type" : null,
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "reference_data",
+    "type" : "SPATIALEXTENT",
+    "key" : false,
+    "optional" : false,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "feature_list",
+    "type" : null,
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "ml_model_type",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "target_epsg",
+    "type" : null,
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "target_res",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  } ],
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}
