@@ -2,7 +2,7 @@ public app esa.aries
 	"ARIES for ESA"
 	version 1.0alpha
 	description "Ecosystem Types modeller powered by k.LAB semantic web technology and openEO"
-//	logo static/images/esa_logo.png
+	logo static/images/esa_logo.png
 	versionstring "Demonstration version"
 	style dark
 
@@ -16,7 +16,7 @@ action main:
 
 
 
- checkbutton("Ecosytem Types" #etc): (observe('slovakia.leaf-area-index-resolver')) 
+ checkbutton("Ecosytem Types (LAI)" #etc): (observe({ecology:LeafAreaIndex}))  
  
 //	(
 //		(

@@ -15,4 +15,4 @@ number 'local:stefano.balbi:esa.aries.sandbox:openeo.eunis#output_warp=true&sync
 //	as ecology:NormalizedDifferenceVegetationIndex named ndvi_10m; 
 	
 model 'local:ferdinando.villa:im.openeo.sandbox:vito.lai#output_warp=true&synchronous=true'
-	 as ecology:LeafAreaIndex; 
+	 as ecology:LeafAreaIndex named slovakia_lai; 
