@@ -1,0 +1,28 @@
+public app esa.aries
+	"ARIES for ESA"
+	version 1.0alpha
+	description "Ecosystem Types modeller powered by k.LAB semantic web technology and openEO"
+//	logo static/images/esa_logo.png
+	versionstring "Demonstration version"
+	style dark
+
+
+@left(width=450)
+action main:
+//separator(#CONTEXT_WHERE_AND_WHEN :iconname "earth" :info)
+//	create esa.aries.contextselector: (
+//		
+//	)
+
+
+
+ checkbutton("Ecosytem Types" #etc): (observe('slovakia.leaf-area-index-resolver')) 
+ 
+//	(
+//		(
+//			
+//			create esa.aries.components.selectors.observation('slovakia.leaf-area-index-resolver',             
+//				"LAI", true, "map", "Leaf Area Index") #tag29
+//				
+//		) :hfill :altbg :name "Ecosystem Variables" :iconname "cog" :opened
+//	) :shelf

@@ -1,4 +1,4 @@
-private namespace slovakia;
+project private namespace slovakia;
 
 observe earth:Region named slovakia_test_area
     over space(shape='POLYGON ((20.5846406 48.884577, 21.2011633 48.884577, 21.2011633 48.47623, 20.5846406 48.47623, 20.5846406 48.884577))',
@@ -8,3 +8,11 @@ observe earth:Region named slovakia_test_area
     
 number 'local:stefano.balbi:esa.aries.sandbox:openeo.eunis#output_warp=true&synchronous=true'
        as openeo_eunis_test; 
+       
+//from PEOPLE-EA
+	
+//model 'local:stefano.balbi:esa.aries.peopleea:vito.ndvi.10m#output_warp=true&synchronous=true'
+//	as ecology:NormalizedDifferenceVegetationIndex named ndvi_10m; 
+	
+model 'local:ferdinando.villa:im.openeo.sandbox:vito.lai#output_warp=true&synchronous=true'
+	 as ecology:LeafAreaIndex; 
