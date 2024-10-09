@@ -7,17 +7,25 @@
   "projectName" : "esa.aries.sandbox",
   "localName" : "openeo.eunis",
   "type" : "NUMBER",
-  "resourceTimestamp" : 1727446195372,
+  "resourceTimestamp" : 1728464102041,
   "metadata" : {
     "dc:description" : "Loads the prepared 2021 habitat map for SK in EUNIS2012 topology for requested topology level. Returns a single band RasterCube.",
+    "im:keywords" : "",
     "dc:comment" : "Loads the preprocessed habitat map for SK for the alpha0 release.",
-    "dc:title" : "Loads the prepared 2021 habitat map for SK in EUNIS2012 topology for requested topology level"
+    "im:notes" : "",
+    "dc:title" : "Loads the prepared 2021 habitat map for SK in EUNIS2012 topology for requested topology level",
+    "dc:url" : "",
+    "dc:creator" : "",
+    "im:thematic-area" : "",
+    "dc:originator" : "",
+    "im:geographic-area" : "",
+    "dc:source" : ""
   },
   "parameters" : {
     "space.shape" : "geometry",
     "time.year" : "year",
     "processId" : "udp_inference_module_alpha0",
-    "serviceUrl" : "https://openeo.vgt.vito.be/bc3research/openeo",
+    "serviceUrl" : "https://openeo.dataspace.copernicus.eu/openeo/1.2/",
     "namespace" : "https://raw.githubusercontent.com/ESA-WEED-project/OpenEO-UDP-UDF-catalogue/refs/heads/main/UDP/json/udp_inference_module_alpha0.json",
     "space.projection" : "output_epsg",
     "nodata" : "-9999",
