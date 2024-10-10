@@ -1,25 +1,17 @@
 {
-  "urn" : "local:stefano.balbi:esa.aries.sandbox:openeo.eunis",
+  "urn" : "local:stefano.balbi:esa.aries.sandbox:openeo.alpha0.eunis",
   "version" : "0.0.1",
   "adapterType" : "openeo",
-  "localPath" : "esa.aries.sandbox/resources/openeo.eunis.v0.0.1",
+  "localPath" : "esa.aries.sandbox/resources/openeo.alpha0.eunis.v0.0.1",
   "geometry" : "t1{ttype=GRID}S2",
   "projectName" : "esa.aries.sandbox",
-  "localName" : "openeo.eunis",
+  "localName" : "openeo.alpha0.eunis",
   "type" : "NUMBER",
-  "resourceTimestamp" : 1728476121454,
+  "resourceTimestamp" : 1728559096442,
   "metadata" : {
     "dc:description" : "Loads the prepared 2021 habitat map for SK in EUNIS2012 topology for requested topology level. Returns a single band RasterCube.",
-    "im:keywords" : "",
     "dc:comment" : "Loads the preprocessed habitat map for SK for the alpha0 release.",
-    "im:notes" : "",
-    "dc:title" : "Loads the prepared 2021 habitat map for SK in EUNIS2012 topology for requested topology level",
-    "dc:url" : "",
-    "dc:creator" : "",
-    "im:thematic-area" : "",
-    "dc:originator" : "",
-    "im:geographic-area" : "",
-    "dc:source" : ""
+    "dc:title" : "Loads the prepared 2021 habitat map for SK in EUNIS2012 topology for requested topology level"
   },
   "parameters" : {
     "space.shape" : "geometry",
@@ -54,7 +46,7 @@
     "name" : "reference_data",
     "type" : "SPATIALEXTENT",
     "key" : false,
-    "optional" : false,
+    "optional" : true,
     "exampleValue" : null,
     "index" : 0
   }, {

@@ -14,9 +14,14 @@ action main:
 //		
 //	)
 
+separator("Context: where, when" :iconname "earth" )
+checkbutton("TestSite_100m (Slovakia)" #etc): (context(slovakia.slovakia_test_area))
 
-
- checkbutton("Ecosytem Types (LAI)" #etc): (observe({ecology:LeafAreaIndex}))  
+separator("Variables" :iconname "sprout-outline" )
+checkbutton("Ecosytem Types (EUNIS)" #etc): (submit(slovakia.openeo_eunis_test))   
+ 
+ 
+// (observe({ecology:LeafAreaIndex}))  
  
 //	(
 //		(
