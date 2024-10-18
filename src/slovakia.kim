@@ -40,7 +40,7 @@ number "local:stefano.balbi:esa.aries.sandbox:openeo.alpha0.eunis#synchronous=tr
 			BaseRichFenCalcareousSpringMire : (148 91 17),
 				RichFenEutrophicTallHerbFenCalcareousFlushSoak : (148 91 17),
 			SedgeReedbed : (197 121 22),
-				BedOfLargeSedgeNormallyWithoutFreestandingWater : (197 121 22),
+				BedOfLargeSedge : (197 121 22),
 		GrasslandLandDominatedByForbMossLichen : (249 250 139),
 			DryGrassland : (249 250 139),
 				InlandSandRockWithOpenVegetation : (249 250 139),
@@ -126,7 +126,7 @@ number "local:stefano.balbi:esa.aries.sandbox:openeo.alpha0.eunis#synchronous=tr
 			RaisedBogComplex : (241 166 253),
 			IntensivelyFarmedCropInterspersedWithStripsOfNaturalOrSemiNaturalVegetation : (195 135 206),
 			PastureWoodWwithTreeLayerOverlyingPasture : (110 76 116),
-			MosaicLandscapeWithWoodlandElement : (113 139 119),
+			Bocage : (113 139 119),
 			DomesticGardenOfVillageAndUrbanPeriphery : (178 174 152)	
 })
 abstract attribute EcosystemEUNIS
@@ -167,7 +167,7 @@ abstract attribute EcosystemEUNIS
         	),
         	(SedgeReedbed 																	// D5		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/536)
         	has children
-        		BedOfLargeSedgeNormallyWithoutFreestandingWater 							// D5.2		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1721)
+        		BedOfLargeSedge																// D5.2		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1721)
         	)        		
         ),
         (GrasslandLandDominatedByForbMossLichen												// E		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/86)
@@ -284,35 +284,35 @@ abstract attribute EcosystemEUNIS
         has children
         	(ArableLandMarketGarden															// I1		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/356)
         	has children
-        		BareTilledFallowOrRecentlyAbandonedArableLand			// H5.6 (H5.X marcel)		--> 	EUNIS 2012 (
+        		BareTilledFallowOrRecentlyAbandonedArableLand								// H5.6 (H5.X marcel)		--> 	EUNIS 2012 (
         	),
         	(
         	CultivatedAreaOfGardenPark														// I2		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1794)
         	has children
-        		RecentlyAbandonedGardenArea		// I2.3 (I2.X marcel)		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/627)
+        		RecentlyAbandonedGardenArea													// I2.3 (I2.X marcel)		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/627)
         	)
         ),
         (ConstructedIndustrialAndOtherArtificialHabitat										// J		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/414)
         has children
         	(BuildingOfCityTownAndVillage													// J1		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/376)
         	has children
-        		HighDensityTemporaryResidentialUnit    // J1.7 (J1.X marcel)		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/2889)
+        		HighDensityTemporaryResidentialUnit    										// J1.7 (J1.X marcel)		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/2889)
         	),
         	(LowDensityBuilding																// J2		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/415)
         	has children
-        		RuralConstructionDemolitionSities		// J2.7 (J2.X marcel)		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1812)
+        		RuralConstructionDemolitionSities											// J2.7 (J2.X marcel)		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1812)
         	),
         	(ExtractiveIndustrialSites														// J3		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1808)
         	has children
-        		RecentlyAbandonedABoveGroundSpaceOfExctractiveIndustrialSite	// J3.3 (J3.X marcel)		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1810)
+        		RecentlyAbandonedABoveGroundSpaceOfExctractiveIndustrialSite				// J3.3 (J3.X marcel)		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1810)
         	),
         	(TransportNetworkAndOtherConstructedHardSurfacedArea							// J4		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/416)
         	has children
-        		ConstructedPartOfCementery	// J4.7 (J4.X marcel)		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/2468)
+        		ConstructedPartOfCementery													// J4.7 (J4.X marcel)		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/2468)
         	),
         	(WasteDeposit																	// J6		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1610)
         	has children
-        		IndustrialWaste	// J6.5 (J6.X marcel)		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/618)
+        		IndustrialWaste																// J6.5 (J6.X marcel)		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/618)
         	)        	
         ),
         (HabitatComplex																		// X		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/5394)
@@ -320,7 +320,7 @@ abstract attribute EcosystemEUNIS
         	RaisedBogComplex,																// X04		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1722)
 			IntensivelyFarmedCropInterspersedWithStripsOfNaturalOrSemiNaturalVegetation,	// X07		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/358)
 			PastureWoodWwithTreeLayerOverlyingPasture,										// X09		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/531)
-			MosaicLandscapeWithWoodlandElement, //(bocages)									// X10		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/395)
+			Bocage,																			// X10		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/395)
 			DomesticGardenOfVillageAndUrbanPeriphery										// X25		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/2488)
         	
         )

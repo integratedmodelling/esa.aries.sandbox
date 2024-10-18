@@ -26,7 +26,7 @@ model "local:stefano.balbi:esa.aries.sandbox:openeo.alpha0.eunis#synchronous=tru
 		slovakia:BaseRichFenCalcareousSpringMire if 40400,
 		slovakia:RichFenEutrophicTallHerbFenCalcareousFlushSoak if 40401,
 		slovakia:SedgeReedbed if 40500,
-		slovakia:BedOfLargeSedgeNormallyWithoutFreestandingWater if 40502,
+		slovakia:BedOfLargeSedge if 40502,
 		slovakia:GrasslandLandDominatedByForbMossLichen if 50000,
 		slovakia:DryGrassland if 50100,
 		slovakia:InlandSandRockWithOpenVegetation if 50101,
@@ -112,7 +112,7 @@ model "local:stefano.balbi:esa.aries.sandbox:openeo.alpha0.eunis#synchronous=tru
 		slovakia:RaisedBogComplex if 110400,
 		slovakia:IntensivelyFarmedCropInterspersedWithStripsOfNaturalOrSemiNaturalVegetation if 110700,
 		slovakia:PastureWoodWwithTreeLayerOverlyingPasture if 110800,
-		slovakia:MosaicLandscapeWithWoodlandElement if 110900,
+		slovakia:Bocage if 110900,
 		slovakia:DomesticGardenOfVillageAndUrbanPeriphery if 112100;
 	
 
