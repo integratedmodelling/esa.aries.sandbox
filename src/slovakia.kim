@@ -87,14 +87,14 @@ number "local:stefano.balbi:esa.aries.sandbox:openeo.alpha0.eunis#synchronous=tr
 				MesoEutrophicOakHornbeamAshSycamoreLimeElmRelatedWoodland : (171 193 141),
 				FruitNutTreeOrchards : (171 193 88),
 			BroadleavedEvergreenWoodland : (24 194 55),
-				//: (24 194 55),
+				EvergreenOrchardGrove : (24 194 55),
 			ConiferousWoodland : (16 133 38)
 				FirSpruceWoodland : (16 133 38),
 				AlpineLarchArollaWoodland : (80 133 38),
 				ScotsPineWoodlandSouthOfTaiga : (137 133 38),
 				NemoralBogConiferWoodland : (84 108 64)
 			MixedDeciduousConiferousWoodland : (11 101 26),
-				// : (11 101 26),
+				MixedForestryPlantation : (11 101 26),				
 		InlandUnvegetatedOrSparselyVegetatedHabitat : (115 119 112),
 			Scree : (154 159 150),
 				TemperateMontaneAcidSiliceousScree : (154 159 150),
@@ -105,23 +105,23 @@ number "local:stefano.balbi:esa.aries.sandbox:openeo.alpha0.eunis#synchronous=tr
 				BasicUltraBasicInlandCliff : (115 81 112),
 				WeatheredRockOutcropHabitat : (115 55 112),
 			MiscellaneousInlandHabitatWithVerySparseOrNoVegetation : (76 79 74),
-				// : (76 79 74),
+				TrampledArea : (76 79 74),
 		RegularlyOrRecentlyCultivatedAgriculturalHorticulturalDomestichabitat : (198 38 201),
 			ArableLandMarketGarden : (198 38 201),
-				// : (198 38 201),
+				BareTilledFallowOrRecentlyAbandonedArableLand : (198 38 201),
 			CultivatedAreaOfGardenPark : (143 28 147),
-				// : (143 28 147),
+				RecentlyAbandonedGardenArea : (143 28 147),
 		ConstructedIndustrialAndOtherArtificialHabitat : (220 50 50),
 			BuildingOfCityTownAndVillage : (254 58 58),
-				// : (254 58 58),
+				HighDensityTemporaryResidentialUnit : (254 58 58),
 			LowDensityBuilding : (220 50 50),
-				// : (220 50 50),
+				RuralConstructionDemolitionSities : (220 50 50),
 			ExtractiveIndustrialSites : (172 39 39),
-				// : (172 39 39),
+				RecentlyAbandonedABoveGroundSpaceOfExctractiveIndustrialSite : (172 39 39),
 			TransportNetworkAndOtherConstructedHardSurfacedArea : (145 67 33),
-				// : (145 67 33),
+				ConstructedPartOfCementery : (145 67 33),
 			WasteDeposit : (149 29 69),
-				// : (149 29 69),
+				IndustrialWaste : (149 29 69),
 		HabitatComplex : (241 166 253),
 			RaisedBogComplex : (241 166 253),
 			IntensivelyFarmedCropInterspersedWithStripsOfNaturalOrSemiNaturalVegetation : (195 135 206),
@@ -246,8 +246,8 @@ abstract attribute EcosystemEUNIS
 				FruitNutTreeOrchards														// G1.D		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/362)
         	),
         	(BroadleavedEvergreenWoodland													// G2		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/232)
-//        	has children
-//G2X
+        	has children				
+				EvergreenOrchardGrove														// G2.9 (G2.X marcel)		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/2409)
         	),
         	(ConiferousWoodland																// G3		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/202)
         	has children
@@ -257,8 +257,8 @@ abstract attribute EcosystemEUNIS
         		NemoralBogConiferWoodland													// G3.E		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1760)
         	),
         	(MixedDeciduousConiferousWoodland												// G4		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1548)
-//        	has children
-        		//G4.X
+        	has children
+        		MixedForestryPlantation														// G4.F (G4.X marcel)		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/2485)
         	)	
         ),
         (InlandUnvegetatedOrSparselyVegetatedHabitat										// H		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/290)
@@ -276,43 +276,43 @@ abstract attribute EcosystemEUNIS
         		WeatheredRockOutcropHabitat													// H3.6		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/148)
         	),
         	(MiscellaneousInlandHabitatWithVerySparseOrNoVegetation							// H5		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/312)
-//        	has children
-        		//H5X
+        	has children
+        		TrampledArea																// H5.6 (H5.X marcel)		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/2464)
         	)
         ),
         (RegularlyOrRecentlyCultivatedAgriculturalHorticulturalDomestichabitat				// I		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/352)
         has children
         	(ArableLandMarketGarden															// I1		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/356)
-//        	has children
-        	//I1X
+        	has children
+        		BareTilledFallowOrRecentlyAbandonedArableLand			// H5.6 (H5.X marcel)		--> 	EUNIS 2012 (
         	),
         	(
         	CultivatedAreaOfGardenPark														// I2		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1794)
-//        	has children
-        	//I2X
+        	has children
+        		RecentlyAbandonedGardenArea		// I2.3 (I2.X marcel)		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/627)
         	)
         ),
         (ConstructedIndustrialAndOtherArtificialHabitat										// J		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/414)
         has children
         	(BuildingOfCityTownAndVillage													// J1		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/376)
-//        	has children
-        	//J1X
+        	has children
+        		HighDensityTemporaryResidentialUnit    // J1.7 (J1.X marcel)		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/2889)
         	),
         	(LowDensityBuilding																// J2		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/415)
-//        	has children
-        	//J2X
+        	has children
+        		RuralConstructionDemolitionSities		// J2.7 (J2.X marcel)		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1812)
         	),
         	(ExtractiveIndustrialSites														// J3		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1808)
-//        	has children
-        	//J3X	
+        	has children
+        		RecentlyAbandonedABoveGroundSpaceOfExctractiveIndustrialSite	// J3.3 (J3.X marcel)		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1810)
         	),
         	(TransportNetworkAndOtherConstructedHardSurfacedArea							// J4		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/416)
-//        	has children
-        	//J4X
+        	has children
+        		ConstructedPartOfCementery	// J4.7 (J4.X marcel)		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/2468)
         	),
         	(WasteDeposit																	// J6		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1610)
-//        	has children
-        	//J6X
+        	has children
+        		IndustrialWaste	// J6.5 (J6.X marcel)		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/618)
         	)        	
         ),
         (HabitatComplex																		// X		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/5394)
