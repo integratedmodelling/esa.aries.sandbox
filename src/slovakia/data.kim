@@ -5,7 +5,9 @@ number "local:stefano.balbi:esa.aries.sandbox:openeo.alpha0.eunis#synchronous=tr
        as openeo_eunis_test; 
        
 model "local:stefano.balbi:esa.aries.sandbox:openeo.alpha0.eunis#synchronous=true&topology_level=3&topology=EUNIS2012"
-	as type of slovakia:EcosystemEUNIS classified into
+	as type of slovakia:EcosystemEUNIS 
+	named eunis2012_et_level3 
+	classified into
 		slovakia:InlandSurfaceWater if 30000,
 		slovakia:SurfaceStandingWater if 30100,
 		slovakia:PermanentOligotrophicLakePondPool if 30101,
@@ -114,5 +116,70 @@ model "local:stefano.balbi:esa.aries.sandbox:openeo.alpha0.eunis#synchronous=tru
 		slovakia:PastureWoodWwithTreeLayerOverlyingPasture if 110800,
 		slovakia:Bocage if 110900,
 		slovakia:DomesticGardenOfVillageAndUrbanPeriphery if 112100;
+		
+model "local:stefano.balbi:esa.aries.sandbox:openeo.alpha0.eunis#synchronous=true&topology_level=2&topology=EUNIS2012"
+	as type of slovakia:EcosystemEUNIS 
+	named eunis2012_et_level2 
+	classified into
+		slovakia:InlandSurfaceWater if 30000,
+		slovakia:SurfaceStandingWater if 30100,
+		slovakia:SurfaceRunningWater if 30200,
+		slovakia:LittoralZoneOfInlandSurfaceWaterbody if 30300,
+		slovakia:MireBogFen if 40000,
+		slovakia:RaisedBlanketBog if 40100,
+		slovakia:ValleyMirePoorFenTransitionMire if 40200,
+		slovakia:BaseRichFenCalcareousSpringMire if 40400,
+		slovakia:SedgeReedbed if 40500,
+		slovakia:GrasslandLandDominatedByForbMossLichen if 50000,
+		slovakia:DryGrassland if 50100,
+		slovakia:MesicGrassland if 50200,
+		slovakia:SeasonallyWetAndWetGrassland if 50300,
+		slovakia:AlpineSubalpineGrassland if 50400,
+		slovakia:WoodlandFringeClearingTallForbStand if 50500,
+		slovakia:InlandSaltSteppe if 50600,
+		slovakia:HeathlandScrubTundra if 60000,
+		slovakia:ArcticAlpineSubalpineScrub if 60200,
+		slovakia:TemperateMediterraneanMontaneScrub if 60300,
+		slovakia:TemperateShrubHeathland if 60400,
+		slovakia:RiverineFenScrub if 60900,
+		slovakia:ShrubPlantation if 61100,
+		slovakia:WoodlandForestOtherWoodedLand if 70000,
+		slovakia:BroadleavedDeciduousWoodland if 70100,
+		slovakia:BroadleavedEvergreenWoodland if 70200,
+		slovakia:ConiferousWoodland if 70300,
+		slovakia:MixedDeciduousConiferousWoodland if 70400,
+		slovakia:InlandUnvegetatedOrSparselyVegetatedHabitat if 80000,
+		slovakia:Scree if 80200,
+		slovakia:InlandCliffRockPavementOutcrop if 80300,
+		slovakia:MiscellaneousInlandHabitatWithVerySparseOrNoVegetation if 80500,
+		slovakia:RegularlyOrRecentlyCultivatedAgriculturalHorticulturalDomestichabitat if 90000,
+		slovakia:ArableLandMarketGarden if 90100,
+		slovakia:CultivatedAreaOfGardenPark if 90200,
+		slovakia:ConstructedIndustrialAndOtherArtificialHabitat if 100000,
+		slovakia:BuildingOfCityTownAndVillage if 100100,
+		slovakia:LowDensityBuilding if 100200,
+		slovakia:ExtractiveIndustrialSites if 100300,
+		slovakia:TransportNetworkAndOtherConstructedHardSurfacedArea if 100400,
+		slovakia:WasteDeposit if 100600,
+		slovakia:HabitatComplex if 110000,
+		slovakia:RaisedBogComplex if 110400,
+		slovakia:IntensivelyFarmedCropInterspersedWithStripsOfNaturalOrSemiNaturalVegetation if 110700,
+		slovakia:PastureWoodWwithTreeLayerOverlyingPasture if 110800,
+		slovakia:Bocage if 110900,
+		slovakia:DomesticGardenOfVillageAndUrbanPeriphery if 112100;
+		
+model "local:stefano.balbi:esa.aries.sandbox:openeo.alpha0.eunis#synchronous=true&topology_level=1&topology=EUNIS2012"
+	as type of slovakia:EcosystemEUNIS 
+	named eunis2012_et_level1 
+	classified into
+		slovakia:InlandSurfaceWater if 30000,
+		slovakia:MireBogFen if 40000,
+		slovakia:GrasslandLandDominatedByForbMossLichen if 50000,
+		slovakia:HeathlandScrubTundra if 60000,
+		slovakia:WoodlandForestOtherWoodedLand if 70000,
+		slovakia:InlandUnvegetatedOrSparselyVegetatedHabitat if 80000,
+		slovakia:RegularlyOrRecentlyCultivatedAgriculturalHorticulturalDomestichabitat if 90000,
+		slovakia:ConstructedIndustrialAndOtherArtificialHabitat if 100000,
+		slovakia:HabitatComplex if 110000;
 	
 
