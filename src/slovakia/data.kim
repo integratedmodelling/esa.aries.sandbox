@@ -2,7 +2,7 @@ private namespace slovakia.data
 	using slovakia;
 
 number "local:stefano.balbi:esa.aries.sandbox:openeo.alpha0.eunis#synchronous=true&topology_level=3&topology=EUNIS2012"  //synchronous=true&
-       as openeo_eunis_test; 
+       as eunis2012_et_numeric_test; 
        
 model "local:stefano.balbi:esa.aries.sandbox:openeo.alpha0.eunis#synchronous=true&topology_level=3&topology=EUNIS2012"
 	as type of slovakia:EcosystemEUNIS 

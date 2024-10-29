@@ -7,9 +7,6 @@ observe earth:Region named slovakia_test_area
 //    	 time (year =2021);	
     time(start=2021, end=2022, step=1.year);  
     
-number "local:stefano.balbi:esa.aries.sandbox:openeo.alpha0.eunis#synchronous=true&topology_level=3&topology=EUNIS2012"  //synchronous=true&
-       as openeo_eunis_test;    
-       
 //from PEOPLE-EA
   	
 //model 'local:stefano.balbi:esa.aries.peopleea:vito.ndvi.10m#output_warp=true&synchronous=true'

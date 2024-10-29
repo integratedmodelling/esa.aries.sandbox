@@ -18,7 +18,10 @@ separator("Context: where, when" :iconname "earth" )
 checkbutton("TestSite_100m (Slovakia)" #etc): (context(slovakia.slovakia_test_area))
 
 separator("Variables" :iconname "sprout-outline" )
-checkbutton("Ecosytem Types (EUNIS)" #etc): (submit(slovakia.openeo_eunis_test))   
+checkbutton("Ecosytem Types (EUNIS) raw data" #etc): (submit(slovakia.data.eunis2012_et_numeric_test))  
+checkbutton("Ecosytem Types (EUNIS) level 1" #etc): (submit(slovakia.data.eunis2012_et_level1))   
+checkbutton("Ecosytem Types (EUNIS) level 2" #etc): (submit(slovakia.data.eunis2012_et_level2))   
+checkbutton("Ecosytem Types (EUNIS) level 3" #etc): (submit(slovakia.data.eunis2012_et_level3))   
  
  
 // (observe({ecology:LeafAreaIndex}))  
