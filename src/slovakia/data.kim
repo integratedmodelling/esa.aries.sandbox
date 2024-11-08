@@ -1,6 +1,8 @@
 private namespace slovakia.data
 	using slovakia;
 
+
+/*EUNIS from OpenEO */
 number "local:stefano.balbi:esa.aries.sandbox:openeo.alpha0.eunis#synchronous=true&topology_level=3&topology=EUNIS2012"  //synchronous=true&
        as eunis2012_et_numeric_test; 
        
@@ -182,4 +184,9 @@ model "local:stefano.balbi:esa.aries.sandbox:openeo.alpha0.eunis#synchronous=tru
 		slovakia:ConstructedIndustrialAndOtherArtificialHabitat if 100000,
 		slovakia:HabitatComplex if 110000;
 	
+	
+/* Reference points from IIASA */
 
+
+
+/*STAC from VITO's S3 Bucket */
