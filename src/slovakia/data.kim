@@ -187,6 +187,13 @@ model "local:stefano.balbi:esa.aries.sandbox:openeo.alpha0.eunis#synchronous=tru
 	
 /* Reference points from IIASA */
 
-
+model each local:stefano.balbi:esa.aries.sandbox:iiasa-slovakia-reference as im:Reference earth:Location with type of slovakia:EcosystemEUNIS; 
+//
+//private model each im:Critical (im:Reference earth:Region)
+//    observing im:Reference earth:Location with type of slovakia:EcosystemEUNIS named reference_area
+//    using
+//        im.geoprocessing.buffer(artifact = "reference_area", radius = 1000, subtract = true);  
+//
+//number local:stefano.balbi:esa.aries.sandbox:iiasa-slovakia-reference#fid as test; 
 
 /*STAC from VITO's S3 Bucket */
