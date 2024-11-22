@@ -1,4 +1,4 @@
-private namespace et_distribution
+private namespace primitive_characteristics
 using nca.ecosystem.iucn;
 
 
