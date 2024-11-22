@@ -1,0 +1,36 @@
+{
+  "urn" : "local:alessio.bulckaen:esa.aries.sandbox:esa_weed.a_0401_probability",
+  "version" : "0.0.1",
+  "adapterType" : "wcs",
+  "localPath" : "esa.aries.sandbox/resources/esa_weed.a_0401_probability",
+  "geometry" : "S2(179,89){bbox=[-179.99583333333334 180.00416666666666 -90.00416666666666 89.99583333333334],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "esa_weed.a_0401_probability",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1732273252248,
+  "metadata" : { },
+  "parameters" : {
+    "wcsIdentifier" : "esa_weed__a_0401_probability",
+    "transform" : "",
+    "serviceUrl" : "https://integratedmodelling.org/aux-geoserver/esa_weed/wcs",
+    "wcsVersion" : "2.0.1"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : {
+    "east" : 180.00416666666666,
+    "west" : -179.99583333333334,
+    "north" : 89.99583333333334,
+    "south" : -90.00416666666666,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}
