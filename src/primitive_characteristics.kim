@@ -1,0 +1,20 @@
+private namespace primitive_characteristics
+using nca.ecosystem.iucn;
+
+
+// probability of ecosystem occurrence
+number local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_0104_20180000_1km as non_semantic_temperate_woodland;
+
+model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_0104_20180000_1km
+ as type of nca.ecosystem.iucn:Ecosystem classified into
+ 	nca.ecosystem.iucn:TemperateWoodland if >50;
+
+ 
+// probabiity of ecosystem occurrence based on species distribution
+thing TemperateWoodland; 
+ model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.a_0104_probability
+	as presence of TemperateWoodland
+	set to [( self > 0.5) ? true : false];
+//	as presence of nca.ecosystem.iucn:TemperateWoodland;
+// observability of nca.ecosystem.iucn:TemperateWoodland;	
+// ecosystem occurrence based on species distribution
