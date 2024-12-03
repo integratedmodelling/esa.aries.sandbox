@@ -104,7 +104,7 @@ observe earth:Region named slovakia_test_area
 			MiscellaneousInlandHabitatWithVerySparseOrNoVegetation : (76 79 74),
 				TrampledArea : (76 79 74),
 		RegularlyOrRecentlyCultivatedAgriculturalHorticulturalDomestichabitat : (198 38 201),
-			ArableLandMarketGarden : (198 38 201),
+			ArableHorticultural : (198 38 201),
 				BareTilledFallowOrRecentlyAbandonedArableLand : (198 38 201),
 			CultivatedAreaOfGardenPark : (143 28 147),
 				RecentlyAbandonedGardenArea : (143 28 147),
@@ -279,7 +279,7 @@ abstract attribute EcosystemEUNIS
         ),
         (RegularlyOrRecentlyCultivatedAgriculturalHorticulturalDomestichabitat				// I		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/352)
         has children
-        	(ArableLandMarketGarden															// I1		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/356)
+        	(ArableHorticultural															// I1		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/356)
         	has children
         		BareTilledFallowOrRecentlyAbandonedArableLand								// H5.6 (H5.X marcel)		--> 	EUNIS 2012 (
         	),
