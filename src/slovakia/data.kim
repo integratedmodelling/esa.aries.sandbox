@@ -1,10 +1,10 @@
-private namespace slovakia.data
+project private namespace slovakia.data
 	using slovakia;
 
 
 /*EUNIS from OpenEO */
-number "local:stefano.balbi:esa.aries.sandbox:openeo.alpha0.eunis#synchronous=true&topology_level=3&topology=EUNIS2012"  //synchronous=true&
-       as eunis2012_et_numeric_test; 
+//number "local:stefano.balbi:esa.aries.sandbox:openeo.alpha0.eunis#synchronous=true&topology_level=3&topology=EUNIS2012"  //synchronous=true&
+//       as eunis2012_et_numeric_test; 
        
 model "local:stefano.balbi:esa.aries.sandbox:openeo.alpha0.eunis#synchronous=true&topology_level=3&topology=EUNIS2012"
 	as type of slovakia:EcosystemEUNIS 
@@ -187,7 +187,7 @@ model "local:stefano.balbi:esa.aries.sandbox:openeo.alpha0.eunis#synchronous=tru
 	
 /* Reference points from IIASA */
 
-model each local:stefano.balbi:esa.aries.sandbox:iiasa-slovakia-reference as im:Reference earth:Location with type of slovakia:EcosystemEUNIS; 
+model each local:stefano.balbi:esa.aries.sandbox:iiasa-slovakia-reference as im:Reference earth:Location with type of slovakia:EcosystemEUNIS named reference_points; 
 //
 //private model each im:Critical (im:Reference earth:Region)
 //    observing im:Reference earth:Location with type of slovakia:EcosystemEUNIS named reference_area
