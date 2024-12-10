@@ -18,11 +18,13 @@ separator("Context: where, when" :iconname "earth" )
 checkbutton("TestSite_100m (Slovakia)" #etc): (context(slovakia.slovakia_test_area))
 
 separator("Variables" :iconname "sprout-outline" )
-checkbutton("Ecosytem Types (EUNIS) raw data" #etc): (submit(slovakia.data.eunis2012_et_numeric_test))  
+//checkbutton("Ecosytem Types (EUNIS) raw data" #etc): (submit(slovakia.data.eunis2012_et_numeric_test))  
 checkbutton("Ecosytem Types (EUNIS) level 1" #etc): (submit(slovakia.data.eunis2012_et_level1))   
 checkbutton("Ecosytem Types (EUNIS) level 2" #etc): (submit(slovakia.data.eunis2012_et_level2))   
 checkbutton("Ecosytem Types (EUNIS) level 3" #etc): (submit(slovakia.data.eunis2012_et_level3))   
- 
+
+separator("Empirical data" :iconname "database-check" )
+checkbutton("Ecosytem Types Reference Points" #etc): (submit(slovakia.data.reference_points)) //(observe({im:Reference earth:Location with type of slovakia:EcosystemEUNIS}))  
  
 // (observe({ecology:LeafAreaIndex}))  
  
