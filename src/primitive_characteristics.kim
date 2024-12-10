@@ -26,3 +26,25 @@ model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.a_0104_probability
 // observability of nca.ecosystem.iucn:TemperateWoodland;	
 // ecosystem occurrence based on species distribution
 
+model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.a_0104_probability
+	as occurrence of nca.ecosystem.iucn:TemperateWoodland earth:Region;
+
+model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_0104_20180000_1km
+	as occurrence of nca.ecosystem.iucn:BorealTemperateMontaneForestWoodland earth:Region;
+	 
+	 
+/*
+The class 4.4 is rather simple in its classification. It includes:
+land cover, specifically distinctions of tree types (i.e., deciduous broadleaf, deciduous needleleaf, evergreen needleleaf, mixed)
+climate, specifically temperate and and Mediterranean
+typical tree phenology, mainly to deal with mixed forest types
+
+The major effort was in deriving the inputs. E.g., I developed a time series of canopy cover densities (to distinguish forest-covered pixels) and mapped climate mentioned in IUCN class distinctions (existing climate maps do not do a good job).
+
+Then, there are interactions with other ecosystems that limit the extent of temperate woodlands, so more data is technically used, although indirectly. E.g., plantations are distinguished first, and the corresponding pixels are not use to map semi-natural ecosystems like woodlands. In addition, human-disturbances are considered (e.g., to distinguishe urban parks). This process includes:
+time-series vegetation continuous fields (to distinguish long-term trends in deforestation or tree growth)
+Plantation maps (from IIASA)
+Land cover on agriculture
+Elevation and slope
+Impervious cover
+ */	 	 
