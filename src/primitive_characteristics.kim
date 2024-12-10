@@ -1,5 +1,5 @@
 private namespace primitive_characteristics
-using nca.ecosystem.iucn;
+using nca.ecosystem.iucn;  
 
 
 // probability of ecosystem occurrence
@@ -16,7 +16,7 @@ number local:alessio.bulckaen:esa.aries.sandbox:esa_weed.a_0104_probability as t
 
 model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.a_0104_probability
 	as type of nca.ecosystem.iucn:Ecosystem classified into
-	nca.ecosystem.iucn:TemperateWoodland if >0.9;
+	nca.ecosystem.iucn:TemperateWoodland if > 0.9; 
 //	as occurrence of nca.ecosystem.iucn:TemperateWoodland;
 //	as occurrence of TemperateWoodland;
 //	as presence of TemperateWoodland
