@@ -7,10 +7,10 @@ number local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_0104_20180000_1k
 
 model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_0104_20180000_1km
  as type of nca.ecosystem.iucn:Ecosystem classified into
- 	nca.ecosystem.iucn:TemperateWoodland if >50;
+ 	nca.ecosystem.iucn:TemperateWoodland if > 50; 
 
  
-// probabiity of ecosystem occurrence based on species distribution
+// probabibity of ecosystem occurrence based on species distribution
 //thing TemperateWoodland; 
 number local:alessio.bulckaen:esa.aries.sandbox:esa_weed.a_0104_probability as temperate_woodland_occurrence;
 
@@ -26,11 +26,11 @@ model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.a_0104_probability
 // observability of nca.ecosystem.iucn:TemperateWoodland;	
 // ecosystem occurrence based on species distribution
 
-model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.a_0104_probability
-	as occurrence of nca.ecosystem.iucn:TemperateWoodland earth:Region;
-
-model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_0104_20180000_1km
-	as occurrence of nca.ecosystem.iucn:BorealTemperateMontaneForestWoodland earth:Region;
+//model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.a_0104_probability
+//	as occurrence of nca.ecosystem.iucn:TemperateWoodland earth:Region;
+//
+//model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_0104_20180000_1km
+//	as occurrence of nca.ecosystem.iucn:BorealTemperateMontaneForestWoodland earth:Region;
 	 
 	 
 /*

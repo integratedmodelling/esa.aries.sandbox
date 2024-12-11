@@ -6,18 +6,24 @@ public app esa.aries
 	versionstring "Demonstration version"
 	style dark
 
-
 @left(width=450)
 action main:
-//separator(#CONTEXT_WHERE_AND_WHEN :iconname "earth" :info)
-//	create esa.aries.contextselector: (
-//		
-//	)
 
 separator("Context: where, when" :iconname "earth" )
-checkbutton("TestSite_100m (Slovakia)" #etc): (context(slovakia.slovakia_test_area))
 
+//checkbutton("TestSite_100m (Slovakia)" #etc): (context(slovakia.slovakia_test_area))
+combo("Slovakia 1"
+	  "Slovakia 2") :
+	  (context(slovakia.slovakia_test_area)
+	   context(slovakia.slovakia_test_area2)	
+	  )
+
+button(#all "all 20x20 grids" :iconname "cases" ) : (submit(slovakia.all_cases))	  
+button(#reset2 "Reset" :iconname "restart" ):(
+			context(:reset))
+			
 separator("Variables" :iconname "sprout-outline" )
+
 //checkbutton("Ecosytem Types (EUNIS) raw data" #etc): (submit(slovakia.data.eunis2012_et_numeric_test))  
 checkbutton("Ecosytem Types (EUNIS) level 1" #etc): (submit(slovakia.data.eunis2012_et_level1))   
 checkbutton("Ecosytem Types (EUNIS) level 2" #etc): (submit(slovakia.data.eunis2012_et_level2))   
@@ -26,13 +32,3 @@ checkbutton("Ecosytem Types (EUNIS) level 3" #etc): (submit(slovakia.data.eunis2
 separator("Empirical data" :iconname "database-check" )
 checkbutton("Ecosytem Types Reference Points" #etc): (submit(slovakia.data.reference_points)) //(observe({im:Reference earth:Location with type of slovakia:EcosystemEUNIS}))  
  
-// (observe({ecology:LeafAreaIndex}))  
- 
-//	(
-//		(
-//			
-//			create esa.aries.components.selectors.observation('slovakia.leaf-area-index-resolver',             
-//				"LAI", true, "map", "Leaf Area Index") #tag29
-//				
-//		) :hfill :altbg :name "Ecosystem Variables" :iconname "cog" :opened
-//	) :shelf
