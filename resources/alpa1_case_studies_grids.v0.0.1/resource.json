@@ -1,0 +1,59 @@
+{
+  "urn" : "local:stefano.balbi:esa.aries.sandbox:alpa1_case_studies_grids",
+  "version" : "0.0.1",
+  "adapterType" : "vector",
+  "localPath" : "esa.aries.sandbox/resources/alpa1_case_studies_grids.v0.0.1",
+  "geometry" : "s1(26){bbox=[15.068610035056397 21.201163316127158 48.09279393442398 50.89859610547202],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "alpa1_case_studies_grids.shp",
+  "type" : "OBJECT",
+  "resourceTimestamp" : 1733916896016,
+  "metadata" : {
+    "im:keywords" : "features,alpa1_case_studies_grids",
+    "dc:comment" : "20x20km grid cells which intersect with our test-sites in alpha-1 in CK and SK",
+    "im:notes" : "",
+    "dc:title" : "alpa1_case_studies_grids",
+    "dc:url" : "",
+    "dc:creator" : "",
+    "im:thematic-area" : "",
+    "dc:originator" : "",
+    "im:geographic-area" : "",
+    "dc:source" : ""
+  },
+  "parameters" : { },
+  "localPaths" : [ "esa.aries.sandbox/resources/alpa1_case_studies_grids.v0.0.1/alpa1_case_studies_grids.shx", "esa.aries.sandbox/resources/alpa1_case_studies_grids.v0.0.1/alpa1_case_studies_grids.prj", "esa.aries.sandbox/resources/alpa1_case_studies_grids.v0.0.1/alpa1_case_studies_grids.dbf", "esa.aries.sandbox/resources/alpa1_case_studies_grids.v0.0.1/alpa1_case_studies_grids.shp" ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ {
+    "name" : "fid",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "name",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  } ],
+  "spatialExtent" : {
+    "east" : 21.201163316127158,
+    "west" : 15.068610035056397,
+    "north" : 50.89859610547202,
+    "south" : 48.09279393442398,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : {
+    "json" : "GeoJSON file",
+    "shp" : "ESRI shapefile"
+  }
+}
