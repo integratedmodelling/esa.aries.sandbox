@@ -1,5 +1,5 @@
 private namespace primitive_characteristics
-using nca.ecosystem.iucn;  
+using nca.ecosystem.iucn, nca.landuse.ipcc;  
 
 
 // probability of ecosystem occurrence
@@ -99,6 +99,69 @@ model '' as geography:Elevation in m;
  */
 
 model '' as ecology:CanopyCover;
+
+/*
+ * Maps distinguishing the year of establishment of various land uses
+ *(plantations, pastures, mines), and other statitic ones (reservoirs),
+ * as we as land covers resulting from intense human activities (degraded forests).
+ * https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2FlandUse
+ */
+
+model '' as presence of nca.ecosystem.iucn:Plantation earth:Region;
+model '' as presence of agriculture:Pasture earth:Region;
+model '' as presence of infrastructure:Mine;
+model '' as presence of infrastructure:Reservoir;
+model '' as presence of
+
+/*
+ * Linear distance to the ocean.
+ * https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2FlinearDistance
+ * 
+ */
+model '' as distance to earth:Ocean;
+  
+/*
+ * Mask of pixels submerged through low-/high-tide based on tidal amplitudes.
+ * https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2FMSL
+ * 
+ */
+
+model '' as presence of hydrology:Tidal earth:Region;
+
+/*
+ * Distinction of pixels likely to be savannas and rangelands
+ * https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2FSCC
+ * What is grassland,rangeland,savannah?
+ * https://www.fao.org/agriculture/crops/thematic-sitemap/theme/spi/scpi-home/managing-ecosystems/management-of-grasslands-and-rangelands/grasslands-what/en/
+ * Wikipedia: Rangelands are 
+ * grasslands, shrublands, woodlands, wetlands,
+ * and deserts that are grazed by domestic livestock or wild animals.
+ * Types of rangelands include tallgrass and shortgrass prairies, desert grasslands and shrublands, woodlands, savannas, chaparrals, steppes, and tundras.
+ */
+
+model '' as occurrence of  nca.landuse.ipcc:Grassland earth:Region;
+model '' as im:Damaged ecology:Forest earth:Region;
+model '' as not conservation:Pristine ecology:Forest earth:Region;
+
+/*
+ * Gridded soil database (soilGrids)  
+ * https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2FsoilGrids
+ * https://github.com/macroecology-society/data-catalog/blob/main/docs/posts/soilGrids/soilGrids.yml
+ * Variables by soil depth (0-5, 5-15, 15-30,30-60, 60-100, 100-200 *cm)
+ *  Bulk density (cg/cm3)
+ *  Cation Exchange Capacity (in mmol(c)/kg) of the soil
+ *  Total nitrogen (cg/kg)
+ *  Organic carbon density (g/dm3) (@ intensive - depth impact volume)
+ *  Proportion of sand particles (> 0.05 mm, cm3/dm3)
+ *  Soil organic carbon content (dg/kg)
+ *  
+ */
+
+/*
+ * Table describing listing ecosystem types mapped in GlobES.
+ * https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2Fshapes%20and%20tables
+ * Create a classification for GlobESEcosystemType such as IUCN-GET,EUNIS,RAMSAR etc..
+ */
 
 
 /*
