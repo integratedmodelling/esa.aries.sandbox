@@ -32,7 +32,75 @@ model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.a_0104_probability
 model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_0104_20180000_1km
 	as occurrence of nca.ecosystem.iucn:BorealTemperateMontaneForestWoodland earth:Region;
 	 
-	 
+model '' as presence of ecology.incubation:IceSheetGlacierPermanentSnowfield earth:Region;
+//'https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2Fclimate' 
+
+model '' as count of chemistry:Fire;	
+//https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2Fclimate
+//'https://github.com/macroecology-society/data-catalog/blob/main/docs/posts/fireRegime/fireRegime.yml'  
+
+
+/*
+ * Maximum extent of the 200-year floodplains
+ * https://github.com/macroecology-society/data-catalog/blob/main/docs/posts/GFPLAIN/GFPLAIN.yml
+ * 
+ */
+ model '' as presence of hydrology:Floodplain;
+
+/*
+ * Global per-pixel counts of human populations
+ * https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2FGHS
+ */
+
+model '' as count of demography:HumanIndividual;
+
+/*
+ * High-resolution geomorphological variables
+ * https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2FGM90
+ */
+
+model '' as earth:GeoFormation;
+
+/*thing GeoFormation is Terrestrial Region
+	"Geomorphon classification as is. If possible should be kept as a fully
+	 contained hierarchy as it is possible to classify a DEM based on these
+     exact categories."
+	has children
+		Flat,
+		Peak,
+		Ridge,
+		Shoulder,
+		Spur,
+		Slope,
+		Hollow,
+		Footslope,
+		Valley,
+		Pit
+; 
+* */
+/*
+ * Global Mountain Maps
+ * https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2FGME	
+ */
+
+model '' as presence of earth:Mountain; //
+model '' as geography:Elevation in m;
+
+/*
+ * Bias-corrected land cover maps based on the CCI land cover dataset
+ * https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2FiCCI
+ * modelled via a scenario that takes priority over original landcover
+ * 
+ */
+
+/*
+ * Annual time-series on forest canopy densities over nearly three decades
+ * https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2FiGFC	
+ */
+
+model '' as ecology:CanopyCover;
+
+
 /*
 The class 4.4 is rather simple in its classification. It includes:
 land cover, specifically distinctions of tree types (i.e., deciduous broadleaf, deciduous needleleaf, evergreen needleleaf, mixed)
