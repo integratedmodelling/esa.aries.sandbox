@@ -1,0 +1,32 @@
+{
+  "urn" : "local:inigo-cobian:esa.aries.sandbox:priority_areas.colombia",
+  "version" : "0.0.1",
+  "adapterType" : "stac",
+  "localPath" : "esa.aries.sandbox/resources/priority_areas.colombia.v0.0.1",
+  "geometry" : "t1{tend=1356825600000,tstart=1325376000000,ttype=grid}s2{bbox=[-81.73533507699995 -0.1360177369999738 -67.70618035499993 13.39365584600006],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "priority_areas.colombia",
+  "type" : "OBJECT",
+  "resourceTimestamp" : 1739807778917,
+  "metadata" : {
+    "im:keywords" : "esa-weeds,terrestrial,freshwater,coastal ecosystem",
+    "dc:comment" : "2012 Colombia Priority Areas",
+    "dc:title" : "2012 Colombia Priority Areas",
+    "dc:url" : "https://iiasa.blob.core.windows.net/collections/weeds/priorityareasco.json"
+  },
+  "parameters" : {
+    "collection" : "https://iiasa.blob.core.windows.net/collections/weeds/priorityareasco.json",
+    "collectionId" : "2012_Colombia_Priority_Areas"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}
