@@ -1,6 +1,16 @@
 private namespace primitive_characteristics
-using nca.ecosystem.iucn, nca.landuse.ipcc;  
+//using nca.ecosystem.iucn, nca.landuse.ipcc
+;  
 
+observe earth:Region named colombia_test_area 
+    over space(urn='local:inigo-cobian:esa.aries.sandbox:priority_areas.colombia',
+    		grid="100 m",
+    		projection="EPSG:4326"),
+//    	 time (year =2021);	
+    time(start=2021, end=2022, step=1.year);  
+
+
+model each local:inigo-cobian:esa.aries.sandbox:priority_areas.colombia as earth:Region;
 
 // probability of ecosystem occurrence
 number local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_0104_20180000_1km as non_semantic_temperate_woodland;
@@ -118,7 +128,7 @@ model '' as presence of
  * https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2FlinearDistance
  * 
  */
-model '' as distance to earth:Ocean;
+model '' as distance to earth:Ocean in m;
   
 /*
  * Mask of pixels submerged through low-/high-tide based on tidal amplitudes.
