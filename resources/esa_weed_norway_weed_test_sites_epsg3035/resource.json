@@ -1,0 +1,59 @@
+{
+  "urn" : "local:alessio.bulckaen:esa.aries.sandbox:esa_weed_norway_weed_test_sites_epsg3035",
+  "version" : "0.0.1",
+  "adapterType" : "wfs",
+  "localPath" : "esa.aries.sandbox/resources/esa_weed_norway_weed_test_sites_epsg3035",
+  "geometry" : "#s2(2){bbox=[4088361.4248755346 5560373.851249044 3901239.786601997 5519654.269342266],proj=EPSG:3035}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "esa_weed_norway_weed_test_sites_epsg3035",
+  "type" : "OBJECT",
+  "resourceTimestamp" : 1739970146696,
+  "metadata" : {
+    "im:keywords" : "features,norway_weed_test_sites_epsg3035",
+    "dc:title" : "norway_weed_test_sites_epsg3035"
+  },
+  "parameters" : {
+    "serviceUrl" : "https://integratedmodelling.org/aux-geoserver/esa_weed/ows",
+    "wfsVersion" : "1.0.0",
+    "wfsIdentifier" : "esa_weed:norway_weed_test_sites_epsg3035"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ {
+    "name" : "fid",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "weed_site",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "name",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  } ],
+  "spatialExtent" : {
+    "east" : 43.64770424293912,
+    "west" : 3.082946592694512,
+    "north" : 72.84321108660993,
+    "south" : 56.60487618811082,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

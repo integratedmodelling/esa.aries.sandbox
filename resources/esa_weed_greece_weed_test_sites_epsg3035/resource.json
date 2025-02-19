@@ -1,0 +1,59 @@
+{
+  "urn" : "local:alessio.bulckaen:esa.aries.sandbox:esa_weed_greece_weed_test_sites_epsg3035",
+  "version" : "0.0.1",
+  "adapterType" : "wfs",
+  "localPath" : "esa.aries.sandbox/resources/esa_weed_greece_weed_test_sites_epsg3035",
+  "geometry" : "#s2(11){bbox=[5150519.072011854 5965485.955063027 1330197.0291669983 2171070.566450566],proj=EPSG:3035}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "esa_weed_greece_weed_test_sites_epsg3035",
+  "type" : "OBJECT",
+  "resourceTimestamp" : 1739970146245,
+  "metadata" : {
+    "im:keywords" : "features,greece_weed_test_sites_epsg3035",
+    "dc:title" : "greece_weed_test_sites_epsg3035"
+  },
+  "parameters" : {
+    "serviceUrl" : "https://integratedmodelling.org/aux-geoserver/esa_weed/ows",
+    "wfsVersion" : "1.0.0",
+    "wfsIdentifier" : "esa_weed:greece_weed_test_sites_epsg3035"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ {
+    "name" : "fid",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "weed_site",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "name",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  } ],
+  "spatialExtent" : {
+    "east" : 29.616332599266272,
+    "west" : 18.96235429156839,
+    "north" : 42.14615448385289,
+    "south" : 33.31424274645722,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}
