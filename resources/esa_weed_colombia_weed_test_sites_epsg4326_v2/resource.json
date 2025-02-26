@@ -1,0 +1,157 @@
+{
+  "urn" : "local:justus.muhando:samples.justus:esa_weed_colombia_weed_test_sites_epsg4326_v2",
+  "version" : "0.0.1",
+  "adapterType" : "wfs",
+  "localPath" : "esa.aries.sandbox/resources/esa_weed_colombia_weed_test_sites_epsg4326_v2",
+  "geometry" : "#s1(1){bbox=[-81.7353598010569 -67.7061803604351 -0.136017737245315 13.394405228843],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "esa_weed_colombia_weed_test_sites_epsg4326_v2",
+  "type" : "OBJECT",
+  "resourceTimestamp" : 1740147292270,
+  "metadata" : {
+    "im:keywords" : "features,colombia_weed_test_sites_epsg4326_V2",
+    "dc:title" : "colombia_weed_test_sites_epsg4326_V2"
+  },
+  "parameters" : {
+    "serviceUrl" : "https://integratedmodelling.org/aux-geoserver/esa_weed/ows",
+    "wfsVersion" : "1.0.0",
+    "wfsIdentifier" : "esa_weed:colombia_weed_test_sites_epsg4326_V2"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ {
+    "name" : "id_0",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "id",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "k_id",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "project",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "name",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "year",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "land_cover",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "geomorphol",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "soils",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "remote_sen",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "field_data",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "climate",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "hydrology",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "biotic",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "areaha",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "areakm",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "scale",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  } ],
+  "spatialExtent" : {
+    "east" : -67.7061803604351,
+    "west" : -81.7353598010569,
+    "north" : 13.394405228843,
+    "south" : -0.136017737245315,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

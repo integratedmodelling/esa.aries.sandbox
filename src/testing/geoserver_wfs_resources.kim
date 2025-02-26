@@ -1,0 +1,64 @@
+private namespace testing.geoserver_wfs_resources;
+
+//CASE 1 
+
+//the resource has individual polygons but when loaded as a context it only shows one polygon
+observe earth:Region named sa_test_multiple_context
+	over space( urn = "local:justus.muhando:samples.justus:esa_weed_south_africa_weed_test_sites_epsg4326",
+			grid = "1000 m"),
+			time(year = 2010 );
+	
+//when the individual polygons are dissolved into one multipolygon and presented as WKT, it works as expected
+observe earth:Region named sa_test_multiple_context_wkt
+	over space(
+			shape = "EPSG:4326 MULTIPOLYGON (
+			((18.36897465 -34.20261296, 18.43909812 -34.18348838, 18.45461028 -34.19793807, 18.4716099 -34.22471248, 18.48202218 -34.2327873, 18.48393463 -34.25828674, 18.46990994 -34.26657406, 18.47798477 -34.27826131, 18.46459756 -34.31162308, 18.46927246 -34.31714795, 18.46523504 -34.32012289, 18.47415985 -34.33860998, 18.50412169 -34.35093471, 18.50539666 -34.36665937, 18.47139741 -34.3653844, 18.4352732 -34.34285989, 18.39532408 -34.31906041, 18.3715246 -34.27443639, 18.36576066 -34.20327701, 18.36841353 -34.20272917, 18.36897465 -34.20261296)),
+			((19.511929 -34.543243, 19.50703465 -34.5741447, 19.4928307 -34.60202153, 19.47070753 -34.6241447, 19.4428307 -34.63834865, 19.411929 -34.643243, 19.3810273 -34.63834865, 19.35315047 -34.6241447, 19.3310273 -34.60202153, 19.31682335 -34.5741447, 19.311929 -34.543243, 19.31682335 -34.5123413, 19.3310273 -34.48446447, 19.35315047 -34.4623413, 19.3810273 -34.44813735, 19.411929 -34.443243, 19.4428307 -34.44813735, 19.47070753 -34.4623413, 19.4928307 -34.48446447, 19.50703465 -34.5123413, 19.511929 -34.543243)),
+			((18.93165153 -33.94913277, 18.94420437 -33.95057301, 18.95440902 -33.95762351, 18.95726595 -33.96008946, 18.95899878 -33.96043253, 18.96133345 -33.96145856, 18.96982587 -33.96403492, 18.97431933 -33.97102912, 18.98863406 -33.97210277, 18.99332364 -33.98138853, 19.00103336 -33.98841869, 19.00801719 -33.99630054, 18.99995434 -34.00476189, 18.99138554 -34.00806193, 18.9753821 -34.01563272, 18.93199159 -33.99735536, 18.91697538 -33.98814146, 18.92285264 -33.98295173, 18.9250351 -33.97461971, 18.92696378 -33.96689105, 18.93165153 -33.94913277))
+			)",
+			grid = "100 m"),
+			time(year = 2010);
+ 	
+//the resource has individual polygons and works normally. Individual polygons are shown
+model each 'local:justus.muhando:samples.justus:esa_weed_south_africa_weed_test_sites_epsg4326'
+    as geography:GeographicalIdentity earth:Region named sa_test_areas;
+    
+
+    
+//CASE 2
+//the resource has individual polygons and in a different projection (EPSG:3035) but when loaded as a context it shows nothing. It also does not show any error
+observe earth:Region named norway_test_original_polygons
+	over space( urn = "local:justus.muhando:samples.justus:esa_weed_norway_weed_test_sites_epsg3035",
+			grid = "1000 m",
+			projection='EPSG:3035'),
+			time(year = 2010);
+
+//the resource has individual polygons and works normally for the projection (EPSG:3035) . Individual polygons are shown
+model each 'local:justus.muhando:samples.justus:esa_weed_norway_weed_test_sites_epsg3035'
+    as geography:GeographicalIdentity earth:Region named norway_test_areas;
+
+// when the individual polygons are dissolved and converted into EPSG:4326 the context shows as two areas
+observe earth:Region named norway_test_multiple_context_db
+	over space( urn = "local:justus.muhando:samples.justus:esa_weed_norway_merged_weed_test_sites_epsg4326_v2",
+			grid = "1000 m"),
+			time(year = 2010);
+
+
+//CASE 3
+// individual polygons converted to a single multipolygon does not work for the defined projection
+observe earth:Region named priority_area_colombia_3116
+	over space(urn='local:justus.muhando:samples.justus:esa_weed_colombia_weed_test_sites_epsg3116_v2',
+		   grid= '1000 m',
+	       projection='EPSG:3116'),
+	       time(year=2020);
+
+// individual polygons converted to a single multipolygon and reprojected to 4326 does not work. Gives out of memory error
+observe earth:Region named priority_area_colombia_4326
+	over space(urn='local:justus.muhando:samples.justus:esa_weed_colombia_weed_test_sites_epsg4326_v2',
+		   grid= '1000 m',
+	       projection='EPSG:4326'),
+	       time(year=2020);
+
+//works as expected for the defined projection EPSG:3116
+model each 'local:justus.muhando:samples.justus:esa_weed_colombia_weed_test_sites_epsg3116'
+    as geography:GeographicalIdentity earth:Region named colombia_test_areas;	      
