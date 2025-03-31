@@ -201,7 +201,7 @@ model each local:stefano.balbi:esa.aries.sandbox:iiasa-slovakia-reference as im:
 
 /*Alpha 1 from ESA-WEED-project OpenEO-UDP-UDF-catalogue (Inigo)*/
 
-number local:stefano.balbi:esa.aries.sandbox:alpha1.inigo as max_band;
+number 'local:stefano.balbi:esa.aries.sandbox:alpha1.inigo#output_warp=true&synchronous=false&area_name=E468N306&onnx_models=https://s3.waw3-1.cloudferro.com/swift/v1/ecdc-waw3-1-ekqouvq3otv8hmw0njzuvo0g4dy0ys8r985n7dggjis3erkpn5o/models/Level1_class-0_129predictors_v1.onnx,&digitalId=tests/Inigo&output_band_names=Level1_class-0_129predictors_v1_30000,Level1_class-0_129predictors_v1_40000,Level1_class-0_129predictors_v1_50000,Level1_class-0_129predictors_v1_60000,Level1_class-0_129predictors_v1_70000,Level1_class-0_129predictors_v1_80000,Level1_class-0_129predictors_v1_90000,Level1_class-0_129predictors_v1_100000,Level1_class-0_129predictors_v1_110000&scenarioId=alpha-1' as max_band;
 
 /*Alpha 1 from integratedmodelling/klab adapters/klab.ogc/src/test/resources/openeo/udp_inference_eunis_l1.json (Arnab)*/
 
