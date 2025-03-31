@@ -11,7 +11,7 @@ action main:
 
 separator("Context: where, when" :iconname "earth" )
 
-checkbutton("TestSite_100m (Slovakia)" #etc): (context(slovakia.slovakia_alpha1))
+checkbutton("TestSite_100m (Slovakia Alpha 1)" #etc): (context(slovakia.slovakia_alpha1))
 //combo("Slovakia alpha 0"
 //	  "Slovakia alpha 1") :
 //	  (context(slovakia.slovakia_alpha0)
@@ -23,6 +23,7 @@ checkbutton("TestSite_100m (Slovakia)" #etc): (context(slovakia.slovakia_alpha1)
 button(#reset2 "Reset" :iconname "restart" ):(
 			context(:reset))
 			
+separator("Alpha 0")
 separator("Variables" :iconname "sprout-outline" )
 
 //checkbutton("Ecosytem Types (EUNIS) raw data" #etc): (submit(slovakia.data.eunis2012_et_numeric_test))  
@@ -33,3 +34,5 @@ checkbutton("Ecosytem Types (EUNIS) level 3" #etc): (submit(slovakia.data.eunis2
 separator("Empirical data" :iconname "database-check" )
 checkbutton("Ecosytem Types Reference Points" #etc): (submit(slovakia.data.reference_points)) //(observe({im:Reference earth:Location with type of slovakia:EcosystemEUNIS}))  
  
+separator("Alpha 1")
+checkbutton("Ecosystem Types Model Alpha 1"): (submit(slovakia.data.max_band))   
