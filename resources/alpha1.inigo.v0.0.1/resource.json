@@ -7,14 +7,22 @@
   "projectName" : "esa.aries.sandbox",
   "localName" : "alpha1.inigo",
   "type" : "NUMBER",
-  "resourceTimestamp" : 1743426397466,
+  "resourceTimestamp" : 1743431980196,
   "metadata" : {
     "dc:description" : "Generates the alpha 1 inference result based on inputs.Returns a single band per probability.",
+    "im:keywords" : "",
     "dc:comment" : "Inference for the habitat maps for the alpha1 release.",
-    "dc:title" : "Generates the alpha 1 inference result based on inputs"
+    "im:notes" : "",
+    "dc:title" : "Generates the alpha 1 inference result based on inputs",
+    "dc:url" : "",
+    "dc:creator" : "",
+    "im:thematic-area" : "",
+    "dc:originator" : "",
+    "im:geographic-area" : "",
+    "dc:source" : ""
   },
   "parameters" : {
-    "space.shape" : "geometry",
+    "space.shape" : "?",
     "time.year" : "year",
     "processId" : "udp_inference_module_alpha1",
     "serviceUrl" : "https://openeo.dataspace.copernicus.eu/openeo/1.2",
