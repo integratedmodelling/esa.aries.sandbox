@@ -201,6 +201,7 @@ model each local:stefano.balbi:esa.aries.sandbox:iiasa-slovakia-reference as im:
 
 /*Alpha 1 from ESA-WEED-project OpenEO-UDP-UDF-catalogue (Inigo)*/
 
+number local:stefano.balbi:esa.aries.sandbox:alpha1.inigo as max_band;
 
 /*Alpha 1 from integratedmodelling/klab adapters/klab.ogc/src/test/resources/openeo/udp_inference_eunis_l1.json (Arnab)*/
 
