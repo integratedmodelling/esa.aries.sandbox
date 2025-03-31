@@ -1,25 +1,46 @@
 project private namespace slovakia;
 
-observe earth:Region named slovakia_test_area 
+observe earth:Region named slovakia_alpha0 
     over space(shape='POLYGON ((20.5846406 48.884577, 21.2011633 48.884577, 21.2011633 48.47623, 20.5846406 48.47623, 20.5846406 48.884577))',
     		grid="100 m",
     		projection="EPSG:4326"),
 //    	 time (year =2021);	
     time(start=2021, end=2022, step=1.year);  
     
-observe earth:Region named slovakia_test_area2 
-    over space( shape = 'POLYGON ((20.58464055984907048 48.5290410023631722, 20.62269384559522933 48.70682480647512591, 20.89192433476759803 48.68063579727446211, 20.85294208791585646 48.50295919683065904, 20.58464055984907048 48.5290410023631722))',
-//    	urn='local:stefano.balbi:esa.aries.sandbox:alpa1_case_studies_grids#fid=58900',
-    		grid="100 m",
-    		projection="EPSG:4326"),
-//    	 time (year =2021);	
-    time(start=2021, end=2022, step=1.year);   
-    
-    
-model each local:stefano.balbi:esa.aries.sandbox:alpa1_case_studies_grids
- 		as im:Observed earth:Site named all_cases;
+//observe earth:Region named slovakia_test_area2 
+//    over space( shape = 'POLYGON ((20.58464055984907048 48.5290410023631722, 20.62269384559522933 48.70682480647512591, 20.89192433476759803 48.68063579727446211, 20.85294208791585646 48.50295919683065904, 20.58464055984907048 48.5290410023631722))',
+//    		grid="100 m",
+//    		projection="EPSG:4326"),
+////    	 time (year =2021);	
+//    time(start=2021, end=2022, step=1.year);   
 
-//EPSG:4326 POLYGON ((21.57714843750011 47.86108855623206, 13.502197265625108 47.86108855623206, 13.502197265625108 50.96880573431804, 21.57714843750011 50.96880573431804, 21.57714843750011 47.86108855623206))
+/*Test areas alpha 1 */
+    
+//model each local:stefano.balbi:esa.aries.sandbox:alpa1_case_studies_grids
+// 		as im:Observed earth:Site named all_cases;
+
+//       "E468N306": {
+//            "east": 4700000,
+//            "south": 3060000,
+//            "west": 4680000,
+//            "north": 3080000,
+//            "crs": "EPSG:3035"
+//--> EPSG:3035 POLYGON ((4700000 3060000, 4700000 3080000, 4680000 3080000, 4680000 3060000, 4700000 3060000))
+//--> EPSG:4326 POLYGON ((15.3501 50.5272, 15.3706 50.7065, 15.0880 50.7193, 15.0686 50.5400, 15.3501 50.5272))
+
+//observe earth:Region named slovakia_alpha1_wkt 
+//    over space( shape = 'POLYGON ((15.3501 50.5272, 15.3706 50.7065, 15.0880 50.7193, 15.0686 50.5400, 15.3501 50.5272))',
+//    			grid ='100 m',
+//    			projection = 'EPSG:4326'),
+//    	    time(start=2021, end=2022, step=1.year);  
+
+observe earth:Region named slovakia_alpha1 
+    over space( urn='local:stefano.balbi:esa.aries.sandbox:alpa1_case_studies_grids#fid=53029',
+    			grid ='100 m',
+    			projection = 'EPSG:4326'),
+    	    time(start=2021, end=2022, step=1.year);  
+
+/*all bounding boxes */
 //53029	E468N306
 //53030	E468N308
 //53309	E470N306
