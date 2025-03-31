@@ -11,14 +11,15 @@ action main:
 
 separator("Context: where, when" :iconname "earth" )
 
-//checkbutton("TestSite_100m (Slovakia)" #etc): (context(slovakia.slovakia_test_area))
-combo("Slovakia 1"
-	  "Slovakia 2") :
-	  (context(slovakia.slovakia_test_area)
-	   context(slovakia.slovakia_test_area2)	
-	  )
+checkbutton("TestSite_100m (Slovakia)" #etc): (context(slovakia.slovakia_alpha1))
+//combo("Slovakia alpha 0"
+//	  "Slovakia alpha 1") :
+//	  (context(slovakia.slovakia_alpha0)
+//	   context(slovakia.slovakia_alpha1)	
+//	  )
+//combo context always pick the same one
 
-button(#all "all 20x20 grids" :iconname "cases" ) : (submit(slovakia.all_cases))	  
+//button(#all "all 20x20 grids" :iconname "cases" ) : (submit(slovakia.all_cases))	  
 button(#reset2 "Reset" :iconname "restart" ):(
 			context(:reset))
 			
