@@ -199,4 +199,9 @@ model each local:stefano.balbi:esa.aries.sandbox:iiasa-slovakia-reference as im:
 //
 //number local:stefano.balbi:esa.aries.sandbox:iiasa-slovakia-reference#fid as test; 
 
-/*STAC from VITO's S3 Bucket */
+/*Alpha 1 from ESA-WEED-project OpenEO-UDP-UDF-catalogue (Inigo)*/
+
+
+/*Alpha 1 from integratedmodelling/klab adapters/klab.ogc/src/test/resources/openeo/udp_inference_eunis_l1.json (Arnab)*/
+
+
