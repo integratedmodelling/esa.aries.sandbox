@@ -9,9 +9,11 @@ public app esa.aries
 @left(width=450)
 action main:
 
-separator("Context: where, when" :iconname "earth" )
+separator("Context: where, (when = 2021)" :iconname "earth" )
 
-checkbutton("TestSite_100m (Slovakia Alpha 1)" #etc): (context(slovakia.slovakia_alpha1))
+
+checkbutton("Test Site Slovakia Alpha 0 (100m) " #etc): (context(slovakia.slovakia_alpha0))
+checkbutton("Test Site Slovakia Alpha 1 (100m) " #etc): (context(slovakia.slovakia_alpha1))
 //combo("Slovakia alpha 0"
 //	  "Slovakia alpha 1") :
 //	  (context(slovakia.slovakia_alpha0)
