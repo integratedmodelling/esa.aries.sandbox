@@ -37,4 +37,5 @@ separator("Empirical data" :iconname "database-check" )
 checkbutton("Ecosytem Types Reference Points" #etc): (submit(slovakia.data.reference_points)) //(observe({im:Reference earth:Location with type of slovakia:EcosystemEUNIS}))  
  
 separator("Alpha 1")
-checkbutton("Ecosystem Types Model Alpha 1"): (submit(slovakia.data.max_band))   
+checkbutton("Ecosystem Types Model Alpha 1 (number of band with max value"): (submit(slovakia.data.max_band))   
+checkbutton("Ecosystem Types Model Alpha 1 (EUNIS classes"): (submit(slovakia.data.eunis2012_et_level1_arnab1))  

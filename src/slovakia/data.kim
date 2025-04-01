@@ -186,20 +186,6 @@ model "local:stefano.balbi:esa.aries.sandbox:openeo.alpha0.eunis#true&topology_l
 		slovakia:RegularlyOrRecentlyCultivatedAgriculturalHorticulturalDomestichabitat if 90000,
 		slovakia:ConstructedIndustrialAndOtherArtificialHabitat if 100000,
 		slovakia:HabitatComplex if 110000;
-		
-model "local:arnab.moitra:esa.aries.sandbox:test_udp_am1729#synchronous=false&output_warp=true&digitalId=tests/AM1729&eunis_level=1&scenarioId=alpha-1&area_name=E468N306"
-	as type of slovakia:EcosystemEUNIS  
-		named eunis2012_et_level1_arnab1
-		classified into
-			slovakia:InlandSurfaceWater if 30000,
-			slovakia:MireBogFen if 40000,
-			slovakia:GrasslandLandDominatedByForbMossLichen if 50000,
-			slovakia:HeathlandScrubTundra if 60000,
-			slovakia:WoodlandForestOtherWoodedLand if 70000,
-			slovakia:InlandUnvegetatedOrSparselyVegetatedHabitat if 80000,
-			slovakia:RegularlyOrRecentlyCultivatedAgriculturalHorticulturalDomestichabitat if 90000,
-			slovakia:ConstructedIndustrialAndOtherArtificialHabitat if 100000,
-			slovakia:HabitatComplex if 110000;
 	
 	
 /* Reference points from IIASA */
@@ -219,5 +205,16 @@ number 'local:stefano.balbi:esa.aries.sandbox:alpha1.inigo#output_warp=true&sync
 
 /*Alpha 1 from integratedmodelling/klab adapters/klab.ogc/src/test/resources/openeo/udp_inference_eunis_l1.json (Arnab)*/
 
-//number 'local:stefano.balbi:esa.aries.sandbox:alpha1.arna#output_warp=true&synchronous=false&area_name=E468N306&onnx_models=https://s3.waw3-1.cloudferro.com/swift/v1/ecdc-waw3-1-ekqouvq3otv8hmw0njzuvo0g4dy0ys8r985n7dggjis3erkpn5o/models/Level1_class-0_129predictors_v1.onnx,&digitalId=tests/ste&output_band_names=Level1_class-0_129predictors_v1_30000,Level1_class-0_129predictors_v1_40000,Level1_class-0_129predictors_v1_50000,Level1_class-0_129predictors_v1_60000,Level1_class-0_129predictors_v1_70000,Level1_class-0_129predictors_v1_80000,Level1_class-0_129predictors_v1_90000,Level1_class-0_129predictors_v1_100000,Level1_class-0_129predictors_v1_110000&scenarioId=alpha-1' as eunis;  
-
+model "local:arnab.moitra:esa.aries.sandbox:test_udp_am1729#synchronous=false&output_warp=true&digitalId=tests/AM1729&eunis_level=1&scenarioId=alpha-1&area_name=E468N306"
+	as type of slovakia:EcosystemEUNIS  
+		named eunis2012_et_level1_arnab1
+		classified into
+			slovakia:InlandSurfaceWater if 30000,
+			slovakia:MireBogFen if 40000,
+			slovakia:GrasslandLandDominatedByForbMossLichen if 50000,
+			slovakia:HeathlandScrubTundra if 60000,
+			slovakia:WoodlandForestOtherWoodedLand if 70000,
+			slovakia:InlandUnvegetatedOrSparselyVegetatedHabitat if 80000,
+			slovakia:RegularlyOrRecentlyCultivatedAgriculturalHorticulturalDomestichabitat if 90000,
+			slovakia:ConstructedIndustrialAndOtherArtificialHabitat if 100000,
+			slovakia:HabitatComplex if 110000;  
