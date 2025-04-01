@@ -186,6 +186,20 @@ model "local:stefano.balbi:esa.aries.sandbox:openeo.alpha0.eunis#true&topology_l
 		slovakia:RegularlyOrRecentlyCultivatedAgriculturalHorticulturalDomestichabitat if 90000,
 		slovakia:ConstructedIndustrialAndOtherArtificialHabitat if 100000,
 		slovakia:HabitatComplex if 110000;
+		
+model "local:arnab.moitra:esa.aries.sandbox:test_udp_am1729#synchronous=false&output_warp=true&digitalId=tests/AM1729&eunis_level=1&scenarioId=alpha-1&area_name=E468N306"
+	as type of slovakia:EcosystemEUNIS  
+		named eunis2012_et_level1_arnab1
+		classified into
+			slovakia:InlandSurfaceWater if 30000,
+			slovakia:MireBogFen if 40000,
+			slovakia:GrasslandLandDominatedByForbMossLichen if 50000,
+			slovakia:HeathlandScrubTundra if 60000,
+			slovakia:WoodlandForestOtherWoodedLand if 70000,
+			slovakia:InlandUnvegetatedOrSparselyVegetatedHabitat if 80000,
+			slovakia:RegularlyOrRecentlyCultivatedAgriculturalHorticulturalDomestichabitat if 90000,
+			slovakia:ConstructedIndustrialAndOtherArtificialHabitat if 100000,
+			slovakia:HabitatComplex if 110000;
 	
 	
 /* Reference points from IIASA */
