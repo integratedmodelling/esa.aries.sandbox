@@ -224,7 +224,7 @@ model "local:stefano.balbi:esa.aries.sandbox:alpha1.inigo#output_warp=true&synch
 
 model "local:arnab.moitra:esa.aries.sandbox:test_udp_am1729#synchronous=false&output_warp=true&digitalId=tests/AM1729&eunis_level=1&scenarioId=alpha-1&area_name=E468N306"
 	as type of slovakia:EcosystemEUNIS  
-		named eunis2012_et_level1_arnab1
+		named eunis2012_et_level1_arnab
 		classified into
 			slovakia:InlandSurfaceWater if 30000,
 			slovakia:MireBogFen if 40000,
