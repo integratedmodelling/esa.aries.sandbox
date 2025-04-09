@@ -1,35 +1,33 @@
 {
-  "urn" : "local:justus.muhando:samples.justus:esa_weed_colombia_weed_test_sites_epsg3116",
+  "urn" : "local:justus.muhando:samples.justus:esa_weed_colombia_weed_test_sites_epsg3116_v2",
   "version" : "0.0.1",
   "adapterType" : "wfs",
-  "localPath" : "esa.aries.sandbox/resources/esa_weed_colombia_weed_test_sites_epsg3116",
-  "geometry" : "s1(17){bbox=[141889.66114938504 1728883.6493338707 476590.8891218527 1997879.9040610082],proj=EPSG:3116}",
+  "localPath" : "esa.aries.sandbox/resources/esa_weed_colombia_weed_test_sites_epsg3116_v2",
+  "geometry" : "#s1(1){bbox=[141889.66114938504 1728883.6493338707 476590.8891218527 1997879.9040610082],proj=EPSG:3116}",
   "projectName" : "esa.aries.sandbox",
-  "localName" : "esa_weed_colombia_weed_test_sites_epsg3116",
+  "localName" : "esa_weed_colombia_weed_test_sites_epsg3116_v2",
   "type" : "OBJECT",
-  "resourceTimestamp" : 1739887752985,
+  "resourceTimestamp" : 1740065643044,
   "metadata" : {
-    "im:keywords" : "features,colombia_weed_test_sites_epsg3116",
-    "dc:comment" : "",
-    "im:notes" : "",
-    "dc:title" : "colombia_weed_test_sites_epsg3116",
-    "dc:url" : "",
-    "dc:creator" : "",
-    "im:thematic-area" : "",
-    "dc:originator" : "",
-    "im:geographic-area" : "",
-    "dc:source" : ""
+    "im:keywords" : "features,colombia_weed_test_sites_epsg3116_V2",
+    "dc:title" : "colombia_weed_test_sites_epsg3116_V2"
   },
   "parameters" : {
     "serviceUrl" : "https://integratedmodelling.org/aux-geoserver/esa_weed/ows",
     "wfsVersion" : "1.0.0",
-    "wfsIdentifier" : "esa_weed:colombia_weed_test_sites_epsg3116",
-    "nameAttribute" : "name"
+    "wfsIdentifier" : "esa_weed:colombia_weed_test_sites_epsg3116_V2"
   },
   "localPaths" : [ ],
   "history" : [ ],
   "notifications" : [ ],
   "attributes" : [ {
+    "name" : "id",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
     "name" : "k_id",
     "type" : "NUMBER",
     "key" : false,

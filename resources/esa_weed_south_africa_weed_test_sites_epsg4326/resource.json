@@ -1,16 +1,24 @@
 {
-  "urn" : "local:alessio.bulckaen:esa.aries.sandbox:esa_weed_south_africa_weed_test_sites_epsg4326",
+  "urn" : "local:justus.muhando:samples.justus:esa_weed_south_africa_weed_test_sites_epsg4326",
   "version" : "0.0.1",
   "adapterType" : "wfs",
   "localPath" : "esa.aries.sandbox/resources/esa_weed_south_africa_weed_test_sites_epsg4326",
-  "geometry" : "#s2(3){bbox=[18.3657606618702 19.511929 -34.643243 -33.9491327721993],proj=EPSG:4326}",
+  "geometry" : "s1(3){bbox=[18.3657606618702 19.511929 -34.643243 -33.9491327721993],proj=EPSG:4326}",
   "projectName" : "esa.aries.sandbox",
   "localName" : "esa_weed_south_africa_weed_test_sites_epsg4326",
   "type" : "OBJECT",
-  "resourceTimestamp" : 1739970148331,
+  "resourceTimestamp" : 1739888137263,
   "metadata" : {
     "im:keywords" : "features,south_africa_weed_test_sites_epsg4326",
-    "dc:title" : "south_africa_weed_test_sites_epsg4326"
+    "dc:comment" : "test",
+    "im:notes" : "",
+    "dc:title" : "south_africa_weed_test_sites_epsg4326",
+    "dc:url" : "",
+    "dc:creator" : "",
+    "im:thematic-area" : "",
+    "dc:originator" : "",
+    "im:geographic-area" : "",
+    "dc:source" : ""
   },
   "parameters" : {
     "serviceUrl" : "https://integratedmodelling.org/aux-geoserver/esa_weed/ows",
