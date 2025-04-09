@@ -36,7 +36,7 @@ observe earth:Region named slovakia_alpha0
 
 observe earth:Region named slovakia_alpha1 
     over space( urn='local:stefano.balbi:esa.aries.sandbox:alpa1_case_studies_grids#fid=53029',
-    			grid ='10 m',
+    			grid ='50 m',
     			projection = 'EPSG:4326'),
     	    time(start=2021, end=2022, step=1.year);  
 
