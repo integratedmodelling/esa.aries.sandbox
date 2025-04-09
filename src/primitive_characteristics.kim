@@ -1,0 +1,191 @@
+private namespace primitive_characteristics
+//using nca.ecosystem.iucn, nca.landuse.ipcc
+;  
+
+observe earth:Region named colombia_test_area 
+    over space(urn='local:inigo-cobian:esa.aries.sandbox:priority_areas.colombia',
+    		grid="100 m",
+    		projection="EPSG:4326"),
+//    	 time (year =2021);	
+    time(start=2021, end=2022, step=1.year);  
+
+
+model each local:inigo-cobian:esa.aries.sandbox:priority_areas.colombia as earth:Region;
+
+// probability of ecosystem occurrence
+number local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_0104_20180000_1km as non_semantic_temperate_woodland;
+
+model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_0104_20180000_1km
+ as type of nca.ecosystem.iucn:Ecosystem classified into
+ 	nca.ecosystem.iucn:TemperateWoodland if > 50; 
+
+ 
+// probabibity of ecosystem occurrence based on species distribution
+//thing TemperateWoodland; 
+number local:alessio.bulckaen:esa.aries.sandbox:esa_weed.a_0104_probability as temperate_woodland_occurrence;
+
+model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.a_0104_probability
+	as type of nca.ecosystem.iucn:Ecosystem classified into
+	nca.ecosystem.iucn:TemperateWoodland if > 0.9; 
+//	as occurrence of nca.ecosystem.iucn:TemperateWoodland;
+//	as occurrence of TemperateWoodland;
+//	as presence of TemperateWoodland
+//	set to [( self > 0.5) ? true : false];
+
+//	as presence of nca.ecosystem.iucn:TemperateWoodland;
+// observability of nca.ecosystem.iucn:TemperateWoodland;	
+// ecosystem occurrence based on species distribution
+
+//model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.a_0104_probability
+//	as occurrence of nca.ecosystem.iucn:TemperateWoodland earth:Region;
+//
+//model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_0104_20180000_1km
+//	as occurrence of nca.ecosystem.iucn:BorealTemperateMontaneForestWoodland earth:Region;
+	 
+model '' as presence of ecology.incubation:IceSheetGlacierPermanentSnowfield earth:Region;
+//'https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2Fclimate' 
+
+model '' as count of chemistry:Fire;	
+//https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2Fclimate
+//'https://github.com/macroecology-society/data-catalog/blob/main/docs/posts/fireRegime/fireRegime.yml'  
+
+
+/*
+ * Maximum extent of the 200-year floodplains
+ * https://github.com/macroecology-society/data-catalog/blob/main/docs/posts/GFPLAIN/GFPLAIN.yml
+ * 
+ */
+ model '' as presence of hydrology:Floodplain;
+
+/*
+ * Global per-pixel counts of human populations
+ * https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2FGHS
+ */
+
+model '' as count of demography:HumanIndividual;
+
+/*
+ * High-resolution geomorphological variables
+ * https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2FGM90
+ */
+
+model '' as earth:GeoFormation;
+
+/*thing GeoFormation is Terrestrial Region
+	"Geomorphon classification as is. If possible should be kept as a fully
+	 contained hierarchy as it is possible to classify a DEM based on these
+     exact categories."
+	has children
+		Flat,
+		Peak,
+		Ridge,
+		Shoulder,
+		Spur,
+		Slope,
+		Hollow,
+		Footslope,
+		Valley,
+		Pit
+; 
+* */
+/*
+ * Global Mountain Maps
+ * https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2FGME	
+ */
+
+model '' as presence of earth:Mountain; //
+model '' as geography:Elevation in m;
+
+/*
+ * Bias-corrected land cover maps based on the CCI land cover dataset
+ * https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2FiCCI
+ * modelled via a scenario that takes priority over original landcover
+ * 
+ */
+
+/*
+ * Annual time-series on forest canopy densities over nearly three decades
+ * https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2FiGFC	
+ */
+
+model '' as ecology:CanopyCover;
+
+/*
+ * Maps distinguishing the year of establishment of various land uses
+ *(plantations, pastures, mines), and other statitic ones (reservoirs),
+ * as we as land covers resulting from intense human activities (degraded forests).
+ * https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2FlandUse
+ */
+
+model '' as presence of nca.ecosystem.iucn:Plantation earth:Region;
+model '' as presence of agriculture:Pasture earth:Region;
+model '' as presence of infrastructure:Mine;
+model '' as presence of infrastructure:Reservoir;
+model '' as presence of
+
+/*
+ * Linear distance to the ocean.
+ * https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2FlinearDistance
+ * 
+ */
+model '' as distance to earth:Ocean in m;
+  
+/*
+ * Mask of pixels submerged through low-/high-tide based on tidal amplitudes.
+ * https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2FMSL
+ * 
+ */
+
+model '' as presence of hydrology:Tidal earth:Region;
+
+/*
+ * Distinction of pixels likely to be savannas and rangelands
+ * https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2FSCC
+ * What is grassland,rangeland,savannah?
+ * https://www.fao.org/agriculture/crops/thematic-sitemap/theme/spi/scpi-home/managing-ecosystems/management-of-grasslands-and-rangelands/grasslands-what/en/
+ * Wikipedia: Rangelands are 
+ * grasslands, shrublands, woodlands, wetlands,
+ * and deserts that are grazed by domestic livestock or wild animals.
+ * Types of rangelands include tallgrass and shortgrass prairies, desert grasslands and shrublands, woodlands, savannas, chaparrals, steppes, and tundras.
+ */
+
+model '' as occurrence of  nca.landuse.ipcc:Grassland earth:Region;
+model '' as im:Damaged ecology:Forest earth:Region;
+model '' as not conservation:Pristine ecology:Forest earth:Region;
+
+/*
+ * Gridded soil database (soilGrids)  
+ * https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2FsoilGrids
+ * https://github.com/macroecology-society/data-catalog/blob/main/docs/posts/soilGrids/soilGrids.yml
+ * Variables by soil depth (0-5, 5-15, 15-30,30-60, 60-100, 100-200 *cm)
+ *  Bulk density (cg/cm3)
+ *  Cation Exchange Capacity (in mmol(c)/kg) of the soil
+ *  Total nitrogen (cg/kg)
+ *  Organic carbon density (g/dm3) (@ intensive - depth impact volume)
+ *  Proportion of sand particles (> 0.05 mm, cm3/dm3)
+ *  Soil organic carbon content (dg/kg)
+ *  
+ */
+
+/*
+ * Table describing listing ecosystem types mapped in GlobES.
+ * https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2Fshapes%20and%20tables
+ * Create a classification for GlobESEcosystemType such as IUCN-GET,EUNIS,RAMSAR etc..
+ */
+
+
+/*
+The class 4.4 is rather simple in its classification. It includes:
+land cover, specifically distinctions of tree types (i.e., deciduous broadleaf, deciduous needleleaf, evergreen needleleaf, mixed)
+climate, specifically temperate and and Mediterranean
+typical tree phenology, mainly to deal with mixed forest types
+
+The major effort was in deriving the inputs. E.g., I developed a time series of canopy cover densities (to distinguish forest-covered pixels) and mapped climate mentioned in IUCN class distinctions (existing climate maps do not do a good job).
+
+Then, there are interactions with other ecosystems that limit the extent of temperate woodlands, so more data is technically used, although indirectly. E.g., plantations are distinguished first, and the corresponding pixels are not use to map semi-natural ecosystems like woodlands. In addition, human-disturbances are considered (e.g., to distinguishe urban parks). This process includes:
+time-series vegetation continuous fields (to distinguish long-term trends in deforestation or tree growth)
+Plantation maps (from IIASA)
+Land cover on agriculture
+Elevation and slope
+Impervious cover
+ */	 	 

@@ -1,33 +1,40 @@
 public app esa.aries
 	"ARIES for ESA"
 	version 1.0alpha
-	description "Ecosystem Types modeller powered by k.LAB semantic web technology and openEO"
+	description #ARIES_FOR_ESA_EXPLORER_DESCRIPTION
 	logo static/images/esa_logo.png
 	versionstring "Demonstration version"
 	style dark
 
-
 @left(width=450)
 action main:
-//separator(#CONTEXT_WHERE_AND_WHEN :iconname "earth" :info)
-//	create esa.aries.contextselector: (
-//		
-//	)
 
 separator("Context: where, when" :iconname "earth" )
-checkbutton("TestSite_100m (Slovakia)" #etc): (context(slovakia.slovakia_test_area))
 
+checkbutton("Test Site Slovakia Alpha 0 (100 m) " #etc): (context(slovakia.slovakia_alpha0))
+checkbutton("Test Site Slovakia Alpha 1 (10 m) " #etc): (context(slovakia.slovakia_alpha1))
+//combo("Slovakia alpha 0"
+//	  "Slovakia alpha 1") :
+//	  (context(slovakia.slovakia_alpha0)
+//	   context(slovakia.slovakia_alpha1)	
+//	  )
+//combo context always pick the same one
+
+//button(#all "all 20x20 grids" :iconname "cases" ) : (submit(slovakia.all_cases))	  
+button(#reset2 "Reset" :iconname "restart" ):(
+			context(:reset))
+			
+separator("Alpha 0")
 separator("Variables" :iconname "sprout-outline" )
-checkbutton("Ecosytem Types (EUNIS)" #etc): (submit(slovakia.openeo_eunis_test))   
+
+//checkbutton("Ecosytem Types (EUNIS) raw data" #etc): (submit(slovakia.data.eunis2012_et_numeric_test))  
+checkbutton("Ecosytem Types (EUNIS) level 1" #etc): (submit(slovakia.data.eunis2012_et_level1))   
+checkbutton("Ecosytem Types (EUNIS) level 2" #etc): (submit(slovakia.data.eunis2012_et_level2))   
+checkbutton("Ecosytem Types (EUNIS) level 3" #etc): (submit(slovakia.data.eunis2012_et_level3))   
+
+separator("Empirical data" :iconname "database-check" )
+checkbutton("Ecosytem Types Reference Points" #etc): (submit(slovakia.data.reference_points)) //(observe({im:Reference earth:Location with type of slovakia:EcosystemEUNIS}))  
  
- 
-// (observe({ecology:LeafAreaIndex}))  
- 
-//	(
-//		(
-//			
-//			create esa.aries.components.selectors.observation('slovakia.leaf-area-index-resolver',             
-//				"LAI", true, "map", "Leaf Area Index") #tag29
-//				
-//		) :hfill :altbg :name "Ecosystem Variables" :iconname "cog" :opened
-//	) :shelf
+separator("Alpha 1")
+checkbutton("Ecosystem Types Model (EUNIS with band mixer: max)"): (submit(slovakia.data.eunis2012_et_level1_inigo))   
+checkbutton("Ecosystem Types Model (EUNIS with BC3 UDP)"): (submit(slovakia.data.eunis2012_et_level1_arnab))  

@@ -1,0 +1,65 @@
+private namespace priority_areas;
+
+observe earth:Region named colombia_priority_areas_stac 
+    over space(urn='local:inigo-cobian:esa.aries.sandbox:priority_areas.colombia',
+    		grid="100 m",
+    		projection="EPSG:4326"),
+//    	 time (year =2021);	
+    time(start=2021, end=2022, step=1.year);  
+    
+observe earth:Region named colombia_priority_areas
+    over space(urn='local:inigo-cobian:esa.aries.sandbox:priority_areas.colombia',
+    		grid="100 m",
+    		projection="EPSG:4326"),
+//    	 time (year =2021);	
+    time(start=2021, end=2022, step=1.year);
+
+observe earth:Region named colombia_priority_areas
+    over space(urn='local:alessio.bulckaen:esa.aries.sandbox:esa_weed_colombia_weed_test_sites_epsg3116',
+    		grid="100 m",
+    		projection="EPSG:3116"),
+//    	 time (year =2021);	
+    time(start=2018, end=2023, step=1.year);
+
+observe earth:Region named czech_republic_priority_areas
+    over space(urn='local:alessio.bulckaen:esa.aries.sandbox:esa_weed_czech_republic_weed_test_sites_epsg3035',
+    		grid="100 m",
+    		projection="EPSG:3035"),
+//    	 time (year =2021);	
+    time(start=2018, end=2023, step=1.year);
+
+observe earth:Region named greece_priority_areas
+    over space(urn='local:alessio.bulckaen:esa.aries.sandbox:esa_weed_greece_weed_test_sites_epsg3035',
+    		grid="100 m",
+    		projection="EPSG:3035"),
+//    	 time (year =2021);	
+    time(start=2018, end=2023, step=1.year); 
+    
+observe earth:Region named norway_priority_areas
+    over space(urn='local:alessio.bulckaen:esa.aries.sandbox:esa_weed_norway_weed_test_sites_epsg3035',
+    		grid="100 m",
+    		projection="EPSG:3035"),
+//    	 time (year =2021);	
+    time(start=2018, end=2023, step=1.year);
+
+observe earth:Region named norway_priority_areas
+    over space(urn='local:alessio.bulckaen:esa.aries.sandbox:esa_weed_norway_weed_test_sites_epsg3035',
+    		grid="100 m",
+    		projection="EPSG:3035"),
+//    	 time (year =2021);	
+    time(start=2018, end=2023, step=1.year);
+
+observe earth:Region named south_africa_priority_areas
+    over space(urn='local:alessio.bulckaen:esa.aries.sandbox:esa_weed_south_africa_weed_test_sites_epsg4326',
+    		grid="100 m",
+    		projection="EPSG:4326"),
+//    	 time (year =2021);	
+    time(start=2018, end=2023, step=1.year);
+
+observe earth:Region named vietnam_priority_areas
+    over space(urn='local:alessio.bulckaen:esa.aries.sandbox:esa_weed_vietnam_weed_test_sites_epsg4326',
+    		grid="100 m",
+    		projection="EPSG:4326"),
+//    	 time (year =2021);	
+    time(start=2018, end=2023, step=1.year);
+               

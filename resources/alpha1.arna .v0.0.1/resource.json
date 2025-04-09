@@ -1,0 +1,87 @@
+{
+  "urn" : "local:stefano.balbi:esa.aries.sandbox:alpha1.arna ",
+  "version" : "0.0.1",
+  "adapterType" : "openeo",
+  "localPath" : "esa.aries.sandbox/resources/alpha1.arna .v0.0.1",
+  "geometry" : "t1{ttype=GRID}s2",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "alpha1.arna ",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1743428320596,
+  "metadata" : {
+    "dc:description" : "Generates the alpha 1 inference result based on inputs.Returns a single band per probability.",
+    "dc:comment" : "Inference for the habitat maps for the alpha1 release.",
+    "dc:title" : "Generates the alpha 1 inference result based on inputs"
+  },
+  "parameters" : {
+    "space.shape" : "?",
+    "time.year" : "year",
+    "processId" : "udp_inference_module_alpha1",
+    "serviceUrl" : "https://openeo.dataspace.copernicus.eu/openeo/1.2",
+    "namespace" : "https://raw.githubusercontent.com/integratedmodelling/klab/refs/heads/am1729_test/adapters/klab.ogc/src/test/resources/openeo/udp_inference_eunis_l1.json",
+    "space.bbox" : "bbox",
+    "space.projection" : "target_epsg",
+    "nodata" : "-9999",
+    "space.resolution" : "target_res"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : [ {
+    "name" : "bbox",
+    "type" : "OBJECT",
+    "key" : false,
+    "optional" : false,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "digitalId",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : false,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "scenarioId",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : false,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "area_name",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : false,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "target_epsg",
+    "type" : null,
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "target_res",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "eunis_level",
+    "type" : null,
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  } ],
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

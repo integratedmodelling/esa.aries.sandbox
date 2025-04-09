@@ -1,19 +1,389 @@
 project private namespace slovakia;
 
-observe earth:Region named slovakia_test_area 
+observe earth:Region named slovakia_alpha0 
     over space(shape='POLYGON ((20.5846406 48.884577, 21.2011633 48.884577, 21.2011633 48.47623, 20.5846406 48.47623, 20.5846406 48.884577))',
     		grid="100 m",
     		projection="EPSG:4326"),
 //    	 time (year =2021);	
     time(start=2021, end=2022, step=1.year);  
     
-number "local:stefano.balbi:esa.aries.sandbox:openeo.alpha0.eunis#synchronous=true&topology_level=3&topology=EUNIS2012"  //synchronous=true&
-       as openeo_eunis_test;    
-       
-//from PEOPLE-EA
-  	
+//observe earth:Region named slovakia_test_area2 
+//    over space( shape = 'POLYGON ((20.58464055984907048 48.5290410023631722, 20.62269384559522933 48.70682480647512591, 20.89192433476759803 48.68063579727446211, 20.85294208791585646 48.50295919683065904, 20.58464055984907048 48.5290410023631722))',
+//    		grid="100 m",
+//    		projection="EPSG:4326"),
+////    	 time (year =2021);	
+//    time(start=2021, end=2022, step=1.year);   
+
+/*Test areas alpha 1 */
+    
+//model each local:stefano.balbi:esa.aries.sandbox:alpa1_case_studies_grids
+// 		as im:Observed earth:Site named all_cases;
+
+//       "E468N306": {
+//            "east": 4700000,
+//            "south": 3060000,
+//            "west": 4680000,
+//            "north": 3080000,
+//            "crs": "EPSG:3035"
+//--> EPSG:3035 POLYGON ((4700000 3060000, 4700000 3080000, 4680000 3080000, 4680000 3060000, 4700000 3060000))
+//--> EPSG:4326 POLYGON ((15.3501 50.5272, 15.3706 50.7065, 15.0880 50.7193, 15.0686 50.5400, 15.3501 50.5272))
+
+//observe earth:Region named slovakia_alpha1_wkt 
+//    over space( shape = 'POLYGON ((15.3501 50.5272, 15.3706 50.7065, 15.0880 50.7193, 15.0686 50.5400, 15.3501 50.5272))',
+//    			grid ='100 m',
+//    			projection = 'EPSG:4326'),
+//    	    time(start=2021, end=2022, step=1.year);  
+
+observe earth:Region named slovakia_alpha1 
+    over space( urn='local:stefano.balbi:esa.aries.sandbox:alpa1_case_studies_grids#fid=53029',
+    			grid ='10 m',
+    			projection = 'EPSG:4326'),
+    	    time(start=2021, end=2022, step=1.year);  
+
+/*all bounding boxes */
+//53029	E468N306
+//53030	E468N308
+//53309	E470N306
+//53310	E470N308
+//53589	E472N306
+//53590	E472N308
+//53859	E474N286
+//53860	E474N288
+//54139	E476N286
+//54140	E476N288
+//54976	E482N280
+//54977	E482N282
+//55259	E484N286
+//55260	E484N288
+//55539	E486N286
+//55540	E486N288
+//55541	E486N290
+//55820	E488N288
+//55821	E488N290
+//55822	E488N292
+//56101	E490N290
+//56102	E490N292
+//58900	E510N288
+//58901	E510N290
+//59180	E512N288
+//59181	E512N290
+//wkt_geom	fid	name
+//MultiPolygon (((20.58464055984907048 48.5290410023631722, 20.62269384559522933 48.70682480647512591, 20.89192433476759803 48.68063579727446211, 20.85294208791585646 48.50295919683065904, 20.58464055984907048 48.5290410023631722)))	58900	E510N288
+//wkt_geom	fid	name
+//MultiPolygon (((15.71813641274157725 48.88680388712161573, 15.73895435913875929 49.0660722752706917, 16.01182322628262611 49.0517293246559305, 15.99002641863411966 48.87252071387015917, 15.71813641274157725 48.88680388712161573)))	53860	E474N288
+
+
 //model 'local:stefano.balbi:esa.aries.peopleea:vito.ndvi.10m#output_warp=true&synchronous=true'
 //	as ecology:NormalizedDifferenceVegetationIndex named ndvi_10m; 
 	
 //model 'local:ferdinando.villa:im.openeo.sandbox:vito.lai#output_warp=true&synchronous=true' 
 //	 as ecology:LeafAreaIndex named slovakia_lai; 
+
+@colormap(values = { 
+	EcosystemEUNIS: (0 0 0),
+		InlandSurfaceWater : (64 1 237),
+			SurfaceStandingWater : (111 132 214),
+				PermanentOligotrophicLakePondPool : (132 159 255),
+				PermanentMesotrophicLakePondPool : (111 132 214),
+				PermanentEutrophicLakePondPool : (100 121 194),
+				PermanentDystrophicLakePondPool : (85 102 164)
+			SurfaceRunningWater : (67 86 250),
+				SpringBrookSpringGeyser : (67 86 250),
+			LittoralZoneOfInlandSurfaceWaterbody : (99 106 201),
+				WaterFringingReedbedTallHelophytesNonCane : (99 106 238),
+				SpeciesPoorBedOfLowGrowingWaterFringingOrAmphibiousVegetation : (99 106 201),
+				PeriodicallyInundatedShoreWithPioneerEphemeralVegetation : (80 86 161),
+		MireBogFen : (71 44 8),
+			RaisedBlanketBog : (71 44 8),
+				RaisedBog : (71 44 8),
+			ValleyMirePoorFenTransitionMire : (109 67 12),
+				PoorFenSoftWaterSpringMire : (109 67 12),
+			BaseRichFenCalcareousSpringMire : (148 91 17),
+				RichFenEutrophicTallHerbFenCalcareousFlushSoak : (148 91 17),
+			SedgeReedbed : (197 121 22),
+				BedOfLargeSedge : (197 121 22),
+		GrasslandLandDominatedByForbMossLichen : (249 250 139),
+			DryGrassland : (249 250 139),
+				InlandSandRockWithOpenVegetation : (249 250 139),
+				PerennialCalcareousGrasslandBasicSteppe : (206 206 115),
+			MesicGrassland : (241 241 101),
+				PermanentMesotrophicPastureAfterMathgrazedMeadow : (247 247 104),
+				LowMediumAltitudeHayMeadow : (242 242 69),
+				MountainHayMeadow : (221 221 93),
+				AgriculturallyImprovedReSeededHeavilyFertilisedGrassland : (222 222 57),
+			SeasonallyWetAndWetGrassland : (250 250 84),
+				MoistOrWetEutrophicMesotrophicGrassland : (250 250 115),
+				MoistOrWetOligotrophicGrassland : (223 223 49),
+			AlpineSubalpineGrassland : (249 221 139),
+				AcidAlpineSubalpineGrassland : (249 221 139),
+				CalcareousAlpineSubalpineGrassland : (215 190 120),
+			WoodlandFringeClearingTallForbStand : (249 193 139),
+				MoistOrWetTallHerbFernFringeMeadow : (249 193 139),
+				SubalpineMoistOrWetTallHerbFernStand : (218 168 121),
+			InlandSaltSteppe : (241 196 123),
+				ContinentalInlandSaltSteppe : (241 196 123),
+		HeathlandScrubTundra : (213 138 77),
+			ArcticAlpineSubalpineScrub : (213 138 77),
+				EvergreenAlpineSubalpineHeathScrub : (213 138 77),
+				SubalpineDeciduousScrub : (177 113 64),
+				ConiferScrubCloseToTreeLimit : (121 77 44),
+			TemperateMediterraneanMontaneScrub : (230 138 77),
+				TemperateThicketsScrub : (230 138 77),
+				SubmediterraneanDeciduousThicketBrush : (182 107 61),
+			TemperateShrubHeathland : (240 158 87),
+				DryHeath : (240 158 87),
+			RiverineFenScrub : (213 98 77),
+				RiverineScrub : (213 98 77),
+			ShrubPlantation : (213 89 77),
+				Vineyard : (213 89 77),
+		WoodlandForestOtherWoodedLand : (21 171 49),
+			BroadleavedDeciduousWoodland : (29 240 68),
+				RiparianGalleryWoodlandWithDominantAlderBirchPoplarWillow : (0 255 72),
+				MixedRiparianFloodplainGalleryWoodland : (29 240 68),
+				BroadleavedSwampWoodlandNotOnAcidPeat : (14 240 144),
+				BroadleavedSwampWoodlandOnAcidPeat : (4 210 124),
+				BeechWoodland : (9 153 91),
+				ThermophilousDeciduousWoodland : (120 157 127),
+				AcidophilousOakDominatedWoodland : (134 193 141),
+				MesoEutrophicOakHornbeamAshSycamoreLimeElmRelatedWoodland : (171 193 141),
+				FruitNutTreeOrchards : (171 193 88),
+			BroadleavedEvergreenWoodland : (24 194 55),
+				EvergreenOrchardGrove : (24 194 55),
+			ConiferousWoodland : (16 133 38)
+				FirSpruceWoodland : (16 133 38),
+				AlpineLarchArollaWoodland : (80 133 38),
+				ScotsPineWoodlandSouthOfTaiga : (137 133 38),
+				NemoralBogConiferWoodland : (84 108 64)
+			MixedDeciduousConiferousWoodland : (11 101 26),
+				MixedForestryPlantation : (11 101 26),				
+		InlandUnvegetatedOrSparselyVegetatedHabitat : (115 119 112),
+			Scree : (154 159 150),
+				TemperateMontaneAcidSiliceousScree : (154 159 150),
+				TemperateMontaneCalcareousUltraBasicScree : (126 130 123),
+				CalcareousUltraBasicScreeOfWarmExposure : (130 110 127),
+			InlandCliffRockPavementOutcrop : (115 119 112),
+				AcidSiliceousInlandCliff : (115 119 112),
+				BasicUltraBasicInlandCliff : (115 81 112),
+				WeatheredRockOutcropHabitat : (115 55 112),
+			MiscellaneousInlandHabitatWithVerySparseOrNoVegetation : (76 79 74),
+				TrampledArea : (76 79 74),
+		RegularlyOrRecentlyCultivatedAgriculturalHorticulturalDomestichabitat : (198 38 201),
+			ArableHorticultural : (198 38 201),
+				BareTilledFallowOrRecentlyAbandonedArableLand : (198 38 201),
+			CultivatedAreaOfGardenPark : (143 28 147),
+				RecentlyAbandonedGardenArea : (143 28 147),
+		ConstructedIndustrialAndOtherArtificialHabitat : (220 50 50),
+			BuildingOfCityTownAndVillage : (254 58 58),
+				HighDensityTemporaryResidentialUnit : (254 58 58),
+			LowDensityBuilding : (220 50 50),
+				RuralConstructionDemolitionSities : (220 50 50),
+			ExtractiveIndustrialSites : (172 39 39),
+				RecentlyAbandonedABoveGroundSpaceOfExctractiveIndustrialSite : (172 39 39),
+			TransportNetworkAndOtherConstructedHardSurfacedArea : (145 67 33),
+				ConstructedPartOfCementery : (145 67 33),
+			WasteDeposit : (149 29 69),
+				IndustrialWaste : (149 29 69),
+		HabitatComplex : (241 166 253),
+			RaisedBogComplex : (241 166 253),
+			IntensivelyFarmedCropInterspersedWithStripsOfNaturalOrSemiNaturalVegetation : (195 135 206),
+			PastureWoodWwithTreeLayerOverlyingPasture : (110 76 116),
+			Bocage : (113 139 119),
+			DomesticGardenOfVillageAndUrbanPeriphery : (178 174 152)	
+})
+abstract attribute EcosystemEUNIS
+    has children
+        (InlandSurfaceWater 																// C		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/58)
+        has children
+        	(SurfaceStandingWater 															// C1		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/66)
+        	has children
+        		PermanentOligotrophicLakePondPool, 											// C1.1		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/722)
+        		PermanentMesotrophicLakePondPool,											// C1.2		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/723)
+				PermanentEutrophicLakePondPool,												// C1.3		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/724)
+				PermanentDystrophicLakePondPool     										// C1.4		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/725)
+        	), 
+        	(SurfaceRunningWater															// C2		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/79)
+        	has children
+        		SpringBrookSpringGeyser 													// C2.1		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/276)
+        	),
+        	(LittoralZoneOfInlandSurfaceWaterbody 											// C3		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/268)
+        	has children
+        		WaterFringingReedbedTallHelophytesNonCane, 									// C3.2		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/269)
+        		SpeciesPoorBedOfLowGrowingWaterFringingOrAmphibiousVegetation, 				// C3.4		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1749)
+        		PeriodicallyInundatedShoreWithPioneerEphemeralVegetation      				// C3.5		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/69)
+        	)   		
+        ),
+        (MireBogFen																			// D		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/259)
+        has children
+        	(RaisedBlanketBog 																// D1		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/411)
+        	has children
+        		RaisedBog  																	// D1.1		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/260)
+        	),
+        	(ValleyMirePoorFenTransitionMire												// D2		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1609)
+        	has children
+        		PoorFenSoftWaterSpringMire 													// D2.2		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/279)
+        	),
+        	(BaseRichFenCalcareousSpringMire 												// D4		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/275)
+        	has children
+        		RichFenEutrophicTallHerbFenCalcareousFlushSoak	 							// D4.1		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/277)
+        	),
+        	(SedgeReedbed 																	// D5		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/536)
+        	has children
+        		BedOfLargeSedge																// D5.2		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1721)
+        	)        		
+        ),
+        (GrasslandLandDominatedByForbMossLichen												// E		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/86)
+        has children
+        	(DryGrassland																	// E1		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/539)
+        	has children
+        		InlandSandRockWithOpenVegetation,											// E1.1.	--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/126)
+        		PerennialCalcareousGrasslandBasicSteppe										// E1.2.	--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/128)
+        	),
+        	(MesicGrassland																	// E2		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/167)
+        	has children
+        		PermanentMesotrophicPastureAfterMathgrazedMeadow,							// E2.1		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/168)
+        		LowMediumAltitudeHayMeadow,													// E2.2		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/169)
+        		MountainHayMeadow,															// E2.3		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/170)
+        		AgriculturallyImprovedReSeededHeavilyFertilisedGrassland					// E2.6		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/353)	
+        	),
+        	(SeasonallyWetAndWetGrassland													// E3		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/157)
+        	has children
+        		MoistOrWetEutrophicMesotrophicGrassland,									// E3.4		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/158)
+        		MoistOrWetOligotrophicGrassland												// E3.5		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/160)
+        	),
+        	(AlpineSubalpineGrassland														// E4		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/146)
+        	has children
+        		AcidAlpineSubalpineGrassland,												// E4.3		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/149)
+        		CalcareousAlpineSubalpineGrassland											// E4.4		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/150)
+        	),
+        	(WoodlandFringeClearingTallForbStand											// E5		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/2421)
+        	has children
+        		MoistOrWetTallHerbFernFringeMeadow,											// E5.4		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/164)
+				SubalpineMoistOrWetTallHerbFernStand										// E5.5.	--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/165)
+        		
+        	),
+        	(InlandSaltSteppe																// E6		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1743)
+        	has children
+        		ContinentalInlandSaltSteppe													// E6.2		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/30)
+        	)
+        ),
+        (HeathlandScrubTundra																// F		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/538)
+        has children
+        	(ArcticAlpineSubalpineScrub 													// F2		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/540)
+        	has children
+        		EvergreenAlpineSubalpineHeathScrub, 										// F2.2		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/91)
+        		SubalpineDeciduousScrub,  													// F2.3		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/93)
+				ConiferScrubCloseToTreeLimit        										// F2.4		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/92)
+        	),
+        	(TemperateMediterraneanMontaneScrub												// F3		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/524)
+        	has children
+        		TemperateThicketsScrub,														// F3.1		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/95)
+				SubmediterraneanDeciduousThicketBrush 										// F3.2		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1773)
+        	),
+        	(TemperateShrubHeathland 														// F4		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/87)
+        	has children
+        		DryHeath																	// F4.2		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/89)
+        	),
+        	(RiverineFenScrub 																// F9		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/2407)
+        	has children
+				RiverineScrub 																// F9.1     --> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/2408)		
+        	),
+        	(ShrubPlantation 																// FB		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/363)
+        	has children
+        		Vineyard 																	// FB.4		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1575)
+        	)	
+        ),
+        (WoodlandForestOtherWoodedLand 														// G		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/182)
+        has children
+        	(BroadleavedDeciduousWoodland													// G1		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/183)
+        	has children
+				RiparianGalleryWoodlandWithDominantAlderBirchPoplarWillow,					// G1.1		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1612)
+				MixedRiparianFloodplainGalleryWoodland,										// G1.2		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1613)
+				BroadleavedSwampWoodlandNotOnAcidPeat,										// G1.4		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1614)
+				BroadleavedSwampWoodlandOnAcidPeat,											// G1.5		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1737)
+				BeechWoodland,																// G1.6		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/184)
+				ThermophilousDeciduousWoodland,												// G1.7		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/190)
+				AcidophilousOakDominatedWoodland,											// G1.8		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1615)
+				MesoEutrophicOakHornbeamAshSycamoreLimeElmRelatedWoodland,					// G1.A		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1740)
+				FruitNutTreeOrchards														// G1.D		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/362)
+        	),
+        	(BroadleavedEvergreenWoodland													// G2		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/232)
+        	has children				
+				EvergreenOrchardGrove														// G2.9 (G2.X marcel)		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/2409)
+        	),
+        	(ConiferousWoodland																// G3		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/202)
+        	has children
+        		FirSpruceWoodland,															// G3.1		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1756)
+        		AlpineLarchArollaWoodland,													// G3.2		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/205)
+        		ScotsPineWoodlandSouthOfTaiga,												// G3.4		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/207)
+        		NemoralBogConiferWoodland													// G3.E		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1760)
+        	),
+        	(MixedDeciduousConiferousWoodland												// G4		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1548)
+        	has children
+        		MixedForestryPlantation														// G4.F (G4.X marcel)		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/2485)
+        	)	
+        ),
+        (InlandUnvegetatedOrSparselyVegetatedHabitat										// H		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/290)
+        has children
+        	(Scree																			// H2		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/291)
+        	has children
+        		TemperateMontaneAcidSiliceousScree,											// H2.3		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/292)
+				TemperateMontaneCalcareousUltraBasicScree,									// H2.4		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/293)
+				CalcareousUltraBasicScreeOfWarmExposure										// H2.6		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/296)
+        	),
+        	(InlandCliffRockPavementOutcrop													// H3		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/301)
+        	has children
+        		AcidSiliceousInlandCliff, 													// H3.1		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/303)
+				BasicUltraBasicInlandCliff,													// H3.2 	--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/302)
+        		WeatheredRockOutcropHabitat													// H3.6		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/148)
+        	),
+        	(MiscellaneousInlandHabitatWithVerySparseOrNoVegetation							// H5		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/312)
+        	has children
+        		TrampledArea																// H5.6 (H5.X marcel)		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/2464)
+        	)
+        ),
+        (RegularlyOrRecentlyCultivatedAgriculturalHorticulturalDomestichabitat				// I		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/352)
+        has children
+        	(ArableHorticultural															// I1		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/356)
+        	has children
+        		BareTilledFallowOrRecentlyAbandonedArableLand								// H5.6 (H5.X marcel)		--> 	EUNIS 2012 (
+        	),
+        	(
+        	CultivatedAreaOfGardenPark														// I2		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1794)
+        	has children
+        		RecentlyAbandonedGardenArea													// I2.3 (I2.X marcel)		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/627)
+        	)
+        ),
+        (ConstructedIndustrialAndOtherArtificialHabitat										// J		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/414)
+        has children
+        	(BuildingOfCityTownAndVillage													// J1		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/376)
+        	has children
+        		HighDensityTemporaryResidentialUnit    										// J1.7 (J1.X marcel)		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/2889)
+        	),
+        	(LowDensityBuilding																// J2		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/415)
+        	has children
+        		RuralConstructionDemolitionSities											// J2.7 (J2.X marcel)		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1812)
+        	),
+        	(ExtractiveIndustrialSites														// J3		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1808)
+        	has children
+        		RecentlyAbandonedABoveGroundSpaceOfExctractiveIndustrialSite				// J3.3 (J3.X marcel)		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1810)
+        	),
+        	(TransportNetworkAndOtherConstructedHardSurfacedArea							// J4		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/416)
+        	has children
+        		ConstructedPartOfCementery													// J4.7 (J4.X marcel)		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/2468)
+        	),
+        	(WasteDeposit																	// J6		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1610)
+        	has children
+        		IndustrialWaste																// J6.5 (J6.X marcel)		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/618)
+        	)        	
+        ),
+        (HabitatComplex																		// X		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/5394)
+        has children
+        	RaisedBogComplex,																// X04		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/1722)
+			IntensivelyFarmedCropInterspersedWithStripsOfNaturalOrSemiNaturalVegetation,	// X07		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/358)
+			PastureWoodWwithTreeLayerOverlyingPasture,										// X09		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/531)
+			Bocage,																			// X10		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/395)
+			DomesticGardenOfVillageAndUrbanPeriphery										// X25		--> 	EUNIS 2012 (https://eunis.eea.europa.eu/habitats/2488)
+        	
+        )
+;
+         	

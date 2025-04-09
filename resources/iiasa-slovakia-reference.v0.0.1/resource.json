@@ -1,0 +1,32 @@
+{
+  "urn" : "local:stefano.balbi:esa.aries.sandbox:iiasa-slovakia-reference",
+  "version" : "0.0.1",
+  "adapterType" : "stac",
+  "localPath" : "esa.aries.sandbox/resources/iiasa-slovakia-reference.v0.0.1",
+  "geometry" : "t1{tend=1356825600000,tstart=1325376000000,ttype=logical}s2{bbox=[16.83670991 47.73242752 22.55109662 49.61285669],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "iiasa-slovakia-reference",
+  "type" : "OBJECT",
+  "resourceTimestamp" : 1731680358621,
+  "metadata" : {
+    "im:keywords" : "esa-weeds,terrestrial,freshwater,coastal ecosystem",
+    "dc:comment" : "2012 Slovak V5 Reference Points EUNIS",
+    "dc:title" : "2012 Slovak V5 Reference Points EUNIS",
+    "dc:url" : "https://iiasa.blob.core.windows.net/collections/weeds/slovak_SK_v5_reference-points_EUNIS2012.json"
+  },
+  "parameters" : {
+    "collection" : "https://iiasa.blob.core.windows.net/collections/weeds/slovak_SK_v5_reference-points_EUNIS2012.json",
+    "collectionId" : "slovak_SK_v5_reference-points_EUNIS2012"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}
