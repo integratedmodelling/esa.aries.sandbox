@@ -1,21 +1,30 @@
 {
-  "urn" : "local:alessio.bulckaen:esa.aries.sandbox:esa_weed_norway_weed_test_sites_epsg3035",
+  "urn" : "local:justus.muhando:samples.justus:esa_weed_norway_weed_test_sites_epsg3035",
   "version" : "0.0.1",
   "adapterType" : "wfs",
   "localPath" : "esa.aries.sandbox/resources/esa_weed_norway_weed_test_sites_epsg3035",
-  "geometry" : "#s2(2){bbox=[4088361.4248755346 5560373.851249044 3901239.786601997 5519654.269342266],proj=EPSG:3035}",
+  "geometry" : "s1(2){bbox=[4088361.4248755346 5560373.851249044 3901239.786601997 5519654.269342266],proj=EPSG:3035}",
   "projectName" : "esa.aries.sandbox",
   "localName" : "esa_weed_norway_weed_test_sites_epsg3035",
   "type" : "OBJECT",
-  "resourceTimestamp" : 1739970146696,
+  "resourceTimestamp" : 1739888108348,
   "metadata" : {
     "im:keywords" : "features,norway_weed_test_sites_epsg3035",
-    "dc:title" : "norway_weed_test_sites_epsg3035"
+    "dc:comment" : "",
+    "im:notes" : "",
+    "dc:title" : "norway_weed_test_sites_epsg3035",
+    "dc:url" : "",
+    "dc:creator" : "",
+    "im:thematic-area" : "",
+    "dc:originator" : "",
+    "im:geographic-area" : "",
+    "dc:source" : ""
   },
   "parameters" : {
     "serviceUrl" : "https://integratedmodelling.org/aux-geoserver/esa_weed/ows",
     "wfsVersion" : "1.0.0",
-    "wfsIdentifier" : "esa_weed:norway_weed_test_sites_epsg3035"
+    "wfsIdentifier" : "esa_weed:norway_weed_test_sites_epsg3035",
+    "nameAttribute" : "name"
   },
   "localPaths" : [ ],
   "history" : [ ],

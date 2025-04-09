@@ -1,13 +1,13 @@
 {
-  "urn" : "local:alessio.bulckaen:esa.aries.sandbox:esa_weed_vietnam_weed_test_sites_epsg4326",
+  "urn" : "local:justus.muhando:samples.justus:esa_weed_vietnam_weed_test_sites_epsg4326",
   "version" : "0.0.1",
   "adapterType" : "wfs",
   "localPath" : "esa.aries.sandbox/resources/esa_weed_vietnam_weed_test_sites_epsg4326",
-  "geometry" : "#s2(3){bbox=[104.266208155698 108.554866496474 15.8556061335078 21.5870023342649],proj=EPSG:4326}",
+  "geometry" : "#s1(3){bbox=[104.266208155698 108.554866496474 15.8556061335078 21.5870023342649],proj=EPSG:4326}",
   "projectName" : "esa.aries.sandbox",
   "localName" : "esa_weed_vietnam_weed_test_sites_epsg4326",
   "type" : "OBJECT",
-  "resourceTimestamp" : 1739970146962,
+  "resourceTimestamp" : 1740145127542,
   "metadata" : {
     "im:keywords" : "vietnam_weed_test_sites_epsg4326,features",
     "dc:title" : "vietnam_weed_test_sites_epsg4326"
