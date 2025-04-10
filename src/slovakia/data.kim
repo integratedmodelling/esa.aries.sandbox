@@ -239,6 +239,10 @@ model "local:arnab.moitra:esa.aries.sandbox:test_udp_am1729#synchronous=false&ou
 			slovakia:HabitatComplex if 110000;  
 			
 // The following is for Level 2, with the parameter: eunis_level=2 passed to the UDP
+
+// Implementing the same using Band Mixer is tricky since we are not only finding the class with highest probability but we are doing it in levels. For instance, we need to find the dominant
+// habitat in level1, and then find the dominant habitat in level2 and only among the children of the dominant class in the first level.
+// So, applying the max_band bandmixer over all the layers is not correct. But, this can be done still albeit very specific use in this case. 
 			
 model "local:arnab.moitra:esa.aries.sandbox:test_udp_am1729#synchronous=false&output_warp=true&digitalId=tests/AM1729&eunis_level=2&scenarioId=alpha-1&area_name=E468N306"
 	as type of slovakia:EcosystemEUNIS  
