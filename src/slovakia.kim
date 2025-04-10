@@ -34,11 +34,20 @@ observe earth:Region named slovakia_alpha0
 //    			projection = 'EPSG:4326'),
 //    	    time(start=2021, end=2022, step=1.year);  
 
+
+
+// Note that, here the resolution would be valid as long as max( 214*x/100, 337*x/100) < 2000
+// The reason being, when we are reprojecting the CRS, then we may run into issues since 2000 * 2000 in EPSG:3035 10m Resolution is no more 2000 * 2000 in EPSG:4326
+// This leads to out of bound error
+
+// The other solution might be to support observing contexts in EPSG:3035, as of now we only do so for 4326
+
 observe earth:Region named slovakia_alpha1 
     over space( urn='local:stefano.balbi:esa.aries.sandbox:alpa1_case_studies_grids#fid=53029',
     			grid ='50 m',
     			projection = 'EPSG:4326'),
     	    time(start=2021, end=2022, step=1.year);  
+
 
 /*all bounding boxes */
 //53029	E468N306
