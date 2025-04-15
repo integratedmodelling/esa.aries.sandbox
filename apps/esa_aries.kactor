@@ -32,7 +32,7 @@ checkbutton("Ecosytem Types (EUNIS L1)" #etc): (submit(slovakia.data.eunis2012_e
 checkbutton("Ecosytem Types (EUNIS L2)" #etc): (submit(slovakia.data.eunis2012_et_level2))   
 checkbutton("Ecosytem Types (EUNIS L3)" #etc): (submit(slovakia.data.eunis2012_et_level3))   
 
-separator("Empirical data" :iconname "database-check" )
+separator("Reference data" :iconname "database-check" )
 checkbutton("Ecosytem Types Reference Points" #etc): (submit(slovakia.data.reference_points)) //(observe({im:Reference earth:Location with type of slovakia:EcosystemEUNIS}))  
  
 separator("Alpha 1")
