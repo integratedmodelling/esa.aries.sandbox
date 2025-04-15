@@ -173,7 +173,7 @@ model "local:stefano.balbi:esa.aries.sandbox:openeo.alpha0.eunis#synchronous=tru
 		slovakia:Bocage if 110900,
 		slovakia:DomesticGardenOfVillageAndUrbanPeriphery if 112100;
 		
-model "local:stefano.balbi:esa.aries.sandbox:openeo.alpha0.eunis#true&topology_level=1&topology=EUNIS2012" // 20/01 works in asynch
+model "local:stefano.balbi:esa.aries.sandbox:openeo.alpha0.eunis#synchronous=true&true&topology_level=1&topology=EUNIS2012" // 20/01 works in asynch
 	as type of slovakia:EcosystemEUNIS 
 	named eunis2012_et_level1 
 	classified into
