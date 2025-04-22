@@ -12,7 +12,7 @@ action main:
 separator("Context: where, when" :iconname "earth" )
 
 checkbutton("Test Site Slovakia Alpha 0 (100 m) " #etc): (context(slovakia.slovakia_alpha0))
-checkbutton("Test Site Slovakia Alpha 1 (20 m) " #etc): (context(slovakia.slovakia_alpha1))
+checkbutton("Test Site Slovakia Alpha 1 (10 m) " #etc): (context(slovakia.slovakia_alpha1))
 //combo("Slovakia alpha 0"
 //	  "Slovakia alpha 1") :
 //	  (context(slovakia.slovakia_alpha0)
