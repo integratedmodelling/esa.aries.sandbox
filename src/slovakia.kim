@@ -395,4 +395,9 @@ abstract attribute EcosystemEUNIS
         	
         )
 ;
-         	
+
+abstract attribute EcosystemWEEDL1 is EcosystemEUNIS;
+abstract attribute EcosystemWEEDL2 is EcosystemEUNIS;
+abstract attribute EcosystemOpenEOAlpha1L1 is EcosystemEUNIS;	
+abstract attribute EcosystemOpenEOAlpha1L2 is EcosystemEUNIS;	
+abstract attribute EcosystemOpenEOAlpha1L3 is EcosystemEUNIS;	

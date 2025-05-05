@@ -1,0 +1,39 @@
+{
+  "urn" : "local:arnab.moitra:esa.aries.sandbox:wenr_stac_fw",
+  "version" : "0.0.1",
+  "adapterType" : "stac",
+  "localPath" : "esa.aries.sandbox/resources/wenr_stac_fw.v0.0.1",
+  "geometry" : "t1{ttype=grid}S2",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "wenr_stac_fw",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1746191570178,
+  "metadata" : {
+    "im:keywords" : "climate,soil,population,Europe",
+    "dc:comment" : "Provides pan-European long-term averages on various environmental features including climate, soil characteristics, and population density.",
+    "im:notes" : "",
+    "dc:title" : "Environmental Features (Climate, Soil, Population) 1981-2018, Europe",
+    "dc:url" : "https://catalogue.weed.apex.esa.int/collections/wern_features",
+    "dc:creator" : "",
+    "im:thematic-area" : "",
+    "dc:originator" : "",
+    "im:geographic-area" : "",
+    "dc:source" : ""
+  },
+  "parameters" : {
+    "collection" : "https://catalogue.weed.apex.esa.int/collections/wern_features",
+    "asset" : "Distance_to_inland_water",
+    "collectionId" : "wern_features"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

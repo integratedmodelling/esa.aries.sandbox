@@ -208,8 +208,8 @@ number 'local:stefano.balbi:esa.aries.sandbox:alpha1.inigo#output_warp=true&sync
 // Hence if the order is changed then the semantics needs to change so we need to be mindful of the output_bands param
 // passed in the udp
 
-model "local:stefano.balbi:esa.aries.sandbox:alpha1.inigo#output_warp=true&synchronous=false&area_name=E468N306&onnx_models=https://s3.waw3-1.cloudferro.com/swift/v1/ecdc-waw3-1-ekqouvq3otv8hmw0njzuvo0g4dy0ys8r985n7dggjis3erkpn5o/models/Level1_class-0_129predictors_v1.onnx,&digitalId=tests/ste&output_band_names=Level1_class-0_129predictors_v1_30000,Level1_class-0_129predictors_v1_40000,Level1_class-0_129predictors_v1_50000,Level1_class-0_129predictors_v1_60000,Level1_class-0_129predictors_v1_70000,Level1_class-0_129predictors_v1_80000,Level1_class-0_129predictors_v1_90000,Level1_class-0_129predictors_v1_100000,Level1_class-0_129predictors_v1_110000&scenarioId=alpha-1"
-	as type of slovakia:EcosystemEUNIS  
+model "local:stefano.balbi:esa.aries.sandbox:alpha1.inigo#output_warp=true&show_inputs=true&synchronous=false&area_name=E468N306&onnx_models=https://s3.waw3-1.cloudferro.com/swift/v1/ecdc-waw3-1-ekqouvq3otv8hmw0njzuvo0g4dy0ys8r985n7dggjis3erkpn5o/models/Level1_class-0_129predictors_v1.onnx,&digitalId=tests/ste&output_band_names=Level1_class-0_129predictors_v1_30000,Level1_class-0_129predictors_v1_40000,Level1_class-0_129predictors_v1_50000,Level1_class-0_129predictors_v1_60000,Level1_class-0_129predictors_v1_70000,Level1_class-0_129predictors_v1_80000,Level1_class-0_129predictors_v1_90000,Level1_class-0_129predictors_v1_100000,Level1_class-0_129predictors_v1_110000&scenarioId=alpha-1"
+	as type of slovakia:EcosystemOpenEOAlpha1L1
 		named eunis2012_et_level1_inigo
 		classified into
 			slovakia:InlandSurfaceWater if 0,
@@ -225,7 +225,7 @@ model "local:stefano.balbi:esa.aries.sandbox:alpha1.inigo#output_warp=true&synch
 /*Alpha 1 from integratedmodelling/klab adapters/klab.ogc/src/test/resources/openeo/udp_inference_eunis_l1.json (Arnab)*/
 
 model "local:arnab.moitra:esa.aries.sandbox:test_udp_am1729#synchronous=false&output_warp=true&digitalId=tests/AM1729&eunis_level=1&scenarioId=alpha-1&area_name=E468N306"
-	as type of slovakia:EcosystemEUNIS  
+	as type of slovakia:EcosystemOpenEOAlpha1L1 
 		named eunis2012_et_level1_arnab
 		classified into
 			slovakia:InlandSurfaceWater if 30000,
@@ -245,7 +245,7 @@ model "local:arnab.moitra:esa.aries.sandbox:test_udp_am1729#synchronous=false&ou
 // So, applying the max_band bandmixer over all the layers is not correct. But, this can be done still albeit very specific use in this case. 
 			
 model "local:arnab.moitra:esa.aries.sandbox:test_udp_am1729#synchronous=false&output_warp=true&digitalId=tests/AM1729&eunis_level=2&scenarioId=alpha-1&area_name=E468N306"
-	as type of slovakia:EcosystemEUNIS  
+	as type of slovakia:EcosystemOpenEOAlpha1L2
 		named eunis2012_et_level2_arnab
 		classified into
 			slovakia:InlandSurfaceWater if 30000,
@@ -294,3 +294,27 @@ model "local:arnab.moitra:esa.aries.sandbox:test_udp_am1729#synchronous=false&ou
 		slovakia:PastureWoodWwithTreeLayerOverlyingPasture if 110800,
 		slovakia:Bocage if 110900,
 		slovakia:DomesticGardenOfVillageAndUrbanPeriphery if 112100;
+		
+		
+// Import Fireworks Resources from VITO STAC
+model "local:arnab.moitra:esa.aries.sandbox:wenr_stac_fw" as distance to earth:Region landcover:InlandWaterBody in m;
+model "local:arnab.moitra:esa.aries.sandbox:wenr_stac_pop_den" as im:Density of ecology:Population
+	over time(year=2018);
+	
+	
+// Observing Habitat Types with Fireworks
+model type of slovakia:EcosystemWEEDL1
+	observing
+		 distance to earth:Region landcover:InlandWaterBody,
+		 im:Density of ecology:Population,
+		 type of slovakia:EcosystemOpenEOAlpha1L1  named udp // 2 mondels with exact same semantics with no geo, time constraints, Engine picks the top one
+	set to [udp];
+	
+model type of slovakia:EcosystemWEEDL2
+	observing
+		 distance to earth:Region landcover:InlandWaterBody,
+		 im:Density of ecology:Population,
+		 type of slovakia:EcosystemOpenEOAlpha1L2  named udp
+	set to [udp];
+		
+
