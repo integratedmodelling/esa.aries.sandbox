@@ -1,0 +1,8 @@
+private namespace data;
+
+//Resources from VITO STAC
+
+model "local:arnab.moitra:esa.aries.sandbox:wenr_stac_fw" as distance to earth:Region landcover:InlandWaterBody in m;
+
+model "local:arnab.moitra:esa.aries.sandbox:wenr_stac_pop_den" as im:Density of ecology:Population
+	over time(year=2018);

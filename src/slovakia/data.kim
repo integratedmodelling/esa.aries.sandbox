@@ -314,7 +314,8 @@ model type of slovakia:EcosystemWEEDL2
 	observing
 		 distance to earth:Region landcover:InlandWaterBody,
 		 im:Density of ecology:Population,
-		 type of slovakia:EcosystemOpenEOAlpha1L2  named udp
+//		 type of slovakia:EcosystemOpenEOAlpha1L2  //type of nca.ecosystem.eunis:Ecosystem
+		 geography:Elevation named udp
 	set to [udp];
 		
 
