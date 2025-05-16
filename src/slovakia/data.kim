@@ -295,8 +295,7 @@ model "local:arnab.moitra:esa.aries.sandbox:test_udp_am1729#synchronous=false&ou
 		slovakia:Bocage if 110900,
 		slovakia:DomesticGardenOfVillageAndUrbanPeriphery if 112100;
 		
-		
-// Import Fireworks 
+
 	
 	
 // Observing Habitat Types with Fireworks

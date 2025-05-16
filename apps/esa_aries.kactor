@@ -29,4 +29,4 @@ checkbutton("IUCN GET Classification" #etc): (submit(namespace.model_et_colombia
 checkbutton("Local Classifications" #etc): (submit(namespace.model_et_others))       //For SA and Vietnam which output //T2@Alessio to propose
 // can specify levels of classifications
 // we trigger secondary observations with primary output
-
+checkbutton("test" #etc): (submit(data.xxx) observe({geography:Elevation}, (submit(namespace.model_et_colombia)))) // , per la consequenzialita 
