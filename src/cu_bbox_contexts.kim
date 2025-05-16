@@ -3,7 +3,7 @@ private namespace cu_bbox_contexts;
 //contexts for champion user areas
 
 //EU
-//norway
+//Norway BB:E434N406
 observe earth:Region named norway_cu_osloviken_no1_bbox
     over space(shape='MULTIPOLYGON (((10.33605515635972161 59.64022587925818897, 10.33782835319286875 59.82018013427450143, 10.69342042793710235 59.81887296857946978, 10.68978101565575756 59.63892646636587358, 10.33605515635972161 59.64022587925818897)))',
     		grid="100 m",
@@ -11,14 +11,14 @@ observe earth:Region named norway_cu_osloviken_no1_bbox
     time(start=2024, end=2025, step=1.year);  
 
 
-//czech
+//Czech BB:E462N298 
 observe earth:Region named czech_cu_transectmidwe_cz8_bbox
     over space(shape='MULTIPOLYGON (((14.16002074301924196 49.85628295978061431, 14.17563503219959742 50.03578204905132054, 14.45433961651696464 50.025213141661375, 14.43768944750776484 49.84575945005575193, 14.16002074301924196 49.85628295978061431)))',
     		grid="100 m",
     		projection="EPSG:4326"),
     time(start=2024, end=2025, step=1.year); 
 
-//greece
+//Greece BB:E530N178
 observe earth:Region named greece_cu_sterea_el9_bbox
     over space(shape='MULTIPOLYGON (((21.1857227101401584 38.45677635197927202, 21.21586101519590173 38.63595447103879366, 21.44230045904840409 38.60911592768326273, 21.41157783663824432 38.43002109042780745, 21.1857227101401584 38.45677635197927202)))',
     		grid="100 m",

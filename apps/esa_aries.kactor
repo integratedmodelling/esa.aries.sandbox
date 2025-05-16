@@ -3,39 +3,30 @@ public app esa.aries
 	version 1.0alpha
 	description #ARIES_FOR_ESA_EXPLORER_DESCRIPTION
 	logo static/images/esa_logo.png
-	versionstring "Demonstration version"
+	versionstring "Demonstration version (Alpha 2)"
 	style dark
 
 @left(width=450)
 action main:
 
-separator("Context: where, when" :iconname "earth" )
+separator("Context: where, when (2024) " :iconname "earth" )
 
-checkbutton("Test Site Slovakia Alpha 0 (100 m) " #etc): (context(slovakia.slovakia_alpha0))
-checkbutton("Test Site Slovakia Alpha 1 (10 m) " #etc): (context(slovakia.slovakia_alpha1))
-//combo("Slovakia alpha 0"
-//	  "Slovakia alpha 1") :
-//	  (context(slovakia.slovakia_alpha0)
-//	   context(slovakia.slovakia_alpha1)	
-//	  )
-//combo context always pick the same one
-
-//button(#all "all 20x20 grids" :iconname "cases" ) : (submit(slovakia.all_cases))	  
-button(#reset2 "Reset" :iconname "restart" ):(
-			context(:reset))
-			
-separator("Alpha 0")
-separator("Variables" :iconname "sprout-outline" )
-
-//checkbutton("Ecosytem Types (EUNIS) raw data" #etc): (submit(slovakia.data.eunis2012_et_numeric_test))  
-checkbutton("Ecosytem Types (EUNIS L1)" #etc): (submit(slovakia.data.eunis2012_et_level1))   
-checkbutton("Ecosytem Types (EUNIS L2)" #etc): (submit(slovakia.data.eunis2012_et_level2))   
-checkbutton("Ecosytem Types (EUNIS L3)" #etc): (submit(slovakia.data.eunis2012_et_level3))   
-
-separator("Reference data" :iconname "database-check" )
-checkbutton("Ecosytem Types Reference Points" #etc): (submit(slovakia.data.reference_points)) //(observe({im:Reference earth:Location with type of slovakia:EcosystemEUNIS}))  
+checkbutton("Norway NO1 BB:E434N406 (100 m) " #etc): (context(cu_bbox_contexts.norway_cu_osloviken_no1_bbox))
+checkbutton("Czech CZ1 BB:E462N298 (100 m) " #etc): (context(cu_bbox_contexts.czech_cu_transectmidwe_cz8_bbox))
+checkbutton("Greece EL9 BB:E530N178 (100 m) " #etc): (context(cu_bbox_contexts.greece_cu_sterea_el9_bbox))
+checkbutton("SouthAfrica SA9 BB:34δEH33 (100 m) " #etc): (context(cu_bbox_contexts.south_africa_cu_groenfontein_sa9_bbox))
+checkbutton("Vietnam VN1 BB:48πYJ11 (100 m) " #etc): (context(cu_bbox_contexts.vietnam_cu_quangninh_vn1_bbox))
+checkbutton("Colombia CO1 BB:18λWQ22 (100 m) " #etc): (context(cu_bbox_contexts.colombia_cu_mojana_co1_bbox))
  
-separator("Alpha 1")
-checkbutton("Ecosystem Types Model (EUNIS L1 band mixer: max)"): (submit(slovakia.data.eunis2012_et_level1_inigo))   
-checkbutton("Ecosystem Types Model (EUNIS L1 with BC3 UDP)"): (submit(slovakia.data.eunis2012_et_level1_arnab))  
-checkbutton("Ecosystem Types Model (EUNIS L2 with BC3 UDP)"): (submit(slovakia.data.eunis2012_et_level2_arnab))  
+button(#reset2 "Reset" :iconname "restart" ):(
+			context(:reset)) //T1@enrico: uncheck the boxes above when reset
+
+			
+separator("Alpha 2 functionalities")
+separator("Query Ecosystem Types according to:" :iconname "sprout-outline" )
+checkbutton("EUNIS2021Plus Classification" #etc): (submit(namespace.model_alpha2_udp)) //T2@enrico: only available for the first 3 contexts (EU)
+checkbutton("IUCN GET Classification" #etc): (submit(namespace.model_et_colombia))     //T3@enrico: only available for Colombia //T1@Alessio make sure rule-based works
+checkbutton("Local Classifications" #etc): (submit(namespace.model_et_others))       //For SA and Vietnam which output //T2@Alessio to propose
+// can specify levels of classifications
+// we trigger secondary observations with primary output
+
