@@ -1,13 +1,22 @@
-private namespace data;
+project private namespace data;
 
-//Resources from VITO STAC @todo add a way to handle nodata in resource editor
+//Resources from VITO STAC 
+@todo //add a way to handle nodata in resource editor 
 
+// WENR datacubes https://browser.weed.apex.esa.int/collections/wern_features
 
-
-model "local:arnab.moitra:esa.aries.sandbox:wenr_stac_pop_den" as im:Density of ecology:Population named population_density //15 sec
+model "local:arnab.moitra:esa.aries.sandbox:wenr_stac_pop_den" as count of demography:HumanIndividual named population_density //15 sec
 		set to [ (self == -2147483647) ? unknown : self ]; 
 //	over time(year=2018);
 
-model "local:arnab.moitra:esa.aries.sandbox:wenr_stac_fw" as distance to earth:Region landcover:InlandWaterBody in m named xdistance //55 sec
+model "local:arnab.moitra:esa.aries.sandbox:wenr_stac_fw" as distance to earth:Region landcover:InlandWaterBody in m named distance_to_inland_water_body //55 sec
 		set to [ (self == -9999 ) ? unknown : self ]; 
+		
+model 'local:stefano.balbi:esa.aries.sandbox:Climate_Annual_Precipitation_CHELSAbio12' as earth:RainfallVolume in mm/day
+		set to [ (self == -9999 ) ? unknown : self ]; 		 
 
+model 'local:stefano.balbi:esa.aries.sandbox:SoilOrganicCarbonTopsoil' as percentage of chemistry:Carbon in soil:TopSoil im:Mass
+		set to [ (self == -32439 ) ? unknown : self*0.1 ];
+
+
+// datacubes from https://browser.weed.apex.esa.int/collections/ecosystem-characteristics-alpha2-1 
