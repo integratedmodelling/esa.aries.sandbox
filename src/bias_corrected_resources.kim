@@ -5,10 +5,10 @@ private namespace bias_corrected_resources;
  * https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2FiCCI
  */
 
-model 'layer1992',
-	//...
-	  'layer2020'
-	as landcover:LandCoverType named bias_corrected_esa_cci_landcover classified according to im:esa-cci;
+//model 'layer1992',
+//	//...
+//	  'layer2020'
+//	as landcover:LandCoverType named bias_corrected_esa_cci_landcover classified according to im:esa-cci;
 
 
 
@@ -21,14 +21,14 @@ model 'layer1992',
 
 
 //permanent
-model 'layer1992',
-	//...
-	  'layer2020'
-	as occurrence of hydrology:Permanent earth:WaterBody  named bias_corrected_permanent_water;
+//model 'layer1992',
+//	//...
+//	  'layer2020'
+//	as occurrence of hydrology:Permanent earth:WaterBody  named bias_corrected_permanent_water;
 
 //seasonal
-model 'layer1992',
-	//...
-	  'layer2020'
-	as occurrence of hydrology:Seasonal earth:WaterBody  named bias_corrected_permanent_water;
+//model 'layer1992',
+//	//...
+//	  'layer2020'
+//	as occurrence of hydrology:Seasonal earth:WaterBody  named bias_corrected_permanent_water;
  

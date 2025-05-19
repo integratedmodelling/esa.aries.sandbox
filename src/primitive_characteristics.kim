@@ -1,6 +1,6 @@
 private namespace primitive_characteristics
-//using nca.ecosystem.iucn, nca.landuse.ipcc
-;  
+using nca.ecosystem.iucn, nca.landuse.ipcc
+;    
 
 observe earth:Region named colombia_test_area 
     over space(urn='local:inigo-cobian:esa.aries.sandbox:priority_areas.colombia',
@@ -42,10 +42,10 @@ model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.a_0104_probability
 //model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_0104_20180000_1km
 //	as occurrence of nca.ecosystem.iucn:BorealTemperateMontaneForestWoodland earth:Region;
 	 
-model '' as presence of ecology.incubation:IceSheetGlacierPermanentSnowfield earth:Region;
+model 'local:arnab.moitra:esa.aries.sandbox:wenr_stac_fw' as presence of ecology.incubation:IceSheetGlacierPermanentSnowfield earth:Region;
 //'https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2Fclimate' 
 
-model '' as count of chemistry:Fire;	
+model 'local:arnab.moitra:esa.aries.sandbox:wenr_stac_fw' as count of chemistry:Fire;	
 //https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2Fclimate
 //'https://github.com/macroecology-society/data-catalog/blob/main/docs/posts/fireRegime/fireRegime.yml'  
 
@@ -55,21 +55,21 @@ model '' as count of chemistry:Fire;
  * https://github.com/macroecology-society/data-catalog/blob/main/docs/posts/GFPLAIN/GFPLAIN.yml
  * 
  */
- model '' as presence of hydrology:Floodplain;
+ model 'local:arnab.moitra:esa.aries.sandbox:wenr_stac_fw' as presence of hydrology:Floodplain;
 
 /*
  * Global per-pixel counts of human populations
  * https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2FGHS
  */
 
-model '' as count of demography:HumanIndividual;
+model 'local:arnab.moitra:esa.aries.sandbox:wenr_stac_fw' as count of demography:HumanIndividual;
 
 /*
  * High-resolution geomorphological variables
  * https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2FGM90
  */
 
-model '' as earth:GeoFormation;
+//model 'local:arnab.moitra:esa.aries.sandbox:wenr_stac_fw' as earth:GeoFormation;
 
 /*thing GeoFormation is Terrestrial Region
 	"Geomorphon classification as is. If possible should be kept as a fully
@@ -93,8 +93,8 @@ model '' as earth:GeoFormation;
  * https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2FGME	
  */
 
-model '' as presence of earth:Mountain; //
-model '' as geography:Elevation in m;
+//model '' as presence of earth:Mountain; //
+model 'local:arnab.moitra:esa.aries.sandbox:wenr_stac_fw' as geography:Elevation in m;    
 
 /*
  * Bias-corrected land cover maps based on the CCI land cover dataset
@@ -108,7 +108,7 @@ model '' as geography:Elevation in m;
  * https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2FiGFC	
  */
 
-model '' as ecology:CanopyCover;
+model 'local:arnab.moitra:esa.aries.sandbox:wenr_stac_fw' as ecology:CanopyCover;
 
 /*
  * Maps distinguishing the year of establishment of various land uses
@@ -117,18 +117,18 @@ model '' as ecology:CanopyCover;
  * https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2FlandUse
  */
 
-model '' as presence of nca.ecosystem.iucn:Plantation earth:Region;
-model '' as presence of agriculture:Pasture earth:Region;
-model '' as presence of infrastructure:Mine;
-model '' as presence of infrastructure:Reservoir;
-model '' as presence of
+model 'local:arnab.moitra:esa.aries.sandbox:wenr_stac_fw' as presence of nca.ecosystem.iucn:Plantation earth:Region;
+model 'local:arnab.moitra:esa.aries.sandbox:wenr_stac_fw' as presence of agriculture:Pasture earth:Region;
+model 'local:arnab.moitra:esa.aries.sandbox:wenr_stac_fw' as presence of infrastructure:Mine;
+model 'local:arnab.moitra:esa.aries.sandbox:wenr_stac_fw' as presence of infrastructure:Reservoir;
+//model 'local:arnab.moitra:esa.aries.sandbox:wenr_stac_fw' as presence of
 
 /*
  * Linear distance to the ocean.
  * https://uni-bonn.sciebo.de/s/VQ0LX1gLlPvC9fs/?path=%2FGlobES%2Fdata00%2FlinearDistance
  * 
  */
-model '' as distance to earth:Ocean in m;
+model 'local:arnab.moitra:esa.aries.sandbox:wenr_stac_fw' as distance to earth:Ocean in m;
   
 /*
  * Mask of pixels submerged through low-/high-tide based on tidal amplitudes.
@@ -136,7 +136,7 @@ model '' as distance to earth:Ocean in m;
  * 
  */
 
-model '' as presence of hydrology:Tidal earth:Region;
+model 'local:arnab.moitra:esa.aries.sandbox:wenr_stac_fw' as presence of hydrology:Tidal earth:Region;
 
 /*
  * Distinction of pixels likely to be savannas and rangelands
@@ -149,9 +149,9 @@ model '' as presence of hydrology:Tidal earth:Region;
  * Types of rangelands include tallgrass and shortgrass prairies, desert grasslands and shrublands, woodlands, savannas, chaparrals, steppes, and tundras.
  */
 
-model '' as occurrence of  nca.landuse.ipcc:Grassland earth:Region;
-model '' as im:Damaged ecology:Forest earth:Region;
-model '' as not conservation:Pristine ecology:Forest earth:Region;
+model 'local:arnab.moitra:esa.aries.sandbox:wenr_stac_fw' as occurrence of  nca.landuse.ipcc:Grassland earth:Region;
+//model 'local:arnab.moitra:esa.aries.sandbox:wenr_stac_fw' as im:Damaged ecology:Forest earth:Region;
+//model 'local:arnab.moitra:esa.aries.sandbox:wenr_stac_fw' as not conservation:Pristine ecology:Forest earth:Region; 
 
 /*
  * Gridded soil database (soilGrids)  
@@ -186,6 +186,6 @@ Then, there are interactions with other ecosystems that limit the extent of temp
 time-series vegetation continuous fields (to distinguish long-term trends in deforestation or tree growth)
 Plantation maps (from IIASA)
 Land cover on agriculture
-Elevation and slope
+Elevation and slope 
 Impervious cover
  */	 	 

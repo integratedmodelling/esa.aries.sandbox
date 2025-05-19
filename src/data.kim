@@ -2,15 +2,17 @@ private namespace data;
 
 //Resources from VITO STAC
 
-model "local:arnab.moitra:esa.aries.sandbox:wenr_stac_fw" as distance to earth:Region landcover:InlandWaterBody in m named xxx;
+model "local:arnab.moitra:esa.aries.sandbox:wenr_stac_fw" as distance to earth:Region landcover:InlandWaterBody in m
+		set to [ (self == -2147483647) ? unknown : self ]; //add a way to handle nodata
+
 
 model "local:arnab.moitra:esa.aries.sandbox:wenr_stac_pop_den" as im:Density of ecology:Population named population_density;
 //	over time(year=2018);
 	
-model type of slovakia:EcosystemWEEDL2
-	observing
-		 distance to earth:Region landcover:InlandWaterBody,
-		 im:Density of ecology:Population,
-		 geography:Elevation named udp ///type of nca.ecosystem.eunis:Ecosystem --> hook to alpha 2 udp
-	set to [udp];
-	
+//model type of slovakia:EcosystemWEEDL2
+//	observing
+//		 distance to earth:Region landcover:InlandWaterBody,
+//		 im:Density of ecology:Population,
+//		 geography:Elevation named udp ///type of nca.ecosystem.eunis:Ecosystem --> hook to alpha 2 udp
+//	set to [udp];
+//	
