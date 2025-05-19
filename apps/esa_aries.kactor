@@ -30,4 +30,5 @@ checkbutton("Local Classifications" #etc): (submit(namespace.model_et_others))  
 // can specify levels of classifications
 
 // to trigger multiple observations with primary output
-checkbutton("test" #etc): (submit(data.xxx) observe({geography:Elevation}, (submit(namespace.model_et_colombia)))) // , per la consequenzialita 
+checkbutton("test2" #etc): (submit(data.population_density, data.xdistance))  //(submit(data.population_density))) // , for sequentiality
+//checkbutton("test" #etc): (submit(data.xdistance) observe({geography:Elevation}, (submit(namespace.model_et_colombia))))  

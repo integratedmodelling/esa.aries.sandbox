@@ -8,6 +8,6 @@ model "local:arnab.moitra:esa.aries.sandbox:wenr_stac_pop_den" as im:Density of 
 		set to [ (self == -2147483647) ? unknown : self ]; 
 //	over time(year=2018);
 
-model "local:arnab.moitra:esa.aries.sandbox:wenr_stac_fw" as distance to earth:Region landcover:InlandWaterBody in m //55 sec
+model "local:arnab.moitra:esa.aries.sandbox:wenr_stac_fw" as distance to earth:Region landcover:InlandWaterBody in m named xdistance //55 sec
 		set to [ (self == -9999 ) ? unknown : self ]; 
 
