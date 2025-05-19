@@ -41,7 +41,7 @@ observe earth:Region named south_africa_cu_groenfontein_sa9_bbox
 //name of grid in the gpkg data shared by VITO 48πYJ11
 observe earth:Region named vietnam_cu_quangninh_vn1_bbox
     over space(shape='MULTIPOLYGON (((107.31105404674208614 21.14552364702679199, 107.3082667544684341 20.96495940596442864, 107.11601479416913207 20.96745535956352668, 107.118570379549368 21.14804310085878214, 107.31105404674208614 21.14552364702679199)))',
-    		grid="100 m",
+    		grid="30 m",
     		projection="EPSG:4326"),
     		time(year = 2024);
 //    time(start=2024, end=2025, step=1.year);
