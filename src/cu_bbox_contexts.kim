@@ -8,7 +8,8 @@ observe earth:Region named norway_cu_osloviken_no1_bbox
     over space(shape='MULTIPOLYGON (((10.33605515635972161 59.64022587925818897, 10.33782835319286875 59.82018013427450143, 10.69342042793710235 59.81887296857946978, 10.68978101565575756 59.63892646636587358, 10.33605515635972161 59.64022587925818897)))',
     		grid="100 m",
     		projection="EPSG:4326"),
-    time(start=2024, end=2025, step=1.year);  
+    		time(year = 2024);
+//    time(start=2024, end=2025, step=1.year);  
 
 
 //Czech BB:E462N298 
