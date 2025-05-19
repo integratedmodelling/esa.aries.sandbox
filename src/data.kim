@@ -1,7 +1,7 @@
 project private namespace data;
 
 //Resources from VITO STAC 
-@todo //add a way to handle nodata in resource editor 
+@todo //add a way to handle nodata in resource editor // check projects and alignment with basemap
 
 // WENR datacubes https://browser.weed.apex.esa.int/collections/wern_features
 
@@ -12,10 +12,10 @@ model "local:arnab.moitra:esa.aries.sandbox:wenr_stac_pop_den" as count of demog
 model "local:arnab.moitra:esa.aries.sandbox:wenr_stac_fw" as distance to earth:Region landcover:InlandWaterBody in m named distance_to_inland_water_body //55 sec
 		set to [ (self == -9999 ) ? unknown : self ]; 
 		
-model 'local:stefano.balbi:esa.aries.sandbox:Climate_Annual_Precipitation_CHELSAbio12' as earth:RainfallVolume in mm/day
+model 'local:stefano.balbi:esa.aries.sandbox:Climate_Annual_Precipitation_CHELSAbio12' as earth:RainfallVolume in mm/day named annual_precipitation //3 min 49 sec
 		set to [ (self == -9999 ) ? unknown : self ]; 		 
 
-model 'local:stefano.balbi:esa.aries.sandbox:SoilOrganicCarbonTopsoil' as percentage of chemistry:Carbon in soil:TopSoil im:Mass
+model 'local:stefano.balbi:esa.aries.sandbox:SoilOrganicCarbonTopsoil' as percentage of chemistry:Carbon in soil:TopSoil im:Mass named organic_carbon_concentration_topsoil
 		set to [ (self == -32439 ) ? unknown : self*0.1 ];
 
 
