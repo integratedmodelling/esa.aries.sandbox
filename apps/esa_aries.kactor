@@ -31,4 +31,4 @@ checkbutton("Local Classifications" #etc): (submit(namespace.model_et_others))  
 
 // to trigger multiple observations with primary output
 checkbutton("test1" #etc): (submit(data.population_density) : submit(data.organic_carbon_concentration_topsoil) : submit(data.distance_to_inland_water_body) : submit(data.annual_precipitation)) //  :  for sequentiality --> seems to be respected
-checkbutton("test2" #etc): (submit(data.population_density) : observe({geography:Elevation}) : observe({earth:RainfallVolume in mm/day}))   
+checkbutton("test2" #etc): (submit(data.population_density) : observe({geography:Elevation}) : observe({earth:RainfallVolume in mm}))  //picks correctly rainfall volume from data namespace in this project 
