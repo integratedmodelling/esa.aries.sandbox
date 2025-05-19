@@ -1,6 +1,11 @@
 private namespace rules_based_modelling
 using nca.ecosystem.iucn;
 
+model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cu_glc_fcs30d_landcover_epsg4326_30m_2020,
+	local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cu_glc_fcs30d_landcover_epsg4326_30m_2021,
+	local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cu_glc_fcs30d_landcover_epsg4326_30m_2022
+	as landcover:LandCoverType classified according to im:essd-enconding;
+
 abstract attribute PlantedForest has children
 	TimberPlantation,
 	OilPalmPlantation,
