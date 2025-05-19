@@ -30,5 +30,6 @@ checkbutton("Local Classifications" #etc): (submit(namespace.model_et_others))  
 // can specify levels of classifications
 
 // to trigger multiple observations with primary output
-checkbutton("test1" #etc): (submit(data.population_density) : submit(data.organic_carbon_concentration_topsoil) : submit(data.distance_to_inland_water_body) : submit(data.annual_precipitation)) //  :  for sequentiality --> seems to be respected
-checkbutton("test2" #etc): (submit(data.population_density) : observe({geography:Elevation}) : observe({earth:RainfallVolume in mm}))  //picks correctly rainfall volume from data namespace in this project 
+checkbutton("test1: sequential calls" #etc): (submit(data.population_density) : submit(data.organic_carbon_concentration_topsoil) : submit(data.distance_to_inland_water_body) : submit(data.annual_precipitation)) //  :  for sequentiality --> seems to be respected
+checkbutton("test2: concept resolution" #etc): (submit(data.population_density) : observe({geography:Elevation}) : observe({percentage of chemistry:Carbon in soil:TopSoil im:Mass }))  //picks correctly local concept from data namespace in this project 
+checkbutton("test3: with dependencies" #etc): (submit(data.test3))  // primary output with secondary observation but seems slower than test 1
