@@ -16,30 +16,30 @@ separator("Context: where, when (2024) " :iconname "earth" )
 		obs1.enable
 		context(cu_bbox_contexts.norway_cu_osloviken_no1_bbox_32tnm41)
 	): 
-	checkbutton("Czech CZ1 BB:33dVR21 (100 m) " #ctx2): (
+	checkbutton("Czech CZ1 BB:33δVR21 (100 m) " #ctx2): (
 		disable_ctxs
 		obs1.enable
 		context(cu_bbox_contexts.czech_cu_transectmidwe_cz8_bbox_33dvr21)
-	)checkbutton("Greece EL9 BB:E530N178 (100 m) " #ctx3): (
+	)checkbutton("Greece EL9 BB:34δEH13 (100 m) " #ctx3): (
 		disable_ctxs
 		obs1.enable
-		context(cu_bbox_contexts.greece_cu_sterea_el9_bbox)
+		context(cu_bbox_contexts.greece_cu_sterea_el9_bbox_34deh13)
 	)
 	checkbutton("SouthAfrica SA9 BB:34δEH33 (100 m) " #ctx4): (
 		disable_ctxs
 		obs3.enable
-		context(cu_bbox_contexts.south_africa_cu_groenfontein_sa9_bbox)
+		context(cu_bbox_contexts.south_africa_cu_groenfontein_sa9_bbox_34deh33)
 	)
 	checkbutton("Vietnam VN1 BB:48πYJ11 (100 m) " #ctx5): (
 		disable_ctxs
 		obs3.enable
-		context(cu_bbox_contexts.vietnam_cu_quangninh_vn1_bbox)
+		context(cu_bbox_contexts.vietnam_cu_quangninh_vn1_bbox_48pyj11)
 	)
-	checkbutton("Colombia CO1 BB:18λWQ22 (100 m) " #ctx6): (
+	checkbutton("Colombia CO1 BB:18λWQ22 (30 m) " #ctx6): (
 		disable_ctxs
 		obs2.enable
 		obs3.enable 
-		context(cu_bbox_contexts.colombia_cu_mojana_co1_bbox)
+		context(cu_bbox_contexts.colombia_cu_mojana_co1_bbox_18lwq22)
 	)
 
 	(
@@ -54,7 +54,7 @@ separator("Context: where, when (2024) " :iconname "earth" )
 		(
 			checkbutton("EUNIS2021Plus Classification" #obs1 :disabled): (submit(namespace.model_alpha2_udp)) 
 			checkbutton("IUCN GET Classification" #obs2 :disabled): observe({nca.ecosystem.iucn:EcosystemType})    //T1@Alessio make sure rule-based works
-			checkbutton("Local Classifications" #obs3 :disabled): (submit(dane.seea.aries.colombia.ecosystem.modelled_colombian_ecosystem_type)) //observe({type of ModelledColombianEcosystem})  // (submit(namespace.model_et_others))       //For SA and Vietnam which output //T2@Alessio to propose
+			checkbutton("Local Classifications" #obs3 :disabled): (submit(aries.colombia.ecosystem.modelled_colombian_ecosystem_type)) //observe({type of ModelledColombianEcosystem})  // (submit(namespace.model_et_others))       //For SA and Vietnam which output //T2@Alessio to propose
 			// can specify levels of classifications
 			
 			// to trigger multiple observations with primary output
