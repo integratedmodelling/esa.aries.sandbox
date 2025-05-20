@@ -51,8 +51,8 @@ separator("Context: where, when (2024) " :iconname "earth" )
 	(
 		separator("Query Ecosystem Types according to:" :iconname "sprout-outline" )
 		(
-			checkbutton("EUNIS2021Plus Classification" #obs1 :disabled): (submit(namespace.model_alpha2_udp)) //T2@enrico: only available for the first 3 contexts (EU)
-			checkbutton("IUCN GET Classification" #obs2 :disabled): (submit(namespace.model_et_colombia))     //T3@enrico: only available for Colombia //T1@Alessio make sure rule-based works
+			checkbutton("EUNIS2021Plus Classification" #obs1 :disabled): (submit(namespace.model_alpha2_udp)) 
+			checkbutton("IUCN GET Classification" #obs2 :disabled): (submit(namespace.model_et_colombia))    //T1@Alessio make sure rule-based works
 			checkbutton("Local Classifications" #obs3 :disabled): (submit(namespace.model_et_others))       //For SA and Vietnam which output //T2@Alessio to propose
 			// can specify levels of classifications
 			
