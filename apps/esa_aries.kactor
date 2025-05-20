@@ -38,6 +38,7 @@ separator("Context: where, when (2024) " :iconname "earth" )
 	checkbutton("Colombia CO1 BB:18λWQ22 (100 m) " #ctx6): (
 		disable_ctxs
 		obs2.enable
+		obs3.enable 
 		context(cu_bbox_contexts.colombia_cu_mojana_co1_bbox)
 	)
 
@@ -52,8 +53,8 @@ separator("Context: where, when (2024) " :iconname "earth" )
 		separator("Query Ecosystem Types according to:" :iconname "sprout-outline" )
 		(
 			checkbutton("EUNIS2021Plus Classification" #obs1 :disabled): (submit(namespace.model_alpha2_udp)) 
-			checkbutton("IUCN GET Classification" #obs2 :disabled): (submit(namespace.model_et_colombia))    //T1@Alessio make sure rule-based works
-			checkbutton("Local Classifications" #obs3 :disabled): (submit(namespace.model_et_others))       //For SA and Vietnam which output //T2@Alessio to propose
+			checkbutton("IUCN GET Classification" #obs2 :disabled): observe({nca.ecosystem.iucn:EcosystemType})    //T1@Alessio make sure rule-based works
+			checkbutton("Local Classifications" #obs3 :disabled): (submit(dane.seea.aries.colombia.ecosystem.modelled_colombian_ecosystem_type)) //observe({type of ModelledColombianEcosystem})  // (submit(namespace.model_et_others))       //For SA and Vietnam which output //T2@Alessio to propose
 			// can specify levels of classifications
 			
 			// to trigger multiple observations with primary output
