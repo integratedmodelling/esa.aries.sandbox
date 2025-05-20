@@ -1,18 +1,34 @@
-private namespace data;
+project private namespace data;
 
-//Resources from VITO STAC
+//Resources from VITO STAC 
+@todo //add a way to handle nodata in resource editor // check projects and alignment with basemap
 
-model "local:arnab.moitra:esa.aries.sandbox:wenr_stac_fw" as distance to earth:Region landcover:InlandWaterBody in m
-		set to [ (self == -2147483647) ? unknown : self ]; //add a way to handle nodata
+// WENR datacubes https://browser.weed.apex.esa.int/collections/wern_features
 
-
-model "local:arnab.moitra:esa.aries.sandbox:wenr_stac_pop_den" as im:Density of ecology:Population named population_density;
+model "local:arnab.moitra:esa.aries.sandbox:wenr_stac_pop_den" as count of demography:HumanIndividual named population_density //15 sec
+		set to [ (self == -2147483647) ? unknown : self ]; 
 //	over time(year=2018);
-	
-//model type of slovakia:EcosystemWEEDL2
-//	observing
-//		 distance to earth:Region landcover:InlandWaterBody,
-//		 im:Density of ecology:Population,
-//		 geography:Elevation named udp ///type of nca.ecosystem.eunis:Ecosystem --> hook to alpha 2 udp
-//	set to [udp];
-//	
+ 
+
+model "local:arnab.moitra:esa.aries.sandbox:wenr_stac_fw" as distance to earth:Region landcover:InlandWaterBody in m named distance_to_inland_water_body //55 sec
+		set to [ (self == -9999 ) ? unknown : self ]; 
+		       
+model 'local:stefano.balbi:esa.aries.sandbox:SoilOrganicCarbonTopsoil' as percentage of chemistry:Carbon in soil:TopSoil im:Mass named organic_carbon_concentration_topsoil //1 min 16 sec
+		set to [ (self == -32439 ) ? unknown : self*0.1 ];
+
+number 'local:stefano.balbi:esa.aries.sandbox:Climate_Annual_Precipitation_CHELSAbio12' as annual_precipitation //3 min 49 sec
+		set to [ (self == -9999 ) ? unknown : self ]; 	 	       
+
+//test one model with secondary observations //seems much slower... but separation between primary and secondary is clear
+model geography:Slope named test3
+//type of slovakia:EcosystemWEEDL2
+	observing
+		 population_density,
+		 distance to earth:Region landcover:InlandWaterBody in m, 
+		 annual_precipitation,        
+//		 type of slovakia:EcosystemOpenEOAlpha1L2  //type of nca.ecosystem.eunis:Ecosystem
+		 geography:Elevation named udp
+	set to [udp];  
+
+
+// datacubes from https://browser.weed.apex.esa.int/collections/ecosystem-characteristics-alpha2-1 

@@ -40,7 +40,8 @@ observe earth:Region named greece_cu_sterea_el9_bbox
     over space(shape='MULTIPOLYGON (((21.1857227101401584 38.45677635197927202, 21.21586101519590173 38.63595447103879366, 21.44230045904840409 38.60911592768326273, 21.41157783663824432 38.43002109042780745, 21.1857227101401584 38.45677635197927202)))',
     		grid="100 m",
     		projection="EPSG:4326"),
-    time(start=2024, end=2025, step=1.year);
+    		time(year = 2024);
+//    time(start=2024, end=2025, step=1.year);
     
 // Greece BB:34σDH30 - Shared by VITO in ECDC STAC
 observe earth:Region named greece_cu_vito_ecdc_stac_bbox
@@ -57,15 +58,17 @@ observe earth:Region named south_africa_cu_groenfontein_sa9_bbox
     over space(shape='MULTIPOLYGON (((21.86242373560273577 -33.61678019674666018, 21.86422844346419936 -33.79714664844519234, 21.64818544788652588 -33.79847094610938996, 21.64683179797409451 -33.61809554592448279, 21.86242373560273577 -33.61678019674666018)))',
     		grid="100 m",
     		projection="EPSG:4326"),
-    time(start=2024, end=2024, step=1.year);
+    		time(year = 2024);
+//    time(start=2024, end=2024, step=1.year);
    
 //Vietnam
 //name of grid in the gpkg data shared by VITO 48πYJ11
 observe earth:Region named vietnam_cu_quangninh_vn1_bbox
     over space(shape='MULTIPOLYGON (((107.31105404674208614 21.14552364702679199, 107.3082667544684341 20.96495940596442864, 107.11601479416913207 20.96745535956352668, 107.118570379549368 21.14804310085878214, 107.31105404674208614 21.14552364702679199)))',
-    		grid="100 m",
+    		grid="30 m",
     		projection="EPSG:4326"),
-    time(start=2024, end=2025, step=1.year);
+    		time(year = 2024);
+//    time(start=2024, end=2025, step=1.year);
     
 // Vietnam BB:48πYJ22 - Shared by VITO in ECDC STAC
 observe earth:Region named vietnam_cu_vito_ecdc_stac_bbox
@@ -81,7 +84,8 @@ observe earth:Region named colombia_cu_mojana_co1_bbox
     over space(shape='MULTIPOLYGON (((-74.45459107377087093 8.68436620579374363, -74.45484955756327849 8.50346874923039309, -74.6365632389979794 8.50368085249721162, -74.63639090920244712 8.68458288763117459, -74.45459107377087093 8.68436620579374363)))',
     		grid="100 m",
     		projection="EPSG:4326"),
-    time(start=2024, end=2025, step=1.year);
+    		time(year = 2024);
+//    time(start=2024, end=2025, step=1.year);
     
 // Colombia BB:18λWQ02 - Shared by VITO in ECDC STAC
 observe earth:Region named colombia_cu_vito_ecdc_stac_bbox

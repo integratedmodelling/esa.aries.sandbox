@@ -1,0 +1,48 @@
+{
+  "urn" : "local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cu_glc_fcs30d_landcover_epsg4326_30m_2020",
+  "version" : "0.0.1",
+  "adapterType" : "wcs",
+  "localPath" : "esa.aries.sandbox/resources/esa_weed.cu_glc_fcs30d_landcover_epsg4326_30m_2020",
+  "geometry" : "τ1{tend=1609459200000,tstart=1577836800000,ttype=logical}S2(686469,352511){bbox=[-75.0 110.00020253446608 -35.000202534466084 60.0],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "esa_weed.cu_glc_fcs30d_landcover_epsg4326_30m_2020",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1747670727852,
+  "metadata" : {
+    "im:keywords" : "",
+    "dc:comment" : "",
+    "im:notes" : "",
+    "dc:title" : "",
+    "dc:url" : "",
+    "dc:creator" : "",
+    "im:thematic-area" : "",
+    "dc:originator" : "",
+    "im:geographic-area" : "",
+    "dc:source" : ""
+  },
+  "parameters" : {
+    "wcsIdentifier" : "esa_weed__cu_glc_fcs30d_landcover_epsg4326_30m_2020",
+    "transform" : "",
+    "serviceUrl" : "https://integratedmodelling.org/aux-geoserver/esa_weed/wcs",
+    "nodata" : "0.0",
+    "wcsVersion" : "2.0.1"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : {
+    "east" : 110.00020253446608,
+    "west" : -75.0,
+    "north" : 60.0,
+    "south" : -35.000202534466084,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}
