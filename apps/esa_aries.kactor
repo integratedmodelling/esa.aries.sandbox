@@ -35,7 +35,7 @@ separator("Context: where, when (2024) " :iconname "earth" )
 		obs3.enable
 		context(cu_bbox_contexts.vietnam_cu_quangninh_vn1_bbox)
 	)
-	checkbutton("Colombia CO1 BB:18λWQ22 (100 m) " #ctx6): (
+	checkbutton("Colombia CO1 BB:18λWQ22 (30 m) " #ctx6): (
 		disable_ctxs
 		obs2.enable
 		obs3.enable 
