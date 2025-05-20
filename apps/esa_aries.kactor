@@ -11,15 +11,15 @@ action main:
 
 separator("Context: where, when (2024) " :iconname "earth" )
 (
-	checkbutton("Norway NO1 BB:E434N406 (100 m) " #ctx1): (
+	checkbutton("Norway NO1 BB:32tNM41 (100 m) " #ctx1): (
 		disable_ctxs
 		obs1.enable
-		context(cu_bbox_contexts.norway_cu_osloviken_no1_bbox)
+		context(cu_bbox_contexts.norway_cu_osloviken_no1_bbox_32tnm41)
 	): 
-	checkbutton("Czech CZ1 BB:E462N298 (100 m) " #ctx2): (
+	checkbutton("Czech CZ1 BB:33dVR21 (100 m) " #ctx2): (
 		disable_ctxs
 		obs1.enable
-		context(cu_bbox_contexts.czech_cu_transectmidwe_cz8_bbox)
+		context(cu_bbox_contexts.czech_cu_transectmidwe_cz8_bbox_33dvr21)
 	)checkbutton("Greece EL9 BB:E530N178 (100 m) " #ctx3): (
 		disable_ctxs
 		obs1.enable
