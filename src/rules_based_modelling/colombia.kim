@@ -1,4 +1,4 @@
-private namespace rules_based_modelling.colombia
+project private namespace rules_based_modelling.colombia
 	using
 		aries.colombia.ecosystem,
 		dane.colombia.ecology, 
