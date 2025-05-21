@@ -1,8 +1,8 @@
 private namespace alphatwo_udp
 	using nca.ecosystem.eunis;
 
-model "local:arnab.moitra:esa.aries.sandbox:wenr_stac_fw"  //add UDP for alpha2 here  
-	as type of nca.ecosystem.eunis:Ecosystem
+model "local:stefano.balbi:esa.aries.sandbox:alpha1.inigo"  //add UDP for alpha2 here: currently hardcoded alpha one to query alpha 2 results at https://browser.weed.apex.esa.int/collections/inference-alpha2-prepared-v101  
+	as type of nca.ecosystem.eunis:Ecosystem named ecosystem_type_iucn_get_level1
 	classified into
 		nca.ecosystem.eunis:MarineBenthicHabitats if 10000,
 			nca.ecosystem.eunis:LittoralRock if 10100,
