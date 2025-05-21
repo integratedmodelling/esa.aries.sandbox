@@ -21,7 +21,7 @@ separator("Context: where, when (2024) " :iconname "earth" )
 		obs1.enable
 		context(cu_bbox_contexts.czech_cu_transectmidwe_cz8_bbox_33dwr11) 
 	)
-	checkbutton("Greece EL9 BB:34δWR11 (10 m) " #ctx3): (
+	checkbutton("Greece EL9 BB:34δEH13 (10 m) " #ctx3): (
 		disable_ctxs
 		obs1.enable
 		context(cu_bbox_contexts.greece_cu_sterea_el9_bbox_34deh13)
