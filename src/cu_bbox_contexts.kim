@@ -107,7 +107,7 @@ observe earth:Region named greece_cu_kefaloniaz_el3_vito_ecdc_stac_bbox_34ddh30
 // Also the same is present in ECDC STAC
 observe earth:Region named south_africa_cu_groenfontein_sa9_bbox_34deh33
     over space(shape='MULTIPOLYGON (((21.86242373560273577 -33.61678019674666018, 21.86422844346419936 -33.79714664844519234, 21.64818544788652588 -33.79847094610938996, 21.64683179797409451 -33.61809554592448279, 21.86242373560273577 -33.61678019674666018)))',
-    		grid="100 m",
+    		grid="30 m",
     		projection="EPSG:4326"),
     		time(year = 2024);
 //    time(start=2024, end=2024, step=1.year);
@@ -115,7 +115,7 @@ observe earth:Region named south_africa_cu_groenfontein_sa9_bbox_34deh33
 //SA stac 34δBH30
 observe earth:Region named south_africa_cu_capepoint_sa1_vito_ecdc_bbox_34dbh30
     over space(shape='MULTIPOLYGON (((18.6141016265149446 -34.13774058895709373, 18.60901128254319303 -34.31795510170587704, 18.39183874019099818 -34.31352046049698856, 18.39739021724547641 -34.13333566451122891, 18.6141016265149446 -34.13774058895709373)))',
-    		grid="100 m",
+    		grid="30 m",
     		projection="EPSG:4326"),
     time(start=2024, end=2025, step=1.year);
 
