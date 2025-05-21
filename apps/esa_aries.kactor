@@ -9,18 +9,19 @@ public app esa.aries
 @left(width=450)
 action main:
 
-separator("Context: where, when (2024) " :iconname "earth" )
+separator("Context: where, when (2024) " :iconname "earth" )  
 (
 	checkbutton("Norway NO1 BB:32tNM42 (10 m) " #ctx1): (
 		disable_ctxs
 		obs1.enable
 		context(cu_bbox_contexts.norway_cu_osloviken_no1_vito_ecdc_stac_bbox_32tnm42)
-	): 
+	)
 	checkbutton("Czech CZ1 BB:33δVR21 (10 m) " #ctx2): (
 		disable_ctxs
 		obs1.enable
 		context(cu_bbox_contexts.czech_cu_transectmidwe_cz8_vito_ecdc_stac_bbox_33dwr11) 
-	)checkbutton("Greece EL9 BB:34δWR11 (10 m) " #ctx3): (
+	)
+	checkbutton("Greece EL9 BB:34δWR11 (10 m) " #ctx3): (
 		disable_ctxs
 		obs1.enable
 		context(cu_bbox_contexts.greece_cu_sterea_el9_bbox_34deh13)
@@ -54,7 +55,7 @@ separator("Context: where, when (2024) " :iconname "earth" )
 		(
 			checkbutton("EUNIS2021Plus Classification" #obs1 :disabled): (submit(namespace.model_alpha2_udp)) 
 			checkbutton("IUCN GET Classification" #obs2 :disabled): observe({nca.ecosystem.iucn:EcosystemType})    //T1@Alessio make sure rule-based works
-			checkbutton("Local Classifications" #obs3 :disabled): (submit(aries.colombia.ecosystem.modelled_colombian_ecosystem_type)) //observe({type of ModelledColombianEcosystem})  // (submit(namespace.model_et_others))       //For SA and Vietnam which output //T2@Alessio to propose
+			checkbutton("Local Classifications" #obs3 :disabled): observe({type of aries.colombia.ecosystem:ModelledColombianEcosystem})  //(submit(aries.colombia.ecosystem.modelled_colombian_ecosystem_type))  // (submit(namespace.model_et_others))       //For SA and Vietnam which output //T2@Alessio to propose
 			// can specify levels of classifications
 			
 			// to trigger multiple observations with primary output
