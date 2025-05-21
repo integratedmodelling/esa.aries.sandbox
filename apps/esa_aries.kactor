@@ -54,14 +54,14 @@ separator("Context: where, when (2024) " :iconname "earth" )
 		separator("Query Ecosystem Types according to:" :iconname "sprout-outline" )
 		(
 			checkbutton("EUNIS2021Plus Classification" #obs1 :disabled): (submit(namespace.model_alpha2_udp)) 
-			checkbutton("IUCN GET Classification" #obs2 :disabled): observe({nca.ecosystem.iucn:EcosystemType})    //T1@Alessio make sure rule-based works
-			checkbutton("Local Classifications" #obs3 :disabled): observe({type of aries.colombia.ecosystem:ModelledColombianEcosystem})  //(submit(aries.colombia.ecosystem.modelled_colombian_ecosystem_type))  // (submit(namespace.model_et_others))       //For SA and Vietnam which output //T2@Alessio to propose
+			checkbutton("IUCN GET Classification" #obs2 :disabled): (submit(rules_based_modelling.colombia.ecosystem_type_iucn_get))//observe({nca.ecosystem.iucn:EcosystemType})    
+			checkbutton("Local Classification" #obs3 :disabled):   (submit(rules_based_modelling.colombia.ecosystem_type_colombia))  // observe({type of aries.colombia.ecosystem:ModelledColombianEcosystem}) //For SA and Vietnam which output
 			// can specify levels of classifications
 			
 			// to trigger multiple observations with primary output
-			checkbutton("test1: sequential calls" #obs4 :disabled): (submit(data.population_density) : submit(data.organic_carbon_concentration_topsoil) : submit(data.distance_to_inland_water_body) : submit(data.annual_precipitation)) //  :  for sequentiality --> seems to be respected
-			checkbutton("test2: concept resolution" #obs5 :disabled): (submit(data.population_density) : observe({geography:Elevation}) : observe({percentage of chemistry:Carbon in soil:TopSoil im:Mass }))  //picks correctly local concept from data namespace in this project 
-			checkbutton("test3: with dependencies" #obs6 :disabled): (submit(data.test3))  // primary output with secondary observation but seems slower than test 1
+//			checkbutton("test1: sequential calls" #obs4 :disabled): (submit(data.population_density) : submit(data.organic_carbon_concentration_topsoil) : submit(data.distance_to_inland_water_body) : submit(data.annual_precipitation)) //  :  for sequentiality --> seems to be respected
+//			checkbutton("test2: concept resolution" #obs5 :disabled): (submit(data.population_density) : observe({geography:Elevation}) : observe({percentage of chemistry:Carbon in soil:TopSoil im:Mass }))  //picks correctly local concept from data namespace in this project 
+//			checkbutton("test3: with dependencies" #obs6 :disabled): (submit(data.test3))  // primary output with secondary observation but seems slower than test 1
 		)
 	)	
 ) :vbox 
