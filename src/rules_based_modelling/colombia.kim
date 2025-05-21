@@ -1645,7 +1645,7 @@ number 'local:alessio.bulckaen:dane.seea.aries:im-nca-colombia.invemar_coastal_i
 	non_continental;
 
 @documented(colombia.ecosystemextent.ecosystemtype)
-model type of aries.colombia.ecosystem:ModelledColombianEcosystem named modelled_colombian_ecosystem_type
+model type of aries.colombia.ecosystem:ModelledColombianEcosystem named ecosystem_type_colombia
 	observing
 		   dane.colombia.landcover:ColombianLandCoverType named landcover,
 		   type of dane.colombia.ecology:ClimateRegion named climate_region,
@@ -1659,7 +1659,7 @@ model type of aries.colombia.ecosystem:ModelledColombianEcosystem named modelled
 	lookup(landcover,climate_region, prel_biome, biotic_unit, soil_edafogenetic_environment,  water_type, transformed, transitional, non_continental, ?, *) into MODELLED_GET_EFG_COLOMBIA;
 	
 @documented(colombia.ecosystemextent.ecosystemtype)
-model nca.ecosystem.iucn:EcosystemType
+model nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get 
 	observing
 		   dane.colombia.landcover:ColombianLandCoverType named landcover,
 		   type of dane.colombia.ecology:ClimateRegion named climate_region,

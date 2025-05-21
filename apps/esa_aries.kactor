@@ -13,32 +13,47 @@ separator("Context: where, when (2024) " :iconname "earth" )
 (
 	checkbutton("Norway NO1 BB:32tNM42 (10 m) " #ctx1): (
 		disable_ctxs
-		obs1.enable
+		obs11.enable
+		obs11.show
+		obs12.hide
+		obs13.hide
 		context(cu_bbox_contexts.norway_cu_osloviken_no1_bbox_32tnm42)
 	)
 	checkbutton("Czech CZ1 BB:33δWR11 (10 m) " #ctx2): (
 		disable_ctxs
-		obs1.enable
+		obs12.enable
+		obs12.show
+		obs11.hide
+		obs13.hide
 		context(cu_bbox_contexts.czech_cu_transectmidwe_cz8_bbox_33dwr11) 
 	)
 	checkbutton("Greece EL9 BB:34δEH13 (10 m) " #ctx3): (
 		disable_ctxs
-		obs1.enable
+		obs13.enable
+		obs13.show
+		obs11.hide
+		obs12.hide
 		context(cu_bbox_contexts.greece_cu_sterea_el9_bbox_34deh13)
 	)
 	checkbutton("SouthAfrica SA9 BB:34δEH33 (30 m) " #ctx4): (
 		disable_ctxs
-		obs3.enable
+		obs22.show
+		obs21.hide
+		obs22.enable
 		context(cu_bbox_contexts.south_africa_cu_groenfontein_sa9_bbox_34deh33)
 	)
 	checkbutton("Vietnam VN1 BB:48πYJ11 (30 m) " #ctx5): (
 		disable_ctxs
-		obs3.enable
+		obs22.show
+		obs21.hide
+		obs22.enable
 		context(cu_bbox_contexts.vietnam_cu_quangninh_vn1_bbox_48pyj11)
 	)
 	checkbutton("Colombia CO1 BB:18λWQ22 (30 m) " #ctx6): (
 		disable_ctxs
-		obs2.enable
+		obs21.enable
+		obs21.show
+		obs22.hide
 		obs3.enable 
 		context(cu_bbox_contexts.colombia_cu_mojana_co1_bbox_18lwq22)
 	)
@@ -53,15 +68,18 @@ separator("Context: where, when (2024) " :iconname "earth" )
 	(
 		separator("Query Ecosystem Types according to:" :iconname "sprout-outline" )
 		(
-			checkbutton("EUNIS2021Plus Classification" #obs1 :disabled): (submit(namespace.model_alpha2_udp)) 
-			checkbutton("IUCN GET Classification" #obs2 :disabled): observe({nca.ecosystem.iucn:EcosystemType})    //T1@Alessio make sure rule-based works
-			checkbutton("Local Classifications" #obs3 :disabled): observe({type of aries.colombia.ecosystem:ModelledColombianEcosystem})  //(submit(aries.colombia.ecosystem.modelled_colombian_ecosystem_type))  // (submit(namespace.model_et_others))       //For SA and Vietnam which output //T2@Alessio to propose
+			checkbutton("EUNIS2021Plus Classification" #obs11 :disabled): (submit(namespace.model_alpha2_udp_norway))
+			checkbutton("EUNIS2021Plus Classification" #obs12 :hidden :disabled): (submit(namespace.model_alpha2_udp_czech))
+			checkbutton("EUNIS2021Plus Classification" #obs13 :hidden :disabled): (submit(namespace.model_alpha2_udp_greece)) 
+			checkbutton("IUCN GET Classification" #obs21 :disabled): (submit(rules_based_modelling.colombia.ecosystem_type_iucn_get))
+			checkbutton("IUCN GET Classification" #obs22 :hidden :disabled): (submit(rules_based_modelling.ecosystem_type_iucn_get)) //observe({nca.ecosystem.iucn:EcosystemType})    
+			checkbutton("Local Classification" #obs3 :disabled): (submit(rules_based_modelling.colombia.ecosystem_type_colombia))  // observe({type of aries.colombia.ecosystem:ModelledColombianEcosystem}) //For SA and Vietnam which output
 			// can specify levels of classifications
 			
 			// to trigger multiple observations with primary output
-			checkbutton("test1: sequential calls" #obs4 :disabled): (submit(data.population_density) : submit(data.organic_carbon_concentration_topsoil) : submit(data.distance_to_inland_water_body) : submit(data.annual_precipitation)) //  :  for sequentiality --> seems to be respected
-			checkbutton("test2: concept resolution" #obs5 :disabled): (submit(data.population_density) : observe({geography:Elevation}) : observe({percentage of chemistry:Carbon in soil:TopSoil im:Mass }))  //picks correctly local concept from data namespace in this project 
-			checkbutton("test3: with dependencies" #obs6 :disabled): (submit(data.test3))  // primary output with secondary observation but seems slower than test 1
+//			checkbutton("test1: sequential calls" #obs4 :disabled): (submit(data.population_density) : submit(data.organic_carbon_concentration_topsoil) : submit(data.distance_to_inland_water_body) : submit(data.annual_precipitation)) //  :  for sequentiality --> seems to be respected
+//			checkbutton("test2: concept resolution" #obs5 :disabled): (submit(data.population_density) : observe({geography:Elevation}) : observe({percentage of chemistry:Carbon in soil:TopSoil im:Mass }))  //picks correctly local concept from data namespace in this project 
+//			checkbutton("test3: with dependencies" #obs6 :disabled): (submit(data.test3))  // primary output with secondary observation but seems slower than test 1
 		)
 	)	
 ) :vbox 
@@ -73,9 +91,6 @@ action disable_ctxs: (
 	ctx4.disable
 	ctx5.disable
 	ctx6.disable
-	obs4.enable
-	obs5.enable
-	obs6.enable
 	reset_context.enable
 )
 action reset_buttons: (
@@ -86,8 +101,16 @@ action reset_buttons: (
 	ctx4.uncheck
 	ctx5.uncheck
 	ctx6.uncheck
-	obs1.uncheck
-	obs2.uncheck
+	obs11.uncheck
+	obs12.uncheck
+	obs13.uncheck
+	obs11.show
+	obs12.hide
+	obs13.hide
+	obs21.uncheck
+	obs22.uncheck
+	obs21.show
+	obs22.hide
 	obs3.uncheck
 	ctx1.enable
 	ctx2.enable
@@ -95,11 +118,11 @@ action reset_buttons: (
 	ctx4.enable
 	ctx5.enable
 	ctx6.enable
-	obs1.disable
-	obs2.disable
+	obs11.disable
+	obs12.disable
+	obs13.disable
+	obs21.disable
+	obs22.disable
 	obs3.disable
-	obs4.disable
-	obs5.disable
-	obs6.disable
 	reset_context.disable
 )
