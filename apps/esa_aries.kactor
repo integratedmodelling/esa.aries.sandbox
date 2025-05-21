@@ -14,12 +14,12 @@ separator("Context: where, when (2024) " :iconname "earth" )
 	checkbutton("Norway NO1 BB:32tNM42 (10 m) " #ctx1): (
 		disable_ctxs
 		obs1.enable
-		context(cu_bbox_contexts.norway_cu_osloviken_no1_vito_ecdc_stac_bbox_32tnm42)
+		context(cu_bbox_contexts.norway_cu_osloviken_no1_bbox_32tnm42)
 	)
 	checkbutton("Czech CZ1 BB:33δVR21 (10 m) " #ctx2): (
 		disable_ctxs
 		obs1.enable
-		context(cu_bbox_contexts.czech_cu_transectmidwe_cz8_vito_ecdc_stac_bbox_33dwr11) 
+		context(cu_bbox_contexts.czech_cu_transectmidwe_cz8_bbox_33dwr11) 
 	)
 	checkbutton("Greece EL9 BB:34δWR11 (10 m) " #ctx3): (
 		disable_ctxs
