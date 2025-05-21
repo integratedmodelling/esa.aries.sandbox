@@ -25,7 +25,7 @@ observe earth:Region named norway_cu_osloviken_no1_bbox_32tnm41
 //		projection="EPSG:4326"),
 //	time(start=2024, end=2025, step=1.year);
 
-observe earth:Region named norway_cu_osloviken_no1_vito_ecdc_stac_bbox_32tnm42
+observe earth:Region named norway_cu_osloviken_no1_bbox_32tnm42
     over space(shape='MULTIPOLYGON (((10.79650009641397901 60.06492020149378419, 10.78680110532568648 59.88542210404673938, 10.42958675762642962 59.88978200214562264, 10.43734856828254998 60.06931158567632423, 10.79650009641397901 60.06492020149378419)))',
     		grid="100 m",
     		projection="EPSG:4326"),
@@ -55,7 +55,7 @@ observe earth:Region named czech_cu_transectmidwe_cz8_bbox_33dvr21
 //	time(start=2024, end=2025, step=1.year);
 
 //Czech stac 33σWR11
-observe earth:Region named czech_cu_transectmidwe_cz8_vito_ecdc_stac_bbox_33dwr11
+observe earth:Region named czech_cu_transectmidwe_cz8_bbox_33dwr11
     over space(shape='MULTIPOLYGON (((15.55826494935375592 50.01097265360007782, 15.55619168304923861 49.83109763694566396, 15.27810103399725783 49.83209842187305583, 15.2791377356231628 50.0119797947728415, 15.55826494935375592 50.01097265360007782)))',
     		grid="100 m",
     		projection="EPSG:4326"),
@@ -63,7 +63,7 @@ observe earth:Region named czech_cu_transectmidwe_cz8_vito_ecdc_stac_bbox_33dwr1
 
 
 //Czech stac 33σWS20
-observe earth:Region named czech_cu_krkonossky_cz2_vito_ecdc_stac_bbox_33dws20
+observe earth:Region named czech_cu_krkonossky_cz2_bbox_33dws20
     over space(shape='MULTIPOLYGON (((15.85012913963363879 50.72869444515458071, 15.8468908150274288 50.54885298655396042, 15.56461212153720375 50.55056370966995871, 15.56677125007896478 50.73041608333891617, 15.85012913963363879 50.72869444515458071)))',
     		grid="100 m",
     		projection="EPSG:4326"),
@@ -95,7 +95,7 @@ observe earth:Region named greece_cu_sterea_el9_bbox_34deh13
 //	time(start=2024, end=2025, step=1.year);
 
 //Greece stac 34σDH30
-observe earth:Region named greece_cu_kefaloniaz_el3_vito_ecdc_stac_bbox_34ddh30
+observe earth:Region named greece_cu_kefaloniaz_el3_bbox_34ddh30
     over space(shape='MULTIPOLYGON (((20.77180674372909053 38.12762479241960278, 20.7723653721034438 37.94736937228828566, 20.54473570529695081 37.94670878851269435, 20.54361849612171653 38.1269599397050456, 20.77180674372909053 38.12762479241960278)))',
     		grid="100 m",
     		projection="EPSG:4326"),
