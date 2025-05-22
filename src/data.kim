@@ -1,4 +1,5 @@
-project private namespace data;
+project private namespace data
+using nca.ecosystem.eunis;
 
 //Resources from VITO STAC 
 @todo //add a way to handle nodata in resource editor // check projects and alignment with basemap
@@ -20,13 +21,11 @@ number 'local:stefano.balbi:esa.aries.sandbox:Climate_Annual_Precipitation_CHELS
 		set to [ (self == -9999 ) ? unknown : self ]; 	 	       
 
 //test one model with secondary observations //seems much slower... but separation between primary and secondary is clear
-model geography:Slope named test3
-//type of slovakia:EcosystemWEEDL2
+model type of nca.ecosystem.eunis:Ecosystem  named ecosystem_type_eunis
 	observing
 		 population_density,
 		 distance to earth:Region landcover:InlandWaterBody in m, 
 		 annual_precipitation,        
-//		 type of slovakia:EcosystemOpenEOAlpha1L2  //type of nca.ecosystem.eunis:Ecosystem
 		 geography:Elevation named udp
 	set to [udp];  
 
