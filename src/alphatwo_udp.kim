@@ -64,6 +64,57 @@ model 'local:stefano.balbi:esa.aries.sandbox:alpha1.inigo#output_warp=true&synch
 ;
 
 
+//Norway
+model local:arnab.moitra:esa.aries.sandbox:norway
+	as type of nca.ecosystem.eunis:Ecosystem named ecosystem_type_iucn_get_level1_norway_tif
+	classified into
+		nca.ecosystem.eunis:MarineBenthicHabitats if 0,
+		nca.ecosystem.eunis:CoastalHabitats if 1,	
+		nca.ecosystem.eunis:Wetlands if 2,
+		nca.ecosystem.eunis:GrasslandLandDominatedByForbMossLichen if 3,
+		nca.ecosystem.eunis:HeathlandScrubTundra if 4,
+		nca.ecosystem.eunis:ForestWoodedLand if 5,
+		nca.ecosystem.eunis:InlandHabitatsNoLittleSoilMostlySparseVegetation if 6,
+		nca.ecosystem.eunis:VegetatedManMadeHabitat if 7,
+		nca.ecosystem.eunis:InlandSurfaceWater if 8,
+		nca.ecosystem.eunis:ConstructedIndustrialArtificialHabitat if 9
+;
+
+// CZ 
+model local:arnab.moitra:esa.aries.sandbox:czech 
+	as type of nca.ecosystem.eunis:Ecosystem named ecosystem_type_iucn_get_level1_czech_tif
+	classified into
+		nca.ecosystem.eunis:MarineBenthicHabitats if 0,
+		nca.ecosystem.eunis:CoastalHabitats if 1,	
+		nca.ecosystem.eunis:Wetlands if 2,
+		nca.ecosystem.eunis:GrasslandLandDominatedByForbMossLichen if 3,
+		nca.ecosystem.eunis:HeathlandScrubTundra if 4,
+		nca.ecosystem.eunis:ForestWoodedLand if 5,
+		nca.ecosystem.eunis:InlandHabitatsNoLittleSoilMostlySparseVegetation if 6,
+		nca.ecosystem.eunis:VegetatedManMadeHabitat if 7,
+		nca.ecosystem.eunis:InlandSurfaceWater if 8,
+		nca.ecosystem.eunis:ConstructedIndustrialArtificialHabitat if 9
+;
+
+// Greece
+model local:arnab.moitra:esa.aries.sandbox:greece 
+	as type of nca.ecosystem.eunis:Ecosystem named ecosystem_type_iucn_get_level1_greece_tif
+	classified into
+		nca.ecosystem.eunis:MarineBenthicHabitats if 0,
+		nca.ecosystem.eunis:CoastalHabitats if 1,	
+		nca.ecosystem.eunis:Wetlands if 2,
+		nca.ecosystem.eunis:GrasslandLandDominatedByForbMossLichen if 3,
+		nca.ecosystem.eunis:HeathlandScrubTundra if 4,
+		nca.ecosystem.eunis:ForestWoodedLand if 5,
+		nca.ecosystem.eunis:InlandHabitatsNoLittleSoilMostlySparseVegetation if 6,
+		nca.ecosystem.eunis:VegetatedManMadeHabitat if 7,
+		nca.ecosystem.eunis:InlandSurfaceWater if 8,
+		nca.ecosystem.eunis:ConstructedIndustrialArtificialHabitat if 9
+;
+
+// Norway
+
+
 //model "local:stefano.balbi:esa.aries.sandbox:alpha1.inigo"  //add UDP for alpha2 here: currently hardcoded alpha one to query alpha 2 results at https://browser.weed.apex.esa.int/collections/inference-alpha2-prepared-v101  
 //	as type of nca.ecosystem.eunis:Ecosystem named ecosystem_type_iucn_get_level1
 //	classified into

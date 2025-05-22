@@ -1,0 +1,31 @@
+{
+  "urn" : "local:arnab.moitra:esa.aries.sandbox:vito_ecdc_stac_band_1",
+  "version" : "0.0.1",
+  "adapterType" : "stac",
+  "localPath" : "esa.aries.sandbox/resources/vito_ecdc_stac_band_1.v0.0.1",
+  "geometry" : "t1{ttype=grid}S2",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "vito_ecdc_stac_band_1",
+  "type" : "OBJECT",
+  "resourceTimestamp" : 1747688873739,
+  "metadata" : {
+    "dc:comment" : "This is the STAC metadata for the openEO job 'j-2505190815404593966fa055a8f95ce3'",
+    "dc:url" : "https://catalogue.weed.apex.esa.int/collections/ecosystem-characteristics-alpha2-1"
+  },
+  "parameters" : {
+    "collection" : "https://catalogue.weed.apex.esa.int/collections/ecosystem-characteristics-alpha2-1",
+    "band" : "0",
+    "collectionId" : "ecosystem-characteristics-alpha2-1"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}
