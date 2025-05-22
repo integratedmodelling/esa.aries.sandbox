@@ -68,7 +68,7 @@ separator("Context: where, when (2024) " :iconname "earth" )
 	(
 		separator("Query Ecosystem Types according to:" :iconname "sprout-outline" )
 		(
-			checkbutton("EUNIS2021Plus Classification" #obs11 :disabled): (submit(alphatwo_udp.ecosystem_type_iucn_get_level1_norway)) 
+			checkbutton("EUNIS2021Plus Classification (predictors)" #obs11 :disabled) : (submit (peopleea.forest.lai.leaf_area_index) : submit (peopleea.forest.ndvi.ndvi) : submit (peopleea.highresolution.fcover_10m)) // : observe({es.nca:EcosystemType})
 			checkbutton("EUNIS2021Plus Classification" #obs12 :hidden :disabled): (submit(alphatwo_udp.ecosystem_type_iucn_get_level1_czech))
 			checkbutton("EUNIS2021Plus Classification" #obs13 :hidden :disabled): (submit(alphatwo_udp.ecosystem_type_iucn_get_level1_greece)) 
 			checkbutton("IUCN GET Classification" #obs21 :disabled): (submit(rules_based_modelling.colombia.ecosystem_type_iucn_get))
