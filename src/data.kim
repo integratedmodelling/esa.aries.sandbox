@@ -31,3 +31,7 @@ model type of nca.ecosystem.eunis:Ecosystem  named ecosystem_type_eunis
 
 
 // datacubes from https://browser.weed.apex.esa.int/collections/ecosystem-characteristics-alpha2-1 
+
+
+/*South Africa Vegetation Map raster dataset */
+number "local:justus.muhando:esa.aries.sandbox:esa_weed.south_africa_gea_20240722_2_vegetation_epsg4326" as south_africa_vegetation_map; 
