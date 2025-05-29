@@ -15,3 +15,73 @@ over space(shape='MULTIPOLYGON (((21.44401804077235596 -33.49731133074468659, 21
 grid="30 m",
 projection="EPSG:4326"),
 time(start=2022, end=2023, step=1.year);
+
+
+
+//Resources from Geoserver
+//South Africa priority areas V2
+observe earth:Region named south_africa_cape_point_sa1  
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_south_africa_priority_areas_epsg4326_v2#weed_site=SA1',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+observe earth:Region named south_africa_grootbos_sa2   
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_south_africa_priority_areas_epsg4326_v2#weed_site=SA2',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+observe earth:Region named south_africa_jonkershoek_sa3   
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_south_africa_priority_areas_epsg4326_v2#weed_site=SA3',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+observe earth:Region named south_africa_west_coast_np_sa4   
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_south_africa_priority_areas_epsg4326_v2#weed_site=SA4',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+observe earth:Region named south_africa_dehoop_sa5   
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_south_africa_priority_areas_epsg4326_v2#weed_site=SA5',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+observe earth:Region named south_africa_kogelberg_sa6   
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_south_africa_priority_areas_epsg4326_v2#weed_site=SA6',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+observe earth:Region named south_africa_thuthumiridge_sa7   
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_south_africa_priority_areas_epsg4326_v2#weed_site=SA7',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+observe earth:Region named south_africa_gardenroute_sa8   
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_south_africa_priority_areas_epsg4326_v2#weed_site=SA8',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+observe earth:Region named south_africa_groenfontein_sa9   
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_south_africa_priority_areas_epsg4326_v2#weed_site=SA9',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+observe earth:Region named south_africa_swatberg_sa10   
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_south_africa_priority_areas_epsg4326_v2#weed_site=SA10',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+observe earth:Region named south_africa_capefloral_sa11   
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_south_africa_priority_areas_epsg4326_v2#weed_site=SA11',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
