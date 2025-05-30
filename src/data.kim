@@ -37,7 +37,7 @@ number 'local:arnab.moitra:esa.aries.sandbox:weed_ecdc_band_B04_p75' as weed_ecd
 
 /*South Africa Vegetation Map raster dataset */
 number "local:justus.muhando:esa.aries.sandbox:esa_weed.south_africa_gea_20240722_2_vegetation_epsg4326" as south_africa_vegetation_map;
-
+number "local:justus.muhando:esa.aries.sandbox:esa_weed.south_africa_gea_20240722_2_vegetation_reclassified_epsg4326" as south_africa_reclassified_vegetation_map;
 
 //FAO Soil Type for Vietnam
 model 'local:alessio.bulckaen:esa.aries.sandbox:im-data-global-soil_vietnam_odp_soil_types#domsoil'
