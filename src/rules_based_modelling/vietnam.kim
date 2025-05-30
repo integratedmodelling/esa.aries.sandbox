@@ -1,0 +1,2 @@
+private namespace rules_based_modelling.vietnam
+	using nca.ecosystem.iucn;
