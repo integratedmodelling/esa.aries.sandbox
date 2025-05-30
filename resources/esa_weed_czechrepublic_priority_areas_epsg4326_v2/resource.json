@@ -1,0 +1,52 @@
+{
+  "urn" : "local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2",
+  "version" : "0.0.1",
+  "adapterType" : "wfs",
+  "localPath" : "esa.aries.sandbox/resources/esa_weed_czechrepublic_priority_areas_epsg4326_v2",
+  "geometry" : "#s2(8){bbox=[12.3531925458968 18.1221930857944 48.6341596575641 51.0537023811934],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "esa_weed_czechrepublic_priority_areas_epsg4326_v2",
+  "type" : "OBJECT",
+  "resourceTimestamp" : 1748603819925,
+  "metadata" : {
+    "im:keywords" : "features,czechrepublic_priority_areas_epsg4326_v2",
+    "dc:title" : "czechrepublic_priority_areas_epsg4326_v2"
+  },
+  "parameters" : {
+    "serviceUrl" : "https://integratedmodelling.org/aux-geoserver/esa_weed/ows",
+    "wfsVersion" : "1.0.0",
+    "wfsIdentifier" : "esa_weed:czechrepublic_priority_areas_epsg4326_v2"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ {
+    "name" : "name",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "weed_site",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  } ],
+  "spatialExtent" : {
+    "east" : 18.1221930857944,
+    "west" : 12.3531925458968,
+    "north" : 51.0537023811934,
+    "south" : 48.6341596575641,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}
