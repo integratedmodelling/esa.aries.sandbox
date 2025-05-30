@@ -1,5 +1,5 @@
 project private namespace data
-using nca.ecosystem.eunis, nca.soil.wrb;
+using nca.ecosystem.eunis, nca.ecosystem.iucn, nca.soil.wrb;
 
 //Resources from VITO STAC 
 @todo //add a way to handle nodata in resource editor // check projects and alignment with basemap
@@ -40,9 +40,43 @@ number 'local:arnab.moitra:esa.aries.sandbox:weed_ecdc_band_B04_p75' as weed_ecd
 model local:arnab.moitra:esa.aries.sandbox:weed_globes_lin_dist_to_ocean as im:Lineal distance to earth:Ocean ;
 
 /*South Africa Vegetation Map raster dataset */
-number "local:justus.muhando:esa.aries.sandbox:esa_weed.south_africa_gea_20240722_2_vegetation_epsg4326" as south_africa_vegetation_map;
-number "local:justus.muhando:esa.aries.sandbox:esa_weed.south_africa_gea_20240722_2_vegetation_reclassified_epsg4326" as south_africa_reclassified_vegetation_map;
-
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed.south_africa_gea_20240722_2_vegetation_reclassified_epsg4326'
+	as geography:SouthAfrica nca.ecosystem.iucn:EcosystemType classified into
+	nca.ecosystem.iucn:ConstructedLacustrineWetland if 1,
+	nca.ecosystem.iucn:PermanentlyOpenRiverineEstuaryBay if 2,
+	nca.ecosystem.iucn:IntermittentlyClosedOpenLakeLagoon if 3,
+	nca.ecosystem.iucn:KelpForest if 4,
+	nca.ecosystem.iucn:PhoticCoralReef if 5,
+	nca.ecosystem.iucn:PhotolimitedMarineAnimalForest if 6,
+	nca.ecosystem.iucn:SubtidalRockyReef if 7,
+	nca.ecosystem.iucn:SubtidalSandBed if 8,
+	nca.ecosystem.iucn:SubtidalMudPlain if 9,
+	nca.ecosystem.iucn:ContinentalIslandSlope if 10,
+	nca.ecosystem.iucn:SubmarineCanyon if 11,
+	nca.ecosystem.iucn:AbyssalPlain if 12,
+	nca.ecosystem.iucn:SeamountsRidgePlateau if 13,
+	nca.ecosystem.iucn:DeepwaterBiogenicBed if 14,
+	nca.ecosystem.iucn:IntertidalForestShrubland if 15,
+	nca.ecosystem.iucn:RockyShoreline if 16,
+	nca.ecosystem.iucn:SandyShoreline if 17,
+	nca.ecosystem.iucn:BoulderCobbleShore if 18,
+	nca.ecosystem.iucn:CoastalShrublandGrassland if 19,
+	nca.ecosystem.iucn:TropicalSubtropicalDryForestThicket if 20,
+	nca.ecosystem.iucn:WarmTemperateLaurophyllForest if 21,
+	nca.ecosystem.iucn:SeasonallyDryTropicalShrubland if 22,
+	nca.ecosystem.iucn:SeasonallyDryTemperateHeathShrubland if 23,
+	nca.ecosystem.iucn:TrophicSavanna if 24,
+	nca.ecosystem.iucn:PyricTussockSavanna if 25,
+	nca.ecosystem.iucn:TemperateSubhumidGrassland if 26,
+	nca.ecosystem.iucn:SemidesertSteppe if 27,
+	nca.ecosystem.iucn:ThornyDesertSemidesert if 28,
+	nca.ecosystem.iucn:HyperaridDesert if 29,
+	nca.ecosystem.iucn:AnnualCropland if 30,
+	nca.ecosystem.iucn:Plantation if 31,
+	nca.ecosystem.iucn:UrbanIndustrialEcosystem if 32,
+	nca.ecosystem.iucn:DerivedSeminaturalPastureOldfield if 33,
+	nca.ecosystem.iucn:TropicalFloodedForestPeatForest if 34;
+	
 //FAO Soil Type for Vietnam
 model 'local:alessio.bulckaen:esa.aries.sandbox:im-data-global-soil_vietnam_odp_soil_types#domsoil'
 	as nca.soil.wrb:SoilType classified into
