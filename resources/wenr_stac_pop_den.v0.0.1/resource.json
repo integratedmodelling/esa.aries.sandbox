@@ -7,7 +7,7 @@
   "projectName" : "esa.aries.sandbox",
   "localName" : "wenr_stac_pop_den",
   "type" : "NUMBER",
-  "resourceTimestamp" : 1746194837761,
+  "resourceTimestamp" : 1748603552618,
   "metadata" : {
     "im:keywords" : "climate,soil,population,Europe",
     "dc:comment" : "Provides pan-European long-term averages on various environmental features including climate, soil characteristics, and population density.",
@@ -21,6 +21,7 @@
     "dc:source" : ""
   },
   "parameters" : {
+    "endpointurl" : "https://s3.waw3-1.cloudferro.com",
     "collection" : "https://catalogue.weed.apex.esa.int/collections/wern_features",
     "asset" : "Pop_2018_EU",
     "collectionId" : "wern_features"

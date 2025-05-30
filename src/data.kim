@@ -30,10 +30,14 @@ model type of nca.ecosystem.eunis:Ecosystem  named ecosystem_type_eunis
 	set to [udp];  
 
 
-// datacubes from https://browser.weed.apex.esa.int/collections/ecosystem-characteristics-alpha2-1 
+// Datacubes from https://browser.weed.apex.esa.int/collections/ecosystem-characteristics-alpha2-1 
 
 number 'local:arnab.moitra:esa.aries.sandbox:weed_ecdc_band_B04_p2' as weed_ecdc_band_b04_p2;
 number 'local:arnab.moitra:esa.aries.sandbox:weed_ecdc_band_B04_p75' as weed_ecdc_band_b04_p75;
+
+
+// Datacubes from GlobES (https://catalogue.weed.apex.esa.int/collections/Globes-V2/items)
+number local:arnab.moitra:esa.aries.sandbox:weed_globes_lin_dist_to_ocean as lin_dist_to_ocean;
 
 /*South Africa Vegetation Map raster dataset */
 number "local:justus.muhando:esa.aries.sandbox:esa_weed.south_africa_gea_20240722_2_vegetation_epsg4326" as south_africa_vegetation_map;

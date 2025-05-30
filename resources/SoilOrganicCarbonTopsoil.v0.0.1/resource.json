@@ -7,14 +7,21 @@
   "projectName" : "esa.aries.sandbox",
   "localName" : "SoilOrganicCarbonTopsoil",
   "type" : "NUMBER",
-  "resourceTimestamp" : 1747660459654,
+  "resourceTimestamp" : 1748603586522,
   "metadata" : {
     "im:keywords" : "climate,soil,population,Europe",
     "dc:comment" : "Provides pan-European long-term averages on various environmental features including climate, soil characteristics, and population density.",
+    "im:notes" : "",
     "dc:title" : "Environmental Features (Climate, Soil, Population) 1981-2018, Europe",
-    "dc:url" : "https://catalogue.weed.apex.esa.int/collections/wern_features"
+    "dc:url" : "https://catalogue.weed.apex.esa.int/collections/wern_features",
+    "dc:creator" : "",
+    "im:thematic-area" : "",
+    "dc:originator" : "",
+    "im:geographic-area" : "",
+    "dc:source" : ""
   },
   "parameters" : {
+    "endpointurl" : "https://s3.waw3-1.cloudferro.com",
     "collection" : "https://catalogue.weed.apex.esa.int/collections/wern_features",
     "band" : "0",
     "asset" : "soc_0-30cm_mean_EU_filled",

@@ -7,7 +7,7 @@
   "projectName" : "esa.aries.sandbox",
   "localName" : "wenr_stac_fw",
   "type" : "NUMBER",
-  "resourceTimestamp" : 1746191570178,
+  "resourceTimestamp" : 1748603573892,
   "metadata" : {
     "im:keywords" : "climate,soil,population,Europe",
     "dc:comment" : "Provides pan-European long-term averages on various environmental features including climate, soil characteristics, and population density.",
@@ -21,6 +21,7 @@
     "dc:source" : ""
   },
   "parameters" : {
+    "endpointurl" : "https://s3.waw3-1.cloudferro.com",
     "collection" : "https://catalogue.weed.apex.esa.int/collections/wern_features",
     "asset" : "Distance_to_inland_water",
     "collectionId" : "wern_features"
