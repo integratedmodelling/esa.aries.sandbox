@@ -85,3 +85,157 @@ observe earth:Region named south_africa_capefloral_sa11
     			grid="30 m",
                 projection= "EPSG:4326"),
         time(start=2022, end=2023, step=1.year);
+        
+//Colombia priority areas V2
+observe earth:Region named colombia_mojana_co1  
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_priority_areas_epsg4326_v2#weed_site=CO1',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+observe earth:Region named colombia_san_andres_co2  
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_priority_areas_epsg4326_v2#weed_site=CO2',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);  
+        
+observe earth:Region named colombia_providencia_co3  
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_priority_areas_epsg4326_v2#weed_site=CO3',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);          
+ 
+observe earth:Region named colombia_cienaga_grande_de_santa_marta_co4  
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_priority_areas_epsg4326_v2#weed_site=CO4',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year); 
+
+observe earth:Region named colombia_delta_sinu_co5  
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_priority_areas_epsg4326_v2#weed_site=CO5',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year); 
+ 
+observe earth:Region named colombia_pisba_co6  
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_priority_areas_epsg4326_v2#weed_site=CO6',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);  
+        
+observe earth:Region named colombia_santurban_co7  
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_priority_areas_epsg4326_v2#weed_site=CO7',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year); 
+        
+observe earth:Region named colombia_chingaza_co8  
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_priority_areas_epsg4326_v2#weed_site=CO8',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+observe earth:Region named colombia_putumayo_co9  
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_priority_areas_epsg4326_v2#weed_site=CO9',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year); 
+  
+observe earth:Region named colombia_ap_drummont_becerril_cesar_co10  
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_priority_areas_epsg4326_v2#weed_site=CO10',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year); 
+
+observe earth:Region named colombia_ap_plata_simiti_cesar_co11  
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_priority_areas_epsg4326_v2#weed_site=CO11',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);    
+
+observe earth:Region named colombia_ap_guane_barrancabermeja_co12  
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_priority_areas_epsg4326_v2#weed_site=CO12',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);  
+        
+observe earth:Region named colombia_piedemonte_casanare_co13  
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_priority_areas_epsg4326_v2#weed_site=CO13',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year); 
+        
+observe earth:Region named colombia_cuenca_alta_rio_bogota_co14  
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_priority_areas_epsg4326_v2#weed_site=CO14',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);  
+        
+observe earth:Region named colombia_arco_de_deforestacion_amazonia_co15  
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_priority_areas_epsg4326_v2#weed_site=CO15',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);   
+        
+observe earth:Region named colombia_delta_del_patia_co16  
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_priority_areas_epsg4326_v2#weed_site=CO16',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);  
+
+observe earth:Region named colombia_buenaventura_co17  
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_priority_areas_epsg4326_v2#weed_site=CO17',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);  
+
+
+//Czech priority areas V2
+observe earth:Region named czech_republic_bilek_cz1  
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2#weed_site=CZ1',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);  
+
+observe earth:Region named czech_republic_krkonossky_cz2  
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2#weed_site=CZ2',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);   
+        
+observe earth:Region named czech_republic_podyji_cz3  
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2#weed_site=CZ3',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);  
+        
+observe earth:Region named czech_republic_bohemian_cz4  
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2#weed_site=CZ4',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);   
+
+observe earth:Region named czech_republic_transect_boheman_ns_cz5  
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2#weed_site=CZ5',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);  
+        
+observe earth:Region named czech_republic_transect_krkhnossky_ns_cz6  
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2#weed_site=CZ6',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year); 
+        
+observe earth:Region named czech_republic_transect_podyji_we_cz7  
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2#weed_site=CZ7',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year); 
+
+observe earth:Region named czech_republic_transect_mid_we_cz8  
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2#weed_site=CZ8',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);   
+///             
