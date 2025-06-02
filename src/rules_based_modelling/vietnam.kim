@@ -1,2 +1,60 @@
 private namespace rules_based_modelling.vietnam
 	using nca.ecosystem.iucn;
+	
+number 'local:alessio.bulckaen:esa.aries.sandbox:im-data-global-soil_vietnam_odp_soil_types#__gid' as trial_soil;
+//200 -> Orthic Acrisols
+// Orthic Acrisols within 90cm, medium and fine textured, steeply dissected to mountainous
+
+// 196 Lithosols
+//Lithosols, Chromic Luvisols and Calcic Cambbisols, steeply dissected to mountainous
+
+
+// 192 --> Ferric Acrisols
+// Ferric Acrisols within 60cm,coarse and medium textured, level to gentlyundulating and rolling to hilly
+
+//61 --> Fleyc Acrisols
+//	Gleyic Acrisols within 17cm, coarse and medium textured, level to gently undulating and rolling to hilly
+
+//63 --> 
+//Eutric Gleysols within 56cm,fine textured, level to gently undulating
+
+//64 --> 
+//Eutric Fluvisols within 72 cm, medium textured, level to gently undulating
+
+
+// 69 
+//	Thionic Fluvisols within 13 cm, fine textured, level to gently undulating
+
+// 70
+//Eutric Regosols within 83 cm, coarse textured, level to gently undulating and rolling to hilly
+
+// 72
+// Lithosols, Chromic Luvisols and Calcic Cambbisols, steeply dissected to mountainous
+
+//79
+//Dystric Gleysols within 29cm,fine textured, level to gently undulating
+
+
+
+
+text 'local:alessio.bulckaen:esa.aries.sandbox:im-data-global-soil_vietnam_odp_soil_types#__domsoil' as trial_soil2;
+
+
+//@key(en="Ecosystem type - IUCN GET 2.0 Level 3", es="Ecosistemas - IUCN GET 2.0 nivel 3")
+//@documented(seeaeea.ecosystemextent)
+//model nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get
+//	observing
+//		landcover:LandCoverType                                                                 named landcover    ,
+//		ratio of earth:PrecipitationVolume to im:Potential hydrology:EvapotranspiredWaterVolume named aridity      ,
+//		earth:AtmosphericTemperature in Celsius			                                        named a_temp  	   , //Alessio likes "annual_temp" - which is fine. Just keeping as a_temp to keep the table even for now, can restore "annual_temp" when we're ready to finalize.
+//		im:Reference earth:AtmosphericTemperature in Celsius	                      			named wm_temp      ,
+//		presence of earth:Mountain																named mountain     ,		
+//		geography:Elevation in m                                                                named elevation    ,
+//		type of soil:SoilTexture																named soil_texture ,
+////        keith_region                                                                                               ,
+//        dinerstein_region                                                                                          ,
+////		KoppenGeigerClimateZone																	named kg_clim      ,
+//		plantation                                                                                                      
+//	lookup 
+//		(landcover, aridity, a_temp, wm_temp, mountain, elevation, soil_texture, *, dinerstein_region, *, plantation, ?) 
+//			into IUCN_GLOBAL_ECOSYSTEMS_BIOMES;
