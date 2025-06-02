@@ -6,13 +6,32 @@ model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cu_glc_fcs30d_landcover_
 	local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cu_glc_fcs30d_landcover_epsg4326_30m_2022
 	as landcover:LandCoverType classified according to im:glc-fcs30-enconding;
 
-abstract attribute PlantedForest has children
-	TimberPlantation,
-	OilPalmPlantation,
-	Agroforestry;
+@colormap(values = {
+PrimaryForest: (0 100 100)
+SecondaryForest: (34 139 139)
+YoungSecondaryForest: (85 165 165)
+OldSecondaryForest: (50 130 130)
+PlantedForest: (60 179 179)
+TimberPlantation: (189 183 183)
+OilPalmPlantation: (210 180 180)
+Agroforestry: (154 205 205)
+})
+abstract attribute ForestManagement has children
+	(PrimaryForest 
+	"Forest without any signs of human activities"),
+	(SecondaryForest 
+	"Forest with signs of human activities(e.g., logging, clear cuts etc.)" has children
+		(YoungSecondaryForest
+		"Human managed forest younger than 20 years"),
+		(OldSecondaryForest
+		"Human managed forest older than 20 years")),
+	(PlantedForest has children
+		TimberPlantation,
+		OilPalmPlantation,
+		Agroforestry);
 
-class PlantedForestType
-	is type of PlantedForest ;
+class ForestType
+	is type of ForestManagement;
 
 abstract attribute KoppenGeigerClimateZone
 	"A classification system defining global climate zones, based on temperature and precipitation patterns, 
@@ -103,7 +122,10 @@ abstract attribute KoppenGeigerClimateZone
 
 // Plantations, as defined by GET, include classes 32, 40, 53 (32 = timber plantation, 40 = oil palm plantation, 53 = agroforestry)
 model local:alessio.bulckaen:im.data.global:im-data-global-agriculture.global_forest_management_100m_2015_v3_2
-as type of PlantedForest classified into
+as ForestType classified into
+	PrimaryForest if 11,
+	SecondaryForest if 20,
+	PlantedForest if 31,
 	TimberPlantation if 32,
 	OilPalmPlantation if 40,
 	Agroforestry if 53;
