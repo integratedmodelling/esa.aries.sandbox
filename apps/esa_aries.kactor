@@ -10,6 +10,26 @@ public app esa.aries
 action main:
 
 separator("Context: where, when (2024) " :iconname "earth" )  
+
+(
+			label("Czech Republic" width="98%" #ltempres)
+			combo(
+				"Bilek_CZ1"
+				"Krkhnossky_CZ2"
+				"Podyji_CZ3"
+				#ctempres
+				width="95%"
+			) : ( set self.context_label $
+				if [self.context_label == "Bilek_CZ1"]
+					context(cu_priority_areas_contexts.czech_republic_bilek_cz1)
+				if [self.context_label == "Krkhnossky_CZ2"]
+					context(cu_priority_areas_contexts.czech_republic_krkonossky_cz2)
+				if [self.context_label == "Podyji_CZ3"]
+					context(cu_priority_areas_contexts.czech_republic_podyji_cz3)
+				//etc.
+			))
+separator()
+
 (
 	checkbutton("Norway NO1 BB:32tNM42 (10 m) " #ctx1): (
 		disable_ctxs
