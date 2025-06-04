@@ -3,18 +3,25 @@
   "version" : "0.0.1",
   "adapterType" : "stac",
   "localPath" : "esa.aries.sandbox/resources/weed_globes_lin_dist_to_ocean.v0.0.1",
-  "geometry" : "t1{tend=1735689599000,tstart=1514764800000,ttype=grid}s2{bbox=[-81.78333 -34.88611 115.24722 70.93889],proj=EPSG:4326}",
+  "geometry" : "s2{bbox=[-81.78333 -34.88611 115.24722 70.93889],proj=EPSG:4326}",
   "projectName" : "esa.aries.sandbox",
   "localName" : "weed_globes_lin_dist_to_ocean",
   "type" : "NUMBER",
-  "resourceTimestamp" : 1748603981500,
+  "resourceTimestamp" : 1748613346248,
   "metadata" : {
+    "im:keywords" : "",
     "dc:comment" : "Globes collection first version",
+    "im:notes" : "",
     "dc:title" : "Globes",
-    "dc:url" : "https://catalogue.weed.apex.esa.int/collections/Globes-V2"
+    "dc:url" : "https://catalogue.weed.apex.esa.int/collections/Globes-V2",
+    "dc:creator" : "",
+    "im:thematic-area" : "",
+    "dc:originator" : "",
+    "im:geographic-area" : "",
+    "dc:source" : ""
   },
   "parameters" : {
-    "endpointurl" : "https://s3.waw3-1.cloudferro.com",
+    "endpointurl" : "https://s3.waw4-1.cloudferro.com",
     "collection" : "https://catalogue.weed.apex.esa.int/collections/Globes-V2",
     "asset" : "Globes-V2-DistToOcean",
     "collectionId" : "Globes-V2"

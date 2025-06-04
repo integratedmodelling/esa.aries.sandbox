@@ -36,6 +36,10 @@ number 'local:arnab.moitra:esa.aries.sandbox:weed_ecdc_band_B04_p2' as weed_ecdc
 number 'local:arnab.moitra:esa.aries.sandbox:weed_ecdc_band_B04_p75' as weed_ecdc_band_b04_p75;
 
 
+// Datacube with Heirarchical Bandmixing on Preprocessed habitat probabilities datacube
+
+number local:arnab.moitra:esa.aries.sandbox:weed_preprocessed_habitat_dc as banana;
+
 // Datacubes from GlobES (https://catalogue.weed.apex.esa.int/collections/Globes-V2/items)
 model local:arnab.moitra:esa.aries.sandbox:weed_globes_lin_dist_to_ocean as im:Lineal distance to earth:Ocean ;
 
