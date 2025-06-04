@@ -237,5 +237,103 @@ observe earth:Region named czech_republic_transect_mid_we_cz8
     over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2#weed_site=CZ8',
     			grid="30 m",
                 projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+//Greece priority areas V2
+observe earth:Region named greece_xylokastro_el1  
+    over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_greece_priority_areas_epsg4326_v2#weed_site=EL1',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);  
+
+observe earth:Region named greece_capemaleas_el2  
+    over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_greece_priority_areas_epsg4326_v2#weed_site=EL2',
+    			grid="30 m",
+                projection= "EPSG:4326"),
         time(start=2022, end=2023, step=1.year);   
+        
+observe earth:Region named greece_kefalonia_z_el3
+    over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_greece_priority_areas_epsg4326_v2#weed_site=EL3',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);  
+        
+observe earth:Region named greece_naxos_el4
+    over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_greece_priority_areas_epsg4326_v2#weed_site=EL4',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);   
+
+observe earth:Region named greece_kassandra_el5
+    over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_greece_priority_areas_epsg4326_v2#weed_site=EL5',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);  
+        
+observe earth:Region named greece_crete_el6 
+    over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_greece_priority_areas_epsg4326_v2#weed_site=EL6',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year); 
+        
+observe earth:Region named greece_zacharo_k_el7
+    over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_greece_priority_areas_epsg4326_v2#weed_site=EL7',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year); 
+
+observe earth:Region named greece_menalo_el8 
+    over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_greece_priority_areas_epsg4326_v2#weed_site=EL8',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+observe earth:Region named greece_sterea_s_el9 
+    over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_greece_priority_areas_epsg4326_v2#weed_site=EL9',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+observe earth:Region named greece_m_vernon_el10
+    over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_greece_priority_areas_epsg4326_v2#weed_site=EL10',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+observe earth:Region named greece_thessaloniki_el11
+    over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_greece_priority_areas_epsg4326_v2#weed_site=EL11',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+//Norway priority areas V2
+observe earth:Region named norway_osloviken_no1
+    over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_norway_priority_areas_epsg4326_v2#weed_site=NO1',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);  
+
+observe earth:Region named norway_finnmark_no2
+    over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_norway_priority_areas_epsg4326_v2#weed_site=NO2',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+//Norway priority areas V2
+observe earth:Region named vietnam_quang_ninh__hai_phong_vn1
+    over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_vietnam_priority_areas_epsg4326_v2#weed_site=VN1',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);  
+
+observe earth:Region named vietnam_pu_ma__thanh_hoa_vn2
+    over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_vietnam_priority_areas_epsg4326_v2#weed_site=VN2',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);  
+        
+observe earth:Region named vietnam_cu_lao_cham__hoi_an_vn3
+    over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_vietnam_priority_areas_epsg4326_v2#weed_site=VN3',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);  
 ///             
