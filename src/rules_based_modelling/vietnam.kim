@@ -58,3 +58,24 @@ text 'local:alessio.bulckaen:esa.aries.sandbox:im-data-global-soil_vietnam_odp_s
 //	lookup 
 //		(landcover, aridity, a_temp, wm_temp, mountain, elevation, soil_texture, *, dinerstein_region, *, plantation, ?) 
 //			into IUCN_GLOBAL_ECOSYSTEMS_BIOMES;
+
+
+//model 'local:caterina.gilli:esa.aries.sandbox:esa_weed.globes_v100_2018_vnm_coastal_flats_classification' 
+//	as presence of CoastalFlats;
+number 'local:caterina.gilli:esa.aries.sandbox:esa_weed.globes_v100_2018_vnm_coastal_flats_classification' as presence_of_coastal_flats;
+
+
+model 'local:caterina.gilli:esa.aries.sandbox:esa_weed.globes_v100_2018_vnm_linear_distance_to_ocean' 
+	as distance to earth:Ocean;
+// is there need, or should we directly say:
+number 'local:caterina.gilli:esa.aries.sandbox:esa_weed.globes_v100_2018_vnm_linear_distance_to_ocean' as ditance_to_ocean;
+
+
+//model 'local:caterina.gilli:esa.aries.sandbox:esa_weed.globes_v100_2018_vnm_mangrove_forest_extent'
+//	as presence of landcover:Mangrove;
+
+number 'local:caterina.gilli:esa.aries.sandbox:esa_weed.globes_v100_2018_vnm_mangrove_forest_extent' as mangrove_extent;	
+number 'local:caterina.gilli:esa.aries.sandbox:esa_weed.globes_v100_2018_vnm_permafrost_extent_nh' as permafrost_extent;
+
+number 'local:caterina.gilli:esa.aries.sandbox:esa_weed.globes_v100_2018_vnm_urban_settlement_classification' as urban_settlement;
+number 'local:caterina.gilli:esa.aries.sandbox:esa_weed.globes_v100_2018_vnm_water_class' as water_class;
