@@ -7,14 +7,14 @@ model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cu_glc_fcs30d_landcover_
 	as landcover:LandCoverType classified according to im:glc-fcs30-enconding;
 
 model 'local:rubencc:im.data.global:im-data-global-ecology.global_ecoregions_300m_4326_2017'
-	as type of nca.ecoregion:DinersteinRegion classified into
+	as type of nca.ecoregion:DinersteinRegion named ecoregion_south_africa classified into
 		nca.ecoregion:AlbanyThicket if 88,
 		nca.ecoregion:FynbosShrubland if 89,
 		nca.ecoregion:RenosterveldShrubland if 90,
 		nca.ecoregion:SucculentKarooXericShrubland if 110;
 
 model local:alessio.bulckaen:im.data.global:im-data-global-agriculture.global_forest_management_100m_2015_v3_2
-	as rules_based_modelling:ForestType classified into
+	as rules_based_modelling:ForestType named forest_type classified into
 		rules_based_modelling:PrimaryForest if 11,
 		rules_based_modelling:SecondaryForest if 20,
 		rules_based_modelling:PlantedForest if 31,
