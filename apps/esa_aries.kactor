@@ -8,27 +8,38 @@ public app esa.aries
 
 @left(width=450)
 action main:
+set context_label ""
 
 separator("Context: where, when (2024) " :iconname "earth" )  
-
 (
-			label("Czech Republic" width="98%" #ltempres)
-			combo(
-				"Bilek_CZ1"
-				"Krkhnossky_CZ2"
-				"Podyji_CZ3"
-				#ctempres
-				width="95%"
-			) : ( set self.context_label $
-				if [self.context_label == "Bilek_CZ1"]
-					context(cu_priority_areas_contexts.czech_republic_bilek_cz1)
-				if [self.context_label == "Krkhnossky_CZ2"]
-					context(cu_priority_areas_contexts.czech_republic_krkonossky_cz2)
-				if [self.context_label == "Podyji_CZ3"]
-					context(cu_priority_areas_contexts.czech_republic_podyji_cz3)
-				//etc.
-			))
-separator()
+	(
+		checkbutton("Bilek_CZ1" #cz1): (
+			disable_ctxs
+			context(cu_priority_areas_contexts.czech_republic_bilek_cz1)
+		)
+		checkbutton("Krkhnossky_CZ2" #cz2): (
+			disable_ctxs
+			context(cu_bbox_contexts.czech_cu_transectmidwe_cz8_bbox_33dwr11) 
+		)
+		checkbutton("Podyji_CZ3" #cz3): (
+			disable_ctxs
+			context(cu_priority_areas_contexts.czech_republic_podyji_cz3)
+		)
+	) :name "Czech Republic" :opened #czec
+	(
+		checkbutton("Czech CZ1 BB:33δWR11 (10 m) " #ctx2): (
+			disable_ctxs
+			context(cu_bbox_contexts.czech_cu_transectmidwe_cz8_bbox_33dwr11) 
+		)
+		checkbutton("Czech CZ1 BB:33δWR11 (10 m) " #ctx2): (
+			disable_ctxs
+			context(cu_bbox_contexts.czech_cu_transectmidwe_cz8_bbox_33dwr11) 
+		)
+	) :name "Norway" #norway
+	
+) :shelf #contexts
+
+
 
 (
 	checkbutton("Norway NO1 BB:32tNM42 (10 m) " #ctx1): (
@@ -80,7 +91,7 @@ separator()
 
 	(
 		button(#reset_context "Reset" :iconname "restart" :disabled width="80%"): reset_buttons
-	) :vbox :center
+	) :vbox :center 
 )	
 
 (
@@ -112,6 +123,10 @@ action disable_ctxs: (
 	ctx4.disable
 	ctx5.disable
 	ctx6.disable
+	czh1.disable
+	czh2.disable
+	czh3.disable
+	contexts.hide
 	reset_context.enable
 )
 action reset_buttons: (
@@ -145,5 +160,7 @@ action reset_buttons: (
 	obs21.disable
 	obs22.disable
 	obs3.disable
+	contexts.show
+	context_name.hide
 	reset_context.disable
 )
