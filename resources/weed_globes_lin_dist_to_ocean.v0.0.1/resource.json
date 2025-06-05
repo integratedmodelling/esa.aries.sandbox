@@ -3,7 +3,7 @@
   "version" : "0.0.1",
   "adapterType" : "stac",
   "localPath" : "esa.aries.sandbox/resources/weed_globes_lin_dist_to_ocean.v0.0.1",
-  "geometry" : "s2{bbox=[-81.78333 -34.88611 115.24722 70.93889],proj=EPSG:4326}",
+  "geometry" : "t1{ttype=grid}S2",
   "projectName" : "esa.aries.sandbox",
   "localName" : "weed_globes_lin_dist_to_ocean",
   "type" : "NUMBER",

@@ -3,7 +3,7 @@
   "version" : "0.0.1",
   "adapterType" : "stac",
   "localPath" : "esa.aries.sandbox/resources/weed_ecdc_band_B04_p2.v0.0.1",
-  "geometry" : "t1{tend=1735689599000,tstart=1704067200000,ttype=grid}s2{bbox=[-75.0 -34.31795510170588 107.50655901090232 60.069311585676324],proj=EPSG:4326}",
+  "geometry" : "t1{ttype=grid}S2",
   "projectName" : "esa.aries.sandbox",
   "localName" : "weed_ecdc_band_B04_p2",
   "type" : "NUMBER",
