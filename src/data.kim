@@ -85,6 +85,9 @@ model 'local:justus.muhando:esa.aries.sandbox:esa_weed.south_africa_gea_20240722
 	nca.ecosystem.iucn:UrbanIndustrialEcosystem if 32,
 	nca.ecosystem.iucn:DerivedSeminaturalPastureOldfield if 33,
 	nca.ecosystem.iucn:TropicalFloodedForestPeatForest if 34;
+
+/*South Africa NLC raster dataset */
+number local:justus.muhando:esa.aries.sandbox:esa_weed.south_africa_nlc_landcover_2020_epsg4326 as south_africa_nlc;
 	
 //FAO Soil Type for Vietnam
 model 'local:alessio.bulckaen:esa.aries.sandbox:im-data-global-soil_vietnam_odp_soil_types#domsoil'

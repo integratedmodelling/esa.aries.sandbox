@@ -1,0 +1,36 @@
+{
+  "urn" : "local:justus.muhando:esa.aries.sandbox:esa_weed.south_africa_nlc_landcover_2020_epsg4326",
+  "version" : "0.0.1",
+  "adapterType" : "wcs",
+  "localPath" : "esa.aries.sandbox/resources/esa_weed.south_africa_nlc_landcover_2020_epsg4326",
+  "geometry" : "S2(127269,71247){bbox=[14.4711405749382 37.33685781691646 -34.92470161599873 -22.12406814340922],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "esa_weed.south_africa_nlc_landcover_2020_epsg4326",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1749131288872,
+  "metadata" : { },
+  "parameters" : {
+    "wcsIdentifier" : "esa_weed__south_africa_nlc_landcover_2020_epsg4326",
+    "transform" : "",
+    "serviceUrl" : "https://integratedmodelling.org/aux-geoserver/esa_weed/wcs",
+    "wcsVersion" : "2.0.1"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : {
+    "east" : 37.33685781691646,
+    "west" : 14.4711405749382,
+    "north" : -22.12406814340922,
+    "south" : -34.92470161599873,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}
