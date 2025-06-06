@@ -112,6 +112,8 @@ model local:arnab.moitra:esa.aries.sandbox:greece
 		nca.ecosystem.eunis:ConstructedIndustrialArtificialHabitat if 9
 ;
 
+number "local:arnab.moitra:esa.aries.sandbox:weed_alpha_two_udp#synchronous=false&scenarioId=klab&digitalId=AM1729&area_name=34σDH30&modelId" as banana;
+
 // Norway
 
 

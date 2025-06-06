@@ -31,17 +31,25 @@ model type of nca.ecosystem.eunis:Ecosystem  named ecosystem_type_eunis
 
 
 // Datacubes from https://browser.weed.apex.esa.int/collections/ecosystem-characteristics-alpha2-1 
+// ECDC
+// Ask Bruno 
 
 number 'local:arnab.moitra:esa.aries.sandbox:weed_ecdc_band_B04_p2' as weed_ecdc_band_b04_p2;
 number 'local:arnab.moitra:esa.aries.sandbox:weed_ecdc_band_B04_p75' as weed_ecdc_band_b04_p75;
 
 
 // Datacube with Heirarchical Bandmixing on Preprocessed habitat probabilities datacube
+// BackUp Preprocessed Habitat Probs 
+// I will add the Annotatiosn by caterina
 
 number local:arnab.moitra:esa.aries.sandbox:weed_preprocessed_habitat_dc as banana;
 
+
 // Datacubes from GlobES (https://catalogue.weed.apex.esa.int/collections/Globes-V2/items)
-model local:arnab.moitra:esa.aries.sandbox:weed_globes_lin_dist_to_ocean as im:Lineal distance to earth:Ocean ;
+
+model local:arnab.moitra:esa.aries.sandbox:weed_globes_lin_dist_to_ocean as im:Lineal distance to earth:Ocean;
+
+
 
 model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cu_glc_fcs30d_landcover_epsg4326_30m_2020,
 	local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cu_glc_fcs30d_landcover_epsg4326_30m_2021,
