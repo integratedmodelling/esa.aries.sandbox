@@ -46,6 +46,24 @@ number 'local:arnab.moitra:esa.aries.sandbox:weed_ecdc_band_B04_p75' as weed_ecd
 
 model local:arnab.moitra:esa.aries.sandbox:weed_globes_lin_dist_to_ocean as im:Lineal distance to earth:Ocean;
 
+//Could be annotated with LandCoverType and check if GlobalPastureWatch is a better product
+abstract attribute Grassland
+	describes im:Type of earth:LandCover within ecology:HerbaceousVegetation earth:Location 
+	has disjoint children 
+	Savannah,
+	Rangeland,
+	Pasture;
+
+//Metadata: https://drive.google.com/file/d/1sMyIQ7E-ChmT0WdjAW9zYOrvGdWRmOy1/view?usp=drive_link	
+/* Classification of grassy cover into savanna, rangelands,  and pasture:       
+ * "tree_cover_sparse_fluctuating",
+ * "tree_cover_clustered_grasslands_dominant",
+ * "tree_cover_sparse_fluctuating_grasslands_dominant" */
+model local:alessio.bulckaen:esa.aries.sandbox:globes_grassy_cover_v2 //as globes_grassy_cover_v2 
+	as type of Grassland classified into
+	Savannah if 1,
+	Rangeland if 2,
+	Pasture if 3;
 
 
 // Stuff from GeoServer: Ruben, Justus, Alessio, Caterina
