@@ -131,7 +131,9 @@ model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_mangrove_extent_v
 	as presence of ecology:Mangrove earth:Region
 	set to [self==1];
 
-
+model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_floodplain_extent_v3
+ as presence of hydrology:Floodplain
+ set to [self ==1];
 
 // Stuff from GeoServer: Ruben, Justus, Alessio, Caterina
 
