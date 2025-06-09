@@ -65,8 +65,6 @@ model local:alessio.bulckaen:esa.aries.sandbox:globes_grassy_cover_v2 //as globe
 	Rangeland if 2,
 	Pasture if 3;
 
-
-
 /*	Type of Waterclass: Classification of water bodies (wetland and waterbody are mixed)
  		  "river",
           "inland_freshwater_lakes",
@@ -137,6 +135,25 @@ model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_mangrove_extent_v
 model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_floodplain_extent_v3
  as presence of hydrology:Floodplain
  set to [self ==1];
+
+abstract attribute Desert
+ has children
+ 	HotDesert,
+ 	TemperateDesert,
+ 	ColdDesert;
+
+//Doubtfull since HOt and Cold deserts coexist in the same small context
+//observe earth:Region named testing_desert_class_2018
+//over space(shape='EPSG:4326 POLYGON ((16.40602565437512 -28.60349416640173, 16.58972046221204 -28.440571185296562, 16.85269864229932 -28.579908774711072, 16.63570379160007 -28.8209131497405, 16.40602565437512 -28.60349416640173))',
+//grid="300 m",
+//projection="EPSG:4326"),
+//time(start=2018, end=2019, step=1.year);
+model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_desert_class_v3 
+	as type of Desert classified into
+	 	HotDesert if 1,
+ 		TemperateDesert if 2,
+ 		ColdDesert if 3;
+ 
 
 // Stuff from GeoServer: Ruben, Justus, Alessio, Caterina
 
