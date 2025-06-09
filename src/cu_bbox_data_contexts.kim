@@ -1,6 +1,8 @@
 private namespace cu_bbox_data_contexts;
 
 
+// These set of contexts work for ECDC, Preprocessed Results STAC, and as UDP
+
 observe earth:Region named norway_cu_osloviken_no1_bbox_32tnm42
     over space(shape='MULTIPOLYGON (((10.79650009641397901 60.06492020149378419, 10.78680110532568648 59.88542210404673938, 10.42958675762642962 59.88978200214562264, 10.43734856828254998 60.06931158567632423, 10.79650009641397901 60.06492020149378419)))',
     		grid="100 m",
