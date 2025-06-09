@@ -1,0 +1,81 @@
+{
+  "urn" : "local:arnab.moitra:esa.aries.sandbox:weed_alpha_two_udp",
+  "version" : "0.0.1",
+  "adapterType" : "openeo",
+  "localPath" : "esa.aries.sandbox/resources/weed_alpha_two_udp.v0.0.1",
+  "geometry" : "t1s2",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "weed_alpha_two_udp",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1749126886152,
+  "metadata" : {
+    "dc:description" : "Generates the alpha 2 inference result based on inputs.Returns a single band per probability.",
+    "im:keywords" : "",
+    "dc:comment" : "Inference for the habitat maps for the alpha2 release.",
+    "im:notes" : "",
+    "dc:title" : "Generates the alpha 2 inference result based on inputs",
+    "dc:url" : "",
+    "dc:creator" : "",
+    "im:thematic-area" : "",
+    "dc:originator" : "",
+    "im:geographic-area" : "",
+    "dc:source" : ""
+  },
+  "parameters" : {
+    "space.shape" : "?",
+    "time.year" : "year",
+    "processId" : "udp_inference_module_alpha2",
+    "serviceUrl" : "https://openeo.dataspace.copernicus.eu/openeo/1.2",
+    "namespace" : "https://raw.githubusercontent.com/ESA-WEED-project/OpenEO-UDP-UDF-catalogue/refs/heads/main/UDP/json/udp_inference_module_alpha2.json",
+    "space.bbox" : "bbox",
+    "space.projection" : "?",
+    "band" : "0",
+    "space.resolution" : "?"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : [ {
+    "name" : "bbox",
+    "type" : "OBJECT",
+    "key" : false,
+    "optional" : false,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "onnx_model_id",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : false,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "digitalId",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : false,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "scenarioId",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : false,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "area_name",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : false,
+    "exampleValue" : null,
+    "index" : 0
+  } ],
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

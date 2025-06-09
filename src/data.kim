@@ -1,5 +1,8 @@
 project private namespace data
-using nca.ecosystem.eunis, nca.ecosystem.iucn, nca.ecoregion, nca.soil.wrb;
+using nca.ecosystem.eunis, 
+	 nca.ecosystem.iucn, 
+	 nca.ecoregion, 
+	 nca.soil.wrb;
 
 //Resources from VITO STAC 
 @todo //add a way to handle nodata in resource editor // check projects and alignment with basemap
@@ -30,18 +33,22 @@ model type of nca.ecosystem.eunis:Ecosystem  named ecosystem_type_eunis
 	set to [udp];  
 
 
-// Datacubes from https://browser.weed.apex.esa.int/collections/ecosystem-characteristics-alpha2-1 
+
+
+// Datacubes from https://browser.weed.apex.esa.int/collections/ecosystem-characteristics-alpha2-1 (ECDC)
+// Ask Bruno about Color Codes: Alessio 
 
 number 'local:arnab.moitra:esa.aries.sandbox:weed_ecdc_band_B04_p2' as weed_ecdc_band_b04_p2;
 number 'local:arnab.moitra:esa.aries.sandbox:weed_ecdc_band_B04_p75' as weed_ecdc_band_b04_p75;
 
 
-// Datacube with Heirarchical Bandmixing on Preprocessed habitat probabilities datacube
-
-number local:arnab.moitra:esa.aries.sandbox:weed_preprocessed_habitat_dc as banana;
-
 // Datacubes from GlobES (https://catalogue.weed.apex.esa.int/collections/Globes-V2/items)
-model local:arnab.moitra:esa.aries.sandbox:weed_globes_lin_dist_to_ocean as im:Lineal distance to earth:Ocean ;
+
+model local:arnab.moitra:esa.aries.sandbox:weed_globes_lin_dist_to_ocean as im:Lineal distance to earth:Ocean;
+
+
+
+// Stuff from GeoServer: Ruben, Justus, Alessio, Caterina
 
 model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cu_glc_fcs30d_landcover_epsg4326_30m_2020,
 	local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cu_glc_fcs30d_landcover_epsg4326_30m_2021,

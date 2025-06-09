@@ -3,10 +3,6 @@ private namespace alphatwo_udp
 	      peopleea.forest.lai,
 	      peopleea.highresolution;   
 
-//Norway
-//model 'local:stefano.balbi:esa.aries.sandbox:alpha1.inigo#output_warp=true&synchronous=false&area_name=32τNM42&onnx_models=https://s3.waw3-1.cloudferro.com/swift/v1/ecdc-waw3-1-ekqouvq3otv8hmw0njzuvo0g4dy0ys8r985n7dggjis3erkpn5o/models/Level1_class-0_129predictors_v1.onnx,&digitalId=tests/Inigo&output_band_names=Level1_class-0_129predictors_v1_30000,Level1_class-0_129predictors_v1_40000,Level1_class-0_129predictors_v1_50000,Level1_class-0_129predictors_v1_60000,Level1_class-0_129predictors_v1_70000,Level1_class-0_129predictors_v1_80000,Level1_class-0_129predictors_v1_90000,Level1_class-0_129predictors_v1_100000,Level1_class-0_129predictors_v1_110000&scenarioId=alpha-1&bbox=32τNM42'  //add UDP for alpha2 here: currently hardcoded alpha one to query alpha 2 results at https://browser.weed.apex.esa.int/collections/inference-alpha2-prepared-v101  
-//	 type of nca.ecosystem.eunis:Ecosystem named ecosystem_type_iucn_get_level1_norway
-
 number ecosystem_type_iucn_get 
 	observing 
 //	ecology:LeafAreaIndex,
@@ -27,92 +23,54 @@ number ecosystem_type_iucn_get
 //		nca.ecosystem.eunis:ConstructedIndustrialArtificialHabitat if 120000 
 //;  
 
-//Czech
-model 'local:stefano.balbi:esa.aries.sandbox:alpha1.inigo#output_warp=true&synchronous=false&area_name=33σWR11&onnx_models=https://s3.waw3-1.cloudferro.com/swift/v1/ecdc-waw3-1-ekqouvq3otv8hmw0njzuvo0g4dy0ys8r985n7dggjis3erkpn5o/models/Level1_class-0_129predictors_v1.onnx,&digitalId=tests/Inigo&output_band_names=Level1_class-0_129predictors_v1_30000,Level1_class-0_129predictors_v1_40000,Level1_class-0_129predictors_v1_50000,Level1_class-0_129predictors_v1_60000,Level1_class-0_129predictors_v1_70000,Level1_class-0_129predictors_v1_80000,Level1_class-0_129predictors_v1_90000,Level1_class-0_129predictors_v1_100000,Level1_class-0_129predictors_v1_110000&scenarioId=alpha-1&bbox=33σWR11'  //add UDP for alpha2 here: currently hardcoded alpha one to query alpha 2 results at https://browser.weed.apex.esa.int/collections/inference-alpha2-prepared-v101  
-	as type of nca.ecosystem.eunis:Ecosystem named ecosystem_type_iucn_get_level1_czech
-	classified into
-		nca.ecosystem.eunis:MarineBenthicHabitats if 10000,
-		nca.ecosystem.eunis:PelagicWaterColumn if 20000,
-		nca.ecosystem.eunis:IceAssociatedMarineHabitats if 30000,
-		nca.ecosystem.eunis:CoastalHabitats if 40000,	
-		nca.ecosystem.eunis:Wetlands if 50000,
-		nca.ecosystem.eunis:GrasslandLandDominatedByForbMossLichen if 60000,
-		nca.ecosystem.eunis:HeathlandScrubTundra if 70000,
-		nca.ecosystem.eunis:ForestWoodedLand if 80000,
-		nca.ecosystem.eunis:InlandHabitatsNoLittleSoilMostlySparseVegetation if 90000,
-		nca.ecosystem.eunis:VegetatedManMadeHabitat if 100000,
-		nca.ecosystem.eunis:InlandSurfaceWater if 110000,
-		nca.ecosystem.eunis:ConstructedIndustrialArtificialHabitat if 120000 
+
+// Greece 34σDH30: Using Alpha2 UDP
+model "local:arnab.moitra:esa.aries.sandbox:weed_alpha_two_udp#synchronous=false&&area_name=34σDH30&modelId" 
+	as type of nca.ecosystem.eunis:Ecosystem named ecosystem_type_alpha2_udp_level1_greece
+		classified into
+			nca.ecosystem.eunis:MarineBenthicHabitats if 10000,
+			nca.ecosystem.eunis:CoastalHabitats if 40000,	
+			nca.ecosystem.eunis:Wetlands if 50000,
+			nca.ecosystem.eunis:GrasslandLandDominatedByForbMossLichen if 60000,
+			nca.ecosystem.eunis:HeathlandScrubTundra if 70000,
+			nca.ecosystem.eunis:ForestWoodedLand if 80000,
+			nca.ecosystem.eunis:InlandHabitatsNoLittleSoilMostlySparseVegetation if 90000,
+			nca.ecosystem.eunis:VegetatedManMadeHabitat if 100000,
+			nca.ecosystem.eunis:InlandSurfaceWater if 110000,
+			nca.ecosystem.eunis:ConstructedIndustrialArtificialHabitat if 120000
 ;
 
-//Greece
-model 'local:stefano.balbi:esa.aries.sandbox:alpha1.inigo#output_warp=true&synchronous=false&area_name=34σEH13&onnx_models=https://s3.waw3-1.cloudferro.com/swift/v1/ecdc-waw3-1-ekqouvq3otv8hmw0njzuvo0g4dy0ys8r985n7dggjis3erkpn5o/models/Level1_class-0_129predictors_v1.onnx,&digitalId=tests/Inigo&output_band_names=Level1_class-0_129predictors_v1_30000,Level1_class-0_129predictors_v1_40000,Level1_class-0_129predictors_v1_50000,Level1_class-0_129predictors_v1_60000,Level1_class-0_129predictors_v1_70000,Level1_class-0_129predictors_v1_80000,Level1_class-0_129predictors_v1_90000,Level1_class-0_129predictors_v1_100000,Level1_class-0_129predictors_v1_110000&scenarioId=alpha-1&bbox=34σEH13'  //add UDP for alpha2 here: currently hardcoded alpha one to query alpha 2 results at https://browser.weed.apex.esa.int/collections/inference-alpha2-prepared-v101  
-	as type of nca.ecosystem.eunis:Ecosystem named ecosystem_type_iucn_get_level1_greece
-	classified into
-		nca.ecosystem.eunis:MarineBenthicHabitats if 10000,
-		nca.ecosystem.eunis:PelagicWaterColumn if 20000,
-		nca.ecosystem.eunis:IceAssociatedMarineHabitats if 30000,
-		nca.ecosystem.eunis:CoastalHabitats if 40000,	
-		nca.ecosystem.eunis:Wetlands if 50000,
-		nca.ecosystem.eunis:GrasslandLandDominatedByForbMossLichen if 60000,
-		nca.ecosystem.eunis:HeathlandScrubTundra if 70000,
-		nca.ecosystem.eunis:ForestWoodedLand if 80000,
-		nca.ecosystem.eunis:InlandHabitatsNoLittleSoilMostlySparseVegetation if 90000,
-		nca.ecosystem.eunis:VegetatedManMadeHabitat if 100000,
-		nca.ecosystem.eunis:InlandSurfaceWater if 110000,
-		nca.ecosystem.eunis:ConstructedIndustrialArtificialHabitat if 120000 
+// Norway 32τNM42: Using Alpha2 UDP
+model "local:arnab.moitra:esa.aries.sandbox:weed_alpha_two_udp#synchronous=false&&typology_level=1&&area_name=32τNM42&modelId" 
+	as type of nca.ecosystem.eunis:Ecosystem named ecosystem_type_alpha2_udp_level1_norway
+		classified into
+			nca.ecosystem.eunis:MarineBenthicHabitats if 10000,
+			nca.ecosystem.eunis:CoastalHabitats if 40000,	
+			nca.ecosystem.eunis:Wetlands if 50000,
+			nca.ecosystem.eunis:GrasslandLandDominatedByForbMossLichen if 60000,
+			nca.ecosystem.eunis:HeathlandScrubTundra if 70000,
+			nca.ecosystem.eunis:ForestWoodedLand if 80000,
+			nca.ecosystem.eunis:InlandHabitatsNoLittleSoilMostlySparseVegetation if 90000,
+			nca.ecosystem.eunis:VegetatedManMadeHabitat if 100000,
+			nca.ecosystem.eunis:InlandSurfaceWater if 110000,
+			nca.ecosystem.eunis:ConstructedIndustrialArtificialHabitat if 120000
 ;
 
-
-//Norway
-model local:arnab.moitra:esa.aries.sandbox:norway
-	as type of nca.ecosystem.eunis:Ecosystem named ecosystem_type_iucn_get_level1_norway_tif
-	classified into
-		nca.ecosystem.eunis:MarineBenthicHabitats if 0,
-		nca.ecosystem.eunis:CoastalHabitats if 1,	
-		nca.ecosystem.eunis:Wetlands if 2,
-		nca.ecosystem.eunis:GrasslandLandDominatedByForbMossLichen if 3,
-		nca.ecosystem.eunis:HeathlandScrubTundra if 4,
-		nca.ecosystem.eunis:ForestWoodedLand if 5,
-		nca.ecosystem.eunis:InlandHabitatsNoLittleSoilMostlySparseVegetation if 6,
-		nca.ecosystem.eunis:VegetatedManMadeHabitat if 7,
-		nca.ecosystem.eunis:InlandSurfaceWater if 8,
-		nca.ecosystem.eunis:ConstructedIndustrialArtificialHabitat if 9
-;
-
-// CZ 
-model local:arnab.moitra:esa.aries.sandbox:czech 
-	as type of nca.ecosystem.eunis:Ecosystem named ecosystem_type_iucn_get_level1_czech_tif
-	classified into
-		nca.ecosystem.eunis:MarineBenthicHabitats if 0,
-		nca.ecosystem.eunis:CoastalHabitats if 1,	
-		nca.ecosystem.eunis:Wetlands if 2,
-		nca.ecosystem.eunis:GrasslandLandDominatedByForbMossLichen if 3,
-		nca.ecosystem.eunis:HeathlandScrubTundra if 4,
-		nca.ecosystem.eunis:ForestWoodedLand if 5,
-		nca.ecosystem.eunis:InlandHabitatsNoLittleSoilMostlySparseVegetation if 6,
-		nca.ecosystem.eunis:VegetatedManMadeHabitat if 7,
-		nca.ecosystem.eunis:InlandSurfaceWater if 8,
-		nca.ecosystem.eunis:ConstructedIndustrialArtificialHabitat if 9
-;
-
-// Greece
-model local:arnab.moitra:esa.aries.sandbox:greece 
-	as type of nca.ecosystem.eunis:Ecosystem named ecosystem_type_iucn_get_level1_greece_tif
-	classified into
-		nca.ecosystem.eunis:MarineBenthicHabitats if 0,
-		nca.ecosystem.eunis:CoastalHabitats if 1,	
-		nca.ecosystem.eunis:Wetlands if 2,
-		nca.ecosystem.eunis:GrasslandLandDominatedByForbMossLichen if 3,
-		nca.ecosystem.eunis:HeathlandScrubTundra if 4,
-		nca.ecosystem.eunis:ForestWoodedLand if 5,
-		nca.ecosystem.eunis:InlandHabitatsNoLittleSoilMostlySparseVegetation if 6,
-		nca.ecosystem.eunis:VegetatedManMadeHabitat if 7,
-		nca.ecosystem.eunis:InlandSurfaceWater if 8,
-		nca.ecosystem.eunis:ConstructedIndustrialArtificialHabitat if 9
-;
-
-// Norway
+// Access Stuff directly from Preprocessed STAC instead of waiting for 30 mins
+// Works only for some contexts
+model local:arnab.moitra:esa.aries.sandbox:weed_preprocessed_habitat_dc 
+	as type of nca.ecosystem.eunis:Ecosystem named ecosystem_type_alpha2_preprocessed_stac_level1
+		classified into
+			nca.ecosystem.eunis:MarineBenthicHabitats if 10000,
+			nca.ecosystem.eunis:CoastalHabitats if 40000,	
+			nca.ecosystem.eunis:Wetlands if 50000,
+			nca.ecosystem.eunis:GrasslandLandDominatedByForbMossLichen if 60000,
+			nca.ecosystem.eunis:HeathlandScrubTundra if 70000,
+			nca.ecosystem.eunis:ForestWoodedLand if 80000,
+			nca.ecosystem.eunis:InlandHabitatsNoLittleSoilMostlySparseVegetation if 90000,
+			nca.ecosystem.eunis:VegetatedManMadeHabitat if 100000,
+			nca.ecosystem.eunis:InlandSurfaceWater if 110000,
+			nca.ecosystem.eunis:ConstructedIndustrialArtificialHabitat if 120000;
 
 
 //model "local:stefano.balbi:esa.aries.sandbox:alpha1.inigo"  //add UDP for alpha2 here: currently hardcoded alpha one to query alpha 2 results at https://browser.weed.apex.esa.int/collections/inference-alpha2-prepared-v101  

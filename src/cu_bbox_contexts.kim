@@ -29,8 +29,8 @@ observe earth:Region named norway_cu_osloviken_no1_bbox_32tnm42
     over space(shape='MULTIPOLYGON (((10.79650009641397901 60.06492020149378419, 10.78680110532568648 59.88542210404673938, 10.42958675762642962 59.88978200214562264, 10.43734856828254998 60.06931158567632423, 10.79650009641397901 60.06492020149378419)))',
     		grid="100 m",
     		projection="EPSG:4326"),
-    		time(year=2024); //-> time issue: org.integratedmodelling.klab.api.data.IGeometry$Dimension.getParameters()" because "this.baseDimension" is null
-//    time(start=2024, end=2025, step=1.year);
+//    		time(year=2024); //-> time issue: org.integratedmodelling.klab.api.data.IGeometry$Dimension.getParameters()" because "this.baseDimension" is null
+    time(start=2024, end=2025, step=1.year);
 
 
 ////Czech BB:E462N298 
@@ -100,7 +100,7 @@ observe earth:Region named greece_cu_kefaloniaz_el3_bbox_34ddh30
     over space(shape='MULTIPOLYGON (((20.77180674372909053 38.12762479241960278, 20.7723653721034438 37.94736937228828566, 20.54473570529695081 37.94670878851269435, 20.54361849612171653 38.1269599397050456, 20.77180674372909053 38.12762479241960278)))',
     		grid="100 m",
     		projection="EPSG:4326"),
-    time(start=2024, end=2025, step=1.year);   
+    time(start=2024, end = 2025, step=1.year);   
 
 
 //South Africa
@@ -110,8 +110,8 @@ observe earth:Region named south_africa_cu_groenfontein_sa9_bbox_34deh33
     over space(shape='MULTIPOLYGON (((21.86242373560273577 -33.61678019674666018, 21.86422844346419936 -33.79714664844519234, 21.64818544788652588 -33.79847094610938996, 21.64683179797409451 -33.61809554592448279, 21.86242373560273577 -33.61678019674666018)))',
     		grid="30 m",
     		projection="EPSG:4326"),
-    		time(year = 2024);
-//    time(start=2024, end=2024, step=1.year);
+//    		time(year = 2024);
+    time(start=2024, end=2024, step=1.year);
 
 //SA stac 34δBH30
 observe earth:Region named south_africa_cu_capepoint_sa1_vito_ecdc_bbox_34dbh30
@@ -152,8 +152,8 @@ observe earth:Region named colombia_cu_mojana_co1_bbox_18lwq22
     over space(shape='MULTIPOLYGON (((-74.45459107377087093 8.68436620579374363, -74.45484955756327849 8.50346874923039309, -74.6365632389979794 8.50368085249721162, -74.63639090920244712 8.68458288763117459, -74.45459107377087093 8.68436620579374363)))',
     		grid="30 m",
     		projection="EPSG:4326"),
-    		time(year = 2024);
-//    time(start=2024, end=2025, step=1.year);
+//    		time(year = 2024);
+    time(start=2024, end=2025, step=1.year);
     
 // Colombia BB:18λWQ02 - Shared by VITO in ECDC STAC
 //observe earth:Region named colombia_cu_vito_ecdc_stac_bbox
