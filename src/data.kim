@@ -56,8 +56,12 @@ model local:alessio.bulckaen:esa.aries.sandbox:esa.weed_ecdc_digital_elevation_m
 number local:alessio.bulckaen:esa.aries.sandbox:esa.weed_ecdc_canopy_structure as canopy_structure;
 
 number local:alessio.bulckaen:esa.aries.sandbox:esa.weed_ecdc_water_index as water_index_standard_deviation;
-	
-	
+
+number local:alessio.bulckaen:esa.aries.sandbox:esa.weed_ecdc_bare_ground as bare_ground 	
+ "VV means vertical transmitted signal and vertical received.
+  Low for smooth surfaces.";
+  
+  	
 /*Many of the assets in the GlobES collection are only available for 2018 */
 // Datacubes from GlobES (https://catalogue.weed.apex.esa.int/collections/Globes-V2/items)
 
