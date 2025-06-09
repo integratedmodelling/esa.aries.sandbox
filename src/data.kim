@@ -38,10 +38,18 @@ model type of nca.ecosystem.eunis:Ecosystem  named ecosystem_type_eunis
 // Datacubes from https://browser.weed.apex.esa.int/collections/ecosystem-characteristics-alpha2-1 (ECDC)
 // Ask Bruno about Color Codes: Alessio 
 
-number 'local:arnab.moitra:esa.aries.sandbox:weed_ecdc_band_B04_p2' as weed_ecdc_band_b04_p2;
+model 'local:arnab.moitra:esa.aries.sandbox:weed_ecdc_band_B04_p2'
+	as ecology:Vegetation im:Density named plant_density; //weed_ecdc_band_b04_p2;
 number 'local:arnab.moitra:esa.aries.sandbox:weed_ecdc_band_B04_p75' as weed_ecdc_band_b04_p75;
 
+number local:alessio.bulckaen:esa.aries.sandbox:esa_weed_ecdc_biome_indicator 
+	as biome_indicator 
+	"This is the polarization method that the active sensor uses for Biome detection.
+	VV means vertical transmitted signal and vertical received.
+	VH means vertical transmitted and horizontal received.
+	Forest have lower VV/VH while built-up or bare areas have higher ratio"; 
 
+/*Many of the assets in the GlobES collection are only available for 2018 */
 // Datacubes from GlobES (https://catalogue.weed.apex.esa.int/collections/Globes-V2/items)
 
 model local:arnab.moitra:esa.aries.sandbox:weed_globes_lin_dist_to_ocean as im:Lineal distance to earth:Ocean;
