@@ -1,0 +1,33 @@
+{
+  "urn" : "local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_mangrove_extent_v3",
+  "version" : "0.0.1",
+  "adapterType" : "stac",
+  "localPath" : "esa.aries.sandbox/resources/esa_weed.globes_mangrove_extent_v3.v0.0.1",
+  "geometry" : "t1{tend=1735689599000,tstart=1514764800000,ttype=grid}s2{bbox=[-81.78333 -34.88611 115.24722 70.93889],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "esa_weed.globes_mangrove_extent_v3",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1749482550896,
+  "metadata" : {
+    "dc:comment" : "Globes collection third version",
+    "dc:title" : "Globes",
+    "dc:url" : "https://catalogue.weed.apex.esa.int/collections/Globes-V3"
+  },
+  "parameters" : {
+    "endpointurl" : "https://s3.waw4-1.cloudferro.com",
+    "collection" : "https://catalogue.weed.apex.esa.int/collections/Globes-V3",
+    "asset" : "mangroveExtent",
+    "collectionId" : "Globes-V3"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

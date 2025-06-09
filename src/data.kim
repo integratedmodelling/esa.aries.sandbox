@@ -126,6 +126,13 @@ number local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_urban_settlement
 //model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_urban_settlement_v3 
 //	as presence of landcover:ArtificialSurface earth:Region
 //	set to [self > 10];
+
+model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_mangrove_extent_v3
+	as presence of ecology:Mangrove earth:Region
+	set to [self==1];
+
+
+
 // Stuff from GeoServer: Ruben, Justus, Alessio, Caterina
 
 model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cu_glc_fcs30d_landcover_epsg4326_30m_2020,
