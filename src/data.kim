@@ -59,6 +59,13 @@ abstract attribute Grassland
  * "tree_cover_sparse_fluctuating",
  * "tree_cover_clustered_grasslands_dominant",
  * "tree_cover_sparse_fluctuating_grasslands_dominant" */
+model local:alessio.bulckaen:esa.aries.sandbox:globes_grassy_cover_v2
+	as landcover:LandCoverType named globes_grassy_cover classified into
+//	landcover:OtherLandCover if 0,
+	landcover:OpenSavanna if 1,
+	landcover:Pastureland if 3,
+	landcover:Grassland if 2;
+
 model local:alessio.bulckaen:esa.aries.sandbox:globes_grassy_cover_v2 //as globes_grassy_cover_v2 
 	as type of Grassland classified into
 	Savannah if 1,
