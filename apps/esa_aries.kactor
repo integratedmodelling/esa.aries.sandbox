@@ -63,7 +63,7 @@ action main:
 				headers.update(" Czech Republic: Transect Mid WE CZ8")
 				headers.show			
 			)
-		) :name "Czech Republic" :opened #czec
+		) :name "Czech Republic"  #czec // :opened
 		(
 			checkbutton("Finnmark NO1" #no1): (
 				disable_ctxs
@@ -405,7 +405,7 @@ action main:
 
 
 	(
-		separator("Alpha 2 functionalities")
+//		separator("Alpha 2 functionalities")
 		(
 			separator("Query Ecosystem Types according to:" :iconname "sprout-outline" )
 			(
@@ -424,6 +424,34 @@ action main:
 	//			checkbutton("test3: with dependencies" #obs6 :disabled): (submit(data.test3))  // primary output with secondary observation but seems slower than test 1
 			)
 		)	
+	
+	separator("Test contexts") //align with data_contexts
+	
+	checkbutton("Norway NO1 BB:32tNM42 (10 m) " #ctx100): (
+		disable_ctxs
+		context(cu_bbox_contexts.norway_cu_osloviken_no1_bbox_32tnm42)
+	)
+	checkbutton("Czech CZ1 BB:33δWR11 (10 m) " #ctx200): (
+		disable_ctxs
+		context(cu_bbox_contexts.czech_cu_transectmidwe_cz8_bbox_33dwr11) 
+	)
+	checkbutton("Greece EL9 BB:34δEH13 (10 m) " #ctx300): (
+		disable_ctxs
+		context(cu_bbox_contexts.greece_cu_sterea_el9_bbox_34deh13)
+	)
+	checkbutton("SouthAfrica SA9 BB:34δEH33 (30 m) " #ctx400): (
+		disable_ctxs
+		context(cu_bbox_contexts.south_africa_cu_groenfontein_sa9_bbox_34deh33)
+	)
+	checkbutton("Vietnam VN1 BB:48πYJ11 (30 m) " #ctx500): (
+		disable_ctxs
+		context(cu_bbox_contexts.vietnam_cu_quangninh_vn1_bbox_48pyj11)
+	)
+	checkbutton("Colombia CO1 BB:18λWQ22 (30 m) " #ctx600): (
+		disable_ctxs
+		context(cu_bbox_contexts.colombia_cu_mojana_co1_bbox_18lwq22)
+	)
+	
 	) 
 	
 	action disable_ctxs: (
@@ -533,3 +561,6 @@ action main:
 		co16.uncheck
 		co17.uncheck
 	)
+	
+	
+	
