@@ -79,3 +79,23 @@ number 'local:caterina.gilli:esa.aries.sandbox:esa_weed.globes_v100_2018_vnm_per
 
 number 'local:caterina.gilli:esa.aries.sandbox:esa_weed.globes_v100_2018_vnm_urban_settlement_classification' as urban_settlement;
 number 'local:caterina.gilli:esa.aries.sandbox:esa_weed.globes_v100_2018_vnm_water_class' as water_class;
+
+
+@key(en="Ecosystem type - IUCN GET 2.0 Level 3", es="Ecosistemas - IUCN GET 2.0 nivel 3")
+@documented(seeaeea.ecosystemextent)
+model nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get_vietnam
+	observing
+		landcover:LandCoverType                                                                 named landcover    ,
+		ratio of earth:PrecipitationVolume to im:Potential hydrology:EvapotranspiredWaterVolume named aridity      ,
+		earth:AtmosphericTemperature in Celsius			                                        named a_temp  	   , //Alessio likes "annual_temp" - which is fine. Just keeping as a_temp to keep the table even for now, can restore "annual_temp" when we're ready to finalize.
+		im:Reference earth:AtmosphericTemperature in Celsius	                      			named wm_temp      ,
+		presence of earth:Mountain																named mountain     ,		
+		geography:Elevation in m                                                                named elevation    ,
+		type of soil:SoilTexture																named soil_texture 
+//        keith_region                                                                                               ,
+//        dinerstein_region                                                                                          ,
+//		KoppenGeigerClimateZone																	named kg_clim      ,
+//		plantation                                                                                                      
+	lookup 
+		(landcover, aridity, a_temp, wm_temp, mountain, elevation, soil_texture, *, dinerstein_region, *, plantation, ?) 
+			into IUCN_GLOBAL_ECOSYSTEMS_BIOMES;
