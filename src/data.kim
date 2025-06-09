@@ -21,7 +21,10 @@ model 'local:stefano.balbi:esa.aries.sandbox:SoilOrganicCarbonTopsoil' as percen
 		set to [ (self == -32439 ) ? unknown : self*0.1 ];
 
 number 'local:stefano.balbi:esa.aries.sandbox:Climate_Annual_Precipitation_CHELSAbio12' as annual_precipitation //3 min 49 sec
-		set to [ (self == -9999 ) ? unknown : self ]; 	 	       
+		set to [ (self == -9999 ) ? unknown : self ];
+//model 'local:stefano.balbi:esa.aries.sandbox:Climate_Annual_Precipitation_CHELSAbio12'
+//	as im:Yearly earth:RainfallVolume in  
+//		set to [ (self == -9999 ) ? unknown : self ]; 		 	 	       
 
 //test one model with secondary observations //seems much slower... but separation between primary and secondary is clear
 model type of nca.ecosystem.eunis:Ecosystem  named ecosystem_type_eunis
