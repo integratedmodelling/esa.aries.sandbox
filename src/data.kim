@@ -122,7 +122,10 @@ model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_water_class_v3
 // 	landcover:Estuary if 4,
 // 	landcover:CoastalLagoon if 6; 	
 
-
+number local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_urban_settlement_v3 as globes_urban_settlements;
+//model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_urban_settlement_v3 
+//	as presence of landcover:ArtificialSurface earth:Region
+//	set to [self > 10];
 // Stuff from GeoServer: Ruben, Justus, Alessio, Caterina
 
 model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cu_glc_fcs30d_landcover_epsg4326_30m_2020,
