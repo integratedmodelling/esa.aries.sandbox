@@ -32,9 +32,6 @@ model type of nca.ecosystem.eunis:Ecosystem  named ecosystem_type_eunis
 		 geography:Elevation named udp
 	set to [udp];  
 
-
-
-
 // Datacubes from https://browser.weed.apex.esa.int/collections/ecosystem-characteristics-alpha2-1 (ECDC)
 // Ask Bruno about Color Codes: Alessio 
 
@@ -64,6 +61,66 @@ model local:alessio.bulckaen:esa.aries.sandbox:globes_grassy_cover_v2 //as globe
 	Savannah if 1,
 	Rangeland if 2,
 	Pasture if 3;
+
+
+
+/*	Type of Waterclass: Classification of water bodies (wetland and waterbody are mixed)
+ 		  "river",
+          "inland_freshwater_lakes",
+          "inland_brackish_saline_lakes",
+          "estuaries",
+          "coastal_freshwater_lakes",
+          "coastal_lagoons",
+          "coastal_brackish_saline_lakes",
+          "inland_freshwater_pools",
+          "inland_brackish_saline_pools",
+          "tidepools" */
+ 
+//abstract attribute Waterbody
+//	describes im:Type of earth:LandCover within earth:WaterBody
+//	has children
+//		River,
+//		InlandFreshwaterLake,
+//		InlandBrackishLake,
+//		Estuary,
+//		CoastalFreshwaterLake,
+//		Lagoon,
+//		CoastalBrackishLake,
+//		IntertidalFlat;
+
+
+//model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_water_class_v3
+//	as type of Waterbody classified into
+//		River if 1,
+//		InlandFreshwaterLake if 2,
+//		InlandBrackishLake if 3,
+//		Estuary if 4,
+//		CoastalFreshwaterLake if 5,
+//		Lagoon if 6,
+//		CoastalBrackishLake if 7,
+//		IntertidalFlat if 10;
+
+number local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_water_class_v3 as water_class;
+model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_water_class_v3
+ as presence of landcover:Watercourse earth:WaterBody
+ set to [self==1];
+  
+
+//model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_water_class_v3
+//	as presence of earth:WaterBody classified into
+////	as type of landcover:Waterbody classified into
+// 	landcover:Watercourse if 1,
+// 	landcover:StillWaterBody if 2,
+// 	landcover:Estuary if 4,
+// 	landcover:CoastalLagoon if 6;
+//
+//model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_water_class_v3
+//	as presence of landcover:Wetland earth:Region classified into
+////	as type of landcover:Waterbody classified into
+// 	landcover:Watercourse if 1,
+// 	landcover:StillWaterBody if 2,
+// 	landcover:Estuary if 4,
+// 	landcover:CoastalLagoon if 6; 	
 
 
 // Stuff from GeoServer: Ruben, Justus, Alessio, Caterina
