@@ -49,6 +49,9 @@ number local:alessio.bulckaen:esa.aries.sandbox:esa_weed_ecdc_biome_indicator
 	VH means vertical transmitted and horizontal received.
 	Forest have lower VV/VH while built-up or bare areas have higher ratio"; 
 
+model local:alessio.bulckaen:esa.aries.sandbox:esa.weed_ecdc_digital_elevation_model
+	as geography:Slope in m;
+	
 /*Many of the assets in the GlobES collection are only available for 2018 */
 // Datacubes from GlobES (https://catalogue.weed.apex.esa.int/collections/Globes-V2/items)
 
