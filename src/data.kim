@@ -39,7 +39,8 @@ model type of nca.ecosystem.eunis:Ecosystem  named ecosystem_type_eunis
 // Ask Bruno about Color Codes: Alessio 
 
 model 'local:arnab.moitra:esa.aries.sandbox:weed_ecdc_band_B04_p2'
-	as ecology:Vegetation im:Density named plant_density; //weed_ecdc_band_b04_p2;
+	as ecology:Vegetation im:Density named plant_density
+	"Assess plant density. The darker red the more dense, cities are in gray and water in blue."; //weed_ecdc_band_b04_p2;
 number 'local:arnab.moitra:esa.aries.sandbox:weed_ecdc_band_B04_p75' as weed_ecdc_band_b04_p75;
 
 number local:alessio.bulckaen:esa.aries.sandbox:esa_weed_ecdc_biome_indicator 
@@ -51,6 +52,10 @@ number local:alessio.bulckaen:esa.aries.sandbox:esa_weed_ecdc_biome_indicator
 
 model local:alessio.bulckaen:esa.aries.sandbox:esa.weed_ecdc_digital_elevation_model
 	as geography:Slope in m;
+
+number local:alessio.bulckaen:esa.aries.sandbox:esa.weed_ecdc_canopy_structure as canopy_structure;
+
+	
 	
 /*Many of the assets in the GlobES collection are only available for 2018 */
 // Datacubes from GlobES (https://catalogue.weed.apex.esa.int/collections/Globes-V2/items)
