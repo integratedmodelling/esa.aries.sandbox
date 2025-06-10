@@ -21,7 +21,10 @@ model 'local:stefano.balbi:esa.aries.sandbox:SoilOrganicCarbonTopsoil' as percen
 		set to [ (self == -32439 ) ? unknown : self*0.1 ];
 
 number 'local:stefano.balbi:esa.aries.sandbox:Climate_Annual_Precipitation_CHELSAbio12' as annual_precipitation //3 min 49 sec
-		set to [ (self == -9999 ) ? unknown : self ]; 	 	       
+		set to [ (self == -9999 ) ? unknown : self ];
+//model 'local:stefano.balbi:esa.aries.sandbox:Climate_Annual_Precipitation_CHELSAbio12'
+//	as im:Yearly earth:RainfallVolume in  
+//		set to [ (self == -9999 ) ? unknown : self ]; 		 	 	       
 
 //test one model with secondary observations //seems much slower... but separation between primary and secondary is clear
 model type of nca.ecosystem.eunis:Ecosystem  named ecosystem_type_eunis
@@ -32,21 +35,153 @@ model type of nca.ecosystem.eunis:Ecosystem  named ecosystem_type_eunis
 		 geography:Elevation named udp
 	set to [udp];  
 
-
-
-
 // Datacubes from https://browser.weed.apex.esa.int/collections/ecosystem-characteristics-alpha2-1 (ECDC)
 // Ask Bruno about Color Codes: Alessio 
 
-number 'local:arnab.moitra:esa.aries.sandbox:weed_ecdc_band_B04_p2' as weed_ecdc_band_b04_p2;
+model 'local:arnab.moitra:esa.aries.sandbox:weed_ecdc_band_B04_p2'
+	as ecology:Vegetation im:Density named plant_density
+	"Assess plant density. The darker red the more dense, cities are in gray and water in blue."; //weed_ecdc_band_b04_p2;
 number 'local:arnab.moitra:esa.aries.sandbox:weed_ecdc_band_B04_p75' as weed_ecdc_band_b04_p75;
 
+number local:alessio.bulckaen:esa.aries.sandbox:esa_weed_ecdc_biome_indicator 
+	as biome_indicator 
+	"This is the polarization method that the active sensor uses for Biome detection.
+	VV means vertical transmitted signal and vertical received.
+	VH means vertical transmitted and horizontal received.
+	Forest have lower VV/VH while built-up or bare areas have higher ratio"; 
 
+model local:alessio.bulckaen:esa.aries.sandbox:esa.weed_ecdc_digital_elevation_model
+	as geography:Slope in m;
+
+number local:alessio.bulckaen:esa.aries.sandbox:esa.weed_ecdc_canopy_structure as canopy_structure;
+
+number local:alessio.bulckaen:esa.aries.sandbox:esa.weed_ecdc_water_index as water_index_standard_deviation;
+
+number local:alessio.bulckaen:esa.aries.sandbox:esa.weed_ecdc_bare_ground as bare_ground 	
+ "VV means vertical transmitted signal and vertical received.
+  Low for smooth surfaces.";
+  
+  	
+/*Many of the assets in the GlobES collection are only available for 2018 */
 // Datacubes from GlobES (https://catalogue.weed.apex.esa.int/collections/Globes-V2/items)
 
 model local:arnab.moitra:esa.aries.sandbox:weed_globes_lin_dist_to_ocean as im:Lineal distance to earth:Ocean;
 
+//Could be annotated with LandCoverType and check if GlobalPastureWatch is a better product
+abstract attribute Grassland
+	describes im:Type of earth:LandCover within ecology:HerbaceousVegetation earth:Location 
+	has disjoint children 
+	Savannah,
+	Rangeland,
+	Pasture;
 
+//Metadata: https://drive.google.com/file/d/1sMyIQ7E-ChmT0WdjAW9zYOrvGdWRmOy1/view?usp=drive_link	
+/* Classification of grassy cover into savanna, rangelands,  and pasture:       
+ * "tree_cover_sparse_fluctuating",
+ * "tree_cover_clustered_grasslands_dominant",
+ * "tree_cover_sparse_fluctuating_grasslands_dominant" */
+model local:alessio.bulckaen:esa.aries.sandbox:globes_grassy_cover_v2
+	as landcover:LandCoverType named globes_grassy_cover classified into
+//	landcover:OtherLandCover if 0,
+	landcover:OpenSavanna if 1,
+	landcover:Pastureland if 3,
+	landcover:Grassland if 2;
+
+model local:alessio.bulckaen:esa.aries.sandbox:globes_grassy_cover_v2 //as globes_grassy_cover_v2 
+	as type of Grassland classified into
+	Savannah if 1,
+	Rangeland if 2,
+	Pasture if 3;
+
+/*	Type of Waterclass: Classification of water bodies (wetland and waterbody are mixed)
+ 		  "river",
+          "inland_freshwater_lakes",
+          "inland_brackish_saline_lakes",
+          "estuaries",
+          "coastal_freshwater_lakes",
+          "coastal_lagoons",
+          "coastal_brackish_saline_lakes",
+          "inland_freshwater_pools",
+          "inland_brackish_saline_pools",
+          "tidepools" */
+ 
+//abstract attribute Waterbody
+//	describes im:Type of earth:LandCover within earth:WaterBody
+//	has children
+//		River,
+//		InlandFreshwaterLake,
+//		InlandBrackishLake,
+//		Estuary,
+//		CoastalFreshwaterLake,
+//		Lagoon,
+//		CoastalBrackishLake,
+//		IntertidalFlat;
+
+
+//model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_water_class_v3
+//	as type of Waterbody classified into
+//		River if 1,
+//		InlandFreshwaterLake if 2,
+//		InlandBrackishLake if 3,
+//		Estuary if 4,
+//		CoastalFreshwaterLake if 5,
+//		Lagoon if 6,
+//		CoastalBrackishLake if 7,
+//		IntertidalFlat if 10;
+
+number local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_water_class_v3 as water_class;
+model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_water_class_v3
+ as presence of landcover:Watercourse earth:WaterBody
+ set to [self==1];
+  
+
+//model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_water_class_v3
+//	as presence of earth:WaterBody classified into
+////	as type of landcover:Waterbody classified into
+// 	landcover:Watercourse if 1,
+// 	landcover:StillWaterBody if 2,
+// 	landcover:Estuary if 4,
+// 	landcover:CoastalLagoon if 6;
+//
+//model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_water_class_v3
+//	as presence of landcover:Wetland earth:Region classified into
+////	as type of landcover:Waterbody classified into
+// 	landcover:Watercourse if 1,
+// 	landcover:StillWaterBody if 2,
+// 	landcover:Estuary if 4,
+// 	landcover:CoastalLagoon if 6; 	
+
+number local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_urban_settlement_v3 as globes_urban_settlements;
+//model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_urban_settlement_v3 
+//	as presence of landcover:ArtificialSurface earth:Region
+//	set to [self > 10];
+
+model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_mangrove_extent_v3
+	as presence of ecology:Mangrove earth:Region
+	set to [self==1];
+
+model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_floodplain_extent_v3
+ as presence of hydrology:Floodplain
+ set to [self ==1];
+
+abstract attribute Desert
+ has children
+ 	HotDesert,
+ 	TemperateDesert,
+ 	ColdDesert;
+
+//Doubtfull since HOt and Cold deserts coexist in the same small context
+//observe earth:Region named testing_desert_class_2018
+//over space(shape='EPSG:4326 POLYGON ((16.40602565437512 -28.60349416640173, 16.58972046221204 -28.440571185296562, 16.85269864229932 -28.579908774711072, 16.63570379160007 -28.8209131497405, 16.40602565437512 -28.60349416640173))',
+//grid="300 m",
+//projection="EPSG:4326"),
+//time(start=2018, end=2019, step=1.year);
+model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_desert_class_v3 
+	as type of Desert classified into
+	 	HotDesert if 1,
+ 		TemperateDesert if 2,
+ 		ColdDesert if 3;
+ 
 
 // Stuff from GeoServer: Ruben, Justus, Alessio, Caterina
 
@@ -54,154 +189,7 @@ model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cu_glc_fcs30d_landcover_
 	local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cu_glc_fcs30d_landcover_epsg4326_30m_2021,
 	local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cu_glc_fcs30d_landcover_epsg4326_30m_2022
 	as landcover:LandCoverType named glc_lc classified according to im:glc-fcs30-enconding;
-
-/*South Africa Vegetation Map raster dataset */
-model 'local:justus.muhando:esa.aries.sandbox:esa_weed.south_africa_gea_20240722_2_vegetation_reclassified_epsg4326'
-	as geography:SouthAfrica nca.ecosystem.iucn:EcosystemType named et_southafrica classified into
-	nca.ecosystem.iucn:ConstructedLacustrineWetland if 1,
-	nca.ecosystem.iucn:PermanentlyOpenRiverineEstuaryBay if 2,
-	nca.ecosystem.iucn:IntermittentlyClosedOpenLakeLagoon if 3,
-	nca.ecosystem.iucn:KelpForest if 4,
-	nca.ecosystem.iucn:PhoticCoralReef if 5,
-	nca.ecosystem.iucn:PhotolimitedMarineAnimalForest if 6,
-	nca.ecosystem.iucn:SubtidalRockyReef if 7,
-	nca.ecosystem.iucn:SubtidalSandBed if 8,
-	nca.ecosystem.iucn:SubtidalMudPlain if 9,
-	nca.ecosystem.iucn:ContinentalIslandSlope if 10,
-	nca.ecosystem.iucn:SubmarineCanyon if 11,
-	nca.ecosystem.iucn:AbyssalPlain if 12,
-	nca.ecosystem.iucn:SeamountsRidgePlateau if 13,
-	nca.ecosystem.iucn:DeepwaterBiogenicBed if 14,
-	nca.ecosystem.iucn:IntertidalForestShrubland if 15,
-	nca.ecosystem.iucn:RockyShoreline if 16,
-	nca.ecosystem.iucn:SandyShoreline if 17,
-	nca.ecosystem.iucn:BoulderCobbleShore if 18,
-	nca.ecosystem.iucn:CoastalShrublandGrassland if 19,
-	nca.ecosystem.iucn:TropicalSubtropicalDryForestThicket if 20,
-	nca.ecosystem.iucn:WarmTemperateLaurophyllForest if 21,
-	nca.ecosystem.iucn:SeasonallyDryTropicalShrubland if 22,
-	nca.ecosystem.iucn:SeasonallyDryTemperateHeathShrubland if 23,
-	nca.ecosystem.iucn:TrophicSavanna if 24,
-	nca.ecosystem.iucn:PyricTussockSavanna if 25,
-	nca.ecosystem.iucn:TemperateSubhumidGrassland if 26,
-	nca.ecosystem.iucn:SemidesertSteppe if 27,
-	nca.ecosystem.iucn:ThornyDesertSemidesert if 28,
-	nca.ecosystem.iucn:HyperaridDesert if 29,
-	nca.ecosystem.iucn:AnnualCropland if 30,
-	nca.ecosystem.iucn:Plantation if 31,
-	nca.ecosystem.iucn:UrbanIndustrialEcosystem if 32,
-	nca.ecosystem.iucn:DerivedSeminaturalPastureOldfield if 33,
-	nca.ecosystem.iucn:TropicalFloodedForestPeatForest if 34;
-
-/*South Africa NLC raster dataset */
-model local:justus.muhando:esa.aries.sandbox:esa_weed.south_africa_nlc_landcover_2020_epsg4326
-	as geography:SouthAfrica landcover:LandCoverType named nlc_southafrica classified into
-	landcover:TallClosedForest if 1,
-	landcover:LowClosedForest if 2,
-	landcover:ClosedForest if 3,
-	landcover:OpenForest if 4,
-	landcover:ForestPlantation if in (5 6 7),
-	landcover:Shrubland if in (8 9 10 11),
-	landcover:DenseWoodedGrasslandOnFirmGround if 12,
-	landcover:DenseNonwoodedGrasslandOnFirmGround if 13,
-	landcover:Watercourse if 14,
-	landcover:Lagoon if 15,
-	landcover:SeaOcean if 16,
-	landcover:Lake if 17,
-	landcover:StillWaterBody if 18,
-	landcover:Reservoir if 19,
-	landcover:ArtificialWaterBody if in (20 21),
-	landcover:InlandWetland if in (22 23),
-	landcover:Mangrove if 24,
-	landcover:BareRock if 25,
-	landcover:BareArea if 26,
-	landcover:BareDegradedLand if 27,
-	landcover:DuneField if 28,
-	landcover:BeachDuneSand if 29,
-	landcover:Sandbank if in (30 31),
-	landcover:PermanentCropland if 32 to 38,
-	landcover:PermanentlyIrrigatedArableLand if 38,
-	landcover:NonIrrigatedArableLand if in (39 40),
-	landcover:ArableLand if 41,
-	landcover:InactiveAgriculturalLand if in (42 43 44 45 46 73),
-	landcover:ArtificialSurface if 47 to 61,
-	landcover:GreenUrbanArea if 61 to 65,
-	landcover:CommercialUnit if 65,
-	landcover:IndustrialUnit if 66,
-	landcover:RoadRailNetwork if 67,
-	landcover:MineDumpConstruction if 68,
-	landcover:MineralExtraction if 69,
-	landcover:SaltExtraction if 70,
-	landcover:DumpSite if 71,
-	landcover:Landfill if 72;
 	
-//FAO Soil Type for Vietnam
-model 'local:alessio.bulckaen:esa.aries.sandbox:im-data-global-soil_vietnam_odp_soil_types#domsoil'
-	as nca.soil.wrb:SoilType classified into
-	nca.soil.wrb:Andosol if "Ao",
-	nca.soil.wrb:Luvisol if "Je",
-	nca.soil.wrb:Gleysol if "Ge",
-	nca.soil.wrb:Vertisol if "Vp",
-//	nca.soil.wrb:Gleysol if "Gd",
-//	nca.soil.wrb:Intergrade soils if "I",
-	nca.soil.wrb:Acrisol if "Af",
-	nca.soil.wrb:Arenosol if "Ag",
-	nca.soil.wrb:Lixisol if "Jt",
-	nca.soil.wrb:Regosol if "Re",
-//	nca.soil.wrb:Luvisol if "Lc",
-	nca.soil.wrb:Ferralsol if "Fr",
-//	nca.soil.wrb:Ferralsol if "Fa",
-	nca.soil.wrb:Fluvisol if "Fo",
-	nca.soil.wrb:Podzol if "Od";
-	
-
-////FAO Soil Type for Vietnam
-//model 'local:alessio.bulckaen:esa.aries.sandbox:im-data-global-soil_vietnam_odp_soil_types#domsoil'
-//	as type of soil:SoilTaxon classified into
-//	WRB:Andosols if "Ao",
-//	WRB:Luvisols if "Je",
-//	WRB:Gleysols if "Ge",
-//	WRB:Vertisols if "Vp",
-//	WRB:Gleysols if "Gd",
-////	WRB:Intergrade soils if "I",
-//	WRB:Acrisols if "Af",
-//	WRB:Arenosols if "Ag",
-//	WRB:Lixisols if "Jt",
-//	WRB:Regosols if "Re",
-//	WRB:Luvisols if "Lc",
-//	WRB:Ferralsols if "Fr",
-//	WRB:Ferralsols if "Fa",
-//	WRB:Fluvisols if "Fo",
-//	WRB:Podzols if "Od";
-
-////FAO Soil Type for Vietnam
-//model 'local:alessio.bulckaen:esa.aries.sandbox:im-data-global-soil_vietnam_odp_soil_types#faosoil'
-//	as type of soil:SoilTaxon classified into
-//	WRB:Andosols if "Ao90-2/3c",
-//	WRB:Luvisols if "Je73-3a",
-//	WRB:Gleysols if "Ge56-3a",
-//	WRB:Vertisols if "Vp64-3a",
-//	WRB:Gleysols if "Gd29-3a",
-//	WRB:Andosols if "Ao107-2bc",
-////	WRB:Intergrade soils if "I-Af-3c",
-//	WRB:Acrisols if "Af63-3c",
-//	WRB:Arenosols if "Ag17-1/2ab",
-//	WRB:Luvisols if "Je72-2a",
-//	WRB:Gleysols if "Ge55-3a",
-////	WRB:Intergrade soils if "I-Lc-Bk-c",
-//	WRB:Lixisols if "Jt13-3a",
-//	WRB:Regosols if "Re83-1ab",
-//	WRB:Acrisols if "Af60-1/2ab",
-//	WRB:Luvisols if "Lc100-c",
-//	WRB:Ferralsols if "Fr33-3ab",
-//	WRB:Acrisols if "Af61-1/2ab",
-//	WRB:Ferralsols if "Fa14-3ab",
-//	WRB:Arenosols if "Ag16-2a",
-//	WRB:Luvisols if "Lc99-2b",
-//	WRB:Fluvisols if "Fo102-3ab",
-//	WRB:Lixisols if "Jt14-3a",
-//	WRB:Podzols if "Od21-a";
-
 model 'local:rubencc:im.data.global:im-data-global-ecology.global_ecoregions_300m_4326_2017'
 	as type of nca.ecoregion:DinersteinRegion classified into
 	nca.ecoregion:AdelieLandTundra if 117,

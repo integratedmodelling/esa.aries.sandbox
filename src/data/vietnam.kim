@@ -1,0 +1,69 @@
+private namespace data.vietnam 
+using nca.soil.wrb;
+
+//FAO Soil Type for Vietnam
+model 'local:alessio.bulckaen:esa.aries.sandbox:im-data-global-soil_vietnam_odp_soil_types#domsoil'
+	as nca.soil.wrb:SoilType classified into
+	nca.soil.wrb:Andosol if "Ao",
+	nca.soil.wrb:Luvisol if "Je",
+	nca.soil.wrb:Gleysol if "Ge",
+	nca.soil.wrb:Vertisol if "Vp",
+//	nca.soil.wrb:Gleysol if "Gd",
+//	nca.soil.wrb:Intergrade soils if "I",
+	nca.soil.wrb:Acrisol if "Af",
+	nca.soil.wrb:Arenosol if "Ag",
+	nca.soil.wrb:Lixisol if "Jt",
+	nca.soil.wrb:Regosol if "Re",
+//	nca.soil.wrb:Luvisol if "Lc",
+	nca.soil.wrb:Ferralsol if "Fr",
+//	nca.soil.wrb:Ferralsol if "Fa",
+	nca.soil.wrb:Fluvisol if "Fo",
+	nca.soil.wrb:Podzol if "Od";
+	
+
+////FAO Soil Type for Vietnam
+//model 'local:alessio.bulckaen:esa.aries.sandbox:im-data-global-soil_vietnam_odp_soil_types#domsoil'
+//	as type of soil:SoilTaxon classified into
+//	WRB:Andosols if "Ao",
+//	WRB:Luvisols if "Je",
+//	WRB:Gleysols if "Ge",
+//	WRB:Vertisols if "Vp",
+//	WRB:Gleysols if "Gd",
+////	WRB:Intergrade soils if "I",
+//	WRB:Acrisols if "Af",
+//	WRB:Arenosols if "Ag",
+//	WRB:Lixisols if "Jt",
+//	WRB:Regosols if "Re",
+//	WRB:Luvisols if "Lc",
+//	WRB:Ferralsols if "Fr",
+//	WRB:Ferralsols if "Fa",
+//	WRB:Fluvisols if "Fo",
+//	WRB:Podzols if "Od";
+
+////FAO Soil Type for Vietnam
+//model 'local:alessio.bulckaen:esa.aries.sandbox:im-data-global-soil_vietnam_odp_soil_types#faosoil'
+//	as type of soil:SoilTaxon classified into
+//	WRB:Andosols if "Ao90-2/3c",
+//	WRB:Luvisols if "Je73-3a",
+//	WRB:Gleysols if "Ge56-3a",
+//	WRB:Vertisols if "Vp64-3a",
+//	WRB:Gleysols if "Gd29-3a",
+//	WRB:Andosols if "Ao107-2bc",
+////	WRB:Intergrade soils if "I-Af-3c",
+//	WRB:Acrisols if "Af63-3c",
+//	WRB:Arenosols if "Ag17-1/2ab",
+//	WRB:Luvisols if "Je72-2a",
+//	WRB:Gleysols if "Ge55-3a",
+////	WRB:Intergrade soils if "I-Lc-Bk-c",
+//	WRB:Lixisols if "Jt13-3a",
+//	WRB:Regosols if "Re83-1ab",
+//	WRB:Acrisols if "Af60-1/2ab",
+//	WRB:Luvisols if "Lc100-c",
+//	WRB:Ferralsols if "Fr33-3ab",
+//	WRB:Acrisols if "Af61-1/2ab",
+//	WRB:Ferralsols if "Fa14-3ab",
+//	WRB:Arenosols if "Ag16-2a",
+//	WRB:Luvisols if "Lc99-2b",
+//	WRB:Fluvisols if "Fo102-3ab",
+//	WRB:Lixisols if "Jt14-3a",
+//	WRB:Podzols if "Od21-a";
