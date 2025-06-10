@@ -1,23 +1,20 @@
-app export_model_analysis
+app export_et_vietnam
 
 action main:
 
 /*
  * Set the directory of the your output nesting the results within more folders by separatng them with a slash ("/") 
  */
-	output_folder_directory = "ecosystem_type_analysis/k.lab_outputs/SouthAfrica"
+	output_folder_directory = "ecosystem_type_analysis/k.lab_outputs/Vietnam"
 
 /*
  * Set observable for which a map should be stored (as raster/vector files)
  */
 	set observables_urns (
 //		{landcover:LandCoverType} //generic semantic concept goes with their URN into {} 
-		data.southafrica.et_southafrica
-		data.southafrica.nlc_southafrica
-//		data.glc_lc
-//		rules_based_modelling.south_africa.ecoregion_south_africa
-//		rules_based_modelling.south_africa.forest_type
-//		rules_based_modelling.south_africa.ecosystem_type_iucn_get
+		rules_based_modelling.ecosystem_type_iucn_get
+		data.glc_lc
+
 	)
 /*
  * Set the tables to summarise statistics or generate indicator for an observation (as .xls files) 
@@ -35,7 +32,7 @@ action main:
  * Creates n output (.tiff and .xlsx files) for each feature (ID) in the spatial context resource (n = n_tables x n_ID_features).  
  */
 	wkt_context = Space(shape='POLYGON ((19.016595 48.192287, ..., 19.016595 48.192287))') //Set the context using WKT or the URN of a resource
-	spatial_contexts_urn = "local:justus.muhando:esa.aries.sandbox:esa_weed_south_africa_priority_areas_epsg4326_v2"
+	spatial_contexts_urn = "local:rubencc:esa.aries.sandbox:esa_weed_vietnam_priority_areas_epsg4326_v2"//"local:justus.muhando:esa.aries.sandbox:esa_weed_south_africa_priority_areas_epsg4326_v2"
 	resolution = 30.m
 
 /*
@@ -54,7 +51,7 @@ action main:
 //		for urn in observables_urns(	
 //			context(spatial_contexts_urn,resolution,Time(start=[year], end=[year+1], step=1.year),urn): state -> (
 		for priority_area in spatial_contexts_urn(
-				if [priority_area.weed_site == 'SA9'|| priority_area.weed_site == 'SA1'||priority_area.weed_site == 'SA2'] //|| feature.layer == 'central_colombia' || feature.layer == 'south_colombia']
+				if [priority_area.weed_site == 'VN1'|| priority_area.weed_site == 'VN2'||priority_area.weed_site == 'VN3'] //|| feature.layer == 'central_colombia' || feature.layer == 'south_colombia']
 					(for urn in observables_urns(	
 					context(priority_area,resolution,Time(year=year),urn): state -> (
 						set urn_name ""
