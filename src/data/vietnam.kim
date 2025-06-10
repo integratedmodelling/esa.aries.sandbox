@@ -1,6 +1,10 @@
 private namespace data.vietnam 
 using nca.soil.wrb;
 
+// TODO: 
+// annotate all data
+
+
 //FAO Soil Type for Vietnam
 model 'local:alessio.bulckaen:esa.aries.sandbox:im-data-global-soil_vietnam_odp_soil_types#domsoil'
 	as nca.soil.wrb:SoilType classified into
@@ -19,7 +23,26 @@ model 'local:alessio.bulckaen:esa.aries.sandbox:im-data-global-soil_vietnam_odp_
 //	nca.soil.wrb:Ferralsol if "Fa",
 	nca.soil.wrb:Fluvisol if "Fo",
 	nca.soil.wrb:Podzol if "Od";
-	
+// 200 --> Orthic Acrisols
+// Orthic Acrisols within 90cm, medium and fine textured, steeply dissected to mountainous
+// 196 Lithosols
+// Lithosols, Chromic Luvisols and Calcic Cambbisols, steeply dissected to mountainous
+// 192 --> Ferric Acrisols
+// Ferric Acrisols within 60cm,coarse and medium textured, level to gentlyundulating and rolling to hilly
+// 61 --> Fleyc Acrisols
+//	Gleyic Acrisols within 17cm, coarse and medium textured, level to gently undulating and rolling to hilly
+// 63 --> Eutric Gleysols
+// Eutric Gleysols within 56cm,fine textured, level to gently undulating
+// 64 --> Eutric Fluvisols
+// Eutric Fluvisols within 72 cm, medium textured, level to gently undulating
+// 69 --> Thionic Fluvisols
+// Thionic Fluvisols within 13 cm, fine textured, level to gently undulating
+// 70 --> 
+// Eutric Regosols within 83 cm, coarse textured, level to gently undulating and rolling to hilly
+// 72 --> 
+// Lithosols, Chromic Luvisols and Calcic Cambbisols, steeply dissected to mountainous
+// 79 --> Dystric Gleysols
+// Dystric Gleysols within 29cm,fine textured, level to gently undulating	
 
 ////FAO Soil Type for Vietnam
 //model 'local:alessio.bulckaen:esa.aries.sandbox:im-data-global-soil_vietnam_odp_soil_types#domsoil'
@@ -67,3 +90,22 @@ model 'local:alessio.bulckaen:esa.aries.sandbox:im-data-global-soil_vietnam_odp_
 //	WRB:Fluvisols if "Fo102-3ab",
 //	WRB:Lixisols if "Jt14-3a",
 //	WRB:Podzols if "Od21-a";
+
+//model 'local:caterina.gilli:esa.aries.sandbox:esa_weed.globes_v100_2018_vnm_coastal_flats_classification' 
+//	as presence of CoastalFlats;
+number 'local:caterina.gilli:esa.aries.sandbox:esa_weed.globes_v100_2018_vnm_coastal_flats_classification' as presence_of_coastal_flats;
+
+
+model 'local:caterina.gilli:esa.aries.sandbox:esa_weed.globes_v100_2018_vnm_linear_distance_to_ocean' 
+	as distance to earth:Ocean;
+// is there need, or should we directly say:
+number 'local:caterina.gilli:esa.aries.sandbox:esa_weed.globes_v100_2018_vnm_linear_distance_to_ocean' as ditance_to_ocean;
+
+
+//model 'local:caterina.gilli:esa.aries.sandbox:esa_weed.globes_v100_2018_vnm_mangrove_forest_extent'
+//	as presence of landcover:Mangrove;
+
+number 'local:caterina.gilli:esa.aries.sandbox:esa_weed.globes_v100_2018_vnm_mangrove_forest_extent' as mangrove_extent;	
+number 'local:caterina.gilli:esa.aries.sandbox:esa_weed.globes_v100_2018_vnm_permafrost_extent_nh' as permafrost_extent;
+number 'local:caterina.gilli:esa.aries.sandbox:esa_weed.globes_v100_2018_vnm_urban_settlement_classification' as urban_settlement;
+number 'local:caterina.gilli:esa.aries.sandbox:esa_weed.globes_v100_2018_vnm_water_class' as water_class;
