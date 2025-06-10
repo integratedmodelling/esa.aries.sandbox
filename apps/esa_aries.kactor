@@ -25,17 +25,15 @@ action main:
 			checkbutton("Transect Mid WE CZ8 BB:33δWR11 (100 m) " #cz_bbox2): (
 				disable_ctxs
 				context(cu_bbox_contexts.czech_cu_transectmidwe_cz8_bbox_33dwr11) 
-				obs11.enable	
 				headers.update("Czech Republic: Transect Mid WE CZ8 BB:33δWR11 (100 m)")
 				headers.show
 				obs11.enable				
 			)		
-			checkbutton("Bilek CZ1" #cz1 :disabled :tooltip "Under development"): (
+			checkbutton("Bilek CZ1" :style blue #cz1 :tooltip "Under development"): (
 				disable_ctxs
 				context(cu_priority_areas_contexts.czech_republic_bilek_cz1)
 				headers.update("Czech Republic: Bilek CZ1")
 				headers.show
-				obs11.enable
 			) 
 			checkbutton("Krkhnossky CZ2" #cz2 :disabled :tooltip "Under development"): (
 				disable_ctxs
@@ -578,7 +576,8 @@ action main:
 		(
 			separator("Query Ecosystem Types according to:" :iconname "sprout-outline" )
 			(
-				checkbutton("EUNIS2021Plus Classification (predictors)" #obs11 :disabled) : (submit(data.population_density) : submit(data.organic_carbon_concentration_topsoil) : submit(data.annual_precipitation)) // : observe({es.nca:EcosystemType})
+				checkbutton("EUNIS2021Plus Classification (Level 2)" #obs11 :disabled) : submit(alphatwo_udp.ecosystem_type_alpha2_preprocessed_stac_level2) : submit(data.population_density) //: submit(data.organic_carbon_concentration_topsoil) : submit(data.annual_precipitation)) // : observe({es.nca:EcosystemType})
+				
 				//checkbutton("EUNIS2021Plus Classification (predictors)" #obs11 :disabled) : ( submit (peopleea.forest.lai.leaf_area_index) : submit (peopleea.forest.ndvi.ndvi) : submit (peopleea.highresolution.fcover_10m)) // : observe({es.nca:EcosystemType})
 				//checkbutton("EUNIS2021Plus Classification" #obs12 :hidden :disabled): (submit(alphatwo_udp.ecosystem_type_iucn_get_level1_czech))
 				//checkbutton("EUNIS2021Plus Classification" #obs13 :hidden :disabled): (submit(alphatwo_udp.ecosystem_type_iucn_get_level1_greece)) 
