@@ -71,6 +71,9 @@ model local:arnab.moitra:esa.aries.sandbox:weed_preprocessed_habitat_dc
 			nca.ecosystem.eunis:VegetatedManMadeHabitat if 100000,
 			nca.ecosystem.eunis:InlandSurfaceWater if 110000,
 			nca.ecosystem.eunis:ConstructedIndustrialArtificialHabitat if 120000;
+			
+number local:arnab.moitra:esa.aries.sandbox:weed_preprocessed_habitat_dc_lev2 as weed_level2;
+number local:arnab.moitra:esa.aries.sandbox:weed_preprocessed_habitat_dc_lev3 as weed_level3;
 
 
 //model "local:stefano.balbi:esa.aries.sandbox:alpha1.inigo"  //add UDP for alpha2 here: currently hardcoded alpha one to query alpha 2 results at https://browser.weed.apex.esa.int/collections/inference-alpha2-prepared-v101  
