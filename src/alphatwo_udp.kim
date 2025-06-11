@@ -1,4 +1,4 @@
-private namespace alphatwo_udp
+project private namespace alphatwo_udp
 	using nca.ecosystem.eunis,
 	      peopleea.forest.lai,
 	      peopleea.highresolution;   
