@@ -201,9 +201,9 @@ number ecosystem_type_eunis_level2
 
 // Stuff from GeoServer: Ruben, Justus, Alessio, Caterina
 
-model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cu_glc_fcs30d_landcover_epsg4326_30m_2020,
-	local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cu_glc_fcs30d_landcover_epsg4326_30m_2021,
-	local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cu_glc_fcs30d_landcover_epsg4326_30m_2022
+model local:alessio.bulckaen:esa.aries.sandbox:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2020_mosaic,
+	  local:alessio.bulckaen:esa.aries.sandbox:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2021_mosaic,
+	  local:alessio.bulckaen:esa.aries.sandbox:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2022_mosaic
 	as landcover:LandCoverType named glc_lc classified according to im:glc-fcs30-enconding;
 	
 model 'local:rubencc:im.data.global:im-data-global-ecology.global_ecoregions_300m_4326_2017'
