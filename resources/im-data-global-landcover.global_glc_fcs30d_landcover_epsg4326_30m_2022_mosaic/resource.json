@@ -1,0 +1,48 @@
+{
+  "urn" : "local:alessio.bulckaen:esa.aries.sandbox:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2022_mosaic",
+  "version" : "0.0.1",
+  "adapterType" : "wcs",
+  "localPath" : "esa.aries.sandbox/resources/im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2022_mosaic",
+  "geometry" : "τ1{tend=1672531200000,tstart=1640995200000,ttype=logical}S2(1335833,519490){bbox=[-180.0 180.00020253446607 -60.000202534466084 80.0],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2022_mosaic",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1749644781230,
+  "metadata" : {
+    "im:keywords" : "",
+    "dc:comment" : "",
+    "im:notes" : "",
+    "dc:title" : "",
+    "dc:url" : "",
+    "dc:creator" : "",
+    "im:thematic-area" : "",
+    "dc:originator" : "",
+    "im:geographic-area" : "",
+    "dc:source" : ""
+  },
+  "parameters" : {
+    "wcsIdentifier" : "im-data-global-landcover__global_glc_fcs30d_landcover_epsg4326_30m_2022_mosaic",
+    "transform" : "",
+    "serviceUrl" : "https://integratedmodelling.org/geoserver/im-data-global-landcover/wcs",
+    "nodata" : "0.0",
+    "wcsVersion" : "2.0.1"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : {
+    "east" : 180.00020253446607,
+    "west" : -180.0,
+    "north" : 80.0,
+    "south" : -60.000202534466084,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}
