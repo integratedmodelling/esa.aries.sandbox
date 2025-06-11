@@ -19,7 +19,7 @@ observe earth:Region named greece_cu_kefaloniaz_el3_bbox_34ddh30
     
 observe earth:Region named czech_cu_krkonossky_cz2_bbox_33dws20
     over space(shape='MULTIPOLYGON (((15.85012913963363879 50.72869444515458071, 15.8468908150274288 50.54885298655396042, 15.56461212153720375 50.55056370966995871, 15.56677125007896478 50.73041608333891617, 15.85012913963363879 50.72869444515458071)))',
-    		grid="100 m",
+    		grid="10 m",
     		projection="EPSG:4326"),
     time(year=2024);
     
@@ -33,6 +33,6 @@ observe earth:Region named greece_cu_sterea_el9_bbox_34deh13
     
 observe earth:Region named czech_cu_transectmidwe_cz8_bbox_33dwr11
     over space(shape='MULTIPOLYGON (((15.55826494935375592 50.01097265360007782, 15.55619168304923861 49.83109763694566396, 15.27810103399725783 49.83209842187305583, 15.2791377356231628 50.0119797947728415, 15.55826494935375592 50.01097265360007782)))',
-    		grid="100 m",
+    		grid="10 m",
     		projection="EPSG:4326"),
     time(year=2024);

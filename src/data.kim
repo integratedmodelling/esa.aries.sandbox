@@ -9,7 +9,7 @@ using nca.ecosystem.eunis,
 
 // WENR datacubes https://browser.weed.apex.esa.int/collections/wern_features
 
-model "local:arnab.moitra:esa.aries.sandbox:wenr_stac_pop_den" as count of demography:HumanIndividual named population_density //15 sec
+model "local:arnab.moitra:esa.aries.sandbox:wenr_stac_pop_den" as count of demography:HumanIndividual named wenr_population_density //15 sec
 		set to [ (self == -2147483647) ? unknown : self ]; 
 //	over time(year=2018);
  
@@ -26,42 +26,47 @@ number 'local:stefano.balbi:esa.aries.sandbox:Climate_Annual_Precipitation_CHELS
 //	as im:Yearly earth:RainfallVolume in  
 //		set to [ (self == -9999 ) ? unknown : self ]; 		 	 	       
 
-//test one model with secondary observations //seems much slower... but separation between primary and secondary is clear
-model type of nca.ecosystem.eunis:Ecosystem  named ecosystem_type_eunis
-	observing
-		 population_density,
-		 distance to earth:Region landcover:InlandWaterBody in m, 
-		 annual_precipitation,        
-		 geography:Elevation named udp
-	set to [udp];  
 
+/*ECDC STAC collection */
 // Datacubes from https://browser.weed.apex.esa.int/collections/ecosystem-characteristics-alpha2-1 (ECDC)
 // Ask Bruno about Color Codes: Alessio 
 
+ 
+
 model 'local:arnab.moitra:esa.aries.sandbox:weed_ecdc_band_B04_p2'
-	as ecology:Vegetation im:Density named plant_density
+	as ecology:Vegetation im:Density named ecdc_plant_density_predictor
 	"Assess plant density. The darker red the more dense, cities are in gray and water in blue."; //weed_ecdc_band_b04_p2;
-number 'local:arnab.moitra:esa.aries.sandbox:weed_ecdc_band_B04_p75' as weed_ecdc_band_b04_p75;
+
+number 'local:arnab.moitra:esa.aries.sandbox:weed_ecdc_band_B04_p75' as ecdc_b04_p75_predictor;
 
 number local:alessio.bulckaen:esa.aries.sandbox:esa_weed_ecdc_biome_indicator 
-	as biome_indicator 
+	as ecdc_biome_indicator_predictor 
 	"This is the polarization method that the active sensor uses for Biome detection.
 	VV means vertical transmitted signal and vertical received.
 	VH means vertical transmitted and horizontal received.
 	Forest have lower VV/VH while built-up or bare areas have higher ratio"; 
 
-model local:alessio.bulckaen:esa.aries.sandbox:esa.weed_ecdc_digital_elevation_model
-	as geography:Slope in m;
+number local:alessio.bulckaen:esa.aries.sandbox:esa.weed_ecdc_digital_elevation_model as ecdc_elevation_predictor;
+//	as geography:Slope in m named 
 
-number local:alessio.bulckaen:esa.aries.sandbox:esa.weed_ecdc_canopy_structure as canopy_structure;
+number local:alessio.bulckaen:esa.aries.sandbox:esa.weed_ecdc_canopy_structure as ecdc_canopy_structure_predictor;
 
-number local:alessio.bulckaen:esa.aries.sandbox:esa.weed_ecdc_water_index as water_index_standard_deviation;
+number local:alessio.bulckaen:esa.aries.sandbox:esa.weed_ecdc_water_index as ecdc_water_index_standard_deviation_predictor;
 
-number local:alessio.bulckaen:esa.aries.sandbox:esa.weed_ecdc_bare_ground as bare_ground 	
+number local:alessio.bulckaen:esa.aries.sandbox:esa.weed_ecdc_bare_ground as ecdc_bare_ground_predictor 	
  "VV means vertical transmitted signal and vertical received.
   Low for smooth surfaces.";
-  
-  	
+
+number ecdc_predictors observing 
+	ecdc_plant_density_predictor,
+	ecdc_b04_p75_predictor,
+	ecdc_biome_indicator_predictor,
+	ecdc_elevation_predictor, 
+	ecdc_canopy_structure_predictor, 
+	ecdc_water_index_standard_deviation_predictor, 
+	ecdc_bare_ground_predictor;
+
+
 /*Many of the assets in the GlobES collection are only available for 2018 */
 // Datacubes from GlobES (https://catalogue.weed.apex.esa.int/collections/Globes-V2/items)
 
@@ -181,6 +186,17 @@ model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.globes_desert_class_v3
 	 	HotDesert if 1,
  		TemperateDesert if 2,
  		ColdDesert if 3;
+ 
+ 
+/*Composite model to be triggered in 1 click */ 
+//test one model with secondary observations //seems much slower... but separation between primary and secondary is clear
+number ecosystem_type_eunis_level2
+	observing
+		 ecdc_plant_density_predictor,
+//		 distance to earth:Region landcover:InlandWaterBody in m, 
+//		 annual_precipitation,        
+		 type of nca.ecosystem.eunis:Ecosystem named ecosystem_type_alpha2_preprocessed_stac_level2
+	set to [ecosystem_type_alpha2_preprocessed_stac_level2];  
  
 
 // Stuff from GeoServer: Ruben, Justus, Alessio, Caterina

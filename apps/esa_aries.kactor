@@ -15,21 +15,21 @@ action main:
 //all cu_priority_area_contexts for use in alpha 3 
 	(
 		(
-			checkbutton("Krkhnossky CZ2 BB:33σWS20 (100 m) " #cz_bbox1): (
+			checkbutton("Krkhnossky CZ2 BB:33σWS20 (10 m) " #cz_bbox1): (
 				disable_ctxs
 				context(cu_bbox_contexts.czech_cu_krkonossky_cz2_bbox_33dws20) 
-				headers.update("Czech Republic: Krkhnossky CZ2 BB:33σWS20 (100 m)")
+				headers.update("Czech Republic: Krkhnossky CZ2 BB:33σWS20 (10 m)")
 				headers.show
 				obs11.enable
 			)	
-			checkbutton("Transect Mid WE CZ8 BB:33δWR11 (100 m) " #cz_bbox2): (
+			checkbutton("Transect Mid WE CZ8 BB:33δWR11 (10 m) " #cz_bbox2): (
 				disable_ctxs
 				context(cu_bbox_contexts.czech_cu_transectmidwe_cz8_bbox_33dwr11) 
-				headers.update("Czech Republic: Transect Mid WE CZ8 BB:33δWR11 (100 m)")
+				headers.update("Czech Republic: Transect Mid WE CZ8 BB:33δWR11 (10 m)")
 				headers.show
 				obs11.enable				
 			)		
-			checkbutton("Bilek CZ1" :style blue #cz1 :tooltip "Under development"): (
+			checkbutton("Bilek CZ1" #cz1 :tooltip "Under development"): (
 				disable_ctxs
 				context(cu_priority_areas_contexts.czech_republic_bilek_cz1)
 				headers.update("Czech Republic: Bilek CZ1")
@@ -576,7 +576,8 @@ action main:
 		(
 			separator("Query Ecosystem Types according to:" :iconname "sprout-outline" )
 			(
-				checkbutton("EUNIS2021Plus Classification (Level 2)" #obs11 :disabled) : submit(alphatwo_udp.ecosystem_type_alpha2_preprocessed_stac_level2) : submit(data.population_density) //: submit(data.organic_carbon_concentration_topsoil) : submit(data.annual_precipitation)) // : observe({es.nca:EcosystemType})
+				checkbutton("EUNIS2021Plus Classification (Level 2)" #obs11 :disabled) : submit (alphatwo_udp.weed_level2) : submit (data.ecdc_predictors) //(data.ecdc_plant_density_predictor) : submit (data.ecdc_b04_p75_predictor) : submit (data.ecdc_biome_elevation_predictor) : submit (data.ecdc_slope_predictor) : submit (data.ecdc_canopy_structure_predictor) //  ecdc_water_index_standard_deviation_predictor ecdc_bare_ground_predictor
+				//: submit(data.organic_carbon_concentration_topsoil) : submit(data.annual_precipitation)) // : observe({es.nca:EcosystemType})
 				
 				//checkbutton("EUNIS2021Plus Classification (predictors)" #obs11 :disabled) : ( submit (peopleea.forest.lai.leaf_area_index) : submit (peopleea.forest.ndvi.ndvi) : submit (peopleea.highresolution.fcover_10m)) // : observe({es.nca:EcosystemType})
 				//checkbutton("EUNIS2021Plus Classification" #obs12 :hidden :disabled): (submit(alphatwo_udp.ecosystem_type_iucn_get_level1_czech))
