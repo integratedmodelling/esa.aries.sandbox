@@ -578,7 +578,8 @@ action main:
 			(
 				checkbutton("EUNIS2021Plus Classification (Level 2)" #obs11 :disabled) : submit (alphatwo_udp.weed_level2) : submit (data.ecdc_predictors) //(data.ecdc_plant_density_predictor) : submit (data.ecdc_b04_p75_predictor) : submit (data.ecdc_biome_elevation_predictor) : submit (data.ecdc_slope_predictor) : submit (data.ecdc_canopy_structure_predictor) //  ecdc_water_index_standard_deviation_predictor ecdc_bare_ground_predictor
 				//: submit(data.organic_carbon_concentration_topsoil) : submit(data.annual_precipitation)) // : observe({es.nca:EcosystemType})
-				
+				checkbutton("EU Account Typology" #obs23 :disabled :tooltip "Available soon"): (submit())
+				checkbutton("RAMSAR Typology" #obs24 :disabled :tooltip "Available soon"): (submit())				
 				//checkbutton("EUNIS2021Plus Classification (predictors)" #obs11 :disabled) : ( submit (peopleea.forest.lai.leaf_area_index) : submit (peopleea.forest.ndvi.ndvi) : submit (peopleea.highresolution.fcover_10m)) // : observe({es.nca:EcosystemType})
 				//checkbutton("EUNIS2021Plus Classification" #obs12 :hidden :disabled): (submit(alphatwo_udp.ecosystem_type_iucn_get_level1_czech))
 				//checkbutton("EUNIS2021Plus Classification" #obs13 :hidden :disabled): (submit(alphatwo_udp.ecosystem_type_iucn_get_level1_greece)) 
@@ -594,7 +595,6 @@ action main:
 			)
 		)	
 	
-
 	) 
 	
 	action disable_ctxs: (
