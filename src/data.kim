@@ -66,6 +66,10 @@ number ecdc_predictors observing
 	ecdc_water_index_standard_deviation_predictor, 
 	ecdc_bare_ground_predictor;
 
+/*multiple tiles ECDC */
+
+number 'local:stefano.balbi:esa.aries.sandbox:weed_ecdc_b04_p75' as ecdc_b04_p25;  
+
 
 /*Many of the assets in the GlobES collection are only available for 2018 */
 // Datacubes from GlobES (https://catalogue.weed.apex.esa.int/collections/Globes-V2/items)
