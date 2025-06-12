@@ -328,7 +328,7 @@ action main:
 		(
 			checkbutton("Osloviken NO1 BB:32tNM42 (100 m) " #no_bbox1): (
 				disable_ctxs
-				context(cu_bbox_contexts.norway_cu_osloviken_no1_bbox_32tnm42)
+				context(cu_bbox_data_contexts.norway_cu_osloviken_no1_bbox_32tnm42)
 				headers.update("Norway: Osloviken NO1 BB:32tNM42 (100 m)")
 				headers.show
 				obs11.enable	
