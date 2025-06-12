@@ -1,0 +1,31 @@
+{
+  "urn" : "local:stefano.balbi:esa.aries.sandbox:ecdc_apha3_b04_p75",
+  "version" : "0.0.1",
+  "adapterType" : "stac",
+  "localPath" : "esa.aries.sandbox/resources/ecdc_apha3_b04_p75.v0.0.1",
+  "geometry" : "t1{ttype=grid}S2",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "ecdc_apha3_b04_p75",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1749726357291,
+  "metadata" : {
+    "dc:comment" : "This is the STAC metadata for the openEO job 'j-250608191747497392481b5f9be419ae'",
+    "dc:url" : "https://catalogue.weed.apex.esa.int/collections/ecosystem-characteristics-alpha3"
+  },
+  "parameters" : {
+    "collection" : "https://catalogue.weed.apex.esa.int/collections/ecosystem-characteristics-alpha3",
+    "cogband" : "B04_p75",
+    "collectionId" : "ecosystem-characteristics-alpha3"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

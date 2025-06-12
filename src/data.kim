@@ -37,7 +37,8 @@ number 'local:arnab.moitra:esa.aries.sandbox:weed_ecdc_band_B04_p2'
 	 as ecdc_plant_density_predictor //as ecology:Vegetation im:Density
 	"Assess plant density. The darker red the more dense, cities are in gray and water in blue."; //weed_ecdc_band_b04_p2;
 
-number 'local:arnab.moitra:esa.aries.sandbox:weed_ecdc_band_B04_p75' as ecdc_b04_p75_predictor;
+number  'local:arnab.moitra:esa.aries.sandbox:weed_ecdc_band_B04_p75' as ecdc_b04_p75_predictor;
+//local:stefano.balbi:esa.aries.sandbox:ecdc_apha3_b04_p75  //alpha 3
 
 number local:alessio.bulckaen:esa.aries.sandbox:esa_weed_ecdc_biome_indicator 
 	as ecdc_biome_indicator_predictor 
@@ -62,9 +63,13 @@ number ecdc_predictors observing
 	ecdc_b04_p75_predictor,
 	ecdc_biome_indicator_predictor,
 	ecdc_elevation_predictor, 
-	ecdc_canopy_structure_predictor, 
+//	ecdc_canopy_structure_predictor, 
 	ecdc_water_index_standard_deviation_predictor, 
 	ecdc_bare_ground_predictor;
+
+/*multiple tiles ECDC */
+
+number 'local:stefano.balbi:esa.aries.sandbox:weed_ecdc_b04_p75' as ecdc_b04_p25;  
 
 
 /*Many of the assets in the GlobES collection are only available for 2018 */
