@@ -33,8 +33,8 @@ number 'local:stefano.balbi:esa.aries.sandbox:Climate_Annual_Precipitation_CHELS
 
  
 
-model 'local:arnab.moitra:esa.aries.sandbox:weed_ecdc_band_B04_p2'
-	as ecology:Vegetation im:Density named ecdc_plant_density_predictor
+number 'local:arnab.moitra:esa.aries.sandbox:weed_ecdc_band_B04_p2'
+	 as ecdc_plant_density_predictor //as ecology:Vegetation im:Density
 	"Assess plant density. The darker red the more dense, cities are in gray and water in blue."; //weed_ecdc_band_b04_p2;
 
 number 'local:arnab.moitra:esa.aries.sandbox:weed_ecdc_band_B04_p75' as ecdc_b04_p75_predictor;
