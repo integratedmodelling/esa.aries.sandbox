@@ -62,7 +62,7 @@ number ecdc_predictors observing
 	ecdc_b04_p75_predictor,
 	ecdc_biome_indicator_predictor,
 	ecdc_elevation_predictor, 
-	ecdc_canopy_structure_predictor, 
+//	ecdc_canopy_structure_predictor, 
 	ecdc_water_index_standard_deviation_predictor, 
 	ecdc_bare_ground_predictor;
 

@@ -3,7 +3,7 @@ public app esa.aries
 	version 1.0alpha
 	description #ARIES_FOR_ESA_EXPLORER_DESCRIPTION
 	logo static/images/esa_logo.png
-	versionstring "Demonstration version (Alpha 2)"
+	versionstring "Demonstration version (Alpha 2/3)"
 	style dark
 
 
@@ -14,6 +14,171 @@ action main:
 
 //all cu_priority_area_contexts for use in alpha 3 
 	(
+				(
+//			checkbutton("Colombia Mojana CO1 BB:18λWQ22 (100 m) " #co_bbox1): (
+//				disable_ctxs
+//				context(cu_bbox_contexts.colombia_cu_mojana_co1_bbox_18lwq22)
+//				headers.update("Colombia: Mojana CO1 BB:18λWQ22 (100 m)")
+//				headers.show
+//				obs22.show
+//				obs21.hide
+//				obs22.enable
+//			)
+			checkbutton("Mojana CO1" #co1): (
+				disable_ctxs
+				context(cu_priority_areas_contexts.colombia_mojana_co1)
+				headers.update("Colombia: Mojana CO1")
+				headers.show
+				obs22.show
+				obs21.hide
+				obs22.enable 
+			)
+			checkbutton("San Andrés CO2" #co2): (
+				disable_ctxs
+				context(cu_priority_areas_contexts.colombia_san_andres_co2)
+				headers.update("Colombia: San Andrés CO2")
+				headers.show
+				obs22.show
+				obs21.hide
+				obs22.enable 
+			)
+			checkbutton("Providencia CO3" #co3): (
+				disable_ctxs
+				context(cu_priority_areas_contexts.colombia_providencia_co3)
+				headers.update("Colombia: Providencia CO3")
+				headers.show 
+				obs22.show
+				obs21.hide
+				obs22.enable
+			)
+			checkbutton("Cienaga Grande de Santa Marta CO4" #co4): (
+				disable_ctxs
+				context(cu_priority_areas_contexts.colombia_cienaga_grande_de_santa_marta_co4)
+				headers.update("Colombia: Cienaga Grande de Santa Marta CO4")
+				headers.show 
+				obs22.show
+				obs21.hide
+				obs22.enable
+			)
+			checkbutton("Delta Sinú CO5" #co5): (
+				disable_ctxs
+				context(cu_priority_areas_contexts.colombia_delta_sinu_co5)
+				headers.update("Colombia: Delta Sinú CO5")
+				headers.show
+				obs22.show
+				obs21.hide
+				obs22.enable 
+			)	
+			checkbutton("Pisba CO6" #co6): (
+				disable_ctxs
+				context(cu_priority_areas_contexts.colombia_pisba_co6)
+				headers.update("Colombia: Pisba CO6")
+				headers.show 
+				obs22.show
+				obs21.hide
+				obs22.enable
+			)
+			checkbutton("Santurbán CO7" #co7): (
+				disable_ctxs
+				context(cu_priority_areas_contexts.colombia_santurban_co7)
+				headers.update("Colombia: Santurbán CO7")
+				headers.show
+				obs22.show
+				obs21.hide
+				obs22.enable 
+			)
+			checkbutton("Chingaza CO8" #co8): (
+				disable_ctxs
+				context(cu_priority_areas_contexts.colombia_chingaza_co8)
+				headers.update("Colombia: Chingaza CO8")
+				headers.show 
+				obs22.show
+				obs21.hide
+				obs22.enable
+			)
+			checkbutton("Putumayo CO9" #co9): (
+				disable_ctxs
+				context(cu_priority_areas_contexts.colombia_putumayo_co9)
+				headers.update("Colombia: Putumayo CO9")
+				headers.show
+				obs22.show
+				obs21.hide
+				obs22.enable 
+			)
+			checkbutton("AP_Drummont/Becerril-Cesar CO10" #co10 ): (
+				disable_ctxs
+				context(cu_priority_areas_contexts.colombia_ap_drummont_becerril_cesar_co10)
+				headers.update("Colombia: AP_Drummont/Becerril-Cesar CO10")
+				headers.show
+				obs22.show
+				obs21.hide
+				obs22.enable 
+			)
+			checkbutton("AP_Plata/Simiti-Cesar CO11" #co11): (
+				disable_ctxs
+				context(cu_priority_areas_contexts.colombia_ap_plata_simiti_cesar_co11)
+				headers.update("Colombia: AP_Plata/Simiti-Cesar CO11")
+				headers.show
+				obs22.show
+				obs21.hide
+				obs22.enable 
+			)
+			checkbutton("AP_Guane/Barrancabermeja CO12" #co12): (
+				disable_ctxs
+				context(cu_priority_areas_contexts.colombia_ap_guane_barrancabermeja_co12)
+				headers.update("Colombia: AP_Guane/Barrancabermeja CO12")
+				headers.show
+				obs22.show
+				obs21.hide
+				obs22.enable 
+			)
+			checkbutton("Piedemonte Casanare CO13" #co13): (
+				disable_ctxs
+				context(cu_priority_areas_contexts.colombia_piedemonte_casanare_co13)
+				headers.update("Colombia: Piedemonte Casanare CO13")
+				headers.show 
+				obs22.show
+				obs21.hide
+				obs22.enable
+			)
+			checkbutton("Cuenca alta río Bogotá CO14" #co14): (
+				disable_ctxs
+				context(cu_priority_areas_contexts.colombia_cuenca_alta_rio_bogota_co14)
+				headers.update("Colombia: Cuenca alta río Bogotá CO14")
+				headers.show
+				obs22.show
+				obs21.hide
+				obs22.enable
+			)
+			checkbutton("Arco de deforestación Amazonia CO15" #co15): (
+				disable_ctxs
+				context(cu_priority_areas_contexts.colombia_arco_de_deforestacion_amazonia_co15)
+				headers.update("Colombia: Arco de deforestación Amazonia CO1")
+				headers.show
+				obs22.show
+				obs21.hide
+				obs22.enable 
+			)	
+			checkbutton("Delta del Patía CO16" #co16): (
+				disable_ctxs
+				context(cu_priority_areas_contexts.colombia_delta_del_patia_co16)
+				headers.update("Colombia: Delta del Patía CO16")
+				headers.show
+				obs22.show
+				obs21.hide
+				obs22.enable 
+			)
+			checkbutton("Buenaventura CO17" #co17): (
+				disable_ctxs
+				context(cu_priority_areas_contexts.colombia_buenaventura_co17)
+				headers.update("Colombia: Buenaventura CO17")
+				headers.show
+				obs22.show
+				obs21.hide
+				obs22.enable 
+			)	
+		) :name "Colombia" #colombia
+		
 		(
 			checkbutton("Krkhnossky CZ2 BB:33σWS20 (10 m) " #cz_bbox1): (
 				disable_ctxs
@@ -78,6 +243,88 @@ action main:
 				headers.show			
 			)
 		) :name "Czech Republic"  #czec // :opened
+				(			
+			checkbutton("Kefalonia_Z EL3 BB:34σDH30 (100 m) " #gr_bbox1): (
+				disable_ctxs
+				context(cu_bbox_contexts.greece_cu_kefaloniaz_el3_bbox_34ddh30)
+				headers.update("Greece: Kefalonia_Z EL3 BB:34σDH30 (100 m)")
+				headers.show 
+				obs11.enable
+			)
+			checkbutton("Sterea EL9 BB:34δEH13 (100 m) " #gr_bbox2): (
+				disable_ctxs
+				context(cu_bbox_contexts.greece_cu_sterea_el9_bbox_34deh13)
+				obs11.enable
+				headers.update("Greece: Sterea EL3 BB:34δEH13 (100 m)")
+				headers.show 				
+			)			
+			checkbutton("Xylokastro EL1" #gr1 :disabled :tooltip "Under development"): (
+				disable_ctxs
+				context(cu_priority_areas_contexts.greece_xylokastro_el1)
+				headers.update("Greece: Xylokastro EL1")
+				headers.show 
+			)
+			checkbutton("CapeMaleas EL2" #gr2 :disabled :tooltip "Under development"): (
+				disable_ctxs
+				context(cu_priority_areas_contexts.greece_capemaleas_el2)
+				headers.update("Greece: CapeMaleas EL2")
+				headers.show 
+			)
+			checkbutton("Kefalonia_Z EL3" #gr3 :disabled :tooltip "Under development"): (
+				disable_ctxs
+				context(cu_priority_areas_contexts.greece_kefalonia_z_el3)
+				headers.update("Greece: Kefalonia_Z EL3")
+				headers.show 
+			)
+			checkbutton("Naxos EL4" #gr4 :disabled :tooltip "Under development"): (
+				disable_ctxs
+				context(cu_priority_areas_contexts.greece_naxos_el4)
+				headers.update("Greece: Naxos EL4")
+				headers.show 
+			)
+			checkbutton("Kassandra EL5" #gr5 :disabled :tooltip "Under development"): (
+				disable_ctxs
+				context(cu_priority_areas_contexts.greece_kassandra_el5)
+				headers.update("Greece: Kassandra EL5")
+				headers.show 
+			)
+			checkbutton("Crete EL6" #gr6 :disabled :tooltip "Under development"): (
+				disable_ctxs
+				context(cu_priority_areas_contexts.greece_crete_el6)
+				headers.update("Greece: Crete EL6")
+				headers.show 
+			)
+			checkbutton("Zacharo_K EL7" #gr7 :disabled :tooltip "Under development"): (
+				disable_ctxs
+				context(cu_priority_areas_contexts.greece_zacharo_k_el7)
+				headers.update("Greece: Zacharo_K EL7")
+				headers.show 
+			)
+			checkbutton("Menalo EL8" #gr8 :disabled :tooltip "Under development"): (
+				disable_ctxs
+				context(cu_priority_areas_contexts.greece_menalo_el8)
+				headers.update("Greece: Menalo EL8")
+				headers.show 
+			)
+			checkbutton("Sterea_S EL9" #gr9 :disabled :tooltip "Under development"): (
+				disable_ctxs
+				context(cu_priority_areas_contexts.greece_sterea_s_el9)
+				headers.update("Greece: Sterea_S EL9")
+				headers.show 
+			)
+			checkbutton("M_Vernon EL10" #gr10 :disabled :tooltip "Under development"): (
+				disable_ctxs
+				context(cu_priority_areas_contexts.greece_m_vernon_el10)
+				headers.update("Greece: M_Vernon EL10")
+				headers.show 
+			)
+			checkbutton("Thessaloniki EL11" #gr11 :disabled :tooltip "Under development"): (
+				disable_ctxs
+				context(cu_priority_areas_contexts.greece_thessaloniki_el11)
+				headers.update("Greece: Thessaloniki EL11")
+				headers.show 
+			)
+		) :name "Greece" #greece
 		(
 			checkbutton("Osloviken NO1 BB:32tNM42 (100 m) " #no_bbox1): (
 				disable_ctxs
@@ -257,252 +504,6 @@ action main:
 				obs22.enable  
 			)
 		) :name "Vietnam" #vietnam	
-		(			
-			checkbutton("Kefalonia_Z EL3 BB:34σDH30 (100 m) " #gr_bbox1): (
-				disable_ctxs
-				context(cu_bbox_contexts.greece_cu_kefaloniaz_el3_bbox_34ddh30)
-				headers.update("Greece: Kefalonia_Z EL3 BB:34σDH30 (100 m)")
-				headers.show 
-				obs11.enable
-			)
-			checkbutton("Sterea EL9 BB:34δEH13 (100 m) " #gr_bbox2): (
-				disable_ctxs
-				context(cu_bbox_contexts.greece_cu_sterea_el9_bbox_34deh13)
-				obs11.enable
-				headers.update("Greece: Sterea EL3 BB:34δEH13 (100 m)")
-				headers.show 				
-			)			
-			checkbutton("Xylokastro EL1" #gr1 :disabled :tooltip "Under development"): (
-				disable_ctxs
-				context(cu_priority_areas_contexts.greece_xylokastro_el1)
-				headers.update("Greece: Xylokastro EL1")
-				headers.show 
-			)
-			checkbutton("CapeMaleas EL2" #gr2 :disabled :tooltip "Under development"): (
-				disable_ctxs
-				context(cu_priority_areas_contexts.greece_capemaleas_el2)
-				headers.update("Greece: CapeMaleas EL2")
-				headers.show 
-			)
-			checkbutton("Kefalonia_Z EL3" #gr3 :disabled :tooltip "Under development"): (
-				disable_ctxs
-				context(cu_priority_areas_contexts.greece_kefalonia_z_el3)
-				headers.update("Greece: Kefalonia_Z EL3")
-				headers.show 
-			)
-			checkbutton("Naxos EL4" #gr4 :disabled :tooltip "Under development"): (
-				disable_ctxs
-				context(cu_priority_areas_contexts.greece_naxos_el4)
-				headers.update("Greece: Naxos EL4")
-				headers.show 
-			)
-			checkbutton("Kassandra EL5" #gr5 :disabled :tooltip "Under development"): (
-				disable_ctxs
-				context(cu_priority_areas_contexts.greece_kassandra_el5)
-				headers.update("Greece: Kassandra EL5")
-				headers.show 
-			)
-			checkbutton("Crete EL6" #gr6 :disabled :tooltip "Under development"): (
-				disable_ctxs
-				context(cu_priority_areas_contexts.greece_crete_el6)
-				headers.update("Greece: Crete EL6")
-				headers.show 
-			)
-			checkbutton("Zacharo_K EL7" #gr7 :disabled :tooltip "Under development"): (
-				disable_ctxs
-				context(cu_priority_areas_contexts.greece_zacharo_k_el7)
-				headers.update("Greece: Zacharo_K EL7")
-				headers.show 
-			)
-			checkbutton("Menalo EL8" #gr8 :disabled :tooltip "Under development"): (
-				disable_ctxs
-				context(cu_priority_areas_contexts.greece_menalo_el8)
-				headers.update("Greece: Menalo EL8")
-				headers.show 
-			)
-			checkbutton("Sterea_S EL9" #gr9 :disabled :tooltip "Under development"): (
-				disable_ctxs
-				context(cu_priority_areas_contexts.greece_sterea_s_el9)
-				headers.update("Greece: Sterea_S EL9")
-				headers.show 
-			)
-			checkbutton("M_Vernon EL10" #gr10 :disabled :tooltip "Under development"): (
-				disable_ctxs
-				context(cu_priority_areas_contexts.greece_m_vernon_el10)
-				headers.update("Greece: M_Vernon EL10")
-				headers.show 
-			)
-			checkbutton("Thessaloniki EL11" #gr11 :disabled :tooltip "Under development"): (
-				disable_ctxs
-				context(cu_priority_areas_contexts.greece_thessaloniki_el11)
-				headers.update("Greece: Thessaloniki EL11")
-				headers.show 
-			)
-		) :name "Greece" #greece
-		(
-//			checkbutton("Colombia Mojana CO1 BB:18λWQ22 (100 m) " #co_bbox1): (
-//				disable_ctxs
-//				context(cu_bbox_contexts.colombia_cu_mojana_co1_bbox_18lwq22)
-//				headers.update("Colombia: Mojana CO1 BB:18λWQ22 (100 m)")
-//				headers.show
-//				obs22.show
-//				obs21.hide
-//				obs22.enable
-//			)
-			checkbutton("Mojana CO1" #co1): (
-				disable_ctxs
-				context(cu_priority_areas_contexts.colombia_mojana_co1)
-				headers.update("Colombia: Mojana CO1")
-				headers.show
-				obs22.show
-				obs21.hide
-				obs22.enable 
-			)
-			checkbutton("San Andrés CO2" #co2): (
-				disable_ctxs
-				context(cu_priority_areas_contexts.colombia_san_andres_co2)
-				headers.update("Colombia: San Andrés CO2")
-				headers.show
-				obs22.show
-				obs21.hide
-				obs22.enable 
-			)
-			checkbutton("Providencia CO3" #co3): (
-				disable_ctxs
-				context(cu_priority_areas_contexts.colombia_providencia_co3)
-				headers.update("Colombia: Providencia CO3")
-				headers.show 
-				obs22.show
-				obs21.hide
-				obs22.enable
-			)
-			checkbutton("Cienaga Grande de Santa Marta CO4" #co4): (
-				disable_ctxs
-				context(cu_priority_areas_contexts.colombia_cienaga_grande_de_santa_marta_co4)
-				headers.update("Colombia: Cienaga Grande de Santa Marta CO4")
-				headers.show 
-				obs22.show
-				obs21.hide
-				obs22.enable
-			)
-			checkbutton("Delta Sinú CO5" #co5): (
-				disable_ctxs
-				context(cu_priority_areas_contexts.colombia_delta_sinu_co5)
-				headers.update("Colombia: Delta Sinú CO5")
-				headers.show
-				obs22.show
-				obs21.hide
-				obs22.enable 
-			)	
-			checkbutton("Pisba CO6" #co6): (
-				disable_ctxs
-				context(cu_priority_areas_contexts.colombia_pisba_co6)
-				headers.update("Colombia: Pisba CO6")
-				headers.show 
-				obs22.show
-				obs21.hide
-				obs22.enable
-			)
-			checkbutton("Santurbán CO7" #co7): (
-				disable_ctxs
-				context(cu_priority_areas_contexts.colombia_santurban_co7)
-				headers.update("Colombia: Santurbán CO7")
-				headers.show
-				obs22.show
-				obs21.hide
-				obs22.enable 
-			)
-			checkbutton("Chingaza CO8" #co8): (
-				disable_ctxs
-				context(cu_priority_areas_contexts.colombia_chingaza_co8)
-				headers.update("Colombia: Chingaza CO8")
-				headers.show 
-				obs22.show
-				obs21.hide
-				obs22.enable
-			)
-			checkbutton("Putumayo CO9" #co9): (
-				disable_ctxs
-				context(cu_priority_areas_contexts.colombia_putumayo_co9)
-				headers.update("Colombia: Putumayo CO9")
-				headers.show
-				obs22.show
-				obs21.hide
-				obs22.enable 
-			)
-			checkbutton("AP_Drummont/Becerril-Cesar CO10" #co10 ): (
-				disable_ctxs
-				context(cu_priority_areas_contexts.colombia_ap_drummont_becerril_cesar_co10)
-				headers.update("Colombia: AP_Drummont/Becerril-Cesar CO10")
-				headers.show
-				obs22.show
-				obs21.hide
-				obs22.enable 
-			)
-			checkbutton("AP_Plata/Simiti-Cesar CO11" #co11): (
-				disable_ctxs
-				context(cu_priority_areas_contexts.colombia_ap_plata_simiti_cesar_co11)
-				headers.update("Colombia: AP_Plata/Simiti-Cesar CO11")
-				headers.show
-				obs22.show
-				obs21.hide
-				obs22.enable 
-			)
-			checkbutton("AP_Guane/Barrancabermeja CO12" #co12): (
-				disable_ctxs
-				context(cu_priority_areas_contexts.colombia_ap_guane_barrancabermeja_co12)
-				headers.update("Colombia: AP_Guane/Barrancabermeja CO12")
-				headers.show
-				obs22.show
-				obs21.hide
-				obs22.enable 
-			)
-			checkbutton("Piedemonte Casanare CO13" #co13): (
-				disable_ctxs
-				context(cu_priority_areas_contexts.colombia_piedemonte_casanare_co13)
-				headers.update("Colombia: Piedemonte Casanare CO13")
-				headers.show 
-				obs22.show
-				obs21.hide
-				obs22.enable
-			)
-			checkbutton("Cuenca alta río Bogotá CO14" #co14): (
-				disable_ctxs
-				context(cu_priority_areas_contexts.colombia_cuenca_alta_rio_bogota_co14)
-				headers.update("Colombia: Cuenca alta río Bogotá CO14")
-				headers.show
-				obs22.show
-				obs21.hide
-				obs22.enable
-			)
-			checkbutton("Arco de deforestación Amazonia CO15" #co15): (
-				disable_ctxs
-				context(cu_priority_areas_contexts.colombia_arco_de_deforestacion_amazonia_co15)
-				headers.update("Colombia: Arco de deforestación Amazonia CO1")
-				headers.show
-				obs22.show
-				obs21.hide
-				obs22.enable 
-			)	
-			checkbutton("Delta del Patía CO16" #co16): (
-				disable_ctxs
-				context(cu_priority_areas_contexts.colombia_delta_del_patia_co16)
-				headers.update("Colombia: Delta del Patía CO16")
-				headers.show
-				obs22.show
-				obs21.hide
-				obs22.enable 
-			)
-			checkbutton("Buenaventura CO17" #co17): (
-				disable_ctxs
-				context(cu_priority_areas_contexts.colombia_buenaventura_co17)
-				headers.update("Colombia: Buenaventura CO17")
-				headers.show
-				obs22.show
-				obs21.hide
-				obs22.enable 
-			)	
-		) :name "Colombia" #colombia
 		
 	) :shelf #contexts
 
@@ -513,64 +514,6 @@ action main:
 		) :vbox :center 	
 	)
 
-
-
-
-//alpha 2 original version
-//	(
-//		checkbutton("Norway NO1 BB:32tNM42 (10 m) " #ctx1): (
-//			disable_ctxs
-//			obs11.enable
-//			//obs11.show
-//			//obs12.hide
-//			//obs13.hide
-//			context(cu_bbox_contexts.norway_cu_osloviken_no1_bbox_32tnm42)
-//		)
-//		checkbutton("Czech CZ1 BB:33δWR11 (10 m) " #ctx2): (
-//			disable_ctxs
-//			//obs12.enable
-//			//obs12.show
-//			obs11.enable
-//			//obs13.hide
-//			context(cu_bbox_contexts.czech_cu_transectmidwe_cz8_bbox_33dwr11) 
-//		)
-//		checkbutton("Greece EL9 BB:34δEH13 (10 m) " #ctx3): (
-//			disable_ctxs
-//			//obs13.enable
-//			//obs13.show
-//			obs11.enable
-//			//obs12.hide
-//			context(cu_bbox_contexts.greece_cu_sterea_el9_bbox_34deh13)
-//		)
-//		checkbutton("SouthAfrica SA9 BB:34δEH33 (30 m) " #ctx4): (
-//			disable_ctxs
-//			obs22.show
-//			obs21.hide
-//			obs22.enable
-//			context(cu_bbox_contexts.south_africa_cu_groenfontein_sa9_bbox_34deh33)
-//		)
-//		checkbutton("Vietnam VN1 BB:48πYJ11 (30 m) " #ctx5): (
-//			disable_ctxs
-//			obs22.show
-//			obs21.hide
-//			obs22.enable
-//			context(cu_bbox_contexts.vietnam_cu_quangninh_vn1_bbox_48pyj11)
-//		)
-//		checkbutton("Colombia CO1 BB:18λWQ22 (30 m) " #ctx6): (
-//			disable_ctxs
-//			obs21.enable
-//			obs21.show
-//			obs22.hide
-//			obs3.enable 
-//			context(cu_bbox_contexts.colombia_cu_mojana_co1_bbox_18lwq22)
-//		)
-//		(
-//			button(#reset_context "Reset" :iconname "restart" :disabled width="40%"): reset_buttons
-//		) :vbox :center 
-//	)	
-///////////
-
-
 	(
 //		separator("Alpha 2 functionalities")
 		(
@@ -580,19 +523,14 @@ action main:
 				//: submit(data.organic_carbon_concentration_topsoil) : submit(data.annual_precipitation)) // : observe({es.nca:EcosystemType})
 				checkbutton("EU Account Typology" #obs23 :disabled :tooltip "Available soon"): (submit())
 				checkbutton("RAMSAR Typology" #obs24 :disabled :tooltip "Available soon"): (submit())				
-				//checkbutton("EUNIS2021Plus Classification (predictors)" #obs11 :disabled) : ( submit (peopleea.forest.lai.leaf_area_index) : submit (peopleea.forest.ndvi.ndvi) : submit (peopleea.highresolution.fcover_10m)) // : observe({es.nca:EcosystemType})
-				//checkbutton("EUNIS2021Plus Classification" #obs12 :hidden :disabled): (submit(alphatwo_udp.ecosystem_type_iucn_get_level1_czech))
-				//checkbutton("EUNIS2021Plus Classification" #obs13 :hidden :disabled): (submit(alphatwo_udp.ecosystem_type_iucn_get_level1_greece)) 
-				checkbutton("IUCN GET Classification" #obs21 :disabled): (submit(rules_based_modelling.colombia.ecosystem_type_iucn_get))
-				checkbutton("IUCN GET Classification" #obs22 :hidden :disabled): (submit(rules_based_modelling.ecosystem_type_iucn_get)) //observe({nca.ecosystem.iucn:EcosystemType})    
 				checkbutton("Local Classification" #obs3 :disabled): (submit(rules_based_modelling.colombia.ecosystem_type_colombia))  // observe({type of aries.colombia.ecosystem:ModelledColombianEcosystem}) //For SA and Vietnam which output
-				// can specify levels of classifications
-				
-				// to trigger multiple observations with primary output
-	//			checkbutton("test1: sequential calls" #obs4 :disabled): (submit(data.population_density) : submit(data.organic_carbon_concentration_topsoil) : submit(data.distance_to_inland_water_body) : submit(data.annual_precipitation)) //  :  for sequentiality --> seems to be respected
-	//			checkbutton("test2: concept resolution" #obs5 :disabled): (submit(data.population_density) : observe({geography:Elevation}) : observe({percentage of chemistry:Carbon in soil:TopSoil im:Mass }))  //picks correctly local concept from data namespace in this project 
-	//			checkbutton("test3: with dependencies" #obs6 :disabled): (submit(data.test3))  // primary output with secondary observation but seems slower than test 1
-			)
+				(
+				 (
+				 	checkbutton("IUCN GET Classification" #obs21 :disabled): (submit(rules_based_modelling.colombia.ecosystem_type_iucn_get))
+				    checkbutton("IUCN GET Classification" #obs22 :hidden :disabled): (submit(rules_based_modelling.ecosystem_type_iucn_get)) //observe({nca.ecosystem.iucn:EcosystemType})   
+				 ) :name "IUCN GET Classification" #iucn_models	
+				) :shelf #iucn
+				  )
 		)	
 	
 	) 
