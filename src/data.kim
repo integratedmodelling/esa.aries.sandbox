@@ -78,6 +78,7 @@ number local:stefano.balbi:esa.aries.sandbox:ecdc_apha3_test as ecdc_b02pp25;
 number local:stefano.balbi:esa.aries.sandbox:apha3_results_test as alpha3_test
 	set to [ (self > 100 ) ? unknown : self ];  
 
+//Example of annotation for presence of ecosystem (add nodata field in the json) 
 model local:stefano.balbi:esa.aries.sandbox:apha3_results_test
 as occurrence of nca.ecosystem.eunis:CoastalShingle earth:Region
 set to [(self > 100 ) ? unknown : self]; 
