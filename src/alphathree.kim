@@ -1,4 +1,5 @@
-project private namespace alphathree;
+project private namespace alphathree
+	 using nca.ecosystem.eunis;
 
 /*multiple tiles ECDC */
 
@@ -11,4 +12,9 @@ number local:stefano.balbi:esa.aries.sandbox:ecdc_apha3_test as ecdc_b02pp25;
 number local:stefano.balbi:esa.aries.sandbox:apha3_results_test as alpha3_test
 	set to [ (self > 100 ) ? unknown : self ];  
 	
+//Example of annotation for presence of ecosystem (add nodata field in the json) 
+model local:stefano.balbi:esa.aries.sandbox:apha3_results_test
+as occurrence of nca.ecosystem.eunis:CoastalShingle earth:Region
+set to [(self > 100 ) ? unknown : self]; 
+
 number local:stefano.balbi:esa.aries.sandbox:alpha3_maxprob_inference_result_level3 as alpha3_maxprob_inference_result_level3;
