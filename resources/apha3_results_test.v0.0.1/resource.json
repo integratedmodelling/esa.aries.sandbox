@@ -15,7 +15,9 @@
   "parameters" : {
     "collection" : "https://catalogue.weed.apex.esa.int/collections/inference-alpha3-prepared-v100",
     "cogband" : "Level2_class-N_habitat-N2-40200",
-    "collectionId" : "inference-alpha3-prepared-v100"
+    "collectionId" : "inference-alpha3-prepared-v100",
+    "nodata" : "255"
+
   },
   "localPaths" : [ ],
   "history" : [ ],
