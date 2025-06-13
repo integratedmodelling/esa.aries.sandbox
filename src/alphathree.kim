@@ -5,9 +5,46 @@ project private namespace alphathree
 
 number 'local:stefano.balbi:esa.aries.sandbox:weed_ecdc_b04_p75' as ecdc_b04_p25;  
 
-number local:stefano.balbi:esa.aries.sandbox:ecdc_apha3_test as ecdc_b02pp25;
+number local:stefano.balbi:esa.aries.sandbox:ecdc_apha3_test as ecdc_b02_p25;
 
-/* Multiple tiles Alpha 3 results   */
+number local:stefano.balbi:esa.aries.sandbox:alpha3_ecdc_ndvi_p75 as ecdc_ndvi_p75;
+
+number local:stefano.balbi:esa.aries.sandbox:alpha3_ecdc_avi_median as ecdc_avi_median_canopy_structure_predictor;
+
+number local:stefano.balbi:esa.aries.sandbox:apha3_ecdc_vhvvd_iqr as ecdc_vhvvd_iqr_biome_indicator;
+
+number local:stefano.balbi:esa.aries.sandbox:alpha3_ecdc_vv_sd as ecdc_vv_sd_bare_ground_predictor;
+
+number local:stefano.balbi:esa.aries.sandbox:alpha3_ecdc_b04_p2 as ecdc_b04_p2_plant_density;
+
+number local:stefano.balbi:esa.aries.sandbox:alpha3_ecdc_b04_p75 as ecdc_b04_p75;
+
+number local:stefano.balbi:esa.aries.sandbox:alpha3_ecdc_s2wi_sd as ecdc_s2wi_sd_water_index; 
+
+//b04_p25
+//b02_p25
+//NDVI_p75
+//ecdc_canopy_structure_predictor, AVI_median
+//biome_indicator VHVVR_iqr
+//ecdc_bare_ground_predictor; VV_sd
+//b04_p2
+//b04_p75
+//ecdc_water_index_standard_deviation_predictor, S2WI_sd
+
+
+number ecdc_predictors observing 
+	ecdc_b04_p2_plant_density,
+	ecdc_b04_p75,
+	ecdc_vhvvd_iqr_biome_indicator,
+	ecdc_avi_median_canopy_structure_predictor, 
+	ecdc_s2wi_sd_water_index, 
+	ecdc_vv_sd_bare_ground_predictor,
+	ecdc_ndvi_p75,
+	ecdc_b04_p25,
+	ecdc_b02_p25; 
+
+
+/* Multiple tiles Alpha 3 results */
 
 number local:stefano.balbi:esa.aries.sandbox:apha3_results_test as alpha3_test
 	set to [ (self > 100 ) ? unknown : self ];  

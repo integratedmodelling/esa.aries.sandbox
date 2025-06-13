@@ -523,7 +523,7 @@ action main:
 			separator("Query Ecosystem Types according to:" :iconname "sprout-outline" )
 			(
 				checkbutton("EUNIS2021Plus Classification (Level 2)" #obs11 :disabled) : submit (alphatwo_udp.weed_level2) : submit (data.ecdc_predictors) //(data.ecdc_plant_density_predictor) : submit (data.ecdc_b04_p75_predictor) : submit (data.ecdc_biome_elevation_predictor) : submit (data.ecdc_slope_predictor) : submit (data.ecdc_canopy_structure_predictor) //  ecdc_water_index_standard_deviation_predictor ecdc_bare_ground_predictor
-				checkbutton("Inference result (1 band)" #obs12 :disabled) : submit (alphathree.alpha3_test) : submit (alphathree.ecdc_b02pp25)
+				checkbutton("Inference result (1 band) and predictors" #obs12 :disabled) : submit (alphathree.alpha3_test) : submit (alphathree.ecdc_predictors)
 				checkbutton("Inference result Max Probability Class " #obs13 :disabled) : submit (alphathree.alpha3_maxprob_inference_result_level3)
 				//: submit(data.organic_carbon_concentration_topsoil) : submit(data.annual_precipitation)) // : observe({es.nca:EcosystemType})
 				checkbutton("EU Account Typology" #obs23 :disabled :tooltip "Available soon"): (submit())
