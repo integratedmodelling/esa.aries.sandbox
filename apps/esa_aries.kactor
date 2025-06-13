@@ -194,7 +194,7 @@ action main:
 				headers.show
 				obs11.enable				
 			)		
-			checkbutton("Bilek CZ1" #cz1 :tooltip "Under development"): (
+			checkbutton("Bilek CZ1" #cz1 :disabled :tooltip "Under development"): (
 				disable_ctxs
 				context(cu_priority_areas_contexts.czech_republic_bilek_cz1)
 				headers.update("Czech Republic: Bilek CZ1")
@@ -206,11 +206,12 @@ action main:
 				headers.update("Czech Republic: Krkhnossky CZ2")
 				headers.show
 			)
-			checkbutton("Podyji CZ3" #cz3 :disabled :tooltip "Under development"): (
+			checkbutton("Podyji CZ3" #cz3  :tooltip "Under development"): (
 				disable_ctxs
 				context(cu_priority_areas_contexts.czech_republic_podyji_cz3)
 				headers.update("Czech Republic: Podyji CZ3")
 				headers.show
+				obs12.enable
 			)
 			checkbutton("Bohemian CZ4" #cz4 :disabled :tooltip "Under development"): (
 				disable_ctxs
@@ -270,11 +271,12 @@ action main:
 				headers.update("Greece: CapeMaleas EL2")
 				headers.show 
 			)
-			checkbutton("Kefalonia_Z EL3" #gr3 :disabled :tooltip "Under development"): (
+			checkbutton("Kefalonia_Z EL3" #gr3 :tooltip "Under development"): (
 				disable_ctxs
 				context(cu_priority_areas_contexts.greece_kefalonia_z_el3)
 				headers.update("Greece: Kefalonia_Z EL3")
-				headers.show 
+				headers.show
+				obs12.enable 
 			)
 			checkbutton("Naxos EL4" #gr4 :disabled :tooltip "Under development"): (
 				disable_ctxs
@@ -520,6 +522,8 @@ action main:
 			separator("Query Ecosystem Types according to:" :iconname "sprout-outline" )
 			(
 				checkbutton("EUNIS2021Plus Classification (Level 2)" #obs11 :disabled) : submit (alphatwo_udp.weed_level2) : submit (data.ecdc_predictors) //(data.ecdc_plant_density_predictor) : submit (data.ecdc_b04_p75_predictor) : submit (data.ecdc_biome_elevation_predictor) : submit (data.ecdc_slope_predictor) : submit (data.ecdc_canopy_structure_predictor) //  ecdc_water_index_standard_deviation_predictor ecdc_bare_ground_predictor
+				checkbutton("Infererence result (1 band)" #obs12 :disabled) : submit (data.alpha3_test) : submit (data.ecdc_b02pp25)
+				
 				//: submit(data.organic_carbon_concentration_topsoil) : submit(data.annual_precipitation)) // : observe({es.nca:EcosystemType})
 				checkbutton("EU Account Typology" #obs23 :disabled :tooltip "Available soon"): (submit())
 				checkbutton("RAMSAR Typology" #obs24 :disabled :tooltip "Available soon"): (submit())				
@@ -558,10 +562,10 @@ action main:
 //		ctx5.uncheck
 //		ctx6.uncheck
 		obs11.uncheck
-		//obs12.uncheck
+		obs12.uncheck
 		//obs13.uncheck
 		obs11.show
-		//obs12.hide
+		obs12.hide
 		//obs13.hide
 		obs21.uncheck
 		obs22.uncheck
@@ -575,7 +579,7 @@ action main:
 //		ctx5.enable
 //		ctx6.enable
 		obs11.disable
-		//obs12.disable
+		obs12.disable
 		//obs13.disable
 		obs21.disable
 		obs22.disable
