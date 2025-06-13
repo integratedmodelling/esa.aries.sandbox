@@ -20,7 +20,7 @@ set to [(self > 100 ) ? unknown : self];
 number local:stefano.balbi:esa.aries.sandbox:alpha3_maxprob_inference_result_level3 as alpha3_maxprob_inference_result_level3;
 
 model 'local:stefano.balbi:esa.aries.sandbox:alpha3_maxprob_inference_result_level3'
-	as type of nca.ecosystem.eunis:Ecosystem named ecosystem_type_alpha2_preprocessed_stac_level3
+	as type of nca.ecosystem.eunis:Ecosystem named ecosystem_type_alpha3_inference_stac_level3
 		classified into
 		nca.ecosystem.eunis:MarineBenthicHabitats if 10000,
 			nca.ecosystem.eunis:LittoralRock if 10100,
