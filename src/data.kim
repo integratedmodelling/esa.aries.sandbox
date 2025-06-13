@@ -67,17 +67,6 @@ number ecdc_predictors observing
 	ecdc_water_index_standard_deviation_predictor, 
 	ecdc_bare_ground_predictor;
 
-/*multiple tiles ECDC */
-
-number 'local:stefano.balbi:esa.aries.sandbox:weed_ecdc_b04_p75' as ecdc_b04_p25;  
-
-number local:stefano.balbi:esa.aries.sandbox:ecdc_apha3_test as ecdc_b02pp25;
-
-/* Multiple tiles Alpha 3 results   */
-
-number local:stefano.balbi:esa.aries.sandbox:apha3_results_test as alpha3_test
-	set to [ (self > 100 ) ? unknown : self ];  
-
 
 /*Many of the assets in the GlobES collection are only available for 2018 */
 // Datacubes from GlobES (https://catalogue.weed.apex.esa.int/collections/Globes-V2/items)

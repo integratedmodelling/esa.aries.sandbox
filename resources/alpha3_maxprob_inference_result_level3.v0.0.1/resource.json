@@ -1,0 +1,31 @@
+{
+  "urn" : "local:stefano.balbi:esa.aries.sandbox:alpha3_maxprob_inference_result_level3",
+  "version" : "0.0.1",
+  "adapterType" : "stac",
+  "localPath" : "esa.aries.sandbox/resources/alpha3_maxprob_inference_result_level3.v0.0.1",
+  "geometry" : "T1{ttype=grid}s2{bbox=[20.543618496121717 37.946708788512694 20.772365372103444 38.1276247924196],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "alpha3_maxprob_inference_result_level3",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1749818158053,
+  "metadata" : {
+    "dc:comment" : "This is the STAC metadata for the openEO job 'j-25061311591146ffabfb4962f9d80a7d'",
+    "dc:url" : "https://catalogue.weed.apex.esa.int/collections/inference-alpha3-prepared-v100-extent"
+  },
+  "parameters" : {
+    "collection" : "https://catalogue.weed.apex.esa.int/collections/inference-alpha3-prepared-v100-extent",
+    "cogband" : "EUNIS habitat level3",
+    "collectionId" : "inference-alpha3-prepared-v100-extent"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}
