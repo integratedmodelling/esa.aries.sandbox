@@ -313,13 +313,38 @@ observe earth:Region named norway_osloviken_no1
                 projection= "EPSG:4326"),
         time(start=2022, end=2023, step=1.year);  
 
+//Priority area 1 split into 4 
+observe earth:Region named norway_osloviken_no1_1
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_norway_priority_areas_no1_split_epsg4326_v2#weed_site=NO1_1',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);  
+
+observe earth:Region named norway_osloviken_no1_2
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_norway_priority_areas_no1_split_epsg4326_v2#weed_site=NO1_2',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year); 
+
+observe earth:Region named norway_osloviken_no1_3
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_norway_priority_areas_no1_split_epsg4326_v2#weed_site=NO1_3',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);  
+
+observe earth:Region named norway_osloviken_no1_4
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_norway_priority_areas_no1_split_epsg4326_v2#weed_site=NO1_4',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year); 
+//
 observe earth:Region named norway_finnmark_no2
     over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_norway_priority_areas_epsg4326_v2#weed_site=NO2',
     			grid="30 m",
                 projection= "EPSG:4326"),
         time(start=2022, end=2023, step=1.year);
         
-//Norway priority areas V2
+//Vietnam priority areas V2
 observe earth:Region named vietnam_quang_ninh__hai_phong_vn1
     over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_vietnam_priority_areas_epsg4326_v2#weed_site=VN1',
     			grid="30 m",
