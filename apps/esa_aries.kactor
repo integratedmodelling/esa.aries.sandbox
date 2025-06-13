@@ -30,8 +30,8 @@ action main:
 				headers.update("Colombia: Mojana CO1")
 				headers.show
 				obs22.show
-				obs21.hide
-				obs22.enable
+				obs21.enable
+				obs25.enable
 				obs3.enable 
 			)
 			checkbutton("San Andrés CO2" #co2): (
@@ -415,8 +415,8 @@ action main:
 				headers.update("South Africa: Cape Point SA1")
 				headers.show
 				obs22.show
-				obs21.hide
-				obs22.enable	 
+				obs22.enable
+				obs25.enable	 
 			)
 			checkbutton("Grootbos SA2" #sa2): (
 				disable_ctxs
@@ -526,8 +526,7 @@ action main:
 				headers.update("Vietnam: Quang Ninh - Hai Phong VN1")
 				headers.show
 				obs22.show
-				obs21.hide
-				obs22.enable  
+				obs25.enable  
 			)
 			checkbutton("Pu Ma - Thanh Hoa VN2" #vn2): (
 				disable_ctxs
@@ -572,8 +571,9 @@ action main:
 				checkbutton("Local Classification" #obs3 :disabled): (submit(rules_based_modelling.colombia.ecosystem_type_colombia))  // observe({type of aries.colombia.ecosystem:ModelledColombianEcosystem}) //For SA and Vietnam which output
 				(
 				 (
-				 	checkbutton("IUCN GET Classification" #obs21 :disabled): (submit(rules_based_modelling.colombia.ecosystem_type_iucn_get))
-				    checkbutton("IUCN GET Classification" #obs22 :hidden :disabled): (submit(rules_based_modelling.ecosystem_type_iucn_get)) //observe({nca.ecosystem.iucn:EcosystemType})   
+				 	checkbutton("Rule-based (Colombia)" #obs21 :disabled): (submit(rules_based_modelling.colombia.ecosystem_type_iucn_get))
+				    checkbutton("Rule-based (SouthAfrica)" #obs22 :disabled): (submit(rules_based_modelling.southafrica.ecosystem_type_iucn_get))
+				    checkbutton("Rule-based (global)" #obs25 :disabled): (submit(rules_based_modelling.ecosystem_type_iucn_get)) //observe({nca.ecosystem.iucn:EcosystemType})   
 				 ) :name "IUCN GET Classification" #iucn_models	
 				) :shelf #iucn
 				  )
