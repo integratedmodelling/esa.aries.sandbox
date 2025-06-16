@@ -610,7 +610,7 @@ action main:
 		obs12.uncheck
 		//obs13.uncheck
 		obs11.show
-		obs12.hide
+		obs12.show
 		//obs13.hide
 		obs21.uncheck
 		obs22.uncheck
