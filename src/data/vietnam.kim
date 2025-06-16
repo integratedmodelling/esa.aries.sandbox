@@ -98,8 +98,8 @@ number 'local:caterina.gilli:esa.aries.sandbox:esa_weed.globes_v100_2018_vnm_coa
 
 model 'local:caterina.gilli:esa.aries.sandbox:esa_weed.globes_v100_2018_vnm_linear_distance_to_ocean' 
 	as distance to earth:Ocean;
-// is there need, or should we directly say:
-number 'local:caterina.gilli:esa.aries.sandbox:esa_weed.globes_v100_2018_vnm_linear_distance_to_ocean' as ditance_to_ocean;
+//// is there need, or should we directly say:
+//number 'local:caterina.gilli:esa.aries.sandbox:esa_weed.globes_v100_2018_vnm_linear_distance_to_ocean' as distance_to_ocean;
 
 
 //model 'local:caterina.gilli:esa.aries.sandbox:esa_weed.globes_v100_2018_vnm_mangrove_forest_extent'
