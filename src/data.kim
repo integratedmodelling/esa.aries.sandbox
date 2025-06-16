@@ -206,7 +206,8 @@ model local:alessio.bulckaen:esa.aries.sandbox:im-data-global-landcover.global_g
 	  local:alessio.bulckaen:esa.aries.sandbox:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2022_mosaic
 	as landcover:LandCoverType named glc_lc classified according to im:glc-fcs30-enconding;
 	
-model 'local:rubencc:im.data.global:im-data-global-ecology.global_ecoregions_300m_4326_2017'
+//use docuemnted version model 'local:rubencc:im.data.global:im-data-global-ecology.global_ecoregions_300m_4326_2017'
+model 'local:alessio.bulckaen:im.data.global:im-data-global-ecology_dinerstein_ecoregions_2017_4326'
 	as type of nca.ecoregion:DinersteinRegion classified into
 	nca.ecoregion:AdelieLandTundra if 117,
 	nca.ecoregion:AdmiraltyIslandLowlandRainForest if 135,
