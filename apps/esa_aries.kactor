@@ -332,28 +332,28 @@ action main:
 						rbc_global.disable
 						submit(rule_based_modelling.colombia.ecosystem_type_colombia)
 					)  // observe({type of aries.colombia.ecosystem:ModelledColombianEcosystem})
-					checkbutton("Rule-based (National - tier2)" #rbc_national): (
+					checkbutton("IUCN GET (Rule-based national model - tier2)" #rbc_national :tooltip "Model based on MEC (Colombian national classification) crosswalked to IUCN GET level 3"): (
 						rbc_global.disable
 						submit(rule_based_modelling.colombia.ecosystem_type_iucn_get)
 					)
-					checkbutton("Rule-based (Global - tier1)" #rbc_global): (
+					checkbutton("IUCN GET (Rule-based global model - tier1)" #rbc_global :tooltip "Model based on global data and parameters to model IUCN GET level 3"): (
 						rbc_local.disable
 						rbc_national.disable
 						submit(rule_based_modelling.ecosystem_type_iucn_get)
 					) //observe({nca.ecosystem.iucn:EcosystemType})
 				) :hidden #colombia_obs
 				(
-					checkbutton("Rule-based (National - tier2)" #rbsa_national): (
+					checkbutton("IUCN GET (Rule-based national model - tier2)" #rbsa_national :tooltip "Model based on some national data to model IUCN GET level 3"): (
 						rbsa_global.disable
 						submit(rule_based_modelling.southafrica.ecosystem_type_iucn_get)
 					)
-					checkbutton("Rule-based (Global - tier1)" #rbsa_global): (
+					checkbutton("IUCN GET (Rule-based global model - tier1)" #rbsa_global :tooltip "Model based on global data and parameters to model IUCN GET level 3"): (
 						rbsa_national.disable
 						submit(rule_based_modelling.ecosystem_type_iucn_get)
 					) //observe({nca.ecosystem.iucn:EcosystemType})
 				) :hidden #southafrica_obs
 				(
-					checkbutton("Rule-based (Global - tier1)" #obs25): (submit(rule_based_modelling.ecosystem_type_iucn_get)) //observe({nca.ecosystem.iucn:EcosystemType})
+					checkbutton("IUCN GET (Rule-based global model - tier1)" #obs25 :tooltip "Model based on global data and parameters to model IUCN GET level 3"): (submit(rule_based_modelling.ecosystem_type_iucn_get)) //observe({nca.ecosystem.iucn:EcosystemType})
 						
 				) :hidden #vietnam_obs
 			)
