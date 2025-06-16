@@ -145,23 +145,23 @@ action main:
 				disable_ctxs("cu_bbox_contexts.greece_cu_sterea_el9_bbox_34deh13","Greece: Sterea EL3 BB:34δEH13 (100 m)")
 				activate_europe			
 			)			
-			checkbutton("Xylokastro EL1" #gr1 :disabled :tooltip "Under development"): (
+			checkbutton("Xylokastro EL1" #gr1 ): (
 				disable_ctxs("cu_priority_areas_contexts.greece_xylokastro_el1","Greece: Xylokastro EL1")
 				activate_europe 
 			)
-			checkbutton("CapeMaleas EL2" #gr2 :disabled :tooltip "Under development"): (
+			checkbutton("CapeMaleas EL2" #gr2 ): (
 				disable_ctxs("cu_priority_areas_contexts.greece_capemaleas_el2","Greece: CapeMaleas EL2")
 				activate_europe
 			)
-			checkbutton("Kefalonia_Z EL3" #gr3 :tooltip "Under development"): (
+			checkbutton("Kefalonia_Z EL3" #gr3 :tooltip "Under development for ECDC"): (
 				disable_ctxs("cu_priority_areas_contexts.greece_kefalonia_z_el3","Greece: Kefalonia_Z EL3")
 				activate_europe
 			)
-			checkbutton("Naxos EL4" #gr4 :disabled :tooltip "Under development"): (
+			checkbutton("Naxos EL4" #gr4 ): (
 				disable_ctxs("cu_priority_areas_contexts.greece_naxos_el4","Greece: Naxos EL4")
 				activate_europe
 			)
-			checkbutton("Kassandra EL5" #gr5 :disabled :tooltip "Under development"): (
+			checkbutton("Kassandra EL5" #gr5 ): (
 				disable_ctxs("cu_priority_areas_contexts.greece_kassandra_el5","Greece: Kassandra EL5")
 				activate_europe
 			)
@@ -169,23 +169,23 @@ action main:
 				disable_ctxs("cu_priority_areas_contexts.greece_crete_el6","Greece: Crete EL6")
 				activate_europe
 			)
-			checkbutton("Zacharo_K EL7" #gr7 :disabled :tooltip "Under development"): (
+			checkbutton("Zacharo_K EL7" #gr7 ): (
 				disable_ctxs("cu_priority_areas_contexts.greece_zacharo_k_el7","Greece: Zacharo_K EL7")
 				activate_europe
 			)
-			checkbutton("Menalo EL8" #gr8 :disabled :tooltip "Under development"): (
+			checkbutton("Menalo EL8" #gr8 ): (
 				disable_ctxs("cu_priority_areas_contexts.greece_menalo_el8","Greece: Menalo EL8")
 				activate_europe
 			)
-			checkbutton("Sterea_S EL9" #gr9 :disabled :tooltip "Under development"): (
+			checkbutton("Sterea_S EL9" #gr9 ): (
 				disable_ctxs("cu_priority_areas_contexts.greece_sterea_s_el9","Greece: Sterea_S EL9")
 				activate_europe
 			)
-			checkbutton("M_Vernon EL10" #gr10 :disabled :tooltip "Under development"): (
+			checkbutton("M_Vernon EL10" #gr10 ): (
 				disable_ctxs("cu_priority_areas_contexts.greece_m_vernon_el10","Greece: M_Vernon EL10")
 				activate_europe
 			)
-			checkbutton("Thessaloniki EL11" #gr11 :disabled :tooltip "Under development"): (
+			checkbutton("Thessaloniki EL11" #gr11): (
 				disable_ctxs("cu_priority_areas_contexts.greece_thessaloniki_el11","Greece: Thessaloniki EL11")
 				activate_europe
 			)
