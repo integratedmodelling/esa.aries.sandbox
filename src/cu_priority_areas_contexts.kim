@@ -355,7 +355,7 @@ observe earth:Region named norway_finnmark_no2
 //Vietnam priority areas V2
 observe earth:Region named vietnam_quang_ninh__hai_phong_vn1
     over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_vietnam_priority_areas_epsg4326_v2#weed_site=VN1',
-    			grid="30 m",
+    			grid="100 m",
                 projection= "EPSG:4326"),
         time(start=2022, end=2023, step=1.year);  
 

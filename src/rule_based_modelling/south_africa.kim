@@ -1,5 +1,5 @@
 private namespace rule_based_modelling.south_africa
-using nca.ecosystem.iucn, nca.ecoregion, rules_based_modelling, data;
+using nca.ecosystem.iucn, nca.ecoregion, rule_based_modelling, data;
 
 model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cu_glc_fcs30d_landcover_epsg4326_30m_2020,
 	local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cu_glc_fcs30d_landcover_epsg4326_30m_2021,
@@ -14,21 +14,21 @@ model 'local:rubencc:im.data.global:im-data-global-ecology.global_ecoregions_300
 		nca.ecoregion:SucculentKarooXericShrubland if 110;
 
 model local:alessio.bulckaen:im.data.global:im-data-global-agriculture.global_forest_management_100m_2015_v3_2
-	as rules_based_modelling:ForestType named forest_type classified into
-		rules_based_modelling:PrimaryForest if 11,
-		rules_based_modelling:SecondaryForest if 20,
-		rules_based_modelling:PlantedForest if 31,
-			rules_based_modelling:TimberPlantation if 32,
-			rules_based_modelling:OilPalmPlantation if 40,
-			rules_based_modelling:Agroforestry if 53;
+	as rule_based_modelling:ForestType named forest_type classified into
+		rule_based_modelling:PrimaryForest if 11,
+		rule_based_modelling:SecondaryForest if 20,
+		rule_based_modelling:PlantedForest if 31,
+			rule_based_modelling:TimberPlantation if 32,
+			rule_based_modelling:OilPalmPlantation if 40,
+			rule_based_modelling:Agroforestry if 53;
 
 define RULE_BASED_ECOSYSTEM_IUCN_TABLE as {{ 
           landcover           |              forest_managment              |          dinerstein_ecoregion                |additonal_variable	|                        ecosystem_type                        
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
- landcover:Forest             | rules_based_modelling:PlantedForest        | #                                            | #     				|  nca.ecosystem.iucn:Plantation                               , 
- #                            | rules_based_modelling:TimberPlantation     | #                                            | #     				|  nca.ecosystem.iucn:Plantation                               , 
- #                            | rules_based_modelling:OilPalmPlantation    | #                                            | #     				|  nca.ecosystem.iucn:Plantation                               , 
- #                            | rules_based_modelling:Agroforestry         | #                                            | #     				|  nca.ecosystem.iucn:Plantation                               ,
+ landcover:Forest             | rule_based_modelling:PlantedForest        | #                                            | #     				|  nca.ecosystem.iucn:Plantation                               , 
+ #                            | rule_based_modelling:TimberPlantation     | #                                            | #     				|  nca.ecosystem.iucn:Plantation                               , 
+ #                            | rule_based_modelling:OilPalmPlantation    | #                                            | #     				|  nca.ecosystem.iucn:Plantation                               , 
+ #                            | rule_based_modelling:Agroforestry         | #                                            | #     				|  nca.ecosystem.iucn:Plantation                               ,
  landcover:Shrubland	      | #                                          | nca.ecoregion:FynbosShrubland                | #   				|  nca.ecosystem.iucn:SeasonallyDryTemperateHeathShrubland     ,
  landcover:SparseVegetation   | #                                          | nca.ecoregion:RenosterveldShrubland          | #   				|  nca.ecosystem.iucn:SeasonallyDryTemperateHeathShrubland     ,
  landcover:Shrubland	      | #                                          | nca.ecoregion:RenosterveldShrubland          | #   				|  nca.ecosystem.iucn:SeasonallyDryTemperateHeathShrubland     ,
@@ -47,7 +47,7 @@ define RULE_BASED_ECOSYSTEM_IUCN_TABLE as {{
 model nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get
 	observing
 		landcover:LandCoverType          			named landcover,
-		rules_based_modelling:ForestType 		named forest_managment,
+		rule_based_modelling:ForestType 		named forest_managment,
 		type of nca.ecoregion:DinersteinRegion 	named dinerstein_ecoregion                                                                                                      
 	lookup 
 		(landcover, forest_managment, dinerstein_ecoregion,*, ?) 
