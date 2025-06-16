@@ -1,4 +1,4 @@
-private namespace rules_based_modelling.south_africa
+private namespace rule_based_modelling.south_africa
 using nca.ecosystem.iucn, nca.ecoregion, rules_based_modelling, data;
 
 model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cu_glc_fcs30d_landcover_epsg4326_30m_2020,

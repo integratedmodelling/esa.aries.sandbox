@@ -1,4 +1,4 @@
-private namespace rules_based_modelling.vietnam
+private namespace rule_based_modelling.vietnam
 	using nca.ecosystem.iucn;
 	
 //@key(en="Ecosystem type - IUCN GET 2.0 Level 3", es="Ecosistemas - IUCN GET 2.0 nivel 3")
