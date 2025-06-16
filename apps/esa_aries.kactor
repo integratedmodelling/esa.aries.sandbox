@@ -40,8 +40,8 @@ action main:
 				headers.update("Colombia: San Andrés CO2")
 				headers.show
 				obs22.show
-				obs21.hide
-				obs22.enable 
+				obs21.enable
+				obs25.enable
 				obs3.enable 
 			)
 			checkbutton("Providencia CO3" #co3): (
@@ -571,12 +571,12 @@ action main:
 				//: submit(data.organic_carbon_concentration_topsoil) : submit(data.annual_precipitation)) // : observe({es.nca:EcosystemType})
 				checkbutton("EU Account Typology" #obs23 :disabled :tooltip "Available soon"): (submit())
 				checkbutton("RAMSAR Typology" #obs24 :disabled :tooltip "Available soon"): (submit())				
-				checkbutton("Local Classification" #obs3 :disabled): (submit(rules_based_modelling.colombia.ecosystem_type_colombia))  // observe({type of aries.colombia.ecosystem:ModelledColombianEcosystem}) //For SA and Vietnam which output
+				checkbutton("Local Classification" #obs3 :disabled): (submit(rule_based_modelling.colombia.ecosystem_type_colombia))  // observe({type of aries.colombia.ecosystem:ModelledColombianEcosystem})
 				(
 				 (
 				 	checkbutton("Rule-based (Colombia)" #obs21 :disabled): (submit(rule_based_modelling.colombia.ecosystem_type_iucn_get))
 				    checkbutton("Rule-based (SouthAfrica)" #obs22 :disabled): (submit(rule_based_modelling.southafrica.ecosystem_type_iucn_get))
-				    checkbutton("Rule-based (global)" #obs25 :disabled): (submit(rule_based_modelling.ecosystem_type_iucn_get)) //observe({nca.ecosystem.iucn:EcosystemType})   
+				    checkbutton("Rule-based (Global - tier1)" #obs25 :disabled): (submit(rule_based_modelling.ecosystem_type_iucn_get)) //observe({nca.ecosystem.iucn:EcosystemType})   
 				 ) :name "IUCN GET Classification" #iucn_models	
 				) :shelf #iucn
 				  )
