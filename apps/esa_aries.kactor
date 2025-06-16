@@ -571,9 +571,9 @@ action main:
 				checkbutton("Local Classification" #obs3 :disabled): (submit(rules_based_modelling.colombia.ecosystem_type_colombia))  // observe({type of aries.colombia.ecosystem:ModelledColombianEcosystem}) //For SA and Vietnam which output
 				(
 				 (
-				 	checkbutton("Rule-based (Colombia)" #obs21 :disabled): (submit(rules_based_modelling.colombia.ecosystem_type_iucn_get))
-				    checkbutton("Rule-based (SouthAfrica)" #obs22 :disabled): (submit(rules_based_modelling.southafrica.ecosystem_type_iucn_get))
-				    checkbutton("Rule-based (global)" #obs25 :disabled): (submit(rules_based_modelling.ecosystem_type_iucn_get)) //observe({nca.ecosystem.iucn:EcosystemType})   
+				 	checkbutton("Rule-based (Colombia)" #obs21 :disabled): (submit(rule_based_modelling.colombia.ecosystem_type_iucn_get))
+				    checkbutton("Rule-based (SouthAfrica)" #obs22 :disabled): (submit(rule_based_modelling.southafrica.ecosystem_type_iucn_get))
+				    checkbutton("Rule-based (global)" #obs25 :disabled): (submit(rule_based_modelling.ecosystem_type_iucn_get)) //observe({nca.ecosystem.iucn:EcosystemType})   
 				 ) :name "IUCN GET Classification" #iucn_models	
 				) :shelf #iucn
 				  )
