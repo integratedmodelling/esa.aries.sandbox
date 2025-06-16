@@ -345,7 +345,7 @@ action main:
 				(
 					checkbutton("IUCN GET (Rule-based national model - tier2)" #rbsa_national :tooltip "Model based on some national data to model IUCN GET level 3"): (
 						rbsa_global.disable
-						submit(rule_based_modelling.southafrica.ecosystem_type_iucn_get)
+						submit(rule_based_modelling.south_africa.ecosystem_type_iucn_get)
 					)
 					checkbutton("IUCN GET (Rule-based global model - tier1)" #rbsa_global :tooltip "Model based on global data and parameters to model IUCN GET level 3"): (
 						rbsa_national.disable
