@@ -1,9 +1,9 @@
 private namespace rule_based_modelling 
 using nca.ecosystem.iucn;
 
-model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cu_glc_fcs30d_landcover_epsg4326_30m_2020,
-	local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cu_glc_fcs30d_landcover_epsg4326_30m_2021,
-	local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cu_glc_fcs30d_landcover_epsg4326_30m_2022
+model local:alessio.bulckaen:esa.aries.sandbox:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2020_mosaic,
+	  local:alessio.bulckaen:esa.aries.sandbox:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2021_mosaic,
+	  local:alessio.bulckaen:esa.aries.sandbox:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2022_mosaic
 	as landcover:LandCoverType classified according to im:glc-fcs30-enconding;
 
 @colormap(values = {
