@@ -15,9 +15,9 @@ action main:
 		data.southafrica.et_southafrica
 		data.southafrica.nlc_southafrica
 //		data.glc_lc
-//		rules_based_modelling.south_africa.ecoregion_south_africa
-//		rules_based_modelling.south_africa.forest_type
-//		rules_based_modelling.south_africa.ecosystem_type_iucn_get
+//		rule_based_modelling.south_africa.ecoregion_south_africa
+//		rule_based_modelling.south_africa.forest_type
+//		rule_based_modelling.south_africa.ecosystem_type_iucn_get
 	)
 /*
  * Set the tables to summarise statistics or generate indicator for an observation (as .xls files) 

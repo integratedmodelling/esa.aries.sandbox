@@ -18,8 +18,8 @@ action main:
 		data.southafrica.nlc_southafrica
 		data.glc_lc
 		data.dinerstein_ecoregion
-		rules_based_modelling.south_africa.ecosystem_type_iucn_get
-		rules_based_modelling.south_africa.forest_type		
+		rule_based_modelling.south_africa.ecosystem_type_iucn_get
+		rule_based_modelling.south_africa.forest_type		
 	)
 /*
  * Set the tables to summarise statistics or generate indicator for an observation (as .xls files) 

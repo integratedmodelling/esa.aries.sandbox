@@ -12,7 +12,7 @@ action main:
  */
 	set observables_urns (
 //		{landcover:LandCoverType} //generic semantic concept goes with their URN into {} 
-		rules_based_modelling.ecosystem_type_iucn_get
+		rule_based_modelling.ecosystem_type_iucn_get
 		data.glc_lc
 
 	)
