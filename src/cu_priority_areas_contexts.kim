@@ -316,9 +316,10 @@ observe earth:Region named greece_thessaloniki_el11
 //Norway priority areas V2
 observe earth:Region named norway_osloviken_no1
     over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_norway_priority_areas_epsg4326_v2#weed_site=NO1',
-    			grid="30 m",
+    			grid="300 m",
                 projection= "EPSG:4326"),
-        time(start=2022, end=2023, step=1.year);  
+//        time(start=2022, end=2023, step=1.year); 
+			time (year =2024);  
 
 //Priority area 1 split into 4 
 observe earth:Region named norway_osloviken_no1_1

@@ -49,6 +49,8 @@ number ecdc_predictors observing
 number local:stefano.balbi:esa.aries.sandbox:apha3_results_test as alpha3_test
 	set to [ (self > 100 ) ? unknown : self ];  
 	
+number local:stefano.balbi:esa.aries.sandbox:aplha3_test_bandmixer_l1 as aplha3_test_bandmixer_l1;  	
+	
 //Example of annotation for presence of ecosystem (add nodata field in the json) 
 model local:stefano.balbi:esa.aries.sandbox:apha3_results_test
 as occurrence of nca.ecosystem.eunis:CoastalShingle earth:Region
