@@ -9,16 +9,16 @@
   "type" : "NUMBER",
   "resourceTimestamp" : 1749644781230,
   "metadata" : {
-    "im:keywords" : "",
-    "dc:comment" : "",
+    "im:keywords" : "landcover, global landcover",
+    "dc:comment" : "Global 30 m land-cover dynamics monitoring product with a fine classification (17 classes) system for the period from 1985 to 2022 generated using dense-time-series Landsat imagery and the continuous change-detection method",
     "im:notes" : "",
-    "dc:title" : "",
-    "dc:url" : "",
-    "dc:creator" : "",
-    "im:thematic-area" : "",
+    "dc:title" : "GLC_FCS30D Global 30-meter Land Cover Change Dataset (2021)",
+    "dc:url" : "https://zenodo.org/records/8239305",
+    "dc:creator" : "Xiao Zhang\r\nTingting Zhao\r\nHong Xu\r\nWendi Liu\r\nJinqing Wang\r\nXidong Chen\r\nLiangyun Liu",
+    "im:thematic-area" : "Landcover",
     "dc:originator" : "",
-    "im:geographic-area" : "",
-    "dc:source" : ""
+    "im:geographic-area" : "Global",
+    "dc:source" : "Liangyun Liu, Xiao Zhang, & Tingting Zhao. (2023). GLC_FCS30D: the first global 30-m land-cover dynamic monitoring product with fine classification\r\nsystem from 1985 to 2022"
   },
   "parameters" : {
     "wcsIdentifier" : "im-data-global-landcover__global_glc_fcs30d_landcover_epsg4326_30m_2022_mosaic",
