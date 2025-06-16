@@ -195,38 +195,43 @@ observe earth:Region named czech_republic_bilek_cz1
     over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2#weed_site=CZ1',
     			grid="30 m",
                 projection= "EPSG:4326"),
-                time (year = 2024);
-//        time(start=2022, end=2023, step=1.year);  
+//                time (year = 2024);
+        time(start=2022, end=2023, step=1.year);  
 
 observe earth:Region named czech_republic_krkonossky_cz2  
     over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2#weed_site=CZ2',
     			grid="30 m",
                 projection= "EPSG:4326"),
-        time(start=2022, end=2023, step=1.year);   
-        
+//        time(start=2022, end=2023, step=1.year);   
+         time (year = 2024);
+         
 observe earth:Region named czech_republic_podyji_cz3  
     over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2#weed_site=CZ3',
     			grid="30 m",
                 projection= "EPSG:4326"),
-        time(start=2022, end=2023, step=1.year);  
-        
+//        time(start=2022, end=2023, step=1.year);  
+          time (year = 2024);
+
 observe earth:Region named czech_republic_bohemian_cz4  
     over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2#weed_site=CZ4',
     			grid="30 m",
                 projection= "EPSG:4326"),
-        time(start=2022, end=2023, step=1.year);   
+//        time(start=2022, end=2023, step=1.year);
+		  time (year = 2024);   
 
 observe earth:Region named czech_republic_transect_boheman_ns_cz5  
     over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2#weed_site=CZ5',
-    			grid="30 m",
+    			grid="300 m",
                 projection= "EPSG:4326"),
-        time(start=2022, end=2023, step=1.year);  
-        
+//        time(start=2022, end=2023, step=1.year);  
+         time(year = 2024);
+         
 observe earth:Region named czech_republic_transect_krkhnossky_ns_cz6  
     over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2#weed_site=CZ6',
-    			grid="30 m",
+    			grid="100 m",
                 projection= "EPSG:4326"),
-        time(start=2022, end=2023, step=1.year); 
+//        time(start=2022, end=2023, step=1.year);
+		  time(year = 2024); 
         
 observe earth:Region named czech_republic_transect_podyji_we_cz7  
     over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2#weed_site=CZ7',
@@ -236,9 +241,11 @@ observe earth:Region named czech_republic_transect_podyji_we_cz7
 
 observe earth:Region named czech_republic_transect_mid_we_cz8  
     over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2#weed_site=CZ8',
-    			grid="30 m",
+    			grid="300 m",
                 projection= "EPSG:4326"),
-        time(start=2022, end=2023, step=1.year);
+//        time(start=2022, end=2023, step=1.year);
+		  time(year = 2024);
+		  
 //Greece priority areas V2
 observe earth:Region named greece_xylokastro_el1  
     over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_greece_priority_areas_epsg4326_v2#weed_site=EL1',

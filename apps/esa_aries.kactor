@@ -222,6 +222,7 @@ action main:
 				context(cu_priority_areas_contexts.czech_republic_krkonossky_cz2) 
 				headers.update("Czech Republic: Krkhnossky CZ2")
 				headers.show
+				obs12.enable
 			)
 			checkbutton("Podyji CZ3" #cz3  :tooltip "Under development"): (
 				disable_ctxs
@@ -235,12 +236,14 @@ action main:
 				context(cu_priority_areas_contexts.czech_republic_bohemian_cz4)
 				headers.update("Czech Republic: Bohemian CZ4")
 				headers.show
+				obs12.enable
 			)
 			checkbutton("Transect Boheman NS CZ5" #cz5 :disabled :tooltip "Under development"): (
 				disable_ctxs
 				context(cu_priority_areas_contexts.czech_republic_transect_boheman_ns_cz5)
 				headers.update("Czech Republic: Transect Boheman NS CZ5")
 				headers.show
+				obs12.enable
 			)
 			checkbutton("Transect Krkhnossky NS CZ6" #cz6 :disabled :tooltip "Under development"): (
 				disable_ctxs
