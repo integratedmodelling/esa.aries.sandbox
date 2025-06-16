@@ -217,28 +217,28 @@ action main:
 				headers.update("Czech Republic: Bilek CZ1")
 				headers.show
 			) 
-			checkbutton("Krkhnossky CZ2" #cz2 :disabled :tooltip "Under development"): (
+			checkbutton("Krkhnossky CZ2" #cz2 ): (
 				disable_ctxs
 				context(cu_priority_areas_contexts.czech_republic_krkonossky_cz2) 
 				headers.update("Czech Republic: Krkhnossky CZ2")
 				headers.show
 				obs12.enable
 			)
-			checkbutton("Podyji CZ3" #cz3  :tooltip "Under development"): (
+			checkbutton("Podyji CZ3" #cz3  ): (
 				disable_ctxs
 				context(cu_priority_areas_contexts.czech_republic_podyji_cz3)
 				headers.update("Czech Republic: Podyji CZ3")
 				headers.show
 				obs12.enable
 			)
-			checkbutton("Bohemian CZ4" #cz4 :disabled :tooltip "Under development"): (
+			checkbutton("Bohemian CZ4" #cz4 ): (
 				disable_ctxs
 				context(cu_priority_areas_contexts.czech_republic_bohemian_cz4)
 				headers.update("Czech Republic: Bohemian CZ4")
 				headers.show
 				obs12.enable
 			)
-			checkbutton("Transect Boheman NS CZ5" #cz5 :disabled :tooltip "Under development"): (
+			checkbutton("Transect Boheman NS CZ5" #cz5 ): (
 				disable_ctxs
 				context(cu_priority_areas_contexts.czech_republic_transect_boheman_ns_cz5)
 				headers.update("Czech Republic: Transect Boheman NS CZ5")
