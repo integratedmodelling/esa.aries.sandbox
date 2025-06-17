@@ -321,9 +321,9 @@ action main:
 			separator("Query Ecosystem Types according to:" :iconname "sprout-outline" )
 			(
 				(
-					checkbutton("Alpha 2 Inference: EUNIS L2 and predictors" #a2l2eu) : submit (alphatwo_udp.weed_level2) : submit (data.ecdc_predictors)
-                    checkbutton("Alpha 3 Inference: EUNIS L3 (Max Prob.) and predictors " #a3l3eu) : submit (alphathree.alpha3_maxprob_inference_result_level3)  : submit (alphathree.ecdc_predictors)
-//					checkbutton("Inference result (1 band) and predictors" #inference1band) : submit (alphathree.alpha3_test) : submit (alphathree.ecdc_predictors)
+					checkbutton("Alpha 2 EUNIS L2 and predictors" #a2l2eu) : submit (alphatwo_udp.weed_level2) : submit (data.ecdc_predictors)
+                    checkbutton("Alpha 3 EUNIS L3 (Max Prob) and predictors " #a3l3eu) : submit (alphathree.alpha3_maxprob_inference_result_level3)  : submit (alphathree.ecdc_predictors)
+					checkbutton("Alpha 3 EUNIS L1 (ARIES band mixer, annotated classes)" #a3l1bandmixer) : submit (alphathree.ecosystem_type_alpha3_bandmixer_level1) 
 					checkbutton("EU Account Typology" #euaccountipology:disabled :tooltip "Available soon")
 					checkbutton("RAMSAR Typology" #rmasartipology :disabled :tooltip "Available soon")
 				) :hidden #europe_obs

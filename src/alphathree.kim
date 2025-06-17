@@ -49,7 +49,21 @@ number ecdc_predictors observing
 number local:stefano.balbi:esa.aries.sandbox:apha3_results_test as alpha3_test
 	set to [ (self > 100 ) ? unknown : self ];  
 	
-number local:stefano.balbi:esa.aries.sandbox:aplha3_test_bandmixer_l1 as aplha3_test_bandmixer_l1;  	
+number local:stefano.balbi:esa.aries.sandbox:aplha3_test_bandmixer_l1 as aplha3_bandmixer_l1; 
+
+model local:stefano.balbi:esa.aries.sandbox:aplha3_test_bandmixer_l1 
+	as type of nca.ecosystem.eunis:Ecosystem named ecosystem_type_alpha3_bandmixer_level1
+		classified into
+			nca.ecosystem.eunis:MarineBenthicHabitats if 10000,
+			nca.ecosystem.eunis:CoastalHabitats if 40000,	
+			nca.ecosystem.eunis:Wetlands if 50000,
+			nca.ecosystem.eunis:GrasslandLandDominatedByForbMossLichen if 60000,
+			nca.ecosystem.eunis:HeathlandScrubTundra if 70000,
+			nca.ecosystem.eunis:ForestWoodedLand if 80000,
+			nca.ecosystem.eunis:InlandHabitatsNoLittleSoilMostlySparseVegetation if 90000,
+			nca.ecosystem.eunis:VegetatedManMadeHabitat if 100000,
+			nca.ecosystem.eunis:InlandSurfaceWater if 110000,
+			nca.ecosystem.eunis:ConstructedIndustrialArtificialHabitat if 120000; 	
 	
 //Example of annotation for presence of ecosystem (add nodata field in the json) 
 model local:stefano.balbi:esa.aries.sandbox:apha3_results_test
