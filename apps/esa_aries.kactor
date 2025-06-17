@@ -97,11 +97,11 @@ action main:
 		(
 			checkbutton("Krkhnossky CZ2 BB:33σWS20 (10 m) " #cz_bbox1 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_bbox_contexts.czech_cu_krkonossky_cz2_bbox_33dws20","Czech Republic: Krkhnossky CZ2 BB:33σWS20 (10 m)")
-				activate_europe
+				activate_europe(true)
 			)	
 			checkbutton("Transect Mid WE CZ8 BB:33δWR11 (10 m) " #cz_bbox2): (
 				disable_ctxs("cu_bbox_contexts.czech_cu_transectmidwe_cz8_bbox_33dwr11","Czech Republic: Transect Mid WE CZ8 BB:33δWR11 (10 m)")
-				activate_europe				
+				activate_europe(true)				
 			)		
 			checkbutton("Bilek CZ1" #cz1 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_priority_areas_contexts.czech_republic_bilek_cz1","Czech Republic: Bilek CZ1")
@@ -139,11 +139,11 @@ action main:
 		(			
 			checkbutton("Kefalonia_Z EL3 BB:34σDH30 (10 m) " #gr_bbox1): (
 				disable_ctxs("cu_bbox_contexts.greece_cu_kefaloniaz_el3_bbox_34ddh30","Greece: Kefalonia_Z EL3 BB:34σDH30 (10 m)")
-				activate_europe
+				activate_europe(true)
 			)
 			checkbutton("Sterea EL9 BB:34δEH13 (10 m) " #gr_bbox2): (
 				disable_ctxs("cu_bbox_contexts.greece_cu_sterea_el9_bbox_34deh13","Greece: Sterea EL3 BB:34δEH13 (10 m)")
-				activate_europe			
+				activate_europe(true)			
 			)			
 			checkbutton("Xylokastro EL1" #gr1 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_priority_areas_contexts.greece_xylokastro_el1","Greece: Xylokastro EL1")
@@ -193,7 +193,7 @@ action main:
 		(
 			checkbutton("Osloviken NO1 BB:32tNM42 (100 m) " #no_bbox1): (
 				disable_ctxs("cu_bbox_data_contexts.norway_cu_osloviken_no1_bbox_32tnm42","Norway: Osloviken NO1 BB:32tNM42 (100 m)")
-				activate_europe
+				activate_europe(true)
 			)
 			checkbutton("Finnmark NO1" #no1 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1","Norway: Finnmark NO1")
@@ -321,7 +321,7 @@ action main:
 			separator("Query Ecosystem Types according to:" :iconname "sprout-outline" )
 			(
 				(
-					checkbutton("Alpha 2 EUNIS L2 and predictors" #a2l2eu) : submit (alphatwo_udp.weed_level2) : submit (data.ecdc_predictors)
+					checkbutton("Alpha 2 EUNIS L2 and predictors" #a2l2eu :disabled) : submit (alphatwo_udp.weed_level2) : submit (data.ecdc_predictors)
                     checkbutton("Alpha 3 EUNIS L3 (Max Prob) and predictors " #a3l3eu) : submit (alphathree.alpha3_maxprob_inference_result_level3)  : submit (alphathree.ecdc_predictors)
 					checkbutton("Alpha 3 EUNIS L1 (ARIES band mixer, annotated classes)" #a3l1bandmixer) : submit (alphathree.ecosystem_type_alpha3_bandmixer_level1) 
 					checkbutton("EU Account Typology" #euaccountipology:disabled :tooltip "Available soon")
@@ -360,7 +360,10 @@ action main:
 		) :hidden #queries	
 	)
  	
-	action activate_europe: (
+	action activate_europe(bbox): (
+		if [bbox] (
+			a2l2eu.enable
+		)
 		europe_obs.show
 	)
 	
