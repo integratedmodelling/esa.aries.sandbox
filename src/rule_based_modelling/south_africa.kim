@@ -25,10 +25,11 @@ model local:alessio.bulckaen:im.data.global:im-data-global-agriculture.global_fo
 define RULE_BASED_ECOSYSTEM_IUCN_TABLE as {{ 
           landcover           |              forest_managment              |          dinerstein_ecoregion                |additonal_variable	|                        ecosystem_type                        
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
- landcover:Forest             | rule_based_modelling:PlantedForest        | #                                            | #     				|  nca.ecosystem.iucn:Plantation                               , 
- #                            | rule_based_modelling:TimberPlantation     | #                                            | #     				|  nca.ecosystem.iucn:Plantation                               , 
- #                            | rule_based_modelling:OilPalmPlantation    | #                                            | #     				|  nca.ecosystem.iucn:Plantation                               , 
- #                            | rule_based_modelling:Agroforestry         | #                                            | #     				|  nca.ecosystem.iucn:Plantation                               ,
+ landcover:ArtificialSurface  | 					#					   |					#						  | 	     #			|  nca.ecosystem.iucn:UrbanEcosystem						   ,	
+ landcover:Forest             | rule_based_modelling:PlantedForest         | #                                            | #     				|  nca.ecosystem.iucn:Plantation                               , 
+ landcover:Forest             | rule_based_modelling:TimberPlantation      | #                                            | #     				|  nca.ecosystem.iucn:Plantation                               , 
+ landcover:Forest             | rule_based_modelling:OilPalmPlantation     | #                                            | #     				|  nca.ecosystem.iucn:Plantation                               , 
+ landcover:Forest             | rule_based_modelling:Agroforestry          | #                                            | #     				|  nca.ecosystem.iucn:Plantation                               ,
  landcover:Shrubland	      | #                                          | nca.ecoregion:FynbosShrubland                | #   				|  nca.ecosystem.iucn:SeasonallyDryTemperateHeathShrubland     ,
  landcover:SparseVegetation   | #                                          | nca.ecoregion:RenosterveldShrubland          | #   				|  nca.ecosystem.iucn:SeasonallyDryTemperateHeathShrubland     ,
  landcover:Shrubland	      | #                                          | nca.ecoregion:RenosterveldShrubland          | #   				|  nca.ecosystem.iucn:SeasonallyDryTemperateHeathShrubland     ,
@@ -41,6 +42,7 @@ define RULE_BASED_ECOSYSTEM_IUCN_TABLE as {{
  landcover:SparseVegetation   | #                                          | nca.ecoregion:SucculentKarooXericShrubland   | #   				|  nca.ecosystem.iucn:ThornyDesertSemidesert                   , 
  landcover:SparseVegetation   | #                                          | nca.ecoregion:RenosterveldShrubland          | #   				|  nca.ecosystem.iucn:SeasonallyDryTemperateHeathShrubland     ,
  landcover:ArableLand	      | #                                          | #									          | #   				|  nca.ecosystem.iucn:AnnualCropland        				   ,
+ landcover:WaterBody| #|#|#| nca.ecosystem.iucn:Marine,
  #|#|#|#| nca.ecosystem.iucn:Terrestrial
  }};
 

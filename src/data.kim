@@ -1056,4 +1056,63 @@ model 'local:alessio.bulckaen:im.data.global:im-data-global-ecology_dinerstein_e
 	nca.ecoregion:EasternArcForest if 9,
 	nca.ecoregion:BorneoMontaneRainForest if 220,
 	nca.ecoregion:KinabaluMontaneAlpineMeadow if 313;
-	
+
+
+identity MapProvider
+has children
+GlobalMangroveWatch,
+EuropeanSpaceAgency,
+ImpactObservatory,
+Glc_fcs30; 
+
+@colormap(values = {
+true:	(0 115 76)
+})
+model 	local:alessio.bulckaen:im.data.global:im-data-global-marine.global_mangrove_watch_1996_30m_4326,
+		local:alessio.bulckaen:im.data.global:im-data-global-marine.global_mangrove_watch_2007_30m_4326_v2,
+		local:alessio.bulckaen:im.data.global:im-data-global-marine.global_mangrove_watch_2008_30m_4326_v2,
+		local:alessio.bulckaen:im.data.global:im-data-global-marine.global_mangrove_watch_2009_30m_4326_v2,
+		local:alessio.bulckaen:im.data.global:im-data-global-marine.global_mangrove_watch_2010_30m_4326_v2,
+		local:alessio.bulckaen:im.data.global:im-data-global-marine.global_mangrove_watch_2015_30m_4326_v2,
+		local:alessio.bulckaen:im.data.global:im-data-global-marine.global_mangrove_watch_2016_30m_4326_v2,
+		local:alessio.bulckaen:im.data.global:im-data-global-marine.global_mangrove_watch_2017_30m_4326_v2,
+		local:alessio.bulckaen:im.data.global:im-data-global-marine.global_mangrove_watch_2018_30m_4326_v2,
+		local:alessio.bulckaen:im.data.global:im-data-global-marine.global_mangrove_watch_2020_30m_4326_v2
+		as presence of GlobalMangroveWatch ecology:Mangrove earth:Region
+		set to [( self == 1) ? true : false];	
+
+@colormap(values = {
+true:	(0 118 80)
+})
+model 
+	  local:rubencc:im.data.global:im-data-global-landcover.cci_lc_300m_2020_v2_1_1,
+	  local:rubencc:im.data.global:im-data-global-landcover.cci_lc_300m_2021,
+	  local:rubencc:im.data.global:im-data-global-landcover.cci_lc_300m_2022
+	as presence of EuropeanSpaceAgency ecology:Mangrove earth:Region
+		set to [( self == 170) ? true : false];
+
+@colormap(values = {
+true:	(0 115 60)
+})
+model 
+	  local:rubencc:im.data.global:im-data-global-landcover.cci_lc_300m_2020_v2_1_1,
+	  local:rubencc:im.data.global:im-data-global-landcover.cci_lc_300m_2021,
+	  local:rubencc:im.data.global:im-data-global-landcover.cci_lc_300m_2022
+	as presence of Glc_fcs30 ecology:Mangrove earth:Region
+		set to [( self == 185) ? true : false];
+
+@colormap(values = {
+true:	(176 213 230)
+})
+model local:alessio.bulckaen:im.data.global:impact.observatory.annual.landuse
+	as presence of ImpactObservatory earth:Wetland
+		set to [( self == 4) ? true : false];
+
+@colormap(values = {
+true:	(180 215 210)
+})
+model local:rubencc:im.data.global:im-data-global-landcover.cci_lc_300m_2020_v2_1_1,
+	  local:rubencc:im.data.global:im-data-global-landcover.cci_lc_300m_2021,
+	  local:rubencc:im.data.global:im-data-global-landcover.cci_lc_300m_2022
+	as presence of EuropeanSpaceAgency earth:Wetland
+		set to [( self == 180 || self==160) ? true : false];
