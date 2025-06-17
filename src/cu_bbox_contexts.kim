@@ -13,7 +13,7 @@ private namespace cu_bbox_contexts;
 //global grid BB:32τNM41
 observe earth:Region named norway_cu_osloviken_no1_bbox_32tnm41
     over space(shape='MULTIPOLYGON (((10.78680110532568648 59.88542210404673938, 10.7772235707495625 59.70591813872927389, 10.42192217390525677 59.71024688811746017, 10.42958675762642962 59.88978200214562264, 10.78680110532568648 59.88542210404673938)))',
-    		grid="100 m",
+    		grid="10 m",
     		projection="EPSG:4326"),
     time(start=2024, end=2025, step=1.year); 
     
@@ -27,7 +27,7 @@ observe earth:Region named norway_cu_osloviken_no1_bbox_32tnm41
 
 observe earth:Region named norway_cu_osloviken_no1_bbox_32tnm42
     over space(shape='MULTIPOLYGON (((10.79650009641397901 60.06492020149378419, 10.78680110532568648 59.88542210404673938, 10.42958675762642962 59.88978200214562264, 10.43734856828254998 60.06931158567632423, 10.79650009641397901 60.06492020149378419)))',
-    		grid="100 m",
+    		grid="10 m",
     		projection="EPSG:4326"),
 //    		time(year=2024); //-> time issue: org.integratedmodelling.klab.api.data.IGeometry$Dimension.getParameters()" because "this.baseDimension" is null
     time(start=2024, end=2025, step=1.year);
@@ -84,7 +84,7 @@ observe earth:Region named czech_cu_krkonossky_cz2_bbox_33dws20
 //global grid BB:34σEH13 
 observe earth:Region named greece_cu_sterea_el9_bbox_34deh13
     over space(shape='MULTIPOLYGON (((21.45979362008812075 38.66767992054531788, 21.45864606934892294 38.48744551412937653, 21.22932558762117239 38.48811896718375891, 21.22989938783100072 38.66835770548363627, 21.45979362008812075 38.66767992054531788)))',
-    		grid="100 m",
+    		grid="10 m",
     		projection="EPSG:4326"),
     time(start=2024, end=2025, step=1.year);
 
@@ -99,7 +99,7 @@ observe earth:Region named greece_cu_sterea_el9_bbox_34deh13
 //Greece stac 34σDH30
 observe earth:Region named greece_cu_kefaloniaz_el3_bbox_34ddh30
     over space(shape='MULTIPOLYGON (((20.77180674372909053 38.12762479241960278, 20.7723653721034438 37.94736937228828566, 20.54473570529695081 37.94670878851269435, 20.54361849612171653 38.1269599397050456, 20.77180674372909053 38.12762479241960278)))',
-    		grid="100 m",
+    		grid="10 m",
     		projection="EPSG:4326"),
     time(start=2024, end = 2025, step=1.year);   
 

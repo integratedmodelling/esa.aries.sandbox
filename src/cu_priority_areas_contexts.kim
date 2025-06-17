@@ -221,7 +221,7 @@ observe earth:Region named czech_republic_bohemian_cz4
 
 observe earth:Region named czech_republic_transect_boheman_ns_cz5  
     over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2#weed_site=CZ5',
-    			grid="300 m",
+    			grid="100 m",
                 projection= "EPSG:4326"),
 //        time(start=2022, end=2023, step=1.year);  
          time(year = 2024);
