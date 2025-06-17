@@ -9,7 +9,8 @@
   "type" : "NUMBER",
   "resourceTimestamp" : 1749820045372,
   "metadata" : {
-    "dc:comment" : "This is the STAC metadata for the openEO job 'j-250608191747497392481b5f9be419ae'",
+    "dc:title" : "NDVI p75 (75th percentile)",
+    "dc:comment" : "This is the STAC metadata for the openEO job 'j-250608191747497392481b5f9be419ae' Data source Ecosystem Characteristics Datacube (ECDC) .Vegetation greenness and biomass (p75)",
     "dc:url" : "https://catalogue.weed.apex.esa.int/collections/ecosystem-characteristics-alpha3"
   },
   "parameters" : {

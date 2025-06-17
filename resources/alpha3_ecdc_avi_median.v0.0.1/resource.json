@@ -9,7 +9,8 @@
   "type" : "NUMBER",
   "resourceTimestamp" : 1749820688555,
   "metadata" : {
-    "dc:comment" : "This is the STAC metadata for the openEO job 'j-250608191747497392481b5f9be419ae'",
+    "dc:title" : "Canopy Structure Predictor",
+    "dc:comment" : "This is the STAC metadata for the openEO job 'j-250608191747497392481b5f9be419ae' Data source Ecosystem Characteristics Datacube (ECDC)",
     "dc:url" : "https://catalogue.weed.apex.esa.int/collections/ecosystem-characteristics-alpha3"
   },
   "parameters" : {
