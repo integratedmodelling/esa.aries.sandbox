@@ -95,7 +95,7 @@ action main:
 		) :name "Colombia" #colombia
 		
 		(
-			checkbutton("Krkhnossky CZ2 BB:33σWS20 (10 m) " #cz_bbox1): (
+			checkbutton("Krkhnossky CZ2 BB:33σWS20 (10 m) " #cz_bbox1 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_bbox_contexts.czech_cu_krkonossky_cz2_bbox_33dws20","Czech Republic: Krkhnossky CZ2 BB:33σWS20 (10 m)")
 				activate_europe
 			)	
