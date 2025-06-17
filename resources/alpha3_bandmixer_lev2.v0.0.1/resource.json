@@ -1,0 +1,31 @@
+{
+  "urn" : "local:arnab.moitra:esa.aries.sandbox:alpha3_bandmixer_lev2",
+  "version" : "0.0.1",
+  "adapterType" : "stac",
+  "localPath" : "esa.aries.sandbox/resources/alpha3_bandmixer_lev2.v0.0.1",
+  "geometry" : "t1{tend=1735689599000,tstart=1704067200000,ttype=grid}s2{bbox=[7.885356914001111 34.845338655537134 24.15635556740821 61.15249187593994],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "alpha3_bandmixer_lev2",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1750118948391,
+  "metadata" : {
+    "dc:comment" : "This is the STAC metadata for the openEO job 'j-2506121230454da28e5422c3db4555d1'",
+    "dc:url" : "https://catalogue.weed.apex.esa.int/collections/inference-alpha3-prepared-v100"
+  },
+  "parameters" : {
+    "collection" : "https://catalogue.weed.apex.esa.int/collections/inference-alpha3-prepared-v100",
+    "bandmixer" : "WEED-L2",
+    "collectionId" : "inference-alpha3-prepared-v100"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}
