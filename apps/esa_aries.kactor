@@ -108,19 +108,19 @@ action main:
 				activate_europe
 			) 
 			checkbutton("Krkhnossky CZ2 (30 m)" #cz2 ): (
-				disable_ctxs("cu_priority_areas_contexts.czech_republic_krkonossky_cz2","Czech Republic: Krkhnossky CZ2")
+				disable_ctxs("cu_priority_areas_contexts.czech_republic_krkonossky_cz2","Czech Republic: Krkhnossky CZ2 (30 m)")
 				activate_europe
 			)
 			checkbutton("Podyji CZ3 (30 m)" #cz3  ): (
-				disable_ctxs("cu_priority_areas_contexts.czech_republic_podyji_cz3","Czech Republic: Podyji CZ3")
+				disable_ctxs("cu_priority_areas_contexts.czech_republic_podyji_cz3","Czech Republic: Podyji CZ3 (30 m)")
 				activate_europe
 			)
 			checkbutton("Bohemian CZ4 (30 m)" #cz4 ): (
-				disable_ctxs("cu_priority_areas_contexts.czech_republic_bohemian_cz4","Czech Republic: Bohemian CZ4")
+				disable_ctxs("cu_priority_areas_contexts.czech_republic_bohemian_cz4","Czech Republic: Bohemian CZ4 (30 m)")
 				activate_europe
 			)
 			checkbutton("Transect Boheman NS CZ5 (100 m)" #cz5 ): (
-				disable_ctxs("cu_priority_areas_contexts.czech_republic_transect_boheman_ns_cz5","Czech Republic: Transect Boheman NS CZ5")
+				disable_ctxs("cu_priority_areas_contexts.czech_republic_transect_boheman_ns_cz5","Czech Republic: Transect Boheman NS CZ5 (110 m)")
 				activate_europe
 			)
 			checkbutton("Transect Krkhnossky NS CZ6" #cz6 :disabled :tooltip "Under development"): (
@@ -170,29 +170,29 @@ action main:
 				activate_europe
 			)
 			checkbutton("Zacharo_K EL7 (30 m)" #gr7 ): (
-				disable_ctxs("cu_priority_areas_contexts.greece_zacharo_k_el7","Greece: Zacharo_K EL7")
+				disable_ctxs("cu_priority_areas_contexts.greece_zacharo_k_el7","Greece: Zacharo_K EL7 (30 m)")
 				activate_europe
 			)
 			checkbutton("Menalo EL8 (30 m)" #gr8 ): (
-				disable_ctxs("cu_priority_areas_contexts.greece_menalo_el8","Greece: Menalo EL8")
+				disable_ctxs("cu_priority_areas_contexts.greece_menalo_el8","Greece: Menalo EL8 (30 m)")
 				activate_europe
 			)
 			checkbutton("Sterea_S EL9 (30 m)" #gr9 ): (
-				disable_ctxs("cu_priority_areas_contexts.greece_sterea_s_el9","Greece: Sterea_S EL9")
+				disable_ctxs("cu_priority_areas_contexts.greece_sterea_s_el9","Greece: Sterea_S EL9 (30 m)")
 				activate_europe
 			)
 			checkbutton("M_Vernon EL10 (30 m)" #gr10 ): (
-				disable_ctxs("cu_priority_areas_contexts.greece_m_vernon_el10","Greece: M_Vernon EL10")
+				disable_ctxs("cu_priority_areas_contexts.greece_m_vernon_el10","Greece: M_Vernon EL10 (30 m)")
 				activate_europe
 			)
 			checkbutton("Thessaloniki EL11 (30 m)" #gr11): (
-				disable_ctxs("cu_priority_areas_contexts.greece_thessaloniki_el11","Greece: Thessaloniki EL11")
+				disable_ctxs("cu_priority_areas_contexts.greece_thessaloniki_el11","Greece: Thessaloniki EL11 (30 m)")
 				activate_europe
 			)
 		) :name "Greece" #greece
 		(
-			checkbutton("Osloviken NO1 BB:32tNM42 (100 m) " #no_bbox1): (
-				disable_ctxs("cu_bbox_data_contexts.norway_cu_osloviken_no1_bbox_32tnm42","Norway: Osloviken NO1 BB:32tNM42 (100 m)")
+			checkbutton("Osloviken NO1 BB:32tNM42 (10 m) " #no_bbox1): (
+				disable_ctxs("cu_bbox_data_contexts.norway_cu_osloviken_no1_bbox_32tnm42","Norway: Osloviken NO1 BB:32tNM42 (10 m)")
 				activate_europe(true)
 			)
 			checkbutton("Finnmark NO1" #no1 :disabled :tooltip "Under development"): (
@@ -209,8 +209,8 @@ action main:
 				headers.show
 				activate_europe			
 			)
-			checkbutton("Finnmark NO1_3" #no1_3 :disabled :tooltip "Under development"): (
-				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1_3","Norway: Finnmark NO1_3")
+			checkbutton("Finnmark NO1_3 (100 m)" #no1_3 ): (
+				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1_3","Norway: Finnmark NO1_3 (100 m)")
 				headers.show
 				activate_europe			
 			)
@@ -322,7 +322,7 @@ action main:
 			(
 				(
 					checkbutton("Alpha 2 EUNIS L2 and predictors" #a2l2eu :disabled) : submit (alphatwo_udp.weed_level2) : submit (data.ecdc_predictors)
-                    checkbutton("Alpha 3 EUNIS L3 (Max Prob) and predictors " #a3l3eu) : submit (alphathree.alpha3_maxprob_inference_result_level3)  : submit (alphathree.ecdc_predictors)
+                    checkbutton("Alpha 3 EUNIS L3 (max prob annotated) and predictors" #a3l3eu) : submit (alphathree.ecosystem_type_alpha3_inference_stac_level3)  : submit (alphathree.ecdc_predictors)
 					checkbutton("Alpha 3 EUNIS L1 (ARIES band mixer, annotated classes)" #a3l1bandmixer) : submit (alphathree.ecosystem_type_alpha3_bandmixer_level1) 
 					checkbutton("EU Account Typology" #euaccountipology:disabled :tooltip "Available soon")
 					checkbutton("RAMSAR Typology" #rmasartipology :disabled :tooltip "Available soon")
