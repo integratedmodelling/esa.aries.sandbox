@@ -1,0 +1,88 @@
+app export_ecosystem_types_norway
+
+action main:
+
+/*
+ * Set the directory of the your output nesting the results within more folders by separatng them with a slash ("/") 
+ */
+	output_folder_directory = "export_ecosystem_types/Norway"
+
+/*
+ * Set observable for which a map should be stored (as raster/vector files)
+ */
+	set observables_urns (
+		alphathree.alpha3_maxprob_inference_result_level3
+		alphathree.ecdc_b02_p25
+		alphathree.ecdc_ndvi_p75
+		alphathree.ecdc_vhvvd_iqr_biome_indicator
+		alphathree.ecdc_vv_sd_bare_ground_predictor
+		alphathree.ecdc_b04_p75
+		alphathree.ecdc_s2wi_sd_water_index
+	)
+/*
+ * Set the tables to summarise statistics or generate indicator for an observation (as .xls files) 
+ */
+ 	set table_urns (
+//		peopleea.forest.birds.birds_raw_variable // tables are never concepts, so their URN has to be used without {}
+//		peopleea.forest.birds.birds_indicator
+	)
+ 
+/*
+ * Set the spatial dimensions of the analysis
+ * Geographical boundaries can be set using:
+ * WKT (coordinates points of the vertices)
+ * URN of a resource (i.e. a vector file, which can contain multiple features)
+ * Creates n output (.tiff and .xlsx files) for each feature (ID) in the spatial context resource (n = n_tables x n_ID_features).  
+ */
+	wkt_context = Space(shape='POLYGON ((19.016595 48.192287, ..., 19.016595 48.192287))') //Set the context using WKT or the URN of a resource
+	spatial_contexts_urn = "local:justus.muhando:esa.aries.sandbox:esa_weed_norway_priority_areas_no1_split_epsg4326_v2"
+	//"local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_priority_areas_epsg4326_v2" //"local:rubencc:esa.aries.sandbox:esa_weed_vietnam_priority_areas_epsg4326_v2"//"local:justus.muhando:esa.aries.sandbox:esa_weed_south_africa_priority_areas_epsg4326_v2"
+	resolution = 10.m
+
+/*
+ * Set temporal boundaries of the analysis 
+ * currently focused on yearly results because have been used mainly for reporting accounting results
+ * different temporal resolution, both higher (e.g. seasonal, monthly, daily) or lower (i.e. 3 or 5 year-periods) can be observed
+ * Results are adjusted to the temporal dimensions set
+ * but the underlying data must be granular (frequent) enough for higher temporal resolution observations
+ */
+	for year in (2024) (
+		
+	
+/*
+ * Set the right parameters (e.g use the wkt_context for WKT or the spatial_contexts_urn for using vector files) in the context
+ */			
+//		for urn in observables_urns(	
+//			context(spatial_contexts_urn,resolution,Time(start=[year], end=[year+1], step=1.year),urn): state -> (
+		for priority_area in spatial_contexts_urn(
+				if [priority_area.weed_site == 'NO1_1'|| priority_area.weed_site == 'NO1_2'|| priority_area.weed_site == 'NO1_3'|| priority_area.weed_site == 'NO1_4'] //|| priority_area.weed_site == 'NO2'] || feature.layer == 'central_colombia' || feature.layer == 'south_colombia']
+					(for urn in observables_urns(	
+					context(priority_area,resolution,Time(year=year),urn): state -> (
+						set urn_name ""
+						if [urn.toString().startsWith("[")] (
+						set urn_name [urn.name]
+						)
+						else (
+						set urn_name urn
+						)	
+				if [state.toString().contains("[nothing")] (
+					warning(["Observation " + urn_name + " return nothing"])
+				) else ( 
+					state.export([output_folder_directory + "/" + "maps" + "/" + priority_area.weed_site +"__"+ urn_name + "__" + year + ".tiff"])
+						)
+					)
+				)
+			)
+		)
+
+//		for table_urn in table_urns(
+//			context(wkt_context,resolution,Time(start=[year], end=[year+1], step=1.year),table_urn)
+//			pack(:tables): url -> 
+//
+//				save(url, filename=[output_folder_directory + "/" + year + "/" + "tables" + "/" + table_urn + ".xlsx"])
+//		)
+//
+//	)
+)
+
+
