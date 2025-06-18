@@ -3,7 +3,7 @@
   "version" : "0.0.1",
   "adapterType" : "stac",
   "localPath" : "esa.aries.sandbox/resources/alpha3_maxprob_inference_result_level3.v0.0.1",
-  "geometry" : "T1{ttype=grid}s2{bbox=[20.543618496121717 37.946708788512694 20.772365372103444 38.1276247924196],proj=EPSG:4326}",
+  "geometry" : "t1{ttype=grid}S2",
   "projectName" : "esa.aries.sandbox",
   "localName" : "alpha3_maxprob_inference_result_level3",
   "type" : "NUMBER",

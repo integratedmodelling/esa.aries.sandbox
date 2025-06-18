@@ -3,7 +3,7 @@
   "version" : "0.0.1",
   "adapterType" : "stac",
   "localPath" : "esa.aries.sandbox/resources/alpha3_ecdc_ndvi_p75.v0.0.1",
-  "geometry" : "T1{tend=1735689599000,tscope=1.0,tstart=1704067200000,ttype=grid,tunit=year}s2{bbox=[-81.5541578698914 3.435058478329845 18.00163809296039 51.091150198013295],proj=EPSG:4326}",
+  "geometry" : "t1{ttype=grid}S2",
   "projectName" : "esa.aries.sandbox",
   "localName" : "alpha3_ecdc_ndvi_p75",
   "type" : "NUMBER",
