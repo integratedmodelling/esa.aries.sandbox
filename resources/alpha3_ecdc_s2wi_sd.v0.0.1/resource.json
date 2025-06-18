@@ -3,15 +3,22 @@
   "version" : "0.0.1",
   "adapterType" : "stac",
   "localPath" : "esa.aries.sandbox/resources/alpha3_ecdc_s2wi_sd.v0.0.1",
-  "geometry" : "t1{tend=1735689599000,tstart=1704067200000,ttype=grid}s2{bbox=[-81.5541578698914 3.435058478329845 18.00163809296039 51.091150198013295],proj=EPSG:4326}",
+  "geometry" : "T1{tend=1735689599000,tscope=1.0,tstart=1704067200000,ttype=grid,tunit=year}s2{bbox=[-81.5541578698914 3.435058478329845 18.00163809296039 51.091150198013295],proj=EPSG:4326}",
   "projectName" : "esa.aries.sandbox",
   "localName" : "alpha3_ecdc_s2wi_sd",
   "type" : "NUMBER",
-  "resourceTimestamp" : 1749821226574,
+  "resourceTimestamp" : 1750234269867,
   "metadata" : {
-    "dc:title" : "Water index (iqr)",
-    "dc:comment" : "This is the STAC metadata for the openEO job 'j-250608191747497392481b5f9be419ae' Data source Ecosystem Characteristics Datacube (ECDC)",
-    "dc:url" : "https://catalogue.weed.apex.esa.int/collections/ecosystem-characteristics-alpha3"
+    "im:keywords" : "Sentinel-2, Water index, S2WI",
+    "dc:comment" : "This layer presents the standard deviation of the Sentinel-2 Water Index (S2WI).\r\nSTAC metadata for the openEO job 'j-250608191747497392481b5f9be419ae' Data source Ecosystem Characteristics Datacube (ECDC)",
+    "im:notes" : "",
+    "dc:title" : "Sentinel-2 Water index (iqr) standard deviation",
+    "dc:url" : "https://catalogue.weed.apex.esa.int/collections/ecosystem-characteristics-alpha3",
+    "dc:creator" : "",
+    "im:thematic-area" : "Earth",
+    "dc:originator" : "",
+    "im:geographic-area" : "Global",
+    "dc:source" : ""
   },
   "parameters" : {
     "collection" : "https://catalogue.weed.apex.esa.int/collections/ecosystem-characteristics-alpha3",

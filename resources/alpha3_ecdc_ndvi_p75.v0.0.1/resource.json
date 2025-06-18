@@ -3,15 +3,22 @@
   "version" : "0.0.1",
   "adapterType" : "stac",
   "localPath" : "esa.aries.sandbox/resources/alpha3_ecdc_ndvi_p75.v0.0.1",
-  "geometry" : "t1{tend=1735689599000,tstart=1704067200000,ttype=grid}s2{bbox=[-81.5541578698914 3.435058478329845 18.00163809296039 51.091150198013295],proj=EPSG:4326}",
+  "geometry" : "T1{tend=1735689599000,tscope=1.0,tstart=1704067200000,ttype=grid,tunit=year}s2{bbox=[-81.5541578698914 3.435058478329845 18.00163809296039 51.091150198013295],proj=EPSG:4326}",
   "projectName" : "esa.aries.sandbox",
   "localName" : "alpha3_ecdc_ndvi_p75",
   "type" : "NUMBER",
-  "resourceTimestamp" : 1749820045372,
+  "resourceTimestamp" : 1750234369342,
   "metadata" : {
-    "dc:title" : "NDVI p75 (75th percentile)",
-    "dc:comment" : "This is the STAC metadata for the openEO job 'j-250608191747497392481b5f9be419ae' Data source Ecosystem Characteristics Datacube (ECDC) .Vegetation greenness and biomass (p75)",
-    "dc:url" : "https://catalogue.weed.apex.esa.int/collections/ecosystem-characteristics-alpha3"
+    "im:keywords" : "NDVI",
+    "dc:comment" : "This layer shows the 75th percentile values of the Normalized Difference Vegetation Index (NDVI) and biomass\r\nThis is the STAC metadata for the openEO job 'j-250608191747497392481b5f9be419ae' Data source Ecosystem Characteristics Datacube (ECDC).",
+    "im:notes" : "",
+    "dc:title" : "NDVI 75th percentile, vegetation greenness index",
+    "dc:url" : "https://catalogue.weed.apex.esa.int/collections/ecosystem-characteristics-alpha3",
+    "dc:creator" : "",
+    "im:thematic-area" : "Earth",
+    "dc:originator" : "",
+    "im:geographic-area" : "Global",
+    "dc:source" : ""
   },
   "parameters" : {
     "collection" : "https://catalogue.weed.apex.esa.int/collections/ecosystem-characteristics-alpha3",

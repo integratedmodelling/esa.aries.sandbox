@@ -7,11 +7,18 @@
   "projectName" : "esa.aries.sandbox",
   "localName" : "ecdc_apha3_b04_p75",
   "type" : "NUMBER",
-  "resourceTimestamp" : 1749726357291,
+  "resourceTimestamp" : 1750234591435,
   "metadata" : {
-    "dc:title" : "ECDC B04 p75 (75th percentile)",
-    "dc:comment" : "This is the STAC metadata for the openEO job 'j-250608191747497392481b5f9be419ae' Data source Ecosystem Characteristics Datacube (ECDC)",
-    "dc:url" : "https://catalogue.weed.apex.esa.int/collections/ecosystem-characteristics-alpha3"
+    "im:keywords" : "B04, Sentinel-2",
+    "dc:comment" : "This layer shows the 75th percentile reflectance in the red band (B04) from Sentinel-2.\r\nSTAC metadata for the openEO job 'j-250608191747497392481b5f9be419ae' Data source Ecosystem Characteristics Datacube (ECDC)",
+    "im:notes" : "",
+    "dc:title" : "ECDC Sentinel-2 B04 75th percentile",
+    "dc:url" : "https://catalogue.weed.apex.esa.int/collections/ecosystem-characteristics-alpha3",
+    "dc:creator" : "",
+    "im:thematic-area" : "Earth",
+    "dc:originator" : "",
+    "im:geographic-area" : "Global",
+    "dc:source" : ""
   },
   "parameters" : {
     "collection" : "https://catalogue.weed.apex.esa.int/collections/ecosystem-characteristics-alpha3",
