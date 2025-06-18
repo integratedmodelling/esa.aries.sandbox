@@ -24,23 +24,23 @@ action main:
 //				obs21.hide
 //				obs22.enable
 //			)
-			checkbutton("Mojana CO1" #co1): (
+			checkbutton("Mojana CO1" #co1 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_mojana_co1","Colombia: Mojana CO1")
 				activate_colombia
 			)
-			checkbutton("San Andrés CO2" #co2): (
+			checkbutton("San Andrés CO2" #co2 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_san_andres_co2","Colombia: San Andrés CO2")
 				activate_colombia 
 			)
-			checkbutton("Providencia CO3" #co3): (
+			checkbutton("Providencia CO3" #co3 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_providencia_co3","Colombia: Providencia CO3")
 				activate_colombia 
 			)
-			checkbutton("Cienaga Grande de Santa Marta CO4" #co4): (
+			checkbutton("Cienaga Grande de Santa Marta CO4" #co4 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_cienaga_grande_de_santa_marta_co4","Colombia: Cienaga Grande de Santa Marta CO4")
 				activate_colombia 
 			)
-			checkbutton("Delta Sinú CO5" #co5): (
+			checkbutton("Delta Sinú CO5" #co5 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_delta_sinu_co5","Colombia: Delta Sinú CO5")
 				activate_colombia
 			)	
@@ -52,43 +52,43 @@ action main:
 				disable_ctxs("cu_priority_areas_contexts.colombia_santurban_co7","Colombia: Santurbán CO7")
 				activate_colombia
 			)
-			checkbutton("Chingaza CO8" #co8): (
+			checkbutton("Chingaza CO8" #co8 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_chingaza_co8","Colombia: Chingaza CO8")
 				activate_colombia
 			)
-			checkbutton("Putumayo CO9" #co9): (
+			checkbutton("Putumayo CO9" #co9 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_putumayo_co9","Colombia: Putumayo CO9")
 				activate_colombia
 			)
-			checkbutton("AP_Drummont/Becerril-Cesar CO10" #co10 ): (
+			checkbutton("AP_Drummont/Becerril-Cesar CO10" #co10 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_ap_drummont_becerril_cesar_co10","Colombia: AP_Drummont/Becerril-Cesar CO10")
 				activate_colombia
 			)
-			checkbutton("AP_Plata/Simiti-Cesar CO11" #co11): (
+			checkbutton("AP_Plata/Simiti-Cesar CO11" #co11 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_ap_plata_simiti_cesar_co11","Colombia: AP_Plata/Simiti-Cesar CO11")
 				activate_colombia
 			)
-			checkbutton("AP_Guane/Barrancabermeja CO12" #co12): (
+			checkbutton("AP_Guane/Barrancabermeja CO12" #co12 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_ap_guane_barrancabermeja_co12","Colombia: AP_Guane/Barrancabermeja CO12")
 				activate_colombia
 			)
-			checkbutton("Piedemonte Casanare CO13" #co13): (
+			checkbutton("Piedemonte Casanare CO13" #co13 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_piedemonte_casanare_co13","Colombia: Piedemonte Casanare CO13")
 				activate_colombia
 			)
-			checkbutton("Cuenca alta río Bogotá CO14" #co14): (
+			checkbutton("Cuenca alta río Bogotá CO14" #co14 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_cuenca_alta_rio_bogota_co14","Colombia: Cuenca alta río Bogotá CO14")
 				activate_colombia
 			)
-			checkbutton("Arco de deforestación Amazonia CO15" #co15): (
+			checkbutton("Arco de deforestación Amazonia CO15" #co15 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_arco_de_deforestacion_amazonia_co15","Colombia: Arco de deforestación Amazonia CO1")
 				activate_colombia
 			)	
-			checkbutton("Delta del Patía CO16" #co16): (
+			checkbutton("Delta del Patía CO16" #co16 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_delta_del_patia_co16","Colombia: Delta del Patía CO16")
 				activate_colombia
 			)
-			checkbutton("Buenaventura CO17" #co17): (
+			checkbutton("Buenaventura CO17" #co17 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_buenaventura_co17","Colombia: Buenaventura CO17")
 				activate_colombia
 			)	
@@ -111,15 +111,15 @@ action main:
 				disable_ctxs("cu_priority_areas_contexts.czech_republic_krkonossky_cz2","Czech Republic: Krkhnossky CZ2 (30 m)")
 				activate_europe
 			)
-			checkbutton("Podyji CZ3 (30 m)" #cz3  ): (
+			checkbutton("Podyji CZ3 (30 m)" #cz3): (
 				disable_ctxs("cu_priority_areas_contexts.czech_republic_podyji_cz3","Czech Republic: Podyji CZ3 (30 m)")
 				activate_europe
 			)
-			checkbutton("Bohemian CZ4 (30 m)" #cz4 ): (
+			checkbutton("Bohemian CZ4 (30 m)" #cz4 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_priority_areas_contexts.czech_republic_bohemian_cz4","Czech Republic: Bohemian CZ4 (30 m)")
 				activate_europe
 			)
-			checkbutton("Transect Boheman NS CZ5 (100 m)" #cz5 ): (
+			checkbutton("Transect Boheman NS CZ5 (100 m)" #cz5 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_priority_areas_contexts.czech_republic_transect_boheman_ns_cz5","Czech Republic: Transect Boheman NS CZ5 (110 m)")
 				activate_europe
 			)
@@ -141,7 +141,7 @@ action main:
 				disable_ctxs("cu_bbox_contexts.greece_cu_kefaloniaz_el3_bbox_34ddh30","Greece: Kefalonia_Z EL3 BB:34σDH30 (10 m)")
 				activate_europe(true)
 			)
-			checkbutton("Sterea EL9 BB:34δEH13 (10 m) " #gr_bbox2): (
+			checkbutton("Sterea EL9 BB:34δEH13 (10 m) " #gr_bbox2 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_bbox_contexts.greece_cu_sterea_el9_bbox_34deh13","Greece: Sterea EL3 BB:34δEH13 (10 m)")
 				activate_europe(true)			
 			)			
@@ -177,21 +177,21 @@ action main:
 				disable_ctxs("cu_priority_areas_contexts.greece_menalo_el8","Greece: Menalo EL8 (30 m)")
 				activate_europe
 			)
-			checkbutton("Sterea_S EL9 (30 m)" #gr9 ): (
+			checkbutton("Sterea_S EL9 (30 m)" #gr9 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_priority_areas_contexts.greece_sterea_s_el9","Greece: Sterea_S EL9 (30 m)")
 				activate_europe
 			)
-			checkbutton("M_Vernon EL10 (30 m)" #gr10 ): (
+			checkbutton("M_Vernon EL10 (30 m)" #gr10 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_priority_areas_contexts.greece_m_vernon_el10","Greece: M_Vernon EL10 (30 m)")
 				activate_europe
 			)
-			checkbutton("Thessaloniki EL11 (30 m)" #gr11): (
+			checkbutton("Thessaloniki EL11 (30 m)" #gr11 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_priority_areas_contexts.greece_thessaloniki_el11","Greece: Thessaloniki EL11 (30 m)")
 				activate_europe
 			)
 		) :name "Greece" #greece
 		(
-			checkbutton("Osloviken NO1 BB:32tNM42 (10 m) " #no_bbox1): (
+			checkbutton("Osloviken NO1 BB:32tNM42 (10 m) " #no_bbox1 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_bbox_data_contexts.norway_cu_osloviken_no1_bbox_32tnm42","Norway: Osloviken NO1 BB:32tNM42 (10 m)")
 				activate_europe(true)
 			)
@@ -204,12 +204,12 @@ action main:
 				headers.show
 				activate_europe				
 			)
-			checkbutton("Finnmark NO1_2" #no1_2 :disabled :tooltip "Under development"): (
+			checkbutton("Finnmark NO1_2" #no1_2): (
 				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1_2","Norway: Finnmark NO1_2")
 				headers.show
 				activate_europe			
 			)
-			checkbutton("Finnmark NO1_3 (100 m)" #no1_3 ): (
+			checkbutton("Finnmark NO1_3 (100 m)" #no1_3 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1_3","Norway: Finnmark NO1_3 (100 m)")
 				headers.show
 				activate_europe			
@@ -244,11 +244,11 @@ action main:
 //				obs21.hide
 //				obs22.enable
 //			)
-			checkbutton("Cape Point SA1" #sa1): (
+			checkbutton("Cape Point SA1" #sa1 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_priority_areas_contexts.south_africa_cape_point_sa1","South Africa: Cape Point SA1")
 				activate_southafrica	 
 			)
-			checkbutton("Grootbos SA2" #sa2): (
+			checkbutton("Grootbos SA2" #sa2 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_priority_areas_contexts.south_africa_grootbos_sa2","South Africa: Grootbos SA2")
 				activate_southafrica	
 			)
@@ -256,23 +256,23 @@ action main:
 				disable_ctxs("cu_priority_areas_contexts.south_africa_jonkershoek_sa3","South Africa: Jonkershoek SA3")
 				activate_southafrica	 
 			)
-			checkbutton("West Coast NP SA4" #sa4): (
+			checkbutton("West Coast NP SA4" #sa4 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_priority_areas_contexts.south_africa_west_coast_np_sa4","South Africa: West Coast NP SA4")
 				activate_southafrica	
 			)
-			checkbutton("DeHoop SA5" #sa5): (
+			checkbutton("DeHoop SA5" #sa5 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_priority_areas_contexts.south_africa_dehoop_sa5","South Africa: DeHoop SA5")
 				activate_southafrica	
 			)
-			checkbutton("Kogelberg SA6" #sa6): (
+			checkbutton("Kogelberg SA6" #sa6 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_priority_areas_contexts.south_africa_kogelberg_sa6","South Africa: Kogelberg SA6")
 				activate_southafrica
 			)
-			checkbutton("ThuthumiRidge SA7" #sa7): (
+			checkbutton("ThuthumiRidge SA7" #sa7 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_priority_areas_contexts.south_africa_thuthumiridge_sa7","South Africa: ThuthumiRidge SA7")
 				activate_southafrica
 			)
-			checkbutton("GardenRoute SA8" #sa8): (
+			checkbutton("GardenRoute SA8" #sa8 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_priority_areas_contexts.south_africa_gardenroute_sa8","South Africa: GardenRoute SA8")
 				activate_southafrica 
 			)
@@ -280,11 +280,11 @@ action main:
 				disable_ctxs("cu_priority_areas_contexts.south_africa_groenfontein_sa9","South Africa: Groenfontein SA9")
 				activate_southafrica 
 			)
-			checkbutton("Swartberg SA10" #sa10): (
+			checkbutton("Swartberg SA10" #sa10 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_priority_areas_contexts.south_africa_swatberg_sa10","South Africa: Swartberg SA10")
 				activate_southafrica 
 			)
-			checkbutton("CapeFloral SA11" #sa11): (
+			checkbutton("CapeFloral SA11" #sa11 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_priority_areas_contexts.south_africa_capefloral_sa11","South Africa: CapeFloral SA11")
 				activate_southafrica 
 			)
@@ -294,7 +294,7 @@ action main:
 				disable_ctxs("cu_priority_areas_contexts.vietnam_quang_ninh__hai_phong_vn1","Vietnam: Quang Ninh - Hai Phong VN1")
 				activate_vietnam  
 			)
-			checkbutton("Pu Ma - Thanh Hoa VN2" #vn2): (
+			checkbutton("Pu Ma - Thanh Hoa VN2" #vn2 :disabled :tooltip "Under development"): (
 				disable_ctxs("cu_priority_areas_contexts.vietnam_pu_ma__thanh_hoa_vn2","Vietnam: Pu Ma - Thanh Hoa VN2")
 				activate_vietnam  
 			)
