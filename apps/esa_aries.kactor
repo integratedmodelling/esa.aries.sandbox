@@ -346,7 +346,7 @@ action main:
 					checkbutton("IUCN GET (Rule-based national model - tier2)" #rbsa_national :tooltip "Model based on some national data to model IUCN GET level 3"): (
 						submit(rule_based_modelling.south_africa.ecosystem_type_iucn_get)
 					)
-					checkbutton("Alpha 3 IUCN-GET L3 (max prob. annotated) and predictors" #rbsa_global): (
+					checkbutton("Alpha 3 IUCN-GET L3 (max prob. annotated)" #rbsa_global): (
 						submit(alphathree.ecosystem_type_alpha3_inference_stac_level3_sa)
 					)
 				) :hidden #southafrica_obs
