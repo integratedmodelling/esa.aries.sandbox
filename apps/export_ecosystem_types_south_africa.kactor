@@ -17,6 +17,7 @@ action main:
 		rule_based_modelling.south_africa.forest_type
 		rule_based_modelling.south_africa.ecosystem_type_iucn_get
 		data.southafrica.et_southafrica
+		alphathree.ecosystem_type_alpha3_inference_stac_level3_sa
 	)
 /*
  * Set the tables to summarise statistics or generate indicator for an observation (as .xls files) 
