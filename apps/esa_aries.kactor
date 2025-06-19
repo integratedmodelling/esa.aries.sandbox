@@ -107,12 +107,20 @@ action main:
 				disable_ctxs("cu_priority_areas_contexts.czech_republic_bilek_cz1","Czech Republic: Bilek CZ1")
 				activate_europe
 			) 
+			checkbutton("Krkhnossky CZ2 (10 m)" #cz2 ): (
+				disable_ctxs("cu_priority_areas_contexts.czech_republic_krkonossky_cz2","Czech Republic: Krkhnossky CZ2 (10 m)")
+				activate_europe
+			)
 			checkbutton("Krkhnossky CZ2 (30 m)" #cz2 ): (
-				disable_ctxs("cu_priority_areas_contexts.czech_republic_krkonossky_cz2","Czech Republic: Krkhnossky CZ2 (30 m)")
+				disable_ctxs("cu_priority_areas_contexts.czech_republic_krkonossky_30m_cz2","Czech Republic: Krkhnossky CZ2 (30 m)")
+				activate_europe
+			)
+			checkbutton("Podyji CZ3 (10 m)" #cz3): (
+				disable_ctxs("cu_priority_areas_contexts.czech_republic_podyji_cz3","Czech Republic: Podyji CZ3 (10 m)")
 				activate_europe
 			)
 			checkbutton("Podyji CZ3 (30 m)" #cz3): (
-				disable_ctxs("cu_priority_areas_contexts.czech_republic_podyji_cz3","Czech Republic: Podyji CZ3 (30 m)")
+				disable_ctxs("cu_priority_areas_contexts.czech_republic_podyji_30m_cz3","Czech Republic: Podyji CZ3 (30 m)")
 				activate_europe
 			)
 			checkbutton("Bohemian CZ4 (30 m)" #cz4 :disabled :tooltip "Under development"): (
