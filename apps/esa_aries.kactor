@@ -204,31 +204,31 @@ action main:
 				activate_europe(true)
 			)
 			checkbutton("Finnmark NO1" #no1 :disabled :tooltip "Under development"): (
-				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1","Norway: Finnmark NO1")
+				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1","Norway: Osloviken NO1")
 				activate_europe			
 			)
 			checkbutton("Finnmark NO1_1" #no1_1 :disabled :tooltip "Under development"): (
-				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1_1","Norway: Finnmark NO1_1")
+				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1_1","Norway: Osloviken NO1_1")
 				headers.show
 				activate_europe				
 			)
 			checkbutton("Finnmark NO1_2" #no1_2): (
-				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1_2","Norway: Finnmark NO1_2")
+				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1_2","Norway: Osloviken NO1_2")
 				headers.show
 				activate_europe			
 			)
 			checkbutton("Finnmark NO1_3 (100 m)" #no1_3 :disabled :tooltip "Under development"): (
-				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1_3","Norway: Finnmark NO1_3 (100 m)")
+				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1_3","Norway: Osloviken NO1_3 (100 m)")
 				headers.show
 				activate_europe			
 			)
 			checkbutton("Finnmark NO1_4" #no1_4 :disabled :tooltip "Under development"): (
-				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1_4","Norway: Finnmark NO1_4")
+				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1_4","Norway: Osloviken NO1_4")
 				headers.show
 				activate_europe			
 			)
 			checkbutton("OsloViken NO2" #no2 :disabled :tooltip "Under development"): (
-				disable_ctxs("cu_priority_areas_contexts.norway_finnmark_no2","Norway: OsloViken NO2")
+				disable_ctxs("cu_priority_areas_contexts.norway_finnmark_no2","Norway: Finnmark NO2")
 				headers.show
 				activate_europe			
 			)
