@@ -213,6 +213,12 @@ number ecosystem_type_eunis_level2
 		 type of nca.ecosystem.eunis:Ecosystem named ecosystem_type_alpha2_preprocessed_stac_level2
 	set to [ecosystem_type_alpha2_preprocessed_stac_level2];  
  
+// TODO:divide into alpine scandinavian? 
+//model 'local:caterina.gilli:esa.aries.sandbox:esa_weed_globes_v3_alpineregions'
+//	as presence of es.nca:AlpineScandinavian earth:Region
+//	over space (shape = '');
+model 'local:caterina.gilli:esa.aries.sandbox:esa_weed_globes_v3_alpineregions'
+	as presence of es.nca:Alpine earth:Region;
 
 // Stuff from GeoServer: Ruben, Justus, Alessio, Caterina
 
