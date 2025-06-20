@@ -1,0 +1,40 @@
+{
+  "urn" : "local:caterina.gilli:esa.aries.sandbox:esa_weed_globes_v3_soilgridsdepth",
+  "version" : "0.0.1",
+  "adapterType" : "stac",
+  "localPath" : "esa.aries.sandbox/resources/esa_weed_globes_v3_soilgridsdepth.v0.0.1",
+  "geometry" : "s2{bbox=[-81.78333 -34.88611 115.24722 70.93889],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "esa_weed_globes_v3_soilgridsdepth",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1750426055778,
+  "metadata" : {
+    "im:keywords" : "",
+    "dc:comment" : "This dataset provides global maps of soil properties derived with state-of-the-art machine learning methods. SoilGrids prediction models are fitted using over 230,000 soil profile observations from the WoSIS database and a series of environmental covariates. Covariates were selected from a pool of over 400 environmental layers (e.g. climate, land cover), and originated from different data products derived with Earth observation data.",
+    "im:notes" : "",
+    "dc:title" : "Soil grids Depth",
+    "dc:url" : "https://catalogue.weed.apex.esa.int/collections/Globes-V3",
+    "dc:creator" : "",
+    "im:thematic-area" : "",
+    "dc:originator" : "",
+    "im:geographic-area" : "",
+    "dc:source" : ""
+  },
+  "parameters" : {
+    "endpointurl" : "https://s3.waw4-1.cloudferro.com",
+    "collection" : "https://catalogue.weed.apex.esa.int/collections/Globes-V3",
+    "asset" : "soilGridsDepth",
+    "collectionId" : "Globes-V3"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}
