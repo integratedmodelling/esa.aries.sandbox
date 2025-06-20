@@ -37,8 +37,11 @@ number 'local:arnab.moitra:esa.aries.sandbox:weed_ecdc_band_B04_p2'
 	 as ecdc_plant_density_predictor //as ecology:Vegetation im:Density
 	"Assess plant density. The darker red the more dense, cities are in gray and water in blue."; //weed_ecdc_band_b04_p2;
 
-number  'local:arnab.moitra:esa.aries.sandbox:weed_ecdc_band_B04_p75' as ecdc_b04_p75_predictor;
-//local:stefano.balbi:esa.aries.sandbox:ecdc_apha3_b04_p75  //alpha 3
+number  'local:arnab.moitra:esa.aries.sandbox:weed_ecdc_band_B04_p75' as ecdc_b04_p75_predictor
+		"Reflection of 75th percentile in Sentinel-2 Band 2 (Blue)";
+
+number 'local:alessio.bulckaen:esa.aries.sandbox:esa.weed_ecdc_b04_p25' as ecdc_b04_p25_predictor
+		"Reflection of 25th percentile in Sentinel-2 Band 4 (Red)";
 
 number local:alessio.bulckaen:esa.aries.sandbox:esa_weed_ecdc_biome_indicator 
 	as ecdc_biome_indicator_predictor 
@@ -47,8 +50,7 @@ number local:alessio.bulckaen:esa.aries.sandbox:esa_weed_ecdc_biome_indicator
 	VH means vertical transmitted and horizontal received.
 	Forest have lower VV/VH while built-up or bare areas have higher ratio"; 
 
-number local:alessio.bulckaen:esa.aries.sandbox:esa.weed_ecdc_digital_elevation_model as ecdc_elevation_predictor;
-//	as geography:Slope in m named 
+model local:alessio.bulckaen:esa.aries.sandbox:esa.weed_ecdc_digital_elevation_model as geography:Elevation in m named ecdc_elevation_predictor;
 
 number local:alessio.bulckaen:esa.aries.sandbox:esa.weed_ecdc_canopy_structure as ecdc_canopy_structure_predictor;
 
