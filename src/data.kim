@@ -220,6 +220,9 @@ number ecosystem_type_eunis_level2
 model 'local:caterina.gilli:esa.aries.sandbox:esa_weed_globes_v3_alpineregions'
 	as presence of es.nca:Alpine earth:Region
 	set to [self == 1];
+	
+number local:caterina.gilli:esa.aries.sandbox:esa_weed_globes_v3_soilgridsdepth
+	as patata;
 
 // Stuff from GeoServer: Ruben, Justus, Alessio, Caterina
 
