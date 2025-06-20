@@ -1,0 +1,40 @@
+{
+  "urn" : "local:alessio.bulckaen:esa.aries.sandbox:esa_weed_globes_v3_coastalflats",
+  "version" : "0.0.1",
+  "adapterType" : "stac",
+  "localPath" : "esa.aries.sandbox/resources/esa_weed_globes_v3_coastalflats.v0.0.1",
+  "geometry" : "T1{tend=1735689599000,tscope=1.0,tstart=1514764800000,ttype=grid,tunit=year}s2{bbox=[-81.78333 -34.88611 115.24722 70.93889],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "esa_weed_globes_v3_coastalflats",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1750425013717,
+  "metadata" : {
+    "im:keywords" : "",
+    "dc:comment" : "Binary map distinguishing coastal flats.",
+    "im:notes" : "",
+    "dc:title" : "Presence of Costal Flat",
+    "dc:url" : "https://catalogue.weed.apex.esa.int/collections/Globes-V3",
+    "dc:creator" : "",
+    "im:thematic-area" : "",
+    "dc:originator" : "",
+    "im:geographic-area" : "",
+    "dc:source" : ""
+  },
+  "parameters" : {
+    "endpointurl" : "https://s3.waw4-1.cloudferro.com",
+    "collection" : "https://catalogue.weed.apex.esa.int/collections/Globes-V3",
+    "asset" : "coastalFlats",
+    "collectionId" : "Globes-V3"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

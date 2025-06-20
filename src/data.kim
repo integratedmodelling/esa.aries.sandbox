@@ -101,14 +101,18 @@ model local:alessio.bulckaen:esa.aries.sandbox:globes_grassy_cover_v2 //as globe
 	Pasture if 3;
 
 model local:alessio.bulckaen:esa.aries.sandbox:esa_weed_globes_v3_fireperiodicity 
-	as im:Frequency of chemistry:Fire; 	
+	as im:Frequency of chemistry:Fire in day/year; 	
 
 attribute Island
 "Island, any area of land smaller than a continent and entirely surrounded by water."
 ;
 model local:alessio.bulckaen:esa.aries.sandbox:esa_weed_globes_v3_islands
-	as presence of Island earth:Region;
-	
+	as presence of Island earth:Region
+	set to [self==1];
+
+model local:alessio.bulckaen:esa.aries.sandbox:esa_weed_globes_v3_coastalflats
+	as presence of earth:Coast 
+	set to [self==1];
 /*	Type of Waterclass: Classification of water bodies (wetland and waterbody are mixed)
  		  "river",
           "inland_freshwater_lakes",
