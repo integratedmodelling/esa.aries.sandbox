@@ -1,0 +1,36 @@
+private namespace primitive_characteristics.definitions
+using nca.ecosystem.iucn;
+
+/*
+ * GET definitnion decomposition are availabel here: 
+ * https://docs.google.com/spreadsheets/d/1ouf-TNAxZEIoh7GC6J66jW6pGSpLavgqAXGJgK1d9Kc/edit?gid=661832917#gid=661832917
+ * 
+*/
+
+/*
+ * Example for F1.1 Permanent upland streams:
+ * These 1st-3rd order streams generally have steep gradients, fast flows, coarse substrates,
+ * often with a riffle-pool (shallow and fast vs deeper and slow) sequence of habitats, and
+ * periodic (usually seasonal) high-flow events.
+ * 
+ * Primitive characteristics identified:
+ * 1. surface water - hydroform	equal to	watercourse	streams
+ * 2. hydrological fluxes - hydrological profile (catchment order)	between	1;3	1st-3rd order streams
+ * 3. surface water - morphology (gradient)	greater than	4	steep gradients
+ * 4. hydrological fluxes - discharge velocity (annual mean)	greater than	40	fast flows
+ * 5. surface water - morphology (width-depth ratio)	lesser or equal to	12	shallow and fast vs deeper and slow
+ * 6. soil - texture (coarse)	greater than		coarse substrates
+ */  
+ 
+ //1st characteristics
+ //surface water - hydroform	equal to watercourse streams
+ 
+ model nca.ecosystem.iucn:PermanentUplandStream earth:WaterBody
+  is landcover:Watercourse earth:Stream has hydroform equal LinearFeature
+  //hydrology:hydroform
+  //im:LinearFeature
+	
+thing hydroform	
+	""
+	is Aquatic Shape;
+	
