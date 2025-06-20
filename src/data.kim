@@ -218,7 +218,8 @@ number ecosystem_type_eunis_level2
 //	as presence of es.nca:AlpineScandinavian earth:Region
 //	over space (shape = '');
 model 'local:caterina.gilli:esa.aries.sandbox:esa_weed_globes_v3_alpineregions'
-	as presence of es.nca:Alpine earth:Region;
+	as presence of es.nca:Alpine earth:Region
+	set to [self == 1];
 
 // Stuff from GeoServer: Ruben, Justus, Alessio, Caterina
 
