@@ -25,12 +25,16 @@ using nca.ecosystem.iucn;
  //1st characteristics
  //surface water - hydroform	equal to watercourse streams
  
- model nca.ecosystem.iucn:PermanentUplandStream earth:WaterBody
-  is landcover:Watercourse earth:Stream has hydroform equal LinearFeature
+
+thing Hydroform	
+	""
+	is AquaticShape;
+
+identity nca.ecosystem.iucn:PermanentUplandStream //IUCN.GET:PermanentUplandStream
+  equals PATTERN:EARTHCOVER://"Plandcover:Watercourse earth:Stream has hydroform equal LinearFeature,
+  		physical:Hydroform is im:Stream,  			
   //hydrology:hydroform
   //im:LinearFeature
-	
-thing hydroform	
-	""
-	is Aquatic Shape;
-	
+ //2. hydrological fluxes - hydrological profile (catchment order)	between	1;3	1st-3rd order streams	
+  		has hydrology:StreamOrder is 1 to 3,
+  		has hydrology:WaterFlow; 
