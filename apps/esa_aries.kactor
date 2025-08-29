@@ -56,7 +56,7 @@ action main:
 				disable_ctxs("cu_priority_areas_contexts.colombia_chingaza_co8","Colombia: Chingaza CO8")
 				activate_colombia
 			)
-			checkbutton("Putumayo CO9" #co9 :disabled :tooltip "Under development"): (
+			checkbutton("Putumayo CO9" #co9): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_putumayo_co9","Colombia: Putumayo CO9")
 				activate_colombia
 			)
@@ -76,7 +76,7 @@ action main:
 				disable_ctxs("cu_priority_areas_contexts.colombia_piedemonte_casanare_co13","Colombia: Piedemonte Casanare CO13")
 				activate_colombia
 			)
-			checkbutton("Cuenca alta río Bogotá CO14" #co14 :disabled :tooltip "Under development"): (
+			checkbutton("Cuenca alta río Bogotá CO14" #co14 ): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_cuenca_alta_rio_bogota_co14","Colombia: Cuenca alta río Bogotá CO14")
 				activate_colombia
 			)
