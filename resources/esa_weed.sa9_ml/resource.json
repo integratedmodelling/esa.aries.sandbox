@@ -1,0 +1,37 @@
+{
+  "urn" : "local:alessio.bulckaen:esa.aries.sandbox:esa_weed.sa9_ml",
+  "version" : "0.0.1",
+  "adapterType" : "wcs",
+  "localPath" : "esa.aries.sandbox/resources/esa_weed.sa9_ml",
+  "geometry" : "S2(708,491){bbox=[21.4066 22.043 -33.9403 -33.4973],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "esa_weed.sa9_ml",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1760543782108,
+  "metadata" : { },
+  "parameters" : {
+    "wcsIdentifier" : "esa_weed__sa9_ml",
+    "transform" : "",
+    "serviceUrl" : "https://integratedmodelling.org/aux-geoserver/esa_weed/wcs",
+    "nodata" : "-2.147483648E9",
+    "wcsVersion" : "2.0.1"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : {
+    "east" : 22.043,
+    "west" : 21.4066,
+    "north" : -33.4973,
+    "south" : -33.9403,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}
