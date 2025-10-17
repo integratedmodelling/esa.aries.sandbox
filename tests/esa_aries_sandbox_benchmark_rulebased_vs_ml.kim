@@ -1,0 +1,18 @@
+worldview im;
+
+@test(
+    name = "esa.aries.sandbox.benchmark.rulebased_vs_ml",
+    description  = "",
+    // add to the list any concepts to be observed in the context below
+    observations = (
+    "rule_based_modelling.south_africa.matching_ecosystem_type_southafrica_rulebased"
+    ),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named aries_spatial_comparison_benchmark_rulebased_vs_ml
+    // add any space and/or time extents: for example
+    over space(shape="EPSG:4326 POLYGON ((21.817451814363327 -33.7632662702132, 21.573349336335983 -33.7632662702132, 21.573349336335983 -33.67045515822076, 21.817451814363327 -33.67045515822076, 21.817451814363327 -33.7632662702132))",
+    grid="100 m"),
+	time(year=2022);
