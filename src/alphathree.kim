@@ -1496,9 +1496,10 @@ model 'local:stefano.balbi:esa.aries.sandbox:alpha3_maxprob_inference_result_lev
 //;			
 
 
-identity Version
+abstract identity Version
 	has children 
-		MachineLearning;
+		MachineLearning,
+		Hybrid;
 /*
  * annotation for when Bruno shares results for South Africa (and later other non-EU countries
  */

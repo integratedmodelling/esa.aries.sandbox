@@ -1,5 +1,5 @@
 private namespace rule_based_modelling.south_africa
-using nca.ecosystem.iucn, nca.ecoregion, rule_based_modelling, data;
+using alphathree, nca.ecosystem.iucn, nca.ecoregion, rule_based_modelling, data;
 
 model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cu_glc_fcs30d_landcover_epsg4326_30m_2020,
 	local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cu_glc_fcs30d_landcover_epsg4326_30m_2021,
@@ -18,9 +18,14 @@ model local:alessio.bulckaen:im.data.global:im-data-global-agriculture.global_fo
 		rule_based_modelling:PrimaryForest if 11,
 		rule_based_modelling:SecondaryForest if 20,
 		rule_based_modelling:PlantedForest if 31,
-			rule_based_modelling:TimberPlantation if 32,
-			rule_based_modelling:OilPalmPlantation if 40,
-			rule_based_modelling:Agroforestry if 53;
+		rule_based_modelling:TimberPlantation if 32,
+		rule_based_modelling:OilPalmPlantation if 40,
+		rule_based_modelling:Agroforestry if 53;
+
+model local:alessio.bulckaen:im.data.global:im-data-global-conservation.global_treeplantationyears_forestry_epsg4326_30m_2020_mosaic
+	as presence of rule_based_modelling:PlantedForest earth:Region
+	set to [(self != 32767 && self > 0) ? true : unknown ];
+//	set to [self >= 1982 ? self : unknown ];
 
 define RULE_BASED_ECOSYSTEM_IUCN_TABLE as {{ 
           landcover           |              forest_managment              |          dinerstein_ecoregion                |additonal_variable	|                        ecosystem_type                        
@@ -42,8 +47,8 @@ define RULE_BASED_ECOSYSTEM_IUCN_TABLE as {{
  landcover:SparseVegetation   | #                                          | nca.ecoregion:SucculentKarooXericShrubland   | #   				|  nca.ecosystem.iucn:ThornyDesertSemidesert                   , 
  landcover:SparseVegetation   | #                                          | nca.ecoregion:RenosterveldShrubland          | #   				|  nca.ecosystem.iucn:SeasonallyDryTemperateHeathShrubland     ,
  landcover:ArableLand	      | #                                          | #									          | #   				|  nca.ecosystem.iucn:AnnualCropland        				   ,
- landcover:WaterBody| #|#|#| nca.ecosystem.iucn:Marine,
- #|#|#|#| nca.ecosystem.iucn:Terrestrial
+ landcover:WaterBody		  | #										   |# 											  | #					|  nca.ecosystem.iucn:RiverStream							   ,
+ #							  | #   									   |#											  | #					|  nca.ecosystem.iucn:Terrestrial
  }};
 
 model nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get
@@ -55,4 +60,45 @@ model nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get
 		(landcover, forest_managment, dinerstein_ecoregion,*, ?) 
 			into RULE_BASED_ECOSYSTEM_IUCN_TABLE
 			over space(shape='MULTIPOLYGON (((21.44401804077235596 -33.49731133074468659, 21.59794895120490565 -33.50359422504805451, 21.68590947145207792 -33.62611066396375747, 22.02204431668234008 -33.66590232788509951, 22.04298729769357124 -33.94025537913222479, 21.79062437650823369 -33.88685077755358321, 21.49846979140155767 -33.73920276142440855, 21.40658246221477867 -33.64181789972217729, 21.44401804077235596 -33.49731133074468659)))');
-			
+
+model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.sa9_ml 
+	as alphathree:MachineLearning geography:SouthAfrica nca.ecosystem.iucn:EcosystemType
+	classified into
+		nca.ecosystem.iucn:Freshwater if 0;
+
+define HYBRID_ECOSYSTEM_IUCN_TABLE as {{ 
+          landcover           |              forest_managment              |          dinerstein_ecoregion                |    			ml_approach				|  ecosystem_type                        
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ #  						  | 					#					   |					#						  |  nca.ecosystem.iucn:Freshwater		|  nca.ecosystem.iucn:Freshwater			   				   ,	
+ #  						  | 					#					   |					#						  |  nca.ecosystem.iucn:UrbanEcosystem	|  nca.ecosystem.iucn:UrbanEcosystem		   				   ,	
+ landcover:Forest             | rule_based_modelling:PlantedForest         | 					#                         | 				#     				|  nca.ecosystem.iucn:Plantation               	               , 
+ landcover:Forest             | rule_based_modelling:TimberPlantation      | 					#                         | 				#     				|  nca.ecosystem.iucn:Plantation                               , 
+ landcover:Forest             | rule_based_modelling:OilPalmPlantation     | 					#                         | 				#     				|  nca.ecosystem.iucn:Plantation                               , 
+ landcover:Forest             | rule_based_modelling:Agroforestry          | 					#                         | 				#     				|  nca.ecosystem.iucn:Plantation                               ,
+ landcover:Shrubland	      | #                                          | nca.ecoregion:FynbosShrubland                | 				#   				|  nca.ecosystem.iucn:SeasonallyDryTemperateHeathShrubland     ,
+ landcover:SparseVegetation   | #                                          | nca.ecoregion:RenosterveldShrubland          | 				#   				|  nca.ecosystem.iucn:SeasonallyDryTemperateHeathShrubland     ,
+ landcover:Shrubland	      | #                                          | nca.ecoregion:RenosterveldShrubland          | 				#   				|  nca.ecosystem.iucn:SeasonallyDryTemperateHeathShrubland     ,
+ landcover:Forest		      | #                                          | nca.ecoregion:FynbosShrubland          	  | 				#   				|  nca.ecosystem.iucn:SeasonallyDryTemperateHeathShrubland     ,
+ landcover:Grassland	      | #                                          | 					#						  | 				#   				|  nca.ecosystem.iucn:DerivedSeminaturalPastureOldfield        ,
+ landcover:Shrubland	      | #                                          | nca.ecoregion:SucculentKarooXericShrubland   | 				#   				|  nca.ecosystem.iucn:TropicalSubtropicalDryForestThicket      , 
+ #                            | #                                          | nca.ecoregion:AlbanyThicket                  | 				#   				|  nca.ecosystem.iucn:TropicalSubtropicalDryForestThicket      , 
+ #                            | #                                          | nca.ecoregion:AlbanyThicket                  | 				#   				|  nca.ecosystem.iucn:TropicalSubtropicalDryForestThicket      , 
+ landcover:SparseVegetation   | #                                          | nca.ecoregion:FynbosShrubland                | 				#   				|  nca.ecosystem.iucn:ThornyDesertSemidesert                   , 
+ landcover:SparseVegetation   | #                                          | nca.ecoregion:SucculentKarooXericShrubland   | 				#   				|  nca.ecosystem.iucn:ThornyDesertSemidesert                   , 
+ landcover:SparseVegetation   | #                                          | nca.ecoregion:RenosterveldShrubland          | 				#   				|  nca.ecosystem.iucn:SeasonallyDryTemperateHeathShrubland     ,
+ landcover:ArableLand	      | #                                          | 					#						  | 				#   				|  nca.ecosystem.iucn:AnnualCropland        				   ,
+ landcover:WaterBody		  | #										   |					# 						  | 				#					|  nca.ecosystem.iucn:RiverStream							   ,
+ #							  | #   									   |					#						  | 				#					|  nca.ecosystem.iucn:Terrestrial
+ }};
+ 
+model alphathree:Hybrid nca.ecosystem.iucn:EcosystemType named hybrid_ecosystem_type_iucn_get
+	observing
+		landcover:LandCoverType          			named landcover,
+		rule_based_modelling:ForestType 		named forest_managment,
+		type of nca.ecoregion:DinersteinRegion 	named dinerstein_ecoregion ,
+		alphathree:MachineLearning geography:SouthAfrica nca.ecosystem.iucn:EcosystemType named ml_approach                                                                                                   
+	lookup 
+		(landcover, forest_managment, dinerstein_ecoregion, ml_approach, ?) 
+			into HYBRID_ECOSYSTEM_IUCN_TABLE
+			over space(shape='MULTIPOLYGON (((21.44401804077235596 -33.49731133074468659, 21.59794895120490565 -33.50359422504805451, 21.68590947145207792 -33.62611066396375747, 22.02204431668234008 -33.66590232788509951, 22.04298729769357124 -33.94025537913222479, 21.79062437650823369 -33.88685077755358321, 21.49846979140155767 -33.73920276142440855, 21.40658246221477867 -33.64181789972217729, 21.44401804077235596 -33.49731133074468659)))');
+ 			

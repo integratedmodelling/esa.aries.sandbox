@@ -80,3 +80,6 @@ model local:justus.muhando:esa.aries.sandbox:esa_weed.south_africa_nlc_landcover
 	landcover:SaltExtraction if 70,
 	landcover:DumpSite if 71,
 	landcover:Landfill if 72;
+	
+number local:alessio.bulckaen:esa.aries.sandbox:esa_weed.sa9_ml as ml_results_sa9;
+number local:alessio.bulckaen:esa.aries.sandbox:esa_weed.sa3_ml as ml_results_sa3;
