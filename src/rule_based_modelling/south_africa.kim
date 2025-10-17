@@ -60,12 +60,27 @@ model nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get
 		(landcover, forest_managment, dinerstein_ecoregion,*, ?) 
 			into RULE_BASED_ECOSYSTEM_IUCN_TABLE
 			over space(shape='MULTIPOLYGON (((21.44401804077235596 -33.49731133074468659, 21.59794895120490565 -33.50359422504805451, 21.68590947145207792 -33.62611066396375747, 22.02204431668234008 -33.66590232788509951, 22.04298729769357124 -33.94025537913222479, 21.79062437650823369 -33.88685077755358321, 21.49846979140155767 -33.73920276142440855, 21.40658246221477867 -33.64181789972217729, 21.44401804077235596 -33.49731133074468659)))');
+model alphathree:RuleBased geography:SouthAfrica nca.ecosystem.iucn:EcosystemType
+		observing
+		landcover:LandCoverType          			named landcover,
+		rule_based_modelling:ForestType 		named forest_managment,
+		type of nca.ecoregion:DinersteinRegion 	named dinerstein_ecoregion                                                                                                      
+	lookup 
+		(landcover, forest_managment, dinerstein_ecoregion,*, ?) 
+			into RULE_BASED_ECOSYSTEM_IUCN_TABLE
+			over space(shape='MULTIPOLYGON (((21.44401804077235596 -33.49731133074468659, 21.59794895120490565 -33.50359422504805451, 21.68590947145207792 -33.62611066396375747, 22.02204431668234008 -33.66590232788509951, 22.04298729769357124 -33.94025537913222479, 21.79062437650823369 -33.88685077755358321, 21.49846979140155767 -33.73920276142440855, 21.40658246221477867 -33.64181789972217729, 21.44401804077235596 -33.49731133074468659)))');
 
 model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.sa9_ml 
 	as alphathree:MachineLearning geography:SouthAfrica nca.ecosystem.iucn:EcosystemType
 	classified into
-		nca.ecosystem.iucn:Freshwater if 0;
-
+		nca.ecosystem.iucn:Freshwater if 0,
+		nca.ecosystem.iucn:TropicalSubtropicalForest if 62,
+		nca.ecosystem.iucn:TemperateBorealForestWoodland if 67,
+		nca.ecosystem.iucn:SeasonallyDryTemperateHeathShrubland if 76,
+		nca.ecosystem.iucn:ThornyDesertSemidesert if 87,
+		nca.ecosystem.iucn:AnnualCropland if 98,
+		nca.ecosystem.iucn:UrbanIndustrialEcosystem if 101; 
+		
 define HYBRID_ECOSYSTEM_IUCN_TABLE as {{ 
           landcover           |              forest_managment              |          dinerstein_ecoregion                |    			ml_approach				|  ecosystem_type                        
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
