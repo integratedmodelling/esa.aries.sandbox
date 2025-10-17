@@ -106,7 +106,7 @@ define HYBRID_ECOSYSTEM_IUCN_TABLE as {{
  #							  | #   									   |					#						  | 				#					|  nca.ecosystem.iucn:Terrestrial
  }};
  
-model alphathree:Hybrid nca.ecosystem.iucn:EcosystemType named hybrid_ecosystem_type_iucn_get
+model alphathree:Hybrid nca.ecosystem.iucn:EcosystemType 
 	observing
 		landcover:LandCoverType          			named landcover,
 		rule_based_modelling:ForestType 		named forest_managment,
