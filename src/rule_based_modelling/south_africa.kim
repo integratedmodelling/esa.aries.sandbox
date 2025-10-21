@@ -125,6 +125,12 @@ observe /* a:urn:to:use#objectid as */ earth:Region named aries_spatial_comparis
     grid="100 m"),
 	time(year=2022);
 	
+observe earth:Region named rulebased_and_ml_comparison  
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_south_africa_priority_areas_epsg4326_v2#weed_site=SA9',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(year=2022);
+	
 model 'local:justus.muhando:esa.aries.sandbox:esa_weed.south_africa_gea_20240722_2_vegetation_reclassified_epsg4326' 
 		// TODO: @Alessio, please help on checking why this resource is not authorised by the system in this repository.
 	as im:Reference geography:SouthAfrica nca.ecosystem.iucn:EcosystemType 
@@ -139,13 +145,13 @@ model 'local:justus.muhando:esa.aries.sandbox:esa_weed.south_africa_gea_20240722
 		nca.ecosystem.iucn:ConstructedLacustrineWetland if 1;
 
 
-define table reference_ecosystem_type_extent as {
-	title: "Reference ecosystem types (area in km²)",
-	label: "Reference ecosystem type (km²)",
-	target: im:Reference geography:SouthAfrica nca.ecosystem.iucn:EcosystemType
-	columns:({ title:  "{classifier}", target: im:Area in km^2, filter: im:Reference geography:SouthAfrica nca.ecosystem.iucn:EcosystemType}
-			 {title: "Total", summarize: sum, style: bold}),
-	rows:   ({ title: "Area {start} (km²)" })};
+//define table reference_ecosystem_type_extent as {
+//	title: "Reference ecosystem types (area in km²)",
+//	label: "Reference ecosystem type (km²)",
+//	target: im:Reference geography:SouthAfrica nca.ecosystem.iucn:EcosystemType
+//	columns:({ title:  "{classifier}", target: im:Area in km^2, filter: im:Reference geography:SouthAfrica nca.ecosystem.iucn:EcosystemType}
+//			 {title: "Total", summarize: sum, style: bold}),
+//	rows:   ({ title: "Area {start} (km²)" })};
 
 define SOUTH_AFRICA_ECOSYSTEM_TYPE_COMPARISON_TABLE as {{
   reference_ecosystem_type                                | machine_learning_ecosystem_type                         | local_rule_based_ecosystem_type                         | global_rule_based_ecosystem_type                               | consistency
@@ -184,7 +190,7 @@ model presence of (earth:Region with alphathree:RuleBased geography:SouthAfrica 
 		im:Reference geography:SouthAfrica nca.ecosystem.iucn:EcosystemType named reference_ecosystem_type,
 		alphathree:RuleBased geography:SouthAfrica nca.ecosystem.iucn:EcosystemType named rule_based_ecosystem_type  		                                                                                         
 	lookup 
-		(reference_ecosystem_type, * , local_rule_based_ecosystem_type, *, ?) 
+		(reference_ecosystem_type, * , rule_based_ecosystem_type, *, ?) 
 			into SOUTH_AFRICA_ECOSYSTEM_TYPE_COMPARISON_TABLE; 
 
 define table southafrica_ecosystem_type_result_comparison_by_ecosystem_type_rulebased_vs_reference as {
