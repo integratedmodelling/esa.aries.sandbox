@@ -60,6 +60,7 @@ model nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get
 		(landcover, forest_managment, dinerstein_ecoregion,*, ?) 
 			into RULE_BASED_ECOSYSTEM_IUCN_TABLE
 			over space(shape='MULTIPOLYGON (((21.44401804077235596 -33.49731133074468659, 21.59794895120490565 -33.50359422504805451, 21.68590947145207792 -33.62611066396375747, 22.02204431668234008 -33.66590232788509951, 22.04298729769357124 -33.94025537913222479, 21.79062437650823369 -33.88685077755358321, 21.49846979140155767 -33.73920276142440855, 21.40658246221477867 -33.64181789972217729, 21.44401804077235596 -33.49731133074468659)))');
+
 model alphathree:RuleBased geography:SouthAfrica nca.ecosystem.iucn:EcosystemType
 		observing
 		landcover:LandCoverType          			named landcover,
@@ -186,6 +187,26 @@ model presence of (earth:Region with alphathree:RuleBased geography:SouthAfrica 
 	lookup 
 		(reference_ecosystem_type, * , local_rule_based_ecosystem_type, *, ?) 
 			into SOUTH_AFRICA_ECOSYSTEM_TYPE_COMPARISON_TABLE; 
+//model presence of (earth:Region with alphathree:RuleBased geography:SouthAfrica nca.ecosystem.iucn:EcosystemType) named matching_ecosystem_type_southafrica_rulebased 
+//	observing
+//		im:Reference geography:SouthAfrica nca.ecosystem.iucn:EcosystemType named reference_ecosystem_type,
+//		alphathree:RuleBased geography:SouthAfrica nca.ecosystem.iucn:EcosystemType named rule_based_ecosystem_type  		                                                                                         
+//	set to [(reference_ecosystem_type is nca.ecosystem.iucn:TropicalSubtropicalDryForestThicket ) && (rule_based_ecosystem_type is nca.ecosystem.iucn:TropicalSubtropicalDryForestThicket ) ? true :(
+//			(reference_ecosystem_type isnca.ecosystem.iucn:Plantation) && (rule_based_ecosystem_type is nca.ecosystem.iucn:Plantation) ? true :(
+//			(reference_ecosystem_type isnca.ecosystem.iucn:DerivedSeminaturalPastureOldfield) && (rule_based_ecosystem_type is nca.ecosystem.iucn:DerivedSeminaturalPastureOldfield) ? true :(
+//			(reference_ecosystem_type isnca.ecosystem.iucn:UrbanIndustrialEcosystem) && (rule_based_ecosystem_type is nca.ecosystem.iucn:UrbanIndustrialEcosystem) ? true :(
+//			(reference_ecosystem_type isim:Reference geography:SouthAfrica nca.ecosystem.iucn:TropicalSubtropicalDryForestThicket) && (rule_based_ecosystem_type is im:Reference geography:SouthAfrica nca.ecosystem.iucn:TropicalSubtropicalDryForestThicket) ? true :(
+//			(reference_ecosystem_type isnca.ecosystem.iucn:SeasonallyDryTemperateHeathShrubland) && (rule_based_ecosystem_type is nca.ecosystem.iucn:SeasonallyDryTemperateHeathShrubland) ? true :(
+//			(reference_ecosystem_type isnca.ecosystem.iucn:ThornyDesertSemidesert) && (rule_based_ecosystem_type is nca.ecosystem.iucn:ThornyDesertSemidesert) ? true :(
+//			(reference_ecosystem_type isnca.ecosystem.iucn:ConstructedLacustrineWetland) && (rule_based_ecosystem_type is nca.ecosystem.iucn:ConstructedLacustrineWetland) ? true :(
+//			(reference_ecosystem_type isnca.ecosystem.iucn:Freshwater) && (rule_based_ecosystem_type is nca.ecosystem.iucn:Freshwater) ? true :(
+//			(reference_ecosystem_type isnca.ecosystem.iucn:TropicalSubtropicalForest) && (rule_based_ecosystem_type is nca.ecosystem.iucn:TropicalSubtropicalForest) ? true :(
+//			(reference_ecosystem_type isnca.ecosystem.iucn:TemperateBorealForestWoodland) && (rule_based_ecosystem_type is nca.ecosystem.iucn:TemperateBorealForestWoodland) ? true :(
+//			(reference_ecosystem_type isnca.ecosystem.iucn:SeasonallyDryTemperateHeathShrubland) && (rule_based_ecosystem_type is nca.ecosystem.iucn:SeasonallyDryTemperateHeathShrubland) ? true :(
+//			(reference_ecosystem_type isnca.ecosystem.iucn:ThornyDesertSemidesert) && (rule_based_ecosystem_type is nca.ecosystem.iucn:ThornyDesertSemidesert) ? true :(
+//			(reference_ecosystem_type isnca.ecosystem.iucn:AnnualCropland) && (rule_based_ecosystem_type is nca.ecosystem.iucn:AnnualCropland) ? true :(
+//			(reference_ecosystem_type isnca.ecosystem.iucn:UrbanIndustrialEcosystem) && (rule_based_ecosystem_type is nca.ecosystem.iucn:UrbanIndustrialEcosystem) ? true :(
+//			false))))))))))))))) ];
 
 define table southafrica_ecosystem_type_result_comparison_by_ecosystem_type_rulebased_vs_reference as {
 	title: "Comparison of the South Africa ecosystem type result between rule-based & reference maps - semantics"
