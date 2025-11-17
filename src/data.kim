@@ -1083,12 +1083,16 @@ model 'local:alessio.bulckaen:im.data.global:im-data-global-ecology_dinerstein_e
 	nca.ecoregion:KinabaluMontaneAlpineMeadow if 313;
 
 
+// Resources for data suitability analysis
+
 identity MapProvider
 has children
 GlobalMangroveWatch,
 EuropeanSpaceAgency,
 ImpactObservatory,
 Glc_fcs30; 
+
+/*Mangrove */
 
 @colormap(values = {
 true:	(0 115 76)
@@ -1141,3 +1145,88 @@ model local:rubencc:im.data.global:im-data-global-landcover.cci_lc_300m_2020_v2_
 	  local:rubencc:im.data.global:im-data-global-landcover.cci_lc_300m_2022
 	as presence of EuropeanSpaceAgency earth:Wetland
 		set to [( self == 180 || self==160) ? true : false];
+
+/*Plantation and Annual Crop*/
+@colormap(values = {
+PlantedTree: (70 116 93)
+PlantedForest: (154 205 50)	
+PlantedTreeCrop:(25 125 25)
+})
+abstract attribute PlantedTree 
+" A tree intentionally planted and grown in a specific location through human intervention, typically for forestry, cultivation or landscaping purposes." 
+//is agriculture:Planted ecology:Tree
+	has children
+		(PlantedForest
+		"Tree intentionally grown for timber production, conservation or carbon sequestration purposes, adn often featuring diversity of species"),	
+		(PlantedTreeCrop
+		"Crop tree is cultivated for specific agricultural purposes and not classified as forest"	);
+class PlantedTreeType
+	is type of PlantedTree;
+
+//TODO: Year of plantation should include Tree Crop planted as well (later refined using landcover class for delineating Cropland/Plantation)
+number local:alessio.bulckaen:im.data.global:im-data-global-conservation.global_treeplantationyears_forestry_epsg4326_30m_2020_mosaic
+	as year_of_tree_plantation
+	set to [(self != 32767 && self > 0) ? self : unknown ];
+
+model local:justus.muhando:im.aries.global:im-data-global-ecology.global_treespecies_forestry_epsg4326_30m_2020_mosaic
+	as type of PlantedTree classified into
+	PlantedForest if in (1 2 3 4 5 7 8 9 14 15 16 17 19 20 21 22 23 26 27 29 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 81 83 84 85 86 87 88 89 90 91 92 93 95 96 97 98 100 103 104 105 106 107 108 109 111 112 113 114 115 116 117 120 124 131 132 133 134 135 137 140 141 142 143 144 145 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 176 177 178 180 181 186 187 188 189 190),
+	PlantedTreeCrop   if in (6 10 11 12 13 18 24 25 28 30 31 32 33 34 35 36 37 38 39 40 41 42 75 76 77 78 79 80 82 94 99 101 102 110 118 119 121 122 123 125 126 127 128 129 130 136 138 139 146 147 148 149 150 151 152 153 154 155 156 157 175 179 182 183 184 185)
+	;	
+
+//TODO: add high resolution maps for Cropland and Agriculture Area	
+private model local:alessio.bulckaen:im.data.global:impact.observatory.annual.landuse
+	as presence of agriculture:Cropfield 
+	set to [self==5];
+private model local:rubencc:im.data.global:im-data-global-landcover.copernicus_landcover_10m_2020 
+	as presence of landcover:AgriculturalVegetation earth:Region 
+	set to [self==40];	
+
+//TODO: Add data to identify artificial surface
+
+abstract attribute Pasture
+	describes im:Type of ecology:HerbaceousVegetation earth:LandCover within earth:Location
+	has disjoint children 
+	(CultivatedGrassland
+	"Areas where grasses and other forage plants have been intentionally planted and managed, as well as areas of native grassland-type vegetation where they clearly exhibit active and 'heavy' management for specific human-directed uses, such as directed grazing of livestock."),
+	(NaturalSeminaturalGrassland
+	"Relatively undisturbed native grasslands/short-height vegetation, such as steppes and tundra, as well as areas that have experienced varying degrees of human activity in the past, which may contain a mix of native and introduced species due to historical land use and natural processes. In general, they exhibit natural-looking patterns of varied vegetation and clearly ordered hydrological relationships throughout the landscape."),
+	(OpenShrubland) // where is this coming from? GPW?
+	"Land on which the vegetation is dominated by low-growing woody plants, characterized by a sparse distribution of shrubs and dominated by woody perennials. Typically covers 50—75% of the area, with significant open ground (with or without herbaceous understory) between them, where shrub canopies are less than 10 meters in diameter, and tree cover is below 10%, meaning they do not form a continuous or semi-continuous canopy";
+
+
+@colormap(values = {
+	CultivatedGrassland: (255, 205, 115)
+	NaturalSeminaturalGrassland: (255, 153, 22)
+	OpenShrubland: (168, 139, 75)
+})
+model 
+//	local:alessio.bulckaen:im.data.global:im-data-global-ecology.global_gpw_grassland_rf_epsg_4326_2000,
+//	  local:alessio.bulckaen:im.data.global:im-data-global-ecology.global_gpw_grassland_rf_epsg_4326_2001,
+//	  local:alessio.bulckaen:im.data.global:im-data-global-ecology.global_gpw_grassland_rf_epsg_4326_2002,
+//	  local:alessio.bulckaen:im.data.global:im-data-global-ecology.global_gpw_grassland_rf_epsg_4326_2003,
+//	  local:alessio.bulckaen:im.data.global:im-data-global-ecology.global_gpw_grassland_rf_epsg_4326_2004,
+//	  local:alessio.bulckaen:im.data.global:im-data-global-ecology.global_gpw_grassland_rf_epsg_4326_2005,
+//	  local:alessio.bulckaen:im.data.global:im-data-global-ecology.global_gpw_grassland_rf_epsg_4326_2006,
+//	  local:alessio.bulckaen:im.data.global:im-data-global-ecology.global_gpw_grassland_rf_epsg_4326_2007,
+//	  local:alessio.bulckaen:im.data.global:im-data-global-ecology.global_gpw_grassland_rf_epsg_4326_2008,
+//	  local:alessio.bulckaen:im.data.global:im-data-global-ecology.global_gpw_grassland_rf_epsg_4326_2009,
+//	  local:alessio.bulckaen:im.data.global:im-data-global-ecology.global_gpw_grassland_rf_epsg_4326_2010,
+//	  local:alessio.bulckaen:im.data.global:im-data-global-ecology.global_gpw_grassland_rf_epsg_4326_2011,
+//	  local:alessio.bulckaen:im.data.global:im-data-global-ecology.global_gpw_grassland_rf_epsg_4326_2012,
+//	  local:alessio.bulckaen:im.data.global:im-data-global-ecology.global_gpw_grassland_rf_epsg_4326_2013,
+//	  local:alessio.bulckaen:im.data.global:im-data-global-ecology.global_gpw_grassland_rf_epsg_4326_2014,
+//	  local:alessio.bulckaen:im.data.global:im-data-global-ecology.global_gpw_grassland_rf_epsg_4326_2015,
+//	  local:alessio.bulckaen:im.data.global:im-data-global-ecology.global_gpw_grassland_rf_epsg_4326_2016,
+//	  local:alessio.bulckaen:im.data.global:im-data-global-ecology.global_gpw_grassland_rf_epsg_4326_2017,
+//	  local:alessio.bulckaen:im.data.global:im-data-global-ecology.global_gpw_grassland_rf_epsg_4326_2018,
+//	  local:alessio.bulckaen:im.data.global:im-data-global-ecology.global_gpw_grassland_rf_epsg_4326_2019,
+	  local:alessio.bulckaen:im.data.global:im-data-global-ecology.global_gpw_grassland_rf_epsg_4326_2020
+//	  local:alessio.bulckaen:im.data.global:im-data-global-ecology.global_gpw_grassland_rf_epsg_4326_2021,
+//	  local:alessio.bulckaen:im.data.global:im-data-global-ecology.global_gpw_grassland_rf_epsg_4326_2022   
+//		local:alessio.bulckaen:im.data.global:global_pasture_watch.dominant_grassland_class_extent_2024
+//	as GrasslandType classified into
+	as type of Pasture classified into
+		CultivatedGrassland if 1,
+		NaturalSeminaturalGrassland if 2,
+		OpenShrubland if 3;	
