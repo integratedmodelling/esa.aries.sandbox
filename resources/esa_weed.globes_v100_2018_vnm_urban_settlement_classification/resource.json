@@ -1,0 +1,48 @@
+{
+  "urn" : "local:caterina.gilli:esa.aries.sandbox:esa_weed.globes_v100_2018_vnm_urban_settlement_classification",
+  "version" : "0.0.1",
+  "adapterType" : "wcs",
+  "localPath" : "esa.aries.sandbox/resources/esa_weed.globes_v100_2018_vnm_urban_settlement_classification",
+  "geometry" : "τ1{tend=1546300800000,tstart=1514764800000,ttype=logical}S2(1580,2099){bbox=[104.21440200000006 108.60642000000007 15.805175999999985 21.638975999999985],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "esa_weed.globes_v100_2018_vnm_urban_settlement_classification",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1748967432547,
+  "metadata" : {
+    "im:keywords" : "",
+    "dc:comment" : "",
+    "im:notes" : "",
+    "dc:title" : "",
+    "dc:url" : "",
+    "dc:creator" : "",
+    "im:thematic-area" : "",
+    "dc:originator" : "",
+    "im:geographic-area" : "",
+    "dc:source" : ""
+  },
+  "parameters" : {
+    "wcsIdentifier" : "esa_weed__globes_v100_2018_vnm_urban_settlement_classification",
+    "transform" : "",
+    "serviceUrl" : "https://integratedmodelling.org/aux-geoserver/esa_weed/wcs",
+    "nodata" : "0.0",
+    "wcsVersion" : "2.0.1"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : {
+    "east" : 108.60642000000007,
+    "west" : 104.21440200000006,
+    "north" : 21.638975999999985,
+    "south" : 15.805175999999985,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

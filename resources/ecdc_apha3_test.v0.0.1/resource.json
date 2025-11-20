@@ -1,0 +1,39 @@
+{
+  "urn" : "local:stefano.balbi:esa.aries.sandbox:ecdc_apha3_test",
+  "version" : "0.0.1",
+  "adapterType" : "stac",
+  "localPath" : "esa.aries.sandbox/resources/ecdc_apha3_test.v0.0.1",
+  "geometry" : "t1{ttype=grid}S2",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "ecdc_apha3_test",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1750234481698,
+  "metadata" : {
+    "im:keywords" : "B02,  Sentinel-2",
+    "dc:comment" : "This layer displays the 25th percentile reflectance values from the blue band (B02) of Sentinel-2 imagery.\r\nThis is the STAC metadata for the openEO job 'j-250608191747497392481b5f9be419ae' Data source Ecosystem Characteristics Datacube (ECDC)",
+    "im:notes" : "",
+    "dc:title" : "ECDC Sentinel-2 B02, 25th Percentile, blue band reflectance",
+    "dc:url" : "https://catalogue.weed.apex.esa.int/collections/ecosystem-characteristics-alpha3",
+    "dc:creator" : "",
+    "im:thematic-area" : "Earth",
+    "dc:originator" : "",
+    "im:geographic-area" : "Global",
+    "dc:source" : ""
+  },
+  "parameters" : {
+    "collection" : "https://catalogue.weed.apex.esa.int/collections/ecosystem-characteristics-alpha3",
+    "cogband" : "B02_p25",
+    "collectionId" : "ecosystem-characteristics-alpha3"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

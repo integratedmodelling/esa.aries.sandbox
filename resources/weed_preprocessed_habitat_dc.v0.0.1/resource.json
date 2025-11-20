@@ -1,0 +1,31 @@
+{
+  "urn" : "local:arnab.moitra:esa.aries.sandbox:weed_preprocessed_habitat_dc",
+  "version" : "0.0.1",
+  "adapterType" : "stac",
+  "localPath" : "esa.aries.sandbox/resources/weed_preprocessed_habitat_dc.v0.0.1",
+  "geometry" : "t1{ttype=grid}S2",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "weed_preprocessed_habitat_dc",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1749047969450,
+  "metadata" : {
+    "dc:comment" : "This is the STAC metadata for the openEO job 'j-2505211428084bfc85bf966a9dd63eed'",
+    "dc:url" : "https://catalogue.weed.apex.esa.int/collections/inference-alpha2-prepared-v101"
+  },
+  "parameters" : {
+    "collection" : "https://catalogue.weed.apex.esa.int/collections/inference-alpha2-prepared-v101",
+    "bandmixer" : "WEED-L1",
+    "collectionId" : "inference-alpha2-prepared-v101"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

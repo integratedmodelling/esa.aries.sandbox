@@ -1,0 +1,109 @@
+{
+  "urn" : "local:alessio.bulckaen:esa.aries.sandbox:esa_weed_germany_glc_ref_points_epsg4326_10m_2015",
+  "version" : "0.0.1",
+  "adapterType" : "wfs",
+  "localPath" : "esa.aries.sandbox/resources/esa_weed_germany_glc_ref_points_epsg4326_10m_2015",
+  "geometry" : "#s0(10830){bbox=[7.49962476746171 11.4326519406198 49.6867497818519 51.9265553382611],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "esa_weed_germany_glc_ref_points_epsg4326_10m_2015",
+  "type" : "OBJECT",
+  "resourceTimestamp" : 1760451008915,
+  "metadata" : {
+    "im:keywords" : "features,germany_GLC_ref_points_epsg4326_10m_2015",
+    "dc:comment" : "This data set was created to support the C-GLOPS (Copernicus Global Land Operational Services) and WorldCover projects during the time period 2017-2022.\r\n\r\nMethod employed: visual interpretation of very high resolution images and other sources of information using the Geo-Wiki tools.",
+    "dc:title" : "germany_GLC_ref_points_epsg4326_10m_2015"
+  },
+  "parameters" : {
+    "serviceUrl" : "https://integratedmodelling.org/aux-geoserver/esa_weed/ows",
+    "wfsVersion" : "1.0.0",
+    "wfsIdentifier" : "esa_weed:germany_GLC_ref_points_epsg4326_10m_2015"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ {
+    "name" : "field_1",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "validation_id",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "submission_item_id",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "sampleid",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "timestamp",
+    "type" : "VALUE",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "class_id",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "class_name",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "reference_year",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "center_x",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "center_y",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  } ],
+  "spatialExtent" : {
+    "east" : 11.4326519406198,
+    "west" : 7.49962476746171,
+    "north" : 51.9265553382611,
+    "south" : 49.6867497818519,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

@@ -1,0 +1,31 @@
+{
+  "urn" : "local:alessio.bulckaen:esa.aries.sandbox:esa_weed_ecdc_biome_indicator",
+  "version" : "0.0.1",
+  "adapterType" : "stac",
+  "localPath" : "esa.aries.sandbox/resources/esa_weed_ecdc_biome_indicator.v0.0.1",
+  "geometry" : "t1{tend=1735689599000,tstart=1704067200000,ttype=grid}s2{bbox=[-75.0 -34.31795510170588 107.50655901090232 60.069311585676324],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "esa_weed_ecdc_biome_indicator",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1749489813002,
+  "metadata" : {
+    "dc:comment" : "This is the STAC metadata for the openEO job 'j-250527144721488da1df0c289de7e000'",
+    "dc:url" : "https://catalogue.weed.apex.esa.int/collections/ecosystem-characteristics-alpha2-1"
+  },
+  "parameters" : {
+    "collection" : "https://catalogue.weed.apex.esa.int/collections/ecosystem-characteristics-alpha2-1",
+    "cogband" : "VHVVR_iqr",
+    "collectionId" : "ecosystem-characteristics-alpha2-1"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

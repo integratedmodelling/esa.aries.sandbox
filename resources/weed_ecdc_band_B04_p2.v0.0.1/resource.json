@@ -1,0 +1,39 @@
+{
+  "urn" : "local:arnab.moitra:esa.aries.sandbox:weed_ecdc_band_B04_p2",
+  "version" : "0.0.1",
+  "adapterType" : "stac",
+  "localPath" : "esa.aries.sandbox/resources/weed_ecdc_band_B04_p2.v0.0.1",
+  "geometry" : "t1{ttype=grid}S2",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "weed_ecdc_band_B04_p2",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1749634204296,
+  "metadata" : {
+    "im:keywords" : "",
+    "dc:comment" : "Corresponds to ecdc_band_B04_p2\r\nThis is the STAC metadata for the openEO job 'j-250527144721488da1df0c289de7e000'",
+    "im:notes" : "",
+    "dc:title" : "ecdc_plant_density_predictor",
+    "dc:url" : "https://catalogue.weed.apex.esa.int/collections/ecosystem-characteristics-alpha2-1",
+    "dc:creator" : "",
+    "im:thematic-area" : "",
+    "dc:originator" : "",
+    "im:geographic-area" : "",
+    "dc:source" : ""
+  },
+  "parameters" : {
+    "collection" : "https://catalogue.weed.apex.esa.int/collections/ecosystem-characteristics-alpha2-1",
+    "cogband" : "B04_p2",
+    "collectionId" : "ecosystem-characteristics-alpha2-1"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

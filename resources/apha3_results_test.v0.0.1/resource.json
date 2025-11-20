@@ -1,0 +1,41 @@
+{
+  "urn" : "local:stefano.balbi:esa.aries.sandbox:apha3_results_test",
+  "version" : "0.0.1",
+  "adapterType" : "stac",
+  "localPath" : "esa.aries.sandbox/resources/apha3_results_test.v0.0.1",
+  "geometry" : "t1{ttype=grid}S2",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "apha3_results_test",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1750085722249,
+  "metadata" : {
+    "im:keywords" : "",
+    "dc:comment" : "This is the STAC metadata for the openEO job 'j-2506121230454da28e5422c3db4555d1'",
+    "im:notes" : "",
+    "dc:title" : "",
+    "dc:url" : "https://catalogue.weed.apex.esa.int/collections/inference-alpha3-prepared-v100",
+    "dc:creator" : "",
+    "im:thematic-area" : "",
+    "dc:originator" : "",
+    "im:geographic-area" : "",
+    "dc:source" : ""
+  },
+  "parameters" : {
+    "collection" : "https://catalogue.weed.apex.esa.int/collections/inference-alpha3-prepared-v100",
+    "nodata" : "255",
+    "cogband" : "Level2_class-N_habitat-N2-40200",
+    "bandmixer" : "",
+    "collectionId" : "inference-alpha3-prepared-v100"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

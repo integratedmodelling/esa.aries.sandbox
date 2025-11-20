@@ -1,0 +1,109 @@
+{
+  "urn" : "local:alessio.bulckaen:esa.aries.sandbox:esa_weed_south_africa_glc_ref_points_epsg4326_10m_2015",
+  "version" : "0.0.1",
+  "adapterType" : "wfs",
+  "localPath" : "esa.aries.sandbox/resources/esa_weed_south_africa_glc_ref_points_epsg4326_10m_2015",
+  "geometry" : "#s0(1300){bbox=[18.4041017053555 22.0318482860938 -34.2155261152559 -33.6248653913207],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "esa_weed_south_africa_glc_ref_points_epsg4326_10m_2015",
+  "type" : "OBJECT",
+  "resourceTimestamp" : 1760451009972,
+  "metadata" : {
+    "im:keywords" : "features,south_africa_GLC_ref_points_epsg4326_10m_2015",
+    "dc:comment" : "This data set was created to support the C-GLOPS (Copernicus Global Land Operational Services) and WorldCover projects during the time period 2017-2022.\r\n\r\nMethod employed: visual interpretation of very high resolution images and other sources of information using the Geo-Wiki tools.",
+    "dc:title" : "south_africa_GLC_ref_points_epsg4326_10m_2015"
+  },
+  "parameters" : {
+    "serviceUrl" : "https://integratedmodelling.org/aux-geoserver/esa_weed/ows",
+    "wfsVersion" : "1.0.0",
+    "wfsIdentifier" : "esa_weed:south_africa_GLC_ref_points_epsg4326_10m_2015"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ {
+    "name" : "field_1",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "validation_id",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "submission_item_id",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "sampleid",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "timestamp",
+    "type" : "VALUE",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "class_id",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "class_name",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "reference_year",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "center_x",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "center_y",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  } ],
+  "spatialExtent" : {
+    "east" : 22.0318482860938,
+    "west" : 18.4041017053555,
+    "north" : -33.6248653913207,
+    "south" : -34.2155261152559,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

@@ -1,0 +1,66 @@
+{
+  "urn" : "local:alessio.bulckaen:esa.aries.sandbox:im-data-global-soil_vietnam_odp_soil_types",
+  "version" : "0.0.1",
+  "adapterType" : "wfs",
+  "localPath" : "esa.aries.sandbox/resources/im-data-global-soil_vietnam_odp_soil_types",
+  "geometry" : "#s2(230){bbox=[102.14208323300005 109.4683205830001 8.56453584500008 23.393902135000133],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "im-data-global-soil_vietnam_odp_soil_types",
+  "type" : "OBJECT",
+  "resourceTimestamp" : 1748512922323,
+  "metadata" : {
+    "im:keywords" : "features,vietnam_odp_soil_types",
+    "dc:title" : "vietnam_odp_soil_types"
+  },
+  "parameters" : {
+    "serviceUrl" : "https://integratedmodelling.org/geoserver/im-data-global-soil/ows",
+    "wfsVersion" : "1.0.0",
+    "wfsIdentifier" : "im-data-global-soil:vietnam_odp_soil_types"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ {
+    "name" : "__gid",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "domsoil",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "faosoil",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "kieu",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  } ],
+  "spatialExtent" : {
+    "east" : 109.4683205830001,
+    "west" : 102.14208323300005,
+    "north" : 23.393902135000133,
+    "south" : 8.56453584500008,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

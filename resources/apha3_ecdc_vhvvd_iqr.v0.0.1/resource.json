@@ -1,0 +1,39 @@
+{
+  "urn" : "local:stefano.balbi:esa.aries.sandbox:apha3_ecdc_vhvvd_iqr",
+  "version" : "0.0.1",
+  "adapterType" : "stac",
+  "localPath" : "esa.aries.sandbox/resources/apha3_ecdc_vhvvd_iqr.v0.0.1",
+  "geometry" : "t1{ttype=grid}S2",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "apha3_ecdc_vhvvd_iqr",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1750234432947,
+  "metadata" : {
+    "im:keywords" : "Biome , IQR",
+    "dc:comment" : "This layer shows the interquartile range (IQR) of the VH/VV ratio derived from Sentinel-1 radar backscatter, used as a biome indicator.\r\nSTAC metadata for the openEO job 'j-250608191747497392481b5f9be419ae' Data source Ecosystem Characteristics Datacube (ECDC)",
+    "im:notes" : "",
+    "dc:title" : "Biome Indicator VH/VV Ratio Index (IQR)",
+    "dc:url" : "https://catalogue.weed.apex.esa.int/collections/ecosystem-characteristics-alpha3",
+    "dc:creator" : "",
+    "im:thematic-area" : "Earth",
+    "dc:originator" : "",
+    "im:geographic-area" : "Global",
+    "dc:source" : ""
+  },
+  "parameters" : {
+    "collection" : "https://catalogue.weed.apex.esa.int/collections/ecosystem-characteristics-alpha3",
+    "cogband" : "VHVVD_iqr",
+    "collectionId" : "ecosystem-characteristics-alpha3"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

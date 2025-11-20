@@ -1,0 +1,25 @@
+worldview im;
+
+@test(
+    name = "esa.aries.sandbox.benchmark.rulebased_vs_ml",
+    description  = "",
+    // add to the list any concepts to be observed in the context below
+    observations = (
+    "rule_based_modelling.south_africa.south-africa-rule-based-ecosystem-type-resolver"
+    "rule_based_modelling.south_africa.south-africa-machine-learning-ecosystem-type-resolver"
+    "rule_based_modelling.south_africa.south-africa-hybrid-ecosystem-type-resolver"
+    "rule_based_modelling.south_africa.reference-south-africa-ecosystem-type-resolver"
+    "rule_based_modelling.south_africa.southafrica_ecosystem_extent_result_by_ecosystem_type_reference"
+    "rule_based_modelling.south_africa.southafrica_ecosystem_extent_result_by_ecosystem_type_rulebased"
+    "rule_based_modelling.south_africa.southafrica_ecosystem_extent_result_by_ecosystem_type_machine_learning"
+    "rule_based_modelling.south_africa.southafrica_ecosystem_extent_result_by_ecosystem_type_hybrid"
+     ),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe earth:Region named rulebased_and_ml_comparison  
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_south_africa_priority_areas_epsg4326_v2#weed_site=SA9',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(year=2022);

@@ -1,0 +1,40 @@
+{
+  "urn" : "local:alessio.bulckaen:esa.aries.sandbox:esa_weed_globes_v3_fireperiodicity",
+  "version" : "0.0.1",
+  "adapterType" : "stac",
+  "localPath" : "esa.aries.sandbox/resources/esa_weed_globes_v3_fireperiodicity.v0.0.1",
+  "geometry" : "T1{tend=1735689599000,tscope=1.0,tstart=1514764800000,ttype=grid,tunit=year}s2{bbox=[-81.78333 -34.88611 115.24722 70.93889],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "esa_weed_globes_v3_fireperiodicity",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1750423858634,
+  "metadata" : {
+    "im:keywords" : "",
+    "dc:comment" : "This dataset offers multi-temporal metrics that describe the frequency and recurrency of fires on a per-pixel basis. These metrics are derived from annual maximum fire extents as mapped by the MODIS MCD64A1 product.",
+    "im:notes" : "",
+    "dc:title" : "Fire periodicity",
+    "dc:url" : "https://catalogue.weed.apex.esa.int/collections/Globes-V3",
+    "dc:creator" : "",
+    "im:thematic-area" : "Conservation",
+    "dc:originator" : "",
+    "im:geographic-area" : "Global",
+    "dc:source" : ""
+  },
+  "parameters" : {
+    "endpointurl" : "https://s3.waw4-1.cloudferro.com",
+    "collection" : "https://catalogue.weed.apex.esa.int/collections/Globes-V3",
+    "asset" : "firePeriodicity",
+    "collectionId" : "Globes-V3"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

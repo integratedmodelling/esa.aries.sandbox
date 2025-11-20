@@ -1,0 +1,176 @@
+private namespace cu_bbox_contexts;
+
+//contexts for champion user areas
+
+//EU
+////Norway BB:E434N406
+//observe earth:Region named norway_cu_osloviken_no1_bbox
+//    over space(shape='MULTIPOLYGON (((10.33605515635972161 59.64022587925818897, 10.33782835319286875 59.82018013427450143, 10.69342042793710235 59.81887296857946978, 10.68978101565575756 59.63892646636587358, 10.33605515635972161 59.64022587925818897)))',
+//    		grid="100 m",
+//    		projection="EPSG:4326"),
+//    time(start=2024, end=2025, step=1.year);  
+    
+//global grid BB:32τNM41
+observe earth:Region named norway_cu_osloviken_no1_bbox_32tnm41
+    over space(shape='MULTIPOLYGON (((10.78680110532568648 59.88542210404673938, 10.7772235707495625 59.70591813872927389, 10.42192217390525677 59.71024688811746017, 10.42958675762642962 59.88978200214562264, 10.78680110532568648 59.88542210404673938)))',
+    		grid="10 m",
+    		projection="EPSG:4326"),
+    time(start=2024, end=2025, step=1.year); 
+    
+
+//Norway BB:32τNM42 - Shared by VITO in ECDC STAC
+//observe earth:Region named norway_cu_vito_ecdc_stac_bbox
+//	over space(shape='POLYGON((10.42958675762643 59.88978200214562, 10.786801105325686 59.88542210404674, 10.796500096413979 60.064920201493784, 10.43734856828255 60.069311585676324, 10.42958675762643 59.88978200214562))',
+//		grid="10 m",
+//		projection="EPSG:4326"),
+//	time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named norway_cu_osloviken_no1_bbox_32tnm42
+    over space(shape='MULTIPOLYGON (((10.79650009641397901 60.06492020149378419, 10.78680110532568648 59.88542210404673938, 10.42958675762642962 59.88978200214562264, 10.43734856828254998 60.06931158567632423, 10.79650009641397901 60.06492020149378419)))',
+    		grid="10 m",
+    		projection="EPSG:4326"),
+//    		time(year=2024); //-> time issue: org.integratedmodelling.klab.api.data.IGeometry$Dimension.getParameters()" because "this.baseDimension" is null
+    time(start=2024, end=2025, step=1.year);
+
+
+////Czech BB:E462N298 
+//observe earth:Region named czech_cu_transectmidwe_cz8_bbox
+//    over space(shape='MULTIPOLYGON (((14.16002074301924196 49.85628295978061431, 14.17563503219959742 50.03578204905132054, 14.45433961651696464 50.025213141661375, 14.43768944750776484 49.84575945005575193, 14.16002074301924196 49.85628295978061431)))',
+//    		grid="100 m",
+//    		projection="EPSG:4326"),
+//    time(start=2024, end=2025, step=1.year); 
+
+//global grid BB:33σVR21 
+observe earth:Region named czech_cu_transectmidwe_cz8_bbox_33dvr21
+    over space(shape='MULTIPOLYGON (((14.44173505064621033 50.01097265360007782, 14.44380831695072587 49.83109763694566396, 14.16573843534161981 49.82942976209358221, 14.16262887819780758 50.00929418622892797, 14.44173505064621033 50.01097265360007782)))',
+    		grid="10 m",
+    		projection="EPSG:4326"),
+    time(start=2024, end=2025, step=1.year);      
+
+
+//Czech Republic BB:33σWR11 - Shared by VITO in ECDC STAC
+//observe earth:Region named czech_cu_vito_ecdc_stac_bbox
+//	over space(shape='POLYGON((15.278101033997258 49.832098421873056, 15.556191683049239 49.831097636945664, 15.558264949353756 50.01097265360008, 15.279137735623163 50.01197979477284, 15.278101033997258 49.832098421873056))',
+//		grid="10 m",
+//		projection="EPSG:4326"),
+//	time(start=2024, end=2025, step=1.year);
+
+//Czech stac 33σWR11
+observe earth:Region named czech_cu_transectmidwe_cz8_bbox_33dwr11
+    over space(shape='MULTIPOLYGON (((15.55826494935375592 50.01097265360007782, 15.55619168304923861 49.83109763694566396, 15.27810103399725783 49.83209842187305583, 15.2791377356231628 50.0119797947728415, 15.55826494935375592 50.01097265360007782)))',
+    		grid="10 m",
+    		projection="EPSG:4326"),
+    time(start=2024, end=2025, step=1.year);
+
+
+//Czech stac 33σWS20
+observe earth:Region named czech_cu_krkonossky_cz2_bbox_33dws20
+    over space(shape='MULTIPOLYGON (((15.85012913963363879 50.72869444515458071, 15.8468908150274288 50.54885298655396042, 15.56461212153720375 50.55056370966995871, 15.56677125007896478 50.73041608333891617, 15.85012913963363879 50.72869444515458071)))',
+    		grid="100 m",
+    		projection="EPSG:4326"),
+    		time (year = 2024);
+//    time(start=2024, end=2025, step=1.year);
+
+
+
+//Greece BB:E530N178
+//observe earth:Region named greece_cu_sterea_el9_bbox
+//    over space(shape='MULTIPOLYGON (((21.1857227101401584 38.45677635197927202, 21.21586101519590173 38.63595447103879366, 21.44230045904840409 38.60911592768326273, 21.41157783663824432 38.43002109042780745, 21.1857227101401584 38.45677635197927202)))',
+//    		grid="100 m",
+//    		projection="EPSG:4326"),
+//    		time(year = 2024);
+////    time(start=2024, end=2025, step=1.year);
+
+//global grid BB:34σEH13 
+observe earth:Region named greece_cu_sterea_el9_bbox_34deh13
+    over space(shape='MULTIPOLYGON (((21.45979362008812075 38.66767992054531788, 21.45864606934892294 38.48744551412937653, 21.22932558762117239 38.48811896718375891, 21.22989938783100072 38.66835770548363627, 21.45979362008812075 38.66767992054531788)))',
+    		grid="10 m",
+    		projection="EPSG:4326"),
+    time(start=2024, end=2025, step=1.year);
+
+    
+// Greece BB:34σDH30 - Shared by VITO in ECDC STAC
+//observe earth:Region named greece_cu_vito_ecdc_stac_bbox
+//	over space(shape='POLYGON((20.54473570529695 37.946708788512694, 20.772365372103444 37.947369372288286, 20.77180674372909 38.1276247924196, 20.543618496121717 38.126959939705046, 20.54473570529695 37.946708788512694))',
+//		grid= "10 m",
+//		projection= "EPSG:4326"),
+//	time(start=2024, end=2025, step=1.year);
+
+//Greece stac 34σDH30
+observe earth:Region named greece_cu_kefaloniaz_el3_bbox_34ddh30
+    over space(shape='MULTIPOLYGON (((20.77180674372909053 38.12762479241960278, 20.7723653721034438 37.94736937228828566, 20.54473570529695081 37.94670878851269435, 20.54361849612171653 38.1269599397050456, 20.77180674372909053 38.12762479241960278)))',
+    		grid="10 m",
+    		projection="EPSG:4326"),
+    time(start=2024, end = 2025, step=1.year);   
+
+
+//South Africa
+//name of grid in the gpkg data shared by VITO 34δEH33
+// Also the same is present in ECDC STAC
+observe earth:Region named south_africa_cu_groenfontein_sa9_bbox_34deh33
+    over space(shape='MULTIPOLYGON (((21.86242373560273577 -33.61678019674666018, 21.86422844346419936 -33.79714664844519234, 21.64818544788652588 -33.79847094610938996, 21.64683179797409451 -33.61809554592448279, 21.86242373560273577 -33.61678019674666018)))',
+    		grid="30 m",
+    		projection="EPSG:4326"),
+//    		time(year = 2024);
+    time(start=2024, end=2024, step=1.year);
+
+//SA stac 34δBH30
+observe earth:Region named south_africa_cu_capepoint_sa1_vito_ecdc_bbox_34dbh30
+    over space(shape='MULTIPOLYGON (((18.6141016265149446 -34.13774058895709373, 18.60901128254319303 -34.31795510170587704, 18.39183874019099818 -34.31352046049698856, 18.39739021724547641 -34.13333566451122891, 18.6141016265149446 -34.13774058895709373)))',
+    		grid="30 m",
+    		projection="EPSG:4326"),
+    time(start=2024, end=2025, step=1.year);
+
+
+   
+//Vietnam
+//name of grid in the gpkg data shared by VITO 48πYJ11
+observe earth:Region named vietnam_cu_quangninh_vn1_bbox_48pyj11
+    over space(shape='MULTIPOLYGON (((107.31105404674208614 21.14552364702679199, 107.3082667544684341 20.96495940596442864, 107.11601479416913207 20.96745535956352668, 107.118570379549368 21.14804310085878214, 107.31105404674208614 21.14552364702679199)))',
+    		grid="30 m",
+    		projection="EPSG:4326"),
+    		time(year = 2024);
+//    time(start=2024, end=2025, step=1.year);
+    
+// Vietnam BB:48πYJ22 - Shared by VITO in ECDC STAC
+//observe earth:Region named vietnam_cu_vito_ecdc_stac_bbox
+//	over space(shape='POLYGON((107.31105404674209 21.145523647026792, 107.5035080923286 21.142785696474977, 107.50655901090232 21.323320137484703, 107.31387096098437 21.326083685346696, 107.31105404674209 21.145523647026792))',
+//		grid = "100 m",
+//		projection = "EPSG:4326"),
+//	time(start=2024, end = 2025, step = 1.year);
+
+//vietnam stac 48πYJ22
+observe earth:Region named vietnam_cu_quangninh_vn1_vito_ecdc_stac_bbox_48pyj22
+    over space(shape='MULTIPOLYGON (((107.50655901090232192 21.32332013748470345, 107.50350809232860172 21.14278569647497719, 107.31105404674208614 21.14552364702679199, 107.31387096098437439 21.32608368534669552, 107.50655901090232192 21.32332013748470345)))',
+    		grid="100 m",
+    		projection="EPSG:4326"),
+    time(start=2024, end=2025, step=1.year);
+    
+    
+//Colombia
+//name of grid in the gpkg data shared by VITO 18λWQ22
+observe earth:Region named colombia_cu_mojana_co1_bbox_18lwq22
+    over space(shape='MULTIPOLYGON (((-74.45459107377087093 8.68436620579374363, -74.45484955756327849 8.50346874923039309, -74.6365632389979794 8.50368085249721162, -74.63639090920244712 8.68458288763117459, -74.45459107377087093 8.68436620579374363)))',
+    		grid="30 m",
+    		projection="EPSG:4326"),
+//    		time(year = 2024);
+    time(start=2024, end=2025, step=1.year);
+    
+// Colombia BB:18λWQ02 - Shared by VITO in ECDC STAC
+//observe earth:Region named colombia_cu_vito_ecdc_stac_bbox
+//	over space(shape='POLYGON((-75.0 8.503850541461754, -74.81828067966575 8.503808118691346, -74.8181945125877 8.68471290106149, -75.0 8.684756239592932, -75.0 8.503850541461754))',
+//				grid= "10 m",
+//				projection = "EPSG:4326"),
+//		time(start=2024, end = 2025, step=1.year);
+    
+
+//colombia stac 18λWQ02
+observe earth:Region named colombia_cu_mojana_co1_vito_ecdc_stac_bbox_18lwq02
+    over space(shape='MULTIPOLYGON (((-74.81819451258769504 8.68471290106148963, -74.81828067966574736 8.5038081186913459, -75 8.50385054146175356, -75 8.6847562395929323, -74.81819451258769504 8.68471290106148963)))',
+    		grid="100 m",
+    		projection="EPSG:4326"),
+    time(start=2024, end=2025, step=1.year);
+
+
+
+

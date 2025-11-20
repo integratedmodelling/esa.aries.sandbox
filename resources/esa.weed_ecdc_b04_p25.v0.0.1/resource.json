@@ -1,0 +1,39 @@
+{
+  "urn" : "local:alessio.bulckaen:esa.aries.sandbox:esa.weed_ecdc_b04_p25",
+  "version" : "0.0.1",
+  "adapterType" : "stac",
+  "localPath" : "esa.aries.sandbox/resources/esa.weed_ecdc_b04_p25.v0.0.1",
+  "geometry" : "T1{tend=1735689599000,tscope=1.0,tstart=1704067200000,ttype=grid,tunit=year}s2{bbox=[-81.5541578698914 -34.69244276999696 108.57381744646474 70.82384567734587],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "esa.weed_ecdc_b04_p25",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1750423035378,
+  "metadata" : {
+    "im:keywords" : "",
+    "dc:comment" : "This layer represents the 25th percentile reflectance values from the red band (B04) of Sentinel-2 imagery\r\n[Reflection of 25th percentile in Sentinel-2 Band 4 (Red)]",
+    "im:notes" : "",
+    "dc:title" : "ECDC Sentinel-2 B04, 25th Percentile",
+    "dc:url" : "https://catalogue.weed.apex.esa.int/collections/ecosystem-characteristics-alpha3",
+    "dc:creator" : "",
+    "im:thematic-area" : "Remote sensing",
+    "dc:originator" : "VITO",
+    "im:geographic-area" : "Global",
+    "dc:source" : ""
+  },
+  "parameters" : {
+    "collection" : "https://catalogue.weed.apex.esa.int/collections/ecosystem-characteristics-alpha3",
+    "cogband" : "B04_p25",
+    "collectionId" : "ecosystem-characteristics-alpha3"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

@@ -1,0 +1,74 @@
+{
+  "urn" : "local:justus.muhando:esa.aries.sandbox:esa_weed_vietnam_priority_areas_bbox_epsg4326_v2",
+  "version" : "0.0.1",
+  "adapterType" : "wfs",
+  "localPath" : "esa.aries.sandbox/resources/esa_weed_vietnam_priority_areas_bbox_epsg4326_v2",
+  "geometry" : "#s2(3){bbox=[104.266208155698 108.554866496474 15.8556061335078 21.5870023342649],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "esa_weed_vietnam_priority_areas_bbox_epsg4326_v2",
+  "type" : "OBJECT",
+  "resourceTimestamp" : 1753693976209,
+  "metadata" : {
+    "im:keywords" : "features,vietnam_priority_areas_bbox_epsg4326_v2",
+    "dc:comment" : "Bounding boxes",
+    "dc:title" : "vietnam_priority_areas_bbox_epsg4326_v2"
+  },
+  "parameters" : {
+    "serviceUrl" : "https://integratedmodelling.org/aux-geoserver/esa_weed/ows",
+    "wfsVersion" : "1.0.0",
+    "wfsIdentifier" : "esa_weed:vietnam_priority_areas_bbox_epsg4326_v2"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ {
+    "name" : "id",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "area",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "name",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "weed_site",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "priority",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  } ],
+  "spatialExtent" : {
+    "east" : 108.554866496474,
+    "west" : 104.266208155698,
+    "north" : 21.5870023342649,
+    "south" : 15.8556061335078,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}
