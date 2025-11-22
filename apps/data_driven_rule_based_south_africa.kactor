@@ -5,7 +5,7 @@ action main:
 //This script generate teh geotiff to create a data structure to be analysed to build a decision tree model 
 //colombia_grid_tiles_spatial_boundaries ='klab:grid:tiles:square.1#select=36106,36107,36108'
 output_folder_directory = "WEED/Data Driven Analysis/South Africa"
-urn_spatial_boundaries = "local:justus.muhando:esa.aries.sandbox:esa_weed_south_africa_priority_areas_epsg4326_v2"
+spatial_contexts_urn = "local:justus.muhando:esa.aries.sandbox:esa_weed_south_africa_priority_areas_epsg4326_v2"
 
 	set observables_urns (
 //		{landcover:LandCoverType} //generic semantic concept goes with their URN into {} 
@@ -46,7 +46,7 @@ urn_spatial_boundaries = "local:justus.muhando:esa.aries.sandbox:esa_weed_south_
 				if [state.toString().contains("[nothing")] (
 					warning(["Observation " + urn_name + " return nothing"])
 				) else ( 
-					state.export([output_folder_directory + "/" + year + "/" + "maps" + "/" + tile.name + urn_name + ".tiff"])
+					state.export([output_folder_directory + "/" + year + "/" + "maps" + "/" + priority_area.name + urn_name + ".tiff"])
 				)
 			)
 		)
