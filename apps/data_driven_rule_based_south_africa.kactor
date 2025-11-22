@@ -27,7 +27,7 @@ spatial_contexts_urn = "local:justus.muhando:esa.aries.sandbox:esa_weed_south_af
 	resolution = 30.m
 	for year in (2020) (
 		for priority_area in spatial_contexts_urn(
-				if [priority_area.weed_site == 'SA1']//|| priority_area.weed_site == 'SA2'|| priority_area.weed_site == 'SA3'|| priority_area.weed_site == 'SA4'|| priority_area.weed_site == 'SA5'|| priority_area.weed_site == 'SA6'|| priority_area.weed_site == 'SA7'|| priority_area.weed_site == 'SA8'|| priority_area.weed_site == 'SA9'|| priority_area.weed_site == 'SA10'|| priority_area.weed_site == 'SA11']//|| feature.layer == 'central_colombia' || feature.layer == 'south_colombia']
+				if [priority_area.weed_site == 'SA1'|| priority_area.weed_site == 'SA2'|| priority_area.weed_site == 'SA3'|| priority_area.weed_site == 'SA4'|| priority_area.weed_site == 'SA5'|| priority_area.weed_site == 'SA6'|| priority_area.weed_site == 'SA7'|| priority_area.weed_site == 'SA8'|| priority_area.weed_site == 'SA9'|| priority_area.weed_site == 'SA10'|| priority_area.weed_site == 'SA11']//|| feature.layer == 'central_colombia' || feature.layer == 'south_colombia']
 					(for urn in observables_urns(	
 					context(priority_area,resolution,Time(year=year),urn): state -> (
 						set urn_name ""
