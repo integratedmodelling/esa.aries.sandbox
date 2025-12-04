@@ -1,4 +1,4 @@
-app data_driven_rule_based.south_africa
+script data_driven_rule_based.south_africa
 
 action main:
 //This script generate teh geotiff to create a data structure to be analysed to build a decision tree model 
@@ -8,9 +8,9 @@ spatial_contexts_urn = "local:justus.muhando:esa.aries.sandbox:esa_weed_south_af
 
 	set observables_urns (
 //		{landcover:LandCoverType} //generic semantic concept goes with their URN into {} 
-		data.dinerstein_region
+		data.african_dinerstein_region
 		data.gpw_grasssland
-		data.short_height_vegetation
+//		data.short_height_vegetation
 		data.glc_fcs30
 		data.copernicus_gdlc
 		data.copernicus_landcover_2020
@@ -27,7 +27,7 @@ spatial_contexts_urn = "local:justus.muhando:esa.aries.sandbox:esa_weed_south_af
 	resolution = 30.m
 	for year in (2020) (
 		for priority_area in spatial_contexts_urn(
-				if [priority_area.weed_site == 'SA1'|| priority_area.weed_site == 'SA2'|| priority_area.weed_site == 'SA3'|| priority_area.weed_site == 'SA4'|| priority_area.weed_site == 'SA5'|| priority_area.weed_site == 'SA6'|| priority_area.weed_site == 'SA7'|| priority_area.weed_site == 'SA8'|| priority_area.weed_site == 'SA9'|| priority_area.weed_site == 'SA10'|| priority_area.weed_site == 'SA11']//|| feature.layer == 'central_colombia' || feature.layer == 'south_colombia']
+				if [priority_area.weed_site == 'SA1'|| priority_area.weed_site == 'SA2' || priority_area.weed_site == 'SA3'|| priority_area.weed_site == 'SA4'|| priority_area.weed_site == 'SA5'] // || priority_area.weed_site == 'SA6'|| priority_area.weed_site == 'SA7'|| priority_area.weed_site == 'SA8'|| priority_area.weed_site == 'SA9'|| priority_area.weed_site == 'SA10'|| priority_area.weed_site == 'SA11']//|| feature.layer == 'central_colombia' || feature.layer == 'south_colombia']
 					(for urn in observables_urns(	
 					context(priority_area,resolution,Time(year=year),urn): state -> (
 						set urn_name ""
