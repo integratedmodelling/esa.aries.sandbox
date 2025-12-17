@@ -8,7 +8,7 @@ Natural,
 Anthropogenic;
 
 define EUNIS_IUCN_GET_NATURALNESS as {{
-  eunis                                                                                                    | iucn get                                                  | naturalness    
+  eunis                                                                                                    | iucn                                                       | naturalness    
   -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   nca.ecosystem.eunis:AtlanticBalticArcticSandBeach                                                        | nca.ecosystem.iucn:SandyShoreline                          | Natural       ,
   nca.ecosystem.eunis:MediterraneanBlackSeaSandBeach                                                       | nca.ecosystem.iucn:SandyShoreline                          | Natural       ,
