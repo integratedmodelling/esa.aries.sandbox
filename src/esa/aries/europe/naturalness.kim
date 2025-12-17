@@ -300,3 +300,16 @@ define EUNIS_IUCN_GET_NATURALNESS as {{
   nca.ecosystem.eunis:PeriodicallyExposedShoreStableMesotrophicSedimentPioneerEphemeralVegetation          | nca.ecosystem.iucn:SeasonalFloodplainMarsh                 | Natural       ,
   nca.ecosystem.eunis:PeriodicallyExposedSalineShorePioneerEphemeralVegetation                             | nca.ecosystem.iucn:SeasonalFloodplainMarsh                 | Natural       
 }};
+
+model es.nca:EcosystemType im:Natural im:Level 
+observing
+	nca.ecosystem.iucn:EcosystemType
+	lookup (*, iucn, ?)
+	into EUNIS_IUCN_GET_NATURALNESS;
+
+model es.nca:EcosystemType im:Natural im:Level 
+observing
+	nca.ecosystem.eunis:EcosystemType
+	lookup (eunis,*, ?)
+	into EUNIS_IUCN_GET_NATURALNESS;
+	
