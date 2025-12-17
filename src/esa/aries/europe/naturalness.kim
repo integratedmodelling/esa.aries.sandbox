@@ -2,7 +2,8 @@ private namespace esa.aries.europe.naturalness
 using nca.ecosystem.eunis, nca.ecosystem.iucn;
 
 
-abstract attribute NaturlanessDegree
+abstract attribute NaturlanessLevel
+describes es.nca:EcosystemType im:Natural im:Level 
 has children
 Natural,
 Anthropogenic;
