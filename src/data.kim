@@ -1382,3 +1382,12 @@ private model local:rubencc:im.data.global:im-data-global-landcover.copernicus_l
 	landcover:LichenMoss if 100;
 
 //TODO: Add data to identify artificial surface
+
+
+
+//ADD COLOMBIA FOREST HEIGHT DATA 
+number local:justus.muhando:esa.aries.sandbox:esa_weed.colombia_canopy_cover_sample_epsg4326_25m as colombia_canopy_cover_sample;
+number local:justus.muhando:esa.aries.sandbox:esa_weed.colombia_canopy_height_sample_epsg4326_25m as colombia_canopy_height_sample;
+number local:justus.muhando:esa.aries.sandbox:esa_weed.colombia_fhd_pai_sample_epsg4326_25m as colombia_fhd_pai_sample;
+number local:justus.muhando:esa.aries.sandbox:esa_weed.colombia_pai_sample_epsg4326_25m as colombia_pai_sample;
+number local:justus.muhando:esa.aries.sandbox:esa_weed.colombia_rh50_sample_epsg4326_25m as colombia_rh50_sample;

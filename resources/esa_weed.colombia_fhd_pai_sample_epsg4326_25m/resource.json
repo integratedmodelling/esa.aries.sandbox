@@ -1,0 +1,37 @@
+{
+  "urn" : "local:justus.muhando:esa.aries.sandbox:esa_weed.colombia_fhd_pai_sample_epsg4326_25m",
+  "version" : "0.0.1",
+  "adapterType" : "wcs",
+  "localPath" : "esa.aries.sandbox/resources/esa_weed.colombia_fhd_pai_sample_epsg4326_25m",
+  "geometry" : "S2(19231,19355){bbox=[-79.43442731355282 -75.11532742750616 8.78619721515201 13.133144875006375],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "esa_weed.colombia_fhd_pai_sample_epsg4326_25m",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1767873696838,
+  "metadata" : { },
+  "parameters" : {
+    "wcsIdentifier" : "esa_weed__colombia_fhd_pai_sample_epsg4326_25m",
+    "transform" : "",
+    "serviceUrl" : "https://integration.integratedmodelling.org/geoserver/esa_weed/wcs",
+    "nodata" : "0.0",
+    "wcsVersion" : "2.0.1"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : {
+    "east" : -75.11532742750616,
+    "west" : -79.43442731355282,
+    "north" : 13.133144875006375,
+    "south" : 8.78619721515201,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}
