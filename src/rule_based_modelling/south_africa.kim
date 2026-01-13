@@ -1,9 +1,9 @@
 private namespace rule_based_modelling.south_africa
 using alphathree, nca.ecosystem.iucn, nca.ecoregion, rule_based_modelling, data;
 
-model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cu_glc_fcs30d_landcover_epsg4326_30m_2020,
-	local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cu_glc_fcs30d_landcover_epsg4326_30m_2021,
-	local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cu_glc_fcs30d_landcover_epsg4326_30m_2022
+model local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2020_mosaic,
+	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2021_mosaic,
+	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2022_mosaic
 	as landcover:LandCoverType classified according to im:glc-fcs30-enconding;
 
 model 'local:rubencc:im.data.global:im-data-global-ecology.global_ecoregions_300m_4326_2017'
