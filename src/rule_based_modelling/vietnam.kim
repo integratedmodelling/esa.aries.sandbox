@@ -20,26 +20,6 @@ private namespace rule_based_modelling.vietnam
 //		(landcover, aridity, a_temp, wm_temp, mountain, elevation, soil_texture, *, dinerstein_region, *, plantation, ?) 
 //			into IUCN_GLOBAL_ECOSYSTEMS_BIOMES;
 
-
-@key(en="Ecosystem type - IUCN GET 2.0 Level 3", es="Ecosistemas - IUCN GET 2.0 nivel 3")
-@documented(seeaeea.ecosystemextent)
-model nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get_vietnam
-	observing
-		landcover:LandCoverType                                                                 named landcover    ,
-//		ratio of earth:PrecipitationVolume to im:Potential hydrology:EvapotranspiredWaterVolume named aridity      ,
-		earth:AtmosphericTemperature in Celsius			                                        named a_temp  	   , 
-		im:Reference earth:AtmosphericTemperature in Celsius	                      			named wm_temp      ,
-		presence of earth:Mountain																named mountain     ,		
-		geography:Elevation in m                                                                named elevation    ,
-		type of soil:SoilTexture																named soil_texture 
-//        keith_region                                                                                               ,
-//        dinerstein_region                                                                                          ,
-//		KoppenGeigerClimateZone																	named kg_clim      ,
-//		plantation                                                                                                      
-	lookup 
-		(landcover, *, a_temp, wm_temp, mountain, elevation, soil_texture, *, dinerstein_region, *, plantation, ?) 
-			into IUCN_GLOBAL_ECOSYSTEMS_BIOMES;
-
 define IUCN_GLOBAL_ECOSYSTEMS_BIOMES as {{ 
                 landcover                 |     aridity       |    a_temp    | wm_temp   |  mountain   | elevation |      soil_texture     |        keith_region       |                                                                                                                                                                                                                                                                                                                               dinerstein_region                                                                                                                                                                                                                                                                                                                                |   kg_clim    | forest_management |                      ecosystem_type                     
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -196,3 +176,21 @@ define IUCN_GLOBAL_ECOSYSTEMS_BIOMES as {{
  #                                         |  #               |  #           |  #        |  #          |  #       |  #                     |  #                         |  #                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |  #           |  #                |  nca.ecosystem.iucn:Terrestrial                             
  }};
 
+@key(en="Ecosystem type - IUCN GET 2.0 Level 3", es="Ecosistemas - IUCN GET 2.0 nivel 3")
+@documented(seeaeea.ecosystemextent)
+model nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get
+	observing
+		landcover:LandCoverType                                                                 named landcover    ,
+//		ratio of earth:PrecipitationVolume to im:Potential hydrology:EvapotranspiredWaterVolume named aridity      ,
+		earth:AtmosphericTemperature in Celsius			                                        named a_temp  	   , 
+		im:Reference earth:AtmosphericTemperature in Celsius	                      			named wm_temp      ,
+		presence of earth:Mountain																named mountain     ,		
+		geography:Elevation in m                                                                named elevation    ,
+		type of soil:SoilTexture																named soil_texture 
+//        keith_region                                                                                               ,
+//        dinerstein_region                                                                                          ,
+//		KoppenGeigerClimateZone																	named kg_clim      ,
+//		plantation                                                                                                      
+	lookup 
+		(landcover, *, a_temp, wm_temp, mountain, elevation, soil_texture, *, dinerstein_region, *, plantation, ?) 
+			into IUCN_GLOBAL_ECOSYSTEMS_BIOMES;
