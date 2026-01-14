@@ -57,7 +57,7 @@ action main:
 //		for urn in observables_urns(	
 //			context(spatial_contexts_urn,resolution,Time(start=[year], end=[year+1], step=1.year),urn): state -> (
 		for priority_area in spatial_contexts_urn(
-				if [priority_area.weed_site == 'CO1'|| priority_area.weed_site == 'CO2'|| priority_area.weed_site == 'CO3'|| priority_area.weed_site == 'CO16' || priority_area.weed_site == 'CO17'] //|| feature.layer == 'central_colombia' || feature.layer == 'south_colombia']
+//				if [priority_area.weed_site == 'CO1'|| priority_area.weed_site == 'CO2'|| priority_area.weed_site == 'CO3'|| priority_area.weed_site == 'CO16' || priority_area.weed_site == 'CO17'] //|| feature.layer == 'central_colombia' || feature.layer == 'south_colombia']
 					(for urn in observables_urns(	
 					context(priority_area,resolution,Time(year=year),urn): state -> (
 						set urn_name ""
