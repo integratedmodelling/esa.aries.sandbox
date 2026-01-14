@@ -1,5 +1,12 @@
 private namespace rule_based_modelling.south_africa
-using alphathree, nca.ecosystem.iucn, nca.ecoregion, rule_based_modelling, data;
+using 
+alphathree, 
+nca.ecosystem.iucn,
+nca.ecoregion,
+rule_based_modelling,
+data,
+(IUCN_GET_NATURALNESS) from esa.aries.ecosystem.naturalness,
+nca.ecosystem.naturalness;
 
 model local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cu_glc_fcs30d_landcover_epsg4326_30m_2020,
 	local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cu_glc_fcs30d_landcover_epsg4326_30m_2021,
@@ -306,4 +313,11 @@ define table southafrica_ecosystem_extent_result_by_ecosystem_type_hybrid as {
 	columns:({ title: "Hybrid approach - {classifier}", target: im:Area in km^2, filter: alphathree:Hybrid geography:SouthAfrica nca.ecosystem.iucn:EcosystemType }
 			 { title: "Total", summarize: sum, style: bold }),
 	rows:   ({ title: "Area {start} (km²)" })}; 
- 			
+ 
+ 
+model nca.ecosystem.iucn:Ecosystem nca.ecosystem.naturalness:NaturlanessLevel named natural_and__anthropogenic_iucn_get 
+observing
+//	alphathree:Hybrid geography:SouthAfrica nca.ecosystem.iucn:EcosystemType
+	nca.ecosystem.iucn:EcosystemType named iucn
+	lookup (iucn, ?)
+	into IUCN_GET_NATURALNESS; 			

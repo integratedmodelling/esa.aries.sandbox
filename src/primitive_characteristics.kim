@@ -189,3 +189,43 @@ Land cover on agriculture
 Elevation and slope 
 Impervious cover
  */	 	 
+ 
+ 
+/*Work on primitive characteristic December 2025 */ 
+
+observe earth:Region named south_africa_sa9_priority_area__groenfontein_2018
+over space(shape='EPSG:4326 POLYGON ((21.672770369657062 -33.72452830134102, 21.681613528960135 -33.72625887572312, 21.67984490548142 -33.734305575029424, 21.66153434987527 -33.76172789963026, 21.665175652921878 -33.76371719516138, 21.688375943665143 -33.75290526895041, 21.683694273558192 -33.738631442839456, 21.68941631596417 -33.72876813864494, 21.716049834246494 -33.72677803883708, 21.729054493223064 -33.74788807291177, 21.75038210963712 -33.75913310148599, 21.7448681375 -33.765879408046, 21.72354052108594 -33.756970709696354, 21.709287419541482 -33.73110428615459, 21.693369734891437 -33.73802583299577, 21.69784333472953 -33.744427770432495, 21.693369734891437 -33.760776480151456, 21.664343356130388 -33.77011720586442, 21.651650818273172 -33.76622536018067, 21.672770369657062 -33.72452830134102))',
+grid="30 m",
+projection="EPSG:4326"),
+time(start=2018, end=2020, step=1.year);
+
+observe earth:Region named south_africa_lake_2018
+over space(shape=
+				'EPSG:4326 POLYGON ((19.343229368144385 -33.65785744813961, 19.515098783934228 -33.65612550669671, 19.522589481251053 -33.8128985320824, 19.341148623546324 -33.81497306694835, 19.343229368144385 -33.65785744813961))',
+grid="30 m",
+projection="EPSG:4326"),
+time(start=2018, end=2020, step=1.year);
+
+private model 
+	local:rubencc:im.data.global:im-data-global-landcover.copernicus_landcover_100m_2017,
+	local:rubencc:im.data.global:im-data-global-landcover.copernicus_landcover_100m_2018,
+	local:rubencc:im.data.global:im-data-global-landcover.copernicus_landcover_100m_2019
+ //as landcover:LandCoverType named copernicus_gdlc classified according to im:copernicus-gdlc-encoding;	
+	as presence of earth:WaterBody
+	set to [self == 90 ? true : false ];
+
+number 
+//	local:rubencc:im.data.global:im-data-global-landcover.copernicus_landcover_100m_2017,
+	local:rubencc:im.data.global:im-data-global-landcover.copernicus_landcover_100m_2018
+//	local:rubencc:im.data.global:im-data-global-landcover.copernicus_landcover_100m_2019
+ //as landcover:LandCoverType named copernicus_gdlc classified according to im:copernicus-gdlc-encoding;	
+	as waterbody;
+
+model presence of nca.ecosystem.iucn:TropicalSubtropicalLowlandRainforest earth:Region
+observing
+	landcover:LandCoverType,
+	ecology:CanopyCover,
+	ecology:PrimaryProductivity,
+	ecology:LeafAreaIndex,
+	ecology:Evergreen ecology:Forest;
+		

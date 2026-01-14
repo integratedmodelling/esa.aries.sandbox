@@ -1,0 +1,36 @@
+private namespace esa.aries.primitive_characteristic.water_surface;
+
+abstract attribute WaterBody
+describes im:Type of earth:WaterBody
+has disjoint children
+	River,
+	LakeReservoir,
+	TidalRiverDelta,
+	Canal;
+
+number local:alessio.bulckaen:im.data.global:ecdc_hydroform_watercourse_2018 as test_waterbody;
+	
+private model local:alessio.bulckaen:im.data.global:ecdc_hydroform_watercourse_2018
+	as type of earth:WaterBody classified into
+		River if 255,
+		LakeReservoir if 100,
+		TidalRiverDelta if 126,
+		Canal if 86
+	set to [
+    self == nodata ? nodata :
+    (self == 0 || self == 254) ? unknown : self
+];
+//	set to [ (self == 0 || self == 254) ? is unknown : self];
+
+number local:alessio.bulckaen:im.data.global:ecdc_surface_water_hydroform_morphology_area_greece_20130101_20201231 as hydrophorm
+over space(shape="EPSG:4326 POLYGON((30.295365 34.8, 30.295365 42.396401, 19.261895 42.396401, 19.261895 34.8, 30.295365 34.8))");
+
+
+model local:alessio.bulckaen:im.data.global:ecdc_surface_water_hydroform_morphology_area_greece_20130101_20201231
+as im:Extent of earth:WaterBody in km^2
+over space(shape="EPSG:4326 POLYGON((30.295365 34.8, 30.295365 42.396401, 19.261895 42.396401, 19.261895 34.8, 30.295365 34.8))");
+
+observe earth:Region named greece_2018
+over space(shape="EPSG:4326 POLYGON((30.295365 34.8, 30.295365 42.396401, 19.261895 42.396401, 19.261895 34.8, 30.295365 34.8))",
+		   grid="3000 m"),
+time(start=2018, end=2020, step=1.year);

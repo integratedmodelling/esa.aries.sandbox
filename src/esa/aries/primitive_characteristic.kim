@@ -1,0 +1,89 @@
+private namespace esa.aries.primitive_characteristic;
+
+observe earth:Region named greece_test_area_2018
+over space(shape=
+//"EPSG:4326 POLYGON((30.295365 34.8, 30.295365 42.396401, 19.261895 42.396401, 19.261895 34.8, 30.295365 34.8))"
+"EPSG:4326 POLYGON ((22.335579997340485 37.505486618136544, 22.13570513274892 37.505486618136544, 22.13570513274892 37.57798257227124, 22.335579997340485 37.57798257227124, 22.335579997340485 37.505486618136544))
+",
+		   grid="100 m"),
+time(start=2018, end=2019, step=1.year);
+// 1. Soil Fertility
+// Description: Soil ability to supply nutrients. Ratings 0-1 categorized into integer classes (1-10).
+// Classes 11-14 represent non-soil areas (steep slopes, water, etc), treated here as nodata/unknown.
+number 'local:alessio.bulckaen:im.data.global:ecdc__soil-v1__nitrogen__global__1995_2019'as test;
+number 'local:alessio.bulckaen:im.data.global:ecdc_soil_v1_nitrogen_global_1995-2020' as test2;
+number 'local:alessio.bulckaen:im.data.global:ecdc__soil-v1__nitrogen__global__1995_2019' as test_json_pyhton;
+
+model 'local:alessio.bulckaen:im.data.global:ecdc__soil-v1__nitrogen__global__1995_2019'
+  as soil.incubation:SoilFertility 
+  discretized into 
+    0 if 0,             // 0
+    0.05 if 1,          // 0.0-0.1
+    0.15 if 2,          // 0.1-0.2
+    0.25 if 3,          // 0.2-0.3
+    0.35 if 4,          // 0.3-0.4
+    0.45 if 5,          // 0.4-0.5
+    0.55 if 6,          // 0.5-0.6
+    0.65 if 7,          // 0.6-0.7
+    0.75 if 8,          // 0.7-0.8
+    0.85 if 9,          // 0.8-0.9
+    0.95 if 10,         // 0.9-1.0
+    unknown if 11,      // Steep slopes
+    unknown if 12,      // Permafrost/Glacier
+    unknown if 13,      // No info
+    unknown if 14;      // Water
+
+// 2. Nitrogen
+// Description: Concentration of nitrogen in soil. Unit: g/kg (mass fraction).
+@intensive(space)
+model 'urn_nitrogen' 
+  as proportion of chemistry:Nitrogen in soil:Soil in g/kg;
+  //proportion of im:Quantity of chemistry:Nitrogen in soil:Soil in g/kg;
+
+// 3. Base Saturation
+// Description: Fraction of CEC occupied by basic cations. Unit: %.
+// Concept: soil:BaseSaturation is a standard concept likely available in the soil domain.
+model 'urn_base_saturation' 
+  as soil:BaseSaturation in %;
+
+// 4. Tropical Storm Exposure
+// Description: Mean maximum windspeed. Unit: knots.
+// We aggregate "Maximum" (peak intensity) and "Mean" (averaged over years).
+model 'urn_tropical_storms_exposure' 
+  as im:Mean im:Maximum earth:WindSpeed of earth:Storm in kn;
+
+// 5. Tidal Zone (Intertidal)
+// Description: Binary mask for intertidal zones. 
+// Classes: 0=other, 1=intertidal.
+model 'urn_tidal_zone_intertidal' 
+  as presence of hydrology:Tidal earth:Region //landcover:IntertidalFlat 
+  set to [self == 1];
+
+// 6. Net Primary Productivity (NPP)
+// Description: Annual amount of energy remaining. Unit: likely gC/m²/day or similar based on description.
+// Note: The unit text in CSV is corrupted ("m  m  day"). Assuming standard mass flux.
+model 'urn_annual_total_net_primary_productivity' 
+  as ecology:NetPrimaryProduction in g/m^2/day; 
+
+// 7. Floodplain
+// Description: Flat area adjacent to river. 
+// Classes: 0="floodplain". (Note: typically 1 is presence, but CSV classes indicate 0).
+model 'urn_floodplain' 
+  as presence of hydrology:Floodplain "Flat area adjacent to river."
+  set to [self == 0];
+
+// 8. Geothermal Heat Flow
+// Description: Heat within Earth's crust. Unit: mW/m^2.
+// Concept: Modeled as a Power density (Flux) of Geothermal nature.
+model 'urn_geothermal' 
+  as geology:Geothermal im:Power per im:Area in mW/m^2;
+
+// 9. Wildfire Recurrence
+// Description: Mean number of years between wildfires. Unit: year.
+// Concept: Period (inverse of frequency) of Fire events.
+model 'urn_recurrence' 
+  as im:Period of chemistry:Fire in year;
+  
+ // 10. Peat thickness
+ model 'urn_peat_thickness' 
+  as im:Depth of landcover:PeatBog earth:Region in cm;
