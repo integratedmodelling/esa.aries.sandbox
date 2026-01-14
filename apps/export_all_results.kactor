@@ -8,25 +8,21 @@ action main:
  * Set observable for which a map should be stored (as raster/vector files)
  */
 	set observables_urns_eu (
-		{landcover:LandCoverType} 
-//		alphathree.alpha3_maxprob_inference_result_level3
+		alphathree.alpha3_maxprob_inference_result_level3
 	)
 	
 	set observables_urns_colombia(
-		{landcover:LandCoverType} 
-//		rule_based_modelling.colombia.ecosystem_type_colombia
-//		rule_based_modelling.colombia.ecosystem_type_iucn_get
+		rule_based_modelling.colombia.ecosystem_type_colombia
+		rule_based_modelling.colombia.ecosystem_type_iucn_get
 	)
 	
 	set observables_urns_south_africa(
-		{landcover:LandCoverType} 
-//		rule_based_modelling.south_africa.ecosystem_type_iucn_get
+		rule_based_modelling.south_africa.ecosystem_type_iucn_get
 //		alphathree.ecosystem_type_alpha3_inference_stac_level3_sa
 	)
 	
 	set observables_urns_vietnam(
-		{landcover:LandCoverType} 
-//		rule_based_modelling.vietnam.ecosystem_type_iucn_get
+		rule_based_modelling.vietnam.ecosystem_type_iucn_get
 	)
 /*
  * Set the tables to summarise statistics or generate indicator for an observation (as .xls files) 
@@ -63,12 +59,12 @@ action main:
 	
 	
 	
-	resolution = 300.m
 	for year in (2024) (		
-		for country in eu_cu(
+				for country in eu_cu(
 			for priority_area in country(
 				if [priority_area.weed_site == 'CZ2'|| priority_area.weed_site == 'EL2']//|| priority_area.weed_site == 'NO1_3'|| priority_area.weed_site == 'NO1_4'] //|| priority_area.weed_site == 'NO2'] || feature.layer == 'central_colombia' || feature.layer == 'south_colombia']
 					(for urn in observables_urns_eu(	
+					resolution = 10.m
 					context(priority_area,resolution,Time(year=year),urn): state -> (
 						set urn_name ""
 						if [urn.toString().startsWith("[")] (
@@ -91,6 +87,7 @@ action main:
 			for priority_area in spatial_contexts_urn_colombia(
 				if [priority_area.weed_site == 'CO1']//|| priority_area.weed_site == 'NO1_3'|| priority_area.weed_site == 'NO1_4'] //|| priority_area.weed_site == 'NO2'] || feature.layer == 'central_colombia' || feature.layer == 'south_colombia']
 					(for urn in observables_urns_colombia(	
+					resolution = 30.m
 					context(priority_area,resolution,Time(year=year),urn): state -> (
 						set urn_name ""
 						if [urn.toString().startsWith("[")] (
@@ -114,6 +111,7 @@ action main:
 			for priority_area in spatial_contexts_urn_south_africa(
 				if [priority_area.weed_site == 'SA2']//|| priority_area.weed_site == 'NO1_3'|| priority_area.weed_site == 'NO1_4'] //|| priority_area.weed_site == 'NO2'] || feature.layer == 'central_colombia' || feature.layer == 'south_colombia']
 					(for urn in observables_urns_south_africa(	
+					resolution = 30.m
 					context(priority_area,resolution,Time(year=year),urn): state -> (
 						set urn_name ""
 						if [urn.toString().startsWith("[")] (
@@ -136,6 +134,7 @@ action main:
 			for priority_area in spatial_contexts_urn_vietnam(
 				if [priority_area.weed_site == 'VN2']//|| priority_area.weed_site == 'NO1_3'|| priority_area.weed_site == 'NO1_4'] //|| priority_area.weed_site == 'NO2'] || feature.layer == 'central_colombia' || feature.layer == 'south_colombia']
 					(for urn in observables_urns_vietnam(	
+					resolution = 30.m
 					context(priority_area,resolution,Time(year=year),urn): state -> (
 						set urn_name ""
 						if [urn.toString().startsWith("[")] (
