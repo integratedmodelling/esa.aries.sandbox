@@ -1,0 +1,18 @@
+worldview im;
+
+@test(
+    name = "testing_alhpa3_stac_resources_non_eu",
+    description  = "",
+    // add to the list any concepts to be observed in the context below
+    observations = ("alphathree.ecosystem_type_alpha3_inference_stac_level3_sa"),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named testing_alhpathree_stac_resources
+    // add any space and/or time extents: for example
+    over space(shape="EPSG:4326 POLYGON ((21.60371945855061 -33.70459868783795, 21.662069253357085 -33.70712684203728, 21.669970844818497 -33.74605140220241, 21.60797413810239 -33.745040592709906, 21.60371945855061 -33.70459868783795))", grid="30 m"),
+    time(year=2024)
+;
+
+// add any models here
