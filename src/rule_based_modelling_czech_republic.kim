@@ -1,5 +1,9 @@
 private namespace rule_based_modelling_czech_republic
-using nca.ecosystemtype.classification.czech_republic,nca.ecosystem.iucn,hydrology,nca.ecology;
+using 
+	nca.ecosystemtype.classification.czech_republic,
+	nca.ecosystem.iucn,
+	hydrology,
+	nca.ecology;
 
 define CZECH_REPUBLIC_IUCN_GET as {{
   czech_national_ecosystem_type_classification                                               | iucn_get                                                   | wetness_regime 	| plantation | vegetation_composition 
@@ -14,13 +18,13 @@ define CZECH_REPUBLIC_IUCN_GET as {{
   nca.ecosystemtype.classification.czech_republic:BeechForest                                | nca.ecosystem.iucn:DeciduousTemperateForest                | #               | #          | #                     ,
   nca.ecosystemtype.classification.czech_republic:DegradedGrassland                          | nca.ecosystem.iucn:DerivedSeminaturalPastureOldfield       | #               | #          | #                     ,
   nca.ecosystemtype.classification.czech_republic:OakOakHornbeamForest                       | nca.ecosystem.iucn:DeciduousTemperateForest                | #               | #          | nca.ecology:Deciduous   ,
-  nca.ecosystemtype.classification.czech_republic:ManagedConiferouForest                     | nca.ecosystem.iucn:Plantation                              | #               |true    | nca.ecology:Coniferous  ,
+  nca.ecosystemtype.classification.czech_republic:ManagedConiferouForest                     | nca.ecosystem.iucn:Plantation                              | #               |true    	 | nca.ecology:Coniferous  ,
   nca.ecosystemtype.classification.czech_republic:ManagedConiferouForest                     | nca.ecosystem.iucn:Plantation                              | #               | #          | #                     ,
   nca.ecosystemtype.classification.czech_republic:ManagedConiferouForest                     | nca.ecosystem.iucn:Plantation                              | #               | #          | nca.ecology:Deciduous   ,
-  nca.ecosystemtype.classification.czech_republic:ManagedDeciduouForest                      | nca.ecosystem.iucn:Plantation                              | #               |true    | nca.ecology:Coniferous  ,
+  nca.ecosystemtype.classification.czech_republic:ManagedDeciduouForest                      | nca.ecosystem.iucn:Plantation                              | #               |true    	 | nca.ecology:Coniferous  ,
   nca.ecosystemtype.classification.czech_republic:ManagedDeciduouForest                      | nca.ecosystem.iucn:Plantation                              | #               | #          | #                     ,
   nca.ecosystemtype.classification.czech_republic:ManagedDeciduouForest                      | nca.ecosystem.iucn:Plantation                              | #               | #          | nca.ecology:Deciduous   ,
-  nca.ecosystemtype.classification.czech_republic:ManagedMixedForest                         | nca.ecosystem.iucn:Plantation                              | #               |true    | nca.ecology:Mixed       ,
+  nca.ecosystemtype.classification.czech_republic:ManagedMixedForest                         | nca.ecosystem.iucn:Plantation                              | #               |true    	 | nca.ecology:Mixed       ,
   nca.ecosystemtype.classification.czech_republic:ManagedMixedForest                         | nca.ecosystem.iucn:Plantation                              | #               | #          | nca.ecology:Mixed       ,
   nca.ecosystemtype.classification.czech_republic:FloodplainWetlandForest                    | nca.ecosystem.iucn:SubtropicalWarmTemperateForestedWetland | #               | #          | #                     ,
   nca.ecosystemtype.classification.czech_republic:MacrophyteVegetationStandingWater          | nca.ecosystem.iucn:SmallPermanentFreshwaterLake            | #               | #          | #                     ,
@@ -48,3 +52,54 @@ define CZECH_REPUBLIC_IUCN_GET as {{
   nca.ecosystemtype.classification.czech_republic:Heathland                                  | nca.ecosystem.iucn:CoolTemperateHeathland                  | #               | #          | #                     ,
   nca.ecosystemtype.classification.czech_republic:ScreeForest                                | nca.ecosystem.iucn:BorealTemperateMontaneForestWoodland    | #               | #          | #                    
 }};
+
+model nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get 
+	observing
+		   type of nca.ecosystemtype.classification.czech_republic:CzechEcosystem named czech_national_ecosystem_type_classification ,
+		   type of hydrology:WaterRegime  named wetness_regime ,
+		   presence of agriculture:Planted ecology:Forest earth:Region named plantation,
+		   type of nca.ecology:VegetationComposition named vegetation_composition
+//		   soil_edafogenetic_environment,
+//		   type of dane.colombia.hydrology:RiverWater named water_type,
+//		   type of dane.colombia.ecology:Transformation named transformed,		   
+//		   type of dane.colombia.hydrology:AquaticEnvironment named transitional,		   		   
+//		   non_continental
+	lookup(czech_national_ecosystem_type_classification, ? , wetness_regime, plantation, vegetation_composition) into CZECH_REPUBLIC_IUCN_GET
+	over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2#weed_site=CZ2');
+
+
+
+//number local:alessio.bulckaen:im.data.global:im-data-global-conservation.global_treeplantationyears_forestry_epsg4326_30m_2020_mosaic
+number local:rubencc:im.data.global:im-data-global-agriculture.center_america_plantations_plant_year_30m_1982_2020
+	as year_of_tree_plantation
+	set to [(self != 32767 && self > 1982) ? self : unknown ];
+
+
+number	local:alessio.bulckaen:im.data.global:im-data-global-agriculture.global_forest_management_100m_2015_v3_2
+ as forest_managment_plantation 
+ set to [
+ 	(self == 31 || self == 32 || self == 40 
+// 		|| self == 53
+ 	) ? 1 : null
+ ];
+
+number planted_forest_age
+	observing
+			year_of_tree_plantation
+	set to [ 
+		def age= scale.time.start.year - year_of_tree_plantation
+		age >= 0 ? age : null
+	];
+
+model presence of ecology:Forest earth:Region named nodata
+observing forest_managment_plantation
+	set to [ forest_managment_plantation != nodata ];
+
+ 	
+/* MODELLING - PLANTATION FORESTS  */
+model presence of agriculture:Planted ecology:Forest earth:Region
+observing 
+	planted_forest_age,
+	forest_managment_plantation	
+set to [(planted_forest_age <= 20 ||
+       forest_managment_plantation == 1)];	
