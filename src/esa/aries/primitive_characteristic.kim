@@ -21,20 +21,28 @@ model 'local:alessio.bulckaen:im.data.global:ecdc__soil__peat_thickness__global_
 // Note: The 'classes' column maps integer codes (0-10) to value ranges (0.0-0.1, etc.).
 // We discretize these codes into the midpoint of each range (e.g., 1 -> 0.05).
 // Codes 11-14 represent non-soil features (steep slopes, water) and are mapped to unknown.
-model 'local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020' 
-  as soil.incubation:SoilFertility 
-  discretized into 
-    0 if 0,             // Value 0
-    0.05 if 1,          // Range 0.0-0.1
-    0.15 if 2,          // Range 0.1-0.2
-    0.25 if 3,          // Range 0.2-0.3
-    0.35 if 4,          // Range 0.3-0.4
-    0.45 if 5,          // Range 0.4-0.5
-    0.55 if 6,          // Range 0.5-0.6
-    0.65 if 7,          // Range 0.6-0.7
-    0.75 if 8,          // Range 0.7-0.8
-    0.85 if 9,          // Range 0.8-0.9
-    0.95 if 10;         // Range 0.9-1.0
+model 'local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020'
+	as soil.incubation:SoilFertilityType classified into
+  	soil.incubation:Infertile if (0 1 2),
+	soil.incubation:LowFertility if (3 4),
+	soil.incubation:ModerateFertility if (5 6 7),
+	soil.incubation:HighFertility if (8 9 10)
+over space(shape="POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))");
+//	soil.incubation:SteepTerrainSlope if (11),
+//	soil.incubation:PermafrostGalcier if (12); 
+   
+//  discretized into 
+//    0 if 0,             // Value 0
+//    0.05 if 1,          // Range 0.0-0.1
+//    0.15 if 2,          // Range 0.1-0.2
+//    0.25 if 3,          // Range 0.2-0.3
+//    0.35 if 4,          // Range 0.3-0.4
+//    0.45 if 5,          // Range 0.4-0.5
+//    0.55 if 6,          // Range 0.5-0.6
+//    0.65 if 7,          // Range 0.6-0.7
+//    0.75 if 8,          // Range 0.7-0.8
+//    0.85 if 9,          // Range 0.8-0.9
+//    0.95 if 10;         // Range 0.9-1.0
 //    unknown if 11,      // Steep_terrain_slopes
 //    unknown if 12,      // Permafrost_Glacier
 //    unknown if 13,      // Miscellaneous_Unit_No_information
@@ -44,9 +52,9 @@ model 'local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001
 // Description: Concentration of nitrogen in the soil.
 // Concept: Modeled as a proportion (mass fraction) of Nitrogen within Soil.
 // Note: Unit g/kg [1] is compatible with the proportion operator [625].
-model 'local:alessio.bulckaen:im.data.global:ecdc__soil__nitrogen__global__1995_2019' 
-  as proportion of chemistry:Nitrogen in soil:Soil; //  in g/kg;
-
+model 'local:alessio.bulckaen:im.data.global:ecdc__soil__nitrogen__global__1995_2019'
+	as proportion of chemistry:Nitrogen in soil:Soil //  in g/kg;
+	over space(shape="POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))");
 
 // 4. Proposed annotation for base_saturation
 // Description: Fraction of cation exchange capacity (CEC) occupied by basic cations.
@@ -62,8 +70,8 @@ model 'local:alessio.bulckaen:im.data.global:ecdc__soil__base_saturation__global
 // Concept: Aggregation (Mean of Maximum) of WindSpeed [298] inherent to Storm events.
 // Note: Unit is knots [1].
 model 'local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__tropical_storms_exposure__global__1990_2015' 
-  as im:Mean im:Maximum earth:WindSpeed of earth:Storm 
-  in kn;
+  as im:Mean im:Maximum earth:WindSpeed of earth:Storm in kn
+  over space(shape="POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))");
 
 // 6. Proposed annotation for tidal_zone_intertidal
 // Description: Binary mask indicating intertidal zones (0=other, 1=intertidal).
@@ -72,8 +80,9 @@ model 'local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__trop
 model 'local:alessio.bulckaen:im.data.global:ecdc__oceanography__tidal_zone_intertidal__global__2000_2020' 
   as presence of earth:Wetland by earth:Coast
   //  as presence of landcover:IntertidalFlat 
-  set to [self == 1];
-
+  set to [self == 1]
+  over space(shape="POLYGON ((180 -60.0000049623, 180 60.0000049623, -180 60.0000049623, -180 -60.0000049623, 180 -60.0000049623))");
+ 
 // 7. Proposed annotation for annual_total_net_primary_productivity
 // Description: Annual amount of energy/biomass produced by plants.
 // Concept: 'ecology:NetPrimaryProduction' is a standard quality in the ecology namespace.
@@ -295,16 +304,17 @@ model 'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_mean_precipit
 
 // 66. Proposed annotation for annual_mean_diurnal_air_temperature
 model 'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_mean_diurnal_air_temperature__global__1981_2010'
-  as im:Mean earth:AtmosphericTemperature //in 'degC/10';
+  as im:Mean earth:AtmosphericTemperature in degrees;//in 'degC/10';
 
 // 67. Proposed annotation for annual_total_water_budget
 // Description: Mean water budget (P - PET?).
 model 'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_total_water_budget__global__1981_2010'
-  as im:Mean hydrology:WaterBalance in kg/m^2/year;
+  as im:Mean hydrology:WaterVolume of hydrology:WaterBalance in kg/m^2/year;
 
 // 68. Proposed annotation for winter_total_water_budget
 model 'local:alessio.bulckaen:im.data.global:ecdc__climate__winter_total_water_budget__global__1980_2010'
-  as im:Total hydrology:WaterBalance during earth:Winter in 'kg/m^2/year';
+  as hydrology:WaterVolume of hydrology:WaterBalance during earth:Winter in kg/m^2/year;
+//  as im:Total hydrology:WaterBalance during earth:Winter in 'kg/m^2/year';
 
 // 69-73. Proposed annotation for thermal_belts
 // Description: Thermal zones (Nival, Alpine, Montane, etc.).
@@ -338,8 +348,7 @@ model
   'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__colombia__2020',
   'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__norway__2020',
   'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__czechia__2020'
-  as im:Mean im:Height of ecology:Canopy
-  in m;
+  as im:Mean im:Height of ecology:Canopy in m;
 
 // 80-85. Proposed annotation for canopy_cover (National)
 // Description: Mean proportion of ground covered by tree/shrub canopies.
@@ -350,8 +359,7 @@ model
   'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__czechia__2015',
   'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__viet_nam__2015',
   'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__colombia__2015'
-  as ecology:CanopyCover
-  in %;
+  as percentage of ecology:CanopyCover;
 
 // 86-87, 107. Proposed annotation for leaf_area_index (Global)
 model
@@ -359,3 +367,63 @@ model
   'local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2021',
   'local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2018'
   as ecology:LeafAreaIndex;
+
+// 88-90, 108-110. Proposed annotation for phenology (Mixed, Deciduous, Evergreen)
+model
+  'local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_mixed__global__2021',
+  'local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_mixed__global__2018'
+  as presence of ecology:MixedLeafPhenology ecology:Vegetation earth:Region;
+  //as presence of ecology:MixedForest ecology:Forest earth:Region; // Using 'Mixed' trait directly or MixedForest
+
+model
+  'local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_deciduous__global__2021',
+  'local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_deciduous__global__2018'
+  as presence of ecology:Deciduous ecology:Vegetation earth:Region;
+
+model
+  'local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_evergreen__global__2021',
+  'local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_evergreen__global__2018'
+  as presence of ecology:Evergreen ecology:Vegetation earth:Region;
+
+// 91-106. Note: These correspond to hydroform morphology area/density which I missed in the first pass
+// Description: Average surface area during driest season / Density of water.
+// Concept: Morphology area -> im:Area of WaterBody; Density -> im:Density of WaterBody.
+@extensive(space)
+model
+//  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__south_africa__2013_2020',
+//  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__czechia__2013_2020',
+  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__greece__2013_2020'
+//  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__viet_nam__2013_2020',
+//  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__colombia__2013_2020',
+//  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__norway__2013_2020'
+  as im:Minimum im:Area of earth:WaterBody in km^2
+
+model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__greece__2013_2020'
+	as im:Minimum im:Area of earth:WaterBody in km^2
+	over space(shape="POLYGON ((30.295365 34.8, 30.295365 42.396401, 19.261895 42.396401, 19.261895 34.8, 30.295365 34.8))");
+  
+  
+
+model
+  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__south_africa__2013_2020',
+  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__czechia__2013_2020',
+  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__greece__2013_2020',
+  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__viet_nam__2013_2020',
+  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__colombia__2013_2020',
+  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__norway__2013_2020'
+  as percentage of im:Density of earth:WaterBody;
+
+// 111. Proposed annotation for specific_leaf_area
+// Description: Total area of leaves relative to dry mass (SLA).
+// Concept: Area per Mass.
+model 'local:alessio.bulckaen:im.data.global:ecdc__vegetation__specific_leaf_area__global__2000_2020'
+  as im:Area of biology:Leaf per im:Mass
+  in 'm^2/kg';
+
+// 112. Proposed annotation for leaf_size
+// Description: Projected area of a leaf.
+model 'local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_size__global__2000_2020'
+  as im:Area of biology:Leaf
+  in 'mm^2';
+]  
+  ]
