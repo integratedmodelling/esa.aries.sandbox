@@ -1,13 +1,14 @@
-private namespace rule_based_modelling_czech_republic
+private namespace rule_based_modelling.czech_republic
 using 
 	nca.ecosystemtype.classification.czech_republic,
 	nca.ecosystem.iucn,
+	nca.ecosystem.eunis,
 	hydrology,
 	nca.ecology;
 
 observe earth:Region named czech_republic_krkonossky_30m_cz2  
     over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2#weed_site=CZ2',
-    			grid="30 m",
+    			grid="300 m",
                 projection= "EPSG:4326"),
 //        time(start=2022, end=2023, step=1.year);   
          time (year = 2024);
@@ -26,7 +27,7 @@ define CZECH_REPUBLIC_IUCN_GET as {{
   nca.ecosystemtype.classification.czech_republic:DegradedGrassland                          | nca.ecosystem.iucn:DerivedSeminaturalPastureOldfield       | #               | #          | #                     ,
   nca.ecosystemtype.classification.czech_republic:OakOakHornbeamForest                       | nca.ecosystem.iucn:DeciduousTemperateForest                | #               | #          | nca.ecology:Deciduous ,
   nca.ecosystemtype.classification.czech_republic:ManagedConiferouForest                     | nca.ecosystem.iucn:Plantation                              | #               |true    	 | #					 ,
-  nca.ecosystemtype.classification.czech_republic:ManagedConiferouForest                     | nca.ecosystem.iucn:TemperateBorealForestWoodland           | #               |false    	 | #					 ,
+  nca.ecosystemtype.classification.czech_republic:ManagedConiferouForest                     | nca.ecosystem.iucn:BorealTemperateMontaneForestWoodland	  | #               |false    	 | #					 ,
   nca.ecosystemtype.classification.czech_republic:ManagedDeciduouForest                      | nca.ecosystem.iucn:Plantation                              | #               |true    	 | #					 ,
   nca.ecosystemtype.classification.czech_republic:ManagedDeciduouForest                      | nca.ecosystem.iucn:DeciduousTemperateForest	              | #               |false       | #					 ,
   nca.ecosystemtype.classification.czech_republic:ManagedMixedForest                         | nca.ecosystem.iucn:Plantation                              | #               |true    	 | nca.ecology:Mixed     ,
@@ -58,6 +59,84 @@ define CZECH_REPUBLIC_IUCN_GET as {{
   nca.ecosystemtype.classification.czech_republic:ScreeForest                                | nca.ecosystem.iucn:BorealTemperateMontaneForestWoodland    | #               | #          | #                    
 }};
 
+define CZECH_REPUBLIC_EUNIS as {{
+  czech_national_ecosystem_type_classification                                               | eunis                                                                                                   
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//  nca.ecosystemtype.classification.czech_republic:TransportNetwork                           | nca.ecosystem.eunis:                                                                                     ,
+//  nca.ecosystemtype.classification.czech_republic:Watercourse                                | nca.ecosystem.eunis:                                                                                     ,
+  nca.ecosystemtype.classification.czech_republic:AlpineMeadow                               | nca.ecosystem.eunis:ArcticAlpineCalcareousGrassland                                                      ,
+  nca.ecosystemtype.classification.czech_republic:AlluvialWetMeadow                          | nca.ecosystem.eunis:MoistWetMesotrophicToEutrophicHayMeadow                                              ,
+  nca.ecosystemtype.classification.czech_republic:SwampMarsh                                 | nca.ecosystem.eunis:TallHelophyteBed                                                                     ,
+  nca.ecosystemtype.classification.czech_republic:BeechForest                                | nca.ecosystem.eunis:FagusForestOnNonAcidSoil                                                             ,
+  nca.ecosystemtype.classification.czech_republic:DegradedGrassland                          | nca.ecosystem.eunis:MesicPerennialAnthropogenicHerbaceousVegetation                                      ,
+  nca.ecosystemtype.classification.czech_republic:OakOakHornbeamForest                       | nca.ecosystem.eunis:CarpinusQuercusMesicDeciduousForest                                                  ,
+  nca.ecosystemtype.classification.czech_republic:ManagedConiferouForest                     | nca.ecosystem.eunis:ConiferousPlantationSiteNativeTree                                                   ,
+  nca.ecosystemtype.classification.czech_republic:ManagedDeciduouForest                      | nca.ecosystem.eunis:BroadleavedDeciduousPlantationSiteNativeTree                                         ,
+  nca.ecosystemtype.classification.czech_republic:ManagedMixedForest                         | nca.ecosystem.eunis:BroadleavedEvergreenPlantationSiteNativeTree                                         ,
+  nca.ecosystemtype.classification.czech_republic:ManagedMixedForest                         | nca.ecosystem.eunis:BroadleavedEvergreenPlantationSiteNativeTree                                         ,
+  nca.ecosystemtype.classification.czech_republic:FloodplainWetlandForest                    | nca.ecosystem.eunis:TemperateHardwoodRiparianForest                                                      ,
+//  nca.ecosystemtype.classification.czech_republic:MacrophyteVegetationStandingWater          | nca.ecosystem.eunis:                                                                                     ,
+//  nca.ecosystemtype.classification.czech_republic:UrbanGreenAreaOrnamentalGardenParkCemetery | nca.ecosystem.eunis:                                                                                     ,
+  nca.ecosystemtype.classification.czech_republic:MesophilouMeadow                           | nca.ecosystem.eunis:LowMediumAltitudeHayMeadow                                                           ,
+//  nca.ecosystemtype.classification.czech_republic:WetlandRiparianVegetation                  | nca.ecosystem.eunis:                                                                                     ,
+  nca.ecosystemtype.classification.czech_republic:NonNativeDwarfPine                         | nca.ecosystem.eunis:ShrubPlantationsOrnamentalPurposesFruitOtherThanVineyard                             ,
+//  nca.ecosystemtype.classification.czech_republic:NonNativeShrubland                         | nca.ecosystem.eunis:                                                                                     ,
+//  nca.ecosystemtype.classification.czech_republic:DiscontinuouUrbanFabric                    | nca.ecosystem.eunis:                                                                                     ,
+//  nca.ecosystemtype.classification.czech_republic:ArableLand                                 | nca.ecosystem.eunis:                                                                                     ,
+  nca.ecosystemtype.classification.czech_republic:OrchardGarden                              | nca.ecosystem.eunis:BroadleavedFruitNutTreeOrchard                                                       ,
+//  nca.ecosystemtype.classification.czech_republic:IndustrialCommercialUnit                   | nca.ecosystem.eunis:                                                                                     ,
+  nca.ecosystemtype.classification.czech_republic:NaturalDwarfPine                           | nca.ecosystem.eunis:SubalpinePinusMugoScrub                                                              ,
+//  nca.ecosystemtype.classification.czech_republic:NaturalShrubland                           | nca.ecosystem.eunis:                                                                                     ,
+//  nca.ecosystemtype.classification.czech_republic:PeatBogSpring                              | nca.ecosystem.eunis:                                                                                     ,
+  nca.ecosystemtype.classification.czech_republic:ScatteredGreenery                          | nca.ecosystem.eunis:PlantedTreeLine                                                                      ,
+//  nca.ecosystemtype.classification.czech_republic:PondReservoir                              | nca.ecosystem.eunis:                                                                                     ,
+//  nca.ecosystemtype.classification.czech_republic:RockQuarryArtificial                       | nca.ecosystem.eunis:                                                                                     ,
+//  nca.ecosystemtype.classification.czech_republic:RockScree                                  | nca.ecosystem.eunis:                                                                                     ,
+//  nca.ecosystemtype.classification.czech_republic:LandfillConstructionSite                   | nca.ecosystem.eunis:                                                                                     ,
+  nca.ecosystemtype.classification.czech_republic:SpruceForest                               | nca.ecosystem.eunis:TemperateMountainPiceaForest                                                         ,
+//  nca.ecosystemtype.classification.czech_republic:ContinuouUrbanFabric                       | nca.ecosystem.eunis:                                                                                     ,
+  nca.ecosystemtype.classification.czech_republic:SportRecreationalArea                      | nca.ecosystem.eunis:AgriculturallyImprovedReSeededHeavilyFertilisedGrasslandIncludingSportsFieldGrasLawn ,
+//  nca.ecosystemtype.classification.czech_republic:DryGrassland                               | nca.ecosystem.eunis:                                                                                     ,
+  nca.ecosystemtype.classification.czech_republic:Heathland                                  | nca.ecosystem.eunis:DryHeath                                                                             ,
+  nca.ecosystemtype.classification.czech_republic:ScreeForest                                | nca.ecosystem.eunis:RavineForest                                                                         ,
+  nca.ecosystemtype.classification.czech_republic:TransportNetwork                           | nca.ecosystem.eunis:TransportNetworksConstructedHardSurfacedArea                                         ,
+  nca.ecosystemtype.classification.czech_republic:Watercourse                                | nca.ecosystem.eunis:SurfaceRunningWater                                                                  ,
+  nca.ecosystemtype.classification.czech_republic:AlpineMeadow                               | nca.ecosystem.eunis:AlpineSubalpineGrassland                                                             ,
+  nca.ecosystemtype.classification.czech_republic:AlluvialWetMeadow                          | nca.ecosystem.eunis:WetSeasonallyWetGrassland                                                            ,
+  nca.ecosystemtype.classification.czech_republic:SwampMarsh                                 | nca.ecosystem.eunis:HelophyteBed                                                                         ,
+  nca.ecosystemtype.classification.czech_republic:BeechForest                                | nca.ecosystem.eunis:DeciduousBroadleavedForest                                                           ,
+  nca.ecosystemtype.classification.czech_republic:DegradedGrassland                          | nca.ecosystem.eunis:ArtificialGrasslandHerbDominatedHabitat                                              ,
+  nca.ecosystemtype.classification.czech_republic:OakOakHornbeamForest                       | nca.ecosystem.eunis:DeciduousBroadleavedForest                                                           ,
+  nca.ecosystemtype.classification.czech_republic:ManagedConiferouForest                     | nca.ecosystem.eunis:ConiferousForest                                                                     ,
+  nca.ecosystemtype.classification.czech_republic:ManagedDeciduouForest                      | nca.ecosystem.eunis:DeciduousBroadleavedForest                                                           ,
+  nca.ecosystemtype.classification.czech_republic:ManagedMixedForest                         | nca.ecosystem.eunis:DeciduousBroadleavedForest                                                           ,
+  nca.ecosystemtype.classification.czech_republic:ManagedMixedForest                         | nca.ecosystem.eunis:DeciduousBroadleavedForest                                                           ,
+  nca.ecosystemtype.classification.czech_republic:FloodplainWetlandForest                    | nca.ecosystem.eunis:DeciduousBroadleavedForest                                                           ,
+  nca.ecosystemtype.classification.czech_republic:MacrophyteVegetationStandingWater          | nca.ecosystem.eunis:SurfaceStandingWater                                                                 ,
+  nca.ecosystemtype.classification.czech_republic:UrbanGreenAreaOrnamentalGardenParkCemetery | nca.ecosystem.eunis:CultivatedAreaGardenParks                                                            ,
+  nca.ecosystemtype.classification.czech_republic:MesophilouMeadow                           | nca.ecosystem.eunis:MesicGrassland                                                                       ,
+  nca.ecosystemtype.classification.czech_republic:WetlandRiparianVegetation                  | nca.ecosystem.eunis:HelophyteBed                                                                         ,
+  nca.ecosystemtype.classification.czech_republic:NonNativeDwarfPine                         | nca.ecosystem.eunis:ShrubPlantation                                                                      ,
+  nca.ecosystemtype.classification.czech_republic:NonNativeShrubland                         | nca.ecosystem.eunis:ShrubPlantation                                                                      ,
+  nca.ecosystemtype.classification.czech_republic:DiscontinuouUrbanFabric                    | nca.ecosystem.eunis:LowDensityBuilding                                                                   ,
+  nca.ecosystemtype.classification.czech_republic:ArableLand                                 | nca.ecosystem.eunis:ArableLandMarketGarden                                                               ,
+  nca.ecosystemtype.classification.czech_republic:OrchardGarden                              | nca.ecosystem.eunis:TreeDominatedManMadeHabitat                                                          ,
+  nca.ecosystemtype.classification.czech_republic:IndustrialCommercialUnit                   | nca.ecosystem.eunis:BuildingCitiesTownVillage                                                            ,
+  nca.ecosystemtype.classification.czech_republic:NaturalDwarfPine                           | nca.ecosystem.eunis:ArcticAlpineSubalpineScrub                                                           ,
+  nca.ecosystemtype.classification.czech_republic:NaturalShrubland                           | nca.ecosystem.eunis:TemperateMediterraneanMontaneScrub                                                   ,
+  nca.ecosystemtype.classification.czech_republic:PeatBogSpring                              | nca.ecosystem.eunis:ValleyMiresPoorFensTransitionMire                                                    ,
+  nca.ecosystemtype.classification.czech_republic:ScatteredGreenery                          | nca.ecosystem.eunis:Hedgerow                                                                             ,
+  nca.ecosystemtype.classification.czech_republic:PondReservoir                              | nca.ecosystem.eunis:HighlyArtificialManMadeWaterAssociatedStructure                                      ,
+  nca.ecosystemtype.classification.czech_republic:RockQuarryArtificial                       | nca.ecosystem.eunis:ExtractiveIndustrialSite                                                             ,
+  nca.ecosystemtype.classification.czech_republic:RockScree                                  | nca.ecosystem.eunis:InlandCliffRockPavementOutcrop                                                       ,
+  nca.ecosystemtype.classification.czech_republic:LandfillConstructionSite                   | nca.ecosystem.eunis:WasteDeposit                                                                         ,
+  nca.ecosystemtype.classification.czech_republic:SpruceForest                               | nca.ecosystem.eunis:ConiferousForest                                                                     ,
+  nca.ecosystemtype.classification.czech_republic:ContinuouUrbanFabric                       | nca.ecosystem.eunis:BuildingCitiesTownVillage                                                            ,
+  nca.ecosystemtype.classification.czech_republic:SportRecreationalArea                      | nca.ecosystem.eunis:ArtificialGrasslandHerbDominatedHabitat                                              ,
+  nca.ecosystemtype.classification.czech_republic:DryGrassland                               | nca.ecosystem.eunis:DryGrassland                                                                         ,
+  nca.ecosystemtype.classification.czech_republic:Heathland                                  | nca.ecosystem.eunis:TemperateShrubHeathland                                                              ,
+  nca.ecosystemtype.classification.czech_republic:ScreeForest                                | nca.ecosystem.eunis:DeciduousBroadleavedForest                                                          
+}};
 
 private number 'local:alessio.bulckaen:im.data.global:JRC_global_surface_water_occurrence'
 	as occurence_of_water;
@@ -198,6 +277,12 @@ observing
 set to [
     (kves_classification == unknown) ? 1 : 0
 ];
+
+model im:Reference geography:CzechRepublic nca.ecosystem.eunis:EcosystemType named reference_czech_ecosystem_type 
+	observing
+		   type of nca.ecosystemtype.classification.czech_republic:CzechEcosystem named czech_national_ecosystem_type_classification 
+	lookup(czech_national_ecosystem_type_classification, ?) into CZECH_REPUBLIC_EUNIS
+	over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2#weed_site=CZ2');
 
 
 model nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get 
