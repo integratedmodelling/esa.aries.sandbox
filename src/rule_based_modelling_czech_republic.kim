@@ -5,6 +5,13 @@ using
 	hydrology,
 	nca.ecology;
 
+observe earth:Region named czech_republic_krkonossky_30m_cz2  
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2#weed_site=CZ2',
+    			grid="300 m",
+                projection= "EPSG:4326"),
+//        time(start=2022, end=2023, step=1.year);   
+         time (year = 2024);
+         
 define CZECH_REPUBLIC_IUCN_GET as {{
   czech_national_ecosystem_type_classification                                               | iucn_get                                                   | wetness_regime 	| plantation | vegetation_composition 
   -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -68,6 +75,33 @@ model nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get
 	over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2#weed_site=CZ2');
 
 
+private number 'local:alessio.bulckaen:im.data.global:JRC_global_surface_water_occurrence'
+	as occurence_of_water;
+
+//model 'local:alessio.bulckaen:im.data.global:JRC_global_surface_water_transition'
+// as type of hydrology:WaterRegime classified into
+// 	hydrology:Permanent if  in (1 2 8),
+// 	hydrology:Seasonal if in (4 5 7),
+// 	hydrology:EphemeralPermanent if 9,
+// 	hydrology:EphemeralSeasonal if 10;
+
+//number 'local:alessio.bulckaen:im.data.global:JRC_global_surface_water_transition' as test;
+//model 'local:alessio.bulckaen:im.data.global:JRC_global_surface_water_transition'
+// as type of hydrology:WaterRegime classified into
+// 	hydrology:Dry if 0 ,
+// 	hydrology:Permanent if in (1 2 8),
+// 	hydrology:Seasonal if in (4 5 7),
+// 	hydrology:EphemeralPermanent if 9,
+// 	hydrology:EphemeralSeasonal if 10;
+number 'local:alessio.bulckaen:im.data.global:JRC_global_surface_water_transition' as jrc_transition;
+
+model 'local:alessio.bulckaen:im.data.global:JRC_global_surface_water_transition'
+as type of im:Inappropriate hydrology:WaterRegime classified into
+    hydrology:Dry if 0,
+    hydrology:Permanent if in (1, 2, 8),
+    hydrology:Seasonal if in (4, 5, 7),
+    hydrology:EphemeralPermanent if 9,
+    hydrology:EphemeralSeasonal if 10;
 
 //number local:alessio.bulckaen:im.data.global:im-data-global-conservation.global_treeplantationyears_forestry_epsg4326_30m_2020_mosaic
 number local:rubencc:im.data.global:im-data-global-agriculture.center_america_plantations_plant_year_30m_1982_2020
@@ -103,3 +137,80 @@ observing
 	forest_managment_plantation	
 set to [(planted_forest_age <= 20 ||
        forest_managment_plantation == 1)];	
+ 
+model 'local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cz_ecosystem_type_classification_kves_epsg5514_30m_2022'
+	as type of nca.ecosystemtype.classification.czech_republic:CzechEcosystem classified into
+	nca.ecosystemtype.classification.czech_republic:TransportNetwork if 1,
+	nca.ecosystemtype.classification.czech_republic:Watercourse if 2,
+	nca.ecosystemtype.classification.czech_republic:AlpineMeadow if 3,
+	nca.ecosystemtype.classification.czech_republic:AlluvialWetMeadow if 4,
+	nca.ecosystemtype.classification.czech_republic:AlluvialWetMeadow if 4,
+	nca.ecosystemtype.classification.czech_republic:SwampMarsh if 5,
+	nca.ecosystemtype.classification.czech_republic:SwampMarsh if 5,
+	nca.ecosystemtype.classification.czech_republic:BeechForest if 6,
+	nca.ecosystemtype.classification.czech_republic:DegradedGrassland if 7,
+	nca.ecosystemtype.classification.czech_republic:OakOakHornbeamForest if 8,
+	nca.ecosystemtype.classification.czech_republic:ManagedConiferouForest if 9,
+	nca.ecosystemtype.classification.czech_republic:ManagedConiferouForest if 9,
+	nca.ecosystemtype.classification.czech_republic:ManagedConiferouForest if 9,
+	nca.ecosystemtype.classification.czech_republic:ManagedDeciduouForest if 10,
+	nca.ecosystemtype.classification.czech_republic:ManagedDeciduouForest if 10,
+	nca.ecosystemtype.classification.czech_republic:ManagedDeciduouForest if 10,
+	nca.ecosystemtype.classification.czech_republic:ManagedMixedForest if 11,
+	nca.ecosystemtype.classification.czech_republic:ManagedMixedForest if 11,
+	nca.ecosystemtype.classification.czech_republic:FloodplainWetlandForest if 12,
+	nca.ecosystemtype.classification.czech_republic:MacrophyteVegetationStandingWater if 13,
+	nca.ecosystemtype.classification.czech_republic:UrbanGreenAreaOrnamentalGardenParkCemetery if 14,
+	nca.ecosystemtype.classification.czech_republic:MesophilouMeadow if 15,
+	nca.ecosystemtype.classification.czech_republic:WetlandRiparianVegetation if 16,
+	nca.ecosystemtype.classification.czech_republic:NonNativeDwarfPine if 17,
+	nca.ecosystemtype.classification.czech_republic:NonNativeShrubland if 18,
+	nca.ecosystemtype.classification.czech_republic:DiscontinuouUrbanFabric if 19,
+	nca.ecosystemtype.classification.czech_republic:ArableLand if 20,
+	nca.ecosystemtype.classification.czech_republic:OrchardGarden if 21,
+	nca.ecosystemtype.classification.czech_republic:IndustrialCommercialUnit if 22,
+	nca.ecosystemtype.classification.czech_republic:NaturalDwarfPine if 23,
+	nca.ecosystemtype.classification.czech_republic:NaturalShrubland if 24,
+	nca.ecosystemtype.classification.czech_republic:PeatBogSpring if 25,
+	nca.ecosystemtype.classification.czech_republic:ScatteredGreenery if 26,
+	nca.ecosystemtype.classification.czech_republic:PondReservoir if 27,
+	nca.ecosystemtype.classification.czech_republic:RockQuarryArtificial if 28,
+	nca.ecosystemtype.classification.czech_republic:RockScree if 29,
+	nca.ecosystemtype.classification.czech_republic:LandfillConstructionSite if 30,
+	nca.ecosystemtype.classification.czech_republic:SpruceForest if 31,
+	nca.ecosystemtype.classification.czech_republic:ContinuouUrbanFabric if 32,
+	nca.ecosystemtype.classification.czech_republic:SportRecreationalArea if 33,
+	nca.ecosystemtype.classification.czech_republic:DryGrassland if 34,
+	nca.ecosystemtype.classification.czech_republic:Heathland if 35,
+	nca.ecosystemtype.classification.czech_republic:ScreeForest if 36;
+		
+number 'local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cz_ecosystem_type_classification_kves_epsg5514_30m_2022' as kves_raster_value; 
+
+number missing_classes 
+observing
+kves_raster_value,
+type of nca.ecosystemtype.classification.czech_republic:CzechEcosystem named kves_classification
+set to [
+    (kves_classification == unknown) ? kves_raster_value : nodata
+];
+//set to [
+//    (kves_classification is nodata) && (kves_raster_value != nodata)
+//        ? kves_raster_value
+//        : nodata
+//];
+//set to [
+//    kves_classification != nodata
+//        ? nodata
+//        : kves_raster_value
+//];
+
+//set to [
+//    kves_classification == nodata ? kves_raster_value : nodata
+//];
+
+number kves_classification_missing_mask
+observing
+    type of nca.ecosystemtype.classification.czech_republic:CzechEcosystem named kves_classification
+set to [
+    (kves_classification == unknown) ? 1 : 0
+];
