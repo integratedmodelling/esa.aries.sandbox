@@ -7,7 +7,7 @@ using
 
 observe earth:Region named czech_republic_krkonossky_30m_cz2  
     over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2#weed_site=CZ2',
-    			grid="300 m",
+    			grid="30 m",
                 projection= "EPSG:4326"),
 //        time(start=2022, end=2023, step=1.year);   
          time (year = 2024);
@@ -24,15 +24,13 @@ define CZECH_REPUBLIC_IUCN_GET as {{
   nca.ecosystemtype.classification.czech_republic:SwampMarsh                                 | nca.ecosystem.iucn:PermanentMarsh                          | hydrology:Wet   | #          | #                     ,
   nca.ecosystemtype.classification.czech_republic:BeechForest                                | nca.ecosystem.iucn:DeciduousTemperateForest                | #               | #          | #                     ,
   nca.ecosystemtype.classification.czech_republic:DegradedGrassland                          | nca.ecosystem.iucn:DerivedSeminaturalPastureOldfield       | #               | #          | #                     ,
-  nca.ecosystemtype.classification.czech_republic:OakOakHornbeamForest                       | nca.ecosystem.iucn:DeciduousTemperateForest                | #               | #          | nca.ecology:Deciduous   ,
-  nca.ecosystemtype.classification.czech_republic:ManagedConiferouForest                     | nca.ecosystem.iucn:Plantation                              | #               |true    	 | nca.ecology:Coniferous  ,
-  nca.ecosystemtype.classification.czech_republic:ManagedConiferouForest                     | nca.ecosystem.iucn:Plantation                              | #               | #          | #                     ,
-  nca.ecosystemtype.classification.czech_republic:ManagedConiferouForest                     | nca.ecosystem.iucn:Plantation                              | #               | #          | nca.ecology:Deciduous   ,
-  nca.ecosystemtype.classification.czech_republic:ManagedDeciduouForest                      | nca.ecosystem.iucn:Plantation                              | #               |true    	 | nca.ecology:Coniferous  ,
-  nca.ecosystemtype.classification.czech_republic:ManagedDeciduouForest                      | nca.ecosystem.iucn:Plantation                              | #               | #          | #                     ,
-  nca.ecosystemtype.classification.czech_republic:ManagedDeciduouForest                      | nca.ecosystem.iucn:Plantation                              | #               | #          | nca.ecology:Deciduous   ,
-  nca.ecosystemtype.classification.czech_republic:ManagedMixedForest                         | nca.ecosystem.iucn:Plantation                              | #               |true    	 | nca.ecology:Mixed       ,
-  nca.ecosystemtype.classification.czech_republic:ManagedMixedForest                         | nca.ecosystem.iucn:Plantation                              | #               | #          | nca.ecology:Mixed       ,
+  nca.ecosystemtype.classification.czech_republic:OakOakHornbeamForest                       | nca.ecosystem.iucn:DeciduousTemperateForest                | #               | #          | nca.ecology:Deciduous ,
+  nca.ecosystemtype.classification.czech_republic:ManagedConiferouForest                     | nca.ecosystem.iucn:Plantation                              | #               |true    	 | #					 ,
+  nca.ecosystemtype.classification.czech_republic:ManagedConiferouForest                     | nca.ecosystem.iucn:TemperateBorealForestWoodland           | #               |false    	 | #					 ,
+  nca.ecosystemtype.classification.czech_republic:ManagedDeciduouForest                      | nca.ecosystem.iucn:Plantation                              | #               |true    	 | #					 ,
+  nca.ecosystemtype.classification.czech_republic:ManagedDeciduouForest                      | nca.ecosystem.iucn:DeciduousTemperateForest	              | #               |false       | #					 ,
+  nca.ecosystemtype.classification.czech_republic:ManagedMixedForest                         | nca.ecosystem.iucn:Plantation                              | #               |true    	 | nca.ecology:Mixed     ,
+  nca.ecosystemtype.classification.czech_republic:ManagedMixedForest                         | nca.ecosystem.iucn:TemperateBorealForestWoodland           | #               |false       | #					 ,
   nca.ecosystemtype.classification.czech_republic:FloodplainWetlandForest                    | nca.ecosystem.iucn:SubtropicalWarmTemperateForestedWetland | #               | #          | #                     ,
   nca.ecosystemtype.classification.czech_republic:MacrophyteVegetationStandingWater          | nca.ecosystem.iucn:SmallPermanentFreshwaterLake            | #               | #          | #                     ,
   nca.ecosystemtype.classification.czech_republic:UrbanGreenAreaOrnamentalGardenParkCemetery | nca.ecosystem.iucn:GreenUrbanArea                          | #               | #          | #                     ,
@@ -59,20 +57,6 @@ define CZECH_REPUBLIC_IUCN_GET as {{
   nca.ecosystemtype.classification.czech_republic:Heathland                                  | nca.ecosystem.iucn:CoolTemperateHeathland                  | #               | #          | #                     ,
   nca.ecosystemtype.classification.czech_republic:ScreeForest                                | nca.ecosystem.iucn:BorealTemperateMontaneForestWoodland    | #               | #          | #                    
 }};
-
-model nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get 
-	observing
-		   type of nca.ecosystemtype.classification.czech_republic:CzechEcosystem named czech_national_ecosystem_type_classification ,
-		   type of hydrology:WaterRegime  named wetness_regime ,
-		   presence of agriculture:Planted ecology:Forest earth:Region named plantation,
-		   type of nca.ecology:VegetationComposition named vegetation_composition
-//		   soil_edafogenetic_environment,
-//		   type of dane.colombia.hydrology:RiverWater named water_type,
-//		   type of dane.colombia.ecology:Transformation named transformed,		   
-//		   type of dane.colombia.hydrology:AquaticEnvironment named transitional,		   		   
-//		   non_continental
-	lookup(czech_national_ecosystem_type_classification, ? , wetness_regime, plantation, vegetation_composition) into CZECH_REPUBLIC_IUCN_GET
-	over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2#weed_site=CZ2');
 
 
 private number 'local:alessio.bulckaen:im.data.global:JRC_global_surface_water_occurrence'
@@ -214,3 +198,19 @@ observing
 set to [
     (kves_classification == unknown) ? 1 : 0
 ];
+
+
+model nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get 
+	observing
+		   type of nca.ecosystemtype.classification.czech_republic:CzechEcosystem named czech_national_ecosystem_type_classification 
+//		   type of hydrology:WaterRegime  named wetness_regime ,
+//		   presence of agriculture:Planted ecology:Forest earth:Region named plantation,
+//		   type of nca.ecology:VegetationComposition named vegetation_composition
+//		   soil_edafogenetic_environment,
+//		   type of dane.colombia.hydrology:RiverWater named water_type,
+//		   type of dane.colombia.ecology:Transformation named transformed,		   
+//		   type of dane.colombia.hydrology:AquaticEnvironment named transitional,		   		   
+//		   non_continental
+	lookup(czech_national_ecosystem_type_classification, ? ,*, *, *) into CZECH_REPUBLIC_IUCN_GET
+//	lookup(czech_national_ecosystem_type_classification, ? , wetness_regime, plantation, vegetation_composition) into CZECH_REPUBLIC_IUCN_GET
+	over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2#weed_site=CZ2');
