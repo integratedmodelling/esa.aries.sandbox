@@ -1495,7 +1495,7 @@ model 'local:stefano.balbi:esa.aries.sandbox:alpha3_maxprob_inference_result_lev
 //			nca.ecosystem.eunis:WasteDeposit if 120600
 //;			
 
-
+//TODO:Test if we can use these identities to specify which observation is done using the k.LAB API
 abstract identity Version
 	has children 
 		RuleBased,
