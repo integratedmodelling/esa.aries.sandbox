@@ -1068,4 +1068,13 @@ model presence of (earth:Region with type of geography:CzechRepublic nca.ecosyst
 	lookup 
 		(reference_ecosystem_type, *, mapped_ecosystem_type, *, ?) 
 			 into CROSSREFERENCE_KVES_EUNIS;
-			//into CZECH_REPUBLIC_ECOSYSTEM_TYPE_COMPARISON_TABLE; 	
+			//into CZECH_REPUBLIC_ECOSYSTEM_TYPE_COMPARISON_TABLE; 
+define table czech_republic_ecosystem_type_result_comparison_by_ecosystem_type_ml_vs_reference as {
+	title: "Comparison of the Czech Republic ecosystem type result between ML & reference maps"
+	label: "Areas of difference between ML & reference maps by ES types"
+	target: im:Reference geography:CzechRepublic nca.ecosystem.eunis:EcosystemType
+	columns:({ title: "{classifier}", filter: im:Reference geography:CzechRepublic nca.ecosystem.eunis:EcosystemType}), 	
+	rows:   ({ title: "Consistency in (km²) between ML & reference maps ({classifier})", target: im:Area in km^2, filter: presence of (earth:Region with type of geography:CzechRepublic nca.ecosystem.eunis:Ecosystem) }
+	         { title: "Total area (km²) according to South Africa reference map", summarize: [r1 + r2], style: bold }
+	         { title: "Similarity of the result from the ML & reference maps (%)", summarize: [(r1 / (r1 + r2))*100], style: bold })};
+			
