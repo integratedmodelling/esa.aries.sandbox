@@ -1,0 +1,10 @@
+project private namespace primitive_characteristic.threshold;
+
+@intensive(space)
+model
+'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_total_net_primary_productivity__global__2024'
+as level of ecology:NetPrimaryProduction classified into
+im:Low ecology:NetPrimaryProduction if in (0 500),
+im:Moderate ecology:NetPrimaryProduction if in (500 2000),
+im:High ecology:NetPrimaryProduction if in (2000 10000)
+over space(shape='POLYGON ((179.9985147848 -59.9985130248, 179.9985147848 80.0014880952, -180 80.0014880952, -180 -59.9985130248, 179.9985147848 -59.9985130248))');
