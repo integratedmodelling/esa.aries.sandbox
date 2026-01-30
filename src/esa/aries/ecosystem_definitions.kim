@@ -1,0 +1,117 @@
+private namespace esa.aries.ecosystem_definitions
+using esa.aries.primitive_characteristic, nca.ecosystem.iucn;
+
+//define BIOME_T4_ECOSYSTEM_TYPES as {{
+//  landcover    | annual_total_net_primary_productivity | phenology_deciduous | leaf_area_index | annual_total_water_budget | annual_mean_diurnal_air_temperature | fire_recurrence | specific_leaf_area | annual_mean_precipitation | winter_total_water_budget | fertility                    | seasonal_amplitude_diurnal_air_temperature | winter_mean_diurnal_air_temperature | summer_mean_diurnal_air_temperature | ecosystem_type              
+//  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//  tree       | low                                 | deciduous         | leptophyll    | low                     | extremely cold                    | annual        | low              | very low                | low                     | infertile                  | #                                          | #                                   | #                                   | TrophicSavanna             ,
+//  shrub      | low                                 | deciduous         | leptophyll    | low                     | extremely cold                    | annual        | low              | very low                | low                     | infertile                  | #                                          | #                                   | #                                   | TrophicSavanna             ,
+//  herbaceous | low                                 | deciduous         | leptophyll    | low                     | extremely cold                    | annual        | low              | very low                | low                     | infertile                  | #                                          | #                                   | #                                   | TrophicSavanna             ,
+//  bare       | low                                 | deciduous         | leptophyll    | low                     | extremely cold                    | annual        | low              | very low                | low                     | infertile                  | #                                          | #                                   | #                                   | TrophicSavanna             ,
+//  tree       | #                                     | deciduous         | leptophyll    | low                     | extremely cold                    | annual        | low              | very low                | low                     | infertile                  | #                                          | #                                   | #                                   | PyricTussockSavanna        ,
+//  shrub      | #                                     | deciduous         | leptophyll    | low                     | extremely cold                    | annual        | low              | very low                | low                     | infertile                  | #                                          | #                                   | #                                   | PyricTussockSavanna        ,
+//  herbaceous | #                                     | deciduous         | leptophyll    | low                     | extremely cold                    | annual        | low              | very low                | low                     | infertile                  | #                                          | #                                   | #                                   | PyricTussockSavanna        ,
+//  bare       | #                                     | deciduous         | leptophyll    | low                     | extremely cold                    | annual        | low              | very low                | low                     | infertile                  | #                                          | #                                   | #                                   | PyricTussockSavanna        ,
+//  tree       | low                                 | deciduous         | leptophyll    | low                     | extremely cold                    | annual        | low              | very low                | low                     | infertile                  | #                                          | #                                   | #                                   | HummockSavanna             ,
+//  shrub      | low                                 | deciduous         | leptophyll    | low                     | extremely cold                    | annual        | low              | very low                | low                     | infertile                  | #                                          | #                                   | #                                   | HummockSavanna             ,
+//  herbaceous | low                                 | deciduous         | leptophyll    | low                     | extremely cold                    | annual        | low              | very low                | low                     | infertile                  | #                                          | #                                   | #                                   | HummockSavanna             ,
+//  bare       | low                                 | deciduous         | leptophyll    | low                     | extremely cold                    | annual        | low              | very low                | low                     | infertile                  | #                                          | #                                   | #                                   | HummockSavanna             ,
+//  tree       | low                                 | #                   | leptophyll    | #                         | #                                   | annual        | #                  | very low                | #                         | infertile                  | #                                          | extremely cold                    | #                                   | TemperateWoodland          ,
+//  shrub      | low                                 | #                   | leptophyll    | #                         | #                                   | annual        | #                  | very low                | #                         | infertile                  | #                                          | extremely cold                    | #                                   | TemperateWoodland          ,
+//  herbaceous | low                                 | #                   | leptophyll    | #                         | #                                   | annual        | #                  | very low                | #                         | infertile                  | #                                          | extremely cold                    | #                                   | TemperateWoodland          ,
+//  bare       | low                                 | #                   | leptophyll    | #                         | #                                   | annual        | #                  | very low                | #                         | infertile                  | #                                          | extremely cold                    | #                                   | TemperateWoodland          ,
+//  herbaceous | extremely cold                      | #                   | #               | #                         | #                                   | very low      | #                  | infertile               | #                         | TemperateSubhumidGrassland | #                                          | extremely cold                    | extremely cold                    | TemperateSubhumidGrassland
+//}};
+
+
+model nca.ecosystem.iucn:TemperateBorealForestWoodland type of nca.ecosystem.iucn:Ecosystem
+observing
+landcover:LandCoverType named landcover,
+percentage of ecology:CanopyCover named canopy_cover,
+ecology:NetPrimaryProduction in g/m^2/day named annual_total_net_primary_productivity,
+presence of ecology:Deciduous ecology:Vegetation earth:Region named phenology_deciduous,
+ecology:LeafAreaIndex named leaf_area_index,
+im:Mean hydrology:WaterVolume of hydrology:WaterBalance in kg/m^2/year named annual_total_water_budget,
+im:Daily im:Differential im:Yearly earth:AtmosphericTemperature named annual_mean_diurnal_air_temperature,
+count of im:Yearly im:Occurrence of chemistry:Fire in year named fire_recurrence,
+ratio of biology:Leaf im:Area to im:Mass in m^2/kg named specific_leaf_area,
+im:Mean earth:PrecipitationVolume in kg/m^2/month named annual_mean_precipitation,
+hydrology:WaterVolume of hydrology:WaterBalance during earth:Winter in kg/m^2/year named winter_total_water_budget,
+//soil.incubation:SoilFertilityType classified into named fertility,
+im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature named seasonal_amplitude_diurnal_air_temperature,
+im:Mean earth:AtmosphericTemperature during earth:Winter in degrees named winter_mean_diurnal_air_temperature,
+im:Mean earth:AtmosphericTemperature during earth:Summer in degrees named summer_mean_diurnal_air_temperature
+lookup
+(landcover,canopy_cover,annual_total_net_primary_productivity,phenology_deciduous,leaf_area_index,annual_total_water_budget,annual_mean_diurnal_air_temperature,fire_recurrence,specific_leaf_area,annual_mean_precipitation,winter_total_water_budget,fertility,seasonal_amplitude_diurnal_air_temperature,winter_mean_diurnal_air_temperature,summer_mean_diurnal_air_temperature, ?)
+into BIOME_T4_ECOSYSTEM_TYPES;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+model im.nca.ecosystem.iucn:TemperateBorealForestWoodland
+	observing
+		landcover:LandCoverType named landcover,
+		percentage of ecology:CanopyCover named canopy_cover,
+		ecology:NetPrimaryProduction in g/m^2/day named npp,
+		presence of ecology:Deciduous ecology:Vegetation earth:Region named phenology,
+		ecology:LeafAreaIndex named lai,
+		im:Mean hydrology:WaterVolume of hydrology:WaterBalance in kg/m^2/year named water_budget
+		lookup 
+		(landcover,canopy_cover, npp, phenology, lai, water_budget, ?) 
+			into TABLE_NAME;
+		
+			into IUCN_GLOBAL_ECOSYSTEMS_BIOME_T2;
+model im.nca.ecosystem.iucn:TemperateBorealForestWoodland
+	observing		
+		presence of ecology:Evergreen ecology:Vegetation earth:Region named phenology,
+		percentage of ecology:CanopyCover named canopy_cover,
+		im:Mean im:Height of ecology:Canopy in m named canopy_height,
+		im:Mean earth:AtmosphericTemperature during earth:Winter in degrees named mean_winter_temperature,
+		im:Mean hydrology:WaterVolume of hydrology:WaterBalance in kg/m^2/year named water_budget,
+		count of im:Yearly im:Occurrence of chemistry:Fire in year named fire_reccurence
+		lookup 
+		(landcover, phenology, canopy_cover, canopy_height, mean_winter_temperature, water_budget, fire_reccurence, ?) 
+			into IUCN_GLOBAL_ECOSYSTEMS_BIOME_T2;
+	
