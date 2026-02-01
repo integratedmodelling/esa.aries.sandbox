@@ -1,4 +1,4 @@
-project private namespace esa.aries.primitive_characteristic;
+private namespace primitive_characteristic;
 
 
 observe earth:Region named greece_test_area_2018

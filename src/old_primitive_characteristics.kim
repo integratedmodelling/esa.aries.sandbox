@@ -1,4 +1,4 @@
-private namespace primitive_characteristics
+private namespace old_primitive_characteristics
 using nca.ecosystem.iucn, nca.landuse.ipcc
 ;    
 
