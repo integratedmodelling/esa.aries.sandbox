@@ -36,8 +36,6 @@ as soil.incubation:SoilFertilityType classified into
 over space(shape="POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))");
 //	soil.incubation:SteepTerrainSlope if (11),
 
-over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
-
 //3. Proposed annotation for nitrogen
 model
 'local:alessio.bulckaen:im.data.global:ecdc__soil__nitrogen__global__1995_2019'
