@@ -1,5 +1,7 @@
 project private namespace primitive_characteristic;
 
+identity Variability;
+quantity HydroformDensity;
 
 observe earth:Region named greece_test_area_2018
 over space(shape=
@@ -192,7 +194,7 @@ over space(shape='POLYGON ((33.708901 -34.837031, 33.708901 -21.003923, 15.34109
 //33. Proposed annotation for watershed_hydroform_density
 model
 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__south_africa__2013_2020'
-as watershed_hydroform_density
+as HydroformDensity of hydrology:Watershed
 over space(shape='POLYGON ((33.708901 -34.837031, 33.708901 -21.003923, 15.341099 -21.003923, 15.341099 -34.837031, 33.708901 -34.837031))');
 //34. Proposed annotation for hydroform_morphology_area
 model
@@ -392,12 +394,12 @@ over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
 //73. Proposed annotation for summer_mean_diurnal_air_temperature
 model
 'local:alessio.bulckaen:im.data.global:ecdc__climate__summer_mean_diurnal_air_temperature__global__1981_2010'
-as im:Mean earth:AtmosphericTemperature during earth:Summer in degrees
+as im:Mean earth:AtmosphericTemperature during earth:Summer in Celsius
 over space(shape='POLYGON ((179.9998596712 -90, 179.9998596712 83.9998604151, -180 83.9998604151, -180 -90, 179.9998596712 -90))');
 //74. Proposed annotation for winter_mean_diurnal_air_temperature
 model
 'local:alessio.bulckaen:im.data.global:ecdc__climate__winter_mean_diurnal_air_temperature__global__1981_2010'
-as im:Mean earth:AtmosphericTemperature during earth:Winter in degrees
+as im:Mean earth:AtmosphericTemperature during earth:Winter in Celsius
 over space(shape='POLYGON ((179.9998596712 -90, 179.9998596712 83.9998604151, -180 83.9998604151, -180 -90, 179.9998596712 -90))');
 //75. Proposed annotation for potential_tree_growth
 model
@@ -412,7 +414,7 @@ over space(shape='POLYGON ((179.9998596712 -90, 179.9998596712 83.9998604152, -1
 //77. Proposed annotation for seasonal_variability_diurnal_air_temperature
 model
 'local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_variability_diurnal_air_temperature__global__1981_2010'
-as seasonal_variability_diurnal_air_temperature
+as im:Daily Variability im:Seasonal earth:AtmosphericTemperature
 over space(shape='POLYGON ((179.9998596712 -90, 179.9998596712 83.9998604152, -180 83.9998604152, -180 -90, 179.9998596712 -90))');
 //78. Proposed annotation for annual_mean_precipitation
 model
@@ -422,7 +424,7 @@ over space(shape='POLYGON ((179.9998596712 -90, 179.9998596712 83.9998604152, -1
 //79. Proposed annotation for annual_mean_diurnal_air_temperature
 model
 'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_mean_diurnal_air_temperature__global__1981_2010'
-as annual_mean_diurnal_air_temperature
+as im:Mean im:Yearly earth:AtmosphericTemperature in Celsius
 over space(shape='POLYGON ((179.9998596712 -90, 179.9998596712 83.9998604152, -180 83.9998604152, -180 -90, 179.9998596712 -90))');
 //80. Proposed annotation for annual_total_water_budget
 model
@@ -437,7 +439,7 @@ over space(shape='POLYGON ((179.9998596712 -90, 179.9998596712 83.9998604152, -1
 //82. Proposed annotation for thermal_belt_lowland
 model
 'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_lowland__global__1970_2000'
-as type of MontaneThermicBelt
+as type of ecology:MountainClimaticBeltZone
 over space(shape='POLYGON ((179.9785907 -59.4789377, 179.9785907 83.6458333, -180 83.6458333, -180 -59.4789377, 179.9785907 -59.4789377))');
 model 'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_lowland__global__1970_2000'
   as presence of ecology:Lowland earth:Region; 
