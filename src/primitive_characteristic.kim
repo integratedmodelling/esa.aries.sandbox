@@ -44,7 +44,7 @@ over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
 //4. Proposed annotation for base_saturation
 model
 'local:alessio.bulckaen:im.data.global:ecdc__soil__base_saturation__global__1995_2019'
-as percentage of soil:Soil
+as percentage of (chemistry:Basic chemistry:ExchangeCapacity) in (chemistry:ExchangeCapacity of chemistry:Cation)
 over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
 //5. Proposed annotation for tropical_storms_exposure
 model
