@@ -22,7 +22,6 @@ observe earth:Region named sa_test_multiple_context_wkt
 //the resource has individual polygons and works normally. Individual polygons are shown
 model each 'local:justus.muhando:samples.justus:esa_weed_south_africa_weed_test_sites_epsg4326'
     as geography:GeographicalIdentity earth:Region named sa_test_areas;
-    
 
     
 //CASE 2
@@ -62,3 +61,9 @@ observe earth:Region named priority_area_colombia_4326
 //works as expected for the defined projection EPSG:3116
 model each 'local:justus.muhando:samples.justus:esa_weed_colombia_weed_test_sites_epsg3116'
     as geography:GeographicalIdentity earth:Region named colombia_test_areas;	      
+
+    
+//IIASA Geoserver points 
+model 'local:justus.muhando:esa.aries.sandbox:weed_global' 
+	as geography:GeographicalIdentity earth:Site named reference_points ;    
+    
