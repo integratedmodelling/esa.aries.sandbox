@@ -1,7 +1,9 @@
 project private namespace primitive_characteristic;
 
+//TODO:Add proper concepts
 identity Variability;
 quantity HydroformDensity;
+identity Size;
 
 observe earth:Region named greece_test_area_2018
 over space(shape=
