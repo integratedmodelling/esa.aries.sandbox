@@ -2,7 +2,37 @@ project private namespace primitive_characteristic.threshold;
 
 //TODO:Add proper concepts
 identity Variability;
+class Temperature
+	has children
+	ExtremelyCold,
+	VeryCold,
+	Cold,
+	Cool,
+	Mild,
+	Warm,
+	Hot,
+	VeryHot,
+	ExtremelyHot;
 
+attribute FireFrequency
+    "The characteristic interval of fire recurrence within a specific ecosystem, often referred to as the Fire Return Interval (FRI)."
+    has children
+        (Annual
+            "Fire occurs every year; typical of tropical savannas or systems with high-biomass annual grasses."
+        ),
+        (Frequent
+            "Sub-decadal recurrence (1–10 years). Characterized by fires occurring several times within a decade."
+        ),
+        (Occasional
+            "Decadal recurrence (10–30 years). Fire occurs roughly once per decade or slightly less frequently."
+        ),
+        (Infrequent
+            "Multi-decadal recurrence (30–100 years). Fire cycles span several decades, often allowing for significant woody fuel accumulation."
+        ),
+        (Centennial
+            "Very low frequency (>100 years). Fire is a rare event, often occurring only under extreme climatic conditions, typical of some temperate rainforests or subalpine zones."
+        )
+; 
 
 observe earth:Region named greece_test_area_2024
 over space(shape=
@@ -111,11 +141,11 @@ observing im:Mean hydrology:WaterVolume of hydrology:WaterBalance in kg/m^2/year
 lookup(annual_total_water_budget,?) into
 	annual_total_water_budget | category
 	---------------------------------------
-					   < -500 | im:VeryLow,
-	 			   -500 to -1 | im:Low,
+					   < -500 | im:Low,
+	 			   -500 to -1 | im:ModeratelyLow,
 				      -1 to 1 | im:Moderate,
-					 1 to 499 | im:High,
-						 >500 | im:VeryHigh;
+					 1 to 499 | im:ModeratelyHigh,
+						 >500 | im:High;
 
 //annotation of winter_total_water_budget thresholds
 model level of (hydrology:WaterVolume of hydrology:WaterBalance during earth:Winter)
@@ -135,15 +165,15 @@ observing im:Mean im:Yearly earth:AtmosphericTemperature named annual_mean_diurn
 lookup(annual_mean_diurnal_air_temperature,?) into
 annual_mean_diurnal_air_temperature | category
 ----------------------------------------------
-< to 25° | extremely cold
- to 25 to  to 10° | very cold
- to 10 to 0° | cold
-0 to 10° | cool
-10 to 18° | mild
-18 to 22° | warm
-22 to 28° | hot
-28 to 35° | very hot
->35° | extremely hot
+						   	   <-25 | ExtremelyCold,
+						 -25 to -10 | VeryCold,
+						   -10 to 0 | Cold,
+							0 to 10 | Cool,
+					       10 to 18 | Mild,
+						   18 to 22 | Warm,
+						   22 to 28 | Hot,
+						   28 to 35 | VeryHot,
+								>35 | ExtremelyHot;
 
 //annotation of winter_mean_diurnal_air_temperature thresholds
 model level of im:Mean earth:AtmosphericTemperature during earth:Winter in Celsius
@@ -151,31 +181,31 @@ observing im:Mean earth:AtmosphericTemperature during earth:Winter in Celsius na
 lookup(winter_mean_diurnal_air_temperature,?) into
 winter_mean_diurnal_air_temperature | category
 ----------------------------------------------
-< to 25° | extremely cold
- to 25 to  to 10° | very cold
- to 10 to 0° | cold
-0 to 10° | cool
-10 to 18° | mild
-18 to 22° | warm
-22 to 28° | hot
-28 to 35° | very hot
->35° | extremely hot
+						   	   <-25 | ExtremelyCold,
+						 -25 to -10 | VeryCold,
+						   -10 to 0 | Cold,
+							0 to 10 | Cool,
+					       10 to 18 | Mild,
+						   18 to 22 | Warm,
+						   22 to 28 | Hot,
+						   28 to 35 | VeryHot,
+								>35 | ExtremelyHot;
 
 //annotation of summer_mean_diurnal_air_temperature thresholds
-model level of im:Mean earth:AtmosphericTemperature during earth:Summer in Celsius
+model level of (im:Mean earth:AtmosphericTemperature during earth:Summer)
 observing im:Mean earth:AtmosphericTemperature during earth:Summer in Celsius named summer_mean_diurnal_air_temperature
 lookup(summer_mean_diurnal_air_temperature,?) into
-summer_mean_diurnal_air_temperature | category
-----------------------------------------------
-< to 25° | extremely cold
- to 25 to  to 10° | very cold
- to 10 to 0° | cold
-0 to 10° | cool
-10 to 18° | mild
-18 to 22° | warm
-22 to 28° | hot
-28 to 35° | very hot
->35° | extremely hot
+	summer_mean_diurnal_air_temperature | category
+	-------------------------------------------------------
+							   	   <-25 | ExtremelyCold,
+							 -25 to -10 | VeryCold,
+							   -10 to 0 | Cold,
+								0 to 10 | Cool,
+						       10 to 18 | Mild,
+							   18 to 22 | Warm,
+							   22 to 28 | Hot,
+							   28 to 35 | VeryHot,
+									>35 | ExtremelyHot;
 
 //annotation of seasonal_amplitude_diurnal_air_temperature thresholds
 model level of im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature 
@@ -199,18 +229,6 @@ seasonal_variability_diurnal_air_temperature | category
 						  				 >75 | im:High;
 
 //annotation of landcover thresholds
-model level of landcover:LandCoverType
-observing landcover:LandCoverType named landcover
-lookup(landcover,?) into
-landcover | category
---------------------
-0 | absence
-0 to 1 | very sparse
-1 to 10 | sparse
-10 to 30 | open
->70 | dense
-
-//annotation of landcover thresholds
 model level of ecology:Density
 observing percentage named landcover
 	lookup(landcover,?) into
@@ -227,36 +245,36 @@ observing percentage named landcover
 model level of percentage of ecology:CanopyCover
 observing percentage of ecology:CanopyCover named canopy_cover
 lookup(canopy_cover,?) into
-canopy_cover | category
------------------------
-1 to 15 | absence
-1 to 15 | sparse
-15 to 65 | open
-65 to 100 | closed
+	canopy_cover | category
+	------------------------------
+		 1 to 15 | ecology:Absent,
+		 1 to 15 | ecology:Sparse,
+		15 to 65 | ecology:Open,
+	   65 to 100 | ecology:Dense;
 
 //annotation of canopy_height thresholds
-model level of im:Mean im:Height of ecology:Canopy in m
+model level of (im:Mean im:Height of ecology:Canopy)
 observing im:Mean im:Height of ecology:Canopy in m named canopy_height
 lookup(canopy_height,?) into
-canopy_height | category
-------------------------
-0 | absence
-0 to 1 | very im:Low
-1 to 5 | im:Low
-5 to 20 | im:Moderate
-20 to 40 | im:High
->40 | very im:High
+	canopy_height | category
+	------------------------
+				0 | ecology:Absent,
+		   0 to 1 | im:VeryLow,
+		   1 to 5 | im:Low,
+		  5 to 20 | im:Moderate,
+		 20 to 40 | im:High,
+			  >40 | im:VeryHigh;
 
 //annotation of specific_leaf_area thresholds
-model level of ratio of biology:Leaf im:Area to im:Mass in m^2/kg
+model level of biology:Leaf im:Area to im:Mass
 observing ratio of biology:Leaf im:Area to im:Mass in m^2/kg named specific_leaf_area
-lookup(specific_leaf_area,?) into
-specific_leaf_area | category
------------------------------
-<3/ | im:Low
-3 to 5/ | im:Moderate to im:Low
-5 to 8/ | im:Moderate to im:High
->8/ | im:High
+	lookup(specific_leaf_area,?) into
+	specific_leaf_area | category
+	--------------------------------
+					<3 | im:VeryLow,
+				3 to 5 | im:Low,
+				5 to 8 | im:Moderate,
+					>8 | im:VeryHigh;
 
 //annotation of leaf_size thresholds
 model level of biology:Leaf im:Area
@@ -274,15 +292,15 @@ observing biology:Leaf im:Area in mm^2 named leaf_size
 model level of ecology:LeafAreaIndex
 observing ecology:LeafAreaIndex named leaf_area_index
 lookup(leaf_area_index,?) into
-leaf_area_index | category
---------------------------
-0 to 25 | leptophyll
-25 to 225 | nanophyll
-225 to 2,025 | microphyll
-2,025 to 4,500 | notophyll
-2,025 to 18,225 | mesophyll
-18,225 to 164,025 | macrophyll
->164,025 | megaphyll
+	leaf_area_index | category
+	-------------------------------------
+			0 to 25 | ecology:Leptophyll,
+		  25 to 225 | ecology:Nanophyll,
+		225 to 2025 | ecology:Microphyll,
+	   2025 to 4500 | ecology:Notophyll,
+	  2025 to 18225 | ecology:Mesophyll,
+	18225 to 164025 | ecology:Macrophyll,
+			>164025 | ecology:Megaphyll;
 
 
 
@@ -290,25 +308,20 @@ leaf_area_index | category
 model level of ecology:NetPrimaryProduction
 observing ecology:NetPrimaryProduction in g/m^2/day named annual_total_net_primary_productivity
 lookup(annual_total_net_primary_productivity,?) into
-annual_total_net_primary_productivity | category
-------------------------------------------------
-0 to 500 | im:Low,
-500 to 2000 | im:Moderate,
->2000 | im:High;
-
-
-
-
-
+	annual_total_net_primary_productivity | category
+	------------------------------------------------
+								 0 to 500 | im:Low,
+							  500 to 2000 | im:Moderate,
+								    >2000 | im:High;
 
 //annotation of fire_recurrence thresholds
-model level of count of im:Yearly im:Occurrence of chemistry:Fire in year
+model level of (im:Yearly im:Occurrence of chemistry:Fire)
 observing count of im:Yearly im:Occurrence of chemistry:Fire in year named fire_recurrence
 lookup(fire_recurrence,?) into
-fire_recurrence | category
---------------------------
-1 | annual
-2 to 9 | sub-decadal
-10 to 19 | decadal
-20 to 99 | multi-decadal
->100 | centennial                		
+	fire_recurrence | category
+	-------------------------------
+				  1 | Annual,
+			 2 to 9 | Frequent,
+			0 to 19 | Occasional,
+			0 to 99 | Infrequent,
+			   >100 | Centennial;                		
