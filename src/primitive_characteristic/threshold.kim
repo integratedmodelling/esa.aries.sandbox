@@ -46,14 +46,14 @@ time(start=2015, end=2016, step=1.year);
  */
 
 
-//@intensive(space)                        
-//model level of (im:Minimum im:Area of earth:WaterBody) named hydroform_morphology_area
-//observing im:Minimum im:Area of earth:WaterBody in km^2
-//		lookup (hydroform_morphology_area) into
-//		hydroform_morphology_area | category
-//		------------------------------------
-//							< 100 | im:Low,
-//	                        > 100 | im:High;
+@intensive(space)                        
+model level of (im:Minimum im:Area of earth:WaterBody) named hydroform_morphology_area
+observing im:Minimum im:Area of earth:WaterBody in km^2
+		lookup (hydroform_morphology_area) into
+		hydroform_morphology_area | category
+		------------------------------------
+							< 100 | im:Low,
+	                        > 100 | im:High; 
  
 //model level of (hydrology:StreamOrder of hydrology:Watershed) named watershed_hierarchy
 //observing hydrology:StreamOrder of hydrology:Watershed	
@@ -73,6 +73,14 @@ observing ecology:NetPrimaryProduction in g/m^2 named annual_total_net_primary_p
 				                  500 to 2000 | im:Moderate,
 				                       > 2000 | im:High;
 
+model   
+'local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020'
+as level of soil.incubation:SoilFertility classified into
+  	soil.incubation:Infertile if in (0 1 2),
+	soil.incubation:LowFertility if in (3 4),
+	soil.incubation:MediumFertility if in (5 6 7),
+	soil.incubation:HighFertility if in (8 9 10)
+over space(shape="POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))");
 
 
 
