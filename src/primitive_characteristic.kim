@@ -521,7 +521,7 @@ over space(shape='POLYGON ((21 48, 21 54, 12 54, 12 48, 21 48))');
 //94. Proposed annotation for canopy_cover
 model
 'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__greece__2015'
-as percentage of ecology:CanopyCover
+as proportion of ecology:CanopyCover
 over space(shape='POLYGON ((29.6069446286 34.8033392211, 29.6069446286 41.749292661, 19.373696238 41.749292661, 19.373696238 34.8033392211, 29.6069446286 34.8033392211))');
 //95. Proposed annotation for canopy_cover
 model

@@ -38,7 +38,7 @@ observe earth:Region named greece_test_area_2024
 over space(shape=
 "EPSG:4326 POLYGON ((20.679138515160957 38.18374883460746, 20.672359298475584 38.15695481086746, 20.65305372270607 38.13423222059453, 20.624160886757842 38.11904552707, 20.590079462989802 38.11371192003023, 20.55599803922176 38.11904552707, 20.527105203273532 38.13423222059453, 20.507799627504017 38.15695481086746, 20.501020410818647 38.18374883460746, 20.507799627504017 38.21053300753712, 20.527105203273532 38.23323181585647, 20.55599803922176 38.24839472743662, 20.590079462989802 38.25371848367516, 20.624160886757842 38.24839472743662, 20.65305372270607 38.23323181585647, 20.672359298475584 38.21053300753712, 20.679138515160957 38.18374883460746))",
 		   grid="300 m"),
-time(start=2024, end=2025, step=1.year);
+time(start=2015, end=2016, step=1.year);
 
 /*
  * If any doubt check original classification here:
@@ -242,8 +242,8 @@ observing ecology:NetPrimaryProduction in g/m^2 named annual_total_net_primary_p
 
 
 //annotation of canopy_cover thresholds
-model level of ecology:CanopyDensity    
-observing percentage of ecology:CanopyCover named canopy_cover
+model level of ecology:CanopyDensity     
+observing proportion of ecology:CanopyCover  named canopy_cover 
 lookup (canopy_cover) into
 	canopy_cover | category
 	------------------------------
