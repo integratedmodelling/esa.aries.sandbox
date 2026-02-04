@@ -596,12 +596,12 @@ over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
 //109. Proposed annotation for specific_leaf_area
 model
 'local:alessio.bulckaen:im.data.global:ecdc__vegetation__specific_leaf_area__global__2000_2020'
-as ratio of biology:Leaf im:Area to im:Mass in m^2/kg
+as ratio of  im:Area to im:Mass of biology:Leaf in m^2/kg  
 over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
-//110. Proposed annotation for leaf_size
+//110. Proposed annotation for leaf_size  
 model
 'local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_size__global__2000_2020'
-as biology:Leaf im:Area in mm^2
+as im:Area of biology:Leaf in mm^2      
 over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
 
 ////Previous annotation
