@@ -242,15 +242,15 @@ observing ecology:NetPrimaryProduction in g/m^2 named annual_total_net_primary_p
 
 
 //annotation of canopy_cover thresholds
-//model level of percentage of ecology:CanopyCover
-//observing percentage of ecology:CanopyCover named canopy_cover
-//lookup (canopy_cover) into
-//	canopy_cover | category
-//	------------------------------
-//		 1 to 15 | ecology:Absent,
-//		 1 to 15 | ecology:Sparse,
-//		15 to 65 | ecology:Open,
-//	   65 to 100 | ecology:Dense;
+model level of ecology:CanopyDensity    
+observing percentage of ecology:CanopyCover named canopy_cover
+lookup (canopy_cover) into
+	canopy_cover | category
+	------------------------------
+		 	   0 | ecology:Absent,
+		 1 to 15 | ecology:Sparse,
+		15 to 65 | ecology:Open,
+	   65 to 100 | ecology:Dense; 
 
 //annotation of canopy_height thresholds
 //model level of (im:Mean im:Height of ecology:Canopy)
@@ -268,7 +268,7 @@ observing ecology:NetPrimaryProduction in g/m^2 named annual_total_net_primary_p
 //annotation of specific_leaf_area thresholds
 //model level of biology:Leaf im:Area to im:Mass
 //observing ratio of biology:Leaf im:Area to im:Mass in m^2/kg named specific_leaf_area
-//	lookup(specific_leaf_area,?) into
+//	lookup(specific_leaf_area) into
 //	specific_leaf_area | category
 //	--------------------------------
 //					<3 | im:VeryLow,
@@ -279,7 +279,7 @@ observing ecology:NetPrimaryProduction in g/m^2 named annual_total_net_primary_p
 //annotation of leaf_size thresholds
 //model level of biology:Leaf im:Area
 //observing biology:Leaf im:Area in mm^2 named leaf_size
-//	lookup(leaf_size,?) into
+//	lookup(leaf_size) into
 //		leaf_size | category
 //		-----------------------
 //				<0| im:VeryLow,

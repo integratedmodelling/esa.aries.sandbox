@@ -68,13 +68,12 @@ model
 as ecology:NetPrimaryProduction in g/m^2       
 over space(shape='POLYGON ((179.9985147848 -59.9985130248, 179.9985147848 80.0014880952, -180 80.0014880952, -180 -59.9985130248, 179.9985147848 -59.9985130248))');
 
-//7B. Proposed annotation for annual_total_net_primary_productivity
-@intensive(space)
-model
-'local:alessio.bulckaen:esa.aries.sandbox:testing.geometry:STAC'
-as ecology:NetPrimaryProduction in g/m^2
-over space(shape='POLYGON ((179.9985147848 -59.9985130248, 179.9985147848 80.0014880952, -180 80.0014880952, -180 -59.9985130248, 179.9985147848 -59.9985130248))');
-
+////7B. Proposed annotation for annual_total_net_primary_productivity
+//@intensive(space)
+//model
+//'local:alessio.bulckaen:esa.aries.sandbox:testing.geometry:STAC'
+//as ecology:NetPrimaryProduction in g/m^2
+//over space(shape='POLYGON ((179.9985147848 -59.9985130248, 179.9985147848 80.0014880952, -180 80.0014880952, -180 -59.9985130248, 179.9985147848 -59.9985130248))');
 
 //8. Proposed annotation for floodplain
 model
