@@ -66,12 +66,12 @@ observing hydrology:StreamOrder of hydrology:Watershed
 @intensive(space)
 model level of ecology:NetPrimaryProduction
 observing ecology:NetPrimaryProduction in g/m^2 named annual_total_net_primary_productivity //g/m^2/day named npp
-		lookup (npp, ?) into
+		lookup (annual_total_net_primary_productivity, ?) into
         annual_total_net_primary_productivity | category
 		----------------------------------------------------
 										< 500 | im:Low,
 				                  500 to 2000 | im:Moderate,
-				                        >2000 | im:High;
+				                        > 2000 | im:High;
 
 
 
@@ -287,6 +287,7 @@ observing biology:Leaf im:Area in mm^2 named leaf_size
 		   3 to 5 | im:Moderate,
 		   5 to 8 | im:High,
 			   >8 | im:VeryHigh;
+
 
 //annotation of leaf_area_index thresholds
 model level of ecology:LeafAreaIndex

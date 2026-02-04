@@ -17,9 +17,9 @@ time(start=2018, end=2019, step=1.year);
 // Description: Vertical depth of the accumulated peat layer.
 // Concept: im:Depth applied to a PeatBog context. 
 // Note: 'landcover:PeatBog' is defined in the landcover namespace [576].
-model 'local:alessio.bulckaen:im.data.global:ecdc__soil__peat_thickness__global__2001_2021' 
-  as im:Depth of landcover:PeatBog earth:Region 
-  in cm;
+//model 'local:alessio.bulckaen:im.data.global:ecdc__soil__peat_thickness__global__2001_2021' 
+//  as im:Depth of landcover:PeatBog earth:Region 
+//  in cm;
 
   
 /*Refined annotation for ECDC primitive characteristics*/
@@ -53,7 +53,7 @@ over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
 //5. Proposed annotation for tropical_storms_exposure
 model
 'local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__tropical_storms_exposure__global__1990_2015'
-as im:Mean im:Maximum earth:WindSpeed of earth:Storm in kn
+as im:Mean im:Maximum earth:WindSpeed of earth:Storm in km/h  
 over space(shape='POLYGON ((180 -42, 180 66.6, -176.3 66.6, -176.3 -42, 180 -42))');
 //6. Proposed annotation for tidal_zone_intertidal
 model
@@ -62,10 +62,10 @@ as presence of earth:Wetland by earth:Coast
 over space(shape='POLYGON ((180 -60.0000049623, 180 60.0000049623, -180 60.0000049623, -180 -60.0000049623, 180 -60.0000049623))');
 
 //7. Proposed annotation for annual_total_net_primary_productivity
-@intensive(space)
+@intensive(space)   
 model
 'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_total_net_primary_productivity__global__2024'
-as ecology:NetPrimaryProduction in g/m^2
+as ecology:NetPrimaryProduction in g/m^2       
 over space(shape='POLYGON ((179.9985147848 -59.9985130248, 179.9985147848 80.0014880952, -180 80.0014880952, -180 -59.9985130248, 179.9985147848 -59.9985130248))');
 
 //7B. Proposed annotation for annual_total_net_primary_productivity
