@@ -66,4 +66,9 @@ model each 'local:justus.muhando:samples.justus:esa_weed_colombia_weed_test_site
 //IIASA Geoserver points 
 model 'local:justus.muhando:esa.aries.sandbox:weed_global' 
 	as geography:GeographicalIdentity earth:Site named reference_points ;    
-    
+
+//STAC data integration analysis - geometries
+number 'local:alessio.bulckaen:esa.aries.sandbox:testing.geometry:STAC' as test;
+
+model 'local:alessio.bulckaen:esa.aries.sandbox:testing.geometry:STAC'
+	as
