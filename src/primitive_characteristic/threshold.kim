@@ -46,283 +46,273 @@ time(start=2024, end=2025, step=1.year);
  */
 
 
-@intensive(space)                        
-model level of (im:Minimum im:Area of earth:WaterBody) named hydroform_morphology_area
-observing im:Minimum im:Area of earth:WaterBody in km^2
-		lookup (hydroform_morphology_area, ?) into
-		hydroform_morphology_area | category
-		------------------------------------
-							< 100 | im:Low,
-	                        > 100 | im:High;
+//@intensive(space)                        
+//model level of (im:Minimum im:Area of earth:WaterBody) named hydroform_morphology_area
+//observing im:Minimum im:Area of earth:WaterBody in km^2
+//		lookup (hydroform_morphology_area) into
+//		hydroform_morphology_area | category
+//		------------------------------------
+//							< 100 | im:Low,
+//	                        > 100 | im:High;
  
-model level of (hydrology:StreamOrder of hydrology:Watershed) named watershed_hierarchy
-observing hydrology:StreamOrder of hydrology:Watershed	
-	 	lookup (watershed_hierarchy, ?) into
-	 	watershed_hierarchy | category
-		----------------------------------
-					 1 to 4 | im:Low,
-	                 4 to 9 | im:Moderate,
-	                     >9 | im:High;
+//model level of (hydrology:StreamOrder of hydrology:Watershed) named watershed_hierarchy
+//observing hydrology:StreamOrder of hydrology:Watershed	
+//	 	lookup (watershed_hierarchy) into
+//	 	watershed_hierarchy | category
+//		----------------------------------
+//					 1 to 4 | im:Low,
+//	                 4 to 9 | im:Moderate,
+//	                    > 9 | im:High;
 @intensive(space)
 model level of ecology:NetPrimaryProduction
 observing ecology:NetPrimaryProduction in g/m^2 named annual_total_net_primary_productivity //g/m^2/day named npp
-		lookup (annual_total_net_primary_productivity, ?) into
+		lookup (annual_total_net_primary_productivity) into
         annual_total_net_primary_productivity | category
 		----------------------------------------------------
 										< 500 | im:Low,
 				                  500 to 2000 | im:Moderate,
-				                        > 2000 | im:High;
+				                       > 2000 | im:High;
 
 
 
 
 //annotation of hydroform_morphology_area thresholds
-model level of im:Minimum im:Area of earth:WaterBody
-observing im:Minimum im:Area of earth:WaterBody in km^2 named hydroform_morphology_area
-lookup(hydroform_morphology_area,?) into
-	hydroform_morphology_area | category
-	------------------------------------
-						 <100 | im:Low,
-						 >100 | im:High;
+//model level of im:Minimum im:Area of earth:WaterBody
+//observing im:Minimum im:Area of earth:WaterBody in km^2 named hydroform_morphology_area
+//lookup(hydroform_morphology_area,?) into
+//	hydroform_morphology_area | category
+//	------------------------------------
+//						 <100 | im:Low,
+//						 >100 | im:High;
 
 
 
 
 
 //annotation of watershed_hierarchy thresholds
-model level of (hydrology:StreamOrder of hydrology:Watershed)
-observing hydrology:StreamOrder of hydrology:Watershed named watershed_hierarchy
-lookup(watershed_hierarchy,?) into
-		watershed_hierarchy | category
-		------------------------------
-					 1 to 3 | im:Low,
-					 4 to 8 | im:Moderate,
-					 	 >9 | im:High;
+//model level of (hydrology:StreamOrder of hydrology:Watershed)
+//observing hydrology:StreamOrder of hydrology:Watershed named watershed_hierarchy
+//lookup(watershed_hierarchy,?) into
+//		watershed_hierarchy | category
+//		------------------------------
+//					 1 to 3 | im:Low,
+//					 4 to 8 | im:Moderate,
+//					 	> 9 | im:High;
 
 
 //annotation of base_saturation thresholds
-model level of percentage of (chemistry:Basic chemistry:ExchangeCapacity) in (chemistry:ExchangeCapacity of chemistry:Cation)
-observing percentage of (chemistry:Basic chemistry:ExchangeCapacity) in (chemistry:ExchangeCapacity of chemistry:Cation) named base_saturation
-lookup(base_saturation,?) into
-base_saturation | category
---------------------------
-			<49 | im:Low,
-	   50 to 69 | im:Moderate,
-	  70 to 100 | im:High;
+//model level of percentage of (chemistry:Basic chemistry:ExchangeCapacity) in (chemistry:ExchangeCapacity of chemistry:Cation)
+//observing percentage of (chemistry:Basic chemistry:ExchangeCapacity) in (chemistry:ExchangeCapacity of chemistry:Cation) named base_saturation
+//lookup (base_saturation) into
+//base_saturation | category
+//--------------------------
+//		   < 49 | im:Low,
+//	   50 to 69 | im:Moderate,
+//	  70 to 100 | im:High;
 
 
 
 //annotation of peat_thickness thresholds
-model level of (im:Depth of landcover:PeatBog earth:Region)
-observing im:Depth of landcover:PeatBog earth:Region in cm named peat_thickness
-lookup(peat_thickness,?) into
-	peat_thickness | category
-	-------------------------
-			   0.0 | soil:Superficial,
-		0.0 to 0.3 | soil:Shallow,
-			 > 0.3 | soil:Deep;
+//model level of (im:Depth of landcover:PeatBog earth:Region)
+//observing im:Depth of landcover:PeatBog earth:Region in cm named peat_thickness
+//lookup (peat_thickness) into
+//	peat_thickness | category
+//	-------------------------
+//			   0.0 | soil:Superficial,
+//		0.0 to 0.3 | soil:Shallow,
+//			 > 0.3 | soil:Deep;
 
 
 //annotation of annual_mean_precipitation thresholds
-model level of im:Mean earth:PrecipitationVolume
-observing im:Mean earth:PrecipitationVolume in kg/m^2/month named annual_mean_precipitation
-lookup(annual_mean_precipitation,?) into
-	annual_mean_precipitation | category
-	---------------------------------------
-						 <200 | im:VeryLow,
-				   200 to 300 | im:Low,
-					00 to 900 | im:Moderate,
-				  900 to 2000 | im:High,
-						>2000 | im:VeryHigh;
+//model level of im:Mean earth:PrecipitationVolume
+//observing im:Mean earth:PrecipitationVolume in kg/m^2 named annual_mean_precipitation
+//lookup (annual_mean_precipitation) into
+//	annual_mean_precipitation | category
+//	---------------------------------------
+//						 <200 | im:VeryLow,
+//				   200 to 300 | im:Low,
+//					00 to 900 | im:Moderate,
+//				  900 to 2000 | im:High,
+//						>2000 | im:VeryHigh;
 
 //annotation of annual_total_water_budget thresholds
-model level of (im:Mean hydrology:WaterVolume of hydrology:WaterBalance) 
-observing im:Mean hydrology:WaterVolume of hydrology:WaterBalance in kg/m^2/year named annual_total_water_budget
-lookup(annual_total_water_budget,?) into
-	annual_total_water_budget | category
-	---------------------------------------
-					   < -500 | im:Low,
-	 			   -500 to -1 | im:ModeratelyLow,
-				      -1 to 1 | im:Moderate,
-					 1 to 499 | im:ModeratelyHigh,
-						 >500 | im:High;
+//model level of (im:Mean hydrology:WaterVolume of hydrology:WaterBalance) 
+//observing im:Mean hydrology:WaterVolume of hydrology:WaterBalance in kg/m^2 named annual_total_water_budget
+//lookup (annual_total_water_budget) into
+//	annual_total_water_budget | category
+//	---------------------------------------
+//					   < -500 | im:Low,
+//	 			   -500 to -1 | im:ModeratelyLow,
+//				      -1 to 1 | im:Moderate,
+//					 1 to 499 | im:ModeratelyHigh,
+//						 >500 | im:High;
 
 //annotation of winter_total_water_budget thresholds
-model level of (hydrology:WaterVolume of hydrology:WaterBalance during earth:Winter)
-observing hydrology:WaterVolume of hydrology:WaterBalance during earth:Winter in kg/m^2/year named winter_total_water_budget
-lookup(winter_total_water_budget,?) into
-	winter_total_water_budget | category
-	---------------------------------------
-					   < -500 | im:VeryLow,
-	 			   -500 to -1 | im:Low,
-				      -1 to 1 | im:Moderate,
-					 1 to 499 | im:High,
-						 >500 | im:VeryHigh;
+//model level of (hydrology:WaterVolume of hydrology:WaterBalance during earth:Winter)
+//observing hydrology:WaterVolume of hydrology:WaterBalance during earth:Winter in kg/m^2 named winter_total_water_budget
+//lookup (winter_total_water_budget) into
+//	winter_total_water_budget | category
+//	---------------------------------------
+//					   < -500 | im:VeryLow,
+//	 			   -500 to -1 | im:Low,
+//				      -1 to 1 | im:Moderate,
+//					 1 to 499 | im:High,
+//						> 500 | im:VeryHigh;
 
 //annotation of annual_mean_diurnal_air_temperature thresholds 
-model level of im:Mean im:Yearly earth:AtmosphericTemperature
-observing im:Mean im:Yearly earth:AtmosphericTemperature named annual_mean_diurnal_air_temperature
-lookup(annual_mean_diurnal_air_temperature,?) into
-annual_mean_diurnal_air_temperature | category
-----------------------------------------------
-						   	   <-25 | ExtremelyCold,
-						 -25 to -10 | VeryCold,
-						   -10 to 0 | Cold,
-							0 to 10 | Cool,
-					       10 to 18 | Mild,
-						   18 to 22 | Warm,
-						   22 to 28 | Hot,
-						   28 to 35 | VeryHot,
-								>35 | ExtremelyHot;
+//model level of im:Mean im:Yearly earth:AtmosphericTemperature
+//observing im:Mean im:Yearly earth:AtmosphericTemperature named annual_mean_diurnal_air_temperature
+//lookup (annual_mean_diurnal_air_temperature) into
+//annual_mean_diurnal_air_temperature | category
+//----------------------------------------------
+//						   	   <-25 | ExtremelyCold,
+//						 -25 to -10 | VeryCold,
+//						   -10 to 0 | Cold,
+//							0 to 10 | Cool,
+//					       10 to 18 | Mild,
+//						   18 to 22 | Warm,
+//						   22 to 28 | Hot,
+//						   28 to 35 | VeryHot,
+//							   > 35 | ExtremelyHot;
 
 //annotation of winter_mean_diurnal_air_temperature thresholds
-model level of im:Mean earth:AtmosphericTemperature during earth:Winter in Celsius
-observing im:Mean earth:AtmosphericTemperature during earth:Winter in Celsius named winter_mean_diurnal_air_temperature
-lookup(winter_mean_diurnal_air_temperature,?) into
-winter_mean_diurnal_air_temperature | category
-----------------------------------------------
-						   	   <-25 | ExtremelyCold,
-						 -25 to -10 | VeryCold,
-						   -10 to 0 | Cold,
-							0 to 10 | Cool,
-					       10 to 18 | Mild,
-						   18 to 22 | Warm,
-						   22 to 28 | Hot,
-						   28 to 35 | VeryHot,
-								>35 | ExtremelyHot;
+//model level of im:Mean earth:AtmosphericTemperature during earth:Winter in Celsius
+//observing im:Mean earth:AtmosphericTemperature during earth:Winter in Celsius named winter_mean_diurnal_air_temperature
+//lookup (winter_mean_diurnal_air_temperature) into
+//winter_mean_diurnal_air_temperature | category
+//----------------------------------------------
+//						   	   <-25 | ExtremelyCold,
+//						 -25 to -10 | VeryCold,
+//						   -10 to 0 | Cold,
+//							0 to 10 | Cool,
+//					       10 to 18 | Mild,
+//						   18 to 22 | Warm,
+//						   22 to 28 | Hot,
+//						   28 to 35 | VeryHot,
+//							   > 35 | ExtremelyHot;
 
 //annotation of summer_mean_diurnal_air_temperature thresholds
-model level of (im:Mean earth:AtmosphericTemperature during earth:Summer)
-observing im:Mean earth:AtmosphericTemperature during earth:Summer in Celsius named summer_mean_diurnal_air_temperature
-lookup(summer_mean_diurnal_air_temperature,?) into
-	summer_mean_diurnal_air_temperature | category
-	-------------------------------------------------------
-							   	   <-25 | ExtremelyCold,
-							 -25 to -10 | VeryCold,
-							   -10 to 0 | Cold,
-								0 to 10 | Cool,
-						       10 to 18 | Mild,
-							   18 to 22 | Warm,
-							   22 to 28 | Hot,
-							   28 to 35 | VeryHot,
-									>35 | ExtremelyHot;
+//model level of (im:Mean earth:AtmosphericTemperature during earth:Summer)
+//observing im:Mean earth:AtmosphericTemperature during earth:Summer in Celsius named summer_mean_diurnal_air_temperature
+//lookup (summer_mean_diurnal_air_temperature) into
+//	summer_mean_diurnal_air_temperature | category
+//	-------------------------------------------------------
+//							   	   <-25 | ExtremelyCold,
+//							 -25 to -10 | VeryCold,
+//							   -10 to 0 | Cold,
+//								0 to 10 | Cool,
+//						       10 to 18 | Mild,
+//							   18 to 22 | Warm,
+//							   22 to 28 | Hot,
+//							   28 to 35 | VeryHot,
+//								> 35    | ExtremelyHot;
 
 //annotation of seasonal_amplitude_diurnal_air_temperature thresholds
-model level of im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature 
-observing im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_amplitude_diurnal_air_temperature
-lookup(seasonal_amplitude_diurnal_air_temperature,?) into
-seasonal_amplitude_diurnal_air_temperature | category
---------------------------------------------------------
-								   0 to 10 | im:Low,
-								  11 to 20 | im:Moderate,
-								       >21 | im:High;
+//model level of im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature 
+//observing im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_amplitude_diurnal_air_temperature
+//lookup (seasonal_amplitude_diurnal_air_temperature) into
+//seasonal_amplitude_diurnal_air_temperature | category
+//--------------------------------------------------------
+//								   0 to 10 | im:Low,
+//								  11 to 20 | im:Moderate,
+//								       >21 | im:High;
 
 //annotation of seasonal_variability_diurnal_air_temperature thresholds
-model level of im:Daily Variability im:Seasonal earth:AtmosphericTemperature
-observing im:Daily Variability im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_variability_diurnal_air_temperature
-lookup(seasonal_variability_diurnal_air_temperature,?) into
-seasonal_variability_diurnal_air_temperature | category
-----------------------------------------------------------
-										   0 | im:VeryLow,
-									 1 to 25 | im:Low,
-									25 to 75 | im:Moderate,
-						  				 >75 | im:High;
+//model level of im:Daily Variability im:Seasonal earth:AtmosphericTemperature
+//observing im:Daily Variability im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_variability_diurnal_air_temperature
+//lookup (seasonal_variability_diurnal_air_temperature) into
+//seasonal_variability_diurnal_air_temperature | category
+//----------------------------------------------------------
+//										   0 | im:VeryLow,
+//									 1 to 25 | im:Low,
+//									25 to 75 | im:Moderate,
+//						  			    > 75 | im:High;
 
 //annotation of landcover thresholds
-model level of ecology:Density
-observing percentage named landcover
-	lookup(landcover,?) into
-		landcover | category
-		-------------------------------
-				0 | ecology:Absent,
-		   0 to 1 | ecology:VerySparse,
-		  1 to 10 | ecology:Sparse,
-		 10 to 30 | ecology:Open,
-		      >70 | ecology:Dense;
+//model level of ecology:Density
+//observing percentage named landcover
+//	lookup(landcover,?) into
+//		landcover | category
+//		-------------------------------
+//				0 | ecology:Absent,
+//		   0 to 1 | ecology:VerySparse,
+//		  1 to 10 | ecology:Sparse,
+//		 10 to 30 | ecology:Open,
+//		      >70 | ecology:Dense;
 
 
 //annotation of canopy_cover thresholds
-model level of percentage of ecology:CanopyCover
-observing percentage of ecology:CanopyCover named canopy_cover
-lookup(canopy_cover,?) into
-	canopy_cover | category
-	------------------------------
-		 1 to 15 | ecology:Absent,
-		 1 to 15 | ecology:Sparse,
-		15 to 65 | ecology:Open,
-	   65 to 100 | ecology:Dense;
+//model level of percentage of ecology:CanopyCover
+//observing percentage of ecology:CanopyCover named canopy_cover
+//lookup (canopy_cover) into
+//	canopy_cover | category
+//	------------------------------
+//		 1 to 15 | ecology:Absent,
+//		 1 to 15 | ecology:Sparse,
+//		15 to 65 | ecology:Open,
+//	   65 to 100 | ecology:Dense;
 
 //annotation of canopy_height thresholds
-model level of (im:Mean im:Height of ecology:Canopy)
-observing im:Mean im:Height of ecology:Canopy in m named canopy_height
-lookup(canopy_height,?) into
-	canopy_height | category
-	------------------------
-				0 | ecology:Absent,
-		   0 to 1 | im:VeryLow,
-		   1 to 5 | im:Low,
-		  5 to 20 | im:Moderate,
-		 20 to 40 | im:High,
-			  >40 | im:VeryHigh;
+//model level of (im:Mean im:Height of ecology:Canopy)
+//observing im:Mean im:Height of ecology:Canopy in m named canopy_height
+//lookup (canopy_height) into
+//	canopy_height | category
+//	------------------------
+//				0 | ecology:Absent,
+//		   0 to 1 | im:VeryLow,
+//		   1 to 5 | im:Low,
+//		  5 to 20 | im:Moderate,
+//		 20 to 40 | im:High,
+//			 > 40 | im:VeryHigh;
 
 //annotation of specific_leaf_area thresholds
-model level of biology:Leaf im:Area to im:Mass
-observing ratio of biology:Leaf im:Area to im:Mass in m^2/kg named specific_leaf_area
-	lookup(specific_leaf_area,?) into
-	specific_leaf_area | category
-	--------------------------------
-					<3 | im:VeryLow,
-				3 to 5 | im:Low,
-				5 to 8 | im:Moderate,
-					>8 | im:VeryHigh;
+//model level of biology:Leaf im:Area to im:Mass
+//observing ratio of biology:Leaf im:Area to im:Mass in m^2/kg named specific_leaf_area
+//	lookup(specific_leaf_area,?) into
+//	specific_leaf_area | category
+//	--------------------------------
+//					<3 | im:VeryLow,
+//				3 to 5 | im:Low,
+//				5 to 8 | im:Moderate,
+//					>8 | im:VeryHigh;
 
 //annotation of leaf_size thresholds
-model level of biology:Leaf im:Area
-observing biology:Leaf im:Area in mm^2 named leaf_size
-	lookup(leaf_size,?) into
-		leaf_size | category
-		-----------------------
-				<0| im:VeryLow,
-		   0 to 3 | im:Low,
-		   3 to 5 | im:Moderate,
-		   5 to 8 | im:High,
-			   >8 | im:VeryHigh;
+//model level of biology:Leaf im:Area
+//observing biology:Leaf im:Area in mm^2 named leaf_size
+//	lookup(leaf_size,?) into
+//		leaf_size | category
+//		-----------------------
+//				<0| im:VeryLow,
+//		   0 to 3 | im:Low,
+//		   3 to 5 | im:Moderate,
+//		   5 to 8 | im:High,
+//			   >8 | im:VeryHigh;
 
 
 //annotation of leaf_area_index thresholds
 model level of ecology:LeafAreaIndex
 observing ecology:LeafAreaIndex named leaf_area_index
-lookup(leaf_area_index,?) into
+lookup (leaf_area_index) into
 	leaf_area_index | category
 	-------------------------------------
 			0 to 25 | ecology:Leptophyll,
 		  25 to 225 | ecology:Nanophyll,
 		225 to 2025 | ecology:Microphyll,
 	   2025 to 4500 | ecology:Notophyll,
-	  2025 to 18225 | ecology:Mesophyll,
+	  4500 to 18225 | ecology:Mesophyll,
 	18225 to 164025 | ecology:Macrophyll,
-			>164025 | ecology:Megaphyll;
+		   > 164025 | ecology:Megaphyll; 
 
 
-
-//annotation of annual_total_net_primary_productivity thresholds
-model level of ecology:NetPrimaryProduction
-observing ecology:NetPrimaryProduction in g/m^2/day named annual_total_net_primary_productivity
-lookup(annual_total_net_primary_productivity,?) into
-	annual_total_net_primary_productivity | category
-	------------------------------------------------
-								 0 to 500 | im:Low,
-							  500 to 2000 | im:Moderate,
-								    >2000 | im:High;
 
 //annotation of fire_recurrence thresholds
-model level of (im:Yearly im:Occurrence of chemistry:Fire)
-observing count of im:Yearly im:Occurrence of chemistry:Fire in year named fire_recurrence
-lookup(fire_recurrence,?) into
-	fire_recurrence | category
-	-------------------------------
-				  1 | Annual,
-			 2 to 9 | Frequent,
-			0 to 19 | Occasional,
-			0 to 99 | Infrequent,
-			   >100 | Centennial;                		
+//model level of (im:Yearly im:Occurrence of chemistry:Fire)
+//observing count of im:Yearly im:Occurrence of chemistry:Fire in year named fire_recurrence
+//lookup(fire_recurrence,?) into
+//	fire_recurrence | category
+//	-------------------------------
+//				  1 | Annual,
+//			 2 to 9 | Frequent,
+//			0 to 19 | Occasional,
+//			0 to 99 | Infrequent,
+//			   >100 | Centennial;                		
