@@ -68,12 +68,13 @@ model each 'local:justus.muhando:samples.justus:esa_weed_colombia_weed_test_site
 model 'local:justus.muhando:esa.aries.sandbox:weed_global' 
 	as geography:GeographicalIdentity earth:Site named reference_points;
 
-observe earth:Region named greece_test_area_2024
+observe earth:Region named points_raster_shift
 over space(shape=
 "EPSG:4326 POLYGON ((-74.34748706044307 10.75846505204727, -74.7177109223768 10.75846505204727, -74.7177109223768 10.937455951925187, -74.34748706044307 10.937455951925187, -74.34748706044307 10.75846505204727))
 ",
 		   grid="100 m"),
 time(start=2020, end=2025, step=1.year);
+
 //Test annotation of reference data as ecosystems
 model 'local:justus.muhando:esa.aries.sandbox:weed_global#iucnget' 
 	as im:Observed nca.ecosystem.iucn:EcosystemType classified into
