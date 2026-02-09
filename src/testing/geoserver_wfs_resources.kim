@@ -1,4 +1,5 @@
-private namespace testing.geoserver_wfs_resources;
+private namespace testing.geoserver_wfs_resources
+using nca.ecosystem.iucn;
 
 //CASE 1 
 
@@ -65,10 +66,60 @@ model each 'local:justus.muhando:samples.justus:esa_weed_colombia_weed_test_site
     
 //IIASA Geoserver points 
 model 'local:justus.muhando:esa.aries.sandbox:weed_global' 
-	as geography:GeographicalIdentity earth:Site named reference_points ;    
+	as geography:GeographicalIdentity earth:Site named reference_points;
+
+observe earth:Region named greece_test_area_2024
+over space(shape=
+"EPSG:4326 POLYGON ((-74.34748706044307 10.75846505204727, -74.7177109223768 10.75846505204727, -74.7177109223768 10.937455951925187, -74.34748706044307 10.937455951925187, -74.34748706044307 10.75846505204727))
+",
+		   grid="100 m"),
+time(start=2020, end=2025, step=1.year);
+//Test annotation of reference data as ecosystems
+model 'local:justus.muhando:esa.aries.sandbox:weed_global#iucnget' 
+	as im:Observed nca.ecosystem.iucn:EcosystemType classified into
+	nca.ecosystem.iucn:IntertidalForestShrubland if "Intertidal Forests and Shrublands";    
 
 //STAC data integration analysis - geometries
 number 'local:alessio.bulckaen:esa.aries.sandbox:testing.geometry:STAC' as test;
 
-model 'local:alessio.bulckaen:esa.aries.sandbox:testing.geometry:STAC'
-	as
+observe earth:Region named greece_test_area_2024
+over space(shape=
+"EPSG:4326 POLYGON ((20.679138515160957 38.18374883460746, 20.672359298475584 38.15695481086746, 20.65305372270607 38.13423222059453, 20.624160886757842 38.11904552707, 20.590079462989802 38.11371192003023, 20.55599803922176 38.11904552707, 20.527105203273532 38.13423222059453, 20.507799627504017 38.15695481086746, 20.501020410818647 38.18374883460746, 20.507799627504017 38.21053300753712, 20.527105203273532 38.23323181585647, 20.55599803922176 38.24839472743662, 20.590079462989802 38.25371848367516, 20.624160886757842 38.24839472743662, 20.65305372270607 38.23323181585647, 20.672359298475584 38.21053300753712, 20.679138515160957 38.18374883460746))",
+		   grid="300 m"),
+time(start=2015, end=2016, step=1.year);
+	
+model	
+'local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2024'
+as ecology:LeafAreaIndex
+over space(shape='POLYGON ((179.9985119064 -59.9985119047, 179.9985119064 80.0014880952, -180 80.0014880952, -180 -59.9985119047, 179.9985119064 -59.9985119047))');
+//100.B Proposed annotation for leaf_area_index
+
+model	
+'local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2024_v2_'
+as im:Observed ecology:LeafAreaIndex
+over space(shape='POLYGON ((179.9985119064 -59.9985119047, 179.9985119064 80.0014880952, -180 80.0014880952, -180 -59.9985119047, 179.9985119064 -59.9985119047))');
+
+model	
+'local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2024_v3_'
+as im:Possible ecology:LeafAreaIndex
+over space(shape='POLYGON ((179.9985119064 -59.9985119047, 179.9985119064 80.0014880952, -180 80.0014880952, -180 -59.9985119047, 179.9985119064 -59.9985119047))');
+
+model	
+'local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2024_v4_'
+as im:Likely ecology:LeafAreaIndex
+over space(shape='POLYGON ((179.9985119064 -59.9985119047, 179.9985119064 80.0014880952, -180 80.0014880952, -180 -59.9985119047, 179.9985119064 -59.9985119047))');
+
+model
+'local:alessio.bulckaen:esa.aries.sandbox:STAC:LAI:manually_imported'
+as ecology:LeafAreaIndex im:Appropriate
+over space(shape='POLYGON ((179.9985119064 -59.9985119047, 179.9985119064 80.0014880952, -180 80.0014880952, -180 -59.9985119047, 179.9985119064 -59.9985119047))');
+
+model
+'local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2024_v5_'
+as ecology:LeafAreaIndex im:Likely im:Appropriate;
+//over space(shape='POLYGON ((179.9985119064 -59.9985119047, 179.9985119064 80.0014880952, -180 80.0014880952, -180 -59.9985119047, 179.9985119064 -59.9985119047))');
+
+model
+'local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2024_v6_'
+as ecology:LeafAreaIndex im:Possible im:Appropriate
+over space(shape='POLYGON ((179.9985119064 -59.9985119047, 179.9985119064 80.0014880952, -180 80.0014880952, -180 -59.9985119047, 179.9985119064 -59.9985119047))');
