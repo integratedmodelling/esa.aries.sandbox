@@ -2,6 +2,9 @@ project private namespace primitive_characteristic.threshold;
 
 //TODO:Add proper concepts
 identity Variability;
+
+attribute Absent;
+
 class Temperature
 	has children
 	ExtremelyCold,
@@ -34,6 +37,56 @@ attribute FireFrequency
         )
 ; 
 
+@colormap(values = { 
+    Planar:      (46 139 87),    // Sea Green (Lowlands/Basins)ecology:Planar
+    Foothill:    (154 205 50),   // Yellow Green (Transition)  ecology:Foothill
+    Submontane:  (205 133 63),   // Peru/Light Brown (Uplands) ecology:Submontane
+    Montane:     (139 69 19)     // Saddle Brown (Mountains)   ecology:Montane
+})
+abstract attribute ElevationZone
+    "A classification of altitudinal zones based on the transition of vegetation and climate from lowlands to mountain peaks."
+    has children
+        (Planar
+            "The lowest altitudinal zone, typically consisting of flat plains, coastal areas, or major river basins. Characterized by stable, warmer temperatures."
+        ),
+        (Foothill
+            "Also known as the Piedmont or Colline zone; the transitional area between plains and mountains. Topography begins to show undulating hills."
+        ),
+        (Submontane
+            "The lower slopes of a mountain range. This zone marks the transition where lowland species begin to drop out in favor of more cold-tolerant vegetation."
+        ),
+        (Montane
+            "The main mountain forest belt. Characterized by cooler temperatures and distinct cloud or moisture patterns; typically situated below the subalpine zone."
+        )
+;
+
+//@colormap(values = { 
+//    chemistry:HighlyAcidic:   (255 0 0),     // Red
+//    chemistry:Acidic:         (255 165 0),   // Orange
+//    chemistry:Neutral:        (0 255 0),     // Green
+//    chemistry:Alkaline:       (0 0 255),     // Blue
+//    chemistry:HighlyAlkaline: (128 0 128)    // Purple
+//})
+quantity PHClassification
+    "A logarithmic scale used to specify the acidity or basicity of an aqueous solution or soil medium."
+    has children
+        (HighlyAcidic
+            "Solutions with a pH typically below 4.0. Often toxic to most aquatic life and plants due to heavy metal mobilization (e.g., Aluminum)."
+        ),
+        (Acidic
+            "Solutions with a pH between 4.0 and 6.5. Common in peatlands and coniferous forests where organic acids are prevalent."
+        ),
+        (Neutral
+            "Solutions with a pH approximately between 6.5 and 7.5. This is the optimal range for the majority of biological processes and nutrient uptake."
+        ),
+        (Alkaline
+            "Also known as Basic; solutions with a pH between 7.5 and 9.0. Often found in limestone-rich (calcareous) soils."
+        ),
+        (HighlyAlkaline
+            "Solutions with a pH above 9.0. Characterized by high concentrations of carbonates and typical of soda lakes or saline-alkali deserts."
+        )
+;
+
 observe earth:Region named greece_test_area_2024
 over space(shape=
 "EPSG:4326 POLYGON ((20.679138515160957 38.18374883460746, 20.672359298475584 38.15695481086746, 20.65305372270607 38.13423222059453, 20.624160886757842 38.11904552707, 20.590079462989802 38.11371192003023, 20.55599803922176 38.11904552707, 20.527105203273532 38.13423222059453, 20.507799627504017 38.15695481086746, 20.501020410818647 38.18374883460746, 20.507799627504017 38.21053300753712, 20.527105203273532 38.23323181585647, 20.55599803922176 38.24839472743662, 20.590079462989802 38.25371848367516, 20.624160886757842 38.24839472743662, 20.65305372270607 38.23323181585647, 20.672359298475584 38.21053300753712, 20.679138515160957 38.18374883460746))",
@@ -55,14 +108,14 @@ observing im:Minimum im:Area of earth:WaterBody in km^2
 							< 100 | im:Low,
 	                        > 100 | im:High; 
  
-//model level of (hydrology:StreamOrder of hydrology:Watershed) named watershed_hierarchy
-//observing hydrology:StreamOrder of hydrology:Watershed	
-//	 	lookup (watershed_hierarchy) into
-//	 	watershed_hierarchy | category
-//		----------------------------------
-//					 1 to 4 | im:Low,
-//	                 4 to 9 | im:Moderate,
-//	                    > 9 | im:High;
+model level of (hydrology:StreamOrder of hydrology:Watershed) named watershed_hierarchy
+observing hydrology:StreamOrder of hydrology:Watershed	
+	 	lookup (watershed_hierarchy) into
+	 	watershed_hierarchy | category
+		----------------------------------
+					 1 to 4 | im:Low,
+	                 4 to 9 | im:Moderate,
+	                    > 9 | im:High;
 @intensive(space)
 model level of ecology:NetPrimaryProduction
 observing ecology:NetPrimaryProduction in g/m^2 named annual_total_net_primary_productivity //g/m^2/day named npp
@@ -82,7 +135,18 @@ as level of soil.incubation:SoilFertility classified into
 	soil.incubation:HighFertility if in (8 9 10)
 over space(shape="POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))");
 
+@intensive(space)
+model level of (im:Depth of landcover:PeatBog earth:Region)
+observing im:Depth of landcover:PeatBog earth:Region in cm named depth_peat_bog//g/m^2/day named npp
+		lookup (depth_peat_bog) into
+        depth_peat_bog | category
+		-------------------------
+   				   0   | Absent,
+   			 0 to  0.3 | im:Low,
+              0.3 to 1 | im:Moderate,
+                   > 1 | im:High;
 
+number 'local:alessio.bulckaen:im.data.global:ecdc__soil__peat_thickness__global__2001_2021' as test;
 
 //annotation of hydroform_morphology_area thresholds
 //model level of im:Minimum im:Area of earth:WaterBody
