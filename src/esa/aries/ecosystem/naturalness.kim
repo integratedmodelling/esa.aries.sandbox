@@ -449,7 +449,6 @@ define ECOSYSTEM_NATURALNESS as {{
 }};
 
 //model nca.ecosystem.iucn:EcosystemType im:nca.ecosystem.naturalness:Natural im:Level
-//model type of nca.ecosystem.naturalness:Naturlaness named ecosystem_naturalness
 model nca.ecosystem.naturalness:NaturalnessLevel named ecosystem_naturalness 
 observing
 	nca.ecosystem.iucn:EcosystemType named iucn
@@ -474,4 +473,4 @@ model nca.ecosystem.naturalness:NaturalnessLevel named eunis_ecosystem_naturalne
 observing
 	nca.ecosystem.eunis:EcosystemType named eunis
 	lookup (eunis,*, ?)
-	into ECOSYSTEM_NATURALNESS;
+	into ECOSYSTEM_NATURALNESS;  
