@@ -447,11 +447,11 @@ define ECOSYSTEM_NATURALNESS as {{
 }};
 
 //model es.nca:EcosystemType im:nca.ecosystem.naturalness:Natural im:Level
-model nca.ecosystem.naturalness:NaturlanessLevel named ecosystem_naturalness 
+model nca.ecosystem.naturalness:NaturalnessLevel named ecosystem_naturalness 
 observing
-	nca.ecosystem.iucn:EcosystemType
-	lookup (iucn, ?)
-	into IUCN_GET_NATURALNESS;
+	nca.ecosystem.iucn:EcosystemType named iucn
+	lookup (iucn)
+	into IUCN_GET_NATURALNESS;    
 
 define table natural_ecosystem_extent as {
 	target: nca.ecosystem.iucn:EcosystemType
@@ -461,8 +461,8 @@ define table natural_ecosystem_extent as {
 
 //model es.nca:EcosystemType im:nca.ecosystem.naturalness:Natural im:Level 
 //model nca.ecosystem.eunis:Ecosystem nca.ecosystem.naturalness:NaturlanessLevel named eunis_ecossytem_naturalness 
-model nca.ecosystem.naturalness:NaturlanessLevel named eunis_ecosystem_naturalness 
+model nca.ecosystem.naturalness:NaturalnessLevel named eunis_ecosystem_naturalness 
 observing
-	nca.ecosystem.eunis:EcosystemType
+	nca.ecosystem.eunis:EcosystemType named eunis
 	lookup (eunis,*, ?)
-	into ECOSYSTEM_NATURALNESS;
+	into ECOSYSTEM_NATURALNESS;  
