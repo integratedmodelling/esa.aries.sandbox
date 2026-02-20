@@ -2,8 +2,7 @@ project private namespace primitive_characteristic;
 
 //TODO:Add proper concepts
 identity Variability;
-quantity HydroformDensity;
-identity Size;
+//identity Size; //for area of leaf
 
 observe earth:Region named greece_test_area_2018
 over space(shape=
@@ -100,52 +99,52 @@ model
 'local:alessio.bulckaen:im.data.global:ecdc__bioticassemblages__biotic_assemblage_pinniped_colonies__global__2022'
 as presence of GBIF.SPECIES:4941589 ecology:Population
 over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
-//13. Proposed annotation for hydroform_meander
+//13A. Proposed annotation for hydroform_meander
 model
 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__norway__2016'
 as presence of hydrology.incubation:RiverMeander // Potential Oxbow
 over space(shape='POLYGON ((31.150998 57.973838, 31.150998 71.185718, 4.611992 71.185718, 4.611992 57.973838, 31.150998 57.973838))');
-//14. Proposed annotation for hydroform_meander
+//13B. Proposed annotation for hydroform_meander
 model
 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__south_africa__2016'
 as presence of hydrology.incubation:RiverMeander // Potential Oxbow
 over space(shape='POLYGON ((32.945219 -34.83436, 32.945219 -22.12503, 16.45189 -22.12503, 16.45189 -34.83436, 32.945219 -34.83436))');
-//15. Proposed annotation for hydroform_meander
+//13C. Proposed annotation for hydroform_meander
 model
 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__czechia__2016'
 as presence of hydrology.incubation:RiverMeander // Potential Oxbow
 over space(shape='POLYGON ((18.859409 48.551635, 18.859409 51.0557, 12.090571 51.0557, 12.090571 48.551635, 18.859409 48.551635))');
-////16. Proposed annotation for hydroform_meander
+////13D. Proposed annotation for hydroform_meander
 //model
 //'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__colombia__2016'
 //as presence of hydrology.incubation:RiverMeander // Potential Oxbow
 //over space(shape='POLYGON ((-66.869496 -4.224204, -66.869496 12.441211, -78.995262 12.441211, -78.995262 -4.224204, -66.869496 -4.224204))');
-//17. Proposed annotation for hydroform_meander
+//13E. Proposed annotation for hydroform_meander
 model
 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__viet_nam__2016'
 as presence of hydrology.incubation:RiverMeander // Potential Oxbow
 over space(shape='POLYGON ((109.463162 8.403057, 109.463162 23.393574, 102.143676 23.393574, 102.143676 8.403057, 109.463162 8.403057))');
-//18. Proposed annotation for hydroform_meander
+//13F. Proposed annotation for hydroform_meander
 model
 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__greece__2016'
 as presence of hydrology.incubation:RiverMeander // Potential Oxbow
 over space(shape='POLYGON ((29.606929 34.803378, 29.606929 41.749073, 19.373764 41.749073, 19.373764 34.803378, 29.606929 34.803378))');
-////19. Proposed annotation for hydroform_waterbody
-//model
-//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_waterbody__colombia__2013'
-//as presence of earth:Lake
-//over space(shape='POLYGON ((-66.869496 -4.224204, -66.869496 12.441211, -78.995262 12.441211, -78.995262 -4.224204, -66.869496 -4.224204))');
-////20. Proposed annotation for watershed_hierarchy
-//model
-//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__colombia__2013'
-//as hydrology:StreamOrder of hydrology:Watershed
-//over space(shape='POLYGON ((-66.866801 -4.226193, -66.866801 12.441588, -78.997853 12.441588, -78.997853 -4.226193, -66.866801 -4.226193))');
-////21. Proposed annotation for hydroform_watercourse
-//model
-//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_watercourse__colombia__2013'
-//as hydrology:StreamOrder of earth:Stream
-//over space(shape='POLYGON ((-66.866801 -4.226193, -66.866801 12.441588, -78.997853 12.441588, -78.997853 -4.226193, -66.866801 -4.226193))');
-//22. Proposed annotation for watershed_hierarchy
+//14A. Proposed annotation for hydroform_waterbody
+model
+'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_waterbody__colombia__2013'
+as presence of earth:Lake
+over space(shape='POLYGON ((-66.869496 -4.224204, -66.869496 12.441211, -78.995262 12.441211, -78.995262 -4.224204, -66.869496 -4.224204))');
+//15A. Proposed annotation for watershed_hierarchy
+model
+'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__colombia__2013'
+as hydrology:StreamOrder of hydrology:Watershed
+over space(shape='POLYGON ((-66.866801 -4.226193, -66.866801 12.441588, -78.997853 12.441588, -78.997853 -4.226193, -66.866801 -4.226193))');
+//16A. Proposed annotation for hydroform_watercourse
+model
+'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_watercourse__colombia__2013'
+as hydrology:StreamOrder of earth:Stream
+over space(shape='POLYGON ((-66.866801 -4.226193, -66.866801 12.441588, -78.997853 12.441588, -78.997853 -4.226193, -66.866801 -4.226193))');
+//15B. Proposed annotation for watershed_hierarchy
 model
 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__greece__2013'
 as hydrology:StreamOrder of hydrology:Watershed
@@ -195,25 +194,26 @@ model
 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_watercourse__south_africa__2013'
 as hydrology:StreamOrder of earth:Stream
 over space(shape='POLYGON ((32.947603 -34.796335, 32.947603 -22.122919, 16.449299 -22.122919, 16.449299 -34.796335, 32.947603 -34.796335))');
-//32. Proposed annotation for hydroform_morphology_area
+//17A. Proposed annotation for hydroform_morphology_area
 model
 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__south_africa__2013_2020'
 as im:Minimum im:Area of earth:WaterBody in km^2
 over space(shape='POLYGON ((33.708901 -34.837031, 33.708901 -21.003923, 15.341099 -21.003923, 15.341099 -34.837031, 33.708901 -34.837031))');
-//33. Proposed annotation for watershed_hydroform_density
+//18. Proposed annotation for watershed_hydroform_density
 model
 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__south_africa__2013_2020'
-as HydroformDensity of hydrology:Watershed
+as proportion of (hydrology:Water im:Density of earth:WaterBody) // cannot use percentage of because cannot be used in a model with level of 
+//Density of water in the form of watercourses or waterbodies within a subdivision of the watershed.HydroformDensity of hydrology:Watershed
 over space(shape='POLYGON ((33.708901 -34.837031, 33.708901 -21.003923, 15.341099 -21.003923, 15.341099 -34.837031, 33.708901 -34.837031))');
 //34. Proposed annotation for hydroform_morphology_area
-model
+model 
 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__czechia__2013_2020'
 as im:Minimum im:Area of earth:WaterBody in km^2
 over space(shape='POLYGON ((19.829167 47.891667, 19.829167 51.575567, 11.4375 51.575567, 11.4375 47.891667, 19.829167 47.891667))');
 //35. Proposed annotation for watershed_hydroform_density
 model
 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__czechia__2013_2020'
-as watershed_hydroform_density
+as proportion of (hydrology:Water im:Density of earth:WaterBody) 
 over space(shape='POLYGON ((19.829167 47.891667, 19.829167 51.575567, 11.4375 51.575567, 11.4375 47.891667, 19.829167 47.891667))');
 //36. Proposed annotation for hydroform_morphology_area
 model
@@ -223,7 +223,7 @@ over space(shape='POLYGON ((30.295365 34.8, 30.295365 42.396401, 19.261895 42.39
 //37. Proposed annotation for watershed_hydroform_density
 model
 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__greece__2013_2020'
-as watershed_hydroform_density
+as proportion of (hydrology:Water im:Density of earth:WaterBody) 
 over space(shape='POLYGON ((30.295365 34.8, 30.295365 42.396401, 19.261895 42.396401, 19.261895 34.8, 30.295365 34.8))');
 //38. Proposed annotation for hydroform_morphology_area
 model
@@ -233,7 +233,7 @@ over space(shape='POLYGON ((109.958333 8.4125, 109.958333 23.817272, 101.412147 
 //39. Proposed annotation for watershed_hydroform_density
 model
 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__viet_nam__2013_2020'
-as watershed_hydroform_density
+as proportion of (hydrology:Water im:Density of earth:WaterBody) 
 over space(shape='POLYGON ((109.958333 8.4125, 109.958333 23.817272, 101.412147 23.817272, 101.412147 8.4125, 109.958333 8.4125))');
 ////40. Proposed annotation for hydroform_morphology_area
 //model
@@ -243,7 +243,7 @@ over space(shape='POLYGON ((109.958333 8.4125, 109.958333 23.817272, 101.412147 
 ////41. Proposed annotation for watershed_hydroform_density
 //model
 //'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__colombia__2013_2020'
-//as watershed_hydroform_density
+//as proportion of (hydrology:Water im:Density of earth:WaterBody) 
 //over space(shape='POLYGON ((-66.008895 -5.041667, -66.008895 12.625605, -79.496401 12.625605, -79.496401 -5.041667, -66.008895 -5.041667))');
 //42. Proposed annotation for hydroform_morphology_area
 model
@@ -253,7 +253,7 @@ over space(shape='POLYGON ((32.350031 57.286933, 32.350031 71.184014, 4.649357 7
 //43. Proposed annotation for watershed_hydroform_density
 model
 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__norway__2013_2020'
-as watershed_hydroform_density
+as proportion of (hydrology:Water im:Density of earth:WaterBody) 
 over space(shape='POLYGON ((32.350031 57.286933, 32.350031 71.184014, 4.649357 71.184014, 4.649357 57.286933, 32.350031 57.286933))');
 //44. Proposed annotation for hydroform_waterbody
 model
