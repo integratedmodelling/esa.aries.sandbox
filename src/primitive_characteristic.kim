@@ -65,7 +65,8 @@ over space(shape='POLYGON ((180 -60.0000049623, 180 60.0000049623, -180 60.00000
 model
 'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_total_net_primary_productivity__global__2024'
 as ecology:NetPrimaryProduction in g/m^2       
-over space(shape='POLYGON ((179.9985147848 -59.9985130248, 179.9985147848 80.0014880952, -180 80.0014880952, -180 -59.9985130248, 179.9985147848 -59.9985130248))');
+over space(shape='POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))');
+//over space(shape='POLYGON ((179.9985147848 -59.9985130248, 179.9985147848 80.0014880952, -180 80.0014880952, -180 -59.9985130248, 179.9985147848 -59.9985130248))');
 
 ////7B. Proposed annotation for annual_total_net_primary_productivity
 //@intensive(space)
