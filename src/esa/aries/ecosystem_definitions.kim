@@ -72,7 +72,7 @@ model nca.ecosystem.iucn:Shoreline type of nca.ecosystem.iucn:Ecosystem
 			// in1.STAC... appears "base_saturation"										
 			named chemical_properties_base_saturation
 	lookup
-		(landcover, tidal_zone_intertidal, landcover, physical_properties_bulk_density, chemical_properties_base_saturation, ?)
+		(landcover, tidal_zone_intertidal, physical_properties_bulk_density, chemical_properties_base_saturation, ?)
 	into BIOME_MT1_SHORELINE_ECOSYSTEM_TYPES;
 
 
