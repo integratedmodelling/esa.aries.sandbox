@@ -1,4 +1,5 @@
-project private namespace primitive_characteristic.threshold;
+project private namespace primitive_characteristic.threshold
+using ecology.incubation;
 
 //TODO:Add proper concepts
 identity Variability;
@@ -232,20 +233,20 @@ number 'local:alessio.bulckaen:im.data.global:ecdc__soil__peat_thickness__global
 //						> 500 | im:VeryHigh;
 
 //annotation of annual_mean_diurnal_air_temperature thresholds 
-//model level of im:Mean im:Yearly earth:AtmosphericTemperature
-//observing im:Mean im:Yearly earth:AtmosphericTemperature named annual_mean_diurnal_air_temperature
-//lookup (annual_mean_diurnal_air_temperature) into
-//annual_mean_diurnal_air_temperature | category
-//----------------------------------------------
-//						   	   <-25 | ExtremelyCold,
-//						 -25 to -10 | VeryCold,
-//						   -10 to 0 | Cold,
-//							0 to 10 | Cool,
-//					       10 to 18 | Mild,
-//						   18 to 22 | Warm,
-//						   22 to 28 | Hot,
-//						   28 to 35 | VeryHot,
-//							   > 35 | ExtremelyHot;
+model level of im:Mean im:Yearly earth:AtmosphericTemperature
+observing im:Mean im:Yearly earth:AtmosphericTemperature named annual_mean_diurnal_air_temperature
+lookup (annual_mean_diurnal_air_temperature) into
+annual_mean_diurnal_air_temperature | category
+----------------------------------------------
+						   	   <-25 | ecology.incubation:ExtremelyCold,
+						 -25 to -10 | ecology.incubation:VeryCold,
+						   -10 to 0 | ecology.incubation:Cold,
+							0 to 10 | ecology.incubation:Cool,
+					       10 to 18 | ecology.incubation:Mild,
+						   18 to 22 | ecology.incubation:Warm,
+						   22 to 28 | ecology.incubation:Hot,
+						   28 to 35 | ecology.incubation:VeryHot,
+							   > 35 | ecology.incubation:ExtremelyHot;
 
 //annotation of winter_mean_diurnal_air_temperature thresholds
 //model level of im:Mean earth:AtmosphericTemperature during earth:Winter in Celsius
@@ -338,27 +339,27 @@ lookup (canopy_cover) into
 //			 > 40 | im:VeryHigh;
 
 //annotation of specific_leaf_area thresholds
-//model level of biology:Leaf im:Area to im:Mass
-//observing ratio of biology:Leaf im:Area to im:Mass in m^2/kg named specific_leaf_area
-//	lookup(specific_leaf_area) into
-//	specific_leaf_area | category
-//	--------------------------------
-//					<3 | im:VeryLow,
-//				3 to 5 | im:Low,
-//				5 to 8 | im:Moderate,
-//					>8 | im:VeryHigh;
+model level of (ratio of  im:Area to im:Mass of biology:Leaf) in m^2/kg
+observing ratio of  im:Area to im:Mass of biology:Leaf in m^2/kg named specific_leaf_area
+	lookup(specific_leaf_area) into
+	specific_leaf_area | category
+	--------------------------------
+					<3 | im:VeryLow,
+				3 to 5 | im:Low,
+				5 to 8 | im:Moderate,
+					>8 | im:VeryHigh;
 
 //annotation of leaf_size thresholds
-//model level of biology:Leaf im:Area
-//observing biology:Leaf im:Area in mm^2 named leaf_size
-//	lookup(leaf_size) into
-//		leaf_size | category
-//		-----------------------
-//				<0| im:VeryLow,
-//		   0 to 3 | im:Low,
-//		   3 to 5 | im:Moderate,
-//		   5 to 8 | im:High,
-//			   >8 | im:VeryHigh;
+model level of (im:Area of biology:Leaf)
+observing im:Area of biology:Leaf in mm^2 named leaf_size
+	lookup(leaf_size) into
+		leaf_size | category
+		-----------------------
+				<0| im:VeryLow,
+		   0 to 3 | im:Low,
+		   3 to 5 | im:Moderate,
+		   5 to 8 | im:High,
+			   >8 | im:VeryHigh;
 
 
 //annotation of leaf_area_index thresholds
