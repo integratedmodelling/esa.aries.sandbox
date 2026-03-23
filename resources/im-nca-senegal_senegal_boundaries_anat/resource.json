@@ -1,0 +1,94 @@
+{
+  "urn" : "local:alessio.bulckaen:esa.aries.sandbox:im-nca-senegal_senegal_boundaries_anat",
+  "version" : "0.0.1",
+  "adapterType" : "wfs",
+  "localPath" : "esa.aries.sandbox/resources/im-nca-senegal_senegal_boundaries_anat",
+  "geometry" : "#s2(1){bbox=[222172.99140436994 904701.0923681725 1359388.118778776 1849217.6474280772],proj=EPSG:32628}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "im-nca-senegal_senegal_boundaries_anat",
+  "type" : "OBJECT",
+  "resourceTimestamp" : 1770726659814,
+  "metadata" : {
+    "im:keywords" : "features,senegal_boundaries_anat",
+    "dc:title" : "senegal_boundaries_anat"
+  },
+  "parameters" : {
+    "serviceUrl" : "https://integratedmodelling.org/aux-geoserver/im-nca-senegal/ows",
+    "wfsVersion" : "1.0.0",
+    "wfsIdentifier" : "im-nca-senegal:senegal_boundaries_anat"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ {
+    "name" : "code",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "nom",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "theme",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "pays",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "iduu",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "shape_leng",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "shape_area",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "syscol",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  } ],
+  "spatialExtent" : {
+    "east" : -11.206461766964773,
+    "west" : -17.60535679327623,
+    "north" : 16.725220803604113,
+    "south" : 12.271659743154693,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

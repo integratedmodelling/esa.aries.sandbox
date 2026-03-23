@@ -1,0 +1,25 @@
+worldview im;
+
+@test(
+    name = "test_iiasa_geoserver_points",
+    description  = "",
+    // add to the list any concepts to be observed in the context below
+    observations = (""),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named test_iiasa_geoserver_points
+    // add any space and/or time extents: for example
+    // over space(shape="EPSG:4326 POLYGON((33.796 -7.086, 35.946 -7.086, 35.946 -9.41, 33.796 -9.41, 33.796 -7.086))", grid="1 km")
+;
+
+observe earth:Region named france_grassland_point_test
+over space(shape='EPSG:4326 POLYGON ((-1.0583361382732266 43.69512834142756, -1.110791795402065 43.69512834142756, -1.110791795402065 43.71247497751861, -1.0583361382732266 43.71247497751861, -1.0583361382732266 43.69512834142756))',
+		   grid="10 m"),
+	time(start=2022, end=2023, step=1.year);
+	
+number 'local:alessio.bulckaen:esa.aries.sandbox:lamasus_grassland_ground_points_wgs84#ID' as test_point_from_IIASA_geoserver; 
+
+model each 'local:alessio.bulckaen:esa.aries.sandbox:lamasus_grassland_ground_points_wgs84'//#type'
+as landcover:Grassland earth:Region;

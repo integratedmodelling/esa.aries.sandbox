@@ -1,0 +1,285 @@
+private namespace esa.aries.ecosystem_definitions
+using esa.aries.primitive_characteristic, nca.ecosystem.iucn;
+
+define BIOME_F1_RIVERSTREAM_ECOSYSTEM_TYPES as {{
+  landcover           | hydroform_watercourse | watershed_hierarchy | occurrence_regime_permanent | hydroform_meander   | occurrence_regime_seasonal | occurrence_regime_episodic | ecosystem_type                           
+  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  landcover:WaterBody | true                | im:Low              | true                      	| #                 	| #                          | #                          | nca.ecosystem.iucn:PermanentUplandStream  ,
+  landcover:WaterBody | true                | im:Moderate         | true                      	| true            		| #                          | #                          | nca.ecosystem.iucn:PermanentLowlandStream ,
+  landcover:WaterBody | true                | #                   | #                         	| #                 	| #                          | #                          | nca.ecosystem.iucn:FreezethawRiverStream  ,
+  landcover:WaterBody | true                | im:Low              | #                         	| #                 	| true                       | #                          | nca.ecosystem.iucn:SeasonalUplandStream   ,
+  landcover:WaterBody | true                | im:Moderate         | #                         	| #                 	| true                       | #                          | nca.ecosystem.iucn:SeasonalLowlandRiver   ,
+  landcover:WaterBody | true                | #                   | #                         	| #                 	| #                          | true                       | nca.ecosystem.iucn:EpisodicAridRiver      ,
+  landcover:WaterBody | true                | im:High             | true                      	| true            		| #                          | #                          | nca.ecosystem.iucn:LargeLowlandRiver     
+}};
+
+model nca.ecosystem.iucn:RiverStream type of nca.ecosystem.iucn:Ecosystem
+observing
+landcover:LandCoverType named landcover,
+hydrology:StreamOrder of earth:Stream named hydroform_watercourse,
+hydrology:StreamOrder of hydrology:Watershed named watershed_hierarchy,
+presence of hydrology:Permanent earth:WaterBody named occurrence_regime_permanent,
+//presence of hydrology.incubation:RiverMeander // Potential Oxbow named hydroform_meander,
+presence of hydrology:Seasonal earth:WaterBody named occurrence_regime_seasonal,
+presence of hydrology:Episodic earth:WaterBody named occurrence_regime_episodic
+lookup
+//(landcover, hydroform_watercourse, watershed_hierarchy, occurrence_regime_permanent, hydroform_meander, occurrence_regime_seasonal, occurrence_regime_episodic, ?)
+(landcover, hydroform_watercourse, watershed_hierarchy, occurrence_regime_permanent, *, occurrence_regime_seasonal, occurrence_regime_episodic, ?)
+into BIOME_F1_RIVERSTREAM_ECOSYSTEM_TYPES;
+
+
+/*
+ * FM1
+ */
+define BIOME_FM1_SEMICONFINEDTRANSITIONALWATER_ECOSYSTEM_TYPES as {{
+  landcover           | hydroform_waterbody | ecosystem_type                                       
+  -------------------------------------------------------------------------------------------------
+  landcover:WaterBody | true              	| nca.ecosystem.iucn:DeepwaterCoastalInlet              ,
+  landcover:WaterBody | true              	| nca.ecosystem.iucn:PermanentlyOpenRiverineEstuaryBay  ,
+  landcover:WaterBody | true             	| nca.ecosystem.iucn:IntermittentlyClosedOpenLakeLagoon
+}};
+
+model nca.ecosystem.iucn:SemiconfinedTransitionalWater type of nca.ecosystem.iucn:Ecosystem
+	observing
+		landcover:LandCoverType named landcover,
+		presence of earth:Lake named hydroform_waterbody
+	lookup
+		(landcover, hydroform_waterbody, ?)
+	into BIOME_FM1_SEMICONFINEDTRANSITIONALWATER_ECOSYSTEM_TYPES;
+
+
+
+/*
+ * MT1
+ */
+define BIOME_MT1_SHORELINE_ECOSYSTEM_TYPES as {{
+  landcover          | tidal_zone_intertidal | physical_properties_bulk_density | chemical_properties_base_saturation | ecosystem_type                       
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  landcover:BareArea | true                	 | im:High                          | #                                   | nca.ecosystem.iucn:RockyShoreline     ,
+  landcover:BareArea | true                	 | #                                | im:High                             | nca.ecosystem.iucn:MuddyShoreline     ,
+  landcover:BareArea | #                     | #                                | #                                   | nca.ecosystem.iucn:SandyShoreline     ,
+  landcover:BareArea | true                	 | im:Low                           | #                                   | nca.ecosystem.iucn:BoulderCobbleShore ,
+  landcover:BareArea | true                	 | im:Moderate                      | #                                   | nca.ecosystem.iucn:BoulderCobbleShore
+}};
+
+model nca.ecosystem.iucn:Shoreline type of nca.ecosystem.iucn:Ecosystem
+	observing
+		landcover:LandCoverType 					named landcover,
+		presence of earth:Wetland by earth:Coast 	named tidal_zone_intertidal,
+		proportion of (hydrology:Water im:Density of earth:WaterBody) // if watershed_hydroform_density (bulk only appears in column A of 1.STAC etc)
+			named physical_properties_bulk_density,
+		percentage of (chemistry:Basic chemistry:ExchangeCapacity) in (chemistry:ExchangeCapacity of chemistry:Cation)	
+			// in1.STAC... appears "base_saturation"										
+			named chemical_properties_base_saturation
+	lookup
+		(landcover, tidal_zone_intertidal, physical_properties_bulk_density, chemical_properties_base_saturation, ?)
+	into BIOME_MT1_SHORELINE_ECOSYSTEM_TYPES;
+
+
+
+/*
+ * MT2
+ */
+define BIOME_MT2_SUPRALITTORALCOASTAL_ECOSYSTEM_TYPES as {{
+  landcover           | influx_sea_salt | annual_water_budget_total | annual_net_primary_productivity_total | coastal_storms_exposure | biotic_assemblage_pinniped_colonies | thermal_belt_low_montane | thermal_belt_high_montane | ecosystem_type                              
+  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  landcover:Forest    | false         | im:Low                    | im:Low                                | true                  | #                                   | #                        | #                         | nca.ecosystem.iucn:CoastalShrublandGrassland ,
+  landcover:Shrubland | false         | im:Low                    | im:Low                                | true                  | #                                   | #                        | #                         | nca.ecosystem.iucn:CoastalShrublandGrassland ,
+  landcover:Grassland | false         | im:Low                    | im:Low                                | true                  | #                                   | #                        | #                         | nca.ecosystem.iucn:CoastalShrublandGrassland ,
+  landcover:Forest    | false         | im:Low                    | im:Low                                | true                  | #                                   | #                        | #                         | nca.ecosystem.iucn:CoastalShrublandGrassland ,
+  landcover:Shrubland | false         | im:Low                    | im:Low                                | true                  | #                                   | #                        | #                         | nca.ecosystem.iucn:CoastalShrublandGrassland ,
+  landcover:Grassland | false         | im:Low                    | im:Low                                | true                  | #                                   | #                        | #                         | nca.ecosystem.iucn:CoastalShrublandGrassland
+}};
+model nca.ecosystem.iucn:SupralittoralCoastal type of nca.ecosystem.iucn:Ecosystem
+	observing
+		landcover:LandCoverType 							named landcover,
+		presence of GBIF.SPECIES:4941589 ecology:Population named biotic_assemblage_pinniped_colonies,
+		type of ecology:MountainClimaticBeltZone 			named thermal_belt_low_montane,
+		type of ecology:MountainClimaticBeltZone 			named thermal_belt_high_montane
+	lookup
+		(landcover, influx_sea_salt, annual_water_budget_total, annual_net_primary_productivity_total, coastal_storms_exposure, biotic_assemblage_pinniped_colonies, thermal_belt_low_montane, thermal_belt_high_montane, ?)
+	into BIOME_MT2_SUPRALITTORALCOASTAL_ECOSYSTEM_TYPES;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+model im.nca.ecosystem.iucn:TemperateBorealForestWoodland
+	observing
+		landcover:LandCoverType named landcover,
+		percentage of ecology:CanopyCover named canopy_cover,
+		ecology:NetPrimaryProduction in g/m^2/day named npp,
+		presence of ecology:Deciduous ecology:Vegetation earth:Region named phenology,
+		ecology:LeafAreaIndex named lai,
+		im:Mean hydrology:WaterVolume of hydrology:WaterBalance in kg/m^2/year named water_budget
+		lookup 
+		(landcover,canopy_cover, npp, phenology, lai, water_budget, ?) 
+			into TABLE_NAME;
+		
+			into IUCN_GLOBAL_ECOSYSTEMS_BIOME_T2;
+model im.nca.ecosystem.iucn:TemperateBorealForestWoodland
+	observing		
+		presence of ecology:Evergreen ecology:Vegetation earth:Region named phenology,
+		percentage of ecology:CanopyCover named canopy_cover,
+		im:Mean im:Height of ecology:Canopy in m named canopy_height,
+		im:Mean earth:AtmosphericTemperature during earth:Winter in degrees named mean_winter_temperature,
+		im:Mean hydrology:WaterVolume of hydrology:WaterBalance in kg/m^2/year named water_budget,
+		count of im:Yearly im:Occurrence of chemistry:Fire in year named fire_reccurence
+		lookup 
+		(landcover, phenology, canopy_cover, canopy_height, mean_winter_temperature, water_budget, fire_reccurence, ?) 
+			into IUCN_GLOBAL_ECOSYSTEMS_BIOME_T2;
+	

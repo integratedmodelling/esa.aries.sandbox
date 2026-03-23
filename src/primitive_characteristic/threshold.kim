@@ -1,0 +1,391 @@
+project private namespace primitive_characteristic.threshold
+using ecology.incubation;
+
+//TODO:Add proper concepts
+identity Variability;
+
+attribute Absent;
+
+class Temperature
+	has children
+	ExtremelyCold,
+	VeryCold,
+	Cold,
+	Cool,
+	Mild,
+	Warm,
+	Hot,
+	VeryHot,
+	ExtremelyHot;
+
+attribute FireFrequency
+    "The characteristic interval of fire recurrence within a specific ecosystem, often referred to as the Fire Return Interval (FRI)."
+    has children
+        (Annual
+            "Fire occurs every year; typical of tropical savannas or systems with high-biomass annual grasses."
+        ),
+        (Frequent
+            "Sub-decadal recurrence (1–10 years). Characterized by fires occurring several times within a decade."
+        ),
+        (Occasional
+            "Decadal recurrence (10–30 years). Fire occurs roughly once per decade or slightly less frequently."
+        ),
+        (Infrequent
+            "Multi-decadal recurrence (30–100 years). Fire cycles span several decades, often allowing for significant woody fuel accumulation."
+        ),
+        (Centennial
+            "Very low frequency (>100 years). Fire is a rare event, often occurring only under extreme climatic conditions, typical of some temperate rainforests or subalpine zones."
+        )
+; 
+
+@colormap(values = { 
+    Planar:      (46 139 87),    // Sea Green (Lowlands/Basins)ecology:Planar
+    Foothill:    (154 205 50),   // Yellow Green (Transition)  ecology:Foothill
+    Submontane:  (205 133 63),   // Peru/Light Brown (Uplands) ecology:Submontane
+    Montane:     (139 69 19)     // Saddle Brown (Mountains)   ecology:Montane
+})
+abstract attribute ElevationZone
+    "A classification of altitudinal zones based on the transition of vegetation and climate from lowlands to mountain peaks."
+    has children
+        (Planar
+            "The lowest altitudinal zone, typically consisting of flat plains, coastal areas, or major river basins. Characterized by stable, warmer temperatures."
+        ),
+        (Foothill
+            "Also known as the Piedmont or Colline zone; the transitional area between plains and mountains. Topography begins to show undulating hills."
+        ),
+        (Submontane
+            "The lower slopes of a mountain range. This zone marks the transition where lowland species begin to drop out in favor of more cold-tolerant vegetation."
+        ),
+        (Montane
+            "The main mountain forest belt. Characterized by cooler temperatures and distinct cloud or moisture patterns; typically situated below the subalpine zone."
+        )
+;
+
+//@colormap(values = { 
+//    chemistry:HighlyAcidic:   (255 0 0),     // Red
+//    chemistry:Acidic:         (255 165 0),   // Orange
+//    chemistry:Neutral:        (0 255 0),     // Green
+//    chemistry:Alkaline:       (0 0 255),     // Blue
+//    chemistry:HighlyAlkaline: (128 0 128)    // Purple
+//})
+quantity PHClassification
+    "A logarithmic scale used to specify the acidity or basicity of an aqueous solution or soil medium."
+    has children
+        (HighlyAcidic
+            "Solutions with a pH typically below 4.0. Often toxic to most aquatic life and plants due to heavy metal mobilization (e.g., Aluminum)."
+        ),
+        (Acidic
+            "Solutions with a pH between 4.0 and 6.5. Common in peatlands and coniferous forests where organic acids are prevalent."
+        ),
+        (Neutral
+            "Solutions with a pH approximately between 6.5 and 7.5. This is the optimal range for the majority of biological processes and nutrient uptake."
+        ),
+        (Alkaline
+            "Also known as Basic; solutions with a pH between 7.5 and 9.0. Often found in limestone-rich (calcareous) soils."
+        ),
+        (HighlyAlkaline
+            "Solutions with a pH above 9.0. Characterized by high concentrations of carbonates and typical of soda lakes or saline-alkali deserts."
+        )
+;
+
+observe earth:Region named greece_test_area_2024
+over space(shape=
+"EPSG:4326 POLYGON ((20.679138515160957 38.18374883460746, 20.672359298475584 38.15695481086746, 20.65305372270607 38.13423222059453, 20.624160886757842 38.11904552707, 20.590079462989802 38.11371192003023, 20.55599803922176 38.11904552707, 20.527105203273532 38.13423222059453, 20.507799627504017 38.15695481086746, 20.501020410818647 38.18374883460746, 20.507799627504017 38.21053300753712, 20.527105203273532 38.23323181585647, 20.55599803922176 38.24839472743662, 20.590079462989802 38.25371848367516, 20.624160886757842 38.24839472743662, 20.65305372270607 38.23323181585647, 20.672359298475584 38.21053300753712, 20.679138515160957 38.18374883460746))",
+		   grid="300 m"),
+time(start=2015, end=2016, step=1.year);
+
+/*
+ * If any doubt check original classification here:
+ * https://docs.google.com/spreadsheets/d/1ouf-TNAxZEIoh7GC6J66jW6pGSpLavgqAXGJgK1d9Kc/edit?gid=16843137#gid=16843137 
+ */
+
+
+@intensive(space)                        
+model level of (im:Minimum im:Area of earth:WaterBody) named hydroform_morphology_area
+observing im:Minimum im:Area of earth:WaterBody in km^2
+		lookup (hydroform_morphology_area) into
+		hydroform_morphology_area | category
+		------------------------------------
+							< 100 | im:Low,
+	                        > 100 | im:High; 
+ 
+model level of (hydrology:StreamOrder of hydrology:Watershed) named watershed_hierarchy
+observing hydrology:StreamOrder of hydrology:Watershed	
+	 	lookup (watershed_hierarchy) into
+	 	watershed_hierarchy | category
+		----------------------------------
+					 1 to 4 | im:Low,
+	                 4 to 9 | im:Moderate,
+	                    > 9 | im:High;
+@intensive(space)
+model level of ecology:NetPrimaryProduction
+observing ecology:NetPrimaryProduction in g/m^2 named annual_total_net_primary_productivity //g/m^2/day named npp
+		lookup (annual_total_net_primary_productivity) into
+        annual_total_net_primary_productivity | category
+		----------------------------------------------------
+										< 500 | im:Low,
+				                  500 to 2000 | im:Moderate,
+				                       > 2000 | im:High;
+
+model   
+'local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020'
+as level of soil.incubation:SoilFertility classified into
+  	soil.incubation:Infertile if in (0 1 2),
+	soil.incubation:LowFertility if in (3 4),
+	soil.incubation:MediumFertility if in (5 6 7),
+	soil.incubation:HighFertility if in (8 9 10)
+over space(shape="POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))");
+
+@intensive(space)
+model level of (im:Depth of landcover:PeatBog earth:Region)
+observing im:Depth of landcover:PeatBog earth:Region in cm named depth_peat_bog//g/m^2/day named npp
+		lookup (depth_peat_bog) into
+        depth_peat_bog | category
+		-------------------------
+   				   0   | Absent,
+   			 0 to  0.3 | im:Low,
+              0.3 to 1 | im:Moderate,
+                   > 1 | im:High;
+
+number 'local:alessio.bulckaen:im.data.global:ecdc__soil__peat_thickness__global__2001_2021' as test;
+
+//annotation of hydroform_morphology_area thresholds
+//model level of im:Minimum im:Area of earth:WaterBody
+//observing im:Minimum im:Area of earth:WaterBody in km^2 named hydroform_morphology_area
+//lookup(hydroform_morphology_area,?) into
+//	hydroform_morphology_area | category
+//	------------------------------------
+//						 <100 | im:Low,
+//						 >100 | im:High;
+
+
+
+
+
+//annotation of watershed_hierarchy thresholds
+//model level of (hydrology:StreamOrder of hydrology:Watershed)
+//observing hydrology:StreamOrder of hydrology:Watershed named watershed_hierarchy
+//lookup(watershed_hierarchy,?) into
+//		watershed_hierarchy | category
+//		------------------------------
+//					 1 to 3 | im:Low,
+//					 4 to 8 | im:Moderate,
+//					 	> 9 | im:High;
+
+
+//annotation of base_saturation thresholds
+//model level of percentage of (chemistry:Basic chemistry:ExchangeCapacity) in (chemistry:ExchangeCapacity of chemistry:Cation)
+//observing percentage of (chemistry:Basic chemistry:ExchangeCapacity) in (chemistry:ExchangeCapacity of chemistry:Cation) named base_saturation
+//lookup (base_saturation) into
+//base_saturation | category
+//--------------------------
+//		   < 49 | im:Low,
+//	   50 to 69 | im:Moderate,
+//	  70 to 100 | im:High;
+
+
+
+//annotation of peat_thickness thresholds
+//model level of (im:Depth of landcover:PeatBog earth:Region)
+//observing im:Depth of landcover:PeatBog earth:Region in cm named peat_thickness
+//lookup (peat_thickness) into
+//	peat_thickness | category
+//	-------------------------
+//			   0.0 | soil:Superficial,
+//		0.0 to 0.3 | soil:Shallow,
+//			 > 0.3 | soil:Deep;
+
+
+//annotation of annual_mean_precipitation thresholds
+//model level of im:Mean earth:PrecipitationVolume
+//observing im:Mean earth:PrecipitationVolume in kg/m^2 named annual_mean_precipitation
+//lookup (annual_mean_precipitation) into
+//	annual_mean_precipitation | category
+//	---------------------------------------
+//						 <200 | im:VeryLow,
+//				   200 to 300 | im:Low,
+//					00 to 900 | im:Moderate,
+//				  900 to 2000 | im:High,
+//						>2000 | im:VeryHigh;
+
+//annotation of annual_total_water_budget thresholds
+//model level of (im:Mean hydrology:WaterVolume of hydrology:WaterBalance) 
+//observing im:Mean hydrology:WaterVolume of hydrology:WaterBalance in kg/m^2 named annual_total_water_budget
+//lookup (annual_total_water_budget) into
+//	annual_total_water_budget | category
+//	---------------------------------------
+//					   < -500 | im:Low,
+//	 			   -500 to -1 | im:ModeratelyLow,
+//				      -1 to 1 | im:Moderate,
+//					 1 to 499 | im:ModeratelyHigh,
+//						 >500 | im:High;
+
+//annotation of winter_total_water_budget thresholds
+//model level of (hydrology:WaterVolume of hydrology:WaterBalance during earth:Winter)
+//observing hydrology:WaterVolume of hydrology:WaterBalance during earth:Winter in kg/m^2 named winter_total_water_budget
+//lookup (winter_total_water_budget) into
+//	winter_total_water_budget | category
+//	---------------------------------------
+//					   < -500 | im:VeryLow,
+//	 			   -500 to -1 | im:Low,
+//				      -1 to 1 | im:Moderate,
+//					 1 to 499 | im:High,
+//						> 500 | im:VeryHigh;
+
+//annotation of annual_mean_diurnal_air_temperature thresholds 
+model level of im:Mean im:Yearly earth:AtmosphericTemperature
+observing im:Mean im:Yearly earth:AtmosphericTemperature named annual_mean_diurnal_air_temperature
+lookup (annual_mean_diurnal_air_temperature) into
+annual_mean_diurnal_air_temperature | category
+----------------------------------------------
+						   	   <-25 | ecology.incubation:ExtremelyCold,
+						 -25 to -10 | ecology.incubation:VeryCold,
+						   -10 to 0 | ecology.incubation:Cold,
+							0 to 10 | ecology.incubation:Cool,
+					       10 to 18 | ecology.incubation:Mild,
+						   18 to 22 | ecology.incubation:Warm,
+						   22 to 28 | ecology.incubation:Hot,
+						   28 to 35 | ecology.incubation:VeryHot,
+							   > 35 | ecology.incubation:ExtremelyHot;
+
+//annotation of winter_mean_diurnal_air_temperature thresholds
+//model level of im:Mean earth:AtmosphericTemperature during earth:Winter in Celsius
+//observing im:Mean earth:AtmosphericTemperature during earth:Winter in Celsius named winter_mean_diurnal_air_temperature
+//lookup (winter_mean_diurnal_air_temperature) into
+//winter_mean_diurnal_air_temperature | category
+//----------------------------------------------
+//						   	   <-25 | ExtremelyCold,
+//						 -25 to -10 | VeryCold,
+//						   -10 to 0 | Cold,
+//							0 to 10 | Cool,
+//					       10 to 18 | Mild,
+//						   18 to 22 | Warm,
+//						   22 to 28 | Hot,
+//						   28 to 35 | VeryHot,
+//							   > 35 | ExtremelyHot;
+
+//annotation of summer_mean_diurnal_air_temperature thresholds
+//model level of (im:Mean earth:AtmosphericTemperature during earth:Summer)
+//observing im:Mean earth:AtmosphericTemperature during earth:Summer in Celsius named summer_mean_diurnal_air_temperature
+//lookup (summer_mean_diurnal_air_temperature) into
+//	summer_mean_diurnal_air_temperature | category
+//	-------------------------------------------------------
+//							   	   <-25 | ExtremelyCold,
+//							 -25 to -10 | VeryCold,
+//							   -10 to 0 | Cold,
+//								0 to 10 | Cool,
+//						       10 to 18 | Mild,
+//							   18 to 22 | Warm,
+//							   22 to 28 | Hot,
+//							   28 to 35 | VeryHot,
+//								> 35    | ExtremelyHot;
+
+//annotation of seasonal_amplitude_diurnal_air_temperature thresholds
+//model level of im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature 
+//observing im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_amplitude_diurnal_air_temperature
+//lookup (seasonal_amplitude_diurnal_air_temperature) into
+//seasonal_amplitude_diurnal_air_temperature | category
+//--------------------------------------------------------
+//								   0 to 10 | im:Low,
+//								  11 to 20 | im:Moderate,
+//								       >21 | im:High;
+
+//annotation of seasonal_variability_diurnal_air_temperature thresholds
+//model level of im:Daily Variability im:Seasonal earth:AtmosphericTemperature
+//observing im:Daily Variability im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_variability_diurnal_air_temperature
+//lookup (seasonal_variability_diurnal_air_temperature) into
+//seasonal_variability_diurnal_air_temperature | category
+//----------------------------------------------------------
+//										   0 | im:VeryLow,
+//									 1 to 25 | im:Low,
+//									25 to 75 | im:Moderate,
+//						  			    > 75 | im:High;
+
+//annotation of landcover thresholds
+//model level of ecology:Density
+//observing percentage named landcover
+//	lookup(landcover,?) into
+//		landcover | category
+//		-------------------------------
+//				0 | ecology:Absent,
+//		   0 to 1 | ecology:VerySparse,
+//		  1 to 10 | ecology:Sparse,
+//		 10 to 30 | ecology:Open,
+//		      >70 | ecology:Dense;
+
+
+//annotation of canopy_cover thresholds
+model level of ecology:CanopyDensity     
+observing proportion of ecology:CanopyCover  named canopy_cover 
+lookup (canopy_cover) into
+	canopy_cover | category
+	------------------------------
+		 	   0 | ecology:Absent,
+		 1 to 15 | ecology:Sparse,
+		15 to 65 | ecology:Open,
+	   65 to 100 | ecology:Dense; 
+
+//annotation of canopy_height thresholds
+//model level of (im:Mean im:Height of ecology:Canopy)
+//observing im:Mean im:Height of ecology:Canopy in m named canopy_height
+//lookup (canopy_height) into
+//	canopy_height | category
+//	------------------------
+//				0 | ecology:Absent,
+//		   0 to 1 | im:VeryLow,
+//		   1 to 5 | im:Low,
+//		  5 to 20 | im:Moderate,
+//		 20 to 40 | im:High,
+//			 > 40 | im:VeryHigh;
+
+//annotation of specific_leaf_area thresholds
+model level of (ratio of  im:Area to im:Mass of biology:Leaf) in m^2/kg
+observing ratio of  im:Area to im:Mass of biology:Leaf in m^2/kg named specific_leaf_area
+	lookup(specific_leaf_area) into
+	specific_leaf_area | category
+	--------------------------------
+					<3 | im:VeryLow,
+				3 to 5 | im:Low,
+				5 to 8 | im:Moderate,
+					>8 | im:VeryHigh;
+
+//annotation of leaf_size thresholds
+model level of (im:Area of biology:Leaf)
+observing im:Area of biology:Leaf in mm^2 named leaf_size
+	lookup(leaf_size) into
+		leaf_size | category
+		-----------------------
+				<0| im:VeryLow,
+		   0 to 3 | im:Low,
+		   3 to 5 | im:Moderate,
+		   5 to 8 | im:High,
+			   >8 | im:VeryHigh;
+
+
+//annotation of leaf_area_index thresholds
+model level of ecology:LeafAreaIndex
+observing ecology:LeafAreaIndex named leaf_area_index
+lookup (leaf_area_index) into
+	leaf_area_index | category
+	-------------------------------------
+			0 to 25 | ecology:Leptophyll,
+		  25 to 225 | ecology:Nanophyll,
+		225 to 2025 | ecology:Microphyll,
+	   2025 to 4500 | ecology:Notophyll,
+	  4500 to 18225 | ecology:Mesophyll,
+	18225 to 164025 | ecology:Macrophyll,
+		   > 164025 | ecology:Megaphyll; 
+
+
+
+//annotation of fire_recurrence thresholds
+//model level of (im:Yearly im:Occurrence of chemistry:Fire)
+//observing count of im:Yearly im:Occurrence of chemistry:Fire in year named fire_recurrence
+//lookup(fire_recurrence,?) into
+//	fire_recurrence | category
+//	-------------------------------
+//				  1 | Annual,
+//			 2 to 9 | Frequent,
+//			0 to 19 | Occasional,
+//			0 to 99 | Infrequent,
+//			   >100 | Centennial;                		

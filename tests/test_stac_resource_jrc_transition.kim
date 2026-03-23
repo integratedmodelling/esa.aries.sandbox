@@ -1,0 +1,37 @@
+worldview im;
+
+@test(
+    name = "test_stac_resource_jrc_transition",
+    description  = "Only non-semantic model outside the test can be observed correctly, why?",
+    // add to the list any concepts to be observed in the context below
+    observations = (
+    "rule_based_modelling_czech_republic.jrc_transition"
+// 	"im|esa.aries.sandbox/tests/test_stac_resource_jrc_transition.jrc_transition"
+    "im|esa.aries.sandbox/tests/test_stac_resource_jrc_transition.type-of-water-regime-resolver"
+    "im|esa.aries.sandbox/tests/test_stac_resource_jrc_transition.type-of-inappropriate-water-regime-resolver"),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named test_stac_resource_jrc_transition
+     over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2#weed_site=CZ2',
+    			grid="300 m",
+                projection= "EPSG:4326"),
+          time (year = 2024);
+// add any models here
+number 'local:alessio.bulckaen:im.data.global:JRC_global_surface_water_transition' as jrc_transition;
+
+model 'local:alessio.bulckaen:im.data.global:JRC_global_surface_water_transition'
+as type of hydrology:WaterRegime classified into
+    hydrology:Permanent if in (1, 2, 8),
+    hydrology:Seasonal if in (4, 5, 7),
+    hydrology:EphemeralPermanent if 9,
+    hydrology:EphemeralSeasonal if 10;
+
+model 'local:alessio.bulckaen:im.data.global:JRC_global_surface_water_transition'
+as type of im:Inappropriate hydrology:WaterRegime classified into
+    hydrology:Dry if 0,
+    hydrology:Permanent if in (1, 2, 8),
+    hydrology:Seasonal if in (4, 5, 7),
+    hydrology:EphemeralPermanent if 9,
+    hydrology:EphemeralSeasonal if 10;

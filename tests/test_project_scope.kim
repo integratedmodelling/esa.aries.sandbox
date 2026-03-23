@@ -1,0 +1,44 @@
+worldview im;
+
+@test(
+    name = "test.project_scope",
+    description  = "",
+    // add to the list any concepts to be observed in the context below
+    observations = (
+    "im|esa.aries.sandbox/tests/test_project_scope.level-of-net-primary-production-resolver"
+    "im|esa.aries.sandbox/tests/test_project_scope.level-of-reference-net-primary-production-resolver"
+    ),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named test_project_scope
+over space(shape=
+"EPSG:4326 POLYGON ((20.679138515160957 38.18374883460746, 20.672359298475584 38.15695481086746, 20.65305372270607 38.13423222059453, 20.624160886757842 38.11904552707, 20.590079462989802 38.11371192003023, 20.55599803922176 38.11904552707, 20.527105203273532 38.13423222059453, 20.507799627504017 38.15695481086746, 20.501020410818647 38.18374883460746, 20.507799627504017 38.21053300753712, 20.527105203273532 38.23323181585647, 20.55599803922176 38.24839472743662, 20.590079462989802 38.25371848367516, 20.624160886757842 38.24839472743662, 20.65305372270607 38.23323181585647, 20.672359298475584 38.21053300753712, 20.679138515160957 38.18374883460746))",
+		   grid="300 m"),
+time(start=2018, end=2019, step=1.year);
+
+@intensive(space)
+model
+'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_total_net_primary_productivity__global__2024'
+as ecology:NetPrimaryProduction in g/m^2; //g/m^2/day;
+
+number 'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_total_net_primary_productivity__global__2024' as npp;
+@intensive(space)
+model level of ecology:NetPrimaryProduction 
+ 		observing ecology:NetPrimaryProduction in g/m^2 named npp //g/m^2/day named npp
+		lookup (npp, ?) into
+				           npp | category
+					------------------------
+						 < 500 | im:Low,
+                   500 to 2000 | im:Moderate,
+                         >2000 | im:High;
+@intensive(space)
+model 'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_total_net_primary_productivity__global__2024'
+as level of im:Reference ecology:NetPrimaryProduction
+ 		lookup  (npp, ?) into
+				           npp | category
+					------------------------
+						 < 500 | im:Low,
+                   500 to 2000 | im:Moderate,
+                         >2000 | im:High;

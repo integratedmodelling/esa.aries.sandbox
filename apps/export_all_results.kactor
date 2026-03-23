@@ -1,0 +1,158 @@
+app export_all_results
+
+action main:
+
+	output_folder_directory = "export_map_ecosystem_types/"
+
+/*
+ * Set observable for which a map should be stored (as raster/vector files)
+ */
+	set observables_urns_eu (
+		alphathree.alpha3_maxprob_inference_result_level3
+	)
+	
+	set observables_urns_colombia(
+		rule_based_modelling.colombia.ecosystem_type_colombia
+		rule_based_modelling.colombia.ecosystem_type_iucn_get
+	)
+	
+	set observables_urns_south_africa(
+		rule_based_modelling.south_africa.ecosystem_type_iucn_get
+//		alphathree.ecosystem_type_alpha3_inference_stac_level3_sa
+	)
+	
+	set observables_urns_vietnam(
+		rule_based_modelling.vietnam.ecosystem_type_iucn_get
+	)
+/*
+ * Set the tables to summarise statistics or generate indicator for an observation (as .xls files) 
+ */
+ 	set table_urns (
+
+	)
+ 
+/*
+ * Set the spatial dimensions of the analysis
+ * Geographical boundaries can be set using:
+ * WKT (coordinates points of the vertices)
+ * URN of a resource (i.e. a vector file, which can contain multiple features)
+ * Creates n output (.tiff and .xlsx files) for each feature (ID) in the spatial context resource (n = n_tables x n_ID_features).  
+ */
+//	wkt_context = Space(shape='POLYGON ((19.016595 48.192287, ..., 19.016595 48.192287))') //Set the context using WKT or the URN of a resource
+	set eu_cu(
+//	spatial_contexts_urn =
+	"local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2"
+	"local:justus.muhando:esa.aries.sandbox:esa_weed_norway_priority_areas_no1_split_epsg4326_v2"
+	"local:rubencc:esa.aries.sandbox:esa_weed_greece_priority_areas_epsg4326_v2"
+	)
+	
+	set non_eu_cu(
+	"local:rubencc:esa.aries.sandbox:esa_weed_vietnam_priority_areas_epsg4326_v2"
+	"local:justus.muhando:esa.aries.sandbox:esa_weed_south_africa_priority_areas_epsg4326_v2"
+	"local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_priority_areas_epsg4326_v2"
+	)
+	
+	
+	spatial_contexts_urn_colombia= "local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_priority_areas_epsg4326_v2"
+	spatial_contexts_urn_south_africa= "local:justus.muhando:esa.aries.sandbox:esa_weed_south_africa_priority_areas_epsg4326_v2"
+	spatial_contexts_urn_vietnam= "local:rubencc:esa.aries.sandbox:esa_weed_vietnam_priority_areas_epsg4326_v2"
+	
+	
+	
+	for year in (2024) (		
+				for country in eu_cu(
+			for priority_area in country(
+				if [priority_area.weed_site == 'CZ2'|| priority_area.weed_site == 'EL2']//|| priority_area.weed_site == 'NO1_3'|| priority_area.weed_site == 'NO1_4'] //|| priority_area.weed_site == 'NO2'] || feature.layer == 'central_colombia' || feature.layer == 'south_colombia']
+					(for urn in observables_urns_eu(	
+					resolution = 10.m
+					context(priority_area,resolution,Time(year=year),urn): state -> (
+						set urn_name ""
+						if [urn.toString().startsWith("[")] (
+						set urn_name [urn.name]
+						)
+						else (
+						set urn_name urn
+						)	
+				if [state.toString().contains("[nothing")] (
+					warning(["Observation " + urn_name + " return nothing"])
+				) else ( 
+					state.export([output_folder_directory + "/" + priority_area.weed_site +"__"+ urn_name + "__" + year + ".tiff"])
+						)
+					)
+				)
+			)
+		)
+	)
+//		for spatial_contexts_urn_colombia(
+			for priority_area in spatial_contexts_urn_colombia(
+				if [priority_area.weed_site == 'CO1']//|| priority_area.weed_site == 'NO1_3'|| priority_area.weed_site == 'NO1_4'] //|| priority_area.weed_site == 'NO2'] || feature.layer == 'central_colombia' || feature.layer == 'south_colombia']
+					(for urn in observables_urns_colombia(	
+					resolution = 30.m
+					context(priority_area,resolution,Time(year=year),urn): state -> (
+						set urn_name ""
+						if [urn.toString().startsWith("[")] (
+						set urn_name [urn.name]
+						)
+						else (
+						set urn_name urn
+						)	
+				if [state.toString().contains("[nothing")] (
+					warning(["Observation " + urn_name + " return nothing"])
+				) else ( 
+					state.export([output_folder_directory + "/" + priority_area.weed_site +"__"+ urn_name + "__" + year + ".tiff"])
+						)
+					)
+				)
+			)
+		)
+//	)
+	
+//		for spatial_contexts_urn_south_africa(
+			for priority_area in spatial_contexts_urn_south_africa(
+				if [priority_area.weed_site == 'SA2']//|| priority_area.weed_site == 'NO1_3'|| priority_area.weed_site == 'NO1_4'] //|| priority_area.weed_site == 'NO2'] || feature.layer == 'central_colombia' || feature.layer == 'south_colombia']
+					(for urn in observables_urns_south_africa(	
+					resolution = 30.m
+					context(priority_area,resolution,Time(year=year),urn): state -> (
+						set urn_name ""
+						if [urn.toString().startsWith("[")] (
+						set urn_name [urn.name]
+						)
+						else (
+						set urn_name urn
+						)	
+				if [state.toString().contains("[nothing")] (
+					warning(["Observation " + urn_name + " return nothing"])
+				) else ( 
+					state.export([output_folder_directory + "/" + priority_area.weed_site +"__"+ urn_name + "__" + year + ".tiff"])
+						)
+					)
+				)
+			)
+		)
+//	)
+//		for spatial_contexts_urn_vietnam(
+			for priority_area in spatial_contexts_urn_vietnam(
+				if [priority_area.weed_site == 'VN2']//|| priority_area.weed_site == 'NO1_3'|| priority_area.weed_site == 'NO1_4'] //|| priority_area.weed_site == 'NO2'] || feature.layer == 'central_colombia' || feature.layer == 'south_colombia']
+					(for urn in observables_urns_vietnam(	
+					resolution = 30.m
+					context(priority_area,resolution,Time(year=year),urn): state -> (
+						set urn_name ""
+						if [urn.toString().startsWith("[")] (
+						set urn_name [urn.name]
+						)
+						else (
+						set urn_name urn
+						)	
+				if [state.toString().contains("[nothing")] (
+					warning(["Observation " + urn_name + " return nothing"])
+				) else ( 
+					state.export([output_folder_directory + "/" + priority_area.weed_site +"__"+ urn_name + "__" + year + ".tiff"])
+						)
+					)
+				)
+			)
+		)
+//	)
+
+)	
+	

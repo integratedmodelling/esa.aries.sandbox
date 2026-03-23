@@ -1,0 +1,29 @@
+worldview im;
+
+@test(
+    name = "test_stac_resource",
+    description  = "",
+    // add to the list any concepts to be observed in the context below
+    observations = (
+    "im|esa.aries.sandbox/tests/test_stac_resource.presence-of-permanent-water-body-resolver"
+    "data.global.hydrology.type-of-water-regime-resolver"),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named test_stac_resource
+    // add any space and/or time extents: for example
+    over space(shape="EPSG:4326 POLYGON ((21.910616123751442 38.79364335500986, 21.26838806193504 38.79364335500986, 21.26838806193504 39.03962334822924, 21.910616123751442 39.03962334822924, 21.910616123751442 38.79364335500986))",
+    	grid="50 m"),
+		time(start= 2024, end=2025, step=1.year);
+
+model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_permanent__global__1984_2021'
+  as presence of hydrology:Permanent earth:WaterBody set to [self == 1];
+// add any models here
+
+model 'local:alessio.bulckaen:im.data.global:JRC_global_surface_water_transition'
+ as type of hydrology:WaterRegime classified into
+ 	hydrology:Permanent if  in (1 2 8),
+ 	hydrology:Seasonal if in (4 5 7),
+ 	hydrology:EphemeralPermanent if 9,
+ 	hydrology:EphemeralSeasonal if 10;

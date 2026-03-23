@@ -83,3 +83,8 @@ model local:justus.muhando:esa.aries.sandbox:esa_weed.south_africa_nlc_landcover
 	
 number local:alessio.bulckaen:esa.aries.sandbox:esa_weed.sa9_ml as ml_results_sa9;
 number local:alessio.bulckaen:esa.aries.sandbox:esa_weed.sa3_ml as ml_results_sa3;
+
+
+//2025 South Africa National Vegetation Map - VECTOR
+model each 'local:justus.muhando:esa.aries.sandbox:esa_weed_south_africa_national_vegetation_map_epsg4326_2025'
+    as ecology:Vegetation earth:Region named sa_national_vegetation_map_2025;  
