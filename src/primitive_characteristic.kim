@@ -41,12 +41,14 @@ over space(shape="POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))");
  
 //3. Proposed annotation for nitrogen
 model
-'local:alessio.bulckaen:im.data.global:ecdc__soil__nitrogen__global__1995_2019'
+//'local:alessio.bulckaen:im.data.global:ecdc__soil__nitrogen__global__1995_2019'
+'local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_n__global__1995_2019'
 as proportion of chemistry:Nitrogen in soil:Soil //  in g/kg;
 over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
 //4. Proposed annotation for base_saturation
 model
-'local:alessio.bulckaen:im.data.global:ecdc__soil__base_saturation__global__1995_2019'
+//'local:alessio.bulckaen:im.data.global:ecdc__soil__base_saturation__global__1995_2019'
+'local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_base_saturation__global__1995_2019'
 as percentage of (chemistry:Basic chemistry:ExchangeCapacity) in (chemistry:ExchangeCapacity of chemistry:Cation)
 over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
 //5. Proposed annotation for tropical_storms_exposure
@@ -54,16 +56,23 @@ model
 'local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__tropical_storms_exposure__global__1990_2015'
 as im:Mean im:Maximum earth:WindSpeed of earth:Storm in km/h  
 over space(shape='POLYGON ((180 -42, 180 66.6, -176.3 66.6, -176.3 -42, 180 -42))');
+
 //6. Proposed annotation for tidal_zone_intertidal
 model
 'local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone_intertidal__global__2017_2019'
 as presence of earth:Wetland by earth:Coast
-over space(shape='POLYGON ((180 -60.0000049623, 180 60.0000049623, -180 60.0000049623, -180 -60.0000049623, 180 -60.0000049623))');
+//over space(shape='POLYGON ((180 -60.0000049623, 180 60, -180 60, -180 -60, 180 -60))')
+set to [self == 1 ? true : false];
+
+number 'local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone_intertidal__global__2017_2019' as tidal_zone_intertidal;
+
 
 //7. Proposed annotation for annual_total_net_primary_productivity
 @intensive(space)   
 model
-'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_total_net_primary_productivity__global__2024'
+'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2018',
+'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2021',
+'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2024'
 as ecology:NetPrimaryProduction in g/m^2       
 over space(shape='POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))');
 //over space(shape='POLYGON ((179.9985147848 -59.9985130248, 179.9985147848 80.0014880952, -180 80.0014880952, -180 -59.9985130248, 179.9985147848 -59.9985130248))');
@@ -79,7 +88,9 @@ over space(shape='POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))');
 model
 'local:alessio.bulckaen:im.data.global:ecdc__geomorphology__floodplain__global__1900_2100'
 as presence of hydrology:Floodplain
-over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
+over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))')
+set to [self == 0 ? true : false];
+
 //9. Proposed annotation for geothermal
 model
 'local:alessio.bulckaen:im.data.global:ecdc__energy__geothermal__global__2019'
