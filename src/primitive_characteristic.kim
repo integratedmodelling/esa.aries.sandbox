@@ -445,17 +445,20 @@ as im:Daily Variability im:Seasonal earth:AtmosphericTemperature
 over space(shape='POLYGON ((179.9998596712 -90, 179.9998596712 83.9998604152, -180 83.9998604152, -180 -90, 179.9998596712 -90))');
 //78. Proposed annotation for annual_mean_precipitation
 model
-'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_mean_precipitation__global__1981_2010'
+//'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_mean_precipitation__global__1981_2010'
+'local:alessio.bulckaen:im.data.global:ecdc__climate__climate__annual_precipitation_total__global__1981_2010'
 as im:Mean earth:PrecipitationVolume in kg/m^2/month
 over space(shape='POLYGON ((179.9998596712 -90, 179.9998596712 83.9998604152, -180 83.9998604152, -180 -90, 179.9998596712 -90))');
 //79. Proposed annotation for annual_mean_diurnal_air_temperature
 model
-'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_mean_diurnal_air_temperature__global__1981_2010'
+//'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_mean_diurnal_air_temperature__global__1981_2010'
+'local:alessio.bulckaen:im.data.global:ecdc__climate__climate__annual_diurnal_air_temperature_mean__global__1981_2010'
 as im:Mean im:Yearly earth:AtmosphericTemperature in Celsius
 over space(shape='POLYGON ((179.9998596712 -90, 179.9998596712 83.9998604152, -180 83.9998604152, -180 -90, 179.9998596712 -90))');
 //80. Proposed annotation for annual_total_water_budget
 model
-'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_total_water_budget__global__1981_2010'
+//'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_total_water_budget__global__1981_2010'
+'local:alessio.bulckaen:im.data.global:ecdc__climate__climate__annual_water_budget_total__global__1981_2010'
 as im:Mean hydrology:WaterVolume of hydrology:WaterBalance in kg/m^2/year
 over space(shape='POLYGON ((179.9998596712 -90, 179.9998596712 83.9998604152, -180 83.9998604152, -180 -90, 179.9998596712 -90))');
 //81. Proposed annotation for winter_total_water_budget
