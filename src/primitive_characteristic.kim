@@ -28,6 +28,10 @@ model
 as im:Depth of landcover:PeatBog earth:Region in cm;
 //over space(shape='POLYGON ((180 -60.007460979, 180 88.007948385, -180 88.007948385, -180 -60.007460979, 180 -60.007460979))');
 
+//1B. Proposed annotation for physical_properties_bulk_density
+model 
+'local:alessio.bulckaen:im.data.global:ecdc__soil__physical_properties_bulk_density__global__1995_2019'
+as ratio of earth:Dry soil:Soil im:Mass to soil:Soil im:Volume in g/cm^3;
 //2. Proposed annotation for fertility
 model   
 'local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020'
@@ -54,9 +58,15 @@ over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
 //5. Proposed annotation for tropical_storms_exposure
 model
 'local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__tropical_storms_exposure__global__1990_2015'
-as im:Mean im:Maximum earth:WindSpeed of earth:Storm in km/h  
+as im:Mean im:Maximum earth:WindSpeed of earth:Storm in km/h //knot 
 over space(shape='POLYGON ((180 -42, 180 66.6, -176.3 66.6, -176.3 -42, 180 -42))');
 
+model 'local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__tropical_storms_exposure__global__1990_2015'
+ as presence of ecology:Tropical earth:Storm
+  set to [self > 0 ];
+ 
+number 'local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__tropical_storms_exposure__global__1990_2015' as tropical_storm_data_test;
+   
 //6. Proposed annotation for tidal_zone_intertidal
 model
 'local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone_intertidal__global__2017_2019'
