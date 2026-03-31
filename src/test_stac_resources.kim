@@ -1,24 +1,29 @@
 private namespace test_stac_resources;
 
-number local:alessio.bulckaen:im.data.global:ecdc__climate__annual_diurnal_air_temperature_mean__global__1981_2010 as test_annual_diurnal_air_temperature_mean2;
+model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_diurnal_air_temperature_mean__global__1981_2010 
+	as im:Mean im:Yearly earth:AtmosphericTemperature in Celsius;
 number local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2024 as test_annual_net_primary_productivity_total3;
 number local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2021 as test_annual_net_primary_productivity_total4;
 number local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2018 as test_annual_net_primary_productivity_total5;
+
 number local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation_total__global__1981_2010 as test_annual_precipitation_total6;
 number local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total__global__1981_2010 as test_annual_water_budget_total7;
 number local:alessio.bulckaen:im.data.global:ecdc__bioticassemblages__biotic_assemblage_pinniped_colonies__global__2022 as test_biotic_assemblage_pinniped_colonies8;
+
 number local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__greece__2015 as test_canopy_cover9;
 number local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__norway__2015 as test_canopy_cover10;
 number local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__south_africa__2015 as test_canopy_cover11;
 number local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__czechia__2015 as test_canopy_cover12;
 number local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__viet_nam__2015 as test_canopy_cover13;
 number local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__colombia__2015 as test_canopy_cover14;
+
 number local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__greece__2020 as test_canopy_height15;
 number local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__viet_nam__2020 as test_canopy_height16;
 number local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__south_africa__2020 as test_canopy_height17;
 number local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__colombia__2020 as test_canopy_height18;
 number local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__norway__2020 as test_canopy_height19;
 number local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__czechia__2020 as test_canopy_height20;
+
 number local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_base_saturation__global__1995_2019 as test_chemical_properties_base_saturation21;
 number local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_n__global__1995_2019 as test_chemical_properties_n22;
 number local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__coastal_storms_exposure__global__1979_2014 as test_coastal_storms_exposure23;
@@ -27,46 +32,108 @@ number local:alessio.bulckaen:im.data.global:ecdc__geomorphology__floodplain__gl
 number local:alessio.bulckaen:im.data.global:ecdc__energy__geothermal__global__2019 as test_geothermal26;
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform__global__1984_2017 as test_hydroform27;
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__global__2004_2013 as test_hydroform_meander28;
+
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__south_africa__2013_2020 as test_hydroform_morphology_area29;
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__viet_nam__2013_2020 as test_hydroform_morphology_area30;
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__norway__2013_2020 as test_hydroform_morphology_area31;
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__greece__2013_2020 as test_hydroform_morphology_area32;
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__czechia__2013_2020 as test_hydroform_morphology_area33;
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__colombia__2013_2020 as test_hydroform_morphology_area34;
+
 number local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2024 as test_leaf_area_index35;
 number local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2021 as test_leaf_area_index36;
 number local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2018 as test_leaf_area_index37;
+
 number local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_size__global__2000_2020 as test_leaf_size38;
 number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_aquaculture__czechia_greece_norway__2017 as test_managed_waters_aquaculture39;
-number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__czechia__2025 as test_managed_waters_canal40;
-number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__greece__2025 as test_managed_waters_canal41;
-number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__south_africa__2025 as test_managed_waters_canal42;
-number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__viet_nam__2025 as test_managed_waters_canal43;
-number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__colombia__2025 as test_managed_waters_canal44;
-number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__norway__2025 as test_managed_waters_canal45;
+
+/*
+ * # Managed waters canal. --------------------------------------------------------------------------------------------
+ */
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__czechia__2025
+	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_czechia
+	classified into
+		hydrology.incubation:Canal if 1
+	over space(shape="POLYGON ((18.86841376 48.5186872, 18.86841376 51.07581503, 12.08060933 51.07581503, 12.08060933 48.5186872, 18.86841376 48.5186872))");
+	
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__greece__2025
+	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_greece
+	classified into
+		hydrology.incubation:Canal if 1
+	over space(shape="POLYGON ((29.63220162 34.9966406, 29.63220162 41.79065352, 19.35250178 41.79065352, 19.35250178 34.9966406, 29.63220162 34.9966406))");
+	
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__south_africa__2025
+	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_south_africa
+	classified into
+		hydrology.incubation:Canal if 1
+	over space(shape="POLYGON ((33.11678359 -34.60613124, 33.11678359 -22.13874777, 16.99718611 -22.13874777, 16.99718611 -34.60613124, 33.11678359 -34.60613124))");
+
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__viet_nam__2025
+	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_viet_nam
+	classified into
+		hydrology.incubation:Canal if 1
+	over space(shape="POLYGON ((109.48767457 8.56539723, 109.48767457 23.43431472, 101.9644288 23.43431472, 101.9644288 8.56539723, 109.48767457 8.56539723))");
+
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__colombia__2025 
+	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_colombia
+	classified into
+		hydrology.incubation:Canal if 1
+	over space(shape="POLYGON ((-66.87024263 -4.0466187, -66.87024263 12.44063129, -78.9991173 12.44063129, -78.9991173 -4.0466187, -66.87024263 -4.0466187))");
+
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__norway__2025
+	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_norway
+	classified into
+		hydrology.incubation:Canal if 1
+	over space(shape="POLYGON ((32.32653302 57.94497396, 32.32653302 71.02589146, 4.73888022 71.02589146, 4.73888022 57.94497396, 32.32653302 57.94497396))");
+	
+/* --------------------------------------------------------------------------------------------------------------- */
+	
+observe earth:Region named test_region
+//	over space(shape="POLYGON ((18.86841376 48.5186872, 18.86841376 51.07581503, 12.08060933 51.07581503, 12.08060933 48.5186872, 18.86841376 48.5186872))",
+//		grid = "100 m");
+//	over space(shape="POLYGON ((29.63220162 34.9966406, 29.63220162 41.79065352, 19.35250178 41.79065352, 19.35250178 34.9966406, 29.63220162 34.9966406))",
+//		grid = "100 m");
+//	over space(shape="POLYGON ((33.11678359 -34.60613124, 33.11678359 -22.13874777, 16.99718611 -22.13874777, 16.99718611 -34.60613124, 33.11678359 -34.60613124))",
+//		grid = "100 m");
+//	over space(shape="POLYGON ((109.48767457 8.56539723, 109.48767457 23.43431472, 101.9644288 23.43431472, 101.9644288 8.56539723, 109.48767457 8.56539723))",
+//		grid = "100 m");
+//	over space(shape="POLYGON ((-66.87024263 -4.0466187, -66.87024263 12.44063129, -78.9991173 12.44063129, -78.9991173 -4.0466187, -66.87024263 -4.0466187))",
+//		grid = "100 m");
+	over space(shape="POLYGON ((32.32653302 57.94497396, 32.32653302 71.02589146, 4.73888022 71.02589146, 4.73888022 57.94497396, 32.32653302 57.94497396))",
+		grid = "100 m");
+
 number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_mariculture__greece__2017 as test_managed_waters_mariculture46;
 number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_mariculture__colombia__2017 as test_managed_waters_mariculture47;
 number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_mariculture__norway__2017 as test_managed_waters_mariculture48;
 number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_mariculture__south_africa__2017 as test_managed_waters_mariculture49;
 number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_mariculture__viet_nam__2017 as test_managed_waters_mariculture50;
+
 number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservoir__czechia__2022 as test_managed_waters_reservoir51;
 number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservoir__south_africa__2022 as test_managed_waters_reservoir52;
 number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservoir__greece__2022 as test_managed_waters_reservoir53;
 number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservoir__colombia__2022 as test_managed_waters_reservoir54;
 number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservoir__viet_nam__2022 as test_managed_waters_reservoir55;
 number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservoir__norway__2022 as test_managed_waters_reservoir56;
-number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__mining_areas__global__2000_2019 as test_mining_areas57;
+
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__mining_areas__global__2000_2019 
+	as presence of landcover:MineralExtraction earth:Region named mining_areas
+	set to [self == 1 ? true : false];
+
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_ephemeral__global__1984_2021 as test_occurrence_regime_ephemeral58;
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_episodic__global__1984_2021 as test_occurrence_regime_episodic59;
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_seasonality__global__1984_2021 as test_occurrence_regime_seasonality60;
 number local:alessio.bulckaen:im.data.global:ecdc__soil__peat_thickness__global__2001_2021 as test_peat_thickness61;
 number local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__periodicity__global__2002_2024 as test_periodicity62;
+
 number local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_deciduous__global__2021 as test_phenology_deciduous63;
 number local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_deciduous__global__2018 as test_phenology_deciduous64;
+
 number local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_evergreen__global__2021 as test_phenology_evergreen65;
 number local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_evergreen__global__2018 as test_phenology_evergreen66;
+
 number local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_mixed__global__2021 as test_phenology_mixed67;
 number local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_mixed__global__2018 as test_phenology_mixed68;
+
 number local:alessio.bulckaen:im.data.global:ecdc__soil__physical_properties_bulk_density__global__1995_2019 as test_physical_properties_bulk_density69;
 number local:alessio.bulckaen:im.data.global:ecdc__climate__potential_tree_growth__global__1981_2010 as test_potential_tree_growth70;
 number local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__recurrence__global__2002_2024 as test_recurrence71;
@@ -79,12 +146,14 @@ number local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone_intertida
 number local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__tropical_storms_exposure__global__1990_2015 as test_tropical_storms_exposure78;
 number local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__tropical_storms_exposure__global__1990_2015 as test_tropical_storms_exposure79;
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__global__2004_2013 as test_watershed_hierarchy80;
+
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__south_africa__2013_2020 as test_watershed_hydroform_density81;
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__viet_nam__2013_2020 as test_watershed_hydroform_density82;
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__norway__2013_2020 as test_watershed_hydroform_density83;
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__greece__2013_2020 as test_watershed_hydroform_density84;
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__czechia__2013_2020 as test_watershed_hydroform_density85;
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__colombia__2013_2020 as test_watershed_hydroform_density86;
+
 number local:alessio.bulckaen:im.data.global:ecdc__climate__winter_diurnal_air_temperature_mean__global__1981_2010 as test_winter_diurnal_air_temperature_mean87;
 number local:alessio.bulckaen:im.data.global:ecdc__climate__winter_water_budget_total__global__1980_2010 as test_winter_water_budget_total88;
 
