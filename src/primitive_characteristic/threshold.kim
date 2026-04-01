@@ -127,7 +127,7 @@ observing ecology:NetPrimaryProduction in g/m^2 named annual_total_net_primary_p
 				                  500 to 2000 | im:Moderate,
 				                       > 2000 | im:High;
 
-//model 'local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020'
+model 'local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020'
 //	as level of soil.incubation:Fertility
 //		lookup (fertility) into  into
 //		fertility | category
@@ -136,11 +136,12 @@ observing ecology:NetPrimaryProduction in g/m^2 named annual_total_net_primary_p
 //		   3 to 5 | im:Low,
 //	       5 to 8 | im:Moderate,
 //	      8 to 11 | im:High;
-//		classified into
-//		im:None if in (0 1 2),
-//		im:Low if in (3 4),
-//		im:Moderate if in (5 6 7)
-//		im:High if in (8 9 10);
+	as level of soil.incubation:Fertility named soil_fertility
+	classified into
+		im:None if in (0 1 2),
+		im:Low if in (3 4),
+		im:Moderate if in (5 6 7),
+		im:High if in (8 9 10);
 
 @intensive(space)
 model level of (im:Depth of landcover:PeatBog earth:Region)
