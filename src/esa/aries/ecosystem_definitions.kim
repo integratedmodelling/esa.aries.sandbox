@@ -1,6 +1,30 @@
 private namespace esa.aries.ecosystem_definitions
 using esa.aries.primitive_characteristic, nca.ecosystem.iucn;
 
+observe earth:Region named vietnam_test
+    over space(shape='EPSG:4326 POLYGON ((105.88620462994126 19.84488698624979, 105.71419837570178 19.84488698624979, 105.71419837570178 19.92449883506903, 105.88620462994126 19.92449883506903, 105.88620462994126 19.84488698624979))',
+    		grid="100 m",
+    		projection="EPSG:4326"),
+    time(year=2020); 
+    
+model 
+'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__global__2004_2013'
+as hydrology:StreamOrder of earth:Stream;
+
+model local:rubencc:im.data.global:im-data-global-landcover.copernicus_landcover_10m_2020 
+	as landcover:LandCoverType classified into 
+	landcover:Forest if 10,
+	landcover:Shrubland if 20,
+	landcover:Grassland if 30,
+	landcover:AgriculturalVegetation if 40,
+	landcover:ArtificialSurface if 50,
+	landcover:SparseVegetation if 60,
+	landcover:GlacierPerpetualSnow if 70,
+	landcover:WaterBody if 80,
+	landcover:AquaticVegetationOverWaterBody if 90, //Should be HerbaceusWetland, so including both InlandMarsh&SaltMarsh, but that's inconsistent with our current structure
+	landcover:Mangrove if 95,
+	landcover:LichenMoss if 100;
+
 define BIOME_F1_RIVERSTREAM_ECOSYSTEM_TYPES as {{
   landcover           | hydroform_watercourse | watershed_hierarchy | occurrence_regime_permanent | hydroform_meander   | occurrence_regime_seasonal | occurrence_regime_episodic | ecosystem_type                           
   -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -25,6 +49,7 @@ presence of hydrology:Episodic earth:WaterBody named occurrence_regime_episodic
 lookup
 //(landcover, hydroform_watercourse, watershed_hierarchy, occurrence_regime_permanent, hydroform_meander, occurrence_regime_seasonal, occurrence_regime_episodic, ?)
 (landcover, hydroform_watercourse, watershed_hierarchy, occurrence_regime_permanent, *, occurrence_regime_seasonal, occurrence_regime_episodic, ?)
+
 into BIOME_F1_RIVERSTREAM_ECOSYSTEM_TYPES;
 
 
@@ -101,7 +126,17 @@ model nca.ecosystem.iucn:SupralittoralCoastal type of nca.ecosystem.iucn:Ecosyst
 	into BIOME_MT2_SUPRALITTORALCOASTAL_ECOSYSTEM_TYPES;
 
 
-
+define BIOME_F1_RIVERSTREAM_ECOSYSTEM_TYPES as {{
+  landcover           | hydroform_watercourse | watershed_hierarchy | occurrence_regime_permanent | hydroform_meander   | occurrence_regime_seasonal | occurrence_regime_episodic | ecosystem_type                           
+  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  landcover:WaterBody | true                | im:Low              | true                      	| #                 	| #                          | #                          | nca.ecosystem.iucn:PermanentUplandStream  ,
+  landcover:WaterBody | true                | im:Moderate         | true                      	| true            		| #                          | #                          | nca.ecosystem.iucn:PermanentLowlandStream ,
+  landcover:WaterBody | true                | #                   | #                         	| #                 	| #                          | #                          | nca.ecosystem.iucn:FreezethawRiverStream  ,
+  landcover:WaterBody | true                | im:Low              | #                         	| #                 	| true                       | #                          | nca.ecosystem.iucn:SeasonalUplandStream   ,
+  landcover:WaterBody | true                | im:Moderate         | #                         	| #                 	| true                       | #                          | nca.ecosystem.iucn:SeasonalLowlandRiver   ,
+  landcover:WaterBody | true                | #                   | #                         	| #                 	| #                          | true                       | nca.ecosystem.iucn:EpisodicAridRiver      ,
+  landcover:WaterBody | true                | im:High             | true                      	| true            		| #                          | #                          | nca.ecosystem.iucn:LargeLowlandRiver     
+}};
 
 
 

@@ -127,14 +127,15 @@ observing ecology:NetPrimaryProduction in g/m^2 named annual_total_net_primary_p
 				                  500 to 2000 | im:Moderate,
 				                       > 2000 | im:High;
 
-model   
-'local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020'
-as level of soil.incubation:SoilFertility classified into
-  	soil.incubation:Infertile if in (0 1 2),
-	soil.incubation:LowFertility if in (3 4),
-	soil.incubation:MediumFertility if in (5 6 7),
-	soil.incubation:HighFertility if in (8 9 10)
-over space(shape="POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))");
+//model 'local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020'
+//	as level of soil.incubation:Fertility
+//		lookup (fertility) into  into
+//		fertility | category
+//	    -------------------------
+//		   0 to 3 | im:None,
+//		   3 to 5 | im:Low,
+//	       5 to 8 | im:Moderate,
+//	      8 to 11 | im:High;
 
 @intensive(space)
 model level of (im:Depth of landcover:PeatBog earth:Region)
@@ -146,8 +147,6 @@ observing im:Depth of landcover:PeatBog earth:Region in cm named depth_peat_bog/
    			 0 to  0.3 | im:Low,
               0.3 to 1 | im:Moderate,
                    > 1 | im:High;
-
-number 'local:alessio.bulckaen:im.data.global:ecdc__soil__peat_thickness__global__2001_2021' as test;
 
 //annotation of hydroform_morphology_area thresholds
 //model level of im:Minimum im:Area of earth:WaterBody
@@ -315,15 +314,15 @@ annual_mean_diurnal_air_temperature | category
 
 
 //annotation of canopy_cover thresholds
-model level of ecology:CanopyDensity     
-observing proportion of ecology:CanopyCover  named canopy_cover 
-lookup (canopy_cover) into
+model  'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__viet_nam__2015'//'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__greece__2015'
+as proportion of ecology:CanopyCover
+	lookup (canopy_cover) into
 	canopy_cover | category
 	------------------------------
-		 	   0 | ecology:Absent,
-		 1 to 15 | ecology:Sparse,
-		15 to 65 | ecology:Open,
-	   65 to 100 | ecology:Dense; 
+		 	   0 | im:None,		//ecology:Absent,
+		 1 to 15 | im:Low,		//ecology:Sparse,
+		15 to 65 | im:Moderate,	//ecology:Open,
+	   65 to 100 | im:High;		//ecology:Dense; 
 
 //annotation of canopy_height thresholds
 //model level of (im:Mean im:Height of ecology:Canopy)
@@ -339,7 +338,7 @@ lookup (canopy_cover) into
 //			 > 40 | im:VeryHigh;
 
 //annotation of specific_leaf_area thresholds
-model level of (ratio of  im:Area to im:Mass of biology:Leaf) in m^2/kg
+model level of (ratio of  im:Area to im:Mass of biology:Leaf)
 observing ratio of  im:Area to im:Mass of biology:Leaf in m^2/kg named specific_leaf_area
 	lookup(specific_leaf_area) into
 	specific_leaf_area | category
