@@ -10,8 +10,26 @@ number local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation
 number local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total__global__1981_2010 as test_annual_water_budget_total7;
 number local:alessio.bulckaen:im.data.global:ecdc__bioticassemblages__biotic_assemblage_pinniped_colonies__global__2022 as test_biotic_assemblage_pinniped_colonies8;
 
-number local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__greece__2015 as test_canopy_cover9;
-number local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__norway__2015 as test_canopy_cover10;
+model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__greece__2015
+	as level of ecology:CanopyCover named canopy_cover
+	lookup (self, ?) into
+	 canopy_cover | category
+	------------------------------
+		 	   0  | im:None,		
+		 1 to 15  | im:Low,		
+		15 to 65  | im:Moderate,	
+	   65 to 100  | im:High;		
+	   
+model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__norway__2015
+	as level of ecology:CanopyCover named canopy_cover
+	lookup (self, ?) into
+	 canopy_cover | category
+	------------------------------
+		 	   0  | im:None,		
+		 1 to 15  | im:Low,		
+		15 to 65  | im:Moderate,	
+	   65 to 100  | im:High;
+	   
 number local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__south_africa__2015 as test_canopy_cover11;
 number local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__czechia__2015 as test_canopy_cover12;
 number local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__viet_nam__2015 as test_canopy_cover13;

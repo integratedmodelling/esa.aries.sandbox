@@ -321,14 +321,15 @@ annual_mean_diurnal_air_temperature | category
 
 //annotation of canopy_cover thresholds
 model  'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__viet_nam__2015'//'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__greece__2015'
-as proportion of ecology:CanopyCover
-	lookup (canopy_cover) into
-	canopy_cover | category
+	as level of ecology:CanopyCover named canopy_cover
+	lookup (self, ?) into
+	 canopy_cover | category
 	------------------------------
-		 	   0 | im:None,		//ecology:Absent,
-		 1 to 15 | im:Low,		//ecology:Sparse,
-		15 to 65 | im:Moderate,	//ecology:Open,
-	   65 to 100 | im:High;		//ecology:Dense; 
+		 	   0  | im:None,		//ecology:Absent,
+		 1 to 15  | im:Low,		//ecology:Sparse,
+		15 to 65  | im:Moderate,	//ecology:Open,
+	   65 to 100  | im:High;		//ecology:Dense;
+ 
 
 //annotation of canopy_height thresholds
 //model level of (im:Mean im:Height of ecology:Canopy)
