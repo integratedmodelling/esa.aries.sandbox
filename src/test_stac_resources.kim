@@ -8,13 +8,16 @@ number local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net
 
 number local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation_total__global__1981_2010 as test_annual_precipitation_total6;
 number local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total__global__1981_2010 as test_annual_water_budget_total7;
-number local:alessio.bulckaen:im.data.global:ecdc__bioticassemblages__biotic_assemblage_pinniped_colonies__global__2022 as test_biotic_assemblage_pinniped_colonies8;
+
+model local:alessio.bulckaen:im.data.global:ecdc__bioticassemblages__biotic_assemblage_pinniped_colonies__global__2022
+	as presence of GBIF.SPECIES:4941589 ecology:Population named biotic_assemblage_pinniped_colonies_presence
+	set to [((self == 1) || (self == 2)) ? true : false];
 
 /*
  * # Canopy Cover. --------------------------------------------------------------------------------------------
  */
 model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__greece__2015
-	as level of ecology:CanopyCover named canopy_cover_greece
+	as level of ecology:CanopyCover named canopy_cover_level_greece
 	lookup (self, ?) into
 	 canopy_cover | category
 	------------------------------
@@ -24,7 +27,7 @@ model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__gree
 	   65 to 100  | im:High;		
 	   
 model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__norway__2015
-	as level of ecology:CanopyCover named canopy_cover_norway
+	as level of ecology:CanopyCover named canopy_cover_level_norway
 	lookup (self, ?) into
 	 canopy_cover | category
 	------------------------------
@@ -34,7 +37,7 @@ model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__norw
 	   65 to 100  | im:High;
 	   
 model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__south_africa__2015
-	as level of ecology:CanopyCover named canopy_cover_south_africa
+	as level of ecology:CanopyCover named canopy_cover_level_south_africa
 	lookup (self, ?) into
 	 canopy_cover | category
 	------------------------------
@@ -44,7 +47,7 @@ model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__sout
 	   65 to 100  | im:High;
 	   
 model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__czechia__2015
-	as level of ecology:CanopyCover named canopy_cover_czechia
+	as level of ecology:CanopyCover named canopy_cover_level_czechia
 	lookup (self, ?) into
 	 canopy_cover | category
 	------------------------------
@@ -54,7 +57,7 @@ model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__czec
 	   65 to 100  | im:High;
 	   
 model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__viet_nam__2015
-	as level of ecology:CanopyCover named canopy_cover_viet_nam
+	as level of ecology:CanopyCover named canopy_cover_level_viet_nam
 	lookup (self, ?) into
 	 canopy_cover | category
 	------------------------------
@@ -64,7 +67,7 @@ model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__viet
 	   65 to 100  | im:High;
 	   
 model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__colombia__2015
-	as level of ecology:CanopyCover named canopy_cover_colombia
+	as level of ecology:CanopyCover named canopy_cover_level_colombia
 	lookup (self, ?) into
 	 canopy_cover | category
 	------------------------------
@@ -92,7 +95,7 @@ number local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_n__
 
 
 model local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020
-	as level of soil.incubation:Fertility named soil_fertility
+	as level of soil.incubation:Fertility named soil_fertility_level
 	classified into
 		im:None if in (0 1 2),
 		im:Low if in (3 4),
@@ -122,37 +125,37 @@ number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters
  * # Managed waters canal. --------------------------------------------------------------------------------------------
  */
 model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__czechia__2025
-	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_czechia
+	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_type_czechia
 	classified into
 		hydrology.incubation:Canal if 1
 	over space(shape="POLYGON ((18.86841376 48.5186872, 18.86841376 51.07581503, 12.08060933 51.07581503, 12.08060933 48.5186872, 18.86841376 48.5186872))");
 	
 model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__greece__2025
-	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_greece
+	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_type_greece
 	classified into
 		hydrology.incubation:Canal if 1
 	over space(shape="POLYGON ((29.63220162 34.9966406, 29.63220162 41.79065352, 19.35250178 41.79065352, 19.35250178 34.9966406, 29.63220162 34.9966406))");
 	
 model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__south_africa__2025
-	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_south_africa
+	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_type_south_africa
 	classified into
 		hydrology.incubation:Canal if 1
 	over space(shape="POLYGON ((33.11678359 -34.60613124, 33.11678359 -22.13874777, 16.99718611 -22.13874777, 16.99718611 -34.60613124, 33.11678359 -34.60613124))");
 
 model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__viet_nam__2025
-	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_viet_nam
+	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_type_viet_nam
 	classified into
 		hydrology.incubation:Canal if 1
 	over space(shape="POLYGON ((109.48767457 8.56539723, 109.48767457 23.43431472, 101.9644288 23.43431472, 101.9644288 8.56539723, 109.48767457 8.56539723))");
 
 model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__colombia__2025 
-	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_colombia
+	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_type_colombia
 	classified into
 		hydrology.incubation:Canal if 1
 	over space(shape="POLYGON ((-66.87024263 -4.0466187, -66.87024263 12.44063129, -78.9991173 12.44063129, -78.9991173 -4.0466187, -66.87024263 -4.0466187))");
 
 model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__norway__2025
-	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_norway
+	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_type_norway
 	classified into
 		hydrology.incubation:Canal if 1
 	over space(shape="POLYGON ((32.32653302 57.94497396, 32.32653302 71.02589146, 4.73888022 71.02589146, 4.73888022 57.94497396, 32.32653302 57.94497396))");
@@ -174,7 +177,7 @@ number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters
 number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservoir__norway__2022 as test_managed_waters_reservoir56;
 
 model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__mining_areas__global__2000_2019 
-	as presence of landcover:MineralExtraction earth:Region named mining_areas
+	as presence of landcover:MineralExtraction earth:Region named mining_areas_presence
 	set to [self == 1 ? true : false];
 
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_ephemeral__global__1984_2021 as test_occurrence_regime_ephemeral58;
@@ -203,12 +206,13 @@ number local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belts__globa
 number local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone_intertidal__global__2017_2019 as test_tidal_zone_intertidal77;
 
 model local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__tropical_storms_exposure__global__1990_2015
-	as im:Mean im:Maximum earth:WindSpeed of ecology:Tropical earth:Storm in kn named tropical_storms_exposure
+	as presence of ecology:Tropical earth:Region with im:Mean im:Maximum earth:WindSpeed of earth:Storm named tropical_storms_exposure_presence
+	set to []
 	over space(shape="POLYGON ((180 -42, 180 66.60000000000001, -176.3 66.60000000000001, -176.3 -42, 180 -42))");
 	// TODO: Need threshold to distinguish presence of tropical storm.
 	
 model local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__coastal_storms_exposure__global__1979_2014
-	as presence of earth:Coast with im:High earth:WindSpeed of earth:Storm named coastal_storms_exposure
+	as presence of earth:Coast with im:High earth:WindSpeed of earth:Storm named coastal_storms_exposure_presence
 	set to [self == 1 ? true : false];
 
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__global__2004_2013 as test_watershed_hierarchy80;
@@ -222,6 +226,11 @@ number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydro
 
 number local:alessio.bulckaen:im.data.global:ecdc__climate__winter_diurnal_air_temperature_mean__global__1981_2010 as test_winter_diurnal_air_temperature_mean87;
 number local:alessio.bulckaen:im.data.global:ecdc__climate__winter_water_budget_total__global__1980_2010 as test_winter_water_budget_total88;
+
+
+
+
+/* --------------------------------------------------------------------------------------------------------------- */
 
 observe earth:Region named test_stac_resources_norway
 	over space(shape= 'POLYGON ((9.570574541324955 60.8624839683947, 12.045526975757886 60.855096050679975, 12.02336322261371 58.660884489406605, 9.59273829446913 58.660884489406605, 9.570574541324955 60.8624839683947))',
