@@ -1,6 +1,7 @@
 private namespace esa.aries.ecosystem_definitions
-using //esa.aries.primitive_characteristic, 
-	nca.ecosystem.iucn,
+using esa.aries.primitive_characteristic,
+	  primitive_characteristic.threshold, 
+	  nca.ecosystem.iucn,
 	(BIOME_F1_RIVERSTREAM_ECOSYSTEM_TYPES) from table.ecosystem.typology.iucn,
 	
 	(BIOME_T1_TROPICALSUBTROPICALFOREST_ECOSYSTEM_TYPES) from table.ecosystem.typology.iucn,
@@ -45,41 +46,75 @@ model local:rubencc:im.data.global:im-data-global-landcover.copernicus_landcover
 	landcover:LichenMoss if 100;
 
 
-define BIOME_F1_RIVERSTREAM_ECOSYSTEM_TYPES as {{
-  landcover           | hydroform_watercourse | watershed_hierarchy | occurrence_regime_permanent | hydroform_meander   | occurrence_regime_seasonal | occurrence_regime_episodic | ecosystem_type                           
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  landcover:WaterBody | true                | im:Low              | true                      	| #                 	| #                          | #                          | nca.ecosystem.iucn:PermanentUplandStream  ,
-  landcover:WaterBody | true                | im:Moderate         | true                      	| true            		| #                          | #                          | nca.ecosystem.iucn:PermanentLowlandStream ,
-  landcover:WaterBody | true                | #                   | #                         	| #                 	| #                          | #                          | nca.ecosystem.iucn:FreezethawRiverStream  ,
-  landcover:WaterBody | true                | im:Low              | #                         	| #                 	| true                       | #                          | nca.ecosystem.iucn:SeasonalUplandStream   ,
-  landcover:WaterBody | true                | im:Moderate         | #                         	| #                 	| true                       | #                          | nca.ecosystem.iucn:SeasonalLowlandRiver   ,
-  landcover:WaterBody | true                | #                   | #                         	| #                 	| #                          | true                       | nca.ecosystem.iucn:EpisodicAridRiver      ,
-  landcover:WaterBody | true                | im:High             | true                      	| true            		| #                          | #                          | nca.ecosystem.iucn:LargeLowlandRiver     
-}};
+//define BIOME_F1_RIVERSTREAM_ECOSYSTEM_TYPES as {{
+//  landcover           | hydroform_watercourse | watershed_hierarchy | occurrence_regime_permanent | hydroform_meander   | occurrence_regime_seasonal | occurrence_regime_episodic | ecosystem_type                           
+//  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//  landcover:WaterBody | true                | im:Low              | true                      	| #                 	| #                          | #                          | nca.ecosystem.iucn:PermanentUplandStream  ,
+//  landcover:WaterBody | true                | im:Moderate         | true                      	| true            		| #                          | #                          | nca.ecosystem.iucn:PermanentLowlandStream ,
+//  landcover:WaterBody | true                | #                   | #                         	| #                 	| #                          | #                          | nca.ecosystem.iucn:FreezethawRiverStream  ,
+//  landcover:WaterBody | true                | im:Low              | #                         	| #                 	| true                       | #                          | nca.ecosystem.iucn:SeasonalUplandStream   ,
+//  landcover:WaterBody | true                | im:Moderate         | #                         	| #                 	| true                       | #                          | nca.ecosystem.iucn:SeasonalLowlandRiver   ,
+//  landcover:WaterBody | true                | #                   | #                         	| #                 	| #                          | true                       | nca.ecosystem.iucn:EpisodicAridRiver      ,
+//  landcover:WaterBody | true                | im:High             | true                      	| true            		| #                          | #                          | nca.ecosystem.iucn:LargeLowlandRiver     
+//}};
+//
+//model nca.ecosystem.iucn:RiverStream type of nca.ecosystem.iucn:Ecosystem
+//observing
+//landcover:LandCoverType named landcover,
+//hydrology:StreamOrder of earth:Stream named hydroform_watercourse,
+//hydrology:StreamOrder of hydrology:Watershed named watershed_hierarchy,
+//presence of hydrology:Permanent earth:WaterBody named occurrence_regime_permanent,
+////presence of hydrology.incubation:RiverMeander // Potential Oxbow named hydroform_meander,
+//presence of hydrology:Seasonal earth:WaterBody named occurrence_regime_seasonal,
+//presence of hydrology:Episodic earth:WaterBody named occurrence_regime_episodic
+//lookup
+////(landcover, hydroform_watercourse, watershed_hierarchy, occurrence_regime_permanent, hydroform_meander, occurrence_regime_seasonal, occurrence_regime_episodic, ?)
+//(landcover, hydroform_watercourse, watershed_hierarchy, occurrence_regime_permanent, *, occurrence_regime_seasonal, occurrence_regime_episodic, ?)
+//
+//into BIOME_F1_RIVERSTREAM_ECOSYSTEM_TYPES;
+
+number 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform__global__1984_2017' as hydroform_type;
+
+model type of hydrology:WaterBody
+observing 
+	hydroform_type,
+	presence of hydrology.incubation:RiverMeander named hydroform_meander
+		lookup(hydroform_type, hydroform_meander) into
+		hydroform_type 	|hydroform_meander| category
+		--------------------------------------------
+			 1			|	#	| hydrology:Watercourse,
+		2 to 3		|	#	| hydrology:InlandWaterBody,
+			#			|  true	| hydrology:Meander
+over space(shape="POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))");
+
+number 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_seasonality__global__1984_2021' as seasonal_water_regime;
+number 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_ephemeral__global__1984_2021' as ephemeral_water_regime;
+number 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_episodic__global__1984_2021'as episodic_water_regime;
+
+model type of hydrology:WaterPermanence
+observing
+	seasonal_water_regime,
+	ephemeral_water_regime,
+	episodic_water_regime
+	lookup(seasonal_water_regime, ephemeral_water_regime,episodic_water_regime, ?) into
+		seasonal_water_regime|ephemeral_water_regime|episodic_water_regime|category
+		---------------------------------------------------------------------------------------
+			     1		     |			#			| 		#			  |hydrology:Permanent,
+			     2		     |			#			| 		#			  |hydrology:Seasonal,
+	     		 #		     |			#			| 		1			  |hydrology:Ephemeral,			     			 
+		     	 #		     |		in (1 2)		| 		#			  |hydrology:Episodic;
 
 model nca.ecosystem.iucn:RiverStream type of nca.ecosystem.iucn:Ecosystem
 observing
-landcover:LandCoverType named landcover,
-hydrology:StreamOrder of earth:Stream named hydroform_watercourse,
-hydrology:StreamOrder of hydrology:Watershed named watershed_hierarchy,
-presence of hydrology:Permanent earth:WaterBody named occurrence_regime_permanent,
-//presence of hydrology.incubation:RiverMeander // Potential Oxbow named hydroform_meander,
-presence of hydrology:Seasonal earth:WaterBody named occurrence_regime_seasonal,
-presence of hydrology:Episodic earth:WaterBody named occurrence_regime_episodic
-lookup
-//(landcover, hydroform_watercourse, watershed_hierarchy, occurrence_regime_permanent, hydroform_meander, occurrence_regime_seasonal, occurrence_regime_episodic, ?)
-(landcover, hydroform_watercourse, watershed_hierarchy, occurrence_regime_permanent, *, occurrence_regime_seasonal, occurrence_regime_episodic, ?)
-
-into BIOME_F1_RIVERSTREAM_ECOSYSTEM_TYPES;
-
-model nca.ecosystem.iucn:RiverStream type of nca.ecosystem.iucn:Ecosystem
-observing
+//type of hydrology:WaterBody named hydroform,
+//type of hydrology:WaterBody named hydroform_meander,
+//presence of hydrology:Permanent earth:WaterBody named occurrence_regime_seasonality,
+//presence of hydrology:Episodic earth:WaterBody named occurrence_regime_episodic,
 type of hydrology:WaterBody named hydroform,
-type of hydrology:WaterBody named hydroform_meander,
-presence of hydrology:Permanent earth:WaterBody named occurrence_regime_seasonality,
-presence of hydrology:Episodic earth:WaterBody named occurrence_regime_episodic,
-hydrology:StreamOrder of hydrology:Watershed named watershed_hierarchy
-lookup (hydroform, hydroform_meander, occurrence_regime_seasonality, occurrence_regime_episodic, watershed_hierarchy, ?)
+type of hydrology:WaterPermanence 
+//level of (hydrology:StreamOrder of hydrology:Watershed) named watershed_hierarchy
+//lookup (hydroform, hydroperiod, watershed_hierarchy, ?)
+lookup (hydroform, hydroperiod, *, ?)
 into BIOME_F1_RIVERSTREAM_ECOSYSTEM_TYPES;
 
 

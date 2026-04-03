@@ -147,25 +147,6 @@ model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meand
 	as presence of hydrology.incubation:RiverMeander named hydroform_meander
 	set to [(self == 2 || self ==3 ? true : false)];
 
-@colormap(values = {
-hydrology:InlandWaterBody: (0 92 230)
-hydrology:Watercourse:(0 0 248)
-})
-model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform__global__1984_2017'
-as type of hydrology:WaterBody named hydroform classified into
-	hydrology:Watercourse if 1,
-	hydrology:InlandWaterBody if in (2 3)
-over space(shape="POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))");
-
-//model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform__global__1984_2017'
-//as type of hydrology:WaterBody
-//	lookup(hydroform) into
-//		hydroform | category
-//		--------------------
-//			1	  | hydrology:Watercourse,
-//		 in (2 3) | hydrology:WaterBody
-//over space(shape="POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))");
-
 //14A. Proposed annotation for hydroform_waterbody
 model
 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_waterbody__colombia__2013'

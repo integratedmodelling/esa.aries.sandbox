@@ -2,15 +2,15 @@ private namespace table.ecosystem.typology.iucn
 using nca.ecosystem.iucn;
 
 define BIOME_F1_RIVERSTREAM_ECOSYSTEM_TYPES as {{
-  landcover           | hydroform_meander | occurrence_regime_seasonality | occurrence_regime_episodic | watershed_hierarchy | ecosystem_type                           
+  hydroform           | hydroperiod       	| watershed_hierarchy | ecosystem_type                           
   ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  landcover:WaterBody | #                 | hydrology:Permanent           | #                          | im:Low              | nca.ecosystem.iucn:PermanentUplandStream  ,
-  landcover:WaterBody | hydrology:Meander | #                             | #                          | im:Medium           | nca.ecosystem.iucn:PermanentLowlandStream ,
-  landcover:WaterBody | #                 | #                             | #                          | #                   | nca.ecosystem.iucn:FreezethawRiverStream  ,
-  landcover:WaterBody | #                 | hydrology:Seasonal            | #                          | im:Low              | nca.ecosystem.iucn:SeasonalUplandStream   ,
-  landcover:WaterBody | #                 | hydrology:Seasonal            | #                          | im:Medium           | nca.ecosystem.iucn:SeasonalLowlandRiver   ,
-  landcover:WaterBody | #                 | #                             | hydrology:Episodic         | #                   | nca.ecosystem.iucn:EpisodicAridRiver      ,
-  landcover:WaterBody | hydrology:Meander | hydrology:Permanent           | #                          | im:High             | nca.ecosystem.iucn:LargeLowlandRiver     
+   hydrology:WaterBody| hydrology:Permanent  | im:Low              | nca.ecosystem.iucn:PermanentUplandStream  ,
+   hydrology:Meander  | #                    | im:Moderate         | nca.ecosystem.iucn:PermanentLowlandStream ,
+   hydrology:WaterBody|#                    | #                   | nca.ecosystem.iucn:FreezethawRiverStream  ,
+   hydrology:WaterBody| hydrology:Seasonal   | im:Low              | nca.ecosystem.iucn:SeasonalUplandStream   ,
+   hydrology:WaterBody|hydrology:Seasonal   | im:Moderate         | nca.ecosystem.iucn:SeasonalLowlandRiver   ,
+   hydrology:WaterBody|hydrology:Episodic   | #                   | nca.ecosystem.iucn:EpisodicAridRiver      ,
+   hydrology:Meander  | hydrology:Permanent  | im:High             | nca.ecosystem.iucn:LargeLowlandRiver     
 }};
 
 define BIOME_T1_TROPICALSUBTROPICALFOREST_ECOSYSTEM_TYPES as {{
