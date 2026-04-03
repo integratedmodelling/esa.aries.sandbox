@@ -144,8 +144,10 @@ model 'local:alessio.bulckaen:im.data.global:ecdc__bioticassemblages__biotic_ass
 //over space(shape='POLYGON ((29.606929 34.803378, 29.606929 41.749073, 19.373764 41.749073, 19.373764 34.803378, 29.606929 34.803378))');
 ////
 model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__global__2004_2013'
-	as presence of hydrology.incubation:RiverMeander
+	as presence of hydrology.incubation:RiverMeander named hydroform_meander
 	set to [(self == 2 || self ==3 ? true : false)];
+
+model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__global__2004_2013' as
 
 //14A. Proposed annotation for hydroform_waterbody
 model

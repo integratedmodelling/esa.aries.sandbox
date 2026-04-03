@@ -99,6 +99,12 @@ time(start=2015, end=2016, step=1.year);
  * https://docs.google.com/spreadsheets/d/1ouf-TNAxZEIoh7GC6J66jW6pGSpLavgqAXGJgK1d9Kc/edit?gid=16843137#gid=16843137 
  */
 
+model type of hydrology:WaterBody
+observing 
+	presence of hydrology.incubation:RiverMeander named hydroform_meander,
+	
+	;
+	
 
 @intensive(space)                        
 model level of (im:Minimum im:Area of earth:WaterBody) named hydroform_morphology_area
