@@ -19,6 +19,7 @@ observe earth:Region named greece_test_area_2018
 //model 'local:alessio.bulckaen:im.data.global:ecdc__soil__peat_thickness__global__2001_2021' 
 //  as im:Depth of landcover:PeatBog earth:Region 
 //  in cm;
+number local:alessio.bulckaen:im.data.global:copernicus_global_dynamic_landcover_10m_2020 as lc_test;
 
 model local:alessio.bulckaen:im.data.global:copernicus_global_dynamic_landcover_10m_2020
 	as landcover:LandCoverType named copernicus_gdlc_2020 classified into // according to im:copernicus-gdlc-encoding;// im:copernicus-encoding;
@@ -61,6 +62,22 @@ model 'local:alessio.bulckaen:im.data.global:ecdc__climate__summer_diurnal_air_t
 	   >=35   | ecology.incubation:ExtremelyHot
 	over space(shape="POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))");
 
+ 
+//annotation of annual_net_primary_productivity
+model 
+'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2024',
+'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2021',
+'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2018'
+as ecology:NetPrimaryProduction named annual_net_primary_productivity
+	classified into
+	im:Low if in (0 to 500),
+	im:Moderate if in (500 to 2000),
+	im:High if >=2000;
+//over space(shape='POLYGON ((180 -60, 180 60, -180 60, -180 -60, 180 -60))'); 
+
+model 'local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_size__global__2000_2020'
+as im:Area of biology:Leaf in mm^2 named leaf_size
+set to [(self * 0.48176748292230037) + 15791.77310467295];
   	
 /*Refined annotation for ECDC primitive characteristics*/
 //1. Proposed annotation for peat_thickness
@@ -115,11 +132,16 @@ model 'local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone_intertida
 //number 'local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone_intertidal__global__2017_2019' as tidal_zone_intertidal;
 
 
-//7. Proposed annotation for annual_total_net_primary_productivity
+//TODO: CHeck why multiple resources are not accepted
+//annotation for annual_total_net_primary_productivity
+number 'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2024' as test_primary_productivity;
+
 @intensive(space)   
-model 'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2018',
-	  'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2021',
-	  'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2024'
+model 
+'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2018'
+//,
+//	  'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2021',
+//	  'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2024'
 	as ecology:NetPrimaryProduction in g/m^2       
 	over space(shape='POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))');
 	//over space(shape='POLYGON ((179.9985147848 -59.9985130248, 179.9985147848 80.0014880952, -180 80.0014880952, -180 -59.9985130248, 179.9985147848 -59.9985130248))');
@@ -670,11 +692,7 @@ model
 'local:alessio.bulckaen:im.data.global:ecdc__vegetation__specific_leaf_area__global__2000_2020'
 as ratio of  im:Area to im:Mass of biology:Leaf in m^2/kg  
 over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
-//110. Proposed annotation for leaf_size  
-model
-'local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_size__global__2000_2020'
-as im:Area of biology:Leaf in mm^2      
-over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
+
 
 ////Previous annotation
 ////1. Proposed annotation for peat_thickness
@@ -1095,9 +1113,4 @@ over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
 //// Concept: Area per Mass.
 //model 'local:alessio.bulckaen:im.data.global:ecdc__vegetation__specific_leaf_area__global__2000_2020'
 //  as ratio of biology:Leaf im:Area to im:Mass in m^2/kg;
-//
-//// 112. Proposed annotation for leaf_size
-//// Description: Projected area of a leaf.
-//model 'local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_size__global__2000_2020'
-//  as biology:Leaf im:Area in mm^2;
-//
+
