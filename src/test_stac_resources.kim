@@ -6,7 +6,17 @@ number local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net
 number local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2021 as test_annual_net_primary_productivity_total4;
 number local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2018 as test_annual_net_primary_productivity_total5;
 
-number local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation_total__global__1981_2010 as test_annual_precipitation_total6;
+model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation_total__global__1981_2010 
+	as level of earth:PrecipitationVolume named annual_precipitation_total
+		lookup(self, ?) into
+		annual_precipitation_total	| category
+		---------------------------------------------
+					     < 200		| im:VeryLow  ,
+					200 to 300		| im:Low	  ,
+					300 to 900		| im:Moderate ,
+					900 to 2000		| im:High	  ,
+				         > 2000		| im:VeryHigh ;
+
 number local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total__global__1981_2010 as test_annual_water_budget_total7;
 
 model local:alessio.bulckaen:im.data.global:ecdc__bioticassemblages__biotic_assemblage_pinniped_colonies__global__2022
@@ -207,7 +217,21 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_
 					0 to 10 						| im:Low  ,
 					   > 21 						| im:High ;
 
-number local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability__global__1981_2010 as test_seasonal_diurnal_air_temperature_variability73;
+model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability__global__1981_2010
+	as im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_variability
+	set to [self / 100];
+	
+model level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability_level
+	observing
+		im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_variability
+	lookup(seasonal_diurnal_air_temperature_variability, ?) into
+		   seasonal_diurnal_air_temperature_variability | category
+		---------------------------------------------------------------
+						  0								| im:VeryLow  ,
+					 1 to 25							| im:Low	  ,
+					25 to 75							| im:Moderate ,
+						> 75							| im:High	  ;
+	
 number local:alessio.bulckaen:im.data.global:ecdc__vegetation__specific_leaf_area__global__2000_2020 as test_specific_leaf_area74;
 
 model local:alessio.bulckaen:im.data.global:ecdc__climate__summer_diurnal_air_temperature_mean__global__1981_2010 
