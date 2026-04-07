@@ -508,48 +508,62 @@ model
 'local:alessio.bulckaen:im.data.global:ecdc__climate__winter_total_water_budget__global__1980_2010'
 as hydrology:WaterVolume of hydrology:WaterBalance during earth:Winter in kg/m^2/year
 over space(shape='POLYGON ((179.9998596712 -90, 179.9998596712 83.9998604152, -180 83.9998604152, -180 -90, 179.9998596712 -90))');
+
+//annotation of thermal_belts classification
+model 'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belts__global__1950_2000'
+ as type of ecology:MountainClimaticBeltZone named thermal_belts
+	lookup(thermal_belts) into
+	thermal_belts 	| category
+	------------------------
+			2 		| ecology:UpperAlpine,
+			3 		| ecology:LowerAlpine,
+			4 		| ecology:UpperMontane,
+			5		| ecology:LowerMontane,
+		in (6 7)	| ecology:Lowland
+over space(shape='POLYGON ((180 -90, 180 84, -180 84, -180 -90, 180 -90))');
+
 //82. Proposed annotation for thermal_belt_lowland
-model
-'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_lowland__global__1970_2000'
-as type of ecology:MountainClimaticBeltZone
-over space(shape='POLYGON ((179.9785907 -59.4789377, 179.9785907 83.6458333, -180 83.6458333, -180 -59.4789377, 179.9785907 -59.4789377))');
-model 'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_lowland__global__1970_2000'
-  as presence of ecology:Lowland earth:Region; 
-//83. Proposed annotation for thermal_belt_nival
-model
-'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_nival__global__1970_2000'
-as thermal_belt_nival
-over space(shape='POLYGON ((179.9785907 -59.4789377, 179.9785907 83.6458333, -180 83.6458333, -180 -59.4789377, 179.9785907 -59.4789377))');
-model 'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_nival__global__1970_2000'
-  as presence of ecology:Nival earth:Region;
-//84. Proposed annotation for thermal_belt_high_montane
-model
-'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_high_montane__global__1970_2000'
-as thermal_belt_high_montane
-over space(shape='POLYGON ((179.9785907 -59.4789377, 179.9785907 83.6458333, -180 83.6458333, -180 -59.4789377, 179.9785907 -59.4789377))');
-model 'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_high_montane__global__1970_2000'
-  as presence of ecology:UpperMontane earth:Region;
-//85. Proposed annotation for thermal_belt_low_alpine
-model
-'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_low_alpine__global__1970_2000'
-as thermal_belt_low_alpine
-over space(shape='POLYGON ((179.9785907 -59.4789377, 179.9785907 83.6458333, -180 83.6458333, -180 -59.4789377, 179.9785907 -59.4789377))');
-model 'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_low_alpine__global__1970_2000'
-  as presence of ecology:LowerAlpine earth:Region;
-//86. Proposed annotation for thermal_belt_high_alpine
-model
-'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_high_alpine__global__1970_2000'
-as thermal_belt_high_alpine
-over space(shape='POLYGON ((179.9785907 -59.4789377, 179.9785907 83.6458333, -180 83.6458333, -180 -59.4789377, 179.9785907 -59.4789377))');
-model 'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_high_alpine__global__1970_2000'
-  as presence of ecology:UpperAlpine earth:Region;
-//87. Proposed annotation for thermal_belt_low_montane
-model
-'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_low_montane__global__1970_2000'
-as thermal_belt_low_montane
-over space(shape='POLYGON ((179.9785907 -59.4789377, 179.9785907 83.6458333, -180 83.6458333, -180 -59.4789377, 179.9785907 -59.4789377))');
-model 'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_low_montane__global__1970_2000'
-  as presence of ecology:LowerMontane earth:Region;
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_lowland__global__1970_2000'
+//as type of ecology:MountainClimaticBeltZone
+//over space(shape='POLYGON ((179.9785907 -59.4789377, 179.9785907 83.6458333, -180 83.6458333, -180 -59.4789377, 179.9785907 -59.4789377))');
+//model 'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_lowland__global__1970_2000'
+//  as presence of ecology:Lowland earth:Region; 
+////83. Proposed annotation for thermal_belt_nival
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_nival__global__1970_2000'
+//as thermal_belt_nival
+//over space(shape='POLYGON ((179.9785907 -59.4789377, 179.9785907 83.6458333, -180 83.6458333, -180 -59.4789377, 179.9785907 -59.4789377))');
+//model 'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_nival__global__1970_2000'
+//  as presence of ecology:Nival earth:Region;
+////84. Proposed annotation for thermal_belt_high_montane
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_high_montane__global__1970_2000'
+//as thermal_belt_high_montane
+//over space(shape='POLYGON ((179.9785907 -59.4789377, 179.9785907 83.6458333, -180 83.6458333, -180 -59.4789377, 179.9785907 -59.4789377))');
+//model 'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_high_montane__global__1970_2000'
+//  as presence of ecology:UpperMontane earth:Region;
+////85. Proposed annotation for thermal_belt_low_alpine
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_low_alpine__global__1970_2000'
+//as thermal_belt_low_alpine
+//over space(shape='POLYGON ((179.9785907 -59.4789377, 179.9785907 83.6458333, -180 83.6458333, -180 -59.4789377, 179.9785907 -59.4789377))');
+//model 'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_low_alpine__global__1970_2000'
+//  as presence of ecology:LowerAlpine earth:Region;
+////86. Proposed annotation for thermal_belt_high_alpine
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_high_alpine__global__1970_2000'
+//as thermal_belt_high_alpine
+//over space(shape='POLYGON ((179.9785907 -59.4789377, 179.9785907 83.6458333, -180 83.6458333, -180 -59.4789377, 179.9785907 -59.4789377))');
+//model 'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_high_alpine__global__1970_2000'
+//  as presence of ecology:UpperAlpine earth:Region;
+////87. Proposed annotation for thermal_belt_low_montane
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_low_montane__global__1970_2000'
+//as thermal_belt_low_montane
+//over space(shape='POLYGON ((179.9785907 -59.4789377, 179.9785907 83.6458333, -180 83.6458333, -180 -59.4789377, 179.9785907 -59.4789377))');
+//model 'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_low_montane__global__1970_2000'
+//  as presence of ecology:LowerMontane earth:Region;
 
 //88. Proposed annotation for canopy_height
 model 'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__greece__2020'
