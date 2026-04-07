@@ -36,7 +36,15 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation_
 					900 to 2000		| im:High	  ,
 				         > 2000		| im:VeryHigh ;
 
-number local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total__global__1981_2010 as test_annual_water_budget_total7;
+model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total__global__1981_2010 
+	as level of im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance named annual_total_water_budget_level
+	lookup(self, ?) into
+		  annual_water_budget_total | category
+		-------------------------------------------------
+				< -500				| im:Low			,
+		  -499 to -1				| im:ModeratelyLow  ,
+			 1 to 499				| im:ModeratelyHigh ,
+				> 500				| im:High			;
 
 model local:alessio.bulckaen:im.data.global:ecdc__bioticassemblages__biotic_assemblage_pinniped_colonies__global__2022
 	as presence of GBIF.SPECIES:4941589 ecology:Population named biotic_assemblage_pinniped_colonies_presence
@@ -239,6 +247,9 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_
 model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability__global__1981_2010
 	as im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_variability
 	set to [self * 0.1 - 273.5];
+	
+number local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability__global__1981_2010
+	as test;
 	
 model level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability_level
 	observing
