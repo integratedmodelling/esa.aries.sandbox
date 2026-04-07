@@ -16,15 +16,16 @@ model local:alessio.bulckaen:im.data.global:ecdc__bioticassemblages__biotic_asse
 /*
  * # Canopy Cover. --------------------------------------------------------------------------------------------
  */
+   
 model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__greece__2015
 	as level of ecology:CanopyCover named canopy_cover_level_greece
 	lookup (self, ?) into
 	 canopy_cover | category
 	------------------------------
-		 	   0  | im:None,		
-		 1 to 15  | im:Low,		
-		15 to 65  | im:Moderate,	
-	   65 to 100  | im:High;		
+		 	   0  | ecology:Absent,		
+		 1 to 15  | ecology:Sparse,		
+		15 to 65  | ecology:Open,	
+	   65 to 100  | ecology:Dense;	
 	   
 model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__norway__2015
 	as level of ecology:CanopyCover named canopy_cover_level_norway
@@ -231,6 +232,24 @@ number local:alessio.bulckaen:im.data.global:ecdc__climate__winter_water_budget_
 
 
 /* --------------------------------------------------------------------------------------------------------------- */
+observe earth:Region named test_stac_resources_norway_small_area_rectangular
+	over space(shape= 
+	'EPSG:4326 POLYGON ((29.63287197747197 69.92418939308993, 29.432997112880408 69.92418939308993, 29.432997112880408 69.99668534722463, 29.63287197747197 69.99668534722463, 29.63287197747197 69.92418939308993))',
+		grid = "100 m"),
+	time(year=2020);
+
+observe earth:Region named test_stac_resources_greece_33
+	over space(shape= 
+	'EPSG:4326 POLYGON ((22.357147225076126 38.493707792574895, 22.157272360484562 38.493707792574895, 22.157272360484562 38.56620374670959, 22.357147225076126 38.56620374670959, 22.357147225076126 38.493707792574895))',
+		grid = "100 m"),
+	time(year=2020);
+	
+observe earth:Region named test_stac_resources_norway_small_area_rectangular
+	over space(shape= 
+	'EPSG:4326 POLYGON ((29.63287197747197 69.92418939308993, 29.432997112880408 69.92418939308993, 29.432997112880408 69.99668534722463, 29.63287197747197 69.99668534722463, 29.63287197747197 69.92418939308993))',
+		grid = "100 m"),
+	time(year=2020);
+
 
 observe earth:Region named test_stac_resources_norway
 	over space(shape= 'POLYGON ((9.570574541324955 60.8624839683947, 12.045526975757886 60.855096050679975, 12.02336322261371 58.660884489406605, 9.59273829446913 58.660884489406605, 9.570574541324955 60.8624839683947))',
