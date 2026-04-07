@@ -198,7 +198,15 @@ number local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_mixed__
 number local:alessio.bulckaen:im.data.global:ecdc__soil__physical_properties_bulk_density__global__1995_2019 as test_physical_properties_bulk_density69;
 number local:alessio.bulckaen:im.data.global:ecdc__climate__potential_tree_growth__global__1981_2010 as test_potential_tree_growth70;
 number local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__recurrence__global__2002_2024 as test_recurrence71;
-number local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_amplitude__global__1981_2010 as test_seasonal_diurnal_air_temperature_amplitude72;
+
+model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_amplitude__global__1981_2010 
+	as level of im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_amplitude_level
+	lookup(self, ?) into
+		seasonal_diurnal_air_temperature_amplitude  | category
+	   --------------------------------------------------------
+					0 to 10 						| im:Low  ,
+					   > 21 						| im:High ;
+
 number local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability__global__1981_2010 as test_seasonal_diurnal_air_temperature_variability73;
 number local:alessio.bulckaen:im.data.global:ecdc__vegetation__specific_leaf_area__global__2000_2020 as test_specific_leaf_area74;
 
