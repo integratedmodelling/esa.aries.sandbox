@@ -433,16 +433,28 @@ model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__colo
 //		 20 to 40 | im:High,
 //			 > 40 | im:VeryHigh;
 
+////annotation of specific_leaf_area thresholds
+//model level of (ratio of  im:Area to im:Mass of biology:Leaf)
+//observing ratio of  im:Area to im:Mass of biology:Leaf in m^2/kg named specific_leaf_area
+//	lookup(specific_leaf_area) into
+//	specific_leaf_area | category
+//	--------------------------------
+//					<3 | im:VeryLow,
+//				3 to 5 | im:Low,
+//				5 to 8 | im:Moderate,
+//					>8 | im:VeryHigh;
+
 //annotation of specific_leaf_area thresholds
-model level of (ratio of  im:Area to im:Mass of biology:Leaf)
-observing ratio of  im:Area to im:Mass of biology:Leaf in m^2/kg named specific_leaf_area
-	lookup(specific_leaf_area) into
-	specific_leaf_area | category
-	--------------------------------
-					<3 | im:VeryLow,
-				3 to 5 | im:Low,
-				5 to 8 | im:Moderate,
-					>8 | im:VeryHigh;
+model 'local:alessio.bulckaen:im.data.global:ecdc__vegetation__specific_leaf_area__global__2000_2020'
+ as level of (ratio of  im:Area to im:Mass of biology:Leaf) named specific_leaf_area
+lookup(specific_leaf_area) into
+specific_leaf_area | category
+-----------------------------
+				<3 | im:Low,
+			3 to 5 | im:ModeratelyLow,
+			5 to 8 | im:ModeratelyHigh,
+				>8 | im:High
+over space(shape='POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))');
 
 //annotation of leaf_size thresholds
 model level of (im:Area of biology:Leaf)
@@ -504,19 +516,62 @@ observing
 	   1 to 10 	 | 	 true	  | ecology:VerySparse,
 	  10 to 40 	 |   true	  | ecology:Sparse;  
 	  
+
 //annotation of summer_diurnal_air_temperature_mean thresholds
-model 'local:alessio.bulckaen:im.data.global:ecdc__climate__summer_diurnal_air_temperature_mean__global__1981_2010'
- as level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_air_temperature_mean
-	lookup(summer_diurnal_air_temperature_mean) into
-	summer_diurnal_air_temperature_mean | category
-	----------------------------------------------
-	-10 to 0  | ecology.incubation:Cold,
-	  0 to 10 | ecology.incubation:Cool,
-	 10 to 18 | ecology.incubation:Mild,
-	 18 to 22 | ecology.incubation:Warm,
-	 22 to 28 | ecology.incubation:Hot,
-	 28 to 35 | ecology.incubation:VeryHot,
-	   >=35   | ecology.incubation:ExtremelyHot;
+model local:alessio.bulckaen:im.data.global:ecdc__climate__summer_diurnal_air_temperature_mean__global__1981_2010 
+	as im:Mean earth:AtmosphericTemperature during earth:Summer in Celsius named summer_diurnal_mean_air_temperature
+	set to [self / 100];
+
+model level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_mean_air_temperature_level
+	observing
+		im:Mean earth:AtmosphericTemperature during earth:Summer in Celsius named summer_diurnal_mean_air_temperature
+	lookup(summer_diurnal_mean_air_temperature, ?) into
+		  summer_diurnal_mean_air_temperature	| category
+		-----------------------------------------------------------------------------
+				   -10 to 0						| ecology.incubation:Cold		  ,
+					 0 to 10					| ecology.incubation:Cool		  ,
+					10 to 18					| ecology.incubation:Mild		  ,
+					18 to 22					| ecology.incubation:Warm		  ,
+					22 to 28					| ecology.incubation:Hot		  ,
+					28 to 35					| ecology.incubation:VeryHot	  ,
+					    > 35					| ecology.incubation:ExtremelyHot ;
+		
+//model 'local:alessio.bulckaen:im.data.global:ecdc__climate__summer_diurnal_air_temperature_mean__global__1981_2010'
+// as level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_air_temperature_mean
+//	lookup(summer_diurnal_air_temperature_mean) into
+//	summer_diurnal_air_temperature_mean | category
+//	----------------------------------------------
+//	-10 to 0  | ecology.incubation:Cold,
+//	  0 to 10 | ecology.incubation:Cool,
+//	 10 to 18 | ecology.incubation:Mild,
+//	 18 to 22 | ecology.incubation:Warm,
+//	 22 to 28 | ecology.incubation:Hot,
+//	 28 to 35 | ecology.incubation:VeryHot,
+//	   >=35   | ecology.incubation:ExtremelyHot;
+
+
+
+//annotation of annual_diurnal_air_temperature_mean thresholds
+model 'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_diurnal_air_temperature_mean__global__1981_2010' 
+	as im:Daily im:Differential im:Yearly earth:AtmosphericTemperature in Celsius named annual_diurnal_air_temperature_mean
+	set to [self / 100];
+
+model level of im:Daily im:Differential im:Yearly earth:AtmosphericTemperature named annual_diurnal_air_temperature_mean_level
+	observing
+		im:Daily im:Differential im:Yearly earth:AtmosphericTemperature in Celsius named annual_diurnal_air_temperature_mean
+	lookup(annual_diurnal_air_temperature_mean_level) into
+		annual_diurnal_air_temperature_mean | category
+		----------------------------------------------
+		<-25 | ecology.incubation:ExtremelyCold,
+		-25 to -10 | ecology.incubation:VeryCold,
+		-10 to 0 | ecology.incubation:Cold,
+		0 to 10 | ecology.incubation:Cool,
+		10 to 18 | ecology.incubation:Mild,
+		18 to 22 | ecology.incubation:Warm,
+		22 to 28 | ecology.incubation:Hot,
+		28 to 35 | ecology.incubation:VeryHot,
+		>35 | ecology.incubation:ExtremelyHot
+over space(shape='POLYGON ((180 -90, 180 84, -180 84, -180 -90, 180 -90))');
 
 //annotation of coastal_storms_exposure
 model local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__coastal_storms_exposure__global__1979_2014
