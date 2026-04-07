@@ -15,8 +15,7 @@ model local:alessio.bulckaen:im.data.global:ecdc__bioticassemblages__biotic_asse
 
 /*
  * # Canopy Cover. --------------------------------------------------------------------------------------------
- */
-// TODO: tyoe of canopy.   
+ */  
 model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__greece__2015
 	as level of ecology:CanopyCover named canopy_cover_level_greece
 	lookup (self, ?) into
@@ -220,7 +219,24 @@ model level of im:Mean earth:AtmosphericTemperature during earth:Summer named su
 					22 to 28					| ecology.incubation:Hot		  ,
 					28 to 35					| ecology.incubation:VeryHot	  ,
 					    > 35					| ecology.incubation:ExtremelyHot ;
-		
+
+model local:alessio.bulckaen:im.data.global:ecdc__climate__winter_diurnal_air_temperature_mean__global__1981_2010 
+	as im:Mean earth:AtmosphericTemperature during earth:Winter in Celsius named winter_diurnal_mean_air_temperature
+	set to [self / 100];
+	
+model level of im:Mean earth:AtmosphericTemperature during earth:Winter named winter_diurnal_mean_air_temperature_level
+	observing
+		im:Mean earth:AtmosphericTemperature during earth:Winter in Celsius named winter_diurnal_mean_air_temperature
+	lookup(winter_diurnal_mean_air_temperature, ?) into
+		  winter_diurnal_mean_air_temperature	| category
+		------------------------------------------------------------------------------
+				 		< -25					| ecology.incubation:ExtremelyCold	,
+				   -25 to -10					| ecology.incubation:VeryCold		,
+				   -10 to 0						| ecology.incubation:Cold		  	,
+					 0 to 10					| ecology.incubation:Cool		  	,
+					10 to 18					| ecology.incubation:Mild		  	,
+					18 to 22					| ecology.incubation:Warm	  		,
+					22 to 28					| ecology.incubation:Hot 			;		
 
 number local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belts__global__1950_2000 as test_thermal_belts76;
 number local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone_intertidal__global__2017_2019 as test_tidal_zone_intertidal77;
@@ -244,7 +260,7 @@ number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydro
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__czechia__2013_2020 as test_watershed_hydroform_density85;
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__colombia__2013_2020 as test_watershed_hydroform_density86;
 
-number local:alessio.bulckaen:im.data.global:ecdc__climate__winter_diurnal_air_temperature_mean__global__1981_2010 as test_winter_diurnal_air_temperature_mean87;
+
 number local:alessio.bulckaen:im.data.global:ecdc__climate__winter_water_budget_total__global__1980_2010 as test_winter_water_budget_total88;
 
 
