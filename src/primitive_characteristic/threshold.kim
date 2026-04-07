@@ -204,6 +204,14 @@ model 'local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001
 		im:Low if in (3 4),
 		im:Moderate if in (5 6 7),
 		im:High if in (8 9 10);
+//Yuwei's
+//model local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020
+//	as level of soil.incubation:Fertility named soil_fertility_level
+//	classified into
+//		im:None if in (0 1 2),
+//		im:Low if in (3 4),
+//		im:Moderate if in (5 6 7),
+//		im:High if in (8 9 10);
 
 @intensive(space)
 model level of (im:Depth of landcover:PeatBog earth:Region)
@@ -387,11 +395,30 @@ model  'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__vi
 	lookup (self, ?) into
 	 canopy_cover | category
 	------------------------------
-		 	   0  | im:None,		//ecology:Absent,
-		 1 to 15  | im:Low,		//ecology:Sparse,
-		15 to 65  | im:Moderate,	//ecology:Open,
-	   65 to 100  | im:High;		//ecology:Dense;
+		 	   0  | ecology:Absent,		
+		 1 to 15  | ecology:Sparse,		
+		15 to 65  | ecology:Open,	
+	   65 to 100  | ecology:Dense;	
  
+model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__greece__2015 
+	as level of ecology:CanopyCover named canopy_cover_level
+	lookup (self, ?) into
+	 canopy_cover | category
+	------------------------------
+		 	   0  | ecology:Absent,		
+		 1 to 15  | ecology:Sparse,		
+		15 to 65  | ecology:Open,	
+	   65 to 100  | ecology:Dense;	
+
+model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__colombia__2015 
+	as level of ecology:CanopyCover named canopy_cover_level
+	lookup (self, ?) into
+	 canopy_cover | category
+	------------------------------
+		 	   0  | ecology:Absent,		
+		 1 to 15  | ecology:Sparse,		
+		15 to 65  | ecology:Open,	
+	   65 to 100  | ecology:Dense;	
 
 //annotation of canopy_height thresholds
 //model level of (im:Mean im:Height of ecology:Canopy)
@@ -489,4 +516,20 @@ model 'local:alessio.bulckaen:im.data.global:ecdc__climate__summer_diurnal_air_t
 	 18 to 22 | ecology.incubation:Warm,
 	 22 to 28 | ecology.incubation:Hot,
 	 28 to 35 | ecology.incubation:VeryHot,
-	   >=35   | ecology.incubation:ExtremelyHot;             		
+	   >=35   | ecology.incubation:ExtremelyHot;
+
+//annotation of coastal_storms_exposure
+model local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__coastal_storms_exposure__global__1979_2014
+	as presence of earth:Coast with im:High earth:WindSpeed of earth:Storm named coastal_storms_exposure_presence
+	set to [self == 1 ? true : false];
+	                	
+	   
+//annotation of tropical_storms_exposure_presence
+
+number local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__tropical_storms_exposure__global__1990_2015 as test_tropical_storm;
+
+model local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__tropical_storms_exposure__global__1990_2015
+	as presence of ecology:Tropical earth:Region with im:Mean im:Maximum earth:WindSpeed of earth:Storm named tropical_storms_exposure
+	set to [self >= 50]
+	over space(shape="POLYGON ((180 -42, 180 66.60000000000001, -176.3 66.60000000000001, -176.3 -42, 180 -42))");
+	   	
