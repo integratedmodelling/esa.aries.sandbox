@@ -433,16 +433,28 @@ model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__colo
 //		 20 to 40 | im:High,
 //			 > 40 | im:VeryHigh;
 
+////annotation of specific_leaf_area thresholds
+//model level of (ratio of  im:Area to im:Mass of biology:Leaf)
+//observing ratio of  im:Area to im:Mass of biology:Leaf in m^2/kg named specific_leaf_area
+//	lookup(specific_leaf_area) into
+//	specific_leaf_area | category
+//	--------------------------------
+//					<3 | im:VeryLow,
+//				3 to 5 | im:Low,
+//				5 to 8 | im:Moderate,
+//					>8 | im:VeryHigh;
+
 //annotation of specific_leaf_area thresholds
-model level of (ratio of  im:Area to im:Mass of biology:Leaf)
-observing ratio of  im:Area to im:Mass of biology:Leaf in m^2/kg named specific_leaf_area
-	lookup(specific_leaf_area) into
-	specific_leaf_area | category
-	--------------------------------
-					<3 | im:VeryLow,
-				3 to 5 | im:Low,
-				5 to 8 | im:Moderate,
-					>8 | im:VeryHigh;
+model 'local:alessio.bulckaen:im.data.global:ecdc__vegetation__specific_leaf_area__global__2000_2020'
+ as level of (ratio of  im:Area to im:Mass of biology:Leaf) named specific_leaf_area
+lookup(specific_leaf_area) into
+specific_leaf_area | category
+-----------------------------
+				<3 | im:Low,
+			3 to 5 | im:ModeratelyLow,
+			5 to 8 | im:ModeratelyHigh,
+				>8 | im:High
+over space(shape='POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))');
 
 //annotation of leaf_size thresholds
 model level of (im:Area of biology:Leaf)
