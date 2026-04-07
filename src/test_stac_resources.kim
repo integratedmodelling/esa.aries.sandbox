@@ -227,7 +227,7 @@ number local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone_intertida
 
 model local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__tropical_storms_exposure__global__1990_2015
 	as presence of ecology:Tropical earth:Region with im:Mean im:Maximum earth:WindSpeed of earth:Storm named tropical_storms_exposure_presence
-	set to []
+	set to [self >= 50 ? true : false]
 	over space(shape="POLYGON ((180 -42, 180 66.60000000000001, -176.3 66.60000000000001, -176.3 -42, 180 -42))");
 	// TODO: Need threshold to distinguish presence of tropical storm.
 	
