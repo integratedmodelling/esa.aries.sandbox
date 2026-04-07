@@ -1,24 +1,6 @@
 project private namespace primitive_characteristic;
 
-//TODO:Add proper concepts
-identity Variability;
-//identity Size; //for area of leaf
-
-observe earth:Region named greece_test_area_2018
-	over space(shape=
-	//"EPSG:4326 POLYGON((30.295365 34.8, 30.295365 42.396401, 19.261895 42.396401, 19.261895 34.8, 30.295365 34.8))"
-	"EPSG:4326 POLYGON ((22.335579997340485 37.505486618136544, 22.13570513274892 37.505486618136544, 22.13570513274892 37.57798257227124, 22.335579997340485 37.57798257227124, 22.335579997340485 37.505486618136544))
-	",
-			   grid="100 m"),
-	time(start=2018, end=2019, step=1.year);
-  
-// 1. Proposed annotation for peat_thickness
-// Description: Vertical depth of the accumulated peat layer.
-// Concept: im:Depth applied to a PeatBog context. 
-// Note: 'landcover:PeatBog' is defined in the landcover namespace [576].
-//model 'local:alessio.bulckaen:im.data.global:ecdc__soil__peat_thickness__global__2001_2021' 
-//  as im:Depth of landcover:PeatBog earth:Region 
-//  in cm;
+number local:alessio.bulckaen:im.data.global:copernicus_global_dynamic_landcover_10m_2020 as lc_test;
 
 model local:alessio.bulckaen:im.data.global:copernicus_global_dynamic_landcover_10m_2020
 	as landcover:LandCoverType named copernicus_gdlc_2020 classified into // according to im:copernicus-gdlc-encoding;// im:copernicus-encoding;
@@ -61,6 +43,22 @@ model 'local:alessio.bulckaen:im.data.global:ecdc__climate__summer_diurnal_air_t
 	   >=35   | ecology.incubation:ExtremelyHot
 	over space(shape="POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))");
 
+ 
+//annotation of annual_net_primary_productivity
+model 
+'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2024',
+'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2021',
+'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2018'
+as ecology:NetPrimaryProduction named annual_net_primary_productivity
+	classified into
+	im:Low if in (0 to 500),
+	im:Moderate if in (500 to 2000),
+	im:High if >=2000;
+//over space(shape='POLYGON ((180 -60, 180 60, -180 60, -180 -60, 180 -60))'); 
+
+model 'local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_size__global__2000_2020'
+as im:Area of biology:Leaf in mm^2 named leaf_size
+set to [(self * 0.48176748292230037) + 15791.77310467295];
   	
 /*Refined annotation for ECDC primitive characteristics*/
 //1. Proposed annotation for peat_thickness
@@ -81,29 +79,17 @@ model 'local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001
 		im:Moderate if in (5 6 7),
 		im:High if in (8 9 10);
  
-//3. Proposed annotation for nitrogen
-model //'local:alessio.bulckaen:im.data.global:ecdc__soil__nitrogen__global__1995_2019'
-	'local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_n__global__1995_2019'
-	as proportion of chemistry:Nitrogen in soil:Soil //  in g/kg;
-	over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
-//4. Proposed annotation for base_saturation
-model //'local:alessio.bulckaen:im.data.global:ecdc__soil__base_saturation__global__1995_2019'
-	'local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_base_saturation__global__1995_2019'
-	as percentage of (chemistry:Basic chemistry:ExchangeCapacity) in (chemistry:ExchangeCapacity of chemistry:Cation)
-	over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
-//5. Proposed annotation for tropical_storms_exposure
-model 'local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__tropical_storms_exposure__global__1990_2015'
-	as im:Mean im:Maximum earth:WindSpeed of earth:Storm in km/h  
-	over space(shape='POLYGON ((180 -42, 180 66.6, -176.3 66.6, -176.3 -42, 180 -42))');
+////3. Proposed annotation for nitrogen
+//model //'local:alessio.bulckaen:im.data.global:ecdc__soil__nitrogen__global__1995_2019'
+//	'local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_n__global__1995_2019'
+//	as proportion of chemistry:Nitrogen in soil:Soil //  in g/kg;
+//	over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
+////4. Proposed annotation for base_saturation
+//model //'local:alessio.bulckaen:im.data.global:ecdc__soil__base_saturation__global__1995_2019'
+//	'local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_base_saturation__global__1995_2019'
+//	as percentage of (chemistry:Basic chemistry:ExchangeCapacity) in (chemistry:ExchangeCapacity of chemistry:Cation)
+//	over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
 
-model 'local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__tropical_storms_exposure__global__1990_2015'
-	as presence of ecology:Tropical earth:Storm
-	set to [self > 0 ? true : false];
-  
-model 'local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__coastal_storms_exposure__global__1979_2014'
-	as presence of es.nca:CoastalEcosystem earth:Storm
-	set to [self > 0 ? true : false];
- 
 //number 'local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__tropical_storms_exposure__global__1990_2015' as tropical_storm_data_test;
    
 //6. Proposed annotation for tidal_zone_intertidal
@@ -115,11 +101,15 @@ model 'local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone_intertida
 //number 'local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone_intertidal__global__2017_2019' as tidal_zone_intertidal;
 
 
-//7. Proposed annotation for annual_total_net_primary_productivity
+//TODO: Check why multiple resources are not accepted
+//annotation for annual_total_net_primary_productivity
+number 'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2024' as test_primary_productivity;
 @intensive(space)   
-model 'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2018',
-	  'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2021',
-	  'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2024'
+model 
+'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2018'
+//,
+//	  'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2021',
+//	  'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2024'
 	as ecology:NetPrimaryProduction in g/m^2       
 	over space(shape='POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))');
 	//over space(shape='POLYGON ((179.9985147848 -59.9985130248, 179.9985147848 80.0014880952, -180 80.0014880952, -180 -59.9985130248, 179.9985147848 -59.9985130248))');
@@ -132,27 +122,27 @@ model 'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net
 //over space(shape='POLYGON ((179.9985147848 -59.9985130248, 179.9985147848 80.0014880952, -180 80.0014880952, -180 -59.9985130248, 179.9985147848 -59.9985130248))');
 
 //8. Proposed annotation for floodplain
-model 'local:alessio.bulckaen:im.data.global:ecdc__geomorphology__floodplain__global__1900_2100'
-	as presence of hydrology:Floodplain
-	over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))')
-	set to [self == 0 ? true : false];
-
-//9. Proposed annotation for geothermal
-model 'local:alessio.bulckaen:im.data.global:ecdc__energy__geothermal__global__2019'
-	as earth:Crust physical:Thermal im:Energy in mW/m^2
-	over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
-//10. Proposed annotation for recurrence
-model 'local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__recurrence__global__2002_2024'
-	as count of im:Yearly im:Occurrence of chemistry:Fire in year
-	over space(shape='POLYGON ((180 -60.0003350977, 180 69.9999999937, -180 69.9999999937, -180 -60.0003350977, 180 -60.0003350977))');
-//11. Proposed annotation for periodicity
-model 'local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__periodicity__global__2002_2024'
-	as presence of im:Regular chemistry:Fire
-	over space(shape='POLYGON ((180 -60.0003350977, 180 69.9999999937, -180 69.9999999937, -180 -60.0003350977, 180 -60.0003350977))');
-//12. Proposed annotation for biotic_assemblage_pinniped_colonies
-model 'local:alessio.bulckaen:im.data.global:ecdc__bioticassemblages__biotic_assemblage_pinniped_colonies__global__2022'
-	as presence of GBIF.SPECIES:4941589 ecology:Population
-	over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
+//model 'local:alessio.bulckaen:im.data.global:ecdc__geomorphology__floodplain__global__1900_2100'
+//	as presence of hydrology:Floodplain
+//	over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))')
+//	set to [self == 0 ? true : false];
+//
+////9. Proposed annotation for geothermal
+//model 'local:alessio.bulckaen:im.data.global:ecdc__energy__geothermal__global__2019'
+//	as earth:Crust physical:Thermal im:Energy in mW/m^2
+//	over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
+////10. Proposed annotation for recurrence
+//model 'local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__recurrence__global__2002_2024'
+//	as count of im:Yearly im:Occurrence of chemistry:Fire in year
+//	over space(shape='POLYGON ((180 -60.0003350977, 180 69.9999999937, -180 69.9999999937, -180 -60.0003350977, 180 -60.0003350977))');
+////11. Proposed annotation for periodicity
+//model 'local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__periodicity__global__2002_2024'
+//	as presence of im:Regular chemistry:Fire
+//	over space(shape='POLYGON ((180 -60.0003350977, 180 69.9999999937, -180 69.9999999937, -180 -60.0003350977, 180 -60.0003350977))');
+////12. Proposed annotation for biotic_assemblage_pinniped_colonies
+//model 'local:alessio.bulckaen:im.data.global:ecdc__bioticassemblages__biotic_assemblage_pinniped_colonies__global__2022'
+//	as presence of GBIF.SPECIES:4941589 ecology:Population
+//	over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
 ////13A. Proposed annotation for hydroform_meander
 //model
 //'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__norway__2016'
@@ -184,330 +174,330 @@ model 'local:alessio.bulckaen:im.data.global:ecdc__bioticassemblages__biotic_ass
 //as presence of hydrology.incubation:RiverMeander // Potential Oxbow
 //over space(shape='POLYGON ((29.606929 34.803378, 29.606929 41.749073, 19.373764 41.749073, 19.373764 34.803378, 29.606929 34.803378))');
 ////
-model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__global__2004_2013'
-	as presence of hydrology.incubation:RiverMeander named hydroform_meander
-	set to [(self == 2 || self ==3 ? true : false)];
-
-//14A. Proposed annotation for hydroform_waterbody
-model
-'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_waterbody__colombia__2013'
-as presence of earth:Lake
-over space(shape='POLYGON ((-66.869496 -4.224204, -66.869496 12.441211, -78.995262 12.441211, -78.995262 -4.224204, -66.869496 -4.224204))');
-
-//15A. Proposed annotation for watershed_hierarchy
-model
-'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__colombia__2013'
-as hydrology:StreamOrder of hydrology:Watershed
-over space(shape='POLYGON ((-66.866801 -4.226193, -66.866801 12.441588, -78.997853 12.441588, -78.997853 -4.226193, -66.866801 -4.226193))');
-//16A. Proposed annotation for hydroform_watercourse
-model
-'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_watercourse__colombia__2013'
-as hydrology:StreamOrder of earth:Stream
-over space(shape='POLYGON ((-66.866801 -4.226193, -66.866801 12.441588, -78.997853 12.441588, -78.997853 -4.226193, -66.866801 -4.226193))');
-//15B. Proposed annotation for watershed_hierarchy
-model
-'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__greece__2013'
-as hydrology:StreamOrder of hydrology:Watershed
-over space(shape='POLYGON ((29.609623 34.920463, 29.609623 41.751684, 19.371173 41.751684, 19.371173 34.920463, 29.609623 34.920463))');
-//23. Proposed annotation for hydroform_watercourse
-model
-'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_watercourse__greece__2013'
-as hydrology:StreamOrder of earth:Stream
-over space(shape='POLYGON ((29.609623 34.920463, 29.609623 41.751684, 19.371173 41.751684, 19.371173 34.920463, 29.609623 34.920463))');
-//24. Proposed annotation for watershed_hierarchy
-model
-'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__norway__2013'
-as hydrology:StreamOrder of hydrology:Watershed
-over space(shape='POLYGON ((31.153771 57.96997, 31.153771 71.166414, 4.689076 71.166414, 4.689076 57.96997, 31.153771 57.96997))');
-//25. Proposed annotation for hydroform_watercourse
-model
-'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_watercourse__norway__2013'
-as hydrology:StreamOrder of earth:Stream
-over space(shape='POLYGON ((31.153771 57.96997, 31.153771 71.166414, 4.689076 71.166414, 4.689076 57.96997, 31.153771 57.96997))');
-//26. Proposed annotation for watershed_hierarchy
-model
-'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__czechia__2013'
-as hydrology:StreamOrder of hydrology:Watershed
-over space(shape='POLYGON ((18.862104 48.548579, 18.862104 51.058793, 12.08798 51.058793, 12.08798 48.548579, 18.862104 48.548579))');
-//27. Proposed annotation for hydroform_watercourse
-model
-'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_watercourse__czechia__2013'
-as hydrology:StreamOrder of earth:Stream
-over space(shape='POLYGON ((18.862104 48.548579, 18.862104 51.058793, 12.08798 51.058793, 12.08798 48.548579, 18.862104 48.548579))');
-//28. Proposed annotation for watershed_hierarchy
-model
-'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__viet_nam__2013'
-as hydrology:StreamOrder of hydrology:Watershed
-over space(shape='POLYGON ((109.465857 8.583311, 109.465857 23.395705, 102.141085 23.395705, 102.141085 8.583311, 109.465857 8.583311))');
-//29. Proposed annotation for hydroform_watercourse
-model
-'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_watercourse__viet_nam__2013'
-as hydrology:StreamOrder of earth:Stream
-over space(shape='POLYGON ((109.465857 8.583311, 109.465857 23.395705, 102.141085 23.395705, 102.141085 8.583311, 109.465857 8.583311))');
-//30. Proposed annotation for watershed_hierarchy
-model
-'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__south_africa__2013'
-as hydrology:StreamOrder of hydrology:Watershed
-over space(shape='POLYGON ((32.947603 -34.796335, 32.947603 -22.122919, 16.449299 -22.122919, 16.449299 -34.796335, 32.947603 -34.796335))');
-//31. Proposed annotation for hydroform_watercourse
-model
-'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_watercourse__south_africa__2013'
-as hydrology:StreamOrder of earth:Stream
-over space(shape='POLYGON ((32.947603 -34.796335, 32.947603 -22.122919, 16.449299 -22.122919, 16.449299 -34.796335, 32.947603 -34.796335))');
-//17A. Proposed annotation for hydroform_morphology_area
-model
-'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__south_africa__2013_2020'
-as im:Minimum im:Area of earth:WaterBody in km^2
-over space(shape='POLYGON ((33.708901 -34.837031, 33.708901 -21.003923, 15.341099 -21.003923, 15.341099 -34.837031, 33.708901 -34.837031))');
-//18. Proposed annotation for watershed_hydroform_density
-model
-'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__south_africa__2013_2020'
-as proportion of (hydrology:Water im:Density of earth:WaterBody) // cannot use percentage of because cannot be used in a model with level of 
-//Density of water in the form of watercourses or waterbodies within a subdivision of the watershed.HydroformDensity of hydrology:Watershed
-over space(shape='POLYGON ((33.708901 -34.837031, 33.708901 -21.003923, 15.341099 -21.003923, 15.341099 -34.837031, 33.708901 -34.837031))');
-//34. Proposed annotation for hydroform_morphology_area
-model 
-'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__czechia__2013_2020'
-as im:Minimum im:Area of earth:WaterBody in km^2
-over space(shape='POLYGON ((19.829167 47.891667, 19.829167 51.575567, 11.4375 51.575567, 11.4375 47.891667, 19.829167 47.891667))');
-//35. Proposed annotation for watershed_hydroform_density
-model
-'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__czechia__2013_2020'
-as proportion of (hydrology:Water im:Density of earth:WaterBody) 
-over space(shape='POLYGON ((19.829167 47.891667, 19.829167 51.575567, 11.4375 51.575567, 11.4375 47.891667, 19.829167 47.891667))');
-//36. Proposed annotation for hydroform_morphology_area
-model
-'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__greece__2013_2020'
-as im:Minimum im:Area of earth:WaterBody in km^2
-over space(shape='POLYGON ((30.295365 34.8, 30.295365 42.396401, 19.261895 42.396401, 19.261895 34.8, 30.295365 34.8))');
-//37. Proposed annotation for watershed_hydroform_density
-model
-'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__greece__2013_2020'
-as proportion of (hydrology:Water im:Density of earth:WaterBody) 
-over space(shape='POLYGON ((30.295365 34.8, 30.295365 42.396401, 19.261895 42.396401, 19.261895 34.8, 30.295365 34.8))');
-//38. Proposed annotation for hydroform_morphology_area
-model
-'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__viet_nam__2013_2020'
-as im:Minimum im:Area of earth:WaterBody in km^2
-over space(shape='POLYGON ((109.958333 8.4125, 109.958333 23.817272, 101.412147 23.817272, 101.412147 8.4125, 109.958333 8.4125))');
-//39. Proposed annotation for watershed_hydroform_density
-model
-'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__viet_nam__2013_2020'
-as proportion of (hydrology:Water im:Density of earth:WaterBody) 
-over space(shape='POLYGON ((109.958333 8.4125, 109.958333 23.817272, 101.412147 23.817272, 101.412147 8.4125, 109.958333 8.4125))');
-////40. Proposed annotation for hydroform_morphology_area
+//model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__global__2004_2013'
+//	as presence of hydrology.incubation:RiverMeander named hydroform_meander
+//	set to [(self == 2 || self ==3 ? true : false)];
+//
+////14A. Proposed annotation for hydroform_waterbody
 //model
-//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__colombia__2013_2020'
-//as im:Minimum im:Area of earth:WaterBody in km^2
-//over space(shape='POLYGON ((-66.008895 -5.041667, -66.008895 12.625605, -79.496401 12.625605, -79.496401 -5.041667, -66.008895 -5.041667))');
-////41. Proposed annotation for watershed_hydroform_density
-//model
-//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__colombia__2013_2020'
-//as proportion of (hydrology:Water im:Density of earth:WaterBody) 
-//over space(shape='POLYGON ((-66.008895 -5.041667, -66.008895 12.625605, -79.496401 12.625605, -79.496401 -5.041667, -66.008895 -5.041667))');
-//42. Proposed annotation for hydroform_morphology_area
-model
-'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__norway__2013_2020'
-as im:Minimum im:Area of earth:WaterBody in km^2
-over space(shape='POLYGON ((32.350031 57.286933, 32.350031 71.184014, 4.649357 71.184014, 4.649357 57.286933, 32.350031 57.286933))');
-//43. Proposed annotation for watershed_hydroform_density
-model
-'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__norway__2013_2020'
-as proportion of (hydrology:Water im:Density of earth:WaterBody) 
-over space(shape='POLYGON ((32.350031 57.286933, 32.350031 71.184014, 4.649357 71.184014, 4.649357 57.286933, 32.350031 57.286933))');
-//44. Proposed annotation for hydroform_waterbody
-model
-'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_waterbody__greece__2013'
-as presence of earth:Lake
-over space(shape='POLYGON ((29.606929 34.803378, 29.606929 41.749073, 19.373764 41.749073, 19.373764 34.803378, 29.606929 34.803378))');
-//45. Proposed annotation for hydroform_waterbody
-model
-'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_waterbody__south_africa__2013'
-as presence of earth:Lake
-over space(shape='POLYGON ((32.945219 -34.83436, 32.945219 -22.12503, 16.45189 -22.12503, 16.45189 -34.83436, 32.945219 -34.83436))');
-//46. Proposed annotation for hydroform_waterbody
-model
-'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_waterbody__norway__2013'
-as presence of earth:Lake
-over space(shape='POLYGON ((31.150998 57.973838, 31.150998 71.185718, 4.611992 71.185718, 4.611992 57.973838, 31.150998 57.973838))');
-//47. Proposed annotation for hydroform_waterbody
-model
-'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_waterbody__viet_nam__2013'
-as presence of earth:Lake
-over space(shape='POLYGON ((109.463162 8.403057, 109.463162 23.393574, 102.143676 23.393574, 102.143676 8.403057, 109.463162 8.403057))');
-//48. Proposed annotation for hydroform_waterbody
-model
-'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_waterbody__czechia__2013'
-as presence of earth:Lake
-over space(shape='POLYGON ((18.859409 48.551635, 18.859409 51.0557, 12.090571 51.0557, 12.090571 48.551635, 18.859409 48.551635))');
-//49. Proposed annotation for hydroform_watercourse
-model
-'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_watercourse__global__2018'
-as hydrology:StreamOrder of earth:Stream
-over space(shape='POLYGON ((-179.999901 -52.037682, -179.999901 84.008155, 179.999901 84.008155, 179.999901 -52.037682, -179.999901 -52.037682))');
-//50. Proposed annotation for occurrence_regime_episodic
-model
-'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_episodic__global__1984_2021'
-as presence of hydrology:Episodic earth:WaterBody
-over space(shape='POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))');
-//51. Proposed annotation for occurrence_regime_ephemeral
-model
-'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_ephemeral__global__1984_2021'
-as presence of hydrology:Ephemeral earth:WaterBody
-over space(shape='POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))');
-//52. Proposed annotation for occurrence_regime_seasonal
-model
-'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_seasonal__global__1984_2021'
-as presence of hydrology:Seasonal earth:WaterBody
-over space(shape='POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))');
-//53. Proposed annotation for occurrence_regime_permanent
-model
-'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_permanent__global__1984_2021'
-as presence of hydrology:Permanent earth:WaterBody
-over space(shape='POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))');
-//54. Proposed annotation for managed_waters_canal
-model
-'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__czechia__2025'
-as presence of landcover:Canal earth:Stream
-over space(shape='POLYGON ((18.868414 48.518687, 18.868414 51.075815, 12.080609 51.075815, 12.080609 48.518687, 18.868414 48.518687))');
-//55. Proposed annotation for managed_waters_canal
-model
-'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__greece__2025'
-as presence of landcover:Canal earth:Stream
-over space(shape='POLYGON ((29.632202 34.996641, 29.632202 41.790654, 19.352502 41.790654, 19.352502 34.996641, 29.632202 34.996641))');
-//56. Proposed annotation for managed_waters_canal
-model
-'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__south_africa__2025'
-as presence of landcover:Canal earth:Stream
-over space(shape='POLYGON ((33.116784 -34.606131, 33.116784 -22.138748, 16.997186 -22.138748, 16.997186 -34.606131, 33.116784 -34.606131))');
-//57. Proposed annotation for managed_waters_canal
-model
-'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__viet_nam__2025'
-as presence of landcover:Canal earth:Stream
-over space(shape='POLYGON ((109.487675 8.565397, 109.487675 23.434315, 101.964429 23.434315, 101.964429 8.565397, 109.487675 8.565397))');
-//58. Proposed annotation for managed_waters_canal
-model
-'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__colombia__2025'
-as presence of landcover:Canal earth:Stream
-over space(shape='POLYGON ((-66.870243 -4.046619, -66.870243 12.440631, -78.999117 12.440631, -78.999117 -4.046619, -66.870243 -4.046619))');
-//59. Proposed annotation for managed_waters_canal
-model
-'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__norway__2025'
-as presence of landcover:Canal earth:Stream
-over space(shape='POLYGON ((32.326533 57.944974, 32.326533 71.025891, 4.73888 71.025891, 4.73888 57.944974, 32.326533 57.944974))');
-//60. Proposed annotation for managed_waters_reservior
-model
-'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservior__czechia__2022'
-as presence of landcover:Reservoir earth:WaterBody
-over space(shape='POLYGON ((18.859409 48.551635, 18.859409 51.0557, 12.090571 51.0557, 12.090571 48.551635, 18.859409 48.551635))');
-//61. Proposed annotation for managed_waters_reservior
-model
-'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservior__south_africa__2022'
-as presence of landcover:Reservoir earth:WaterBody
-over space(shape='POLYGON ((32.945219 -34.83436, 32.945219 -22.12503, 16.45189 -22.12503, 16.45189 -34.83436, 32.945219 -34.83436))');
-//62. Proposed annotation for managed_waters_reservior
-model
-'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservior__greece__2022'
-as presence of landcover:Reservoir earth:WaterBody
-over space(shape='POLYGON ((29.606929 34.803378, 29.606929 41.749073, 19.373764 41.749073, 19.373764 34.803378, 29.606929 34.803378))');
-////63. Proposed annotation for managed_waters_reservior
-//model
-//'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservior__colombia__2022'
-//as presence of landcover:Reservoir earth:WaterBody
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_waterbody__colombia__2013'
+//as presence of earth:Lake
 //over space(shape='POLYGON ((-66.869496 -4.224204, -66.869496 12.441211, -78.995262 12.441211, -78.995262 -4.224204, -66.869496 -4.224204))');
-//64. Proposed annotation for managed_waters_reservior
-model
-'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservior__viet_nam__2022'
-as presence of landcover:Reservoir earth:WaterBody
-over space(shape='POLYGON ((109.463162 8.403057, 109.463162 23.393574, 102.143676 23.393574, 102.143676 8.403057, 109.463162 8.403057))');
-//65. Proposed annotation for managed_waters_reservior
-model
-'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservior__norway__2022'
-as presence of landcover:Reservoir earth:WaterBody
-over space(shape='POLYGON ((31.150998 57.973838, 31.150998 71.185718, 4.611992 71.185718, 4.611992 57.973838, 31.150998 57.973838))');
-//66. Proposed annotation for managed_waters_aquaculture
-model
-'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_aquaculture__czechia_greece_norway__2017'
-as presence of landcover:ContinentalAquaculturePond earth:WaterBody
-over space(shape='POLYGON ((55.966506 -21.663867, 55.966506 72.511245, -62.185007 72.511245, -62.185007 -21.663867, 55.966506 -21.663867))');
-//67. Proposed annotation for managed_waters_mariculture
-model
-'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_mariculture__greece__2017'
-as presence of landcover:MarineAquaculturePond earth:WaterBody
-over space(shape='POLYGON ((27.795765 36.218913, 27.795765 40.997929, 19.899202 40.997929, 19.899202 36.218913, 27.795765 36.218913))');
-////68. Proposed annotation for managed_waters_mariculture
+//
+////15A. Proposed annotation for watershed_hierarchy
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__colombia__2013'
+//as hydrology:StreamOrder of hydrology:Watershed
+//over space(shape='POLYGON ((-66.866801 -4.226193, -66.866801 12.441588, -78.997853 12.441588, -78.997853 -4.226193, -66.866801 -4.226193))');
+////16A. Proposed annotation for hydroform_watercourse
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_watercourse__colombia__2013'
+//as hydrology:StreamOrder of earth:Stream
+//over space(shape='POLYGON ((-66.866801 -4.226193, -66.866801 12.441588, -78.997853 12.441588, -78.997853 -4.226193, -66.866801 -4.226193))');
+////15B. Proposed annotation for watershed_hierarchy
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__greece__2013'
+//as hydrology:StreamOrder of hydrology:Watershed
+//over space(shape='POLYGON ((29.609623 34.920463, 29.609623 41.751684, 19.371173 41.751684, 19.371173 34.920463, 29.609623 34.920463))');
+////23. Proposed annotation for hydroform_watercourse
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_watercourse__greece__2013'
+//as hydrology:StreamOrder of earth:Stream
+//over space(shape='POLYGON ((29.609623 34.920463, 29.609623 41.751684, 19.371173 41.751684, 19.371173 34.920463, 29.609623 34.920463))');
+////24. Proposed annotation for watershed_hierarchy
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__norway__2013'
+//as hydrology:StreamOrder of hydrology:Watershed
+//over space(shape='POLYGON ((31.153771 57.96997, 31.153771 71.166414, 4.689076 71.166414, 4.689076 57.96997, 31.153771 57.96997))');
+////25. Proposed annotation for hydroform_watercourse
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_watercourse__norway__2013'
+//as hydrology:StreamOrder of earth:Stream
+//over space(shape='POLYGON ((31.153771 57.96997, 31.153771 71.166414, 4.689076 71.166414, 4.689076 57.96997, 31.153771 57.96997))');
+////26. Proposed annotation for watershed_hierarchy
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__czechia__2013'
+//as hydrology:StreamOrder of hydrology:Watershed
+//over space(shape='POLYGON ((18.862104 48.548579, 18.862104 51.058793, 12.08798 51.058793, 12.08798 48.548579, 18.862104 48.548579))');
+////27. Proposed annotation for hydroform_watercourse
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_watercourse__czechia__2013'
+//as hydrology:StreamOrder of earth:Stream
+//over space(shape='POLYGON ((18.862104 48.548579, 18.862104 51.058793, 12.08798 51.058793, 12.08798 48.548579, 18.862104 48.548579))');
+////28. Proposed annotation for watershed_hierarchy
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__viet_nam__2013'
+//as hydrology:StreamOrder of hydrology:Watershed
+//over space(shape='POLYGON ((109.465857 8.583311, 109.465857 23.395705, 102.141085 23.395705, 102.141085 8.583311, 109.465857 8.583311))');
+////29. Proposed annotation for hydroform_watercourse
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_watercourse__viet_nam__2013'
+//as hydrology:StreamOrder of earth:Stream
+//over space(shape='POLYGON ((109.465857 8.583311, 109.465857 23.395705, 102.141085 23.395705, 102.141085 8.583311, 109.465857 8.583311))');
+////30. Proposed annotation for watershed_hierarchy
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__south_africa__2013'
+//as hydrology:StreamOrder of hydrology:Watershed
+//over space(shape='POLYGON ((32.947603 -34.796335, 32.947603 -22.122919, 16.449299 -22.122919, 16.449299 -34.796335, 32.947603 -34.796335))');
+////31. Proposed annotation for hydroform_watercourse
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_watercourse__south_africa__2013'
+//as hydrology:StreamOrder of earth:Stream
+//over space(shape='POLYGON ((32.947603 -34.796335, 32.947603 -22.122919, 16.449299 -22.122919, 16.449299 -34.796335, 32.947603 -34.796335))');
+////17A. Proposed annotation for hydroform_morphology_area
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__south_africa__2013_2020'
+//as im:Minimum im:Area of earth:WaterBody in km^2
+//over space(shape='POLYGON ((33.708901 -34.837031, 33.708901 -21.003923, 15.341099 -21.003923, 15.341099 -34.837031, 33.708901 -34.837031))');
+////18. Proposed annotation for watershed_hydroform_density
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__south_africa__2013_2020'
+//as proportion of (hydrology:Water im:Density of earth:WaterBody) // cannot use percentage of because cannot be used in a model with level of 
+////Density of water in the form of watercourses or waterbodies within a subdivision of the watershed.HydroformDensity of hydrology:Watershed
+//over space(shape='POLYGON ((33.708901 -34.837031, 33.708901 -21.003923, 15.341099 -21.003923, 15.341099 -34.837031, 33.708901 -34.837031))');
+////34. Proposed annotation for hydroform_morphology_area
+//model 
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__czechia__2013_2020'
+//as im:Minimum im:Area of earth:WaterBody in km^2
+//over space(shape='POLYGON ((19.829167 47.891667, 19.829167 51.575567, 11.4375 51.575567, 11.4375 47.891667, 19.829167 47.891667))');
+////35. Proposed annotation for watershed_hydroform_density
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__czechia__2013_2020'
+//as proportion of (hydrology:Water im:Density of earth:WaterBody) 
+//over space(shape='POLYGON ((19.829167 47.891667, 19.829167 51.575567, 11.4375 51.575567, 11.4375 47.891667, 19.829167 47.891667))');
+////36. Proposed annotation for hydroform_morphology_area
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__greece__2013_2020'
+//as im:Minimum im:Area of earth:WaterBody in km^2
+//over space(shape='POLYGON ((30.295365 34.8, 30.295365 42.396401, 19.261895 42.396401, 19.261895 34.8, 30.295365 34.8))');
+////37. Proposed annotation for watershed_hydroform_density
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__greece__2013_2020'
+//as proportion of (hydrology:Water im:Density of earth:WaterBody) 
+//over space(shape='POLYGON ((30.295365 34.8, 30.295365 42.396401, 19.261895 42.396401, 19.261895 34.8, 30.295365 34.8))');
+////38. Proposed annotation for hydroform_morphology_area
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__viet_nam__2013_2020'
+//as im:Minimum im:Area of earth:WaterBody in km^2
+//over space(shape='POLYGON ((109.958333 8.4125, 109.958333 23.817272, 101.412147 23.817272, 101.412147 8.4125, 109.958333 8.4125))');
+////39. Proposed annotation for watershed_hydroform_density
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__viet_nam__2013_2020'
+//as proportion of (hydrology:Water im:Density of earth:WaterBody) 
+//over space(shape='POLYGON ((109.958333 8.4125, 109.958333 23.817272, 101.412147 23.817272, 101.412147 8.4125, 109.958333 8.4125))');
+//////40. Proposed annotation for hydroform_morphology_area
+////model
+////'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__colombia__2013_2020'
+////as im:Minimum im:Area of earth:WaterBody in km^2
+////over space(shape='POLYGON ((-66.008895 -5.041667, -66.008895 12.625605, -79.496401 12.625605, -79.496401 -5.041667, -66.008895 -5.041667))');
+//////41. Proposed annotation for watershed_hydroform_density
+////model
+////'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__colombia__2013_2020'
+////as proportion of (hydrology:Water im:Density of earth:WaterBody) 
+////over space(shape='POLYGON ((-66.008895 -5.041667, -66.008895 12.625605, -79.496401 12.625605, -79.496401 -5.041667, -66.008895 -5.041667))');
+////42. Proposed annotation for hydroform_morphology_area
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__norway__2013_2020'
+//as im:Minimum im:Area of earth:WaterBody in km^2
+//over space(shape='POLYGON ((32.350031 57.286933, 32.350031 71.184014, 4.649357 71.184014, 4.649357 57.286933, 32.350031 57.286933))');
+////43. Proposed annotation for watershed_hydroform_density
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__norway__2013_2020'
+//as proportion of (hydrology:Water im:Density of earth:WaterBody) 
+//over space(shape='POLYGON ((32.350031 57.286933, 32.350031 71.184014, 4.649357 71.184014, 4.649357 57.286933, 32.350031 57.286933))');
+////44. Proposed annotation for hydroform_waterbody
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_waterbody__greece__2013'
+//as presence of earth:Lake
+//over space(shape='POLYGON ((29.606929 34.803378, 29.606929 41.749073, 19.373764 41.749073, 19.373764 34.803378, 29.606929 34.803378))');
+////45. Proposed annotation for hydroform_waterbody
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_waterbody__south_africa__2013'
+//as presence of earth:Lake
+//over space(shape='POLYGON ((32.945219 -34.83436, 32.945219 -22.12503, 16.45189 -22.12503, 16.45189 -34.83436, 32.945219 -34.83436))');
+////46. Proposed annotation for hydroform_waterbody
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_waterbody__norway__2013'
+//as presence of earth:Lake
+//over space(shape='POLYGON ((31.150998 57.973838, 31.150998 71.185718, 4.611992 71.185718, 4.611992 57.973838, 31.150998 57.973838))');
+////47. Proposed annotation for hydroform_waterbody
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_waterbody__viet_nam__2013'
+//as presence of earth:Lake
+//over space(shape='POLYGON ((109.463162 8.403057, 109.463162 23.393574, 102.143676 23.393574, 102.143676 8.403057, 109.463162 8.403057))');
+////48. Proposed annotation for hydroform_waterbody
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_waterbody__czechia__2013'
+//as presence of earth:Lake
+//over space(shape='POLYGON ((18.859409 48.551635, 18.859409 51.0557, 12.090571 51.0557, 12.090571 48.551635, 18.859409 48.551635))');
+////49. Proposed annotation for hydroform_watercourse
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_watercourse__global__2018'
+//as hydrology:StreamOrder of earth:Stream
+//over space(shape='POLYGON ((-179.999901 -52.037682, -179.999901 84.008155, 179.999901 84.008155, 179.999901 -52.037682, -179.999901 -52.037682))');
+////50. Proposed annotation for occurrence_regime_episodic
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_episodic__global__1984_2021'
+//as presence of hydrology:Episodic earth:WaterBody
+//over space(shape='POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))');
+////51. Proposed annotation for occurrence_regime_ephemeral
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_ephemeral__global__1984_2021'
+//as presence of hydrology:Ephemeral earth:WaterBody
+//over space(shape='POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))');
+////52. Proposed annotation for occurrence_regime_seasonal
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_seasonal__global__1984_2021'
+//as presence of hydrology:Seasonal earth:WaterBody
+//over space(shape='POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))');
+////53. Proposed annotation for occurrence_regime_permanent
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_permanent__global__1984_2021'
+//as presence of hydrology:Permanent earth:WaterBody
+//over space(shape='POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))');
+////54. Proposed annotation for managed_waters_canal
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__czechia__2025'
+//as presence of landcover:Canal earth:Stream
+//over space(shape='POLYGON ((18.868414 48.518687, 18.868414 51.075815, 12.080609 51.075815, 12.080609 48.518687, 18.868414 48.518687))');
+////55. Proposed annotation for managed_waters_canal
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__greece__2025'
+//as presence of landcover:Canal earth:Stream
+//over space(shape='POLYGON ((29.632202 34.996641, 29.632202 41.790654, 19.352502 41.790654, 19.352502 34.996641, 29.632202 34.996641))');
+////56. Proposed annotation for managed_waters_canal
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__south_africa__2025'
+//as presence of landcover:Canal earth:Stream
+//over space(shape='POLYGON ((33.116784 -34.606131, 33.116784 -22.138748, 16.997186 -22.138748, 16.997186 -34.606131, 33.116784 -34.606131))');
+////57. Proposed annotation for managed_waters_canal
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__viet_nam__2025'
+//as presence of landcover:Canal earth:Stream
+//over space(shape='POLYGON ((109.487675 8.565397, 109.487675 23.434315, 101.964429 23.434315, 101.964429 8.565397, 109.487675 8.565397))');
+////58. Proposed annotation for managed_waters_canal
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__colombia__2025'
+//as presence of landcover:Canal earth:Stream
+//over space(shape='POLYGON ((-66.870243 -4.046619, -66.870243 12.440631, -78.999117 12.440631, -78.999117 -4.046619, -66.870243 -4.046619))');
+////59. Proposed annotation for managed_waters_canal
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__norway__2025'
+//as presence of landcover:Canal earth:Stream
+//over space(shape='POLYGON ((32.326533 57.944974, 32.326533 71.025891, 4.73888 71.025891, 4.73888 57.944974, 32.326533 57.944974))');
+////60. Proposed annotation for managed_waters_reservior
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservior__czechia__2022'
+//as presence of landcover:Reservoir earth:WaterBody
+//over space(shape='POLYGON ((18.859409 48.551635, 18.859409 51.0557, 12.090571 51.0557, 12.090571 48.551635, 18.859409 48.551635))');
+////61. Proposed annotation for managed_waters_reservior
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservior__south_africa__2022'
+//as presence of landcover:Reservoir earth:WaterBody
+//over space(shape='POLYGON ((32.945219 -34.83436, 32.945219 -22.12503, 16.45189 -22.12503, 16.45189 -34.83436, 32.945219 -34.83436))');
+////62. Proposed annotation for managed_waters_reservior
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservior__greece__2022'
+//as presence of landcover:Reservoir earth:WaterBody
+//over space(shape='POLYGON ((29.606929 34.803378, 29.606929 41.749073, 19.373764 41.749073, 19.373764 34.803378, 29.606929 34.803378))');
+//////63. Proposed annotation for managed_waters_reservior
+////model
+////'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservior__colombia__2022'
+////as presence of landcover:Reservoir earth:WaterBody
+////over space(shape='POLYGON ((-66.869496 -4.224204, -66.869496 12.441211, -78.995262 12.441211, -78.995262 -4.224204, -66.869496 -4.224204))');
+////64. Proposed annotation for managed_waters_reservior
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservior__viet_nam__2022'
+//as presence of landcover:Reservoir earth:WaterBody
+//over space(shape='POLYGON ((109.463162 8.403057, 109.463162 23.393574, 102.143676 23.393574, 102.143676 8.403057, 109.463162 8.403057))');
+////65. Proposed annotation for managed_waters_reservior
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservior__norway__2022'
+//as presence of landcover:Reservoir earth:WaterBody
+//over space(shape='POLYGON ((31.150998 57.973838, 31.150998 71.185718, 4.611992 71.185718, 4.611992 57.973838, 31.150998 57.973838))');
+////66. Proposed annotation for managed_waters_aquaculture
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_aquaculture__czechia_greece_norway__2017'
+//as presence of landcover:ContinentalAquaculturePond earth:WaterBody
+//over space(shape='POLYGON ((55.966506 -21.663867, 55.966506 72.511245, -62.185007 72.511245, -62.185007 -21.663867, 55.966506 -21.663867))');
+////67. Proposed annotation for managed_waters_mariculture
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_mariculture__greece__2017'
+//as presence of landcover:MarineAquaculturePond earth:WaterBody
+//over space(shape='POLYGON ((27.795765 36.218913, 27.795765 40.997929, 19.899202 40.997929, 19.899202 36.218913, 27.795765 36.218913))');
+//////68. Proposed annotation for managed_waters_mariculture
 //model
 //'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_mariculture__colombia__2017'
 //as presence of landcover:MarineAquaculturePond earth:WaterBody
 //over space(shape='POLYGON ((-71.689052 1.663977, -71.689052 12.424691, -78.982732 12.424691, -78.982732 1.663977, -71.689052 1.663977))');
 //69. Proposed annotation for managed_waters_mariculture
-model
-'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_mariculture__norway__2017'
-as presence of landcover:MarineAquaculturePond earth:WaterBody
-over space(shape='POLYGON ((30.420905 58.016491, 30.420905 71.030759, 4.627497 71.030759, 4.627497 58.016491, 30.420905 58.016491))');
-//70. Proposed annotation for managed_waters_mariculture
-model
-'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_mariculture__south_africa__2017'
-as presence of landcover:MarineAquaculturePond earth:WaterBody
-over space(shape='POLYGON ((32.184783 -34.633023, 32.184783 -28.730039, 17.845853 -28.730039, 17.845853 -34.633023, 32.184783 -34.633023))');
-//71. Proposed annotation for managed_waters_mariculture
-model
-'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_mariculture__viet_nam__2017'
-as presence of landcover:MarineAquaculturePond earth:WaterBody
-over space(shape='POLYGON ((109.422293 8.670983, 109.422293 21.334208, 103.831861 21.334208, 103.831861 8.670983, 109.422293 8.670983))');
-//72. Proposed annotation for mining_areas
-model
-'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__mining_areas__global__2000_2019'
-as im:Area of landcover:MineralExtraction earth:Region in km^2
-over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
-//73. Proposed annotation for summer_mean_diurnal_air_temperature
-model
-'local:alessio.bulckaen:im.data.global:ecdc__climate__summer_mean_diurnal_air_temperature__global__1981_2010'
-as im:Mean earth:AtmosphericTemperature during earth:Summer in Celsius
-over space(shape='POLYGON ((179.9998596712 -90, 179.9998596712 83.9998604151, -180 83.9998604151, -180 -90, 179.9998596712 -90))');
-//74. Proposed annotation for winter_mean_diurnal_air_temperature
-model
-'local:alessio.bulckaen:im.data.global:ecdc__climate__winter_mean_diurnal_air_temperature__global__1981_2010'
-as im:Mean earth:AtmosphericTemperature during earth:Winter in Celsius
-over space(shape='POLYGON ((179.9998596712 -90, 179.9998596712 83.9998604151, -180 83.9998604151, -180 -90, 179.9998596712 -90))');
-//75. Proposed annotation for potential_tree_growth
-model
-'local:alessio.bulckaen:im.data.global:ecdc__climate__potential_tree_growth__global__1981_2010'
-as im:Potential presence of ecology:Tree
-over space(shape='POLYGON ((179.9998596712 -90, 179.9998596712 83.9998604151, -180 83.9998604151, -180 -90, 179.9998596712 -90))');
-//76. Proposed annotation for seasonal_amplitude_diurnal_air_temperature
-model
-'local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_amplitude_diurnal_air_temperature__global__1981_2010'
-as  im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature  //seasonal_amplitude_diurnal_air_temperature
-over space(shape='POLYGON ((179.9998596712 -90, 179.9998596712 83.9998604152, -180 83.9998604152, -180 -90, 179.9998596712 -90))');
-//77. Proposed annotation for seasonal_variability_diurnal_air_temperature
-model
-'local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_variability_diurnal_air_temperature__global__1981_2010'
-as im:Daily Variability im:Seasonal earth:AtmosphericTemperature
-over space(shape='POLYGON ((179.9998596712 -90, 179.9998596712 83.9998604152, -180 83.9998604152, -180 -90, 179.9998596712 -90))');
-//78. Proposed annotation for annual_mean_precipitation
-model
-//'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_mean_precipitation__global__1981_2010'
-'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation_total__global__1981_2010'
-as im:Mean earth:PrecipitationVolume in kg/m^2/month
-over space(shape='POLYGON ((179.9998596712 -90, 179.9998596712 83.9998604152, -180 83.9998604152, -180 -90, 179.9998596712 -90))');
-//79. Proposed annotation for annual_mean_diurnal_air_temperature
-model
-//'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_mean_diurnal_air_temperature__global__1981_2010'
-'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_diurnal_air_temperature_mean__global__1981_2010'
-as im:Mean im:Yearly earth:AtmosphericTemperature in Celsius
-over space(shape='POLYGON ((179.9998596712 -90, 179.9998596712 83.9998604152, -180 83.9998604152, -180 -90, 179.9998596712 -90))');
-//80. Proposed annotation for annual_total_water_budget
-model
-//'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_total_water_budget__global__1981_2010'
-'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total__global__1981_2010'
-as im:Mean hydrology:WaterVolume of hydrology:WaterBalance in kg/m^2/year
-over space(shape='POLYGON ((179.9998596712 -90, 179.9998596712 83.9998604152, -180 83.9998604152, -180 -90, 179.9998596712 -90))');
-//81. Proposed annotation for winter_total_water_budget
-model
-'local:alessio.bulckaen:im.data.global:ecdc__climate__winter_total_water_budget__global__1980_2010'
-as hydrology:WaterVolume of hydrology:WaterBalance during earth:Winter in kg/m^2/year
-over space(shape='POLYGON ((179.9998596712 -90, 179.9998596712 83.9998604152, -180 83.9998604152, -180 -90, 179.9998596712 -90))');
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_mariculture__norway__2017'
+//as presence of landcover:MarineAquaculturePond earth:WaterBody
+//over space(shape='POLYGON ((30.420905 58.016491, 30.420905 71.030759, 4.627497 71.030759, 4.627497 58.016491, 30.420905 58.016491))');
+////70. Proposed annotation for managed_waters_mariculture
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_mariculture__south_africa__2017'
+//as presence of landcover:MarineAquaculturePond earth:WaterBody
+//over space(shape='POLYGON ((32.184783 -34.633023, 32.184783 -28.730039, 17.845853 -28.730039, 17.845853 -34.633023, 32.184783 -34.633023))');
+////71. Proposed annotation for managed_waters_mariculture
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_mariculture__viet_nam__2017'
+//as presence of landcover:MarineAquaculturePond earth:WaterBody
+//over space(shape='POLYGON ((109.422293 8.670983, 109.422293 21.334208, 103.831861 21.334208, 103.831861 8.670983, 109.422293 8.670983))');
+////72. Proposed annotation for mining_areas
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__mining_areas__global__2000_2019'
+//as im:Area of landcover:MineralExtraction earth:Region in km^2
+//over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
+////73. Proposed annotation for summer_mean_diurnal_air_temperature
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__climate__summer_mean_diurnal_air_temperature__global__1981_2010'
+//as im:Mean earth:AtmosphericTemperature during earth:Summer in Celsius
+//over space(shape='POLYGON ((179.9998596712 -90, 179.9998596712 83.9998604151, -180 83.9998604151, -180 -90, 179.9998596712 -90))');
+////74. Proposed annotation for winter_mean_diurnal_air_temperature
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__climate__winter_mean_diurnal_air_temperature__global__1981_2010'
+//as im:Mean earth:AtmosphericTemperature during earth:Winter in Celsius
+//over space(shape='POLYGON ((179.9998596712 -90, 179.9998596712 83.9998604151, -180 83.9998604151, -180 -90, 179.9998596712 -90))');
+////75. Proposed annotation for potential_tree_growth
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__climate__potential_tree_growth__global__1981_2010'
+//as im:Potential presence of ecology:Tree
+//over space(shape='POLYGON ((179.9998596712 -90, 179.9998596712 83.9998604151, -180 83.9998604151, -180 -90, 179.9998596712 -90))');
+////76. Proposed annotation for seasonal_amplitude_diurnal_air_temperature
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_amplitude_diurnal_air_temperature__global__1981_2010'
+//as  im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature  //seasonal_amplitude_diurnal_air_temperature
+//over space(shape='POLYGON ((179.9998596712 -90, 179.9998596712 83.9998604152, -180 83.9998604152, -180 -90, 179.9998596712 -90))');
+////77. Proposed annotation for seasonal_variability_diurnal_air_temperature
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_variability_diurnal_air_temperature__global__1981_2010'
+//as im:Daily Variability im:Seasonal earth:AtmosphericTemperature
+//over space(shape='POLYGON ((179.9998596712 -90, 179.9998596712 83.9998604152, -180 83.9998604152, -180 -90, 179.9998596712 -90))');
+////78. Proposed annotation for annual_mean_precipitation
+//model
+////'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_mean_precipitation__global__1981_2010'
+//'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation_total__global__1981_2010'
+//as im:Mean earth:PrecipitationVolume in kg/m^2/month
+//over space(shape='POLYGON ((179.9998596712 -90, 179.9998596712 83.9998604152, -180 83.9998604152, -180 -90, 179.9998596712 -90))');
+////79. Proposed annotation for annual_mean_diurnal_air_temperature
+//model
+////'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_mean_diurnal_air_temperature__global__1981_2010'
+//'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_diurnal_air_temperature_mean__global__1981_2010'
+//as im:Mean im:Yearly earth:AtmosphericTemperature in Celsius
+//over space(shape='POLYGON ((179.9998596712 -90, 179.9998596712 83.9998604152, -180 83.9998604152, -180 -90, 179.9998596712 -90))');
+////80. Proposed annotation for annual_total_water_budget
+//model
+////'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_total_water_budget__global__1981_2010'
+//'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total__global__1981_2010'
+//as im:Mean hydrology:WaterVolume of hydrology:WaterBalance in kg/m^2/year
+//over space(shape='POLYGON ((179.9998596712 -90, 179.9998596712 83.9998604152, -180 83.9998604152, -180 -90, 179.9998596712 -90))');
+////81. Proposed annotation for winter_total_water_budget
+//model
+//'local:alessio.bulckaen:im.data.global:ecdc__climate__winter_total_water_budget__global__1980_2010'
+//as hydrology:WaterVolume of hydrology:WaterBalance during earth:Winter in kg/m^2/year
+//over space(shape='POLYGON ((179.9998596712 -90, 179.9998596712 83.9998604152, -180 83.9998604152, -180 -90, 179.9998596712 -90))');
 
 //annotation of thermal_belts classification
 model 'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belts__global__1950_2000'
@@ -522,582 +512,5 @@ model 'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belts__globa
 		in (6 7)	| ecology:Lowland
 over space(shape='POLYGON ((180 -90, 180 84, -180 84, -180 -90, 180 -90))');
 
-//82. Proposed annotation for thermal_belt_lowland
-//model
-//'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_lowland__global__1970_2000'
-//as type of ecology:MountainClimaticBeltZone
-//over space(shape='POLYGON ((179.9785907 -59.4789377, 179.9785907 83.6458333, -180 83.6458333, -180 -59.4789377, 179.9785907 -59.4789377))');
-//model 'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_lowland__global__1970_2000'
-//  as presence of ecology:Lowland earth:Region; 
-////83. Proposed annotation for thermal_belt_nival
-//model
-//'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_nival__global__1970_2000'
-//as thermal_belt_nival
-//over space(shape='POLYGON ((179.9785907 -59.4789377, 179.9785907 83.6458333, -180 83.6458333, -180 -59.4789377, 179.9785907 -59.4789377))');
-//model 'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_nival__global__1970_2000'
-//  as presence of ecology:Nival earth:Region;
-////84. Proposed annotation for thermal_belt_high_montane
-//model
-//'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_high_montane__global__1970_2000'
-//as thermal_belt_high_montane
-//over space(shape='POLYGON ((179.9785907 -59.4789377, 179.9785907 83.6458333, -180 83.6458333, -180 -59.4789377, 179.9785907 -59.4789377))');
-//model 'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_high_montane__global__1970_2000'
-//  as presence of ecology:UpperMontane earth:Region;
-////85. Proposed annotation for thermal_belt_low_alpine
-//model
-//'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_low_alpine__global__1970_2000'
-//as thermal_belt_low_alpine
-//over space(shape='POLYGON ((179.9785907 -59.4789377, 179.9785907 83.6458333, -180 83.6458333, -180 -59.4789377, 179.9785907 -59.4789377))');
-//model 'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_low_alpine__global__1970_2000'
-//  as presence of ecology:LowerAlpine earth:Region;
-////86. Proposed annotation for thermal_belt_high_alpine
-//model
-//'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_high_alpine__global__1970_2000'
-//as thermal_belt_high_alpine
-//over space(shape='POLYGON ((179.9785907 -59.4789377, 179.9785907 83.6458333, -180 83.6458333, -180 -59.4789377, 179.9785907 -59.4789377))');
-//model 'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_high_alpine__global__1970_2000'
-//  as presence of ecology:UpperAlpine earth:Region;
-////87. Proposed annotation for thermal_belt_low_montane
-//model
-//'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_low_montane__global__1970_2000'
-//as thermal_belt_low_montane
-//over space(shape='POLYGON ((179.9785907 -59.4789377, 179.9785907 83.6458333, -180 83.6458333, -180 -59.4789377, 179.9785907 -59.4789377))');
-//model 'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_low_montane__global__1970_2000'
-//  as presence of ecology:LowerMontane earth:Region;
-
-//88. Proposed annotation for canopy_height
-model 'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__greece__2020'
-	as im:Mean im:Height of ecology:Canopy in m
-	over space(shape='POLYGON ((30 33, 30 42, 18 42, 18 33, 30 33))');
-//89. Proposed annotation for canopy_height
-model 'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__viet_nam__2020'
-	as im:Mean im:Height of ecology:Canopy in m
-	over space(shape='POLYGON ((111 6, 111 24, 102 24, 102 6, 111 6))');
-//90. Proposed annotation for canopy_height
-model 'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__south_africa__2020'
-	as im:Mean im:Height of ecology:Canopy in m
-	over space(shape='POLYGON ((33 -36, 33 -21, 15 -21, 15 -36, 33 -36))');
-////91. Proposed annotation for canopy_height
-model 'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__colombia__2020'
-	as im:Mean im:Height of ecology:Canopy in m
-	over space(shape='POLYGON ((-66 -6, -66 15, -81 15, -81 -6, -66 -6))');
-//92. Proposed annotation for canopy_height
-model 'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__norway__2020'
-	as im:Mean im:Height of ecology:Canopy in m
-	over space(shape='POLYGON ((33 57, 33 72, 3 72, 3 57, 33 57))');
-//93. Proposed annotation for canopy_height
-model 'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__czechia__2020'
-	as im:Mean im:Height of ecology:Canopy in m
-	over space(shape='POLYGON ((21 48, 21 54, 12 54, 12 48, 21 48))');
-//94. Proposed annotation for canopy_cover
-model 'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__greece__2015'
-	as proportion of ecology:CanopyCover
-	over space(shape='POLYGON ((29.6069446286 34.8033392211, 29.6069446286 41.749292661, 19.373696238 41.749292661, 19.373696238 34.8033392211, 29.6069446286 34.8033392211))');
-//95. Proposed annotation for canopy_cover
-model 'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__norway__2015'
-	as percentage of ecology:CanopyCover
-	over space(shape='POLYGON ((31.151148602 57.973675176, 31.151148602 71.185916712, 4.611860837 71.185916712, 4.611860837 57.973675176, 31.151148602 57.973675176))');
-//96. Proposed annotation for canopy_cover
-model 'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__south_africa__2015'
-	as percentage of ecology:CanopyCover
-	over space(shape='POLYGON ((32.9451740559 -34.8343310984, 32.9451740559 -22.1249664587, 16.4518359449 -22.1249664587, 16.4518359449 -34.8343310984, 32.9451740559 -34.8343310984))');
-//97. Proposed annotation for canopy_cover
-model 'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__czechia__2015'
-	as percentage of ecology:CanopyCover
-	over space(shape='POLYGON ((18.8595005694 48.5516054869, 18.8595005694 51.0557491729, 12.0903355774 51.0557491729, 12.0903355774 48.5516054869, 18.8595005694 48.5516054869))');
-//98. Proposed annotation for canopy_cover
-model 'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__viet_nam__2015'
-	as percentage of ecology:CanopyCover
-	over space(shape='POLYGON ((109.4630411365 8.4031106622, 109.4630411365 23.393746966, 102.1435682015 23.393746966, 102.1435682015 8.4031106622, 109.4630411365 8.4031106622))');
-////99. Proposed annotation for canopy_cover
-model 'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__colombia__2015'
-	as percentage of ecology:CanopyCover
-	over space(shape='POLYGON ((-66.86942194 -4.2243276236, -66.86942194 12.4412175274, -78.9953308027 12.4412175274, -78.9953308027 -4.2243276236, -66.86942194 -4.2243276236))');
-//100. Proposed annotation for leaf_area_index
-model
-'local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2024_v2_'
-as ecology:LeafAreaIndex
-over space(shape='POLYGON ((179.9985119064 -59.9985119047, 179.9985119064 80.0014880952, -180 80.0014880952, -180 -59.9985119047, 179.9985119064 -59.9985119047))');
-//100.B Proposed annotation for leaf_area_index
-model
-'local:alessio.bulckaen:esa.aries.sandbox:STAC:LAI:manually_imported'
-as ecology:LeafAreaIndex im:Appropriate
-over space(shape='POLYGON ((179.9985119064 -59.9985119047, 179.9985119064 80.0014880952, -180 80.0014880952, -180 -59.9985119047, 179.9985119064 -59.9985119047))');
 
 
-//101. Proposed annotation for leaf_area_index
-model
-'local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2021'
-as ecology:LeafAreaIndex
-over space(shape='POLYGON ((179.9985119064 -59.9985119047, 179.9985119064 80.0014880952, -180 80.0014880952, -180 -59.9985119047, 179.9985119064 -59.9985119047))');
-//102. Proposed annotation for phenology_mixed
-model
-'local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_mixed__global__2021'
-as presence of ecology:MixedLeafPhenology ecology:Vegetation earth:Region
-over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
-//103. Proposed annotation for phenology_deciduous
-model
-'local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_deciduous__global__2021'
-as presence of ecology:Deciduous ecology:Vegetation earth:Region
-over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
-//104. Proposed annotation for phenology_evergreen
-model
-'local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_evergreen__global__2021'
-as presence of ecology:Evergreen ecology:Vegetation earth:Region
-over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
-//105. Proposed annotation for leaf_area_index
-model
-'local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2018'
-as ecology:LeafAreaIndex
-over space(shape='POLYGON ((179.9985119064 -59.9985119047, 179.9985119064 80.0014880952, -180 80.0014880952, -180 -59.9985119047, 179.9985119064 -59.9985119047))');
-//106. Proposed annotation for phenology_deciduous
-model
-'local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_deciduous__global__2018'
-as presence of ecology:Deciduous ecology:Vegetation earth:Region
-over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
-//107. Proposed annotation for phenology_evergreen
-model
-'local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_evergreen__global__2018'
-as presence of ecology:Evergreen ecology:Vegetation earth:Region
-over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
-//108. Proposed annotation for phenology_mixed
-model
-'local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_mixed__global__2018'
-as presence of ecology:MixedLeafPhenology ecology:Vegetation earth:Region
-over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
-//109. Proposed annotation for specific_leaf_area
-model
-'local:alessio.bulckaen:im.data.global:ecdc__vegetation__specific_leaf_area__global__2000_2020'
-as ratio of  im:Area to im:Mass of biology:Leaf in m^2/kg  
-over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
-//110. Proposed annotation for leaf_size  
-model
-'local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_size__global__2000_2020'
-as im:Area of biology:Leaf in mm^2      
-over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
-
-////Previous annotation
-////1. Proposed annotation for peat_thickness
-//model 'local:alessio.bulckaen:im.data.global:ecdc__soil__peat_thickness__global__2001_2021'
-//as im:Depth of landcover:PeatBog earth:Region in cm
-//over space(shape="POLYGON ((180 -60.007460979, 180 88.007948385, -180 88.007948385, -180 -60.007460979, 180 -60.007460979))");
-////1. Proposed annotation for peat_thickness
-//model
-//'local:alessio.bulckaen:im.data.global:ecdc__soil__peat_thickness__global__2001_2021'
-//as im:Depth of landcover:PeatBog earth:Region in cm
-//over space(shape='POLYGON ((180 -60.007460979, 180 88.007948385, -180 88.007948385, -180 -60.007460979, 180 -60.007460979))');
-//
-//
-//// 2. Proposed annotation for fertility
-//// Description: Soil ability to supply nutrients (ratings 0-1).
-//// Note: The 'classes' column maps integer codes (0-10) to value ranges (0.0-0.1, etc.).
-//// We discretize these codes into the midpoint of each range (e.g., 1 -> 0.05).
-//// Codes 11-14 represent non-soil features (steep slopes, water) and are mapped to unknown.
-//model 'local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020'
-//	as soil.incubation:SoilFertilityType classified into
-//  	soil.incubation:Infertile if (0 1 2),
-//	soil.incubation:LowFertility if (3 4),
-//	soil.incubation:ModerateFertility if (5 6 7),
-//	soil.incubation:HighFertility if (8 9 10)
-//over space(shape="POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))");
-////	soil.incubation:SteepTerrainSlope if (11),
-////	soil.incubation:PermafrostGalcier if (12); 
-//   
-////  discretized into 
-////    0 if 0,             // Value 0
-////    0.05 if 1,          // Range 0.0-0.1
-////    0.15 if 2,          // Range 0.1-0.2
-////    0.25 if 3,          // Range 0.2-0.3
-////    0.35 if 4,          // Range 0.3-0.4
-////    0.45 if 5,          // Range 0.4-0.5
-////    0.55 if 6,          // Range 0.5-0.6
-////    0.65 if 7,          // Range 0.6-0.7
-////    0.75 if 8,          // Range 0.7-0.8
-////    0.85 if 9,          // Range 0.8-0.9
-////    0.95 if 10;         // Range 0.9-1.0
-////    unknown if 11,      // Steep_terrain_slopes
-////    unknown if 12,      // Permafrost_Glacier
-////    unknown if 13,      // Miscellaneous_Unit_No_information
-////    unknown if 14;      // Water
-//
-//// 3. Proposed annotation for nitrogen
-//// Description: Concentration of nitrogen in the soil.
-//// Concept: Modeled as a proportion (mass fraction) of Nitrogen within Soil.
-//// Note: Unit g/kg [1] is compatible with the proportion operator [625].
-//model 'local:alessio.bulckaen:im.data.global:ecdc__soil__nitrogen__global__1995_2019'
-//	as proportion of chemistry:Nitrogen in soil:Soil //  in g/kg;
-//	over space(shape="POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))");
-//
-//// 4. Proposed annotation for base_saturation
-//// Description: Fraction of cation exchange capacity (CEC) occupied by basic cations.
-//// Concept: 'soil:BaseSaturation' is the standard concept for this fraction.
-//// Note: Defined in % [1].
-//model 'local:alessio.bulckaen:im.data.global:ecdc__soil__base_saturation__global__1995_2019' 
-//  as percentage of soil:Soil;
-////  as soil:BaseSaturation 
-////  in percentage; // in % is in percentage
-//
-//// 5. Proposed annotation for tropical_storms_exposure
-//// Description: Mean maximum windspeed of intense weather events (tropical storms).
-//// Concept: Aggregation (Mean of Maximum) of WindSpeed [298] inherent to Storm events.
-//// Note: Unit is knots [1].
-//model 'local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__tropical_storms_exposure__global__1990_2015' 
-//  as im:Mean im:Maximum earth:WindSpeed of earth:Storm in kn
-//  over space(shape="POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))");
-//
-//// 6. Proposed annotation for tidal_zone_intertidal
-//// Description: Binary mask indicating intertidal zones (0=other, 1=intertidal).
-//// Concept: 'landcover:IntertidalFlat' is defined in the landcover namespace as a child of CoastalWetland.
-//// Note: Uses 'set to' to handle the binary value 1.
-//model 'local:alessio.bulckaen:im.data.global:ecdc__oceanography__tidal_zone_intertidal__global__2000_2020' 
-//  as presence of earth:Wetland by earth:Coast
-//  //  as presence of landcover:IntertidalFlat 
-//  set to [self == 1]
-//  over space(shape="POLYGON ((180 -60.0000049623, 180 60.0000049623, -180 60.0000049623, -180 -60.0000049623, 180 -60.0000049623))");
-// 
-//// 7. Proposed annotation for annual_total_net_primary_productivity
-//// Description: Annual amount of energy/biomass produced by plants.
-//// Concept: 'ecology:NetPrimaryProduction' is a standard quality in the ecology namespace.
-//// Note: Assuming unit is g/m^2/day (mass flux) or similar based on standard NPP datasets.
-//@intensive(space)
-//@intensive(time)
-//model 'local:alessio.bulckaen:im.data.global:ecdc__ecology__annual_total_net_primary_productivity__global__2000_2020' 
-//  as ecology:NetPrimaryProduction in g/m^2/day; // unit in STAC is g/m^2/day but likely wrong, to be annualized anyways
-//
-//// 8. Proposed annotation for floodplain
-//// Description: Areas prone to flooding.
-//// Concept: 'earth:Floodplain' is defined in earth.kim under HydrologicallyRelevantRegion.
-//// Note: The previous description indicated 0="floodplain", so the presence is set to [self == 0].
-//model 'local:alessio.bulckaen:im.data.global:ecdc__hydrology__floodplain__global__2000_2020' 
-//  as presence of hydrology:Floodplain 
-//  set to [self == 0];
-//
-//// 9. Proposed annotation for geothermal_heat_flow
-//// Description: Heat flow from Earth's crust.
-//// Concept: Modeled as Thermal Power per Area (Flux) within the Crust.
-//// Note: 'physical:Thermal' and 'earth:Crust' define the nature and context.
-//model 'local:alessio.bulckaen:im.data.global:ecdc__geophysics__geothermal_heat_flow__global__2000_2020' 
-// // as physical:Thermal im:Power per im:Area within earth:Crust in mW/m^2;
-// // as physical:Thermal im:Energy within earth:Crust earth:Region in mW/m^2;
-// as earth:Crust physical:Thermal im:Energy in mW/m^2;
-//  
-//
-//// 10. Proposed annotation for wildfire_recurrence
-//// Description: Mean number of years between wildfires.
-//// Concept: The 'im:Period' (inverse of frequency) of the 'chemistry:Fire' event.
-//// Note: 'chemistry:Fire' is defined in chemistry.kim as a child of Reaction.
-//model 'local:alessio.bulckaen:im.data.global:ecdc__naturalhazards__wildfire_recurrence__global__2000_2020' 
-//  as count of im:Yearly im:Occurrence of chemistry:Fire in year;
-////  as im:Period of chemistry:Fire in year; //TODO: add concept for Year
-////Key Annotation Details,,
-////• landcover:IntertidalFlat: Selected from src\landcover.kim as the specific concept for tidal zones.
-////• earth:Floodplain: Selected from src\earth.kim, identified as a child of HydrologicallyRelevantRegion.
-////• chemistry:Fire: Selected from src\chemistry.kim, where Fire is defined as a Reaction event. This allows the use of im:Period (defined in im.kim) to describe the recurrence interval.
-////• ecology:NetPrimaryProduction: Explicitly defined in src\ecology.kim as a child of PrimaryProduction.
-//
-//// 11. Proposed annotation for periodicity (Wildfire)
-//// Description: Regularity/recurrence of wildfires. 1 = periodic fire occurrence.
-//// Concept: 'im:Regularity' captures the pattern of recurrence.
-//model 'local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__periodicity__global__2002_2024'
-//  as presence of im:Regular chemistry:Fire
-//  set to [self == 1];
-//
-//// 12. Proposed annotation for biotic_assemblage_pinniped_colonies
-//// Description: Areas used by seals (pinnipeds).
-//// Concept: Presence of a specific fauna family. Pinnipeds are a clade; mapped generally to Fauna here.
-//model 'local:alessio.bulckaen:im.data.global:ecdc__bioticassemblages__biotic_assemblage_pinniped_colonies__global__2022'
-//  as presence of GBIF.SPECIES:4941589 ecology:Population
-////  as presence of Pinniped colonies
-//  set to [self > 0];
-//
-//// 13-18. Proposed annotation for hydroform_meander (National)
-//// Description: Proxy for oxbow lakes (cut-off meanders).
-//// Concept: Mapped to earth:Lake (or specific OxbowLake if available).
-//model
-//  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__norway__2016',
-//  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__south_africa__2016',
-//  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__czechia__2016',
-//  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__colombia__2016',
-//  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__viet_nam__2016',
-//  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__greece__2016'
-//  as presence of hydrology.incubation:RiverMeander // Potential Oxbow
-//  set to [self == 1];
-//
-//// 19-24. Proposed annotation for hydroform_waterbody (National)
-//// Description: Lakes extent.
-//model
-//  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_waterbody__colombia__2013',
-//  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_waterbody__greece__2013',
-//  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_waterbody__south_africa__2013',
-//  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_waterbody__norway__2013',
-//  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_waterbody__viet_nam__2013',
-//  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_waterbody__czechia__2013'
-//  as presence of earth:Lake
-//  set to [self == 1];
-//
-//// 25-30. Proposed annotation for watershed_hierarchy (National)
-//// Description: Hierarchical classification (river order) of streams.
-//// Concept: 'hydrology:StreamOrder' is explicitly defined in hydrology.kim.
-//model
-//  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__colombia__2013',
-//  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__greece__2013',
-//  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__norway__2013',
-//  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__czechia__2013',
-//  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__viet_nam__2013',
-//  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__south_africa__2013'
-//  as hydrology:StreamOrder of hydrology:Watershed;
-//
-//// 31-36. Proposed annotation for hydroform_watercourse (National)
-//// Description: Stream hierarchy similar to watershed_hierarchy (classes 1-7).
-//// Concept: Annotated as StreamOrder given the classes match the hierarchy data.
-//model
-////  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_watercourse__colombia__2013',
-//  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_watercourse__greece__2013'
-////  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_watercourse__norway__2013',
-////  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_watercourse__czechia__2013',
-////  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_watercourse__viet_nam__2013',
-////  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_watercourse__south_africa__2013'
-//  as hydrology:StreamOrder of earth:Stream;
-//
-//// 37. Proposed annotation for hydroform_watercourse (Global)
-//// Description: Global river width/mask (GRWL). Classes: 255=River, 180=Lake, etc.
-//// Concept: Land cover classification specialized for water.
-//model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_watercourse__global__2018'
-////  as im:Minimum im:Area of earth:WaterBody in km^2
-////  classified into
-////    landcover:Watercourse if 255,
-////    landcover:Lake if 180,
-////    landcover:Estuary if 126, // Tidal rivers
-////    landcover:Canal if 86,
-////    landcover:LandSurface if 0;
-//as hydrology:WaterBodyType classified into
-//    hydrology:River if 255,
-//    hydrology:Lake if 180,
-//    hydrology:TidalRiver if 126;
-//    
-//
-//
-//// 38-41. Proposed annotation for occurrence_regime (Global)
-//// Description: Ephemeral, Episodic, Seasonal, Permanent water.
-//// Concept: 'hydrology:WaterPermanence' attributes (Permanent, Seasonal, etc.).
-//// Note: Mapped to presence of water body with specific permanence trait.
-//model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_episodic__global__1984_2021'
-//  as presence of hydrology:Episodic earth:WaterBody set to [self == 1];
-//
-//model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_ephemeral__global__1984_2021'
-//  as presence of hydrology:Ephemeral earth:WaterBody set to [self == 1];
-//
-//model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_seasonal__global__1984_2021'
-//  as presence of hydrology:Seasonal earth:WaterBody set to [self == 1];
-//
-//model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_permanent__global__1984_2021'
-//  as presence of hydrology:Permanent earth:WaterBody set to [self == 1];
-//
-//// 42-47. Proposed annotation for managed_waters_canal (National)
-//// Description: Man-made watercourse.
-//model
-//  'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__czechia__2025',
-//  'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__greece__2025',
-//  'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__south_africa__2025',
-//  'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__viet_nam__2025',
-//  'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__colombia__2025',
-//  'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__norway__2025'
-//  as presence of landcover:Canal earth:Stream
-//  set to [self == 1];
-//
-//// 48-53. Proposed annotation for managed_waters_reservior (National)
-//// Description: Artificial waterbody for storage.
-//model
-//  'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservior__czechia__2022',
-//  'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservior__south_africa__2022',
-//  'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservior__greece__2022',
-//  'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservior__colombia__2022',
-//  'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservior__viet_nam__2022',
-//  'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservior__norway__2022'
-//  as presence of landcover:Reservoir earth:WaterBody
-//  set to [self == 1];
-//
-//// 54. Proposed annotation for managed_waters_aquaculture
-//// Description: Freshwater aquaculture.
-//model 'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_aquaculture__czechia_greece_norway__2017'
-//  as presence of landcover:ContinentalAquaculturePond earth:WaterBody
-//  set to [self == 1];
-//
-//// 55-58. Proposed annotation for managed_waters_mariculture
-//// Description: Marine aquaculture (farms).
-//model
-//  'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_mariculture__greece__2017',
-//  'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_mariculture__colombia__2017',
-//  'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_mariculture__norway__2017',
-//  'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_mariculture__south_africa__2017',
-//  'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_mariculture__viet_nam__2017'
-//  as presence of landcover:MarineAquaculturePond earth:WaterBody
-//  set to [self == 1];
-//
-//// 59. Proposed annotation for mining_areas
-//// Description: Land used by mining activities. Unit: km2 (implies area/fraction per pixel).
-//model 'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__mining_areas__global__2000_2019'
-//  as im:Area of landcover:MineralExtraction earth:Region
-//  in km^2;
-//
-//// 60-61. Proposed annotation for summer/winter_mean_diurnal_air_temperature
-//// Description: Mean diurnal temperature in Summer/Winter.
-//model 'local:alessio.bulckaen:im.data.global:ecdc__climate__summer_mean_diurnal_air_temperature__global__1981_2010'
-//  as im:Mean earth:AtmosphericTemperature during earth:Summer in degrees
-//  set to [self * 0.1 - 273.15];
-////TODO: check if original value degC/10 corresponds to degress after the transformation  
-//// Converted from raw via [self * 0.1 - 273.15] if needed, but here stating unit.
-//
-//model 'local:alessio.bulckaen:im.data.global:ecdc__climate__winter_mean_diurnal_air_temperature__global__1981_2010'
-//  as im:Mean earth:AtmosphericTemperature during earth:Winter in degrees
-//  set to [self * 0.1 - 273.15];
-////TODO:check  in degC/10;
-//
-//// 62. Proposed annotation for potential_tree_growth
-//// Description: Where trees can potentially occur (binary).
-//model 'local:alessio.bulckaen:im.data.global:ecdc__climate__potential_tree_growth__global__1981_2010'
-//  as im:Potential presence of ecology:Tree
-//  set to [self == 1];
-//
-//// 63. Proposed annotation for seasonal_amplitude_diurnal_air_temperature
-//// Description: Difference between highest and lowest diurnal temperatures.
-//model 'local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_amplitude_diurnal_air_temperature__global__1981_2010'
-//  as im:Daily change of earth:AtmosphericTemperature in degrees
-//  set to [[self * 0.1 - 273.15];
-////TODO: semantic annotation of ThermicExcusion or Tempearture Variability - potentially add im:Variability or im:Range
-////  as im:Range earth:AtmosphericTemperature
-////  in 'degC/10';
-//
-//// 64. Proposed annotation for seasonal_variability_diurnal_air_temperature
-//// Description: Variability of mean diurnal air temperatures.
-//model 'local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_variability_diurnal_air_temperature__global__1981_2010'
-//  as change in im:Mean im:Daily earth:AtmosphericTemperature over im:Season in degrees
-//  set to [[self * 0.1 - 273.15];
-////  as im:Variability earth:AtmosphericTemperature
-////  in 'degC/10';
-//
-//// 65. Proposed annotation for annual_mean_precipitation
-//model 'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_mean_precipitation__global__1981_2010'
-//  as im:Mean earth:PrecipitationVolume in kg/m^2/month; // Source says kg m-2 month-1
-//
-//// 66. Proposed annotation for annual_mean_diurnal_air_temperature
-//model 'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_mean_diurnal_air_temperature__global__1981_2010'
-//  as im:Mean earth:AtmosphericTemperature in degrees;//in 'degC/10';
-//
-//// 67. Proposed annotation for annual_total_water_budget
-//// Description: Mean water budget (P - PET?).
-//model 'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_total_water_budget__global__1981_2010'
-//  as im:Mean hydrology:WaterVolume of hydrology:WaterBalance in kg/m^2/year;
-//
-//// 68. Proposed annotation for winter_total_water_budget
-//model 'local:alessio.bulckaen:im.data.global:ecdc__climate__winter_total_water_budget__global__1980_2010'
-//  as hydrology:WaterVolume of hydrology:WaterBalance during earth:Winter in kg/m^2/year;
-////  as im:Total hydrology:WaterBalance during earth:Winter in 'kg/m^2/year';
-//
-//// 69-73. Proposed annotation for thermal_belts
-//// Description: Thermal zones (Nival, Alpine, Montane, etc.).
-//// Concept: 'ecology:ClimateRegion' or similar.
-//model 'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_lowland__global__1970_2000'
-//  as presence of ecology:Lowland earth:Region; // Or specific thermal belt concept
-//
-//model 'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_nival__global__1970_2000'
-//  as presence of ecology:Nival earth:Region; // Need to ensure these exist in ecology.kim or define them
-//
-//model 'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_high_montane__global__1970_2000'
-//  as presence of ecology:UpperMontane earth:Region;
-//
-//model 'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_low_alpine__global__1970_2000'
-//  as presence of ecology:LowerAlpine earth:Region;
-//
-//model 'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_high_alpine__global__1970_2000'
-//  as presence of ecology:UpperAlpine earth:Region;
-//
-//model 'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belt_low_montane__global__1970_2000'
-//  as presence of ecology:LowerMontane earth:Region;
-//  
-////Asked to merge into a single resource
-//
-//// 74-79. Proposed annotation for canopy_height (National)
-//// Description: Mean vegetation height.
-//model
-//  'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__greece__2020',
-//  'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__viet_nam__2020',
-//  'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__south_africa__2020',
-//  'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__colombia__2020',
-//  'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__norway__2020',
-//  'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__czechia__2020'
-//  as im:Mean im:Height of ecology:Canopy in m;
-//
-//// 80-85. Proposed annotation for canopy_cover (National)
-//// Description: Mean proportion of ground covered by tree/shrub canopies.
-//model
-//  'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__greece__2015',
-//  'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__norway__2015',
-//  'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__south_africa__2015',
-//  'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__czechia__2015',
-//  'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__viet_nam__2015',
-//  'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__colombia__2015'
-//  as percentage of ecology:CanopyCover;
-//
-//// 86-87, 107. Proposed annotation for leaf_area_index (Global)
-//model
-//  'local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2024',
-//  'local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2021',
-//  'local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2018'
-//  as ecology:LeafAreaIndex;
-//
-//// 88-90, 108-110. Proposed annotation for phenology (Mixed, Deciduous, Evergreen)
-//model
-//  'local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_mixed__global__2021',
-//  'local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_mixed__global__2018'
-//  as presence of ecology:MixedLeafPhenology ecology:Vegetation earth:Region;
-//  //as presence of ecology:MixedForest ecology:Forest earth:Region; // Using 'Mixed' trait directly or MixedForest
-//	
-//model
-//  'local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_deciduous__global__2021',
-//  'local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_deciduous__global__2018'
-//  as presence of ecology:Deciduous ecology:Vegetation earth:Region;
-//
-//model
-//  'local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_evergreen__global__2021',
-//  'local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_evergreen__global__2018'
-//  as presence of ecology:Evergreen ecology:Vegetation earth:Region;
-//
-//// 91-106. Note: These correspond to hydroform morphology area/density
-//// Description: Average surface area during driest season / Density of water.
-//// Concept: Morphology area -> im:Area of WaterBody; Density -> im:Density of WaterBody.
-//@extensive(space)
-//model
-////  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__south_africa__2013_2020',
-////  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__czechia__2013_2020',
-//  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__greece__2013_2020'
-////  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__viet_nam__2013_2020',
-////  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__colombia__2013_2020',
-////  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__norway__2013_2020'
-//  as im:Minimum im:Area of earth:WaterBody in km^2;
-////  as im:Minimum im:Area of hydrology:Watershed in km^2;
-//
-//model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__greece__2013_2020'
-//	as im:Minimum im:Area of earth:WaterBody in km^2
-//	over space(shape="POLYGON ((30.295365 34.8, 30.295365 42.396401, 19.261895 42.396401, 19.261895 34.8, 30.295365 34.8))");
-// 
-//model
-//  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__south_africa__2013_2020',
-//  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__czechia__2013_2020',
-//  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__greece__2013_2020',
-//  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__viet_nam__2013_2020',
-//  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__colombia__2013_2020',
-//  'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__norway__2013_2020'
-//  as percentage of im:Density hydrology:WaterVolume of hydrology:Watershed;
-//
-//// 111. Proposed annotation for specific_leaf_area
-//// Description: Total area of leaves relative to dry mass (SLA).
-//// Concept: Area per Mass.
-//model 'local:alessio.bulckaen:im.data.global:ecdc__vegetation__specific_leaf_area__global__2000_2020'
-//  as ratio of biology:Leaf im:Area to im:Mass in m^2/kg;
-//
-//// 112. Proposed annotation for leaf_size
-//// Description: Projected area of a leaf.
-//model 'local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_size__global__2000_2020'
-//  as biology:Leaf im:Area in mm^2;
-//

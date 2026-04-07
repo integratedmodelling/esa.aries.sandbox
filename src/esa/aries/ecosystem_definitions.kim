@@ -262,24 +262,25 @@ define BIOME_T1_TROPICALSUBTROPICALFOREST_ECOSYSTEM_TYPES as {{
 }};
 
 //T1
+
 model nca.ecosystem.iucn:TropicalSubtropicalForest type of nca.ecosystem.iucn:Ecosystem
 observing
 landcover:LandCoverType named landcover,
 presence of earth:Tropical earth:Storm with im:High earth:WindSpeed named tropical_storms_exposure,
 level of im:Daily im:Differential im:Yearly earth:AtmosphericTemperature named annual_diurnal_air_temperature_mean,
-level of im:Mean earth:PrecipitationVolume named annual_precipitation_total,
+level of earth:PrecipitationVolume named annual_precipitation_total,
 level of (im:Mean hydrology:WaterVolume of hydrology:WaterBalance) named annual_water_budget_total,
 level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability,
 type of ecology:MountainClimaticBeltZone named thermal_belts,
 level of (hydrology:WaterVolume of hydrology:WaterBalance during earth:Winter) named winter_water_budget_total,
 level of ecology:NetPrimaryProduction named annual_net_primary_productivity_total,
 level of (percentage of (chemistry:Basic chemistry:ExchangeCapacity) in (chemistry:ExchangeCapacity of chemistry:Cation)) named chemical_properties_base_saturation,
-proportion of ecology:CanopyDensity named canopy_cover,
-im:Mean im:Height of ecology:Canopy named canopy_height,
+level of (proportion of ecology:CanopyDensity) named canopy_cover,
+level of (im:Mean im:Height of ecology:Canopy) named canopy_height,
 ecology:LeafAreaIndex named leaf_area_index,
-im:Area of biology:Leaf named leaf_size,
+level of (im:Area of biology:Leaf) named leaf_size,
 type of ecology:LeafPhenology named phenology,
-ratio of im:Area to im:Mass of biology:Leaf named specific_leaf_area
+level of (ratio of im:Area to im:Mass of biology:Leaf) named specific_leaf_area
 lookup (landcover, tropical_storms_exposure, annual_diurnal_air_temperature_mean, annual_precipitation_total, annual_water_budget_total, seasonal_diurnal_air_temperature_variability, thermal_belts, winter_water_budget_total, annual_net_primary_productivity_total, chemical_properties_base_saturation, canopy_cover, canopy_height, leaf_area_index, leaf_size, phenology, specific_leaf_area, ?)
 into BIOME_T1_TROPICAL_SUBTROPICAL_FOREST_ECOSYSTEM_TYPES;
 

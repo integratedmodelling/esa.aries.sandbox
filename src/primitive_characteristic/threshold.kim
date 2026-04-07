@@ -249,14 +249,14 @@ observing im:Depth of landcover:PeatBog earth:Region in cm named depth_peat_bog/
 
 
 //annotation of base_saturation thresholds
-//model level of percentage of (chemistry:Basic chemistry:ExchangeCapacity) in (chemistry:ExchangeCapacity of chemistry:Cation)
-//observing percentage of (chemistry:Basic chemistry:ExchangeCapacity) in (chemistry:ExchangeCapacity of chemistry:Cation) named base_saturation
-//lookup (base_saturation) into
-//base_saturation | category
-//--------------------------
-//		   < 49 | im:Low,
-//	   50 to 69 | im:Moderate,
-//	  70 to 100 | im:High;
+model 'local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_base_saturation__global__1995_2019'
+	as level of (percentage of (chemistry:Basic chemistry:ExchangeCapacity) in (chemistry:ExchangeCapacity of chemistry:Cation)) named chemical_properties_base_saturation
+	lookup (self,?) into
+	base_saturation | category
+	--------------------------
+			   < 49 | im:Low,
+		   50 to 69 | im:Moderate,
+		  70 to 100 | im:High;
 
 
 
@@ -283,6 +283,29 @@ observing im:Depth of landcover:PeatBog earth:Region in cm named depth_peat_bog/
 //				  900 to 2000 | im:High,
 //						>2000 | im:VeryHigh;
 
+//annotation of annual_precipitation_total thresholds
+model 'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation_total__global__1981_2010'
+as level of earth:PrecipitationVolume  named annual_precipitation_total_level
+	lookup(self,?) into
+    self 		| category
+	-------------------------
+	<200    	| im:VeryLow,
+	200 to 300 	| im:Low,
+	300 to 900 	| im:Moderate,
+	900 to 2000	| im:High,
+	 >2000   	| im:VeryHigh
+over space(shape='POLYGON ((180 -90, 180 84, -180 84, -180 -90, 180 -90))');
+
+//model 'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation_total__global__1981_2010'
+// as level of earth:PrecipitationVolume classified into
+//	im:VeryLow 	if <200,
+//	im:Low 		if in (200 to 300),
+//    im:Moderate if in (300 to 900),
+//	im:High 	if in (900 to 2000),
+//	im:VeryHigh if >=2000;
+////over space(shape='POLYGON ((180 -90, 180 84, -180 84, -180 -90, 180 -90))');
+
+
 //annotation of annual_total_water_budget thresholds
 //model level of (im:Mean hydrology:WaterVolume of hydrology:WaterBalance) 
 //observing im:Mean hydrology:WaterVolume of hydrology:WaterBalance in kg/m^2 named annual_total_water_budget
@@ -295,17 +318,34 @@ observing im:Depth of landcover:PeatBog earth:Region in cm named depth_peat_bog/
 //					 1 to 499 | im:ModeratelyHigh,
 //						 >500 | im:High;
 
+//annotation of annual_water_budget_total thresholds
+model 'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total__global__1981_2010'
+as level of (im:Mean hydrology:WaterVolume of hydrology:WaterBalance) named annual_water_budget_total
+	lookup (self,?) into
+   annual_water_budget_total| category
+   --------------------------------------------
+					<-500 	| im:Low,
+				  -499 to -1| im:ModeratelyLow,
+				  1 to 499  | im:ModeratelyHigh,
+				    >500    | im:High
+over space(shape='POLYGON ((180 -90, 180 84, -180 84, -180 -90, 180 -90))');
+
+
 //annotation of winter_total_water_budget thresholds
-//model level of (hydrology:WaterVolume of hydrology:WaterBalance during earth:Winter)
 //observing hydrology:WaterVolume of hydrology:WaterBalance during earth:Winter in kg/m^2 named winter_total_water_budget
-//lookup (winter_total_water_budget) into
-//	winter_total_water_budget | category
-//	---------------------------------------
-//					   < -500 | im:VeryLow,
-//	 			   -500 to -1 | im:Low,
-//				      -1 to 1 | im:Moderate,
-//					 1 to 499 | im:High,
-//						> 500 | im:VeryHigh;
+model 'local:alessio.bulckaen:im.data.global:ecdc__climate__winter_water_budget_total__global__1980_2010'
+as level of (hydrology:WaterVolume of hydrology:WaterBalance during earth:Winter) named winter_water_budget_total
+lookup (self,?) into
+	winter_total_water_budget | category
+	---------------------------------------
+					   < -500 | im:Low,
+	 			   -500 to -1 | im:ModeratelyLow,
+				      -1 to 1 | im:Moderate,
+					 1 to 499 | im:ModeratelyHigh,
+						> 500 | im:High;
+//over space(shape='POLYGON ((180 -90, 180 84, -180 84, -180 -90, 180 -90))');
+
+
 
 //annotation of annual_mean_diurnal_air_temperature thresholds 
 model level of im:Mean im:Yearly earth:AtmosphericTemperature
@@ -421,17 +461,19 @@ model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__colo
 	   65 to 100  | ecology:Dense;	
 
 //annotation of canopy_height thresholds
-//model level of (im:Mean im:Height of ecology:Canopy)
+model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__greece__2020
+as level of (im:Mean im:Height of ecology:Canopy)
 //observing im:Mean im:Height of ecology:Canopy in m named canopy_height
-//lookup (canopy_height) into
-//	canopy_height | category
-//	------------------------
-//				0 | ecology:Absent,
-//		   0 to 1 | im:VeryLow,
-//		   1 to 5 | im:Low,
-//		  5 to 20 | im:Moderate,
-//		 20 to 40 | im:High,
-//			 > 40 | im:VeryHigh;
+	lookup (self) into
+	canopy_height | category
+	------------------------
+				0 | ecology:Absent,
+		   0 to 1 | im:VeryLow,
+		   1 to 5 | im:Low,
+		  5 to 20 | im:Moderate,
+		 20 to 40 | im:High,
+			 > 40 | im:VeryHigh;
+//over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
 
 ////annotation of specific_leaf_area thresholds
 //model level of (ratio of  im:Area to im:Mass of biology:Leaf)
@@ -456,32 +498,35 @@ specific_leaf_area | category
 				>8 | im:High
 over space(shape='POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))');
 
-//annotation of leaf_size thresholds
-model level of (im:Area of biology:Leaf)
-observing im:Area of biology:Leaf in mm^2 named leaf_size
-	lookup(leaf_size) into
-		leaf_size | category
-		-----------------------
+//annotation of leaf_area_index thresholds
+model 
+//local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2024,
+//local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2021,
+local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2018
+as ecology:LeafAreaIndex named leaf_area_index
+	lookup (self,?) into
+	leaf_area_index|category
+	-----------------------------
 				<0| im:VeryLow,
 		   0 to 3 | im:Low,
 		   3 to 5 | im:Moderate,
 		   5 to 8 | im:High,
 			   >8 | im:VeryHigh;
+//over space(shape='POLYGON ((-65.33 -6.3, -65.33 12.63, -80 12.63, -80 -6.3, -65.33 -6.3))');
 
-
-//annotation of leaf_area_index thresholds
-model level of ecology:LeafAreaIndex
-observing ecology:LeafAreaIndex named leaf_area_index
-lookup (leaf_area_index) into
-	leaf_area_index | category
-	-------------------------------------
-			0 to 25 | ecology:Leptophyll,
-		  25 to 225 | ecology:Nanophyll,
-		225 to 2025 | ecology:Microphyll,
-	   2025 to 4500 | ecology:Notophyll,
-	  4500 to 18225 | ecology:Mesophyll,
-	18225 to 164025 | ecology:Macrophyll,
-		   > 164025 | ecology:Megaphyll; 
+////annotation of leaf_area_index thresholds
+//model level of ecology:LeafAreaIndex
+//observing ecology:LeafAreaIndex named leaf_area_index
+//lookup (leaf_area_index) into
+//	leaf_area_index | category
+//	-------------------------------------
+//			0 to 25 | ecology:Leptophyll,
+//		  25 to 225 | ecology:Nanophyll,
+//		225 to 2025 | ecology:Microphyll,
+//	   2025 to 4500 | ecology:Notophyll,
+//	  4500 to 18225 | ecology:Mesophyll,
+//	18225 to 164025 | ecology:Macrophyll,
+//		   > 164025 | ecology:Megaphyll; 
 
 
 
@@ -580,11 +625,27 @@ model local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__coast
 	                	
 	   
 //annotation of tropical_storms_exposure_presence
-
 number local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__tropical_storms_exposure__global__1990_2015 as test_tropical_storm;
 
 model local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__tropical_storms_exposure__global__1990_2015
 	as presence of ecology:Tropical earth:Region with im:Mean im:Maximum earth:WindSpeed of earth:Storm named tropical_storms_exposure
 	set to [self >= 50]
 	over space(shape="POLYGON ((180 -42, 180 66.60000000000001, -176.3 66.60000000000001, -176.3 -42, 180 -42))");
-	   	
+
+
+//annotation of leaf_size thresholds
+model level of (im:Area of biology:Leaf) named leaf_size_typology
+observing
+	im:Area of biology:Leaf named leaf_size
+	lookup (leaf_size,?) into
+		  leaf_size | category
+	-------------------------------------
+	    0 to 25 	| ecology:Leptophyll,
+	   25 to 225    | ecology:Nanophyll,
+	  225 to 2025   | ecology:Microphyll,
+	 2025 to 4500   | ecology:Notophyll,
+	 4500 to 18225  | ecology:Mesophyll,
+	18225 to 164025 | ecology:Macrophyll,
+		  >= 164025 | ecology:Megaphyll; 
+//over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
+  	
