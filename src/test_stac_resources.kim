@@ -37,7 +37,7 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation_
 				         > 2000		| im:VeryHigh ;
 
 model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total__global__1981_2010 
-	as level of im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance named annual_total_water_budget_level
+	as level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance) named annual_total_water_budget_level
 	lookup(self, ?) into
 		  annual_water_budget_total | category
 		-------------------------------------------------
@@ -45,6 +45,16 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_t
 		  -499 to -1				| im:ModeratelyLow  ,
 			 1 to 499				| im:ModeratelyHigh ,
 				> 500				| im:High			;
+				
+model local:alessio.bulckaen:im.data.global:ecdc__climate__winter_water_budget_total__global__1980_2010 
+	as level of (hydrology:WaterVolume caused by hydrology:WaterBalance during earth:Winter) named winter_total_water_budget_level
+	lookup(self, ?) into
+		  winter_water_budget_total | category
+		--------------------------------------------------
+					  < -500		| im:Low			,
+		 		-499 to -1			| im:ModeratelyLow	,
+				   1 to 499			| im:ModeratelyHigh ,
+					  > 500			| im:High			;
 
 model local:alessio.bulckaen:im.data.global:ecdc__bioticassemblages__biotic_assemblage_pinniped_colonies__global__2022
 	as presence of GBIF.SPECIES:4941589 ecology:Population named biotic_assemblage_pinniped_colonies_presence
@@ -300,7 +310,15 @@ model level of im:Mean earth:AtmosphericTemperature during earth:Winter named wi
 					18 to 22					| ecology.incubation:Warm	  		,
 					22 to 28					| ecology.incubation:Hot 			;		
 
-number local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belts__global__1950_2000 as test_thermal_belts76;
+model local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belts__global__1950_2000 
+	as type of ecology:MountainClimaticBeltZone named thermal_belts_type
+	classified into
+		ecology:UpperAlpine  if 2,
+		ecology:LowerAlpine  if 3,
+		ecology:UpperMontane if 4,
+		ecology:LowerMontane if 5,
+		ecology:Lowland 	 if in (6, 7);
+	
 number local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone_intertidal__global__2017_2019 as test_tidal_zone_intertidal77;
 
 model local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__tropical_storms_exposure__global__1990_2015
@@ -323,7 +341,6 @@ number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydro
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__colombia__2013_2020 as test_watershed_hydroform_density86;
 
 
-number local:alessio.bulckaen:im.data.global:ecdc__climate__winter_water_budget_total__global__1980_2010 as test_winter_water_budget_total88;
 
 
 
