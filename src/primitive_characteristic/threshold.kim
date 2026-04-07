@@ -387,11 +387,30 @@ model  'local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__vi
 	lookup (self, ?) into
 	 canopy_cover | category
 	------------------------------
-		 	   0  | im:None,		//ecology:Absent,
-		 1 to 15  | im:Low,		//ecology:Sparse,
-		15 to 65  | im:Moderate,	//ecology:Open,
-	   65 to 100  | im:High;		//ecology:Dense;
+		 	   0  | ecology:Absent,		
+		 1 to 15  | ecology:Sparse,		
+		15 to 65  | ecology:Open,	
+	   65 to 100  | ecology:Dense;	
  
+model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__greece__2015 
+	as level of ecology:CanopyCover named canopy_cover_level
+	lookup (self, ?) into
+	 canopy_cover | category
+	------------------------------
+		 	   0  | ecology:Absent,		
+		 1 to 15  | ecology:Sparse,		
+		15 to 65  | ecology:Open,	
+	   65 to 100  | ecology:Dense;	
+
+model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__colombia__2015 
+	as level of ecology:CanopyCover named canopy_cover_level
+	lookup (self, ?) into
+	 canopy_cover | category
+	------------------------------
+		 	   0  | ecology:Absent,		
+		 1 to 15  | ecology:Sparse,		
+		15 to 65  | ecology:Open,	
+	   65 to 100  | ecology:Dense;	
 
 //annotation of canopy_height thresholds
 //model level of (im:Mean im:Height of ecology:Canopy)
