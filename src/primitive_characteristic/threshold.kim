@@ -1,5 +1,5 @@
 project private namespace primitive_characteristic.threshold
-using ecology.incubation;
+using primitive_characteristic;
 
 //TODO:Add proper concepts
 identity Variability;
@@ -98,7 +98,69 @@ time(start=2015, end=2016, step=1.year);
  * If any doubt check original classification here:
  * https://docs.google.com/spreadsheets/d/1ouf-TNAxZEIoh7GC6J66jW6pGSpLavgqAXGJgK1d9Kc/edit?gid=16843137#gid=16843137 
  */
+observe /* a:urn:to:use#objectid as */ earth:Region named test_ecdc_greece
+    over space(shape='EPSG:4326 POLYGON ((22.357147225076126 38.493707792574895, 22.157272360484562 38.493707792574895, 22.157272360484562 38.56620374670959, 22.357147225076126 38.56620374670959, 22.357147225076126 38.493707792574895))',
+    		grid="100 m",
+    		projection="EPSG:4326"),
+    time(year=2020); 
+   
+number 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform__global__1984_2017' as hydroform_type;
+//number 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__global__2004_2013'
+//	as presence of hydrology.incubation:RiverMeander named hydroform_meander
+//	set to [(self == 2 || self ==3 ? true : false)];   
 
+model type of hydrology:WaterBody
+observing 
+	hydroform_type,
+	presence of hydrology.incubation:RiverMeander named hydroform_meander
+		lookup(hydroform_type, hydroform_meander) into
+		hydroform_type 	|hydroform_meander| category
+		--------------------------------------------
+			 1			|	#	| hydrology:Watercourse,
+		in ( 2 3)		|	#	| hydrology:InlandWaterBody,
+			#			|  true	| hydrology:Meander
+over space(shape="POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))");
+	
+number 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_seasonality__global__1984_2021' as seasonal_water_regime;
+number 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_ephemeral__global__1984_2021' as ephemeral_water_regime;
+number 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_episodic__global__1984_2021'as episodic_water_regime;
+
+model type of hydrology:WaterPermanence
+observing
+	seasonal_water_regime,
+	ephemeral_water_regime,
+	episodic_water_regime
+	lookup(seasonal_water_regime, ephemeral_water_regime,episodic_water_regime, ?) into
+		seasonal_water_regime|ephemeral_water_regime|episodic_water_regime|category
+		---------------------------------------------------------------------------------------
+			     1		     |			#			| 		#			  |hydrology:Permanent,
+			     2		     |			#			| 		#			  |hydrology:Seasonal,
+	     		 #		     |			#			| 		1			  |hydrology:Ephemeral,			     			 
+		     	 #		     |		in (1 2)		| 		#			  |hydrology:Episodic;
+
+model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__global__2004_2013'
+//as level of (hydrology:StreamOrder of hydrology:Watershed) classified into
+as level of hydrology:StreamOrder classified into
+	im:Low if in (1 to 3),
+	im:Moderate if in (4 to 8),
+	im:High if > 8;
+
+number 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__global__2004_2013' as test_watershed_hierarchy;
+
+//model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__global__2004_2013'
+////as level of (hydrology:StreamOrder of hydrology:Watershed) classified into
+//as level of hydrology:StreamOrder classified into
+//	im:Low if in (1 to 3),
+//	im:Moderate if in (4 to 8),
+//	im:High if > 8
+////
+////lookup(watershed_hierarchy) into
+////watershed_hierarchy| category
+////------------------------------
+////			1 to 4 | im:Low,
+////			4 to 9 | im:Moderate,
+////			  >9   | im:High
+//over space(shape="POLYGON ((-180 -55.87, -180 84.01, 180 84.01, 180 -55.87, -180 -55.87))");
 
 @intensive(space)                        
 model level of (im:Minimum im:Area of earth:WaterBody) named hydroform_morphology_area
@@ -109,14 +171,14 @@ observing im:Minimum im:Area of earth:WaterBody in km^2
 							< 100 | im:Low,
 	                        > 100 | im:High; 
  
-model level of (hydrology:StreamOrder of hydrology:Watershed) named watershed_hierarchy
-observing hydrology:StreamOrder of hydrology:Watershed	
-	 	lookup (watershed_hierarchy) into
-	 	watershed_hierarchy | category
-		----------------------------------
-					 1 to 4 | im:Low,
-	                 4 to 9 | im:Moderate,
-	                    > 9 | im:High;
+//model level of (hydrology:StreamOrder of hydrology:Watershed) named watershed_hierarchy
+//observing hydrology:StreamOrder of hydrology:Watershed	
+//	 	lookup (watershed_hierarchy) into
+//	 	watershed_hierarchy | category
+//		----------------------------------
+//					 1 to 4 | im:Low,
+//	                 4 to 9 | im:Moderate,
+//	                    > 9 | im:High;
 @intensive(space)
 model level of ecology:NetPrimaryProduction
 observing ecology:NetPrimaryProduction in g/m^2 named annual_total_net_primary_productivity //g/m^2/day named npp
@@ -394,4 +456,37 @@ lookup (leaf_area_index) into
 //			 2 to 9 | Frequent,
 //			0 to 19 | Occasional,
 //			0 to 99 | Infrequent,
-//			   >100 | Centennial;                		
+//			   >100 | Centennial;
+
+//model presence of ecology:Tree
+//observing
+//	percentage of ecology:Forest ecology:CanopyCover named tree_density
+//	set to [self == nodata ? false : true];
+//model local:alessio.bulckaen:im.data.global:im-data-global-ecology.global_globmapftc_fractional_tree_cover_epsg4326_250m_2020
+//as 	presence of ecology:Tree
+//set to [self == unknown ? false : true];
+
+model level of ecology:WoodyVegetation ecology:CanopyCover
+observing
+	percentage of ecology:Forest ecology:CanopyCover named tree_density,
+	presence of ecology:Tree named tree_cover
+	lookup(tree_density,tree_cover,?) into
+	tree_density | tree_cover | category
+	------------------------------
+	 	 # 	 	 | 	 false    | ecology:Absent,
+	   1 to 10 	 | 	 true	  | ecology:VerySparse,
+	  10 to 40 	 |   true	  | ecology:Sparse;  
+	  
+//annotation of summer_diurnal_air_temperature_mean thresholds
+model 'local:alessio.bulckaen:im.data.global:ecdc__climate__summer_diurnal_air_temperature_mean__global__1981_2010'
+ as level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_air_temperature_mean
+	lookup(summer_diurnal_air_temperature_mean) into
+	summer_diurnal_air_temperature_mean | category
+	----------------------------------------------
+	-10 to 0  | ecology.incubation:Cold,
+	  0 to 10 | ecology.incubation:Cool,
+	 10 to 18 | ecology.incubation:Mild,
+	 18 to 22 | ecology.incubation:Warm,
+	 22 to 28 | ecology.incubation:Hot,
+	 28 to 35 | ecology.incubation:VeryHot,
+	   >=35   | ecology.incubation:ExtremelyHot;             		
