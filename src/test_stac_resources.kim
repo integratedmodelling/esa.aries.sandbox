@@ -16,7 +16,7 @@ model local:alessio.bulckaen:im.data.global:ecdc__bioticassemblages__biotic_asse
 /*
  * # Canopy Cover. --------------------------------------------------------------------------------------------
  */
-   
+// TODO: tyoe of canopy.   
 model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__greece__2015
 	as level of ecology:CanopyCover named canopy_cover_level_greece
 	lookup (self, ?) into
@@ -32,50 +32,50 @@ model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__norw
 	lookup (self, ?) into
 	 canopy_cover | category
 	------------------------------
-		 	   0  | im:None,		
-		 1 to 15  | im:Low,		
-		15 to 65  | im:Moderate,	
-	   65 to 100  | im:High;
+		 	   0  | ecology:Absent,		
+		 1 to 15  | ecology:Sparse,		
+		15 to 65  | ecology:Open,	
+	   65 to 100  | ecology:Dense;
 	   
 model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__south_africa__2015
 	as level of ecology:CanopyCover named canopy_cover_level_south_africa
 	lookup (self, ?) into
 	 canopy_cover | category
 	------------------------------
-		 	   0  | im:None,		
-		 1 to 15  | im:Low,		
-		15 to 65  | im:Moderate,	
-	   65 to 100  | im:High;
+		 	   0  | ecology:Absent,		
+		 1 to 15  | ecology:Sparse,		
+		15 to 65  | ecology:Open,	
+	   65 to 100  | ecology:Dense;
 	   
 model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__czechia__2015
 	as level of ecology:CanopyCover named canopy_cover_level_czechia
 	lookup (self, ?) into
 	 canopy_cover | category
 	------------------------------
-		 	   0  | im:None,		
-		 1 to 15  | im:Low,		
-		15 to 65  | im:Moderate,	
-	   65 to 100  | im:High;
+		 	   0  | ecology:Absent,		
+		 1 to 15  | ecology:Sparse,		
+		15 to 65  | ecology:Open,	
+	   65 to 100  | ecology:Dense;
 	   
 model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__viet_nam__2015
 	as level of ecology:CanopyCover named canopy_cover_level_viet_nam
 	lookup (self, ?) into
 	 canopy_cover | category
 	------------------------------
-		 	   0  | im:None,		
-		 1 to 15  | im:Low,		
-		15 to 65  | im:Moderate,	
-	   65 to 100  | im:High;
+		 	   0  | ecology:Absent,		
+		 1 to 15  | ecology:Sparse,		
+		15 to 65  | ecology:Open,	
+	   65 to 100  | ecology:Dense;
 	   
 model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__colombia__2015
 	as level of ecology:CanopyCover named canopy_cover_level_colombia
 	lookup (self, ?) into
 	 canopy_cover | category
 	------------------------------
-		 	   0  | im:None,		
-		 1 to 15  | im:Low,		
-		15 to 65  | im:Moderate,	
-	   65 to 100  | im:High;
+		 	   0  | ecology:Absent,		
+		 1 to 15  | ecology:Sparse,		
+		15 to 65  | ecology:Open,	
+	   65 to 100  | ecology:Dense;
 
 /* --------------------------------------------------------------------------------------------------------------- */
 
