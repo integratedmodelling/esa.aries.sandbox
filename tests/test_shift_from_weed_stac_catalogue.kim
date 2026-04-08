@@ -1,0 +1,25 @@
+worldview im;
+
+@test(
+    name = "test_shift_from_weed_stac_catalogue",
+    description  = "All resources from WEED STAC catalogue seem to be shifted (last observation is landcover from geoserver)",
+    // add to the list any concepts to be observed in the context below
+    observations = (
+    "primitive_characteristic.threshold.chemical_properties_base_saturation"
+    "primitive_characteristic.threshold.level-of-net-primary-production-resolver"
+    "primitive_characteristic.threshold.annual_water_budget_total"
+    "primitive_characteristic.threshold.level-of-woody-vegetation-canopy-cover-resolver"
+    "primitive_characteristic.threshold.soil_fertility"
+    "data.global.landcover.glc_fcs30"
+    ),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named test_shift_from_weed_stac_catalogue
+    over space(shape='EPSG:4326 POLYGON ((22.357147225076126 38.493707792574895, 22.157272360484562 38.493707792574895, 22.157272360484562 38.56620374670959, 22.357147225076126 38.56620374670959, 22.357147225076126 38.493707792574895))',
+    		grid="100 m",
+    		projection="EPSG:4326"),
+    time(year=2020); 
+
+// add any models here
