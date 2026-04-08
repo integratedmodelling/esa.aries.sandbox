@@ -1,7 +1,6 @@
 project private namespace primitive_characteristic.threshold
 using primitive_characteristic,
-	  nca.ecosystem.iucn,
-	  (BIOME_F1_RIVERSTREAM_ECOSYSTEM_TYPES) from table.ecosystem.typology.iucn;
+	  nca.ecosystem.iucn;
 	
 
 //TODO:Add proper concepts
@@ -154,15 +153,6 @@ watershed_hierarchy| category
 			4 to 9 | im:Moderate,
 			  >9   | im:High;
 //over space(shape="POLYGON ((-180 -55.87, -180 84.01, 180 84.01, 180 -55.87, -180 -55.87))");
-
-@intensive(space)                        
-model level of (im:Minimum im:Area of earth:WaterBody) named hydroform_morphology_area
-observing im:Minimum im:Area of earth:WaterBody in km^2
-		lookup (hydroform_morphology_area) into
-		hydroform_morphology_area | category
-		------------------------------------
-							< 100 | im:Low,
-	                        > 100 | im:High; 
  
 //model level of (hydrology:StreamOrder of hydrology:Watershed) named watershed_hierarchy
 //observing hydrology:StreamOrder of hydrology:Watershed	
@@ -173,19 +163,36 @@ observing im:Minimum im:Area of earth:WaterBody in km^2
 //	                 4 to 9 | im:Moderate,
 //	                    > 9 | im:High;
 
-model nca.ecosystem.iucn:RiverStream type of nca.ecosystem.iucn:Ecosystem
-observing
-//type of hydrology:WaterBody named hydroform,
-//type of hydrology:WaterBody named hydroform_meander,
-//presence of hydrology:Permanent earth:WaterBody named occurrence_regime_seasonality,
-//presence of hydrology:Episodic earth:WaterBody named occurrence_regime_episodic,
-type of hydrology:WaterBody named hydroform,
-type of hydrology:WaterPermanence 
-//level of (hydrology:StreamOrder of hydrology:Watershed) named watershed_hierarchy
-//lookup (hydroform, hydroperiod, watershed_hierarchy, ?)
-lookup (hydroform, hydroperiod, *, ?)
-into BIOME_F1_RIVERSTREAM_ECOSYSTEM_TYPES;
+//annotation of hydroform_morphology_area thresholds
+@intensive(space) 
+model 
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__colombia__2013_2020,
+//local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__czechia__2013_2020,
+local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__greece__2013_2020
+//local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__norway__2013_2020,
+//local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__south_africa__2013_2020,
+//local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__viet_nam__2013_2020
+	as level of (im:Minimum im:Area of earth:WaterBody) named hydroform_morphology_area
+		lookup (self,?) into
+		hydroform_morphology_area | category
+		------------------------------------
+		 					 <100 | im:Low,
+							 >100 | im:High
+	over space(shape='POLYGON ((-180 -55.87, -180 84.01, 180 84.01, 180 -55.87, -180 -55.87))');
+//@intensive(space)                        
+//model level of (im:Minimum im:Area of earth:WaterBody) named hydroform_morphology_area
+//observing im:Minimum im:Area of earth:WaterBody in km^2
+//		lookup (hydroform_morphology_area) into
+//		hydroform_morphology_area | category
+//		------------------------------------
+//							< 100 | im:Low,
+//	                        > 100 | im:High; 
 
+
+//annotation of presence of geothermal (boolean)
+model 'local:alessio.bulckaen:im.data.global:ecdc__energy__geothermal__global__2019'
+as presence of earth:Crust physical:Thermal earth:Region
+ set to [self > 60];
 
 @intensive(space)
 model level of ecology:NetPrimaryProduction

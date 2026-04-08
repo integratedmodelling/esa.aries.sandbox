@@ -2,7 +2,8 @@ private namespace primitive_characteristic.ecosystem_typology.iucn
 using primitive_characteristic,
 	  primitive_characteristic.threshold, 
 	  nca.ecosystem.iucn,
-	(BIOME_F1_RIVERSTREAM_ECOSYSTEM_TYPES,
+	(BIOME_F1_RIVER_STREAM_ECOSYSTEM_TYPES,
+	 BIOME_F2_LAKE_ECOSYSTEM_TYPES,	
 	 BIOME_T1_TROPICAL_SUBTROPICAL_FOREST_ECOSYSTEM_TYPES,
 //	(BIOME_T2_TEMPERATEBOREALFORESTWOODLAND_ECOSYSTEM_TYPES) from table.ecosystem.typology.iucn,
 	 BIOME_T3_SHRUBLAND_SHRUBBY_WOODLAND_ECOSYSTEM_TYPES,
@@ -46,25 +47,27 @@ observe earth:Region named test_stac_resources_viet_nam
 	over space(shape= 'POLYGON ((103.69501108581201 21.633087642219095, 108.17900107738404 21.745187392008397, 108.11174122751046 18.89785374736016, 103.78469088564346 18.785753997570858, 103.69501108581201 21.633087642219095))',
 		grid = "100 m");
         
-model 
-'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__global__2004_2013'
-as hydrology:StreamOrder of earth:Stream;
+model
+	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2018_mosaic,
+	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2019_mosaic,
+	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2020_mosaic,
+	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2021_mosaic,
+	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2022_mosaic
+	as landcover:LandCoverType named glc_fcs30 classified according to im:glc-fcs30-enconding;
 
-
-
-model local:rubencc:im.data.global:im-data-global-landcover.copernicus_landcover_10m_2020 
-	as landcover:LandCoverType classified into 
-	landcover:Forest if 10,
-	landcover:Shrubland if 20,
-	landcover:Grassland if 30,
-	landcover:AgriculturalVegetation if 40,
-	landcover:ArtificialSurface if 50,
-	landcover:SparseVegetation if 60,
-	landcover:GlacierPerpetualSnow if 70,
-	landcover:WaterBody if 80,
-	landcover:AquaticVegetationOverWaterBody if 90, //Should be HerbaceusWetland, so including both InlandMarsh&SaltMarsh, but that's inconsistent with our current structure
-	landcover:Mangrove if 95,
-	landcover:LichenMoss if 100;
+//model local:rubencc:im.data.global:im-data-global-landcover.copernicus_landcover_10m_2020 
+//	as landcover:LandCoverType classified into 
+//	landcover:Forest if 10,
+//	landcover:Shrubland if 20,
+//	landcover:Grassland if 30,
+//	landcover:AgriculturalVegetation if 40,
+//	landcover:ArtificialSurface if 50,
+//	landcover:SparseVegetation if 60,
+//	landcover:GlacierPerpetualSnow if 70,
+//	landcover:WaterBody if 80,
+//	landcover:AquaticVegetationOverWaterBody if 90, //Should be HerbaceusWetland, so including both InlandMarsh&SaltMarsh, but that's inconsistent with our current structure
+//	landcover:Mangrove if 95,
+//	landcover:LichenMoss if 100;
 
 
 //define BIOME_F1_RIVERSTREAM_ECOSYSTEM_TYPES as {{
@@ -136,8 +139,21 @@ type of hydrology:WaterPermanence
 //level of (hydrology:StreamOrder of hydrology:Watershed) named watershed_hierarchy
 //lookup (hydroform, hydroperiod, watershed_hierarchy, ?)
 lookup (hydroform, hydroperiod, *, ?)
-into BIOME_F1_RIVERSTREAM_ECOSYSTEM_TYPES;
+into BIOME_F1_RIVER_STREAM_ECOSYSTEM_TYPES;
 
+model nca.ecosystem.iucn:Lake type of nca.ecosystem.iucn:Ecosystem
+observing
+landcover:LandCoverType named landcover,
+//level of earth:Crust physical:Thermal im:Energy named geothermal,
+presence of earth:Crust physical:Thermal earth:Region named geothermal,
+level of (percentage of (chemistry:Basic chemistry:ExchangeCapacity) in (chemistry:ExchangeCapacity of chemistry:Cation)) named chemical_properties_base_saturation,
+type of hydrology:WaterBody named hydroform,
+level of (im:Minimum im:Area of earth:WaterBody) named hydroform_morphology_area,
+type of hydrology:WaterPermanence named hydroperiod  
+//presence of hydrology:Permanent earth:WaterBody named occurrence_regime_seasonality,
+//presence of hydrology:Ephemeral earth:WaterBody named occurrence_regime_ephemeral
+lookup (landcover, geothermal, chemical_properties_base_saturation, hydroform, hydroform_morphology_area, hydroperiod, ?)
+into BIOME_F2_LAKE_ECOSYSTEM_TYPES;
 
 /*
  * FM1
