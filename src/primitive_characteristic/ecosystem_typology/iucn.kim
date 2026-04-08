@@ -1,4 +1,4 @@
-private namespace esa.aries.ecosystem_definitions
+private namespace primitive_characteristic.ecosystem_typology.iucn
 using primitive_characteristic,
 	  primitive_characteristic.threshold, 
 	  nca.ecosystem.iucn,
