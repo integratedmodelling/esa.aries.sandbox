@@ -1,5 +1,8 @@
 project private namespace primitive_characteristic.threshold
-using primitive_characteristic;
+using primitive_characteristic,
+	  nca.ecosystem.iucn,
+	  (BIOME_F1_RIVERSTREAM_ECOSYSTEM_TYPES) from table.ecosystem.typology.iucn;
+	
 
 //TODO:Add proper concepts
 identity Variability;
@@ -103,11 +106,12 @@ observe /* a:urn:to:use#objectid as */ earth:Region named test_ecdc_greece
     		grid="100 m",
     		projection="EPSG:4326"),
     time(year=2020); 
-   
-number 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform__global__1984_2017' as hydroform_type;
-//number 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__global__2004_2013'
-//	as presence of hydrology.incubation:RiverMeander named hydroform_meander
-//	set to [(self == 2 || self ==3 ? true : false)];   
+  
+  
+/*
+ * ********************************WATER SURFACE DATA***************************************
+ */   
+number 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform__global__1984_2017' as hydroform_type; 
 
 model type of hydrology:WaterBody
 observing 
@@ -138,28 +142,17 @@ observing
 	     		 #		     |			#			| 		1			  |hydrology:Ephemeral,			     			 
 		     	 #		     |		in (1 2)		| 		#			  |hydrology:Episodic;
 
-model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__global__2004_2013'
-//as level of (hydrology:StreamOrder of hydrology:Watershed) classified into
-as level of hydrology:StreamOrder classified into
-	im:Low if in (1 to 3),
-	im:Moderate if in (4 to 8),
-	im:High if > 8;
-
 number 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__global__2004_2013' as test_watershed_hierarchy;
 
-//model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__global__2004_2013'
-////as level of (hydrology:StreamOrder of hydrology:Watershed) classified into
-//as level of hydrology:StreamOrder classified into
-//	im:Low if in (1 to 3),
-//	im:Moderate if in (4 to 8),
-//	im:High if > 8
-////
-////lookup(watershed_hierarchy) into
-////watershed_hierarchy| category
-////------------------------------
-////			1 to 4 | im:Low,
-////			4 to 9 | im:Moderate,
-////			  >9   | im:High
+model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__global__2004_2013'
+as level of (hydrology:StreamOrder of hydrology:Watershed) named watershed_hierarchy
+lookup (self, ?) into
+watershed_hierarchy| category
+------------------------------
+//			  <1   | im:VeryLow,
+			1 to 4 | im:Low,
+			4 to 9 | im:Moderate,
+			  >9   | im:High;
 //over space(shape="POLYGON ((-180 -55.87, -180 84.01, 180 84.01, 180 -55.87, -180 -55.87))");
 
 @intensive(space)                        
@@ -179,6 +172,21 @@ observing im:Minimum im:Area of earth:WaterBody in km^2
 //					 1 to 4 | im:Low,
 //	                 4 to 9 | im:Moderate,
 //	                    > 9 | im:High;
+
+model nca.ecosystem.iucn:RiverStream type of nca.ecosystem.iucn:Ecosystem
+observing
+//type of hydrology:WaterBody named hydroform,
+//type of hydrology:WaterBody named hydroform_meander,
+//presence of hydrology:Permanent earth:WaterBody named occurrence_regime_seasonality,
+//presence of hydrology:Episodic earth:WaterBody named occurrence_regime_episodic,
+type of hydrology:WaterBody named hydroform,
+type of hydrology:WaterPermanence 
+//level of (hydrology:StreamOrder of hydrology:Watershed) named watershed_hierarchy
+//lookup (hydroform, hydroperiod, watershed_hierarchy, ?)
+lookup (hydroform, hydroperiod, *, ?)
+into BIOME_F1_RIVERSTREAM_ECOSYSTEM_TYPES;
+
+
 @intensive(space)
 model level of ecology:NetPrimaryProduction
 observing ecology:NetPrimaryProduction in g/m^2 named annual_total_net_primary_productivity //g/m^2/day named npp
@@ -595,27 +603,26 @@ model level of im:Mean earth:AtmosphericTemperature during earth:Summer named su
 //	   >=35   | ecology.incubation:ExtremelyHot;
 
 
-
-//annotation of annual_diurnal_air_temperature_mean thresholds
-model 'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_diurnal_air_temperature_mean__global__1981_2010' 
-	as im:Daily im:Differential im:Yearly earth:AtmosphericTemperature in Celsius named annual_diurnal_air_temperature_mean
+model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_diurnal_air_temperature_mean__global__1981_2010 
+	as im:Daily im:Differential im:Yearly earth:AtmosphericTemperature in Celsius named annual_diurnal_mean_air_temperature
 	set to [self / 100];
-
-model level of im:Daily im:Differential im:Yearly earth:AtmosphericTemperature named annual_diurnal_air_temperature_mean_level
+// TODO: Need to double check the transformation formula with Alessio/Polina.
+	
+model level of im:Daily im:Differential im:Yearly earth:AtmosphericTemperature named annual_diurnal_mean_air_temperature_level
 	observing
-		im:Daily im:Differential im:Yearly earth:AtmosphericTemperature in Celsius named annual_diurnal_air_temperature_mean
-	lookup(annual_diurnal_air_temperature_mean_level) into
-		annual_diurnal_air_temperature_mean | category
-		----------------------------------------------
-		<-25 | ecology.incubation:ExtremelyCold,
-		-25 to -10 | ecology.incubation:VeryCold,
-		-10 to 0 | ecology.incubation:Cold,
-		0 to 10 | ecology.incubation:Cool,
-		10 to 18 | ecology.incubation:Mild,
-		18 to 22 | ecology.incubation:Warm,
-		22 to 28 | ecology.incubation:Hot,
-		28 to 35 | ecology.incubation:VeryHot,
-		>35 | ecology.incubation:ExtremelyHot
+		im:Daily im:Differential im:Yearly earth:AtmosphericTemperature in Celsius named annual_diurnal_mean_air_temperature
+	lookup(annual_diurnal_mean_air_temperature, ?) into
+		  annual_diurnal_mean_air_temperature | category
+		---------------------------------------------------------------------------
+					 < -25					  | ecology.incubation:ExtremelyCold ,
+		 		-25 to -10					  | ecology.incubation:VeryCold		 ,
+		 		-10 to 0					  | ecology.incubation:Cold			 ,
+				  0 to 10					  | ecology.incubation:Cool			 ,
+				 10 to 18					  | ecology.incubation:Mild			 ,
+				 18 to 22					  | ecology.incubation:Warm			 ,
+				 22 to 28					  | ecology.incubation:Hot			 ,
+				 28 to 35					  | ecology.incubation:VeryHot		 ,
+					 > 35					  | ecology.incubation:ExtremelyHot  
 over space(shape='POLYGON ((180 -90, 180 84, -180 84, -180 -90, 180 -90))');
 
 //annotation of coastal_storms_exposure
