@@ -592,45 +592,6 @@ model local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_
 		im:Moderate if in (5 6 7),
 		im:High if in (8 9 10);
 
-/*
- * # Managed waters canal. --------------------------------------------------------------------------------------------
- */
-model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__czechia__2025
-	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_type_czechia
-	classified into
-		hydrology.incubation:Canal if 1
-	over space(shape="POLYGON ((18.86841376 48.5186872, 18.86841376 51.07581503, 12.08060933 51.07581503, 12.08060933 48.5186872, 18.86841376 48.5186872))");
-	
-model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__greece__2025
-	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_type_greece
-	classified into
-		hydrology.incubation:Canal if 1
-	over space(shape="POLYGON ((29.63220162 34.9966406, 29.63220162 41.79065352, 19.35250178 41.79065352, 19.35250178 34.9966406, 29.63220162 34.9966406))");
-	
-model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__south_africa__2025
-	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_type_south_africa
-	classified into
-		hydrology.incubation:Canal if 1
-	over space(shape="POLYGON ((33.11678359 -34.60613124, 33.11678359 -22.13874777, 16.99718611 -22.13874777, 16.99718611 -34.60613124, 33.11678359 -34.60613124))");
-
-model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__viet_nam__2025
-	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_type_viet_nam
-	classified into
-		hydrology.incubation:Canal if 1
-	over space(shape="POLYGON ((109.48767457 8.56539723, 109.48767457 23.43431472, 101.9644288 23.43431472, 101.9644288 8.56539723, 109.48767457 8.56539723))");
-
-model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__colombia__2025 
-	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_type_colombia
-	classified into
-		hydrology.incubation:Canal if 1
-	over space(shape="POLYGON ((-66.87024263 -4.0466187, -66.87024263 12.44063129, -78.9991173 12.44063129, -78.9991173 -4.0466187, -66.87024263 -4.0466187))");
-
-model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__norway__2025
-	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_type_norway
-	classified into
-		hydrology.incubation:Canal if 1
-	over space(shape="POLYGON ((32.32653302 57.94497396, 32.32653302 71.02589146, 4.73888022 71.02589146, 4.73888022 57.94497396, 32.32653302 57.94497396))");
-	
 /* --------------------------------------------------------------------------------------------------------------- */
 model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__mining_areas__global__2000_2019 
 	as presence of landcover:MineralExtraction earth:Region named mining_areas_presence
@@ -716,14 +677,17 @@ as presence of earth:Crust physical:Thermal earth:Region
 /*
  * *********************************ANTHRPOGENIC_SYSTEMS************************************
  */
-//annotation of managed_waters_canal thresholds
-model type of hydrology.incubation:ManagedWaterBody named managed_waterbody_type
-observing
-	presence of hydrology.incubation:Reservoir earth:Region named reservoir,
-	presence of hydrology.incubation:Canal earth:Region named managed_canal
-	lookup (reservoir,managed_canal,?) into
-	reservoir|managed_canal|managed_waterbody_type
-	----------------------------------------------
-	   true  | 		#	   |hydrology.incubation:Reservoir,
-		#	 |	   true	   |hydrology.incubation:Canal
-over space(shape='POLYGON ((179.96 -52.99, 179.96 78.07, -162.9 78.07, -162.9 -52.99, 179.96 -52.99))');	
+
+//TODO: model in this namesapce resturns error:URN primitive_characteristic.threshold.managed_waterbody_type does not represent a resolvable entity, so moved to primitive_characteristic
+
+////annotation of managed_waterbody_type
+//model type of hydrology.incubation:ManagedWaterBody named managed_waterbody_type
+//observing
+//	presence of hydrology.incubation:Reservoir earth:Region named reservoir,
+//	presence of hydrology.incubation:Canal earth:Region named managed_canal
+//	lookup (reservoir,managed_canal,?) into
+//	reservoir|managed_canal|managed_waterbody_type
+//	----------------------------------------------
+//	   true  | 		#	   |hydrology.incubation:Reservoir,
+//		#	 |	   true	   |hydrology.incubation:Canal
+//over space(shape='POLYGON ((179.96 -52.99, 179.96 78.07, -162.9 78.07, -162.9 -52.99, 179.96 -52.99))');	
