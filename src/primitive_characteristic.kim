@@ -59,6 +59,17 @@ as ecology:NetPrimaryProduction named annual_net_primary_productivity
 model 'local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_size__global__2000_2020'
 as im:Area of biology:Leaf in mm^2 named leaf_size
 set to [(self * 0.48176748292230037) + 15791.77310467295];
+
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__mining_areas__global__2000_2019 
+	as presence of landcover:MineralExtraction earth:Region named mining_areas_presence
+	set to [self == 1 ? true : false];
+
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__greece__2025
+	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_type_greece
+	classified into
+		hydrology.incubation:Canal if 1
+	over space(shape="POLYGON ((29.63220162 34.9966406, 29.63220162 41.79065352, 19.35250178 41.79065352, 19.35250178 34.9966406, 29.63220162 34.9966406))");
+
   	
 /*Refined annotation for ECDC primitive characteristics*/
 //1. Proposed annotation for peat_thickness
@@ -512,5 +523,11 @@ model 'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belts__globa
 		in (6 7)	| ecology:Lowland
 over space(shape='POLYGON ((180 -90, 180 84, -180 84, -180 -90, 180 -90))');
 
-
+/*
+ * ********************************WATER SURFACE DATA***************************************
+ */
+model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__global__2004_2013'
+	as presence of hydrology.incubation:RiverMeander named hydroform_meander
+	set to [(self == 2 || self ==3 ? true : false)];  
+//annotation of occurrence_regime_episodic thresholds
 
