@@ -1,127 +1,127 @@
 private namespace test_stac_resources;
 
-model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_diurnal_air_temperature_mean__global__1981_2010 
-	as im:Daily im:Differential im:Yearly earth:AtmosphericTemperature in Celsius named annual_diurnal_mean_air_temperature
-	set to [self / 100];
-// TODO: Need to double check the transformation formula with Alessio/Polina.
-	
-model level of im:Daily im:Differential im:Yearly earth:AtmosphericTemperature named annual_diurnal_mean_air_temperature_level
-	observing
-		im:Daily im:Differential im:Yearly earth:AtmosphericTemperature in Celsius named annual_diurnal_mean_air_temperature
-	lookup(annual_diurnal_mean_air_temperature, ?) into
-		  annual_diurnal_mean_air_temperature | category
-		---------------------------------------------------------------------------
-					 < -25					  | ecology.incubation:ExtremelyCold ,
-		 		-25 to -10					  | ecology.incubation:VeryCold		 ,
-		 		-10 to 0					  | ecology.incubation:Cold			 ,
-				  0 to 10					  | ecology.incubation:Cool			 ,
-				 10 to 18					  | ecology.incubation:Mild			 ,
-				 18 to 22					  | ecology.incubation:Warm			 ,
-				 22 to 28					  | ecology.incubation:Hot			 ,
-				 28 to 35					  | ecology.incubation:VeryHot		 ,
-					 > 35					  | ecology.incubation:ExtremelyHot  ;
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_diurnal_air_temperature_mean__global__1981_2010 
+//	as im:Daily im:Mean im:Yearly earth:AtmosphericTemperature in Celsius named annual_diurnal_mean_air_temperature
+//	set to [self / 100];
+//// TODO: Need to double check the transformation formula with Alessio/Polina.
+//	
+//model level of im:Daily im:Mean im:Yearly earth:AtmosphericTemperature named annual_diurnal_mean_air_temperature_level
+//	observing
+//		im:Daily im:Mean im:Yearly earth:AtmosphericTemperature in Celsius named annual_diurnal_mean_air_temperature
+//	lookup(annual_diurnal_mean_air_temperature, ?) into
+//		  annual_diurnal_mean_air_temperature | category
+//		---------------------------------------------------------------------------
+//					 < -25					  | ecology.incubation:ExtremelyCold ,
+//		 		-25 to -10					  | ecology.incubation:VeryCold		 ,
+//		 		-10 to 0					  | ecology.incubation:Cold			 ,
+//				  0 to 10					  | ecology.incubation:Cool			 ,
+//				 10 to 18					  | ecology.incubation:Mild			 ,
+//				 18 to 22					  | ecology.incubation:Warm			 ,
+//				 22 to 28					  | ecology.incubation:Hot			 ,
+//				 28 to 35					  | ecology.incubation:VeryHot		 ,
+//					 > 35					  | ecology.incubation:ExtremelyHot  ;
 	
 number local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2024 as test_annual_net_primary_productivity_total3;
 number local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2021 as test_annual_net_primary_productivity_total4;
 number local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2018 as test_annual_net_primary_productivity_total5;
 
-model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation_total__global__1981_2010 
-	as level of im:Yearly earth:PrecipitationVolume named annual_precipitation_total
-		lookup(self, ?) into
-		annual_precipitation_total	| category
-		---------------------------------------------
-					     < 200		| im:VeryLow  ,
-					200 to 300		| im:Low	  ,
-					300 to 900		| im:Moderate ,
-					900 to 2000		| im:High	  ,
-				         > 2000		| im:VeryHigh ;
-
-model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total__global__1981_2010 
-	as level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance) named annual_total_water_budget_level
-	lookup(self, ?) into
-		  annual_water_budget_total | category
-		-------------------------------------------------
-				< -500				| im:Low			,
-		  -499 to -1				| im:ModeratelyLow  ,
-			 1 to 499				| im:ModeratelyHigh ,
-				> 500				| im:High			;
-				
-model local:alessio.bulckaen:im.data.global:ecdc__climate__winter_water_budget_total__global__1980_2010 
-	as level of (hydrology:WaterVolume caused by hydrology:WaterBalance during earth:Winter) named winter_total_water_budget_level
-	lookup(self, ?) into
-		  winter_water_budget_total | category
-		--------------------------------------------------
-					  < -500		| im:Low			,
-		 		-499 to -1			| im:ModeratelyLow	,
-				   1 to 499			| im:ModeratelyHigh ,
-					  > 500			| im:High			;
-
-model local:alessio.bulckaen:im.data.global:ecdc__bioticassemblages__biotic_assemblage_pinniped_colonies__global__2022
-	as presence of GBIF.SPECIES:4941589 ecology:Population named biotic_assemblage_pinniped_colonies_presence
-	set to [((self == 1) || (self == 2)) ? true : false];
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation_total__global__1981_2010 
+//	as level of im:Yearly earth:PrecipitationVolume named annual_precipitation_total_level
+//		lookup(self, ?) into
+//		annual_precipitation_total	| category
+//		---------------------------------------------
+//					     < 200		| im:VeryLow  ,
+//					200 to 300		| im:Low	  ,
+//					300 to 900		| im:Moderate ,
+//					900 to 2000		| im:High	  ,
+//				         > 2000		| im:VeryHigh ;
+//
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total__global__1981_2010 
+//	as level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance) named annual_total_water_budget_level
+//	lookup(self, ?) into
+//		  annual_water_budget_total | category
+//		-------------------------------------------------
+//				< -500				| im:Low			,
+//		  -499 to -1				| im:ModeratelyLow  ,
+//			 1 to 499				| im:ModeratelyHigh ,
+//				> 500				| im:High			;
+//				
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__winter_water_budget_total__global__1980_2010 
+//	as level of (hydrology:WaterVolume caused by hydrology:WaterBalance during earth:Winter) named winter_total_water_budget_level
+//	lookup(self, ?) into
+//		  winter_water_budget_total | category
+//		--------------------------------------------------
+//					  < -500		| im:Low			,
+//		 		-499 to -1			| im:ModeratelyLow	,
+//				   1 to 499			| im:ModeratelyHigh ,
+//					  > 500			| im:High			;
+//
+//model local:alessio.bulckaen:im.data.global:ecdc__bioticassemblages__biotic_assemblage_pinniped_colonies__global__2022
+//	as presence of GBIF.SPECIES:4941589 ecology:Population named biotic_assemblage_pinniped_colonies_presence
+//	set to [((self == 1) || (self == 2)) ? true : false];
 
 /*
  * # Canopy Cover. --------------------------------------------------------------------------------------------
  */  
-model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__greece__2015
-	as level of ecology:CanopyCover named canopy_cover_level_greece
-	lookup (self, ?) into
-	 canopy_cover | category
-	------------------------------
-		 	   0  | ecology:Absent,		
-		 1 to 15  | ecology:Sparse,		
-		15 to 65  | ecology:Open,	
-	   65 to 100  | ecology:Dense;	
-	   
-model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__norway__2015
-	as level of ecology:CanopyCover named canopy_cover_level_norway
-	lookup (self, ?) into
-	 canopy_cover | category
-	------------------------------
-		 	   0  | ecology:Absent,		
-		 1 to 15  | ecology:Sparse,		
-		15 to 65  | ecology:Open,	
-	   65 to 100  | ecology:Dense;
-	   
-model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__south_africa__2015
-	as level of ecology:CanopyCover named canopy_cover_level_south_africa
-	lookup (self, ?) into
-	 canopy_cover | category
-	------------------------------
-		 	   0  | ecology:Absent,		
-		 1 to 15  | ecology:Sparse,		
-		15 to 65  | ecology:Open,	
-	   65 to 100  | ecology:Dense;
-	   
-model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__czechia__2015
-	as level of ecology:CanopyCover named canopy_cover_level_czechia
-	lookup (self, ?) into
-	 canopy_cover | category
-	------------------------------
-		 	   0  | ecology:Absent,		
-		 1 to 15  | ecology:Sparse,		
-		15 to 65  | ecology:Open,	
-	   65 to 100  | ecology:Dense;
-	   
-model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__viet_nam__2015
-	as level of ecology:CanopyCover named canopy_cover_level_viet_nam
-	lookup (self, ?) into
-	 canopy_cover | category
-	------------------------------
-		 	   0  | ecology:Absent,		
-		 1 to 15  | ecology:Sparse,		
-		15 to 65  | ecology:Open,	
-	   65 to 100  | ecology:Dense;
-	   
-model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__colombia__2015
-	as level of ecology:CanopyCover named canopy_cover_level_colombia
-	lookup (self, ?) into
-	 canopy_cover | category
-	------------------------------
-		 	   0  | ecology:Absent,		
-		 1 to 15  | ecology:Sparse,		
-		15 to 65  | ecology:Open,	
-	   65 to 100  | ecology:Dense;
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__greece__2015
+//	as level of ecology:CanopyCover named canopy_cover_level_greece
+//	lookup (self, ?) into
+//	 canopy_cover | category
+//	------------------------------
+//		 	   0  | ecology:Absent,		
+//		 1 to 15  | ecology:Sparse,		
+//		15 to 65  | ecology:Open,	
+//	   65 to 100  | ecology:Dense;	
+//	   
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__norway__2015
+//	as level of ecology:CanopyCover named canopy_cover_level_norway
+//	lookup (self, ?) into
+//	 canopy_cover | category
+//	------------------------------
+//		 	   0  | ecology:Absent,		
+//		 1 to 15  | ecology:Sparse,		
+//		15 to 65  | ecology:Open,	
+//	   65 to 100  | ecology:Dense;
+//	   
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__south_africa__2015
+//	as level of ecology:CanopyCover named canopy_cover_level_south_africa
+//	lookup (self, ?) into
+//	 canopy_cover | category
+//	------------------------------
+//		 	   0  | ecology:Absent,		
+//		 1 to 15  | ecology:Sparse,		
+//		15 to 65  | ecology:Open,	
+//	   65 to 100  | ecology:Dense;
+//	   
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__czechia__2015
+//	as level of ecology:CanopyCover named canopy_cover_level_czechia
+//	lookup (self, ?) into
+//	 canopy_cover | category
+//	------------------------------
+//		 	   0  | ecology:Absent,		
+//		 1 to 15  | ecology:Sparse,		
+//		15 to 65  | ecology:Open,	
+//	   65 to 100  | ecology:Dense;
+//	   
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__viet_nam__2015
+//	as level of ecology:CanopyCover named canopy_cover_level_viet_nam
+//	lookup (self, ?) into
+//	 canopy_cover | category
+//	------------------------------
+//		 	   0  | ecology:Absent,		
+//		 1 to 15  | ecology:Sparse,		
+//		15 to 65  | ecology:Open,	
+//	   65 to 100  | ecology:Dense;
+//	   
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__colombia__2015
+//	as level of ecology:CanopyCover named canopy_cover_level_colombia
+//	lookup (self, ?) into
+//	 canopy_cover | category
+//	------------------------------
+//		 	   0  | ecology:Absent,		
+//		 1 to 15  | ecology:Sparse,		
+//		15 to 65  | ecology:Open,	
+//	   65 to 100  | ecology:Dense;
 
 /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -141,13 +141,13 @@ number local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_bas
 number local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_n__global__1995_2019 as test_chemical_properties_n22;
 
 
-model local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020
-	as level of soil.incubation:Fertility named soil_fertility_level
-	classified into
-		im:None if in (0 1 2),
-		im:Low if in (3 4),
-		im:Moderate if in (5 6 7),
-		im:High if in (8 9 10);
+//model local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020
+//	as level of soil.incubation:Fertility named soil_fertility_level
+//	classified into
+//		im:None if in (0 1 2),
+//		im:Low if in (3 4),
+//		im:Moderate if in (5 6 7),
+//		im:High if in (8 9 10);
 	      
 number local:alessio.bulckaen:im.data.global:ecdc__geomorphology__floodplain__global__1900_2100 as test_floodplain25;
 number local:alessio.bulckaen:im.data.global:ecdc__energy__geothermal__global__2019 as test_geothermal26;
@@ -171,41 +171,41 @@ number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters
 /*
  * # Managed waters canal. --------------------------------------------------------------------------------------------
  */
-model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__czechia__2025
-	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_type_czechia
-	classified into
-		hydrology.incubation:Canal if 1
-	over space(shape="POLYGON ((18.86841376 48.5186872, 18.86841376 51.07581503, 12.08060933 51.07581503, 12.08060933 48.5186872, 18.86841376 48.5186872))");
-	
-model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__greece__2025
-	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_type_greece
-	classified into
-		hydrology.incubation:Canal if 1
-	over space(shape="POLYGON ((29.63220162 34.9966406, 29.63220162 41.79065352, 19.35250178 41.79065352, 19.35250178 34.9966406, 29.63220162 34.9966406))");
-	
-model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__south_africa__2025
-	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_type_south_africa
-	classified into
-		hydrology.incubation:Canal if 1
-	over space(shape="POLYGON ((33.11678359 -34.60613124, 33.11678359 -22.13874777, 16.99718611 -22.13874777, 16.99718611 -34.60613124, 33.11678359 -34.60613124))");
-
-model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__viet_nam__2025
-	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_type_viet_nam
-	classified into
-		hydrology.incubation:Canal if 1
-	over space(shape="POLYGON ((109.48767457 8.56539723, 109.48767457 23.43431472, 101.9644288 23.43431472, 101.9644288 8.56539723, 109.48767457 8.56539723))");
-
-model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__colombia__2025 
-	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_type_colombia
-	classified into
-		hydrology.incubation:Canal if 1
-	over space(shape="POLYGON ((-66.87024263 -4.0466187, -66.87024263 12.44063129, -78.9991173 12.44063129, -78.9991173 -4.0466187, -66.87024263 -4.0466187))");
-
-model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__norway__2025
-	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_type_norway
-	classified into
-		hydrology.incubation:Canal if 1
-	over space(shape="POLYGON ((32.32653302 57.94497396, 32.32653302 71.02589146, 4.73888022 71.02589146, 4.73888022 57.94497396, 32.32653302 57.94497396))");
+//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__czechia__2025
+//	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_type_czechia
+//	classified into
+//		hydrology.incubation:Canal if 1
+//	over space(shape="POLYGON ((18.86841376 48.5186872, 18.86841376 51.07581503, 12.08060933 51.07581503, 12.08060933 48.5186872, 18.86841376 48.5186872))");
+//	
+//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__greece__2025
+//	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_type_greece
+//	classified into
+//		hydrology.incubation:Canal if 1
+//	over space(shape="POLYGON ((29.63220162 34.9966406, 29.63220162 41.79065352, 19.35250178 41.79065352, 19.35250178 34.9966406, 29.63220162 34.9966406))");
+//	
+//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__south_africa__2025
+//	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_type_south_africa
+//	classified into
+//		hydrology.incubation:Canal if 1
+//	over space(shape="POLYGON ((33.11678359 -34.60613124, 33.11678359 -22.13874777, 16.99718611 -22.13874777, 16.99718611 -34.60613124, 33.11678359 -34.60613124))");
+//
+//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__viet_nam__2025
+//	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_type_viet_nam
+//	classified into
+//		hydrology.incubation:Canal if 1
+//	over space(shape="POLYGON ((109.48767457 8.56539723, 109.48767457 23.43431472, 101.9644288 23.43431472, 101.9644288 8.56539723, 109.48767457 8.56539723))");
+//
+//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__colombia__2025 
+//	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_type_colombia
+//	classified into
+//		hydrology.incubation:Canal if 1
+//	over space(shape="POLYGON ((-66.87024263 -4.0466187, -66.87024263 12.44063129, -78.9991173 12.44063129, -78.9991173 -4.0466187, -66.87024263 -4.0466187))");
+//
+//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__norway__2025
+//	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_type_norway
+//	classified into
+//		hydrology.incubation:Canal if 1
+//	over space(shape="POLYGON ((32.32653302 57.94497396, 32.32653302 71.02589146, 4.73888022 71.02589146, 4.73888022 57.94497396, 32.32653302 57.94497396))");
 	
 /* --------------------------------------------------------------------------------------------------------------- */
 	
@@ -223,9 +223,9 @@ number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters
 number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservoir__viet_nam__2022 as test_managed_waters_reservoir55;
 number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservoir__norway__2022 as test_managed_waters_reservoir56;
 
-model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__mining_areas__global__2000_2019 
-	as presence of landcover:MineralExtraction earth:Region named mining_areas_presence
-	set to [self == 1 ? true : false];
+//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__mining_areas__global__2000_2019 
+//	as presence of landcover:MineralExtraction earth:Region named mining_areas_presence
+//	set to [self == 1 ? true : false];
 
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_ephemeral__global__1984_2021 as test_occurrence_regime_ephemeral58;
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_episodic__global__1984_2021 as test_occurrence_regime_episodic59;
@@ -246,87 +246,87 @@ number local:alessio.bulckaen:im.data.global:ecdc__soil__physical_properties_bul
 number local:alessio.bulckaen:im.data.global:ecdc__climate__potential_tree_growth__global__1981_2010 as test_potential_tree_growth70;
 number local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__recurrence__global__2002_2024 as test_recurrence71;
 
-model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_amplitude__global__1981_2010 
-	as level of im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_amplitude_level
-	lookup(self, ?) into
-		seasonal_diurnal_air_temperature_amplitude  | category
-	   --------------------------------------------------------
-					0 to 10 						| im:Low  ,
-					   > 21 						| im:High ;
-
-model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability__global__1981_2010
-	as im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_variability
-	set to [self * 0.1 - 273.5];
-	
-model level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability_level
-	observing
-		im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_variability
-	lookup(seasonal_diurnal_air_temperature_variability, ?) into
-		   seasonal_diurnal_air_temperature_variability | category
-		---------------------------------------------------------------
-						  0								| im:VeryLow  ,
-					 1 to 25							| im:Low	  ,
-					25 to 75							| im:Moderate ,
-						> 75							| im:High	  ;
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_amplitude__global__1981_2010 
+//	as level of im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_amplitude_level
+//	lookup(self, ?) into
+//		seasonal_diurnal_air_temperature_amplitude  | category
+//	   --------------------------------------------------------
+//					0 to 10 						| im:Low  ,
+//					   > 21 						| im:High ;
+//
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability__global__1981_2010
+//	as im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_variability
+//	set to [self * 0.1 - 273.5];
+//	
+//model level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability_level
+//	observing
+//		im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_variability
+//	lookup(seasonal_diurnal_air_temperature_variability, ?) into
+//		   seasonal_diurnal_air_temperature_variability | category
+//		---------------------------------------------------------------
+//						  0								| im:VeryLow  ,
+//					 1 to 25							| im:Low	  ,
+//					25 to 75							| im:Moderate ,
+//						> 75							| im:High	  ;
 	
 number local:alessio.bulckaen:im.data.global:ecdc__vegetation__specific_leaf_area__global__2000_2020 as test_specific_leaf_area74;
 
-model local:alessio.bulckaen:im.data.global:ecdc__climate__summer_diurnal_air_temperature_mean__global__1981_2010 
-	as im:Mean earth:AtmosphericTemperature during earth:Summer in Celsius named summer_diurnal_mean_air_temperature
-	set to [self / 100];
-
-model level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_mean_air_temperature_level
-	observing
-		im:Mean earth:AtmosphericTemperature during earth:Summer in Celsius named summer_diurnal_mean_air_temperature
-	lookup(summer_diurnal_mean_air_temperature, ?) into
-		  summer_diurnal_mean_air_temperature	| category
-		-----------------------------------------------------------------------------
-				   -10 to 0						| ecology.incubation:Cold		  ,
-					 0 to 10					| ecology.incubation:Cool		  ,
-					10 to 18					| ecology.incubation:Mild		  ,
-					18 to 22					| ecology.incubation:Warm		  ,
-					22 to 28					| ecology.incubation:Hot		  ,
-					28 to 35					| ecology.incubation:VeryHot	  ,
-					    > 35					| ecology.incubation:ExtremelyHot ;
-
-model local:alessio.bulckaen:im.data.global:ecdc__climate__winter_diurnal_air_temperature_mean__global__1981_2010 
-	as im:Mean earth:AtmosphericTemperature during earth:Winter in Celsius named winter_diurnal_mean_air_temperature
-	set to [self / 100];
-	
-model level of im:Mean earth:AtmosphericTemperature during earth:Winter named winter_diurnal_mean_air_temperature_level
-	observing
-		im:Mean earth:AtmosphericTemperature during earth:Winter in Celsius named winter_diurnal_mean_air_temperature
-	lookup(winter_diurnal_mean_air_temperature, ?) into
-		  winter_diurnal_mean_air_temperature	| category
-		------------------------------------------------------------------------------
-				 		< -25					| ecology.incubation:ExtremelyCold	,
-				   -25 to -10					| ecology.incubation:VeryCold		,
-				   -10 to 0						| ecology.incubation:Cold		  	,
-					 0 to 10					| ecology.incubation:Cool		  	,
-					10 to 18					| ecology.incubation:Mild		  	,
-					18 to 22					| ecology.incubation:Warm	  		,
-					22 to 28					| ecology.incubation:Hot 			;		
-
-model local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belts__global__1950_2000 
-	as type of ecology:MountainClimaticBeltZone named thermal_belts_type
-	classified into
-		ecology:UpperAlpine  if 2,
-		ecology:LowerAlpine  if 3,
-		ecology:UpperMontane if 4,
-		ecology:LowerMontane if 5,
-		ecology:Lowland 	 if in (6, 7);
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__summer_diurnal_air_temperature_mean__global__1981_2010 
+//	as im:Mean earth:AtmosphericTemperature during earth:Summer in Celsius named summer_diurnal_mean_air_temperature
+//	set to [self / 100];
+//
+//model level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_mean_air_temperature_level
+//	observing
+//		im:Mean earth:AtmosphericTemperature during earth:Summer in Celsius named summer_diurnal_mean_air_temperature
+//	lookup(summer_diurnal_mean_air_temperature, ?) into
+//		  summer_diurnal_mean_air_temperature	| category
+//		-----------------------------------------------------------------------------
+//				   -10 to 0						| ecology.incubation:Cold		  ,
+//					 0 to 10					| ecology.incubation:Cool		  ,
+//					10 to 18					| ecology.incubation:Mild		  ,
+//					18 to 22					| ecology.incubation:Warm		  ,
+//					22 to 28					| ecology.incubation:Hot		  ,
+//					28 to 35					| ecology.incubation:VeryHot	  ,
+//					    > 35					| ecology.incubation:ExtremelyHot ;
+//
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__winter_diurnal_air_temperature_mean__global__1981_2010 
+//	as im:Mean earth:AtmosphericTemperature during earth:Winter in Celsius named winter_diurnal_mean_air_temperature
+//	set to [self / 100];
+//	
+//model level of im:Mean earth:AtmosphericTemperature during earth:Winter named winter_diurnal_mean_air_temperature_level
+//	observing
+//		im:Mean earth:AtmosphericTemperature during earth:Winter in Celsius named winter_diurnal_mean_air_temperature
+//	lookup(winter_diurnal_mean_air_temperature, ?) into
+//		  winter_diurnal_mean_air_temperature	| category
+//		------------------------------------------------------------------------------
+//				 		< -25					| ecology.incubation:ExtremelyCold	,
+//				   -25 to -10					| ecology.incubation:VeryCold		,
+//				   -10 to 0						| ecology.incubation:Cold		  	,
+//					 0 to 10					| ecology.incubation:Cool		  	,
+//					10 to 18					| ecology.incubation:Mild		  	,
+//					18 to 22					| ecology.incubation:Warm	  		,
+//					22 to 28					| ecology.incubation:Hot 			;		
+//
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belts__global__1950_2000 
+//	as type of ecology:MountainClimaticBeltZone named thermal_belts_type
+//	classified into
+//		ecology:UpperAlpine  if 2,
+//		ecology:LowerAlpine  if 3,
+//		ecology:UpperMontane if 4,
+//		ecology:LowerMontane if 5,
+//		ecology:Lowland 	 if in (6, 7);
 	
 number local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone_intertidal__global__2017_2019 as test_tidal_zone_intertidal77;
 
-model local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__tropical_storms_exposure__global__1990_2015
-	as presence of ecology:Tropical earth:Region with im:Mean im:Maximum earth:WindSpeed of earth:Storm named tropical_storms_exposure_presence
-	set to [self >= 50 ? true : false]
-	over space(shape="POLYGON ((180 -42, 180 66.60000000000001, -176.3 66.60000000000001, -176.3 -42, 180 -42))");
-	// TODO: Need threshold to distinguish presence of tropical storm.
-	
-model local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__coastal_storms_exposure__global__1979_2014
-	as presence of earth:Coast with im:High earth:WindSpeed of earth:Storm named coastal_storms_exposure_presence
-	set to [self == 1 ? true : false];
+//model local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__tropical_storms_exposure__global__1990_2015
+//	as presence of ecology:Tropical earth:Region with im:Mean im:Maximum earth:WindSpeed of earth:Storm named tropical_storms_exposure_presence
+//	set to [self >= 50 ? true : false]
+//	over space(shape="POLYGON ((180 -42, 180 66.60000000000001, -176.3 66.60000000000001, -176.3 -42, 180 -42))");
+//	// TODO: Need threshold to distinguish presence of tropical storm.
+//	
+//model local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__coastal_storms_exposure__global__1979_2014
+//	as presence of earth:Coast with im:High earth:WindSpeed of earth:Storm named coastal_storms_exposure_presence
+//	set to [self == 1 ? true : false];
 
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__global__2004_2013 as test_watershed_hierarchy80;
 
@@ -343,23 +343,23 @@ number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydro
 
 
 /* --------------------------------------------------------------------------------------------------------------- */
-observe earth:Region named test_stac_resources_norway_small_area_rectangular
-	over space(shape= 
-	'EPSG:4326 POLYGON ((29.63287197747197 69.92418939308993, 29.432997112880408 69.92418939308993, 29.432997112880408 69.99668534722463, 29.63287197747197 69.99668534722463, 29.63287197747197 69.92418939308993))',
-		grid = "100 m"),
-	time(year=2020);
-
-observe earth:Region named test_stac_resources_greece_33
-	over space(shape= 
-	'EPSG:4326 POLYGON ((22.357147225076126 38.493707792574895, 22.157272360484562 38.493707792574895, 22.157272360484562 38.56620374670959, 22.357147225076126 38.56620374670959, 22.357147225076126 38.493707792574895))',
-		grid = "100 m"),
-	time(year=2020);
-	
-observe earth:Region named test_stac_resources_norway_small_area_rectangular
-	over space(shape= 
-	'EPSG:4326 POLYGON ((29.63287197747197 69.92418939308993, 29.432997112880408 69.92418939308993, 29.432997112880408 69.99668534722463, 29.63287197747197 69.99668534722463, 29.63287197747197 69.92418939308993))',
-		grid = "100 m"),
-	time(year=2020);
+//observe earth:Region named test_stac_resources_norway_small_area_rectangular
+//	over space(shape= 
+//	'EPSG:4326 POLYGON ((29.63287197747197 69.92418939308993, 29.432997112880408 69.92418939308993, 29.432997112880408 69.99668534722463, 29.63287197747197 69.99668534722463, 29.63287197747197 69.92418939308993))',
+//		grid = "100 m"),
+//	time(year=2020);
+//
+//observe earth:Region named test_stac_resources_greece_33
+//	over space(shape= 
+//	'EPSG:4326 POLYGON ((22.357147225076126 38.493707792574895, 22.157272360484562 38.493707792574895, 22.157272360484562 38.56620374670959, 22.357147225076126 38.56620374670959, 22.357147225076126 38.493707792574895))',
+//		grid = "100 m"),
+//	time(year=2020);
+//	
+//observe earth:Region named test_stac_resources_norway_small_area_rectangular
+//	over space(shape= 
+//	'EPSG:4326 POLYGON ((29.63287197747197 69.92418939308993, 29.432997112880408 69.92418939308993, 29.432997112880408 69.99668534722463, 29.63287197747197 69.99668534722463, 29.63287197747197 69.92418939308993))',
+//		grid = "100 m"),
+//	time(year=2020);
 
 
 observe earth:Region named test_stac_resources_norway

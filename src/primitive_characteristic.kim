@@ -531,3 +531,26 @@ model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meand
 	set to [(self == 2 || self ==3 ? true : false)];  
 //annotation of occurrence_regime_episodic thresholds
 
+
+
+
+/*
+ * # Annotations moved from namespace: test_stac_resources ----------------------------------------------------------------------------------------
+ */
+model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_diurnal_air_temperature_mean__global__1981_2010 
+	as im:Daily im:Mean im:Yearly earth:AtmosphericTemperature in Celsius named annual_diurnal_mean_air_temperature
+	set to [self / 100];
+// TODO: Need to double check the transformation formula with Alessio/Polina.
+
+model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability__global__1981_2010
+	as im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_variability
+	set to [self * 0.1 - 273.5];
+
+model local:alessio.bulckaen:im.data.global:ecdc__climate__summer_diurnal_air_temperature_mean__global__1981_2010 
+	as im:Mean earth:AtmosphericTemperature during earth:Summer in Celsius named summer_diurnal_mean_air_temperature
+	set to [self / 100];
+
+model local:alessio.bulckaen:im.data.global:ecdc__climate__winter_diurnal_air_temperature_mean__global__1981_2010 
+	as im:Mean earth:AtmosphericTemperature during earth:Winter in Celsius named winter_diurnal_mean_air_temperature
+	set to [self / 100];
+	
