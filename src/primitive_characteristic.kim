@@ -554,3 +554,22 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__winter_diurnal_air_te
 	as im:Mean earth:AtmosphericTemperature during earth:Winter in Celsius named winter_diurnal_mean_air_temperature
 	set to [self / 100];
 	
+/*
+ * *********************************ANTHRPOGENIC_SYSTEMS************************************
+ */
+ //annotation of managed_waters_canal thresholds
+model
+//local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__colombia__2025,
+//local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__czechia__2025,
+local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__greece__2025
+//local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__norway__2025,
+//local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__south_africa__2025,
+//local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__viet_nam__2025
+as presence of hydrology.incubation:Canal earth:Region named managed_canal
+	set to [slef ==1]
+over space(shape='POLYGON ((179.96 -52.99, 179.96 78.07, -162.9 78.07, -162.9 -52.99, 179.96 -52.99))');
+
+model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform__global__1984_2017'
+as presence of hydrology.incubation:Reservoir earth:Region named reservoir
+	set to [self==3]
+over space(shape="POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))"); 

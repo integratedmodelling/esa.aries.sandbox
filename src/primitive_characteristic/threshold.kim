@@ -704,4 +704,26 @@ model local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__coast
 	as presence of earth:Coast with im:High earth:WindSpeed of earth:Storm named coastal_storms_exposure_presence
 	set to [self == 1 ? true : false];
 
-	
+/*
+ * *********************************GEOHTERMAL************************************
+ */
+//annotation of presence of geothermal (boolean)
+model 'local:alessio.bulckaen:im.data.global:ecdc__energy__geothermal__global__2019'
+as presence of earth:Crust physical:Thermal earth:Region
+ set to [self > 60];
+
+
+/*
+ * *********************************ANTHRPOGENIC_SYSTEMS************************************
+ */
+//annotation of managed_waters_canal thresholds
+model type of hydrology.incubation:ManagedWaterBody named managed_waterbody_type
+observing
+	presence of hydrology.incubation:Reservoir earth:Region named reservoir,
+	presence of hydrology.incubation:Canal earth:Region named managed_canal
+	lookup (reservoir,managed_canal,?) into
+	reservoir|managed_canal|managed_waterbody_type
+	----------------------------------------------
+	   true  | 		#	   |hydrology.incubation:Reservoir,
+		#	 |	   true	   |hydrology.incubation:Canal
+over space(shape='POLYGON ((179.96 -52.99, 179.96 78.07, -162.9 78.07, -162.9 -52.99, 179.96 -52.99))');	
