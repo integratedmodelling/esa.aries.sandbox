@@ -258,9 +258,6 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_
 	as im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_variability
 	set to [self * 0.1 - 273.5];
 	
-number local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability__global__1981_2010
-	as test;
-	
 model level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability_level
 	observing
 		im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_variability
