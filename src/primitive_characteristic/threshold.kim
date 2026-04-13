@@ -460,7 +460,17 @@ observing
 		  >= 164025 | ecology:Megaphyll; 
 //over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
 
-
+model 'local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__recurrence__global__2002_2024'
+	as level of (count of im:Yearly im:Occurrence of chemistry:Fire) named recurrence
+	lookup (self, ?) into
+		recurrence 	| category
+		---------------------
+		1			| ecology.incubation:Annual, // cate added this manually because it made sense in her head
+		2 to 9 		| ecology.incubation:SubDecadal,
+		10 to 19 	| ecology.incubation:Decadal,
+		20 to 99 	| ecology.incubation:MultiDecadal,
+		>100 		| ecology.incubation:Centennial;
+//over space(shape='POLYGON ((180 -60.0003350977, 180 69.9999999937, -180 69.9999999937, -180 -60.0003350977, 180 -60.0003350977))');
 
 
 
