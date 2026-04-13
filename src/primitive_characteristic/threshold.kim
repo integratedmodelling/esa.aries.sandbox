@@ -460,8 +460,9 @@ observing
 		  >= 164025 | ecology:Megaphyll; 
 //over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
 
-model 'local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__recurrence__global__2002_2024'
-	as level of (count of im:Yearly im:Occurrence of chemistry:Fire) named recurrence
+model level of (count of im:Yearly im:Occurrence of chemistry:Fire) 
+	observing 
+		count of im:Yearly im:Occurrence of chemistry:Fire named recurrence
 	lookup (self, ?) into
 		recurrence 	| category
 		---------------------
@@ -470,10 +471,6 @@ model 'local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__recurre
 		10 to 19 	| ecology.incubation:Decadal,
 		20 to 99 	| ecology.incubation:MultiDecadal,
 		>100 		| ecology.incubation:Centennial;
-//over space(shape='POLYGON ((180 -60.0003350977, 180 69.9999999937, -180 69.9999999937, -180 -60.0003350977, 180 -60.0003350977))');
-
-
-
 
 /*
  * # Annotations moved from namespace: test_stac_resources ----------------------------------------------------------------------------------------
@@ -608,11 +605,12 @@ model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__mining_areas__g
 	set to [self == 1 ? true : false];
 
 model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_amplitude__global__1981_2010 
-	as level of im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_amplitude_level
+	as level of im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_amplitude_level
 	lookup(self, ?) into
 		seasonal_diurnal_air_temperature_amplitude  | category
 	   --------------------------------------------------------
 					0 to 10 						| im:Low  ,
+					11 to 20 						| im:Moderate,			
 					   > 21 						| im:High ;
 
 	
