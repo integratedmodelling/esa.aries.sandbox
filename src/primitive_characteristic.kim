@@ -569,10 +569,61 @@ local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal_
 //local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__south_africa__2025,
 //local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__viet_nam__2025
 as presence of hydrology.incubation:Canal earth:Region named managed_canal
-	set to [slef ==1]
+	set to [self ==1]
 over space(shape='POLYGON ((179.96 -52.99, 179.96 78.07, -162.9 78.07, -162.9 -52.99, 179.96 -52.99))');
+///*
+// * # Managed waters canal. --------------------------------------------------------------------------------------------
+// */
+//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__czechia__2025
+//	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_type_czechia
+//	classified into
+//		hydrology.incubation:Canal if 1
+//	over space(shape="POLYGON ((18.86841376 48.5186872, 18.86841376 51.07581503, 12.08060933 51.07581503, 12.08060933 48.5186872, 18.86841376 48.5186872))");
+//	
+//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__greece__2025
+//	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_type_greece
+//	classified into
+//		hydrology.incubation:Canal if 1
+//	over space(shape="POLYGON ((29.63220162 34.9966406, 29.63220162 41.79065352, 19.35250178 41.79065352, 19.35250178 34.9966406, 29.63220162 34.9966406))");
+//	
+//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__south_africa__2025
+//	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_type_south_africa
+//	classified into
+//		hydrology.incubation:Canal if 1
+//	over space(shape="POLYGON ((33.11678359 -34.60613124, 33.11678359 -22.13874777, 16.99718611 -22.13874777, 16.99718611 -34.60613124, 33.11678359 -34.60613124))");
+//
+//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__viet_nam__2025
+//	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_type_viet_nam
+//	classified into
+//		hydrology.incubation:Canal if 1
+//	over space(shape="POLYGON ((109.48767457 8.56539723, 109.48767457 23.43431472, 101.9644288 23.43431472, 101.9644288 8.56539723, 109.48767457 8.56539723))");
+//
+//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__colombia__2025 
+//	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_type_colombia
+//	classified into
+//		hydrology.incubation:Canal if 1
+//	over space(shape="POLYGON ((-66.87024263 -4.0466187, -66.87024263 12.44063129, -78.9991173 12.44063129, -78.9991173 -4.0466187, -66.87024263 -4.0466187))");
+//
+//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__norway__2025
+//	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_type_norway
+//	classified into
+//		hydrology.incubation:Canal if 1
+//	over space(shape="POLYGON ((32.32653302 57.94497396, 32.32653302 71.02589146, 4.73888022 71.02589146, 4.73888022 57.94497396, 32.32653302 57.94497396))");
+	
+
 
 model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform__global__1984_2017'
 as presence of hydrology.incubation:Reservoir earth:Region named reservoir
 	set to [self==3]
 over space(shape="POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))"); 
+
+//annotation of managed_waterbody_type
+model type of hydrology.incubation:ManagedWaterBody named managed_waterbody_type
+observing
+	presence of hydrology.incubation:Reservoir earth:Region named reservoir,
+	presence of hydrology.incubation:Canal earth:Region named managed_canal
+	lookup (reservoir,managed_canal,?) into
+	reservoir|managed_canal|managed_waterbody_type
+	----------------------------------------------
+	   true  | 		#	   |hydrology.incubation:Reservoir,
+		#	 |	   true	   |hydrology.incubation:Canal;
