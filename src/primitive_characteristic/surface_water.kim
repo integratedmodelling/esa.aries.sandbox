@@ -1,2 +1,120 @@
-private namespace primitive_characteristic.surface_water;
+project private namespace primitive_characteristic.surface_water;
 
+quantity WatershedStreamOrder;
+//secondary_observations of  type of hydrology:WaterBody
+model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__global__2004_2013'
+	as presence of hydrology.incubation:RiverMeander named hydroform_meander
+	set to [(self == 2 || self ==3 ? true : false)];  
+
+number 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform__global__1984_2017' as hydroform_type; 
+
+//primary_observations of  type of hydrology:WaterBody
+model type of hydrology:WaterBody
+observing 
+	hydroform_type,
+	presence of hydrology.incubation:RiverMeander named hydroform_meander
+		lookup(hydroform_type, hydroform_meander) into
+		hydroform_type|hydroform_meander| category
+		-----------------------------------------------------------
+			 1		  |	#				| hydrology:Watercourse,
+		 in (2 3)	  |	#				| hydrology:InlandWaterBody,
+			#		  |  true			| hydrology:Meander
+over space(shape="POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))");
+
+//secondary_observations of  type of hydrology:WaterPermanence	
+number 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_seasonality__global__1984_2021' as seasonal_water_regime;
+number 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_ephemeral__global__1984_2021' as ephemeral_water_regime;
+number 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_episodic__global__1984_2021'as episodic_water_regime;
+
+//primary_observations of  type of hydrology:WaterPermanence
+model type of hydrology:WaterPermanence
+observing
+	seasonal_water_regime,
+	ephemeral_water_regime,
+	episodic_water_regime
+	lookup(seasonal_water_regime, ephemeral_water_regime,episodic_water_regime, ?) into
+		seasonal_water_regime|ephemeral_water_regime|episodic_water_regime|category
+		---------------------------------------------------------------------------------------
+			     1		     |			#			| 		#			  |hydrology:Permanent,
+			     2		     |			#			| 		#			  |hydrology:Seasonal,
+	     		 #		     |			#			| 		1			  |hydrology:Ephemeral,			     			 
+		     	 #		     |		in (1 2)		| 		#			  |hydrology:Episodic;
+
+
+
+////primary_observations of level of (hydrology:StreamOrder of hydrology:Watershed)
+//model'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__global__2004_2013'
+//	as hydrology:StreamOrder of hydrology:Watershed named watershed_hierarchy;
+//
+////secondary_observations of level of (hydrology:StreamOrder of hydrology:Watershed)
+//model level of (hydrology:StreamOrder of hydrology:Watershed) named watershed_hierarchy
+//	observing hydrology:StreamOrder of hydrology:Watershed named watershed_hierarchy 
+//		lookup (watershed_hierarchy , ?) into
+//		watershed_hierarchy| category
+//		------------------------------
+//		//			  <1   | im:VeryLow,
+//					1 to 4 | im:Low,
+//					4 to 9 | im:Moderate,
+//					  >9   | im:High;
+
+//direct_annotation of level of (hydrology:StreamOrder of hydrology:Watershed)	
+model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__global__2004_2013'
+//	as level of (hydrology:StreamOrder of hydrology:Watershed) named watershed_hierarchy
+	as WatershedStreamOrder named watershed_hierarchy
+		lookup (watershed_hierarchy, ?) into
+		watershed_hierarchy| category
+		------------------------------
+		//			  <1   | im:VeryLow,
+					1 to 4 | im:Low,
+					4 to 9 | im:Moderate,
+					  >9   | im:High;
+//over space(shape="POLYGON ((-180 -55.87, -180 84.01, 180 84.01, 180 -55.87, -180 -55.87))");
+ 
+
+////direct_annotation of hydroform_morphology_area thresholds
+//@intensive(space) 
+//model 
+////'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__colombia__2013_2020,
+////local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__czechia__2013_2020,
+//local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__greece__2013_2020
+////local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__norway__2013_2020,
+////local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__south_africa__2013_2020,
+////local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__viet_nam__2013_2020
+//	as level of (im:Minimum im:Area of earth:WaterBody) named hydroform_morphology_area
+//		lookup (self,?) into
+//		hydroform_morphology_area | category
+//		------------------------------------
+//		 					 <100 | im:Low,
+//							 >=100 | im:High
+//	over space(shape='POLYGON ((-180 -55.87, -180 84.01, 180 84.01, 180 -55.87, -180 -55.87))');
+//@intensive(space)                        
+//model level of (im:Minimum im:Area of earth:WaterBody) named hydroform_morphology_area
+//observing im:Minimum im:Area of earth:WaterBody in km^2
+//		lookup (hydroform_morphology_area) into
+//		hydroform_morphology_area | category
+//		------------------------------------
+//							< 100 | im:Low,
+//	                        > 100 | im:High; 
+	
+
+//secondary_observation  of level of (im:Minimum im:Area of earth:WaterBody)
+@intensive(space) 
+model 
+//'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__colombia__2013_2020,
+//local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__czechia__2013_2020,
+local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__greece__2013_2020
+//local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__norway__2013_2020,
+//local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__south_africa__2013_2020,
+//local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__viet_nam__2013_2020
+as im:Minimum im:Area of earth:WaterBody in km^2;
+
+//primary_observation of level of (im:Minimum im:Area of earth:WaterBody)
+model level of (im:Minimum im:Area of earth:WaterBody) 
+observing
+	im:Minimum im:Area of earth:WaterBody in km^2 named hydroform_morphology_area
+		lookup (hydroform_morphology_area,?) into
+		hydroform_morphology_area | category
+		------------------------------------
+		 					 <100 | im:Low,
+							 >=100 | im:High
+	over space(shape='POLYGON ((-180 -55.87, -180 84.01, 180 84.01, 180 -55.87, -180 -55.87))');
