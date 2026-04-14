@@ -60,15 +60,15 @@ model 'local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_size__global
 as im:Area of biology:Leaf in mm^2 named leaf_size
 set to [(self * 0.48176748292230037) + 15791.77310467295];
 
-model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__mining_areas__global__2000_2019 
-	as presence of landcover:MineralExtraction earth:Region named mining_areas_presence
-	set to [self == 1 ? true : false];
-
-model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__greece__2025
-	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_type_greece
-	classified into
-		hydrology.incubation:Canal if 1
-	over space(shape="POLYGON ((29.63220162 34.9966406, 29.63220162 41.79065352, 19.35250178 41.79065352, 19.35250178 34.9966406, 29.63220162 34.9966406))");
+//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__mining_areas__global__2000_2019 
+//	as presence of landcover:MineralExtraction earth:Region named mining_areas_presence
+//	set to [self == 1 ? true : false];
+//
+//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__greece__2025
+//	as type of hydrology.incubation:ManagedWaterBody named managed_waters_canal_type_greece
+//	classified into
+//		hydrology.incubation:Canal if 1
+//	over space(shape="POLYGON ((29.63220162 34.9966406, 29.63220162 41.79065352, 19.35250178 41.79065352, 19.35250178 34.9966406, 29.63220162 34.9966406))");
 
   	
 /*Refined annotation for ECDC primitive characteristics*/
@@ -612,18 +612,18 @@ over space(shape='POLYGON ((179.96 -52.99, 179.96 78.07, -162.9 78.07, -162.9 -5
 	
 
 
-model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform__global__1984_2017'
-as presence of hydrology.incubation:Reservoir earth:Region named reservoir
-	set to [self==3]
-over space(shape="POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))"); 
+//model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform__global__1984_2017'
+//as presence of hydrology.incubation:Reservoir earth:Region named reservoir
+//	set to [self==3]
+//over space(shape="POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))"); 
 
 //annotation of managed_waterbody_type
-model type of hydrology.incubation:ManagedWaterBody named managed_waterbody_type
-observing
-	presence of hydrology.incubation:Reservoir earth:Region named reservoir,
-	presence of hydrology.incubation:Canal earth:Region named managed_canal
-	lookup (reservoir,managed_canal,?) into
-	reservoir|managed_canal|managed_waterbody_type
-	----------------------------------------------
-	   true  | 		#	   |hydrology.incubation:Reservoir,
-		#	 |	   true	   |hydrology.incubation:Canal;
+//model type of hydrology.incubation:ManagedWaterBody named managed_waterbody_type
+//observing
+//	presence of hydrology.incubation:Reservoir earth:Region named reservoir,
+//	presence of hydrology.incubation:Canal earth:Region named managed_canal
+//	lookup (reservoir,managed_canal,?) into
+//	reservoir|managed_canal|managed_waterbody_type
+//	----------------------------------------------
+//	   true  | 		#	   |hydrology.incubation:Reservoir,
+//		#	 |	   true	   |hydrology.incubation:Canal;

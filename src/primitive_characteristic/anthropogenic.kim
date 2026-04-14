@@ -1,2 +1,70 @@
 private namespace primitive_characteristic.anthropogenic;
 
+/*
+ * # 1) Mining areas.
+ */
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__mining_areas__global__2000_2019 
+	as presence of landcover:MineralExtraction earth:Region named mining_areas_presence
+	set to [self == 1 ? true : false];
+
+/*
+ * # 2) Managed waters canal.
+ */	
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__greece__2025
+	as presence of hydrology.incubation:Canal earth:Region named managed_waters_canal_presence_greece
+	set to [self == 1 ? true : false]
+	over space(shape="POLYGON ((29.63220162 34.9966406, 29.63220162 41.79065352, 19.35250178 41.79065352, 19.35250178 34.9966406, 29.63220162 34.9966406))");
+	
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__viet_nam__2025
+	as presence of hydrology.incubation:Canal earth:Region named managed_waters_canal_presence_viet_nam
+	set to [self == 1 ? true : false]
+	over space(shape="POLYGON ((109.48767457 8.56539723, 109.48767457 23.43431472, 101.9644288 23.43431472, 101.9644288 8.56539723, 109.48767457 8.56539723))");
+
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__colombia__2025 
+	as presence of hydrology.incubation:Canal earth:Region named managed_waters_canal_presence_colombia
+	set to [self == 1 ? true : false]
+	over space(shape="POLYGON ((-66.87024263 -4.0466187, -66.87024263 12.44063129, -78.9991173 12.44063129, -78.9991173 -4.0466187, -66.87024263 -4.0466187))");
+	
+/*
+ * # 3) Managed waters reservoir.
+ */
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservoir__greece__2022
+	as presence of hydrology.incubation:Reservoir earth:Region named managed_waters_reservoir_presence_greece
+	set to [self == 3 ? true : false]
+	over space(shape="POLYGON ((29.63220162 34.9966406, 29.63220162 41.79065352, 19.35250178 41.79065352, 19.35250178 34.9966406, 29.63220162 34.9966406))");
+	
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservoir__viet_nam__2022
+	as presence of hydrology.incubation:Reservoir earth:Region named managed_waters_reservoir_presence_viet_nam
+	set to [self == 3 ? true : false]
+	over space(shape="POLYGON ((109.48767457 8.56539723, 109.48767457 23.43431472, 101.9644288 23.43431472, 101.9644288 8.56539723, 109.48767457 8.56539723))");
+
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservoir__colombia__2022 
+	as presence of hydrology.incubation:Reservoir earth:Region named managed_waters_reservoir_presence_colombia
+	set to [self == 3 ? true : false]
+	over space(shape="POLYGON ((-66.87024263 -4.0466187, -66.87024263 12.44063129, -78.9991173 12.44063129, -78.9991173 -4.0466187, -66.87024263 -4.0466187))");
+		 
+/*
+ * # 4) Managed waters mariculture.
+ */
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_mariculture__greece__2017
+	as presence of landcover:WaterBody earth:Region caused by agriculture:Mariculture named managed_waters_mariculture_presence_greece
+	set to [self == 1 ? true : false]
+	over space(shape="POLYGON ((29.63220162 34.9966406, 29.63220162 41.79065352, 19.35250178 41.79065352, 19.35250178 34.9966406, 29.63220162 34.9966406))");
+
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservoir__viet_nam__2022
+	as presence of landcover:WaterBody earth:Region caused by agriculture:Mariculture named managed_waters_mariculture_presence_viet_nam
+	set to [self == 1 ? true : false]
+	over space(shape="POLYGON ((109.48767457 8.56539723, 109.48767457 23.43431472, 101.9644288 23.43431472, 101.9644288 8.56539723, 109.48767457 8.56539723))");
+	
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservoir__colombia__2022 
+	as presence of landcover:WaterBody earth:Region caused by agriculture:Mariculture named managed_waters_mariculture_presence_colombia
+	set to [self == 1 ? true : false]
+	over space(shape="POLYGON ((-66.87024263 -4.0466187, -66.87024263 12.44063129, -78.9991173 12.44063129, -78.9991173 -4.0466187, -66.87024263 -4.0466187))");
+	 
+/*
+ * # 5) Managed waters aquaculture.
+ */
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_aquaculture__czechia_greece_norway__2017 
+	as presence of hydrology.incubation:Aquaculture earth:Region named managed_waters_aquaculture_presence
+	set to [self == 1 ? true : false];
+		 

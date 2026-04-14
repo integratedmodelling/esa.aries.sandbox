@@ -600,9 +600,9 @@ model local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_
 		im:High if in (8 9 10);
 
 /* --------------------------------------------------------------------------------------------------------------- */
-model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__mining_areas__global__2000_2019 
-	as presence of landcover:MineralExtraction earth:Region named mining_areas_presence
-	set to [self == 1 ? true : false];
+//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__mining_areas__global__2000_2019 
+//	as presence of landcover:MineralExtraction earth:Region named mining_areas_presence
+//	set to [self == 1 ? true : false];
 
 model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_amplitude__global__1981_2010 
 	as level of im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_amplitude_level
