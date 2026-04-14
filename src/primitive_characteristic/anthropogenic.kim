@@ -67,4 +67,18 @@ model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_
 model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_aquaculture__czechia_greece_norway__2017 
 	as presence of hydrology.incubation:Aquaculture earth:Region named managed_waters_aquaculture_presence
 	set to [self == 1 ? true : false];
-		 
+
+/*
+ * # 6) Managed water body.
+ */	
+model type of hydrology.incubation:ManagedWaterBody named managed_waterbody_type
+	observing
+		presence of hydrology.incubation:Canal earth:Region named managed_waters_canal_presence,
+		presence of hydrology.incubation:Reservoir earth:Region named managed_waters_reservoir_presence,
+		presence of hydrology.incubation:Aquaculture earth:Region named managed_waters_aquaculture_presence
+	lookup (managed_waters_canal_presence, managed_waters_reservoir_presence, managed_waters_aquaculture_presence, ?) into
+			canal_presence	|	reservoir_presence	|	aquaculture_presence	|	managed_waterbody_type
+		------------------------------------------------------------------------------------------------------------------
+				true  		|			#			|			#				|	hydrology.incubation:Canal			,
+				 #  		|		   true			|			#				|	hydrology.incubation:Reservoir		,
+				 #  		|			#			|		   true				|	hydrology.incubation:Aquaculture	;
