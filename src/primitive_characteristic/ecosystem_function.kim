@@ -1,2 +1,26 @@
 private namespace primitive_characteristic.ecosystem_function;
 
+number 'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2024' as test_primary_productivity;
+
+@intensive(space)   
+model 
+'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2018'
+//,
+//	  'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2021',
+//	  'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2024'
+	as ecology:NetPrimaryProduction in g/m^2 named primary_productivity      
+	over space(shape='POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))');
+	//over space(shape='POLYGON ((179.9985147848 -59.9985130248, 179.9985147848 80.0014880952, -180 80.0014880952, -180 -59.9985130248, 179.9985147848 -59.9985130248))');
+
+//annotation of annual_net_primary_productivity_total thresholds
+@intensive(space)   
+model level of ecology:NetPrimaryProduction
+	observing
+		ecology:NetPrimaryProduction in g/m^2 named primary_productivity
+		lookup (primary_productivity,?) into
+		primary_productivity | category
+		------------------------------------------------
+			       0 to 500  | im:Low,
+			     500 to 2000 | im:Moderate,
+				    >2000    | im:High
+		over space(shape='POLYGON ((180 -60, 180 60, -180 60, -180 -60, 180 -60))');
