@@ -46,7 +46,7 @@ model level of im:Mean earth:AtmosphericTemperature during earth:Winter named wi
  * # 3) Potential tree growth.
  */
 model local:alessio.bulckaen:im.data.global:ecdc__climate__potential_tree_growth__global__1981_2010
-	as presence of im:Potential ecology:Tree caused by biology:Growth
+	as presence of im:Potential ecology:Tree caused by biology:Growth named potential_tree_growth
 	set to [self == 1 ? true : false];
 	
 /*

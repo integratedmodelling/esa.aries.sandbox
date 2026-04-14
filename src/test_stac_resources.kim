@@ -304,21 +304,21 @@ number local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__recurre
 //					10 to 21 						| im:Moderate	,
 //					   > 21 						| im:High		;
 
-model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability__global__1981_2010
-	as im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_variability
-	set to [self * 0.1 - 273.5];
-	
-model level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability_level
-	observing
-		im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_variability
-	lookup(seasonal_diurnal_air_temperature_variability, ?) into
-		   seasonal_diurnal_air_temperature_variability | category
-		----------------------------------------------------------------------
-						  0								| im:VeryLow		,
-					 0 to 1								| im:ModeratelyLow	,						  
-					 1 to 25							| im:Low			,
-					25 to 75							| im:Moderate		,
-						> 75							| im:High			;
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability__global__1981_2010
+//	as im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_variability
+//	set to [self * 0.1 - 273.5];
+//	
+//model level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability_level
+//	observing
+//		im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_variability
+//	lookup(seasonal_diurnal_air_temperature_variability, ?) into
+//		   seasonal_diurnal_air_temperature_variability | category
+//		----------------------------------------------------------------------
+//						  0								| im:VeryLow		,
+//					 0 to 1								| im:ModeratelyLow	,						  
+//					 1 to 25							| im:Low			,
+//					25 to 75							| im:Moderate		,
+//						> 75							| im:High			;
 	
 number local:alessio.bulckaen:im.data.global:ecdc__vegetation__specific_leaf_area__global__2000_2020 as test_specific_leaf_area74;
 
