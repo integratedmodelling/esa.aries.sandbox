@@ -522,9 +522,9 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__winter_water_budget_t
 				   1 to 499			| im:ModeratelyHigh ,
 					  > 500			| im:High			;
 
-model local:alessio.bulckaen:im.data.global:ecdc__bioticassemblages__biotic_assemblage_pinniped_colonies__global__2022
-	as presence of GBIF.SPECIES:4941589 ecology:Population named biotic_assemblage_pinniped_colonies_presence
-	set to [((self == 1) || (self == 2)) ? true : false];
+//model local:alessio.bulckaen:im.data.global:ecdc__bioticassemblages__biotic_assemblage_pinniped_colonies__global__2022
+//	as presence of GBIF.SPECIES:4941589 ecology:Population named biotic_assemblage_pinniped_colonies_presence
+//	set to [((self == 1) || (self == 2)) ? true : false];
 
 /*
  * # Canopy Cover. --------------------------------------------------------------------------------------------
