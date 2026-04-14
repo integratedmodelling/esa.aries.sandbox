@@ -475,52 +475,52 @@ model level of (count of im:Yearly im:Occurrence of chemistry:Fire)
 /*
  * # Annotations moved from namespace: test_stac_resources ----------------------------------------------------------------------------------------
  */
-model level of im:Daily im:Mean im:Yearly earth:AtmosphericTemperature named annual_diurnal_mean_air_temperature_level
-	observing
-		im:Daily im:Mean im:Yearly earth:AtmosphericTemperature in Celsius named annual_diurnal_mean_air_temperature
-	lookup(annual_diurnal_mean_air_temperature, ?) into
-		  annual_diurnal_mean_air_temperature | category
-		---------------------------------------------------------------------------
-					 < -25					  | ecology.incubation:ExtremelyCold ,
-		 		-25 to -10					  | ecology.incubation:VeryCold		 ,
-		 		-10 to 0					  | ecology.incubation:Cold			 ,
-				  0 to 10					  | ecology.incubation:Cool			 ,
-				 10 to 18					  | ecology.incubation:Mild			 ,
-				 18 to 22					  | ecology.incubation:Warm			 ,
-				 22 to 28					  | ecology.incubation:Hot			 ,
-				 28 to 35					  | ecology.incubation:VeryHot		 ,
-					 > 35					  | ecology.incubation:ExtremelyHot  ;
+//model level of im:Daily im:Mean im:Yearly earth:AtmosphericTemperature named annual_diurnal_mean_air_temperature_level
+//	observing
+//		im:Daily im:Mean im:Yearly earth:AtmosphericTemperature in Celsius named annual_diurnal_mean_air_temperature
+//	lookup(annual_diurnal_mean_air_temperature, ?) into
+//		  annual_diurnal_mean_air_temperature | category
+//		---------------------------------------------------------------------------
+//					 < -25					  | ecology.incubation:ExtremelyCold ,
+//		 		-25 to -10					  | ecology.incubation:VeryCold		 ,
+//		 		-10 to 0					  | ecology.incubation:Cold			 ,
+//				  0 to 10					  | ecology.incubation:Cool			 ,
+//				 10 to 18					  | ecology.incubation:Mild			 ,
+//				 18 to 22					  | ecology.incubation:Warm			 ,
+//				 22 to 28					  | ecology.incubation:Hot			 ,
+//				 28 to 35					  | ecology.incubation:VeryHot		 ,
+//					 > 35					  | ecology.incubation:ExtremelyHot  ;
 
-model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation_total__global__1981_2010 
-	as level of im:Yearly earth:PrecipitationVolume named annual_precipitation_total_level
-		lookup(self, ?) into
-		annual_precipitation_total	| category
-		---------------------------------------------
-					     < 200		| im:VeryLow  ,
-					200 to 300		| im:Low	  ,
-					300 to 900		| im:Moderate ,
-					900 to 2000		| im:High	  ,
-				         > 2000		| im:VeryHigh ;
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation_total__global__1981_2010 
+//	as level of im:Yearly earth:PrecipitationVolume named annual_precipitation_total_level
+//		lookup(self, ?) into
+//		annual_precipitation_total	| category
+//		---------------------------------------------
+//					     < 200		| im:VeryLow  ,
+//					200 to 300		| im:Low	  ,
+//					300 to 900		| im:Moderate ,
+//					900 to 2000		| im:High	  ,
+//				         > 2000		| im:VeryHigh ;
 
-model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total__global__1981_2010 
-	as level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance) named annual_total_water_budget_level
-	lookup(self, ?) into
-		  annual_water_budget_total | category
-		-------------------------------------------------
-				< -500				| im:Low			,
-		  -499 to -1				| im:ModeratelyLow  ,
-			 1 to 499				| im:ModeratelyHigh ,
-				> 500				| im:High			;
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total__global__1981_2010 
+//	as level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance) named annual_total_water_budget_level
+//	lookup(self, ?) into
+//		  annual_water_budget_total | category
+//		-------------------------------------------------
+//				< -500				| im:Low			,
+//		  -499 to -1				| im:ModeratelyLow  ,
+//			 1 to 499				| im:ModeratelyHigh ,
+//				> 500				| im:High			;
 				
-model local:alessio.bulckaen:im.data.global:ecdc__climate__winter_water_budget_total__global__1980_2010 
-	as level of (hydrology:WaterVolume caused by hydrology:WaterBalance during earth:Winter) named winter_total_water_budget_level
-	lookup(self, ?) into
-		  winter_water_budget_total | category
-		--------------------------------------------------
-					  < -500		| im:Low			,
-		 		-499 to -1			| im:ModeratelyLow	,
-				   1 to 499			| im:ModeratelyHigh ,
-					  > 500			| im:High			;
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__winter_water_budget_total__global__1980_2010 
+//	as level of (hydrology:WaterVolume caused by hydrology:WaterBalance during earth:Winter) named winter_total_water_budget_level
+//	lookup(self, ?) into
+//		  winter_water_budget_total | category
+//		--------------------------------------------------
+//					  < -500		| im:Low			,
+//		 		-499 to -1			| im:ModeratelyLow	,
+//				   1 to 499			| im:ModeratelyHigh ,
+//					  > 500			| im:High			;
 
 //model local:alessio.bulckaen:im.data.global:ecdc__bioticassemblages__biotic_assemblage_pinniped_colonies__global__2022
 //	as presence of GBIF.SPECIES:4941589 ecology:Population named biotic_assemblage_pinniped_colonies_presence
@@ -604,65 +604,65 @@ model local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_
 //	as presence of landcover:MineralExtraction earth:Region named mining_areas_presence
 //	set to [self == 1 ? true : false];
 
-model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_amplitude__global__1981_2010 
-	as level of im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_amplitude_level
-	lookup(self, ?) into
-		seasonal_diurnal_air_temperature_amplitude  | category
-	   --------------------------------------------------------
-					0 to 10 						| im:Low  ,
-					11 to 20 						| im:Moderate,			
-					   > 21 						| im:High ;
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_amplitude__global__1981_2010 
+//	as level of im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_amplitude_level
+//	lookup(self, ?) into
+//		seasonal_diurnal_air_temperature_amplitude  | category
+//	   --------------------------------------------------------
+//					0 to 10 						| im:Low  ,
+//					11 to 20 						| im:Moderate,			
+//					   > 21 						| im:High ;
 
 	
-model level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability_level
-	observing
-		im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_variability
-	lookup(seasonal_diurnal_air_temperature_variability, ?) into
-		   seasonal_diurnal_air_temperature_variability | category
-		---------------------------------------------------------------
-						  0								| im:VeryLow  ,
-					 1 to 25							| im:Low	  ,
-					25 to 75							| im:Moderate ,
-						> 75							| im:High	  ;
+//model level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability_level
+//	observing
+//		im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_variability
+//	lookup(seasonal_diurnal_air_temperature_variability, ?) into
+//		   seasonal_diurnal_air_temperature_variability | category
+//		---------------------------------------------------------------
+//						  0								| im:VeryLow  ,
+//					 1 to 25							| im:Low	  ,
+//					25 to 75							| im:Moderate ,
+//						> 75							| im:High	  ;
 
 
-model level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_mean_air_temperature_level
-	observing
-		im:Mean earth:AtmosphericTemperature during earth:Summer in Celsius named summer_diurnal_mean_air_temperature
-	lookup(summer_diurnal_mean_air_temperature, ?) into
-		  summer_diurnal_mean_air_temperature	| category
-		-----------------------------------------------------------------------------
-				   -10 to 0						| ecology.incubation:Cold		  ,
-					 0 to 10					| ecology.incubation:Cool		  ,
-					10 to 18					| ecology.incubation:Mild		  ,
-					18 to 22					| ecology.incubation:Warm		  ,
-					22 to 28					| ecology.incubation:Hot		  ,
-					28 to 35					| ecology.incubation:VeryHot	  ,
-					    > 35					| ecology.incubation:ExtremelyHot ;
+//model level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_mean_air_temperature_level
+//	observing
+//		im:Mean earth:AtmosphericTemperature during earth:Summer in Celsius named summer_diurnal_mean_air_temperature
+//	lookup(summer_diurnal_mean_air_temperature, ?) into
+//		  summer_diurnal_mean_air_temperature	| category
+//		-----------------------------------------------------------------------------
+//				   -10 to 0						| ecology.incubation:Cold		  ,
+//					 0 to 10					| ecology.incubation:Cool		  ,
+//					10 to 18					| ecology.incubation:Mild		  ,
+//					18 to 22					| ecology.incubation:Warm		  ,
+//					22 to 28					| ecology.incubation:Hot		  ,
+//					28 to 35					| ecology.incubation:VeryHot	  ,
+//					    > 35					| ecology.incubation:ExtremelyHot ;
 
 	
-model level of im:Mean earth:AtmosphericTemperature during earth:Winter named winter_diurnal_mean_air_temperature_level
-	observing
-		im:Mean earth:AtmosphericTemperature during earth:Winter in Celsius named winter_diurnal_mean_air_temperature
-	lookup(winter_diurnal_mean_air_temperature, ?) into
-		  winter_diurnal_mean_air_temperature	| category
-		------------------------------------------------------------------------------
-				 		< -25					| ecology.incubation:ExtremelyCold	,
-				   -25 to -10					| ecology.incubation:VeryCold		,
-				   -10 to 0						| ecology.incubation:Cold		  	,
-					 0 to 10					| ecology.incubation:Cool		  	,
-					10 to 18					| ecology.incubation:Mild		  	,
-					18 to 22					| ecology.incubation:Warm	  		,
-					22 to 28					| ecology.incubation:Hot 			;		
+//model level of im:Mean earth:AtmosphericTemperature during earth:Winter named winter_diurnal_mean_air_temperature_level
+//	observing
+//		im:Mean earth:AtmosphericTemperature during earth:Winter in Celsius named winter_diurnal_mean_air_temperature
+//	lookup(winter_diurnal_mean_air_temperature, ?) into
+//		  winter_diurnal_mean_air_temperature	| category
+//		------------------------------------------------------------------------------
+//				 		< -25					| ecology.incubation:ExtremelyCold	,
+//				   -25 to -10					| ecology.incubation:VeryCold		,
+//				   -10 to 0						| ecology.incubation:Cold		  	,
+//					 0 to 10					| ecology.incubation:Cool		  	,
+//					10 to 18					| ecology.incubation:Mild		  	,
+//					18 to 22					| ecology.incubation:Warm	  		,
+//					22 to 28					| ecology.incubation:Hot 			;		
 
-model local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belts__global__1950_2000 
-	as type of ecology:MountainClimaticBeltZone named thermal_belts_type
-	classified into
-		ecology:UpperAlpine  if 2,
-		ecology:LowerAlpine  if 3,
-		ecology:UpperMontane if 4,
-		ecology:LowerMontane if 5,
-		ecology:Lowland 	 if in (6, 7);
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belts__global__1950_2000 
+//	as type of ecology:MountainClimaticBeltZone named thermal_belts_type
+//	classified into
+//		ecology:UpperAlpine  if 2,
+//		ecology:LowerAlpine  if 3,
+//		ecology:UpperMontane if 4,
+//		ecology:LowerMontane if 5,
+//		ecology:Lowland 	 if in (6, 7);
 
 //model local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__tropical_storms_exposure__global__1990_2015
 //	as presence of ecology:Tropical earth:Region with im:Mean im:Maximum earth:WindSpeed of earth:Storm named tropical_storms_exposure_presence

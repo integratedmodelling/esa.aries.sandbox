@@ -29,19 +29,19 @@ model local:rubencc:im.data.global:im-data-global-landcover.cci_lc_300m_2020_v2_
 	  	ecology:Evergreen if in (50 70 71 72 121);
 
 //annotation of summer_diurnal_air_temperature_mean thresholds
-model 'local:alessio.bulckaen:im.data.global:ecdc__climate__summer_diurnal_air_temperature_mean__global__1981_2010'
- as level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_air_temperature_mean
-	lookup(summer_diurnal_air_temperature_mean) into
-	summer_diurnal_air_temperature_mean | category
-	----------------------------------------------
-	-10 to 0  | ecology.incubation:Cold,
-	  0 to 10 | ecology.incubation:Cool,
-	 10 to 18 | ecology.incubation:Mild,
-	 18 to 22 | ecology.incubation:Warm,
-	 22 to 28 | ecology.incubation:Hot,
-	 28 to 35 | ecology.incubation:VeryHot,
-	   >=35   | ecology.incubation:ExtremelyHot
-	over space(shape="POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))");
+//model 'local:alessio.bulckaen:im.data.global:ecdc__climate__summer_diurnal_air_temperature_mean__global__1981_2010'
+// as level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_air_temperature_mean
+//	lookup(summer_diurnal_air_temperature_mean) into
+//	summer_diurnal_air_temperature_mean | category
+//	----------------------------------------------
+//	-10 to 0  | ecology.incubation:Cold,
+//	  0 to 10 | ecology.incubation:Cool,
+//	 10 to 18 | ecology.incubation:Mild,
+//	 18 to 22 | ecology.incubation:Warm,
+//	 22 to 28 | ecology.incubation:Hot,
+//	 28 to 35 | ecology.incubation:VeryHot,
+//	   >=35   | ecology.incubation:ExtremelyHot
+//	over space(shape="POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))");
 
  
 //annotation of annual_net_primary_productivity
@@ -511,17 +511,17 @@ model
 //over space(shape='POLYGON ((179.9998596712 -90, 179.9998596712 83.9998604152, -180 83.9998604152, -180 -90, 179.9998596712 -90))');
 
 //annotation of thermal_belts classification
-model 'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belts__global__1950_2000'
- as type of ecology:MountainClimaticBeltZone named thermal_belts
-	lookup(thermal_belts) into
-	thermal_belts 	| category
-	------------------------
-			2 		| ecology:UpperAlpine,
-			3 		| ecology:LowerAlpine,
-			4 		| ecology:UpperMontane,
-			5		| ecology:LowerMontane,
-		in (6 7)	| ecology:Lowland
-over space(shape='POLYGON ((180 -90, 180 84, -180 84, -180 -90, 180 -90))');
+//model 'local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belts__global__1950_2000'
+// as type of ecology:MountainClimaticBeltZone named thermal_belts
+//	lookup(thermal_belts) into
+//	thermal_belts 	| category
+//	------------------------
+//			2 		| ecology:UpperAlpine,
+//			3 		| ecology:LowerAlpine,
+//			4 		| ecology:UpperMontane,
+//			5		| ecology:LowerMontane,
+//		in (6 7)	| ecology:Lowland
+//over space(shape='POLYGON ((180 -90, 180 84, -180 84, -180 -90, 180 -90))');
 
 /*
  * ********************************WATER SURFACE DATA***************************************
@@ -540,37 +540,36 @@ over space(shape='POLYGON ((180 -60.0003350977, 180 69.9999999937, -180 69.99999
 /*
  * # Annotations moved from namespace: test_stac_resources ----------------------------------------------------------------------------------------
  */
-model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_diurnal_air_temperature_mean__global__1981_2010 
-	as im:Daily im:Mean im:Yearly earth:AtmosphericTemperature in Celsius named annual_diurnal_mean_air_temperature
-	set to [self / 100];
-// TODO: Need to double check the transformation formula with Alessio/Polina.
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_diurnal_air_temperature_mean__global__1981_2010 
+//	as im:Daily im:Mean im:Yearly earth:AtmosphericTemperature in Celsius named annual_diurnal_mean_air_temperature
+//	set to [self / 100];
 
-model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability__global__1981_2010
-	as im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_variability
-	set to [self * 0.1 - 273.5];
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability__global__1981_2010
+//	as im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_variability
+//	set to [self * 0.1 - 273.5];
 
-model local:alessio.bulckaen:im.data.global:ecdc__climate__summer_diurnal_air_temperature_mean__global__1981_2010 
-	as im:Mean earth:AtmosphericTemperature during earth:Summer in Celsius named summer_diurnal_mean_air_temperature
-	set to [self / 100];
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__summer_diurnal_air_temperature_mean__global__1981_2010 
+//	as im:Mean earth:AtmosphericTemperature during earth:Summer in Celsius named summer_diurnal_mean_air_temperature
+//	set to [self / 100];
 
-model local:alessio.bulckaen:im.data.global:ecdc__climate__winter_diurnal_air_temperature_mean__global__1981_2010 
-	as im:Mean earth:AtmosphericTemperature during earth:Winter in Celsius named winter_diurnal_mean_air_temperature
-	set to [self / 100];
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__winter_diurnal_air_temperature_mean__global__1981_2010 
+//	as im:Mean earth:AtmosphericTemperature during earth:Winter in Celsius named winter_diurnal_mean_air_temperature
+//	set to [self / 100];
 	
 /*
  * *********************************ANTHRPOGENIC_SYSTEMS************************************
  */
  //annotation of managed_waters_canal thresholds
-model
-//local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__colombia__2025,
-//local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__czechia__2025,
-local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__greece__2025
-//local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__norway__2025,
-//local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__south_africa__2025,
-//local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__viet_nam__2025
-as presence of hydrology.incubation:Canal earth:Region named managed_canal
-	set to [self ==1]
-over space(shape='POLYGON ((179.96 -52.99, 179.96 78.07, -162.9 78.07, -162.9 -52.99, 179.96 -52.99))');
+//model
+////local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__colombia__2025,
+////local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__czechia__2025,
+//local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__greece__2025
+////local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__norway__2025,
+////local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__south_africa__2025,
+////local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__viet_nam__2025
+//as presence of hydrology.incubation:Canal earth:Region named managed_canal
+//	set to [self ==1]
+//over space(shape='POLYGON ((179.96 -52.99, 179.96 78.07, -162.9 78.07, -162.9 -52.99, 179.96 -52.99))');
 ///*
 // * # Managed waters canal. --------------------------------------------------------------------------------------------
 // */
