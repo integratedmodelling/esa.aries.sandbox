@@ -1,2 +1,15 @@
 private namespace primitive_characteristic.vegetation;
 
+model local:alessio.bulckaen:im.data.global:im-data-global-ecology.global_globmapftc_fractional_tree_cover_epsg4326_250m_2020
+as 	presence of ecology:Tree
+set to [self == unknown ? false : true];
+
+model local:rubencc:im.data.global:im-data-global-landcover.cci_lc_300m_2020_v2_1_1,
+	  local:rubencc:im.data.global:im-data-global-landcover.cci_lc_300m_2021,
+	  local:rubencc:im.data.global:im-data-global-landcover.cci_lc_300m_2022
+	as type of ecology:LeafPhenology named phenology classified into
+		ecology:MixedLeafPhenology if in (40 90 100 120),  
+		ecology:Deciduous if in (60 61 62 122), 
+	  	ecology:Evergreen if in (50 70 71 72 121);
+
+ 	

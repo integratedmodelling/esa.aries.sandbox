@@ -1,11 +1,10 @@
 project private namespace primitive_characteristic.surface_water;
 
-quantity WatershedStreamOrder;
 //secondary_observations of  type of hydrology:WaterBody
-model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__global__2004_2013'
-	as presence of hydrology.incubation:RiverMeander named hydroform_meander
-	set to [(self == 2 || self ==3 ? true : false)];  
-
+//model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__global__2004_2013'
+//	as presence of hydrology.incubation:RiverMeander named hydroform_meander
+//	set to [(self == 2 || self ==3 ? true : false)];  
+number 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__global__2004_2013' as hydroform_meander;
 number 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform__global__1984_2017' as hydroform_type; 
 
 //primary_observations of  type of hydrology:WaterBody
@@ -16,9 +15,11 @@ observing
 		lookup(hydroform_type, hydroform_meander) into
 		hydroform_type|hydroform_meander| category
 		-----------------------------------------------------------
-			 1		  |	#				| hydrology:Watercourse,
-		 in (2 3)	  |	#				| hydrology:InlandWaterBody,
-			#		  |  true			| hydrology:Meander
+			  1		  |		   #		| hydrology:Watercourse,
+		   in (2 3)	  |		   #		| hydrology:InlandWaterBody,
+			  #		  |     in (2 3)	| hydrology:Meander
+//
+//			  #		  |      true		| hydrology:Meander
 over space(shape="POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))");
 
 //secondary_observations of  type of hydrology:WaterPermanence	
@@ -42,33 +43,33 @@ observing
 
 
 
-////primary_observations of level of (hydrology:StreamOrder of hydrology:Watershed)
-//model'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__global__2004_2013'
-//	as hydrology:StreamOrder of hydrology:Watershed named watershed_hierarchy;
-//
-////secondary_observations of level of (hydrology:StreamOrder of hydrology:Watershed)
-//model level of (hydrology:StreamOrder of hydrology:Watershed) named watershed_hierarchy
-//	observing hydrology:StreamOrder of hydrology:Watershed named watershed_hierarchy 
-//		lookup (watershed_hierarchy , ?) into
-//		watershed_hierarchy| category
-//		------------------------------
-//		//			  <1   | im:VeryLow,
-//					1 to 4 | im:Low,
-//					4 to 9 | im:Moderate,
-//					  >9   | im:High;
+//primary_observations of level of (hydrology:StreamOrder of hydrology:Watershed)
+model'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__global__2004_2013'
+	as hydrology:StreamOrder of hydrology:Watershed named watershed_hierarchy;
 
-//direct_annotation of level of (hydrology:StreamOrder of hydrology:Watershed)	
-model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__global__2004_2013'
-//	as level of (hydrology:StreamOrder of hydrology:Watershed) named watershed_hierarchy
-	as WatershedStreamOrder named watershed_hierarchy
-		lookup (watershed_hierarchy, ?) into
+//secondary_observations of level of (hydrology:StreamOrder of hydrology:Watershed)
+model level of (hydrology:StreamOrder of hydrology:Watershed)
+	observing hydrology:StreamOrder of hydrology:Watershed
+		lookup (watershed_hierarchy , ?) into
 		watershed_hierarchy| category
 		------------------------------
-		//			  <1   | im:VeryLow,
 					1 to 4 | im:Low,
 					4 to 9 | im:Moderate,
 					  >9   | im:High;
-//over space(shape="POLYGON ((-180 -55.87, -180 84.01, 180 84.01, 180 -55.87, -180 -55.87))");
+		//			  <1   | im:VeryLow,
+
+////direct_annotation of level of (hydrology:StreamOrder of hydrology:Watershed)	
+//model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__global__2004_2013'
+////	as level of (hydrology:StreamOrder of hydrology:Watershed) named watershed_hierarchy
+//	as WatershedStreamOrder named watershed_hierarchy
+//		lookup (watershed_hierarchy, ?) into
+//		watershed_hierarchy| category
+//		------------------------------
+//					1 to 4 | im:Low,
+//					4 to 9 | im:Moderate,
+//					  >9   | im:High;
+//		//			  <1   | im:VeryLow,
+////over space(shape="POLYGON ((-180 -55.87, -180 84.01, 180 84.01, 180 -55.87, -180 -55.87))");
  
 
 ////direct_annotation of hydroform_morphology_area thresholds
