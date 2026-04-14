@@ -1,2 +1,108 @@
 private namespace primitive_characteristic.soil;
 
+/*
+ * Primitive characteristics of the 'Soil-V2' collection.
+ * Included are the following assets
+ * 		* peat_thickness
+ * 		* fertility
+ *  	* chemical_properties_N
+ * 		* chemical_properties_base_saturation
+ *		* physical_properties_bulk_density
+ */
+ 
+
+/* ----------------------------------------------------------------------------------------------------------------------------- 
+ * primary and secondary annotation for peat_thickness 
+ */
+model 'local:alessio.bulckaen:im.data.global:ecdc__soil__peat_thickness__global__2001_2021'
+	as im:Depth of landcover:PeatBog earth:Region in cm;
+//over space(shape='POLYGON ((180 -60.007460979, 180 88.007948385, -180 88.007948385, -180 -60.007460979, 180 -60.007460979))');
+
+@intensive(space)
+model level of (im:Depth of landcover:PeatBog earth:Region)
+	observing 
+		im:Depth of landcover:PeatBog earth:Region in cm named depth_peat_bog //g/m^2/day named npp
+	lookup (depth_peat_bog) into
+    	depth_peat_bog 	| category
+		-------------------------
+   				0   	| ecology:Absent,
+   		 	0 to  0.3 	| im:Low,
+           	0.3 to 1 	| im:Moderate,
+               > 1 		| im:High;
+
+
+/* ----------------------------------------------------------------------------------------------------------------------------- 
+ * primary and secondary annotation for fertility 
+ */
+model 'local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020'
+	as soil.incubation:Fertility;
+
+model level of soil.incubation:Fertility 
+	observing
+		soil.incubation:Fertility named fertility
+	lookup (fertility) into
+    	fertility 	| category
+		-------------------------
+   			0   	| im:None,
+   		in (0 1 2)	| soil.incubation:Infertile,
+    	in (3 4) 	| im:Low,
+       	in (5 6 7) 	| im:Moderate,
+       	in (8 9 10) | im:High;
+/* alternatively:
+model local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020
+	as level of soil.incubation:Fertility named soil_fertility_level
+	classified into	
+		im:None if 0,
+		soil.incubation:Infertile if in (0 1 2),
+		im:Low if in (3 4),
+		im:Moderate if in (5 6 7),
+		im:High if in (8 9 10);  
+ */
+
+/* ----------------------------------------------------------------------------------------------------------------------------- 
+ * primary and secondary annotation for chemical_properties_N 
+ */  
+model 'local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_n__global__1995_2019'
+	as proportion of chemistry:Nitrogen in soil:Soil; //  in g/kg;
+//	over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
+
+model level of (proportion of chemistry:Nitrogen in soil:Soil)
+	observing
+		proportion of chemistry:Nitrogen in soil:Soil named nitrogen
+	lookup (nitrogen) into
+		nitrogen 	| category
+		-----------------------
+		   0 to 10 	| im:Low;
+
+/* ----------------------------------------------------------------------------------------------------------------------------- 
+ * primary and secondary annotation for chemical_properties_base_saturation 
+ */  
+model 'local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_base_saturation__global__1995_2019'
+	as percentage of (chemistry:Basic chemistry:ExchangeCapacity) in (chemistry:ExchangeCapacity of chemistry:Cation);
+
+model level of (percentage of (chemistry:Basic chemistry:ExchangeCapacity) in (chemistry:ExchangeCapacity of chemistry:Cation))
+	observing
+		percentage of (chemistry:Basic chemistry:ExchangeCapacity) in (chemistry:ExchangeCapacity of chemistry:Cation) named base_saturation
+	lookup (base_saturation) into
+		base_saturation | category
+		--------------------------
+			< 49 		| im:Low,
+		  50 to 69 		| im:Moderate,
+		  70 to 100 	| im:High;   
+			  
+/* ----------------------------------------------------------------------------------------------------------------------------- 
+ * primary and secondary annotation for physical_properties_bulk_density 
+ */  			  
+model 'local:alessio.bulckaen:im.data.global:ecdc__soil__physical_properties_bulk_density__global__1995_2019'
+	as ratio of earth:Dry soil:Soil im:Mass to soil:Soil im:Volume in g/cm^3; 
+	
+model level of (ratio of earth:Dry soil:Soil im:Mass to soil:Soil im:Volume)
+	observing 
+		ratio of earth:Dry soil:Soil im:Mass to soil:Soil im:Volume named bulk_density
+	lookup (bulk_density) into
+		bulk_density 	| category
+		-------------------------------------------
+			0 to 1 		| im:Low,
+			1 to 1 		| im:Moderate,
+			 >1 		| im:High;
+// not sure since the annotation seems to link to peatbog depth
