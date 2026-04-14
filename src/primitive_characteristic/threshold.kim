@@ -343,18 +343,18 @@ model 'local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_bas
 
 
 //annotation of canopy_height thresholds
-model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__greece__2020
-as level of (im:Mean im:Height of ecology:Canopy)
-//observing im:Mean im:Height of ecology:Canopy in m named canopy_height
-	lookup (self) into
-	canopy_height | category
-	------------------------
-				0 | ecology:Absent,
-		   0 to 1 | im:VeryLow,
-		   1 to 5 | im:Low,
-		  5 to 20 | im:Moderate,
-		 20 to 40 | im:High,
-			 > 40 | im:VeryHigh;
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__greece__2020
+//as level of (im:Mean im:Height of ecology:Canopy)
+////observing im:Mean im:Height of ecology:Canopy in m named canopy_height
+//	lookup (self) into
+//	canopy_height | category
+//	------------------------
+//				0 | ecology:Absent,
+//		   0 to 1 | im:VeryLow,
+//		   1 to 5 | im:Low,
+//		  5 to 20 | im:Moderate,
+//		 20 to 40 | im:High,
+//			 > 40 | im:VeryHigh;
 //over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
 
 ////annotation of specific_leaf_area thresholds
@@ -529,65 +529,65 @@ model level of (count of im:Yearly im:Occurrence of chemistry:Fire)
 /*
  * # Canopy Cover. --------------------------------------------------------------------------------------------
  */  
-model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__greece__2015
-	as level of ecology:CanopyCover named canopy_cover_level_greece
-	lookup (self, ?) into
-	 canopy_cover | category
-	------------------------------
-		 	   0  | ecology:Absent,		
-		 1 to 15  | ecology:Sparse,		
-		15 to 65  | ecology:Open,	
-	   65 to 100  | ecology:Dense;	
-	   
-model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__norway__2015
-	as level of ecology:CanopyCover named canopy_cover_level_norway
-	lookup (self, ?) into
-	 canopy_cover | category
-	------------------------------
-		 	   0  | ecology:Absent,		
-		 1 to 15  | ecology:Sparse,		
-		15 to 65  | ecology:Open,	
-	   65 to 100  | ecology:Dense;
-	   
-model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__south_africa__2015
-	as level of ecology:CanopyCover named canopy_cover_level_south_africa
-	lookup (self, ?) into
-	 canopy_cover | category
-	------------------------------
-		 	   0  | ecology:Absent,		
-		 1 to 15  | ecology:Sparse,		
-		15 to 65  | ecology:Open,	
-	   65 to 100  | ecology:Dense;
-	   
-model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__czechia__2015
-	as level of ecology:CanopyCover named canopy_cover_level_czechia
-	lookup (self, ?) into
-	 canopy_cover | category
-	------------------------------
-		 	   0  | ecology:Absent,		
-		 1 to 15  | ecology:Sparse,		
-		15 to 65  | ecology:Open,	
-	   65 to 100  | ecology:Dense;
-	   
-model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__viet_nam__2015
-	as level of ecology:CanopyCover named canopy_cover_level_viet_nam
-	lookup (self, ?) into
-	 canopy_cover | category
-	------------------------------
-		 	   0  | ecology:Absent,		
-		 1 to 15  | ecology:Sparse,		
-		15 to 65  | ecology:Open,	
-	   65 to 100  | ecology:Dense;
-	   
-model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__colombia__2015
-	as level of ecology:CanopyCover named canopy_cover_level_colombia
-	lookup (self, ?) into
-	 canopy_cover | category
-	------------------------------
-		 	   0  | ecology:Absent,		
-		 1 to 15  | ecology:Sparse,		
-		15 to 65  | ecology:Open,	
-	   65 to 100  | ecology:Dense;
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__greece__2015
+//	as level of ecology:CanopyCover named canopy_cover_level_greece
+//	lookup (self, ?) into
+//	 canopy_cover | category
+//	------------------------------
+//		 	   0  | ecology:Absent,		
+//		 1 to 15  | ecology:Sparse,		
+//		15 to 65  | ecology:Open,	
+//	   65 to 100  | ecology:Dense;	
+//	   
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__norway__2015
+//	as level of ecology:CanopyCover named canopy_cover_level_norway
+//	lookup (self, ?) into
+//	 canopy_cover | category
+//	------------------------------
+//		 	   0  | ecology:Absent,		
+//		 1 to 15  | ecology:Sparse,		
+//		15 to 65  | ecology:Open,	
+//	   65 to 100  | ecology:Dense;
+//	   
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__south_africa__2015
+//	as level of ecology:CanopyCover named canopy_cover_level_south_africa
+//	lookup (self, ?) into
+//	 canopy_cover | category
+//	------------------------------
+//		 	   0  | ecology:Absent,		
+//		 1 to 15  | ecology:Sparse,		
+//		15 to 65  | ecology:Open,	
+//	   65 to 100  | ecology:Dense;
+//	   
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__czechia__2015
+//	as level of ecology:CanopyCover named canopy_cover_level_czechia
+//	lookup (self, ?) into
+//	 canopy_cover | category
+//	------------------------------
+//		 	   0  | ecology:Absent,		
+//		 1 to 15  | ecology:Sparse,		
+//		15 to 65  | ecology:Open,	
+//	   65 to 100  | ecology:Dense;
+//	   
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__viet_nam__2015
+//	as level of ecology:CanopyCover named canopy_cover_level_viet_nam
+//	lookup (self, ?) into
+//	 canopy_cover | category
+//	------------------------------
+//		 	   0  | ecology:Absent,		
+//		 1 to 15  | ecology:Sparse,		
+//		15 to 65  | ecology:Open,	
+//	   65 to 100  | ecology:Dense;
+//	   
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__colombia__2015
+//	as level of ecology:CanopyCover named canopy_cover_level_colombia
+//	lookup (self, ?) into
+//	 canopy_cover | category
+//	------------------------------
+//		 	   0  | ecology:Absent,		
+//		 1 to 15  | ecology:Sparse,		
+//		15 to 65  | ecology:Open,	
+//	   65 to 100  | ecology:Dense;
 
 /* --------------------------------------------------------------------------------------------------------------- */
 
