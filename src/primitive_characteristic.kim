@@ -104,10 +104,10 @@ model 'local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001
 //number 'local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__tropical_storms_exposure__global__1990_2015' as tropical_storm_data_test;
    
 //6. Proposed annotation for tidal_zone_intertidal
-model 'local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone_intertidal__global__2017_2019'
-	as presence of earth:Wetland by earth:Coast
-	//over space(shape='POLYGON ((180 -60.0000049623, 180 60, -180 60, -180 -60, 180 -60))')
-	set to [self == 1 ? true : false];
+//model 'local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone_intertidal__global__2017_2019'
+//	as presence of earth:Wetland by earth:Coast
+//	//over space(shape='POLYGON ((180 -60.0000049623, 180 60, -180 60, -180 -60, 180 -60))')
+//	set to [self == 1 ? true : false];
 
 //number 'local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone_intertidal__global__2017_2019' as tidal_zone_intertidal;
 
