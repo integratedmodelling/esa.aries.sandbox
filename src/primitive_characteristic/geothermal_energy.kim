@@ -1,2 +1,12 @@
 private namespace primitive_characteristic.geothermal_energy;
 
+@intensive(space)
+model 'local:alessio.bulckaen:im.data.global:ecdc__energy__geothermal__global__2019'
+	as earth:Crust physical:Thermal im:Energy in mW/m^2 named geothermal_energy;
+
+//annotation of presence of geothermal area (boolean)
+@intensive(space)
+model presence of earth:Crust physical:Thermal earth:Region with im:High im:Energy
+ observing
+ 	earth:Crust physical:Thermal im:Energy in mW/m^2 named geothermal_energy
+	set to [self > 60];
