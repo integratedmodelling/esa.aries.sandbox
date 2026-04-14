@@ -1,2 +1,16 @@
 private namespace primitive_characteristic.wildfire_disturbance;
 
+model 'local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__recurrence__global__2002_2024'
+	as count of im:Yearly im:Occurrence of chemistry:Fire
+over space(shape='POLYGON ((180 -60.0003350977, 180 69.9999999937, -180 69.9999999937, -180 -60.0003350977, 180 -60.0003350977))');
+
+model level of (count of im:Yearly im:Occurrence of chemistry:Fire) 
+observing
+	count of im:Yearly im:Occurrence of chemistry:Fire named fire_recurrence
+	lookup (fire_recurrence,?) into
+	recurrence | category
+	---------------------
+	   2 to 10 | ecology.incubation:SubDecadal,
+	  10 to 20 | ecology.incubation:Decadal,
+	 20 to 100 | ecology.incubation:MultiDecadal,
+		>100   | ecology.incubation:Centennial;
