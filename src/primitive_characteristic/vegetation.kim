@@ -1,15 +1,100 @@
 private namespace primitive_characteristic.vegetation;
 
-model local:alessio.bulckaen:im.data.global:im-data-global-ecology.global_globmapftc_fractional_tree_cover_epsg4326_250m_2020
-as 	presence of ecology:Tree
-set to [self == unknown ? false : true];
+/*
+ * # 1) Leaf area index.
+ */
+model local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2018,
+	  local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2021,
+	  local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2024
+	as ecology:LeafAreaIndex named leaf_area_index;
+	// TODO: Need to ask Enrico/ other developers the error when using multiple resources "Cannot merge spatial resources with non-spatial resources". 
 
+/*
+ * # 2) Phenology mixed, deciduous and evergreen.
+ */
 model local:rubencc:im.data.global:im-data-global-landcover.cci_lc_300m_2020_v2_1_1,
 	  local:rubencc:im.data.global:im-data-global-landcover.cci_lc_300m_2021,
 	  local:rubencc:im.data.global:im-data-global-landcover.cci_lc_300m_2022
-	as type of ecology:LeafPhenology named phenology classified into
-		ecology:MixedLeafPhenology if in (40 90 100 120),  
-		ecology:Deciduous if in (60 61 62 122), 
-	  	ecology:Evergreen if in (50 70 71 72 121);
+	as type of ecology:LeafPhenology named phenology 
+	classified into
+		ecology:MixedLeafPhenology if in (40, 90, 100, 120),  
+		ecology:Deciduous if in (60, 61, 62, 122), 
+	  	ecology:Evergreen if in (50, 70, 71, 72, 121); 
+ 
+/*
+ * # 3) Specific leaf area.
+ */
+model local:alessio.bulckaen:im.data.global:ecdc__vegetation__specific_leaf_area__global__2000_2020
+	as ratio of im:Area to earth:Dry im:Mass of biology:Leaf in m^2/kg;
+ 
+/*
+ * # 4) Leaf size.
+ */
+model local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_size__global__2000_2020
+	as physical.incubation:Shadow im:Area of biology:Leaf in mm^2 named leaf_size
+	set to [(self * 0.48176748292230037) + 15791.77310467295];
+ 
+/*
+ * # 5) Canopy height.
+ */
+model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__greece__2020
+	as im:Mean im:Height of ecology:Canopy in m named canopy_height_greece
+	over space(shape="POLYGON ((29.63220162 34.9966406, 29.63220162 41.79065352, 19.35250178 41.79065352, 19.35250178 34.9966406, 29.63220162 34.9966406))");
+	
+model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__viet_nam__2020
+	as im:Mean im:Height of ecology:Canopy in m named canopy_height_viet_nam
+	over space(shape="POLYGON ((109.48767457 8.56539723, 109.48767457 23.43431472, 101.9644288 23.43431472, 101.9644288 8.56539723, 109.48767457 8.56539723))");
+
+model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__colombia__2020
+	as im:Mean im:Height of ecology:Canopy in m named canopy_height_colombia
+	over space(shape="POLYGON ((-66.87024263 -4.0466187, -66.87024263 12.44063129, -78.9991173 12.44063129, -78.9991173 -4.0466187, -66.87024263 -4.0466187))");
+	
+model level of (im:Mean im:Height of ecology:Canopy) named canopy_height_level
+	observing 
+		im:Mean im:Height of ecology:Canopy in m named canopy_height
+	lookup (canopy_height, ?) into
+		 canopy_height	| category
+		--------------------------------------
+					0	| ecology:Absent	,
+			   0 to 1	| im:VeryLow		,
+			   1 to 5	| im:Low			,
+			   5 to 20	| im:Moderate		,
+			  20 to 40	| im:High			,
+				  > 40	| im:VeryHigh		;
+				  
+/*
+ * # 6) Canopy cover.
+ */
+model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__greece__2015
+	as ecology:CanopyCover named canopy_cover_greece
+	over space(shape="POLYGON ((29.63220162 34.9966406, 29.63220162 41.79065352, 19.35250178 41.79065352, 19.35250178 34.9966406, 29.63220162 34.9966406))");
+	   
+model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__viet_nam__2015
+	as ecology:CanopyCover named canopy_cover_viet_nam
+	over space(shape="POLYGON ((109.48767457 8.56539723, 109.48767457 23.43431472, 101.9644288 23.43431472, 101.9644288 8.56539723, 109.48767457 8.56539723))");
+	   
+model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__colombia__2015
+	as ecology:CanopyCover named canopy_cover_colombia
+	over space(shape="POLYGON ((-66.87024263 -4.0466187, -66.87024263 12.44063129, -78.9991173 12.44063129, -78.9991173 -4.0466187, -66.87024263 -4.0466187))");
+	
+model level of ecology:CanopyCover named canopy_cover_level
+	observing
+		ecology:CanopyCover named canopy_cover
+	lookup (canopy_cover, ?) into
+	 canopy_cover | category
+	------------------------------
+		 	   0  | ecology:Absent,		
+		 1 to 15  | ecology:Sparse,		
+		15 to 65  | ecology:Open,	
+	   65 to 100  | ecology:Dense;
+	   
+/*
+ * # 7) Other variables.
+ */
+model local:alessio.bulckaen:im.data.global:im-data-global-ecology.global_globmapftc_fractional_tree_cover_epsg4326_250m_2020
+	as presence of ecology:Tree named tree_presence
+	set to [self == unknown ? false : true];
+
+
 
  	

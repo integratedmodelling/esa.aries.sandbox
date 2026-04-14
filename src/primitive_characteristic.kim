@@ -56,9 +56,9 @@ as ecology:NetPrimaryProduction named annual_net_primary_productivity
 	im:High if >=2000;
 //over space(shape='POLYGON ((180 -60, 180 60, -180 60, -180 -60, 180 -60))'); 
 
-model 'local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_size__global__2000_2020'
-as im:Area of biology:Leaf in mm^2 named leaf_size
-set to [(self * 0.48176748292230037) + 15791.77310467295];
+//model 'local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_size__global__2000_2020'
+//as im:Area of biology:Leaf in mm^2 named leaf_size
+//set to [(self * 0.48176748292230037) + 15791.77310467295];
 
 //model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__mining_areas__global__2000_2019 
 //	as presence of landcover:MineralExtraction earth:Region named mining_areas_presence

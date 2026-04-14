@@ -63,77 +63,100 @@ number local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net
 /*
  * # Canopy Cover. --------------------------------------------------------------------------------------------
  */  
-model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__greece__2015
-	as level of ecology:CanopyCover named canopy_cover_level_greece
-	lookup (self, ?) into
-	 canopy_cover | category
-	------------------------------
-		 	   0  | ecology:Absent,		
-		 1 to 15  | ecology:Sparse,		
-		15 to 65  | ecology:Open,	
-	   65 to 100  | ecology:Dense;	
-	   
-model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__norway__2015
-	as level of ecology:CanopyCover named canopy_cover_level_norway
-	lookup (self, ?) into
-	 canopy_cover | category
-	------------------------------
-		 	   0  | ecology:Absent,		
-		 1 to 15  | ecology:Sparse,		
-		15 to 65  | ecology:Open,	
-	   65 to 100  | ecology:Dense;
-	   
-model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__south_africa__2015
-	as level of ecology:CanopyCover named canopy_cover_level_south_africa
-	lookup (self, ?) into
-	 canopy_cover | category
-	------------------------------
-		 	   0  | ecology:Absent,		
-		 1 to 15  | ecology:Sparse,		
-		15 to 65  | ecology:Open,	
-	   65 to 100  | ecology:Dense;
-	   
-model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__czechia__2015
-	as level of ecology:CanopyCover named canopy_cover_level_czechia
-	lookup (self, ?) into
-	 canopy_cover | category
-	------------------------------
-		 	   0  | ecology:Absent,		
-		 1 to 15  | ecology:Sparse,		
-		15 to 65  | ecology:Open,	
-	   65 to 100  | ecology:Dense;
-	   
-model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__viet_nam__2015
-	as level of ecology:CanopyCover named canopy_cover_level_viet_nam
-	lookup (self, ?) into
-	 canopy_cover | category
-	------------------------------
-		 	   0  | ecology:Absent,		
-		 1 to 15  | ecology:Sparse,		
-		15 to 65  | ecology:Open,	
-	   65 to 100  | ecology:Dense;
-	   
-model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__colombia__2015
-	as level of ecology:CanopyCover named canopy_cover_level_colombia
-	lookup (self, ?) into
-	 canopy_cover | category
-	------------------------------
-		 	   0  | ecology:Absent,		
-		 1 to 15  | ecology:Sparse,		
-		15 to 65  | ecology:Open,	
-	   65 to 100  | ecology:Dense;
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__greece__2015
+//	as level of ecology:CanopyCover named canopy_cover_level_greece
+//	lookup (self, ?) into
+//	 canopy_cover | category
+//	------------------------------
+//		 	   0  | ecology:Absent,		
+//		 1 to 15  | ecology:Sparse,		
+//		15 to 65  | ecology:Open,	
+//	   65 to 100  | ecology:Dense;	
+//	   
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__norway__2015
+//	as level of ecology:CanopyCover named canopy_cover_level_norway
+//	lookup (self, ?) into
+//	 canopy_cover | category
+//	------------------------------
+//		 	   0  | ecology:Absent,		
+//		 1 to 15  | ecology:Sparse,		
+//		15 to 65  | ecology:Open,	
+//	   65 to 100  | ecology:Dense;
+//	   
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__south_africa__2015
+//	as level of ecology:CanopyCover named canopy_cover_level_south_africa
+//	lookup (self, ?) into
+//	 canopy_cover | category
+//	------------------------------
+//		 	   0  | ecology:Absent,		
+//		 1 to 15  | ecology:Sparse,		
+//		15 to 65  | ecology:Open,	
+//	   65 to 100  | ecology:Dense;
+//	   
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__czechia__2015
+//	as level of ecology:CanopyCover named canopy_cover_level_czechia
+//	lookup (self, ?) into
+//	 canopy_cover | category
+//	------------------------------
+//		 	   0  | ecology:Absent,		
+//		 1 to 15  | ecology:Sparse,		
+//		15 to 65  | ecology:Open,	
+//	   65 to 100  | ecology:Dense;
+//	   
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__viet_nam__2015
+//	as level of ecology:CanopyCover named canopy_cover_level_viet_nam
+//	lookup (self, ?) into
+//	 canopy_cover | category
+//	------------------------------
+//		 	   0  | ecology:Absent,		
+//		 1 to 15  | ecology:Sparse,		
+//		15 to 65  | ecology:Open,	
+//	   65 to 100  | ecology:Dense;
+//	   
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__colombia__2015
+//	as level of ecology:CanopyCover named canopy_cover_level_colombia
+//	lookup (self, ?) into
+//	 canopy_cover | category
+//	------------------------------
+//		 	   0  | ecology:Absent,		
+//		 1 to 15  | ecology:Sparse,		
+//		15 to 65  | ecology:Open,	
+//	   65 to 100  | ecology:Dense;
 
 /* --------------------------------------------------------------------------------------------------------------- */
 
 /*
  * # Canopy Height. --------------------------------------------------------------------------------------------
  */
-number local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__greece__2020 as test_canopy_height15;
-number local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__viet_nam__2020 as test_canopy_height16;
-number local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__south_africa__2020 as test_canopy_height17;
-number local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__colombia__2020 as test_canopy_height18;
-number local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__norway__2020 as test_canopy_height19;
-number local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__czechia__2020 as test_canopy_height20;
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__greece__2020
+//	as im:Mean im:Height of ecology:Canopy in m named canopy_height_greece
+//	over space(shape="POLYGON ((29.63220162 34.9966406, 29.63220162 41.79065352, 19.35250178 41.79065352, 19.35250178 34.9966406, 29.63220162 34.9966406))");
+//	
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__viet_nam__2020
+//	as im:Mean im:Height of ecology:Canopy in m named canopy_height_viet_nam
+//	over space(shape="POLYGON ((109.48767457 8.56539723, 109.48767457 23.43431472, 101.9644288 23.43431472, 101.9644288 8.56539723, 109.48767457 8.56539723))");
+//	
+//number local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__south_africa__2020 as test_canopy_height17;
+//
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__colombia__2020
+//	as im:Mean im:Height of ecology:Canopy in m named canopy_height_colombia
+//	over space(shape="POLYGON ((-66.87024263 -4.0466187, -66.87024263 12.44063129, -78.9991173 12.44063129, -78.9991173 -4.0466187, -66.87024263 -4.0466187))");
+//	
+//number local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__norway__2020 as test_canopy_height19;
+//number local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__czechia__2020 as test_canopy_height20;
+//
+//model level of (im:Mean im:Height of ecology:Canopy) named canopy_height_level
+//	observing 
+//		im:Mean im:Height of ecology:Canopy in m named canopy_height
+//	lookup (canopy_height, ?) into
+//		 canopy_height	| category
+//		--------------------------------------
+//					0	| ecology:Absent	,
+//			   0 to 1	| im:VeryLow		,
+//			   1 to 5	| im:Low			,
+//			   5 to 20	| im:Moderate		,
+//			  20 to 40	| im:High			,
+//				  > 40	| im:VeryHigh		;
 
 /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -161,12 +184,19 @@ number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morph
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__czechia__2013_2020 as test_hydroform_morphology_area33;
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__colombia__2013_2020 as test_hydroform_morphology_area34;
 
-number local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2024 as test_leaf_area_index35;
-number local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2021 as test_leaf_area_index36;
-number local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2018 as test_leaf_area_index37;
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2024
+//	as ecology:LeafAreaIndex;
+//	
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2021
+//	as ecology:LeafAreaIndex;
+//	
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2018
+//	as ecology:LeafAreaIndex;
 
-number local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_size__global__2000_2020 as test_leaf_size38;
-
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_size__global__2000_2020
+//	as physical.incubation:Shadow im:Area of biology:Leaf in mm^2 named leaf_size
+//	set to [(self * 0.48176748292230037) + 15791.77310467295];
+	
 //model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_aquaculture__czechia_greece_norway__2017 
 //	as type of hydrology.incubation:ManagedWaterBody named managed_waters_aquaculture_type
 //	classified into
