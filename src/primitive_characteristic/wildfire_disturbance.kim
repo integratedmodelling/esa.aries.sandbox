@@ -14,3 +14,10 @@ observing
 	  10 to 20 | ecology.incubation:Decadal,
 	 20 to 100 | ecology.incubation:MultiDecadal,
 		>100   | ecology.incubation:Centennial;
+
+number 'local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__periodicity__global__2002_2024' as fire_periodicity;
+
+model 'local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__periodicity__global__2002_2024'
+	as presence of earth:Region with im:High im:Frequency of chemsitry:Fire 
+	set to [self==1]
+over space(shape='POLYGON ((180 -60, 180 70, -180 70, -180 -60, 180 -60))');
