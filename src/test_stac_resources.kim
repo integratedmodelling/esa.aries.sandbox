@@ -397,7 +397,9 @@ number local:alessio.bulckaen:im.data.global:ecdc__vegetation__specific_leaf_are
 //		ecology:LowerMontane if 5,
 //		ecology:Lowland 	 if in (6, 7);
 	
-number local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone_intertidal__global__2017_2019 as test_tidal_zone_intertidal77;
+//model local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone_intertidal__global__2017_2019 
+//	as presence of earth:Littoral earth:Region named tidal_zone_intertidal
+//	set to [self == 1 ? true : false];
 
 //model local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__tropical_storms_exposure__global__1990_2015
 //	as presence of ecology:Tropical earth:Region with im:Mean im:Maximum earth:WindSpeed of earth:Storm named tropical_storms_exposure_presence
