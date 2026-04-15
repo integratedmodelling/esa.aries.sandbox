@@ -1,0 +1,35 @@
+worldview im;
+
+@test(
+    name = "multispace_data_error",
+    description  = "2nd case cannot be computed and retunr error - Cannot merge spatial resources with non-spatial resources",
+    // add to the list any concepts to be observed in the context below
+    observations = (
+    "im|esa.aries.sandbox/tests/multispace_data_error.single_reosurce_annotation"
+    "im|esa.aries.sandbox/tests/multispace_data_error.multiple_reosurces_annotation"    
+    ),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named multispace_data_error
+    over space(shape='EPSG:4326 POLYGON ((21.741145542247537 38.82651019686824, 21.532043121254908 38.82651019686824, 21.532043121254908 38.904354535691226, 21.741145542247537 38.904354535691226, 21.741145542247537 38.82651019686824))',
+    		grid="300 m",
+    		projection="EPSG:4326"),
+    	time(start=2018, end=2025, step=1.year);
+    	
+@intensive(space)   
+model 
+	'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2018',
+ 	'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2021',
+  	'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2024'
+	as ecology:NetPrimaryProduction in g/m^2 named multiple_reosurces_annotation      
+	over space(shape='POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))');
+
+@intensive(space)   
+model 
+  	'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2024'
+	as ecology:Vegetation ecology:NetPrimaryProduction in g/m^2 named single_reosurce_annotation     
+	over space(shape='POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))');
+
+// add any models here
