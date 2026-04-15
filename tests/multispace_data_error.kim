@@ -32,5 +32,4 @@ model
 	as ecology:Vegetation ecology:NetPrimaryProduction in g/m^2 named single_reosurce_annotation     
 	over space(shape='POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))');
 
-
 // add any models here
