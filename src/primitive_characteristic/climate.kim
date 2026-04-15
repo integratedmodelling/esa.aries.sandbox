@@ -4,14 +4,14 @@ private namespace primitive_characteristic.climate;
  * # 1) Summer diurnal mean air temperature.
  */
 model local:alessio.bulckaen:im.data.global:ecdc__climate__summer_diurnal_air_temperature_mean__global__1981_2010 
-	as im:Mean earth:AtmosphericTemperature during earth:Summer in Celsius named summer_diurnal_mean_air_temperature
+	as im:Mean earth:AtmosphericTemperature during earth:Summer in Celsius named summer_diurnal_air_temperature_mean_input
 	set to [self / 100];
 
-model level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_mean_air_temperature_level
+model level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_air_temperature_mean
 	observing
-		im:Mean earth:AtmosphericTemperature during earth:Summer in Celsius named summer_diurnal_mean_air_temperature
-	lookup(summer_diurnal_mean_air_temperature, ?) into
-		  summer_diurnal_mean_air_temperature	| category
+		im:Mean earth:AtmosphericTemperature during earth:Summer in Celsius named summer_diurnal_air_temperature_mean_input
+	lookup(summer_diurnal_air_temperature_mean_input, ?) into
+		  summer_diurnal_air_temperature_mean	| category
 		-----------------------------------------------------------------------------
 				   -10 to 0						| ecology.incubation:Cold		  ,
 					 0 to 10					| ecology.incubation:Cool		  ,
@@ -25,14 +25,14 @@ model level of im:Mean earth:AtmosphericTemperature during earth:Summer named su
  * # 2) Winter diurnal mean air temperature.
  */
 model local:alessio.bulckaen:im.data.global:ecdc__climate__winter_diurnal_air_temperature_mean__global__1981_2010 
-	as im:Mean earth:AtmosphericTemperature during earth:Winter in Celsius named winter_diurnal_mean_air_temperature
+	as im:Mean earth:AtmosphericTemperature during earth:Winter in Celsius named winter_diurnal_air_temperature_mean_input
 	set to [self / 100];
 	
-model level of im:Mean earth:AtmosphericTemperature during earth:Winter named winter_diurnal_mean_air_temperature_level
+model level of im:Mean earth:AtmosphericTemperature during earth:Winter named winter_diurnal_air_temperature_mean
 	observing
-		im:Mean earth:AtmosphericTemperature during earth:Winter in Celsius named winter_diurnal_mean_air_temperature
-	lookup(winter_diurnal_mean_air_temperature, ?) into
-		  winter_diurnal_mean_air_temperature	| category
+		im:Mean earth:AtmosphericTemperature during earth:Winter in Celsius named winter_diurnal_air_temperature_mean_input
+	lookup(winter_diurnal_air_temperature_mean_input, ?) into
+		  winter_diurnal_air_temperature_mean	| category
 		------------------------------------------------------------------------------
 				 		< -25					| ecology.incubation:ExtremelyCold	,
 				   -25 to -10					| ecology.incubation:VeryCold		,
@@ -53,12 +53,12 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__potential_tree_growth
  * # 4) Seasonal diurnal air temperature amplitude.
  */
 model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_amplitude__global__1981_2010
-	as im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_amplitude;
+	as im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_amplitude_input;
 	 
-model level of im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_amplitude_level
+model level of im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_amplitude
 	observing
-		im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_amplitude
-	lookup(seasonal_diurnal_air_temperature_amplitude, ?) into
+		im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_amplitude_input
+	lookup(seasonal_diurnal_air_temperature_amplitude_input, ?) into
 		seasonal_diurnal_air_temperature_amplitude  | category
 	   --------------------------------------------------------------
 					0  to 10 						| im:Low		,
@@ -69,13 +69,13 @@ model level of im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature
  * # 5) Seasonal diurnal air temperature variability.
  */
 model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability__global__1981_2010
-	as im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_variability
+	as im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_variability_input
 	set to [self * 0.1 - 273.5];
 	
-model level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability_level
+model level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability
 	observing
-		im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_variability
-	lookup(seasonal_diurnal_air_temperature_variability, ?) into
+		im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_variability_input
+	lookup(seasonal_diurnal_air_temperature_variability_input, ?) into
 		   seasonal_diurnal_air_temperature_variability | category
 		----------------------------------------------------------------------
 						  0								| im:VeryLow		,
@@ -89,13 +89,13 @@ model level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature name
  */
 @intensive(space,time)
 model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation_total__global__1981_2010
-	as im:Yearly earth:PrecipitationVolume in mm/year named annual_total_precipitation;
+	as im:Yearly earth:PrecipitationVolume in mm/year named annual_precipitation_total_input;
 	
-model level of im:Yearly earth:PrecipitationVolume named annual_total_precipitation_level
+model level of im:Yearly earth:PrecipitationVolume named annual_precipitation_total
 	observing
-		@intensive(space,time) im:Yearly earth:PrecipitationVolume in mm/year named annual_total_precipitation
-		lookup(annual_total_precipitation, ?) into
-		annual_total_precipitation	| category
+		@intensive(space,time) im:Yearly earth:PrecipitationVolume in mm/year named annual_precipitation_total_input
+		lookup(annual_precipitation_total_input, ?) into
+		annual_precipitation_total	| category
 		---------------------------------------------
 					     < 200		| im:VeryLow  ,
 					200 to 300		| im:Low	  ,
@@ -107,14 +107,14 @@ model level of im:Yearly earth:PrecipitationVolume named annual_total_precipitat
  * # 7) Annual diurnal mean air temperature.
  */
 model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_diurnal_air_temperature_mean__global__1981_2010 
-	as im:Daily im:Mean earth:AtmosphericTemperature during im:Year in Celsius named annual_diurnal_mean_air_temperature
+	as im:Daily im:Mean earth:AtmosphericTemperature during im:Year in Celsius named annual_diurnal_air_temperature_mean_input
 	set to [self / 100];
 	
-model level of im:Daily im:Mean earth:AtmosphericTemperature during im:Year named annual_diurnal_mean_air_temperature_level
+model level of im:Daily im:Mean earth:AtmosphericTemperature during im:Year named annual_diurnal_air_temperature_mean
 	observing
-		im:Daily im:Mean earth:AtmosphericTemperature during im:Year in Celsius named annual_diurnal_mean_air_temperature
-	lookup(annual_diurnal_mean_air_temperature, ?) into
-		  annual_diurnal_mean_air_temperature | category
+		im:Daily im:Mean earth:AtmosphericTemperature during im:Year in Celsius named annual_diurnal_air_temperature_mean_input
+	lookup(annual_diurnal_air_temperature_mean_input, ?) into
+		  annual_diurnal_air_temperature_mean | category
 		---------------------------------------------------------------------------
 					 < -25					  | ecology.incubation:ExtremelyCold ,
 		 		-25 to -10					  | ecology.incubation:VeryCold		 ,
@@ -131,13 +131,13 @@ model level of im:Daily im:Mean earth:AtmosphericTemperature during im:Year name
  */
 @intensive(space,time)
 model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total__global__1981_2010
-	as im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance in mm/year named annual_total_water_budget;
+	as im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance in mm/year named annual_water_budget_total_input;
 	
-model level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance) named annual_total_water_budget_level
+model level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance) named annual_water_budget_total
 	observing
-		@intensive(space,time) im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance in mm/year named annual_total_water_budget
-	lookup(annual_total_water_budget, ?) into
-		  annual_total_water_budget | category
+		@intensive(space,time) im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance in mm/year named annual_water_budget_total_input
+	lookup(annual_water_budget_total_input, ?) into
+		  annual_water_budget_total | category
 		-------------------------------------------------
 				< -500				| im:Low			,
 		  -499 to -1				| im:ModeratelyLow  ,
@@ -149,13 +149,13 @@ model level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance
  */
 @intensive(space,time)
 model local:alessio.bulckaen:im.data.global:ecdc__climate__winter_water_budget_total__global__1980_2010 
-	as hydrology:WaterVolume caused by hydrology:WaterBalance during earth:Winter in mm/year named winter_total_water_budget;
+	as hydrology:WaterVolume caused by hydrology:WaterBalance during earth:Winter in mm/year named winter_water_budget_total_input;
 	
-model level of (hydrology:WaterVolume caused by hydrology:WaterBalance during earth:Winter) named winter_total_water_budget_level
+model level of (hydrology:WaterVolume caused by hydrology:WaterBalance during earth:Winter) named winter_water_budget_total
 	observing
-		@intensive(space,time) hydrology:WaterVolume caused by hydrology:WaterBalance during earth:Winter in mm/year named winter_total_water_budget
-	lookup(winter_total_water_budget, ?) into
-		  winter_total_water_budget | category
+		@intensive(space,time) hydrology:WaterVolume caused by hydrology:WaterBalance during earth:Winter in mm/year named winter_water_budget_total_input
+	lookup(winter_water_budget_total_input, ?) into
+		  winter_water_budget_total | category
 		--------------------------------------------------
 					  < -500		| im:Low			,
 		 		-499 to -1			| im:ModeratelyLow	,
@@ -166,7 +166,7 @@ model level of (hydrology:WaterVolume caused by hydrology:WaterBalance during ea
  * # 10) Thermal belts.
  */
 model local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belts__global__1950_2000 
-	as type of ecology:MountainClimaticBeltZone named thermal_belts_type
+	as type of ecology:MountainClimaticBeltZone named thermal_belts
 	classified into
 		ecology:UpperAlpine  if 2,
 		ecology:LowerAlpine  if 3,

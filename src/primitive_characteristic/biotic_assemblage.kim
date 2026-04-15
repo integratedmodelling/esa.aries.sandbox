@@ -4,5 +4,5 @@ private namespace primitive_characteristic.biotic_assemblage;
  * # 1) Biotic assemblage pinniped colonies.
  */
 model local:alessio.bulckaen:im.data.global:ecdc__bioticassemblages__biotic_assemblage_pinniped_colonies__global__2022
-	as presence of GBIF.SPECIES:4941589 ecology:Population named biotic_assemblage_pinniped_colonies_presence
+	as presence of GBIF.SPECIES:4941589 ecology:Population named biotic_assemblage_pinniped_colonies
 	set to [((self == 1) || (self == 2)) ? true : false];

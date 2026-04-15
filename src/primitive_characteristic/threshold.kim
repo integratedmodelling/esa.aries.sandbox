@@ -369,31 +369,31 @@ model 'local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_bas
 //					>8 | im:VeryHigh;
 
 //annotation of specific_leaf_area thresholds
-model 'local:alessio.bulckaen:im.data.global:ecdc__vegetation__specific_leaf_area__global__2000_2020'
- as level of (ratio of  im:Area to im:Mass of biology:Leaf) named specific_leaf_area
-lookup(specific_leaf_area) into
-specific_leaf_area | category
------------------------------
-				<3 | im:Low,
-			3 to 5 | im:ModeratelyLow,
-			5 to 8 | im:ModeratelyHigh,
-				>8 | im:High
-over space(shape='POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))');
+//model 'local:alessio.bulckaen:im.data.global:ecdc__vegetation__specific_leaf_area__global__2000_2020'
+// as level of (ratio of  im:Area to im:Mass of biology:Leaf) named specific_leaf_area
+//lookup(specific_leaf_area) into
+//specific_leaf_area | category
+//-----------------------------
+//				<3 | im:Low,
+//			3 to 5 | im:ModeratelyLow,
+//			5 to 8 | im:ModeratelyHigh,
+//				>8 | im:High
+//over space(shape='POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))');
 
 //annotation of leaf_area_index thresholds
-model 
-//local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2024,
-//local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2021,
-local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2018
-as ecology:LeafAreaIndex named leaf_area_index
-	lookup (self,?) into
-	leaf_area_index|category
-	-----------------------------
-				<0| im:VeryLow,
-		   0 to 3 | im:Low,
-		   3 to 5 | im:Moderate,
-		   5 to 8 | im:High,
-			   >8 | im:VeryHigh;
+//model 
+////local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2024,
+////local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2021,
+//local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2018
+//as ecology:LeafAreaIndex named leaf_area_index
+//	lookup (self,?) into
+//	leaf_area_index|category
+//	-----------------------------
+//				<0| im:VeryLow,
+//		   0 to 3 | im:Low,
+//		   3 to 5 | im:Moderate,
+//		   5 to 8 | im:High,
+//			   >8 | im:VeryHigh;
 //over space(shape='POLYGON ((-65.33 -6.3, -65.33 12.63, -80 12.63, -80 -6.3, -65.33 -6.3))');
 
 ////annotation of leaf_area_index thresholds
@@ -445,19 +445,19 @@ observing
 
 
 //annotation of leaf_size thresholds
-model level of (im:Area of biology:Leaf) named leaf_size_typology
-observing
-	im:Area of biology:Leaf named leaf_size
-	lookup (leaf_size,?) into
-		  leaf_size | category
-	-------------------------------------
-	    0 to 25 	| ecology:Leptophyll,
-	   25 to 225    | ecology:Nanophyll,
-	  225 to 2025   | ecology:Microphyll,
-	 2025 to 4500   | ecology:Notophyll,
-	 4500 to 18225  | ecology:Mesophyll,
-	18225 to 164025 | ecology:Macrophyll,
-		  >= 164025 | ecology:Megaphyll; 
+//model level of (im:Area of biology:Leaf) named leaf_size_typology
+//observing
+//	im:Area of biology:Leaf named leaf_size
+//	lookup (leaf_size,?) into
+//		  leaf_size | category
+//	-------------------------------------
+//	    0 to 25 	| ecology:Leptophyll,
+//	   25 to 225    | ecology:Nanophyll,
+//	  225 to 2025   | ecology:Microphyll,
+//	 2025 to 4500   | ecology:Notophyll,
+//	 4500 to 18225  | ecology:Mesophyll,
+//	18225 to 164025 | ecology:Macrophyll,
+//		  >= 164025 | ecology:Megaphyll; 
 //over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
 
 model level of (count of im:Yearly im:Occurrence of chemistry:Fire) 
