@@ -3,12 +3,18 @@ private namespace primitive_characteristic.geothermal_energy;
 /*
  * # 1) Geothermal.
  */
-@intensive(space)
+//@intensive(space)
+//model 'local:alessio.bulckaen:im.data.global:ecdc__energy__geothermal__global__2019'
+//	as earth:Crust physical:Thermal im:Energy in mW/m^2 named geothermal_input;
+//
+////annotation of presence of geothermal area (boolean)
+//model presence of earth:Crust physical:Thermal earth:Region with im:High im:Energy named geothermal
+//	observing
+//		@intensive(space) earth:Crust physical:Thermal im:Energy in mW/m^2 named geothermal_input
+//		// TODO: Errors in k.LAB: "unit mW/m^2 is incompatible with a scalar context."
+//	set to [geothermal_input > 60 ? true : false];
+	
+// Alternatives to fix the error:
 model 'local:alessio.bulckaen:im.data.global:ecdc__energy__geothermal__global__2019'
-	as earth:Crust physical:Thermal im:Energy in mW/m^2 named geothermal_input;
-
-//annotation of presence of geothermal area (boolean)
-model presence of earth:Crust physical:Thermal earth:Region with im:High im:Energy named geothermal
-	observing
-		@intensive(space) earth:Crust physical:Thermal im:Energy in mW/m^2 named geothermal_input
-	set to [geothermal_input > 60 ? true : false];
+	as presence of earth:Crust physical:Thermal earth:Region with im:High im:Energy named geothermal
+	set to [self > 60 ? true : false];
