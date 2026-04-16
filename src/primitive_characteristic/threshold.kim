@@ -431,17 +431,17 @@ local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_a
 //model local:alessio.bulckaen:im.data.global:im-data-global-ecology.global_globmapftc_fractional_tree_cover_epsg4326_250m_2020
 //as 	presence of ecology:Tree
 //set to [self == unknown ? false : true];
-
-model level of ecology:WoodyVegetation ecology:CanopyCover
-observing
-	percentage of ecology:Forest ecology:CanopyCover named tree_density,
-	presence of ecology:Tree named tree_cover
-	lookup(tree_density,tree_cover,?) into
-	tree_density | tree_cover | category
-	------------------------------
-	 	 # 	 	 | 	 false    | ecology:Absent,
-	   1 to 10 	 | 	 true	  | ecology:VerySparse,
-	  10 to 40 	 |   true	  | ecology:Sparse;  
+//
+//model level of ecology:WoodyVegetation ecology:CanopyCover
+//observing
+//	percentage of ecology:Forest ecology:CanopyCover named tree_density,
+//	presence of ecology:Tree named tree_cover
+//	lookup(tree_density,tree_cover,?) into
+//	tree_density | tree_cover | category
+//	------------------------------
+//	 	 # 	 	 | 	 false    | ecology:Absent,
+//	   1 to 10 	 | 	 true	  | ecology:VerySparse,
+//	  10 to 40 	 |   true	  | ecology:Sparse;  
 
 
 //annotation of leaf_size thresholds

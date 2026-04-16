@@ -126,12 +126,21 @@ model level of ecology:CanopyCover named canopy_cover
 	   65 to 100  | ecology:Dense;
 	   
 /*
- * # 7) Other variables.
+ * # 7) Tree density.
  */
 model local:alessio.bulckaen:im.data.global:im-data-global-ecology.global_globmapftc_fractional_tree_cover_epsg4326_250m_2020
 	as presence of ecology:Tree named tree_cover
 	set to [self == unknown ? false : true];
 
-
+model level of ecology:WoodyVegetation ecology:CanopyCover named tree_density
+	observing
+		percentage of ecology:Forest ecology:CanopyCover named forest_density, // TODO: Is this resource coming from "im.data.global -> ecology"? 
+		presence of ecology:Tree named tree_cover
+		lookup(forest_density, tree_cover, ?) into
+		 forest_density	 |	tree_cover	|	category
+		---------------------------------------------------------
+				# 	 	 |		false	| ecology:Absent		,
+			 1 to 10 	 |		true	| ecology:VerySparse	,
+			10 to 40 	 |		true	| ecology:Sparse		;
 
  	

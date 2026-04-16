@@ -423,8 +423,21 @@ number local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__recurre
 //					 1 to 25							| im:Low			,
 //					25 to 75							| im:Moderate		,
 //						> 75							| im:High			;
-	
-number local:alessio.bulckaen:im.data.global:ecdc__vegetation__specific_leaf_area__global__2000_2020 as test_specific_leaf_area74;
+
+
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__specific_leaf_area__global__2000_2020
+//	as ratio of im:Area to earth:Dry im:Mass of biology:Leaf in m^2/kg named specific_leaf_area_input;
+//	
+//model level of (ratio of im:Area to earth:Dry im:Mass of biology:Leaf) named specific_leaf_area
+//	observing
+//		ratio of im:Area to earth:Dry im:Mass of biology:Leaf in m^2/kg named specific_leaf_area_input
+//	lookup(specific_leaf_area_input, ?) into
+//		specific_leaf_area	|	category
+//		----------------------------------------------
+//				 < 3		|	im:Low				,
+//			  3 to 5		|	im:ModeratelyLow	,
+//			  5 to 8		|	im:ModeratelyHigh	,
+//				 > 8		|	im:High				;
 
 //model local:alessio.bulckaen:im.data.global:ecdc__climate__summer_diurnal_air_temperature_mean__global__1981_2010 
 //	as im:Mean earth:AtmosphericTemperature during earth:Summer in Celsius named summer_diurnal_mean_air_temperature
