@@ -531,10 +531,10 @@ model local:alessio.bulckaen:im.data.global:copernicus_global_dynamic_landcover_
 //	set to [(self == 2 || self ==3 ? true : false)];  
 //annotation of occurrence_regime_episodic thresholds
 
-model 'local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__recurrence__global__2002_2024'
-	as count of im:Yearly im:Occurrence of chemistry:Fire
-over space(shape='POLYGON ((180 -60.0003350977, 180 69.9999999937, -180 69.9999999937, -180 -60.0003350977, 180 -60.0003350977))');
-	
+//model 'local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__recurrence__global__2002_2024'
+//	as count of im:Yearly im:Occurrence of chemistry:Fire
+//over space(shape='POLYGON ((180 -60.0003350977, 180 69.9999999937, -180 69.9999999937, -180 -60.0003350977, 180 -60.0003350977))');
+//	
 
 
 /*

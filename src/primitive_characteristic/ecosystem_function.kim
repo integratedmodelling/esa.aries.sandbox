@@ -1,6 +1,6 @@
 private namespace primitive_characteristic.ecosystem_function;
 
-/*
+/* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 1) Annual net primary productivity total.
  */
 @intensive(space)

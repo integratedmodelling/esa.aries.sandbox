@@ -1,6 +1,6 @@
 private namespace primitive_characteristic.climate;
 
-/*
+/* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 1) Summer diurnal mean air temperature.
  */
 model local:alessio.bulckaen:im.data.global:ecdc__climate__summer_diurnal_air_temperature_mean__global__1981_2010 
@@ -21,7 +21,7 @@ model level of im:Mean earth:AtmosphericTemperature during earth:Summer named su
 					28 to 35					| ecology.incubation:VeryHot	  ,
 					    > 35					| ecology.incubation:ExtremelyHot ;
 					    
-/*
+/* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 2) Winter diurnal mean air temperature.
  */
 model local:alessio.bulckaen:im.data.global:ecdc__climate__winter_diurnal_air_temperature_mean__global__1981_2010 
@@ -42,14 +42,14 @@ model level of im:Mean earth:AtmosphericTemperature during earth:Winter named wi
 					18 to 22					| ecology.incubation:Warm	  		,
 					22 to 28					| ecology.incubation:Hot 			;
 					
-/*
+/* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 3) Potential tree growth.
  */
 model local:alessio.bulckaen:im.data.global:ecdc__climate__potential_tree_growth__global__1981_2010
 	as presence of im:Potential ecology:Tree caused by biology:Growth named potential_tree_growth
 	set to [self == 1 ? true : false];
 	
-/*
+/* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 4) Seasonal diurnal air temperature amplitude.
  */
 model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_amplitude__global__1981_2010
@@ -65,7 +65,7 @@ model level of im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature
 					10 to 21 						| im:Moderate	,
 					   > 21 						| im:High		;
 					   
-/*
+/* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 5) Seasonal diurnal air temperature variability.
  */
 model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability__global__1981_2010
@@ -84,7 +84,7 @@ model level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature name
 					25 to 75							| im:Moderate		,
 						> 75							| im:High			;
 						
-/*
+/* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 6) Annual total precipitation. (Note: unit of precipitation: 1 mm = 1 L/m^2 = 1 kg/m^2)
  */
 @intensive(space,time)
@@ -103,7 +103,7 @@ model level of im:Yearly earth:PrecipitationVolume named annual_precipitation_to
 					900 to 2000		| im:High	  ,
 				         > 2000		| im:VeryHigh ;
 				          
-/*
+/* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 7) Annual diurnal mean air temperature.
  */
 model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_diurnal_air_temperature_mean__global__1981_2010 
@@ -126,7 +126,7 @@ model level of im:Daily im:Mean earth:AtmosphericTemperature during im:Year name
 				 28 to 35					  | ecology.incubation:VeryHot		 ,
 					 > 35					  | ecology.incubation:ExtremelyHot  ;
 					  
-/*
+/* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 8) Annual total water budget. (Note: unit of water budget: 1 mm = 1 L/m^2 = 1 kg/m^2)
  */
 @intensive(space,time)
@@ -144,7 +144,7 @@ model level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance
 			 1 to 499				| im:ModeratelyHigh ,
 				> 500				| im:High			;
 				
-/*
+/* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 9) Winter total water budget. (Note: unit of water budget: 1 mm = 1 L/m^2 = 1 kg/m^2)
  */
 @intensive(space,time)
@@ -162,7 +162,7 @@ model level of (hydrology:WaterVolume caused by hydrology:WaterBalance during ea
 				   1 to 499			| im:ModeratelyHigh ,
 					  > 500			| im:High			;
 					   
-/*
+/* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 10) Thermal belts.
  */
 model local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belts__global__1950_2000 

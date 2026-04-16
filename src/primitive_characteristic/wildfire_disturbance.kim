@@ -1,23 +1,27 @@
 private namespace primitive_characteristic.wildfire_disturbance;
 
-model 'local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__recurrence__global__2002_2024'
-	as count of im:Yearly im:Occurrence of chemistry:Fire
-over space(shape='POLYGON ((180 -60.0003350977, 180 69.9999999937, -180 69.9999999937, -180 -60.0003350977, 180 -60.0003350977))');
+/* ----------------------------------------------------------------------------------------------------------------------------- 
+ * # 1) Recurrence. 
+ */
+model local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__recurrence__global__2002_2024
+	as count of im:Yearly im:Occurrence of chemistry:Fire named recurrence_input;
+//	over space(shape='POLYGON ((180 -60.0003350977, 180 69.9999999937, -180 69.9999999937, -180 -60.0003350977, 180 -60.0003350977))');
 
-model level of (count of im:Yearly im:Occurrence of chemistry:Fire) 
+model level of (count of im:Yearly im:Occurrence of chemistry:Fire) named recurrence 
 observing
-	count of im:Yearly im:Occurrence of chemistry:Fire named fire_recurrence
-	lookup (fire_recurrence,?) into
-	recurrence | category
-	---------------------
-	   2 to 10 | ecology.incubation:SubDecadal,
-	  10 to 20 | ecology.incubation:Decadal,
-	 20 to 100 | ecology.incubation:MultiDecadal,
-		>100   | ecology.incubation:Centennial;
+	count of im:Yearly im:Occurrence of chemistry:Fire named recurrence_input
+	lookup (recurrence_input, ?) into
+	 recurrence	|	category
+	--------------------------------------------------
+	   2 to 10	|	ecology.incubation:SubDecadal	,
+	  10 to 20	|	ecology.incubation:Decadal		,
+	  20 to 100	|	ecology.incubation:MultiDecadal	,
+		  > 100	|	ecology.incubation:Centennial	;
 
-number 'local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__periodicity__global__2002_2024' as fire_periodicity;
-
-model 'local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__periodicity__global__2002_2024'
-	as presence of earth:Region with im:High im:Frequency of chemsitry:Fire 
-	set to [self==1]
-over space(shape='POLYGON ((180 -60, 180 70, -180 70, -180 -60, 180 -60))');
+/* ----------------------------------------------------------------------------------------------------------------------------- 
+ * # 2) Periodicity. 
+ */
+model local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__periodicity__global__2002_2024
+	as presence of earth:Region with im:High im:Frequency of chemistry:Fire named periodicity
+	set to [self == 1 ? true : false];
+//	over space(shape='POLYGON ((180 -60, 180 70, -180 70, -180 -60, 180 -60))');

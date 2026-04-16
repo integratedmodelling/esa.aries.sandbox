@@ -1,6 +1,6 @@
 private namespace primitive_characteristic.vegetation;
 
-/*
+/* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 1) Leaf area index.
  */
 model local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2018,
@@ -21,7 +21,7 @@ model level of ecology:LeafAreaIndex named leaf_area_index
 			 5 to 8			|	im:High		,
 				> 8			|	im:VeryHigh	;
 			   
-/*
+/* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 2) Phenology mixed, deciduous and evergreen.
  */
 model local:rubencc:im.data.global:im-data-global-landcover.cci_lc_300m_2020_v2_1_1,
@@ -33,7 +33,7 @@ model local:rubencc:im.data.global:im-data-global-landcover.cci_lc_300m_2020_v2_
 		ecology:Deciduous if in (60, 61, 62, 122), 
 	  	ecology:Evergreen if in (50, 70, 71, 72, 121); 
  
-/*
+/* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 3) Specific leaf area.
  */
 model local:alessio.bulckaen:im.data.global:ecdc__vegetation__specific_leaf_area__global__2000_2020
@@ -50,7 +50,7 @@ model level of (ratio of im:Area to earth:Dry im:Mass of biology:Leaf) named spe
 			  5 to 8		|	im:ModeratelyHigh	,
 				 > 8		|	im:High				;
  
-/*
+/* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 4) Leaf size.
  */
 model local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_size__global__2000_2020
@@ -71,7 +71,7 @@ model level of (physical.incubation:Shadow im:Area of biology:Leaf) named leaf_s
 			18225 to 164025	|	ecology:Macrophyll	,
 				  >= 164025	|	ecology:Megaphyll	;
  
-/*
+/* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 5) Canopy height.
  */
 model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__greece__2020
@@ -99,7 +99,7 @@ model level of (im:Mean im:Height of ecology:Canopy) named canopy_height
 			  20 to 40	| im:High			,
 				  > 40	| im:VeryHigh		;
 				  
-/*
+/* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 6) Canopy cover.
  */
 model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__greece__2015
@@ -125,7 +125,7 @@ model level of ecology:CanopyCover named canopy_cover
 		15 to 65  | ecology:Open,	
 	   65 to 100  | ecology:Dense;
 	   
-/*
+/* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 7) Tree density.
  */
 model local:alessio.bulckaen:im.data.global:im-data-global-ecology.global_globmapftc_fractional_tree_cover_epsg4326_250m_2020

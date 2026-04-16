@@ -425,7 +425,10 @@ private namespace test_stac_resources;
 //           	0.3 to 1	|	im:Moderate		,
 //                 > 1	|	im:High			;
 
-number local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__periodicity__global__2002_2024 as test_periodicity62;
+
+//model local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__periodicity__global__2002_2024
+//	as presence of earth:Region with im:High im:Frequency of chemistry:Fire named periodicity
+//	set to [self == 1 ? true : false];
 
 
 
@@ -461,7 +464,22 @@ number local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__periodi
 //	as presence of im:Potential ecology:Tree caused by biology:Growth
 //	set to [self == 1 ? true : false];
 
-number local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__recurrence__global__2002_2024 as test_recurrence71;
+
+//model local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__recurrence__global__2002_2024
+//	as count of im:Yearly im:Occurrence of chemistry:Fire named recurrence_input;
+////	over space(shape='POLYGON ((180 -60.0003350977, 180 69.9999999937, -180 69.9999999937, -180 -60.0003350977, 180 -60.0003350977))');
+//
+//model level of (count of im:Yearly im:Occurrence of chemistry:Fire) named recurrence 
+//observing
+//	count of im:Yearly im:Occurrence of chemistry:Fire named recurrence_input
+//	lookup (recurrence_input, ?) into
+//	 recurrence	|	category
+//	--------------------------------------------------
+//	   2 to 10	|	ecology.incubation:SubDecadal	,
+//	  10 to 20	|	ecology.incubation:Decadal		,
+//	  20 to 100	|	ecology.incubation:MultiDecadal	,
+//		  > 100	|	ecology.incubation:Centennial	;
+		  
 
 //model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_amplitude__global__1981_2010 
 //	as level of im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_amplitude_level

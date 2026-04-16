@@ -1,6 +1,6 @@
 project private namespace primitive_characteristic.surface_water;
 
-/* ---------------------------------------------------------------------------------------------------------
+/* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 1) Hydroform meander & hydroform.
  */
 //secondary_observations of type of hydrology:WaterBody
@@ -26,7 +26,7 @@ model type of hydrology:WaterBody named waterbody_type
 		   in (2 3)	  	|		   #			|	hydrology:InlandWaterBody	,
 			  #		  	|     in (2 3)			|	hydrology:Meander			;
 
-/* ---------------------------------------------------------------------------------------------------------
+/* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 2) Watershed hierarchy.
  */
 //primary_observations of level of (hydrology:StreamOrder of hydrology:Watershed)
@@ -58,7 +58,7 @@ model level of (hydrology:StreamOrder of hydrology:Watershed) named watershed_hi
 //		//			  <1   | im:VeryLow,
 ////over space(shape="POLYGON ((-180 -55.87, -180 84.01, 180 84.01, 180 -55.87, -180 -55.87))");
  
-/* ---------------------------------------------------------------------------------------------------------
+/* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 3) Occurrence regime seasonality, ephemeral & episodic.
  */
 //secondary_observations of  type of hydrology:WaterPermanence	
@@ -85,7 +85,7 @@ model type of hydrology:WaterPermanence named water_performance_type
 	     		 #		     	|			#				| 			1			  	|	hydrology:Ephemeral	,			     			 
 		     	 #		     	|		in (1 2)			| 			#			  	|	hydrology:Episodic	;
 		     	  
-/* ---------------------------------------------------------------------------------------------------------
+/* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 4) Hydroform morphology area.
  */
 ////direct_annotation of hydroform_morphology_area thresholds
@@ -135,7 +135,7 @@ model level of (im:Minimum im:Area of earth:WaterBody) named hydroform_morpholog
 					>= 100			|	im:High
 	over space(shape='POLYGON ((-180 -55.87, -180 84.01, 180 84.01, 180 -55.87, -180 -55.87))');
 	
-/* ---------------------------------------------------------------------------------------------------------
+/* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 5) Watershed hydroform density.
  */
 model local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__greece__2013_2020
