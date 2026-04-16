@@ -526,9 +526,9 @@ model local:alessio.bulckaen:im.data.global:copernicus_global_dynamic_landcover_
 /*
  * ********************************WATER SURFACE DATA***************************************
  */
-model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__global__2004_2013'
-	as presence of hydrology.incubation:RiverMeander named hydroform_meander
-	set to [(self == 2 || self ==3 ? true : false)];  
+//model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__global__2004_2013'
+//	as presence of hydrology.incubation:RiverMeander named hydroform_meander
+//	set to [(self == 2 || self ==3 ? true : false)];  
 //annotation of occurrence_regime_episodic thresholds
 
 model 'local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__recurrence__global__2002_2024'

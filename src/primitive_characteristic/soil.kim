@@ -14,7 +14,7 @@ private namespace primitive_characteristic.soil;
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 1) primary and secondary annotation for peat_thickness 
  */
-model 'local:alessio.bulckaen:im.data.global:ecdc__soil__peat_thickness__global__2001_2021'
+model local:alessio.bulckaen:im.data.global:ecdc__soil__peat_thickness__global__2001_2021
 	as im:Depth of landcover:PeatBog earth:Region in cm named peat_thickness_input;
 //over space(shape='POLYGON ((180 -60.007460979, 180 88.007948385, -180 88.007948385, -180 -60.007460979, 180 -60.007460979))');
 
@@ -34,7 +34,7 @@ model level of (im:Depth of landcover:PeatBog earth:Region) named peat_thickness
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 2) primary and secondary annotation for fertility 
  */
-model 'local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020'
+model local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020
 	as soil.incubation:Fertility named fertility_input;
 
 model level of soil.incubation:Fertility named fertility
@@ -62,7 +62,7 @@ model local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 3) primary and secondary annotation for chemical_properties_N 
  */  
-model 'local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_n__global__1995_2019'
+model local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_n__global__1995_2019
 	as proportion of chemistry:Nitrogen in soil:Soil named chemical_properties_n_input; //  in g/kg;
 
 model level of (proportion of chemistry:Nitrogen in soil:Soil) named chemical_properties_n
@@ -76,7 +76,7 @@ model level of (proportion of chemistry:Nitrogen in soil:Soil) named chemical_pr
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 4) primary and secondary annotation for chemical_properties_base_saturation 
  */  
-model 'local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_base_saturation__global__1995_2019'
+model local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_base_saturation__global__1995_2019
 	as percentage of chemistry:Basic chemistry:ExchangeCapacity in (chemistry:ExchangeCapacity of chemistry:Cation) named chemical_properties_base_saturation_input;
 
 model level of (chemistry:Basic chemistry:ExchangeCapacity of chemistry:Cation) named chemical_properties_base_saturation
@@ -92,7 +92,7 @@ model level of (chemistry:Basic chemistry:ExchangeCapacity of chemistry:Cation) 
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 5) primary and secondary annotation for physical_properties_bulk_density 
  */  			  
-model 'local:alessio.bulckaen:im.data.global:ecdc__soil__physical_properties_bulk_density__global__1995_2019'
+model local:alessio.bulckaen:im.data.global:ecdc__soil__physical_properties_bulk_density__global__1995_2019
 	as ratio of earth:Dry soil:Soil im:Mass to soil:Soil im:Volume in g/cm^3 named physical_properties_bulk_density_input; 
 	
 model level of (ratio of earth:Dry soil:Soil im:Mass to soil:Soil im:Volume) named physical_properties_bulk_density

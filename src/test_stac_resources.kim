@@ -221,16 +221,51 @@ private namespace test_stac_resources;
 //		@intensive(space) earth:Crust physical:Thermal im:Energy in mW/m^2 named geothermal_input
 //	set to [geothermal_input > 60 ? true : false];
 	
-number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform__global__1984_2017 as test_hydroform27;
-number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__global__2004_2013 as test_hydroform_meander28;
+//number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform__global__1984_2017 
+//	as hydroform; 
+//
+//number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__global__2004_2013 
+//	as hydroform_meander;
+//	
+//model local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__global__2004_2013
+//	as presence of hydrology.incubation:RiverMeander named hydroform_meander
+//	set to [(self == 2 || self ==3 ? true : false)];
+//
+//model type of hydrology:WaterBody named waterbody_type
+//	observing 
+//		hydroform,
+//		hydroform_meander
+//	lookup (hydroform, hydroform_meander, ?) into
+//		hydroform		|	hydroform_meander	|	category
+//		-------------------------------------------------------------------------
+//			  1		  	|		   #			|	hydrology:Watercourse		,
+//		   in (2 3)	  	|		   #			|	hydrology:InlandWaterBody	,
+//			  #		  	|     in (2 3)			|	hydrology:Meander			;
 
-number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__south_africa__2013_2020 as test_hydroform_morphology_area29;
-number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__viet_nam__2013_2020 as test_hydroform_morphology_area30;
-number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__norway__2013_2020 as test_hydroform_morphology_area31;
-number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__greece__2013_2020 as test_hydroform_morphology_area32;
-number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__czechia__2013_2020 as test_hydroform_morphology_area33;
-number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__colombia__2013_2020 as test_hydroform_morphology_area34;
 
+
+//@intensive(space) 
+//model local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__greece__2013_2020
+////	  local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__colombia__2013_2020,
+////	  local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__czechia__2013_2020,	  
+////	  local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__norway__2013_2020,
+////	  local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__south_africa__2013_2020,
+////	  local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__viet_nam__2013_2020
+//	as im:Minimum im:Area of earth:WaterBody in km^2 named hydroform_morphology_area_input;
+//
+////primary_observation of level of (im:Minimum im:Area of earth:WaterBody)
+//model level of (im:Minimum im:Area of earth:WaterBody) named hydroform_morphology_area
+//	observing
+//		im:Minimum im:Area of earth:WaterBody in km^2 named hydroform_morphology_area_input
+//	lookup (hydroform_morphology_area_input, ?) into
+//		  hydroform_morphology_area	|	category
+//		------------------------------------------
+//					<  100			|	im:Low	,
+//					>= 100			|	im:High
+//	over space(shape='POLYGON ((-180 -55.87, -180 84.01, 180 84.01, 180 -55.87, -180 -55.87))');
+
+	
+	
 //model local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2024
 //	as ecology:LeafAreaIndex;
 //	
@@ -349,10 +384,31 @@ number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morph
 //	as presence of landcover:MineralExtraction earth:Region named mining_areas_presence
 //	set to [self == 1 ? true : false];
 
-number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_ephemeral__global__1984_2021 as test_occurrence_regime_ephemeral58;
-number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_episodic__global__1984_2021 as test_occurrence_regime_episodic59;
-number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_seasonality__global__1984_2021 as test_occurrence_regime_seasonality60;
 
+//number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_seasonality__global__1984_2021 
+//	as seasonal_water_regime;
+//	
+//number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_ephemeral__global__1984_2021 
+//	as ephemeral_water_regime;
+//	
+//number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_episodic__global__1984_2021
+//	as episodic_water_regime;
+//
+////primary_observations of type of hydrology:WaterPermanence
+//model type of hydrology:WaterPermanence named water_performance_type
+//	observing
+//		seasonal_water_regime,
+//		ephemeral_water_regime,
+//		episodic_water_regime
+//	lookup (seasonal_water_regime, ephemeral_water_regime, episodic_water_regime, ?) into
+//		seasonal_water_regime	|	ephemeral_water_regime	|	episodic_water_regime	|	category
+//		---------------------------------------------------------------------------------------------------------
+//			     1		     	|			#				| 			#			  	|	hydrology:Permanent	,
+//			     2		     	|			#				| 			#			  	|	hydrology:Seasonal	,
+//	     		 #		     	|			#				| 			1			  	|	hydrology:Ephemeral	,			     			 
+//		     	 #		     	|		in (1 2)			| 			#			  	|	hydrology:Episodic	;
+		     	 
+		     	 
 //model 'local:alessio.bulckaen:im.data.global:ecdc__soil__peat_thickness__global__2001_2021'
 //	as im:Depth of landcover:PeatBog earth:Region in cm named peat_thickness_input;
 ////over space(shape='POLYGON ((180 -60.007460979, 180 88.007948385, -180 88.007948385, -180 -60.007460979, 180 -60.007460979))');
@@ -371,14 +427,22 @@ number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regi
 
 number local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__periodicity__global__2002_2024 as test_periodicity62;
 
-number local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_deciduous__global__2021 as test_phenology_deciduous63;
-number local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_deciduous__global__2018 as test_phenology_deciduous64;
 
-number local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_evergreen__global__2021 as test_phenology_evergreen65;
-number local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_evergreen__global__2018 as test_phenology_evergreen66;
 
-number local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_mixed__global__2021 as test_phenology_mixed67;
-number local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_mixed__global__2018 as test_phenology_mixed68;
+
+
+//number local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_deciduous__global__2021 as test_phenology_deciduous63;
+//number local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_deciduous__global__2018 as test_phenology_deciduous64;
+//
+//number local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_evergreen__global__2021 as test_phenology_evergreen65;
+//number local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_evergreen__global__2018 as test_phenology_evergreen66;
+//
+//number local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_mixed__global__2021 as test_phenology_mixed67;
+//number local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_mixed__global__2018 as test_phenology_mixed68;
+
+
+
+
 
 //model 'local:alessio.bulckaen:im.data.global:ecdc__soil__physical_properties_bulk_density__global__1995_2019'
 //	as ratio of earth:Dry soil:Soil im:Mass to soil:Soil im:Volume in g/cm^3 named physical_properties_bulk_density_input; 
@@ -497,15 +561,40 @@ number local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__recurre
 //	as presence of earth:Coast with im:High earth:WindSpeed of earth:Storm named coastal_storms_exposure_presence
 //	set to [self == 1 ? true : false];
 
-number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__global__2004_2013 as test_watershed_hierarchy80;
+//model local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__global__2004_2013
+//	as hydrology:StreamOrder of hydrology:Watershed named watershed_hierarchy_input;
+//
+////secondary_observations of level of (hydrology:StreamOrder of hydrology:Watershed)
+//model level of (hydrology:StreamOrder of hydrology:Watershed) named watershed_hierarchy
+//	observing 
+//		hydrology:StreamOrder of hydrology:Watershed named watershed_hierarchy_input
+//	lookup (watershed_hierarchy_input, ?) into
+//		watershed_hierarchy| category
+//		------------------------------
+//					1 to 4 | im:Low,
+//					4 to 9 | im:Moderate,
+//					  >9   | im:High;
 
-number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__south_africa__2013_2020 as test_watershed_hydroform_density81;
-number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__viet_nam__2013_2020 as test_watershed_hydroform_density82;
-number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__norway__2013_2020 as test_watershed_hydroform_density83;
-number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__greece__2013_2020 as test_watershed_hydroform_density84;
-number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__czechia__2013_2020 as test_watershed_hydroform_density85;
-number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__colombia__2013_2020 as test_watershed_hydroform_density86;
 
+
+//model local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__greece__2013_2020
+////	  local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__south_africa__2013_2020,
+////	  local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__viet_nam__2013_2020,
+////	  local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__norway__2013_2020,	  
+////	  local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__czechia__2013_2020,
+////	  local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__colombia__2013_2020
+//	as im:Density of earth:WaterBody named watershed_hydroform_density_input;
+//
+//model level of (im:Density of earth:WaterBody) named watershed_hydroform_density
+//	observing
+//		im:Density of earth:WaterBody named watershed_hydroform_density_input
+//	lookup (hydroform_morphology_area_input, ?) into
+//		  watershed_hydroform_density	|	category
+//		--------------------------------------------------
+//						 < 2.2			|	im:Low		,
+//					2.2 to 4			|	im:Moderate	,
+//						 > 4			|	im:High							
+//	over space(shape='POLYGON ((-180 -55.87, -180 84.01, 180 84.01, 180 -55.87, -180 -55.87))');
 
 
 
