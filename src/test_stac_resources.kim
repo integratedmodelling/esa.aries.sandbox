@@ -208,7 +208,17 @@ private namespace test_stac_resources;
 //		im:High if in (8 9 10);
 	      
 number local:alessio.bulckaen:im.data.global:ecdc__geomorphology__floodplain__global__1900_2100 as test_floodplain25;
-number local:alessio.bulckaen:im.data.global:ecdc__energy__geothermal__global__2019 as test_geothermal26;
+
+//@intensive(space)
+//model 'local:alessio.bulckaen:im.data.global:ecdc__energy__geothermal__global__2019'
+//	as earth:Crust physical:Thermal im:Energy in mW/m^2 named geothermal_input;
+//
+////annotation of presence of geothermal area (boolean)
+//model presence of earth:Crust physical:Thermal earth:Region with im:High im:Energy named geothermal
+//	observing
+//		@intensive(space) earth:Crust physical:Thermal im:Energy in mW/m^2 named geothermal_input
+//	set to [geothermal_input > 60 ? true : false];
+	
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform__global__1984_2017 as test_hydroform27;
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__global__2004_2013 as test_hydroform_meander28;
 

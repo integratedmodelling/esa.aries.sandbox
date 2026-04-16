@@ -180,31 +180,31 @@ local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_a
 
 
 //annotation of presence of geothermal (boolean)
-model 'local:alessio.bulckaen:im.data.global:ecdc__energy__geothermal__global__2019'
-as presence of earth:Crust physical:Thermal earth:Region
- set to [self > 60];
+//model 'local:alessio.bulckaen:im.data.global:ecdc__energy__geothermal__global__2019'
+//as presence of earth:Crust physical:Thermal earth:Region
+// set to [self > 60];
 
-@intensive(space)
-model level of ecology:NetPrimaryProduction
-observing ecology:NetPrimaryProduction in g/m^2 named annual_total_net_primary_productivity //g/m^2/day named npp
-		lookup (annual_total_net_primary_productivity) into
-        annual_total_net_primary_productivity | category
-		----------------------------------------------------
-										< 500 | im:Low,
-				                  500 to 2000 | im:Moderate,
-				                       > 2000 | im:High;
+//@intensive(space)
+//model level of ecology:NetPrimaryProduction
+//observing ecology:NetPrimaryProduction in g/m^2 named annual_total_net_primary_productivity //g/m^2/day named npp
+//		lookup (annual_total_net_primary_productivity) into
+//        annual_total_net_primary_productivity | category
+//		----------------------------------------------------
+//										< 500 | im:Low,
+//				                  500 to 2000 | im:Moderate,
+//				                       > 2000 | im:High;
 
 
-@intensive(space)
-model level of (im:Depth of landcover:PeatBog earth:Region)
-observing im:Depth of landcover:PeatBog earth:Region in cm named depth_peat_bog//g/m^2/day named npp
-		lookup (depth_peat_bog) into
-        depth_peat_bog | category
-		-------------------------
-   				   0   | Absent,
-   			 0 to  0.3 | im:Low,
-              0.3 to 1 | im:Moderate,
-                   > 1 | im:High;
+//@intensive(space)
+//model level of (im:Depth of landcover:PeatBog earth:Region)
+//observing im:Depth of landcover:PeatBog earth:Region in cm named depth_peat_bog//g/m^2/day named npp
+//		lookup (depth_peat_bog) into
+//        depth_peat_bog | category
+//		-------------------------
+//   				   0   | Absent,
+//   			 0 to  0.3 | im:Low,
+//              0.3 to 1 | im:Moderate,
+//                   > 1 | im:High;
 
 //annotation of hydroform_morphology_area thresholds
 //model level of im:Minimum im:Area of earth:WaterBody
@@ -677,9 +677,9 @@ model level of (count of im:Yearly im:Occurrence of chemistry:Fire)
  * *********************************GEOHTERMAL************************************
  */
 //annotation of presence of geothermal (boolean)
-model 'local:alessio.bulckaen:im.data.global:ecdc__energy__geothermal__global__2019'
-as presence of earth:Crust physical:Thermal earth:Region
- set to [self > 60];
+//model 'local:alessio.bulckaen:im.data.global:ecdc__energy__geothermal__global__2019'
+//as presence of earth:Crust physical:Thermal earth:Region
+// set to [self > 60];
 
 
 /*
