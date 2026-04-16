@@ -21,10 +21,24 @@ private namespace test_stac_resources;
 //				 28 to 35					  | ecology.incubation:VeryHot		 ,
 //					 > 35					  | ecology.incubation:ExtremelyHot  ;
 	
-number local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2024 as test_annual_net_primary_productivity_total3;
-number local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2021 as test_annual_net_primary_productivity_total4;
-number local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2018 as test_annual_net_primary_productivity_total5;
-
+//annotation of annual_net_primary_productivity_total thresholds 
+//@intensive(space)
+//@extensive(time)   
+//model 'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2018',
+//	  'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2021',
+//	  'local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2024'
+//	as ecology:NetPrimaryProduction in g/m^2 named annual_net_primary_productivity_total_input;
+//  
+//model level of ecology:NetPrimaryProduction named annual_net_primary_productivity_total
+//	observing
+//		@intensive(space) ecology:NetPrimaryProduction in g/m^2 named annual_net_primary_productivity_total_input
+//		lookup (annual_net_primary_productivity_total_input, ?) into
+//		primary_productivity | category
+//		--------------------------------------
+//			       0 to 500  | im:Low		,
+//			     500 to 2000 | im:Moderate	,
+//				    >2000    | im:High		;
+				    
 //model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation_total__global__1981_2010 
 //	as level of im:Yearly earth:PrecipitationVolume named annual_precipitation_total_level
 //		lookup(self, ?) into
