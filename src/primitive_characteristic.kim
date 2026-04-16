@@ -73,22 +73,22 @@ as ecology:NetPrimaryProduction named annual_net_primary_productivity
   	
 /*Refined annotation for ECDC primitive characteristics*/
 //1. Proposed annotation for peat_thickness
-model 'local:alessio.bulckaen:im.data.global:ecdc__soil__peat_thickness__global__2001_2021'
-	as im:Depth of landcover:PeatBog earth:Region in cm;
+//model 'local:alessio.bulckaen:im.data.global:ecdc__soil__peat_thickness__global__2001_2021'
+//	as im:Depth of landcover:PeatBog earth:Region in cm;
 //over space(shape='POLYGON ((180 -60.007460979, 180 88.007948385, -180 88.007948385, -180 -60.007460979, 180 -60.007460979))');
 
 //1B. Proposed annotation for physical_properties_bulk_density
-model 
-'local:alessio.bulckaen:im.data.global:ecdc__soil__physical_properties_bulk_density__global__1995_2019'
-as ratio of earth:Dry soil:Soil im:Mass to soil:Soil im:Volume in g/cm^3;
+//model 
+//'local:alessio.bulckaen:im.data.global:ecdc__soil__physical_properties_bulk_density__global__1995_2019'
+//as ratio of earth:Dry soil:Soil im:Mass to soil:Soil im:Volume in g/cm^3;
 //2. Proposed annotation for fertility
-model 'local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020'
-	as level of soil.incubation:Fertility classified into
-		im:None if 0,
-		soil.incubation:Infertile if in (0 1 2),
-		im:Low if in (3 4),
-		im:Moderate if in (5 6 7),
-		im:High if in (8 9 10);
+//model 'local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020'
+//	as level of soil.incubation:Fertility classified into
+//		im:None if 0,
+//		soil.incubation:Infertile if in (0 1 2),
+//		im:Low if in (3 4),
+//		im:Moderate if in (5 6 7),
+//		im:High if in (8 9 10);
  
 ////3. Proposed annotation for nitrogen
 //model //'local:alessio.bulckaen:im.data.global:ecdc__soil__nitrogen__global__1995_2019'
