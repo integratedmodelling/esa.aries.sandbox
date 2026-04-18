@@ -1,4 +1,4 @@
-private namespace esa.aries.primitive_characteristic.water_surface;
+private namespace primitive_characteristic.water_surface;
 
 abstract attribute WaterBody
 describes im:Type of earth:WaterBody
