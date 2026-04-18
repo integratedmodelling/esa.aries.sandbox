@@ -1,4 +1,4 @@
-project project private namespace primitive_characteristic.surface_water;
+project private namespace primitive_characteristic.surface_water;
 
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 1) Hydroform meander & hydroform.
@@ -138,21 +138,41 @@ model level of (im:Minimum im:Area of earth:WaterBody) named hydroform_morpholog
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 5) Watershed hydroform density.
  */
-model local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__greece__2013_2020
-//	  local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__south_africa__2013_2020,
-//	  local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__viet_nam__2013_2020,
-//	  local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__norway__2013_2020,	  
-//	  local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__czechia__2013_2020,
-//	  local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__colombia__2013_2020
-	as im:Density of earth:WaterBody named watershed_hydroform_density_input;
 
-model level of (im:Density of earth:WaterBody) named watershed_hydroform_density
-	observing
-		im:Density of earth:WaterBody named watershed_hydroform_density_input
-	lookup (hydroform_morphology_area_input, ?) into
+model local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__greece__2013_2020
+	as level of (im:Density of earth:WaterBody) named watershed_hydroform_density
+		lookup (self, ?) into
 		  watershed_hydroform_density	|	category
 		--------------------------------------------------
 						 < 2.2			|	im:Low		,
 					2.2 to 4			|	im:Moderate	,
 						 > 4			|	im:High							
 	over space(shape='POLYGON ((-180 -55.87, -180 84.01, 180 84.01, 180 -55.87, -180 -55.87))');
+
+//model local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__greece__2013_2020
+//	  local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__south_africa__2013_2020,
+//	  local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__viet_nam__2013_2020,
+//	  local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__norway__2013_2020,	  
+//	  local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__czechia__2013_2020,
+//	  local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__colombia__2013_2020
+//	as im:Density of earth:WaterBody named watershed_hydroform_density_input;
+
+//model level of (im:Density of earth:WaterBody) named watershed_hydroform_density
+//	observing
+//		im:Density of earth:WaterBody named watershed_hydroform_density_input
+//	lookup (hydroform_morphology_area_input, ?) into
+//		  watershed_hydroform_density	|	category
+//		--------------------------------------------------
+//						 < 2.2			|	im:Low		,
+//					2.2 to 4			|	im:Moderate	,
+//						 > 4			|	im:High							
+//	over space(shape='POLYGON ((-180 -55.87, -180 84.01, 180 84.01, 180 -55.87, -180 -55.87))');
+
+//model level of (im:Density of earth:WaterBody) named watershed_hydroform_density
+//	observing
+//		im:Density of earth:WaterBody named watershed_hydroform_density_input
+//			classified into
+//			im:Low if < 2.2,
+//			im:Moderate	if in (2.2 to 4),
+//			im:High	if > 4						
+//	over space(shape='POLYGON ((-180 -55.87, -180 84.01, 180 84.01, 180 -55.87, -180 -55.87))');
