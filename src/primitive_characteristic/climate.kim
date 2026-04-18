@@ -52,38 +52,61 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__potential_tree_growth
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 4) Seasonal diurnal air temperature amplitude.
  */
+
 model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_amplitude__global__1981_2010
-	as im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_amplitude_input;
-	 
-model level of im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_amplitude
-	observing
-		im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_amplitude_input
-	lookup(seasonal_diurnal_air_temperature_amplitude_input, ?) into
+	as level of im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_amplitude
+	lookup(self, ?) into
 		seasonal_diurnal_air_temperature_amplitude  | category
 	   --------------------------------------------------------------
 					0  to 10 						| im:Low		,
 					10 to 21 						| im:Moderate	,
 					   > 21 						| im:High		;
+	 
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_amplitude__global__1981_2010
+//	as im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_amplitude_input;
+//	 
+//model level of im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_amplitude
+//	observing
+//		im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_amplitude_input
+//	lookup(seasonal_diurnal_air_temperature_amplitude_input, ?) into
+//		seasonal_diurnal_air_temperature_amplitude  | category
+//	   --------------------------------------------------------------
+//					0  to 10 						| im:Low		,
+//					10 to 21 						| im:Moderate	,
+//					   > 21 						| im:High		;
 					   
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 5) Seasonal diurnal air temperature variability.
  */
-model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability__global__1981_2010
-	as im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_variability_input
-//	set to [self * 0.1 - 273.5];
-	set to [self * 0.001];	
 
-model level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability
-	observing
-		im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_variability_input
-	lookup(seasonal_diurnal_air_temperature_variability_input, ?) into
+
+model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability__global__1981_2010
+	as level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability
+	lookup(self, ?) into
 		   seasonal_diurnal_air_temperature_variability | category
 		----------------------------------------------------------------------
 						  0								| im:VeryLow		,
 					 0 to 1								| im:ModeratelyLow	,						  
 					 1 to 25							| im:Low			,
 					25 to 75							| im:Moderate		,
-						> 75							| im:High			;
+						> 75							| im:High			;						
+//						
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability__global__1981_2010
+//	as im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_variability_input
+////	set to [self * 0.1 - 273.5];
+//	set to [self * 0.001];	
+//
+//model level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability
+//	observing
+//		im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_variability_input
+//	lookup(seasonal_diurnal_air_temperature_variability_input, ?) into
+//		   seasonal_diurnal_air_temperature_variability | category
+//		----------------------------------------------------------------------
+//						  0								| im:VeryLow		,
+//					 0 to 1								| im:ModeratelyLow	,						  
+//					 1 to 25							| im:Low			,
+//					25 to 75							| im:Moderate		,
+//						> 75							| im:High			;
 						
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 6) Annual total precipitation. (Note: unit of precipitation: 1 mm = 1 L/m^2 = 1 kg/m^2)
@@ -130,39 +153,66 @@ model level of im:Daily im:Mean earth:AtmosphericTemperature during im:Year name
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 8) Annual total water budget. (Note: unit of water budget: 1 mm = 1 L/m^2 = 1 kg/m^2)
  */
+
+//number local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total__global__1981_2010 as test_annual_water_budget_total;
+//
 @intensive(space,time)
 model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total__global__1981_2010
-	as im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance in mm/year named annual_water_budget_total_input;
-	
-model level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance) named annual_water_budget_total
-	observing
-		@intensive(space,time) im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance in mm/year named annual_water_budget_total_input
-	lookup(annual_water_budget_total_input, ?) into
+as level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance) named annual_water_budget_total
+	lookup(self, ?) into
 		  annual_water_budget_total | category
 		-------------------------------------------------
 				< -500				| im:Low			,
 		  -499 to -1				| im:ModeratelyLow  ,
 			 1 to 499				| im:ModeratelyHigh ,
 				> 500				| im:High			;
+
+
+//@intensive(space,time)
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total__global__1981_2010
+//	as im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance in mm/year named annual_water_budget_total_input;
+//	
+//model level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance) named annual_water_budget_total
+//	observing
+//		@intensive(space,time) im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance in mm/year named annual_water_budget_total_input
+//	lookup(annual_water_budget_total_input, ?) into
+//		annual_water_budget_total_input | category
+//		-------------------------------------------------
+//				< -500					| im:Low			,
+//		  -499 to -1					| im:ModeratelyLow  ,
+//			 1 to 499					| im:ModeratelyHigh ,
+//				> 500					| im:High			;
 				
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 9) Winter total water budget. (Note: unit of water budget: 1 mm = 1 L/m^2 = 1 kg/m^2)
  */
+
 @intensive(space,time)
-model local:alessio.bulckaen:im.data.global:ecdc__climate__winter_water_budget_total__global__1980_2010 
-	as hydrology:WaterVolume caused by hydrology:WaterBalance during earth:Winter in mm/year named winter_water_budget_total_input;
-	
-model level of (hydrology:WaterVolume caused by hydrology:WaterBalance during earth:Winter) named winter_water_budget_total
-	observing
-		@intensive(space,time) hydrology:WaterVolume caused by hydrology:WaterBalance during earth:Winter in mm/year named winter_water_budget_total_input
-	lookup(winter_water_budget_total_input, ?) into
-		  winter_water_budget_total | category
-		--------------------------------------------------
-					  < -500		| im:Low			,
-		 		-499 to -1			| im:ModeratelyLow	,
-				   1 to 499			| im:ModeratelyHigh ,
-					  > 500			| im:High			;
+model local:alessio.bulckaen:im.data.global:ecdc__climate__winter_water_budget_total__global__1980_2010
+	as level of (hydrology:WaterVolume caused by hydrology:WaterBalance during earth:Winter) named winter_water_budget_total
+	lookup(self, ?) into
+		winter_water_budget_total| category
+		-----------------------------------------
+		  < -500				 | im:Low			,
+		-499 to -1				 | im:ModeratelyLow	,
+		 1 to 499				 | im:ModeratelyHigh ,
+		  > 500					 | im:High			;
 					   
+//@intensive(space,time)
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__winter_water_budget_total__global__1980_2010 
+//	as hydrology:WaterVolume caused by hydrology:WaterBalance during earth:Winter in mm/year named winter_water_budget_total_input;
+//	
+//model level of (hydrology:WaterVolume caused by hydrology:WaterBalance during earth:Winter) named winter_water_budget_total
+//	observing
+//		@intensive(space,time) hydrology:WaterVolume caused by hydrology:WaterBalance during earth:Winter in mm/year named winter_water_budget_total_input
+//	lookup(winter_water_budget_total_input, ?) into
+//		  winter_water_budget_total | category
+//		--------------------------------------------------
+//					  < -500		| im:Low			,
+//		 		-499 to -1			| im:ModeratelyLow	,
+//				   1 to 499			| im:ModeratelyHigh ,
+//					  > 500			| im:High			;
+//					   
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 10) Thermal belts.
  */
@@ -174,4 +224,5 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belts__global
 		ecology:UpperMontane if 4,
 		ecology:LowerMontane if 5,
 		ecology:Lowland 	 if in (6, 7);
-		
+
+number local:alessio.bulckaen:im.data.global:ecdc__climate__climate_zone__global__2001_2020 as test_climate_zone;		
