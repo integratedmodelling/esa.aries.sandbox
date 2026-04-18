@@ -1,4 +1,4 @@
-private namespace primitive_characteristic.vegetation;
+project private namespace primitive_characteristic.vegetation;
 
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 1) Leaf area index.

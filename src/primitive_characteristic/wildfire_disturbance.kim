@@ -1,4 +1,4 @@
-private namespace primitive_characteristic.wildfire_disturbance;
+project private namespace primitive_characteristic.wildfire_disturbance;
 
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 1) Recurrence. 

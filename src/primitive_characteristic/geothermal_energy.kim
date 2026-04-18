@@ -1,4 +1,4 @@
-private namespace primitive_characteristic.geothermal_energy;
+project private namespace primitive_characteristic.geothermal_energy;
 
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 1) Geothermal.

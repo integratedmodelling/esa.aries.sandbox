@@ -1,4 +1,4 @@
-private namespace primitive_characteristic.anthropogenic;
+project private namespace primitive_characteristic.anthropogenic;
 
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 1) Mining areas.

@@ -1,4 +1,4 @@
-private namespace primitive_characteristic.atmospheric_disturbance;
+project private namespace primitive_characteristic.atmospheric_disturbance;
 
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 1) Tropical storms exposure.
@@ -11,6 +11,7 @@ model local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__tropi
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 2) Coastal storms exposure.
  */
+ 
 model local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__coastal_storms_exposure__global__1979_2014
 	as presence of earth:Coast with im:High earth:WindSpeed of earth:Storm named coastal_storms_exposure
 	set to [self == 1 ? true : false];

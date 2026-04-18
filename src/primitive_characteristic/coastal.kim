@@ -1,4 +1,4 @@
-private namespace primitive_characteristic.coastal;
+project private namespace primitive_characteristic.coastal;
 
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 1) Tidal zone intertidal.

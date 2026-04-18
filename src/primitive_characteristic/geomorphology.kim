@@ -1,4 +1,4 @@
-private namespace primitive_characteristic.geomorphology;
+project private namespace primitive_characteristic.geomorphology;
 
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 1) Flood plain.

@@ -1,4 +1,4 @@
-private namespace primitive_characteristic.climate;
+project private namespace primitive_characteristic.climate;
 
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 1) Summer diurnal mean air temperature.
@@ -70,8 +70,9 @@ model level of im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature
  */
 model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability__global__1981_2010
 	as im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_variability_input
-	set to [self * 0.1 - 273.5];
-	
+//	set to [self * 0.1 - 273.5];
+	set to [self * 0.001];	
+
 model level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability
 	observing
 		im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_variability_input

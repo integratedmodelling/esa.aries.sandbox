@@ -1,4 +1,4 @@
-private namespace primitive_characteristic.soil;
+project private namespace primitive_characteristic.soil;
 
 /*
  * Primitive characteristics of the 'Soil-V2' collection.

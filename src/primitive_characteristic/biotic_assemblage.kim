@@ -1,4 +1,4 @@
-private namespace primitive_characteristic.biotic_assemblage;
+project private namespace primitive_characteristic.biotic_assemblage;
 
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 1) Biotic assemblage pinniped colonies.
