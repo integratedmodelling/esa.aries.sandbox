@@ -373,31 +373,6 @@ lookup (landcover, coastal_storms_exposure, annual_diurnal_air_temperature_mean,
 into BIOME_T3_SHRUBLAND_SHRUBBY_WOODLAND_ECOSYSTEM_TYPES;
 //---Primitive characteristics annotation---
 
-//T3
-model nca.ecosystem.iucn:ShrublandShrubbyWoodland type of nca.ecosystem.iucn:Ecosystem
-observing
-landcover:LandCoverType named landcover,
-presence of earth:Storm with im:High earth:WindSpeed named coastal_storms_exposure,
-level of im:Daily im:Differential im:Yearly earth:AtmosphericTemperature named annual_diurnal_air_temperature_mean,
-level of (im:Mean hydrology:WaterVolume of hydrology:WaterBalance) named annual_water_budget_total,
-level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability,
-level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_air_temperature_mean,
-level of im:Mean earth:AtmosphericTemperature during earth:Winter named winter_diurnal_air_temperature_mean,
-level of (hydrology:WaterVolume of hydrology:WaterBalance during earth:Winter) named winter_water_budget_total,
-level of ecology:NetPrimaryProduction named annual_net_primary_productivity_total,
-level of earth:Crust physical:Thermal im:Energy named geothermal,
-landcover:LandCoverType named tree_density,
-level of (percentage of (chemistry:Basic chemistry:ExchangeCapacity) in (chemistry:ExchangeCapacity of chemistry:Cation)) named chemical_properties_base_saturation,
-level of (proportion of chemistry:Nitrogen in soil:Soil ) named chemical_properties_n,
-proportion of ecology:CanopyDensity named canopy_cover,
-im:Mean im:Height of ecology:Canopy named canopy_height,
-im:Area of biology:Leaf named leaf_size,
-type of ecology:LeafPhenology named phenology,
-ratio of im:Area to im:Mass of biology:Leaf named specific_leaf_area,
-count of im:Yearly im:Occurrence of chemistry:Fire named recurrence
-lookup (landcover, coastal_storms_exposure, annual_diurnal_air_temperature_mean, annual_water_budget_total, seasonal_diurnal_air_temperature_variability, summer_diurnal_air_temperature_mean, winter_diurnal_air_temperature_mean, winter_water_budget_total, annual_net_primary_productivity_total, geothermal, tree_density, chemical_properties_base_saturation, chemical_properties_n, canopy_cover, canopy_height, leaf_size, phenology, specific_leaf_area, recurrence, ?)
-into BIOME_T3_SHRUBLAND_SHRUBBY_WOODLAND_ECOSYSTEM_TYPES;
-
 //T4
 model nca.ecosystem.iucn:SavannaGrassland type of nca.ecosystem.iucn:Ecosystem
 observing
