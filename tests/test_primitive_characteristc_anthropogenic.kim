@@ -1,0 +1,25 @@
+worldview im;
+
+@test(
+    name = "test_primitive_characteristc_anthropogenic",
+    description  = "",
+    // add to the list any concepts to be observed in the context below
+    observations = (
+ //UE   "primitive_characteristic.anthropogenic.mining_areas"
+    "primitive_characteristic.anthropogenic.managed_waters_canal_greece"
+    "primitive_characteristic.anthropogenic.managed_waters_reservoir_greece"
+    "primitive_characteristic.anthropogenic.managed_waters_aquaculture"
+    "primitive_characteristic.anthropogenic.managed_waterbody"
+    "primitive_characteristic.anthropogenic.type-of-herbaceous-vegetation-landuse-resolver"
+    ),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named test_primitive_characteristc_anthropogenic
+    over space(shape='EPSG:4326 POLYGON ((22.357147225076126 38.493707792574895, 22.157272360484562 38.493707792574895, 22.157272360484562 38.56620374670959, 22.357147225076126 38.56620374670959, 22.357147225076126 38.493707792574895))',
+    		grid="100 m",
+    		projection="EPSG:4326"),
+    time(year=2020); 
+
+// add any models here

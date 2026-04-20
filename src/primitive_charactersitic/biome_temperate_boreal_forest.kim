@@ -26,8 +26,8 @@ observing
 landcover:LandCoverType named landcover,
 level of im:Daily im:Mean earth:AtmosphericTemperature during im:Year named annual_diurnal_air_temperature_mean,
 level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance) named annual_water_budget_total,
-level of im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_amplitude,
-level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability,
+//level of im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_amplitude,
+//level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability,
 level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_air_temperature_mean,
 level of im:Mean earth:AtmosphericTemperature during earth:Winter named winter_diurnal_air_temperature_mean,
 level of ecology:NetPrimaryProduction named annual_net_primary_productivity_total,
@@ -44,7 +44,8 @@ type of ecology:LeafPhenology named phenology,
 level of (ratio of im:Area to earth:Dry im:Mass of biology:Leaf) named specific_leaf_area,
 presence of earth:Region with im:High im:Frequency of chemistry:Fire named periodicity,
 level of (count of im:Yearly im:Occurrence of chemistry:Fire) named recurrence
-lookup (landcover, annual_diurnal_air_temperature_mean, annual_water_budget_total, seasonal_diurnal_air_temperature_amplitude, seasonal_diurnal_air_temperature_variability, summer_diurnal_air_temperature_mean, winter_diurnal_air_temperature_mean, annual_net_primary_productivity_total, *, chemical_properties_base_saturation, chemical_properties_n, fertility, peat_thickness, canopy_cover, canopy_height, leaf_area_index, leaf_size, phenology, specific_leaf_area, periodicity, recurrence, ?)
+lookup (landcover, annual_diurnal_air_temperature_mean, annual_water_budget_total, *, *, summer_diurnal_air_temperature_mean, winter_diurnal_air_temperature_mean, annual_net_primary_productivity_total, *, chemical_properties_base_saturation, chemical_properties_n, fertility, peat_thickness, canopy_cover, canopy_height, leaf_area_index, leaf_size, phenology, specific_leaf_area, periodicity, recurrence, ?)
+//lookup (landcover, annual_diurnal_air_temperature_mean, annual_water_budget_total, seasonal_diurnal_air_temperature_amplitude, seasonal_diurnal_air_temperature_variability, summer_diurnal_air_temperature_mean, winter_diurnal_air_temperature_mean, annual_net_primary_productivity_total, *, chemical_properties_base_saturation, chemical_properties_n, fertility, peat_thickness, canopy_cover, canopy_height, leaf_area_index, leaf_size, phenology, specific_leaf_area, periodicity, recurrence, ?)
 into BIOME_T2_TEMPERATE_BOREAL_FOREST_WOODLAND_ECOSYSTEM_TYPES;
 //into BIOME_T2_TEMPERATE_BOREAL_FOREST_WOODLAND_ECOSYSTEM_TYPES_LONG_TABLE
 
