@@ -1,0 +1,48 @@
+private namespace primitive_charactersitic.biome_temperate_boreal_forest
+using primitive_characteristic,
+	  primitive_characteristic.anthropogenic, 
+	  primitive_characteristic.atmospheric_disturbance,
+	  primitive_characteristic.climate,
+	  primitive_characteristic.coastal,
+	  primitive_characteristic.ecosystem_function,
+	  primitive_characteristic.geothermal_energy,
+	  primitive_characteristic.soil,
+	  primitive_characteristic.surface_water,
+	  primitive_characteristic.vegetation,
+	  primitive_characteristic.wildfire_disturbance, 
+	  nca.ecosystem.iucn,
+	 (BIOME_T2_TEMPERATE_BOREAL_FOREST_WOODLAND_ECOSYSTEM_TYPES ) from table.ecosystem.typology.iucn;
+
+observe /* a:urn:to:use#objectid as */ earth:Region named test_t2_standalone_namespace
+    over space(shape='EPSG:4326 POLYGON ((22.357147225076126 38.493707792574895, 22.157272360484562 38.493707792574895, 22.157272360484562 38.56620374670959, 22.357147225076126 38.56620374670959, 22.357147225076126 38.493707792574895))',
+    		grid="100 m",
+    		projection="EPSG:4326"),
+    time(year=2020); 
+
+////--- BIOME T2 - TemperateBorealForestWoodland annotation---
+model nca.ecosystem.iucn:TemperateBorealForestWoodland type of nca.ecosystem.iucn:Ecosystem named biome_t2_temperate_boreal_forest_woodland
+observing
+landcover:LandCoverType named landcover,
+level of im:Daily im:Mean earth:AtmosphericTemperature during im:Year named annual_diurnal_air_temperature_mean,
+level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance) named annual_water_budget_total,
+level of im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_amplitude,
+level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability,
+level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_air_temperature_mean,
+level of im:Mean earth:AtmosphericTemperature during earth:Winter named winter_diurnal_air_temperature_mean,
+level of ecology:NetPrimaryProduction named annual_net_primary_productivity_total,
+//vegetation_type's resource is currently not available named *,
+level of (chemistry:Basic chemistry:ExchangeCapacity of chemistry:Cation) named chemical_properties_base_saturation,
+level of (proportion of chemistry:Nitrogen in soil:Soil) named chemical_properties_n,
+level of soil.incubation:Fertility named fertility,
+level of (im:Depth of landcover:PeatBog earth:Region) named peat_thickness,
+level of ecology:CanopyCover named canopy_cover,
+level of (im:Mean im:Height of ecology:Canopy) named canopy_height,
+level of ecology:LeafAreaIndex named leaf_area_index,
+level of (physical.incubation:Shadow im:Area of biology:Leaf) named leaf_size,
+type of ecology:LeafPhenology named phenology,
+level of (ratio of im:Area to earth:Dry im:Mass of biology:Leaf) named specific_leaf_area,
+presence of earth:Region with im:High im:Frequency of chemistry:Fire named periodicity,
+level of (count of im:Yearly im:Occurrence of chemistry:Fire) named recurrence
+lookup (landcover, annual_diurnal_air_temperature_mean, annual_water_budget_total, seasonal_diurnal_air_temperature_amplitude, seasonal_diurnal_air_temperature_variability, summer_diurnal_air_temperature_mean, winter_diurnal_air_temperature_mean, annual_net_primary_productivity_total, *, chemical_properties_base_saturation, chemical_properties_n, fertility, peat_thickness, canopy_cover, canopy_height, leaf_area_index, leaf_size, phenology, specific_leaf_area, periodicity, recurrence, ?)
+into BIOME_T2_TEMPERATE_BOREAL_FOREST_WOODLAND_ECOSYSTEM_TYPES;
+////into BIOME_T2_TEMPERATE_BOREAL_FOREST_WOODLAND_ECOSYSTEM_TYPES_LONG_TABLE
