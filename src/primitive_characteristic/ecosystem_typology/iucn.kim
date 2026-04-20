@@ -40,23 +40,26 @@ observe /* a:urn:to:use#objectid as */ earth:Region named test_ecdc_greece
     		grid="100 m",
     		projection="EPSG:4326"),
     time(year=2020); 
-
+    
 observe earth:Region named test_stac_resources_greece
 	over space(shape= 'POLYGON ((20.169122821131552 39.24161170769323, 23.24286372429433 39.27340902738112, 23.18986819148118 37.33377252641978, 20.158523714568922 37.35497073954504, 20.169122821131552 39.24161170769323))',
-		grid = "100 m");
+		grid = "100 m"),
+		time(year=2020);
 		
 observe earth:Region named test_stac_resources_colombia
 	over space(shape= 'POLYGON ((-75.48264648752718 12.040510787922665, -71.81321602573321 12.040510787922665, -71.94787402433116 7.697790333138975, -75.48264648752718 7.697790333138975, -75.48264648752718 12.040510787922665))',
-		grid = "100 m");
+		grid = "100 m"),
+		time(year=2020);
 		
 observe earth:Region named test_stac_resources_south_africa
 	over space(shape= 'POLYGON ((17.688973705460135 -32.10396370737062, 19.828324436583937 -32.10396370737062, 19.76146972623632 -34.878434186796795, 17.622118995112515 -34.878434186796795, 17.688973705460135 -32.10396370737062))',
-		grid = "100 m");
+		grid = "100 m"),
+		time(year=2020);
 		
 observe earth:Region named test_stac_resources_viet_nam
 	over space(shape= 'POLYGON ((103.69501108581201 21.633087642219095, 108.17900107738404 21.745187392008397, 108.11174122751046 18.89785374736016, 103.78469088564346 18.785753997570858, 103.69501108581201 21.633087642219095))',
-		grid = "100 m");
-        
+		grid = "100 m"),
+		time(year=2020);
 
 
 //Terrestrial ecosystem models
@@ -85,7 +88,8 @@ type of ecology:LeafPhenology named phenology,
 level of (ratio of im:Area to earth:Dry im:Mass of biology:Leaf) named specific_leaf_area,
 presence of earth:Region with im:High im:Frequency of chemistry:Fire named periodicity,
 level of (count of im:Yearly im:Occurrence of chemistry:Fire) named recurrence
-lookup (landcover, annual_diurnal_air_temperature_mean, annual_water_budget_total, *, *, summer_diurnal_air_temperature_mean, winter_diurnal_air_temperature_mean, annual_net_primary_productivity_total, *, chemical_properties_base_saturation, chemical_properties_n, fertility, peat_thickness, canopy_cover, canopy_height, leaf_area_index, leaf_size, phenology, specific_leaf_area, periodicity, recurrence, ?)
+lookup (landcover, annual_diurnal_air_temperature_mean, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, ?)
+//lookup (landcover, annual_diurnal_air_temperature_mean, annual_water_budget_total, *, *, summer_diurnal_air_temperature_mean, winter_diurnal_air_temperature_mean, annual_net_primary_productivity_total, *, *, chemical_properties_n, fertility, peat_thickness, canopy_cover, canopy_height, leaf_area_index, leaf_size, phenology, specific_leaf_area, periodicity, recurrence, ?)
 into BIOME_T2_TEMPERATE_BOREAL_FOREST_WOODLAND_ECOSYSTEM_TYPES;
 
 
