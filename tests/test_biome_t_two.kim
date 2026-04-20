@@ -5,6 +5,26 @@ worldview im;
     description  = "",
     // add to the list any concepts to be observed in the context below
     observations = (
+    "primitive_characteristic.copernicus_landcover_2020"
+    "primitive_characteristic.climate.annual_diurnal_air_temperature_mean"
+    "primitive_characteristic.climate.annual_water_budget_total"
+    "primitive_characteristic.climate.summer_diurnal_air_temperature_mean"
+    "primitive_characteristic.climate.winter_diurnal_air_temperature_mean"
+    "primitive_characteristic.ecosystem_function.annual_net_primary_productivity_total"
+    "primitive_characteristic.soil.chemical_properties_base_saturation"
+    "primitive_characteristic.soil.chemical_properties_n"
+    "primitive_characteristic.soil.fertility"
+    "primitive_characteristic.soil.peat_thickness"
+    "primitive_characteristic.vegetation.canopy_cover_input_greece"
+    "primitive_characteristic.vegetation.canopy_cover"
+    "primitive_characteristic.vegetation.canopy_height_input_greece"
+    "primitive_characteristic.vegetation.canopy_height"
+    "primitive_characteristic.vegetation.leaf_area_index"
+    "primitive_characteristic.vegetation.leaf_size"
+    "primitive_characteristic.vegetation.phenology"
+    "primitive_characteristic.vegetation.specific_leaf_area"
+    "primitive_characteristic.wildfire_disturbance.recurrence"
+    "primitive_characteristic.wildfire_disturbance.periodicity"
     "primitive_characteristic.ecosystem_typology.iucn.biome_t2_temperateborealforestwoodland"
     ),
     // add assertions to check the observations after execution
