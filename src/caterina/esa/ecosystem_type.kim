@@ -1,8 +1,0 @@
-private namespace caterina.esa.ecosystem_type
-using caterina.esa.lookup_model_inputs; 
-
-observe /* a:urn:to:use#objectid as */ earth:Region named test_ecdc_greece
-    over space(shape='EPSG:4326 POLYGON ((22.357147225076126 38.493707792574895, 22.157272360484562 38.493707792574895, 22.157272360484562 38.56620374670959, 22.357147225076126 38.56620374670959, 22.357147225076126 38.493707792574895))',
-    		grid="100 m",
-    		projection="EPSG:4326"),
-    time(year=2020); 

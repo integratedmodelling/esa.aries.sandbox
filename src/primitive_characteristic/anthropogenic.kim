@@ -3,9 +3,9 @@ project private namespace primitive_characteristic.anthropogenic;
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 1) Mining areas.
  */
-//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__mining_areas__global__2000_2019 
-//	as presence of landcover:MineralExtraction earth:Region named mining_areas
-//	set to [self == 1 ? true : false];
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__mining_areas__global__2000_2019 
+	as presence of landcover:MineralExtraction earth:Region named mining_areas
+	set to [self == 1 ? true : false];
 
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 2) Managed waters canal.
