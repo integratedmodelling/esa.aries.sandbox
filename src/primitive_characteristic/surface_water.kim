@@ -144,9 +144,9 @@ model local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydrof
 		lookup (self, ?) into
 		  watershed_hydroform_density	|	category
 		--------------------------------------------------
-						 < 2.2			|	im:Low		,
-					2.2 to 4			|	im:Moderate	,
-						 > 4			|	im:High							
+						 < 0.1			|	im:Low		,
+					0.1 to 25			|	im:Moderate	,
+						 > 25			|	im:High							
 	over space(shape='POLYGON ((-180 -55.87, -180 84.01, 180 84.01, 180 -55.87, -180 -55.87))');
 
 //model local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__greece__2013_2020
