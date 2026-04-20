@@ -3,6 +3,6 @@ project private namespace primitive_characteristic.coastal;
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 1) Tidal zone intertidal.
  */
-model local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone_intertidal__global__2017_2019 
-	as presence of earth:Littoral earth:Region named tidal_zone_intertidal
-	set to [self == 1 ? true : false];
+//model local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone_intertidal__global__2017_2019 
+//	as presence of earth:Littoral earth:Region named tidal_zone_intertidal
+//	set to [self == 1 ? true : false];
