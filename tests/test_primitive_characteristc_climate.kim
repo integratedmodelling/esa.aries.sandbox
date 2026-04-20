@@ -1,0 +1,53 @@
+worldview im;
+
+@test(
+    name = "test_primitive_characteristc_climate",
+    description  = "",
+    // add to the list any concepts to be observed in the context below
+    observations = (
+    "primitive_characteristic.climate.summer_diurnal_air_temperature_mean"
+    "primitive_characteristic.climate.winter_diurnal_air_temperature_mean"
+    "primitive_characteristic.climate.potential_tree_growth"
+//UE    "primitive_characteristic.climate.seasonal_diurnal_air_temperature_amplitude"
+//UE    "primitive_characteristic.climate.seasonal_diurnal_air_temperature_variability"
+
+    "primitive_characteristic.climate.annual_precipitation_total"
+    "primitive_characteristic.climate.annual_water_budget_total"
+    "primitive_characteristic.climate.test_climate_zone"
+    ),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named test_primitive_characteristc_climate
+    over space(shape='EPSG:4326 POLYGON ((22.357147225076126 38.493707792574895, 22.157272360484562 38.493707792574895, 22.157272360484562 38.56620374670959, 22.357147225076126 38.56620374670959, 22.357147225076126 38.493707792574895))',
+    		grid="100 m",
+    		projection="EPSG:4326"),
+    time(year=2020); 
+
+number local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total__global__1981_2010 as test_annual_water_budget_total;
+
+
+@intensive(space,time)
+model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total__global__1981_2010
+	as im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance in mm/year named annual_water_budget_total_input;
+
+model level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance) named annual_water_budget_total
+	observing
+		@intensive(space,time) im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance in mm/year named annual_water_budget_total_input
+	lookup(annual_water_budget_total_input, ?) into
+		annual_water_budget_total_input | category
+		-------------------------------------------------
+				< -500					| im:Low			,
+		  -499 to -1					| im:ModeratelyLow  ,
+			 1 to 499					| im:ModeratelyHigh ,
+				> 500					| im:High			;
+
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_amplitude__global__1981_2010
+//	as level of im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_amplitude
+//	lookup(self, ?) into
+//		seasonal_diurnal_air_temperature_amplitude  | category
+//	   --------------------------------------------------------------
+//					0  to 10 						| im:Low		,
+//					10 to 21 						| im:Moderate	,
+//					   > 21 						| im:High		;
