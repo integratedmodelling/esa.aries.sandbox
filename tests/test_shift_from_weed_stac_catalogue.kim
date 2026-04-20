@@ -2,15 +2,16 @@ worldview im;
 
 @test(
     name = "test_shift_from_weed_stac_catalogue",
-    description  = "All resources from WEED STAC catalogue seem to be shifted (last observation is landcover from geoserver)",
+    description  = "All resources from WEED STAC catalogue seem to be shifted (last observationa are landcover and phenology from geoserver)",
     // add to the list any concepts to be observed in the context below
     observations = (
-    "primitive_characteristic.threshold.chemical_properties_base_saturation"
-    "primitive_characteristic.threshold.level-of-net-primary-production-resolver"
-    "primitive_characteristic.threshold.annual_water_budget_total"
-    "primitive_characteristic.threshold.level-of-woody-vegetation-canopy-cover-resolver"
-    "primitive_characteristic.threshold.soil_fertility"
-    "data.global.landcover.glc_fcs30"
+    "primitive_characteristic.soil.chemical_properties_base_saturation"
+    "primitive_characteristic.ecosystem_function.annual_net_primary_productivity_total_input"
+    "primitive_characteristic.ecosystem_function.annual_net_primary_productivity_total"
+    "primitive_characteristic.soil.fertility"
+
+    "primitive_characteristic.copernicus_landcover_2020"
+    "primitive_characteristic.vegetation.phenology"
     ),
     // add assertions to check the observations after execution
     assertions = ()
