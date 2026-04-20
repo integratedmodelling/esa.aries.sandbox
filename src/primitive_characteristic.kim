@@ -1,9 +1,7 @@
 project private namespace primitive_characteristic;
 
-number local:alessio.bulckaen:im.data.global:copernicus_global_dynamic_landcover_10m_2020 as lc_test;
-
-model local:alessio.bulckaen:im.data.global:copernicus_global_dynamic_landcover_10m_2020
-	as landcover:LandCoverType named copernicus_gdlc_2020 classified into // according to im:copernicus-gdlc-encoding;// im:copernicus-encoding;
+private model local:rubencc:im.data.global:im-data-global-landcover.copernicus_landcover_10m_2020 
+	as landcover:LandCoverType named copernicus_landcover_2020 classified into // according to im:copernicus-gdlc-encoding;// im:copernicus-encoding;
 	landcover:Forest if 10,
 	landcover:Shrubland if 20,
 	landcover:Grassland if 30,
