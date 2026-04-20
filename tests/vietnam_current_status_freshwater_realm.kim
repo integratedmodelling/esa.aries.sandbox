@@ -1,0 +1,29 @@
+worldview im;
+
+@test(
+    name = "vietnam_current_status_freshwater_realm",
+    description  = "",
+    // add to the list any concepts to be observed in the context below
+    observations = (
+    "primitive_characteristic.copernicus_landcover_2020"
+    "primitive_characteristic.anthropogenic.managed_waters_aquaculture"
+    "primitive_characteristic.anthropogenic.managed_waters_reservoir_viet_nam"
+    "primitive_characteristic.anthropogenic.managed_waters_canal_viet_nam"
+    "primitive_characteristic.anthropogenic.managed_waterbody"
+    "primitive_characteristic.surface_water.waterbody_type"
+    "primitive_characteristic.surface_water.water_permanence_type"
+    "primitive_characteristic.biome_river_streams.biome_f3_artificial_wetland"
+    "primitive_characteristic.biome_river_streams.biome_f2_lake"
+    "primitive_characteristic.biome_river_streams.biome_f1_river_stream"
+    ),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named vietnam_current_status_freshwater_realm
+    // add any space and/or time extents: for example
+     over space(shape="EPSG:4326 POLYGON ((108.19404602050781 16.20972953425283, 107.83630371093749 16.12069737783473, 107.51014709472653 16.123335943719653, 107.3542785644531 16.406775870306603, 107.39479064941405 16.73583836078646, 107.51976013183592 16.735180798687026, 108.19404602050781 16.20972953425283))",
+     	grid="100 m"),
+     time(year=2020);
+
+// add any models here
