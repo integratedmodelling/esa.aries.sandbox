@@ -4,14 +4,15 @@ worldview im;
     name = "czechia_analysis_set_up",
     description  = "",
     // add to the list any concepts to be observed in the context below
-    observations = (""),
+    observations = (
+    "rule_based_modelling.czech_republic.ecosystem_type_iucn_get"),
     // add assertions to check the observations after execution
     assertions = ()
 )
 // change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
 observe earth:Region named czech_republic_krkonossky_30m_cz2_wkt           
      over space (shape="EPSG:4326 POLYGON ((15.895100637423043 50.615879388723215, 15.455647512423042 50.615879388723215, 15.455647512423042 50.743145479474634, 15.895100637423043 50.743145479474634, 15.895100637423043 50.615879388723215))",    
-    			grid="300 m",
+    			grid="100 m",
                 projection= "EPSG:4326"),
 //        time(start=2022, end=2023, step=1.year);   
          time (year = 2024);
