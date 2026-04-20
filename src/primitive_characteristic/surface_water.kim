@@ -72,7 +72,7 @@ number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regi
 	as episodic_water_regime;
 
 //primary_observations of type of hydrology:WaterPermanence
-model type of hydrology:WaterPermanence named water_performance_type
+model type of hydrology:WaterPermanence named water_permanence_type
 	observing
 		seasonal_water_regime,
 		ephemeral_water_regime,
