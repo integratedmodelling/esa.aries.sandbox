@@ -5,15 +5,16 @@ worldview im;
     description  = "",
     // add to the list any concepts to be observed in the context below
     observations = (
+
     "primitive_characteristic.copernicus_landcover_2020"
+    "primitive_characteristic.biome_river_streams.biome_f2_lake"
+    "primitive_characteristic.biome_river_streams.biome_f1_river_stream"
     "primitive_characteristic.anthropogenic.managed_waters_aquaculture"
     "primitive_characteristic.anthropogenic.managed_waters_reservoir_viet_nam"
     "primitive_characteristic.anthropogenic.managed_waters_canal_viet_nam"
     "primitive_characteristic.anthropogenic.managed_waterbody"
     "primitive_characteristic.surface_water.waterbody_type"
     "primitive_characteristic.surface_water.water_permanence_type"
-    "primitive_characteristic.biome_river_streams.biome_f2_lake"
-    "primitive_characteristic.biome_river_streams.biome_f1_river_stream"
     "primitive_characteristic.biome_river_streams.biome_f3_artificial_wetland"
     ),
     // add assertions to check the observations after execution
