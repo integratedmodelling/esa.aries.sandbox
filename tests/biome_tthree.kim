@@ -1,0 +1,25 @@
+worldview im;
+
+@test(
+    name = "test_biome_t3",
+    description  = "",
+    // add to the list any concepts to be observed in the context below
+    observations = (
+    "primitive_characteristic.climate.annual_water_budget_total"
+    "primitive_characteristic.climate.winter_water_budget_total"
+    "primitive_characteristic.vegetation.tree_density"
+    "primitive_characteristic.ecosystem_function.annual_net_primary_productivity_total"
+    "primitive_characteristic.vegetation.phenology"
+    "primitive_characteristic.vegetation.canopy_height_input_greece"
+    "primitive_characteristic.vegetation.canopy_height"   
+
+    "primitive_characteristic.ecosystem_typology.iucn.biome_t3_shrubland_shrubby_woodland"),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named biome_t3
+    over space(shape='EPSG:4326 POLYGON ((22.357147225076126 38.493707792574895, 22.157272360484562 38.493707792574895, 22.157272360484562 38.56620374670959, 22.357147225076126 38.56620374670959, 22.357147225076126 38.493707792574895))',
+    		grid="100 m",
+    		projection="EPSG:4326"),
+    time(year=2020); 
