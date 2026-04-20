@@ -82,3 +82,11 @@ model type of hydrology.incubation:ManagedWaterBody named managed_waterbody
 				true  		|			#			|			#				|	hydrology.incubation:Canal			,
 				 #  		|		   true			|			#				|	hydrology.incubation:Reservoir		,
 				 #  		|			#			|		   true				|	hydrology.incubation:Aquaculture	;
+				 
+model 'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__land_use_meadows_and_pastures__global__2018'
+	as type of ecology:HerbaceousVegetationLanduse classified into
+	//as type of Grassland named grassland_type classified into
+	ecology:CultivatedGrassland if 1,
+	ecology:NaturalSeminaturalGrassland if 2,
+	ecology:OpenShrubland if 3;
+	 
