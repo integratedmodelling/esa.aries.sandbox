@@ -1,7 +1,7 @@
 private namespace table.ecosystem.typology.iucn
 using nca.ecosystem.iucn;
 
-define BIOME_F1_RIVER_STREAM_ECOSYSTEM_TYPES as {{
+define BIOME_F1_RIVER_STREAM_ECOSYSTEM_TYPES_SHORT_TABLE as {{
   hydroform           | hydroperiod       	| watershed_hierarchy | ecosystem_type                           
   ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
    hydrology:WaterBody| hydrology:Permanent  | im:Low              | nca.ecosystem.iucn:PermanentUplandStream  ,
@@ -11,6 +11,20 @@ define BIOME_F1_RIVER_STREAM_ECOSYSTEM_TYPES as {{
    hydrology:WaterBody| hydrology:Seasonal   | im:Moderate         | nca.ecosystem.iucn:SeasonalLowlandRiver   ,
    hydrology:WaterBody| hydrology:Episodic   | #                   | nca.ecosystem.iucn:EpisodicAridRiver      ,
    hydrology:Meander  | hydrology:Permanent  | im:High             | nca.ecosystem.iucn:LargeLowlandRiver     
+}};
+
+define BIOME_F1_RIVER_STREAM_ECOSYSTEM_TYPES as {{
+  waterbody_type        | water_permanence    | watershed_hierarchy | ecosystem_type                           
+  -------------------------------------------------------------------------------------------------------------
+  hydrology:Watercourse | hydrology:Permanent | im:Low              | nca.ecosystem.iucn:PermanentUplandStream  ,
+  hydrology:Watercourse | hydrology:Permanent | im:Moderate         | nca.ecosystem.iucn:PermanentLowlandStream ,
+  hydrology:Meander     | hydrology:Permanent | im:Moderate         | nca.ecosystem.iucn:PermanentLowlandStream ,
+  hydrology:Watercourse | #                   | #                   | nca.ecosystem.iucn:FreezethawRiverStream  ,
+  hydrology:Watercourse | hydrology:Seasonal  | im:Low              | nca.ecosystem.iucn:SeasonalUplandStream   ,
+  hydrology:Watercourse | hydrology:Seasonal  | im:Moderate         | nca.ecosystem.iucn:SeasonalLowlandRiver   ,
+  hydrology:Watercourse | hydrology:Episodic  | #                   | nca.ecosystem.iucn:EpisodicAridRiver      ,
+  hydrology:Watercourse | hydrology:Permanent | im:High             | nca.ecosystem.iucn:LargeLowlandRiver      ,
+  hydrology:Meander     | hydrology:Permanent | im:High             | nca.ecosystem.iucn:LargeLowlandRiver     
 }};
 
 define BIOME_F2_LAKE_ECOSYSTEM_TYPES as {{
@@ -26,6 +40,25 @@ define BIOME_F2_LAKE_ECOSYSTEM_TYPES as {{
   #                                          | #          | #                                   | hydrology:InlandWaterBody | #                         | hydrology:Ephemeral | nca.ecosystem.iucn:EphemeralSaltLake            ,
   in (landcover:WaterBody landcover:Wetland) | #          | in (im:Moderate im:High)            | hydrology:InlandWaterBody | #                         | hydrology:Permanent | nca.ecosystem.iucn:ArtesianSpringOase           ,
   in (landcover:WaterBody landcover:Wetland) | true       | #                                   | hydrology:InlandWaterBody | #                         | hydrology:Permanent | nca.ecosystem.iucn:GeothermalPoolWetland       
+}};
+
+
+define BIOME_F3_ARTIFICIAL_WETLAND_ECOSYSTEM_TYPES as {{
+  landcover                   | managed_waterbody_type           | waterbody_type            | water_permanence    | ecosystem_type                                 
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  landcover:Wetland           | hydrology.incubation:Reservoir   | hydrology:Watercourse     | #                   | nca.ecosystem.iucn:LargeReservoir               ,
+  landcover:BareArea          | hydrology.incubation:Reservoir   | hydrology:InlandWaterBody | #                   | nca.ecosystem.iucn:ConstructedLacustrineWetland ,
+  landcover:Wetland           | hydrology.incubation:Reservoir   | hydrology:InlandWaterBody | #                   | nca.ecosystem.iucn:ConstructedLacustrineWetland ,
+  landcover:Wetland           | hydrology.incubation:Reservoir   | hydrology:InlandWaterBody | #                   | nca.ecosystem.iucn:ConstructedLacustrineWetland ,
+  landcover:WaterBody         | #                                | #                         | hydrology:Seasonal  | nca.ecosystem.iucn:RicePaddy                    ,
+  landcover:WaterBody         | #                                | #                         | hydrology:Permanent | nca.ecosystem.iucn:RicePaddy                    ,
+  landcover:Wetland           | #                                | #                         | hydrology:Seasonal  | nca.ecosystem.iucn:RicePaddy                    ,
+  landcover:Wetland           | #                                | #                         | hydrology:Permanent | nca.ecosystem.iucn:RicePaddy                    ,
+  landcover:WaterBody         | hydrology.incubation:Aquaculture | hydrology:InlandWaterBody | hydrology:Permanent | nca.ecosystem.iucn:FreshwaterAquafarm           ,
+  landcover:Wetland           | hydrology.incubation:Aquaculture | hydrology:InlandWaterBody | hydrology:Permanent | nca.ecosystem.iucn:FreshwaterAquafarm           ,
+  landcover:ArtificialSurface | hydrology.incubation:Aquaculture | hydrology:InlandWaterBody | hydrology:Permanent | nca.ecosystem.iucn:FreshwaterAquafarm           ,
+  landcover:WaterBody         | hydrology.incubation:Canal       | hydrology:Watercourse     | #                   | nca.ecosystem.iucn:CanalDitchDrain              ,
+  landcover:ArtificialSurface | hydrology.incubation:Canal       | hydrology:Watercourse     | #                   | nca.ecosystem.iucn:CanalDitchDrain             
 }};
 
 
