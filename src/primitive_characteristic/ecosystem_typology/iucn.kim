@@ -1,19 +1,22 @@
 private namespace primitive_characteristic.ecosystem_typology.iucn
 using primitive_characteristic,
-	  primitive_characteristic.threshold,
-	   
-	  primitive_characteristic.anthropogenic, primitive_characteristic.atmospheric_disturbance,
-	  primitive_characteristic.climate, primitive_characteristic.coastal,
+//	  primitive_characteristic.threshold,
+	  primitive_characteristic.anthropogenic, 
+	  primitive_characteristic.atmospheric_disturbance,
+	  primitive_characteristic.climate,
+	  primitive_characteristic.coastal,
 	  primitive_characteristic.ecosystem_function,
 	  primitive_characteristic.geothermal_energy,
-	  primitive_characteristic.soil,primitive_characteristic.surface_water,
+	  primitive_characteristic.soil,
+	  primitive_characteristic.surface_water,
 	  primitive_characteristic.vegetation,
 	  primitive_characteristic.wildfire_disturbance, 
 	  nca.ecosystem.iucn,
 	(BIOME_F1_RIVER_STREAM_ECOSYSTEM_TYPES,
 	 BIOME_F2_LAKE_ECOSYSTEM_TYPES,	
 	 BIOME_T1_TROPICAL_SUBTROPICAL_FOREST_ECOSYSTEM_TYPES,
-	 BIOME_T2_TEMPERATEBOREALFORESTWOODLAND_ECOSYSTEM_TYPES,
+	 BIOME_T2_TEMPERATE_BOREAL_FOREST_WOODLAND_ECOSYSTEM_TYPES,
+	 BIOME_T2_TEMPERATE_BOREAL_FOREST_WOODLAND_ECOSYSTEM_TYPES_LONG_TABLE,
 	 BIOME_T3_SHRUBLAND_SHRUBBY_WOODLAND_ECOSYSTEM_TYPES
 	 BIOME_T4_SAVANNA_GRASSLAND_ECOSYSTEM_TYPES,
 	 BIOME_T5_DESERT_SEMIDESERT_ECOSYSTEM_TYPES,
@@ -343,6 +346,7 @@ presence of earth:Region with im:High im:Frequency of chemistry:Fire named perio
 level of (count of im:Yearly im:Occurrence of chemistry:Fire) named recurrence
 lookup (landcover, annual_diurnal_air_temperature_mean, annual_water_budget_total, seasonal_diurnal_air_temperature_amplitude, seasonal_diurnal_air_temperature_variability, summer_diurnal_air_temperature_mean, winter_diurnal_air_temperature_mean, annual_net_primary_productivity_total, *, chemical_properties_base_saturation, chemical_properties_n, fertility, peat_thickness, canopy_cover, canopy_height, leaf_area_index, leaf_size, phenology, specific_leaf_area, periodicity, recurrence, ?)
 into BIOME_T2_TEMPERATE_BOREAL_FOREST_WOODLAND_ECOSYSTEM_TYPES;
+//into BIOME_T2_TEMPERATE_BOREAL_FOREST_WOODLAND_ECOSYSTEM_TYPES_LONG_TABLE
 
 
 //BIOME_T3_SHRUBLAND_SHRUBBY_WOODLAND_ECOSYSTEM_TYPES,
@@ -373,29 +377,33 @@ lookup (landcover, coastal_storms_exposure, annual_diurnal_air_temperature_mean,
 into BIOME_T3_SHRUBLAND_SHRUBBY_WOODLAND_ECOSYSTEM_TYPES;
 //---Primitive characteristics annotation---
 
-//T4
-model nca.ecosystem.iucn:SavannaGrassland type of nca.ecosystem.iucn:Ecosystem
+//BIOME_T4_SAVANNA_GRASSLAND_ECOSYSTEM_TYPES,
+//--- BIOME T4 - SavannaGrassland annotation---
+model nca.ecosystem.iucn:SavannaGrassland type of nca.ecosystem.iucn:Ecosystem named biome_t4_savanna_grassland
 observing
 landcover:LandCoverType named landcover,
-level of im:Daily im:Differential im:Yearly earth:AtmosphericTemperature named annual_diurnal_air_temperature_mean,
-level of im:Mean earth:PrecipitationVolume named annual_precipitation_total,
-level of (im:Mean hydrology:WaterVolume of hydrology:WaterBalance) named annual_water_budget_total,
+level of im:Daily im:Mean earth:AtmosphericTemperature during im:Year named annual_diurnal_air_temperature_mean,
+level of im:Yearly earth:PrecipitationVolume named annual_precipitation_total,
+level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance) named annual_water_budget_total,
 level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability,
 level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_air_temperature_mean,
 level of im:Mean earth:AtmosphericTemperature during earth:Winter named winter_diurnal_air_temperature_mean,
-level of (hydrology:WaterVolume of hydrology:WaterBalance during earth:Winter) named winter_water_budget_total,
+level of (hydrology:WaterVolume caused by hydrology:WaterBalance during earth:Winter) named winter_water_budget_total,
 level of ecology:NetPrimaryProduction named annual_net_primary_productivity_total,
-//vegetation_type is not available named vegetation_type,
-landcover:LandCoverType named tree_density,
+//vegetation_type, //is not available named vegetation_type,
+level of ecology:WoodyVegetation ecology:CanopyCover named tree_density,
 level of soil.incubation:Fertility named fertility,
-proportion of (hydrology:Water im:Density of earth:WaterBody) named watershed_hydroform_density,
-proportion of ecology:CanopyDensity named canopy_cover,
-im:Area of biology:Leaf named leaf_size,
+level of (im:Density of earth:WaterBody) named watershed_hydroform_density,
+level of ecology:CanopyCover named canopy_cover,
+level of (physical.incubation:Shadow im:Area of biology:Leaf) named leaf_size,
 type of ecology:LeafPhenology named phenology,
-ratio of im:Area to im:Mass of biology:Leaf named specific_leaf_area,
-count of im:Yearly im:Occurrence of chemistry:Fire named recurrence
-lookup (landcover, annual_diurnal_air_temperature_mean, annual_precipitation_total, annual_water_budget_total, seasonal_diurnal_air_temperature_variability, summer_diurnal_air_temperature_mean, winter_diurnal_air_temperature_mean, winter_water_budget_total, annual_net_primary_productivity_total, vegetation_type, tree_density, fertility, watershed_hydroform_density, canopy_cover, leaf_size, phenology, specific_leaf_area, recurrence, ?)
+level of (ratio of im:Area to earth:Dry im:Mass of biology:Leaf) named specific_leaf_area,
+level of (count of im:Yearly im:Occurrence of chemistry:Fire) named recurrence
+lookup (landcover, annual_diurnal_air_temperature_mean, annual_precipitation_total, annual_water_budget_total, seasonal_diurnal_air_temperature_variability, summer_diurnal_air_temperature_mean, winter_diurnal_air_temperature_mean, winter_water_budget_total, annual_net_primary_productivity_total, *, tree_density, fertility, watershed_hydroform_density, canopy_cover, leaf_size, phenology, specific_leaf_area, recurrence, ?)
+//lookup (landcover, annual_diurnal_air_temperature_mean, annual_precipitation_total, *, *, summer_diurnal_air_temperature_mean, winter_diurnal_air_temperature_mean, winter_water_budget_total, annual_net_primary_productivity_total, *, tree_density, fertility, *, canopy_cover, leaf_size, phenology, specific_leaf_area, recurrence, ?)
+
 into BIOME_T4_SAVANNA_GRASSLAND_ECOSYSTEM_TYPES;
+
 
 //T5
 model nca.ecosystem.iucn:DesertSemidesert type of nca.ecosystem.iucn:Ecosystem
