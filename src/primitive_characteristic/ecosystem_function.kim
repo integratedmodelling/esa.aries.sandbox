@@ -5,8 +5,9 @@ project private namespace primitive_characteristic.ecosystem_function;
  */
 @intensive(space)
 @extensive(time)   
-model local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2018
-//	  local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2021,
+model 
+//    local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2018
+	  local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2021
 //	  local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2024
 	as ecology:NetPrimaryProduction in g/m^2 named annual_net_primary_productivity_total_input;      
 //	over space(shape='POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))');
