@@ -1,5 +1,10 @@
 project private namespace primitive_characteristic.climate;
 
+
+attribute SeasonalAmplitude;
+attribute SeasonaVariability;
+
+
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 1) Summer diurnal mean air temperature.
  */
@@ -55,15 +60,17 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__potential_tree_growth
 
 //TODO: Commented out because is an unresolvable entity
 
-//model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_amplitude__global__1981_2010
-//	as level of im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_amplitude
-//	lookup(self, ?) into
-//		seasonal_diurnal_air_temperature_amplitude  | category
-//	   --------------------------------------------------------------
-//					0  to 10 						| im:Low		,
-//					10 to 21 						| im:Moderate	,
-//					   > 21 						| im:High		;
-	 
+model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_amplitude__global__1981_2010
+//	as im:Mean im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_amplitude;
+	as level of im:Mean primitive_characteristic.climate:SeasonalAmplitude earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_amplitude
+//	as level of im:Mean im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_amplitude
+	lookup(self, ?) into
+		seasonal_diurnal_air_temperature_amplitude  | category
+	   --------------------------------------------------------------
+					0  to 10 						| im:Low		,
+					10 to 21 						| im:Moderate	,
+					   > 21 						| im:High		;
+
 //model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_amplitude__global__1981_2010
 //	as im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_amplitude_input;
 //	 
@@ -83,16 +90,17 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__potential_tree_growth
 
 //TODO: Commented out because is an unresolvable entity
 
-//model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability__global__1981_2010
+model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability__global__1981_2010
+	as level of im:Mean im:Changed primitive_characteristic.climate:SeasonalAmplitude earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability
 //	as level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability
-//	lookup(self, ?) into
-//		   seasonal_diurnal_air_temperature_variability | category
-//		----------------------------------------------------------------------
-//						  0								| im:VeryLow		,
-//					 0 to 1								| im:ModeratelyLow	,						  
-//					 1 to 25							| im:Low			,
-//					25 to 75							| im:Moderate		,
-//						> 75							| im:High			;						
+	lookup(self, ?) into
+		   seasonal_diurnal_air_temperature_variability | category
+		----------------------------------------------------------------------
+						  0								| im:VeryLow		,
+					 0 to 1								| im:ModeratelyLow	,						  
+					 1 to 25							| im:Low			,
+					25 to 75							| im:Moderate		,
+						> 75							| im:High			;						
 //						
 //model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability__global__1981_2010
 //	as im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_variability_input
