@@ -14,6 +14,42 @@ action main:
 //		{landcover:LandCoverType} //generic semantic concept goes with their URN into {} 
 		rule_based_modelling.czech_republic.ecosystem_type_iucn_get
 		primitive_characteristic.copernicus_landcover_2020
+		primitive_characteristic.climate.summer_diurnal_air_temperature_mean_input
+		primitive_characteristic.climate.summer_diurnal_air_temperature_mean
+		primitive_characteristic.climate.winter_diurnal_air_temperature_mean_input
+		primitive_characteristic.climate.winter_diurnal_air_temperature_mean
+		primitive_characteristic.climate.potential_tree_growth
+		primitive_characteristic.climate.seasonal_diurnal_air_temperature_amplitude
+		primitive_characteristic.climate.seasonal_diurnal_air_temperature_variability
+		primitive_characteristic.climate.annual_precipitation_total_input
+		primitive_characteristic.climate.annual_precipitation_total
+		primitive_characteristic.climate.annual_diurnal_air_temperature_mean_input
+		primitive_characteristic.climate.annual_diurnal_air_temperature_mean
+		primitive_characteristic.climate.annual_water_budget_total_input
+		primitive_characteristic.climate.annual_water_budget_total
+		primitive_characteristic.climate.winter_water_budget_total
+		primitive_characteristic.climate.thermal_belts
+		
+		primitive_characteristic.ecosystem_function.annual_net_primary_productivity_total_input
+		primitive_characteristic.ecosystem_function.annual_net_primary_productivity_total
+		
+		primitive_characteristic.geomorphology.floodplain
+		
+		primitive_characteristic.geothermal_energy.geothermal
+		
+		primitive_characteristic.soil.peat_thickness_input
+		primitive_characteristic.soil.peat_thickness
+		primitive_characteristic.soil.fertility
+		primitive_characteristic.soil.chemical_properties_n_input
+		primitive_characteristic.soil.chemical_properties_n
+		primitive_characteristic.soil.chemical_properties_base_saturation_input
+		primitive_characteristic.soil.chemical_properties_base_saturation
+		primitive_characteristic.soil.physical_properties_bulk_density_input
+		primitive_characteristic.soil.physical_properties_bulk_density
+		
+		primitive_characteristic.vegetation.leaf_area_index_input
+		primitive_characteristic.vegetation.leaf_area_index
+		
 	)
 /*
  * Set the tables to summarise statistics or generate indicator for an observation (as .xls files) 
