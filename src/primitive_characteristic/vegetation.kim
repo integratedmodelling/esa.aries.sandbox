@@ -74,6 +74,10 @@ model level of (physical.incubation:Shadow im:Area of biology:Leaf) named leaf_s
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 5) Canopy height.
  */
+model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__czechia__2020
+	as im:Mean im:Height of ecology:Canopy in m named canopy_height_input_czechia
+	over space(shape="POLYGON ((21 48, 21 54, 12 54, 12 48, 21 48))");
+
 model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__greece__2020
 	as im:Mean im:Height of ecology:Canopy in m named canopy_height_input_greece
 	over space(shape="POLYGON ((29.63220162 34.9966406, 29.63220162 41.79065352, 19.35250178 41.79065352, 19.35250178 34.9966406, 29.63220162 34.9966406))");
@@ -102,6 +106,10 @@ model level of (im:Mean im:Height of ecology:Canopy) named canopy_height
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 6) Canopy cover.
  */
+model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__czechia__2015
+	as ecology:CanopyCover named canopy_cover_input_czech_republic
+	over space(shape="POLYGON ((18.85950056939047 48.551605486921424, 18.85950056939047 51.055749172933005, 12.090335577436228 51.055749172933005, 12.090335577436228 48.551605486921424, 18.85950056939047 48.551605486921424))");
+
 model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__greece__2015
 	as ecology:CanopyCover named canopy_cover_input_greece
 	over space(shape="POLYGON ((29.63220162 34.9966406, 29.63220162 41.79065352, 19.35250178 41.79065352, 19.35250178 34.9966406, 29.63220162 34.9966406))");

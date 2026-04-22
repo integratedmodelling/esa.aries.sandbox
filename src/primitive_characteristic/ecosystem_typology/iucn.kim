@@ -146,7 +146,6 @@ lookup (landcover, coastal_storms_exposure, annual_diurnal_air_temperature_mean,
 into BIOME_T3_SHRUBLAND_SHRUBBY_WOODLAND_ECOSYSTEM_TYPES;
 //---Primitive characteristics annotation---
 
-//BIOME_T4_SAVANNA_GRASSLAND_ECOSYSTEM_TYPES,
 //--- BIOME T4 - SavannaGrassland annotation---
 model nca.ecosystem.iucn:SavannaGrassland type of nca.ecosystem.iucn:Ecosystem named biome_t4_savanna_grassland
 observing
@@ -154,12 +153,12 @@ landcover:LandCoverType named landcover,
 level of im:Daily im:Mean earth:AtmosphericTemperature during im:Year named annual_diurnal_air_temperature_mean,
 level of im:Yearly earth:PrecipitationVolume named annual_precipitation_total,
 level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance) named annual_water_budget_total,
-level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability,
+level of im:Mean im:Changed primitive_characteristic.climate:SeasonalAmplitude earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability,
 level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_air_temperature_mean,
 level of im:Mean earth:AtmosphericTemperature during earth:Winter named winter_diurnal_air_temperature_mean,
 level of (hydrology:WaterVolume caused by hydrology:WaterBalance during earth:Winter) named winter_water_budget_total,
 level of ecology:NetPrimaryProduction named annual_net_primary_productivity_total,
-//vegetation_type, //is not available named vegetation_type,
+//vegetation_type is not available named *vegetation_type*,
 level of ecology:WoodyVegetation ecology:CanopyCover named tree_density,
 level of soil.incubation:Fertility named fertility,
 level of (im:Density of earth:WaterBody) named watershed_hydroform_density,
@@ -169,8 +168,7 @@ type of ecology:LeafPhenology named phenology,
 level of (ratio of im:Area to earth:Dry im:Mass of biology:Leaf) named specific_leaf_area,
 level of (count of im:Yearly im:Occurrence of chemistry:Fire) named recurrence
 lookup (landcover, annual_diurnal_air_temperature_mean, annual_precipitation_total, annual_water_budget_total, seasonal_diurnal_air_temperature_variability, summer_diurnal_air_temperature_mean, winter_diurnal_air_temperature_mean, winter_water_budget_total, annual_net_primary_productivity_total, *, tree_density, fertility, watershed_hydroform_density, canopy_cover, leaf_size, phenology, specific_leaf_area, recurrence, ?)
-//lookup (landcover, annual_diurnal_air_temperature_mean, annual_precipitation_total, *, *, summer_diurnal_air_temperature_mean, winter_diurnal_air_temperature_mean, winter_water_budget_total, annual_net_primary_productivity_total, *, tree_density, fertility, *, canopy_cover, leaf_size, phenology, specific_leaf_area, recurrence, ?)
-
+//lookup (landcover, annual_diurnal_air_temperature_mean, annual_precipitation_total, annual_water_budget_total, seasonal_diurnal_air_temperature_variability, summer_diurnal_air_temperature_mean, winter_diurnal_air_temperature_mean, winter_water_budget_total, annual_net_primary_productivity_total, *vegetation_type*, tree_density, fertility, watershed_hydroform_density, canopy_cover, leaf_size, phenology, specific_leaf_area, recurrence, ?)
 into BIOME_T4_SAVANNA_GRASSLAND_ECOSYSTEM_TYPES;
 
 
