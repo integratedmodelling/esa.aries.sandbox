@@ -121,29 +121,29 @@ into BIOME_T2_TEMPERATE_BOREAL_FOREST_WOODLAND_ECOSYSTEM_TYPES;
 //BIOME_T3_SHRUBLAND_SHRUBBY_WOODLAND_ECOSYSTEM_TYPES,
 //--- BIOME T3 - ShrublandShrubbyWoodland annotation---
 model nca.ecosystem.iucn:ShrublandShrubbyWoodland type of nca.ecosystem.iucn:Ecosystem named biome_t3_shrubland_shrubby_woodland
-observing
-landcover:LandCoverType named landcover,
-presence of earth:Coast with im:High earth:WindSpeed of earth:Storm named coastal_storms_exposure,
-level of im:Daily im:Mean earth:AtmosphericTemperature during im:Year named annual_diurnal_air_temperature_mean,
-level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance) named annual_water_budget_total,
+	observing
+		landcover:LandCoverType named landcover,
+		presence of earth:Coast with im:High earth:WindSpeed of earth:Storm named coastal_storms_exposure,
+		level of im:Daily im:Mean earth:AtmosphericTemperature during im:Year named annual_diurnal_air_temperature_mean,
+		level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance) named annual_water_budget_total,
 //level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability,
-level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_air_temperature_mean,
-level of im:Mean earth:AtmosphericTemperature during earth:Winter named winter_diurnal_air_temperature_mean,
-level of (hydrology:WaterVolume caused by hydrology:WaterBalance during earth:Winter) named winter_water_budget_total,
-level of ecology:NetPrimaryProduction named annual_net_primary_productivity_total,
-presence of earth:Crust physical:Thermal earth:Region with im:High im:Energy named geothermal,
-level of ecology:WoodyVegetation ecology:CanopyCover named tree_density,
-level of (chemistry:Basic chemistry:ExchangeCapacity of chemistry:Cation) named chemical_properties_base_saturation,
-level of (proportion of chemistry:Nitrogen in soil:Soil) named chemical_properties_n,
-level of ecology:CanopyCover named canopy_cover,
-level of (im:Mean im:Height of ecology:Canopy) named canopy_height,
-level of (physical.incubation:Shadow im:Area of biology:Leaf) named leaf_size,
-type of ecology:LeafPhenology named phenology,
-level of (ratio of im:Area to earth:Dry im:Mass of biology:Leaf) named specific_leaf_area,
-level of (count of im:Yearly im:Occurrence of chemistry:Fire) named recurrence
+		level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_air_temperature_mean,
+		level of im:Mean earth:AtmosphericTemperature during earth:Winter named winter_diurnal_air_temperature_mean,
+		level of (hydrology:WaterVolume caused by hydrology:WaterBalance during earth:Winter) named winter_water_budget_total,
+		level of ecology:NetPrimaryProduction named annual_net_primary_productivity_total,
+		presence of earth:Crust physical:Thermal earth:Region with im:High im:Energy named geothermal,
+		level of ecology:WoodyVegetation ecology:CanopyCover named tree_density,
+		level of (chemistry:Basic chemistry:ExchangeCapacity of chemistry:Cation) named chemical_properties_base_saturation,
+		level of (proportion of chemistry:Nitrogen in soil:Soil) named chemical_properties_n,
+		level of ecology:CanopyCover named canopy_cover,
+		level of (im:Mean im:Height of ecology:Canopy) named canopy_height,
+		level of (physical.incubation:Shadow im:Area of biology:Leaf) named leaf_size,
+		type of ecology:LeafPhenology named phenology,
+		level of (ratio of im:Area to earth:Dry im:Mass of biology:Leaf) named specific_leaf_area,
+		level of (count of im:Yearly im:Occurrence of chemistry:Fire) named recurrence
 //lookup (landcover, coastal_storms_exposure, annual_diurnal_air_temperature_mean, annual_water_budget_total, seasonal_diurnal_air_temperature_variability, summer_diurnal_air_temperature_mean, winter_diurnal_air_temperature_mean, winter_water_budget_total, annual_net_primary_productivity_total, geothermal, tree_density, chemical_properties_base_saturation, chemical_properties_n, canopy_cover, canopy_height, leaf_size, phenology, specific_leaf_area, recurrence, ?)
-lookup (landcover, coastal_storms_exposure, annual_diurnal_air_temperature_mean, annual_water_budget_total, *, summer_diurnal_air_temperature_mean, winter_diurnal_air_temperature_mean, winter_water_budget_total, annual_net_primary_productivity_total, geothermal, tree_density, chemical_properties_base_saturation, chemical_properties_n, canopy_cover, canopy_height, leaf_size, phenology, specific_leaf_area, recurrence, ?)
-into BIOME_T3_SHRUBLAND_SHRUBBY_WOODLAND_ECOSYSTEM_TYPES;
+	lookup (landcover, coastal_storms_exposure, annual_diurnal_air_temperature_mean, annual_water_budget_total, *, summer_diurnal_air_temperature_mean, winter_diurnal_air_temperature_mean, winter_water_budget_total, annual_net_primary_productivity_total, geothermal, tree_density, chemical_properties_base_saturation, chemical_properties_n, canopy_cover, canopy_height, leaf_size, phenology, specific_leaf_area, recurrence, ?)
+	into BIOME_T3_SHRUBLAND_SHRUBBY_WOODLAND_ECOSYSTEM_TYPES;
 //---Primitive characteristics annotation---
 
 //--- BIOME T4 - SavannaGrassland annotation---
