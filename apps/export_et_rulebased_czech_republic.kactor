@@ -1,4 +1,4 @@
-app export_et_rulebased_czech_republic
+script export_et_rulebased_czech_republic
 
 action main:
 
