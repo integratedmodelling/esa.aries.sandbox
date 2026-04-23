@@ -12,7 +12,14 @@ action main:
  */
 	set observables_urns (
 //		{landcover:LandCoverType} //generic semantic concept goes with their URN into {} 
-		rule_based_modelling.czech_republic.ecosystem_type_iucn_get
+
+//Local dataset:
+		rule_based_modelling.czech_republic.crosswalked_national_map_to_ecosystem_type_iucn_get
+		primitive_characteristic.vegetation.canopy_height_input_czechia
+		primitive_characteristic.vegetation.canopy_cover_input_czech_republic
+		
+		
+		
 		primitive_characteristic.copernicus_landcover_2020
 		primitive_characteristic.climate.summer_diurnal_air_temperature_mean_input
 		primitive_characteristic.climate.summer_diurnal_air_temperature_mean

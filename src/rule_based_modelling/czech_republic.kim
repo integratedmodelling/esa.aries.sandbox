@@ -360,7 +360,7 @@ model im:Reference geography:CzechRepublic nca.ecosystem.eunis:EcosystemType nam
 	over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2#weed_site=CZ2');
 
 
-model nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get 
+model nca.ecosystem.iucn:EcosystemType named crosswalked_national_map_to_ecosystem_type_iucn_get 
 	observing
 		   type of nca.ecosystemtype.classification.czech_republic:CzechEcosystem named czech_national_ecosystem_type_classification 
 //		   type of hydrology:WaterRegime  named wetness_regime ,
