@@ -371,9 +371,7 @@ model nca.ecosystem.iucn:EcosystemType named crosswalked_national_map_to_ecosyst
 //		   type of dane.colombia.ecology:Transformation named transformed,		   
 //		   type of dane.colombia.hydrology:AquaticEnvironment named transitional,		   		   
 //		   non_continental
-	lookup(czech_national_ecosystem_type_classification, ? ,*, *, *) into CZECH_REPUBLIC_IUCN_GET
-//	lookup(czech_national_ecosystem_type_classification, ? , wetness_regime, plantation, vegetation_composition) into CZECH_REPUBLIC_IUCN_GET
-	over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2#weed_site=CZ2');
+	lookup(czech_national_ecosystem_type_classification, ? ,*, *, *) into CZECH_REPUBLIC_IUCN_GET;
 
 define CROSSREFERENCE_KVES_EUNIS as {{
   czech_et                                                                                   | eunis                                                                                                    | accuracy_lev3                                                                                            | accuracy_lev2                                                       | consistency
