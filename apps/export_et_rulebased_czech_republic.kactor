@@ -47,8 +47,42 @@ action main:
 		primitive_characteristic.soil.physical_properties_bulk_density_input
 		primitive_characteristic.soil.physical_properties_bulk_density
 		
+		primitive_characteristic.surface_water.hydroform_meander
+		primitive_characteristic.surface_water.hydroform
+		primitive_characteristic.surface_water.waterbody_type
+		primitive_characteristic.surface_water.watershed_hierarchy_input
+		primitive_characteristic.surface_water.watershed_hierarchy
+		primitive_characteristic.surface_water.seasonal_water_regime
+		primitive_characteristic.surface_water.ephemeral_water_regime
+		primitive_characteristic.surface_water.episodic_water_regime
+		primitive_characteristic.surface_water.water_permanence_type
+		primitive_characteristic.surface_water.hydroform_morphology_area_input
+		primitive_characteristic.surface_water.hydroform_morphology_area
+		primitive_characteristic.surface_water.watershed_hydroform_density
+		
 		primitive_characteristic.vegetation.leaf_area_index_input
 		primitive_characteristic.vegetation.leaf_area_index
+		primitive_characteristic.vegetation.phenology
+		primitive_characteristic.vegetation.specific_leaf_area_input
+		primitive_characteristic.vegetation.specific_leaf_area
+		primitive_characteristic.vegetation.leaf_size_input
+		primitive_characteristic.vegetation.leaf_size
+		primitive_characteristic.vegetation.canopy_height_input_czechia
+		primitive_characteristic.vegetation.canopy_height
+		primitive_characteristic.vegetation.canopy_cover_input_czech_republic
+		primitive_characteristic.vegetation.canopy_cover
+		primitive_characteristic.vegetation.tree_density
+		
+		primitive_characteristic.wildfire_disturbance.recurrence_input
+		primitive_characteristic.wildfire_disturbance.recurrence
+		primitive_characteristic.wildfire_disturbance.periodicity
+		
+		
+		primitive_characteristic.ecosystem_typology.iucn.biome_f1_river_stream
+		primitive_characteristic.ecosystem_typology.iucn.biome_f2_lake
+		primitive_characteristic.ecosystem_typology.iucn.biome_t2_temperateborealforestwoodland
+		primitive_characteristic.ecosystem_typology.iucn.biome_t3_shrubland_shrubby_woodland
+		primitive_characteristic.ecosystem_typology.iucn.biome_t4_savanna_grassland
 		
 	)
 /*

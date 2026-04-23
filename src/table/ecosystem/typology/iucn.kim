@@ -44,23 +44,14 @@ define BIOME_F2_LAKE_ECOSYSTEM_TYPES as {{
 
 
 define BIOME_F3_ARTIFICIAL_WETLAND_ECOSYSTEM_TYPES as {{
-  landcover                   | managed_waterbody_type           | waterbody_type            | water_permanence    | ecosystem_type                                 
-  ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  landcover:Wetland           | hydrology.incubation:Reservoir   | hydrology:Watercourse     | #                   | nca.ecosystem.iucn:LargeReservoir               ,
-  landcover:BareArea          | hydrology.incubation:Reservoir   | hydrology:InlandWaterBody | #                   | nca.ecosystem.iucn:ConstructedLacustrineWetland ,
-  landcover:Wetland           | hydrology.incubation:Reservoir   | hydrology:InlandWaterBody | #                   | nca.ecosystem.iucn:ConstructedLacustrineWetland ,
-  landcover:Wetland           | hydrology.incubation:Reservoir   | hydrology:InlandWaterBody | #                   | nca.ecosystem.iucn:ConstructedLacustrineWetland ,
-  landcover:WaterBody         | #                                | #                         | hydrology:Seasonal  | nca.ecosystem.iucn:RicePaddy                    ,
-  landcover:WaterBody         | #                                | #                         | hydrology:Permanent | nca.ecosystem.iucn:RicePaddy                    ,
-  landcover:Wetland           | #                                | #                         | hydrology:Seasonal  | nca.ecosystem.iucn:RicePaddy                    ,
-  landcover:Wetland           | #                                | #                         | hydrology:Permanent | nca.ecosystem.iucn:RicePaddy                    ,
-  landcover:WaterBody         | hydrology.incubation:Aquaculture | hydrology:InlandWaterBody | hydrology:Permanent | nca.ecosystem.iucn:FreshwaterAquafarm           ,
-  landcover:Wetland           | hydrology.incubation:Aquaculture | hydrology:InlandWaterBody | hydrology:Permanent | nca.ecosystem.iucn:FreshwaterAquafarm           ,
-  landcover:ArtificialSurface | hydrology.incubation:Aquaculture | hydrology:InlandWaterBody | hydrology:Permanent | nca.ecosystem.iucn:FreshwaterAquafarm           ,
-  landcover:WaterBody         | hydrology.incubation:Canal       | hydrology:Watercourse     | #                   | nca.ecosystem.iucn:CanalDitchDrain              ,
-  landcover:ArtificialSurface | hydrology.incubation:Canal       | hydrology:Watercourse     | #                   | nca.ecosystem.iucn:CanalDitchDrain             
+  landcover                                                                | managed_waterbody_type         | waterbody_type            | water_permanence                             | ecosystem_type                                 
+  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  landcover:WaterBody                                                      | hydrology.incubation:Reservoir | hydrology:Watercourse     | #                                            | nca.ecosystem.iucn:LargeReservoir               ,
+  in (landcover:BareArea, landcover:WaterBody, landcover:Wetland)          | #                              | hydrology:InlandWaterBody | #                                            | nca.ecosystem.iucn:ConstructedLacustrineWetland ,
+  in (landcover:WaterBody, landcover:Wetland)                              | #                              | #                         | in (hydrology:Seasonal, hydrology:Permanent) | nca.ecosystem.iucn:RicePaddy                    ,
+  in (landcover:WaterBody, landcover:Wetland, landcover:ArtificialSurface) | #                              | hydrology:InlandWaterBody | hydrology:Permanent                          | nca.ecosystem.iucn:FreshwaterAquafarm           ,
+  in (landcover:WaterBody, landcover:ArtificialSurface)                    | hydrology.incubation:Canal     | hydrology:Watercourse     | #                                            | nca.ecosystem.iucn:CanalDitchDrain             
 }};
-
 
 define BIOME_T1_TROPICAL_SUBTROPICAL_FOREST_ECOSYSTEM_TYPES as {{
   landcover                                                                         	| tropical_storms_exposure | annual_diurnal_air_temperature_mean                  	| annual_precipitation_total 	| annual_water_budget_total      	| seasonal_diurnal_air_temperature_variability 	| thermal_belts                                  | winter_water_budget_total    	| annual_net_primary_productivity_total | chemical_properties_base_saturation | canopy_cover                    	| canopy_height | leaf_area_index          	| leaf_size                                                   	| phenology                                         	| specific_leaf_area             	| ecosystem_type                                         
