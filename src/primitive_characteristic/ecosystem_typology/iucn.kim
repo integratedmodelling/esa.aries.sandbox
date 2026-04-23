@@ -195,25 +195,25 @@ count of im:Yearly im:Occurrence of chemistry:Fire named recurrence
 lookup (landcover, annual_diurnal_air_temperature_mean, annual_precipitation_total, annual_water_budget_total, seasonal_diurnal_air_temperature_variability, summer_diurnal_air_temperature_mean, winter_diurnal_air_temperature_mean, winter_water_budget_total, annual_net_primary_productivity_total, chemical_properties_base_saturation, chemical_properties_nitrogen, fertility, canopy_height, phenology, specific_leaf_area, periodicity, recurrence, ?)
 into BIOME_T5_DESERT_SEMIDESERT_ECOSYSTEM_TYPES;
 
-//T6
-model nca.ecosystem.iucn:PolarAlpine type of nca.ecosystem.iucn:Ecosystem
+// --- BIOME T6 - PolarAlpine annotation---
+model nca.ecosystem.iucn:PolarAlpine type of nca.ecosystem.iucn:Ecosystem named biome_t6_polar_alpine
 observing
 landcover:LandCoverType named landcover,
-level of im:Daily im:Differential im:Yearly earth:AtmosphericTemperature named annual_diurnal_air_temperature_mean,
-level of im:Mean earth:PrecipitationVolume named annual_precipitation_total,
-level of (im:Mean hydrology:WaterVolume of hydrology:WaterBalance) named annual_water_budget_total,
-level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability,
+level of im:Daily im:Mean earth:AtmosphericTemperature during im:Year named annual_diurnal_air_temperature_mean,
+level of im:Yearly earth:PrecipitationVolume named annual_precipitation_total,
+level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance) named annual_water_budget_total,
+level of im:Mean im:Changed primitive_characteristic.climate:SeasonalAmplitude earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability,
 level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_air_temperature_mean,
 type of ecology:MountainClimaticBeltZone named thermal_belts,
 level of im:Mean earth:AtmosphericTemperature during earth:Winter named winter_diurnal_air_temperature_mean,
 level of ecology:NetPrimaryProduction named annual_net_primary_productivity_total,
-landcover:LandCoverType named tree_density,
-level of (percentage of (chemistry:Basic chemistry:ExchangeCapacity) in (chemistry:ExchangeCapacity of chemistry:Cation)) named chemical_properties_base_saturation,
-level of (proportion of chemistry:Nitrogen in soil:Soil ) named chemical_properties_n,
+level of ecology:WoodyVegetation ecology:CanopyCover named tree_density,
+level of (chemistry:Basic chemistry:ExchangeCapacity of chemistry:Cation) named chemical_properties_base_saturation,
+level of (proportion of chemistry:Nitrogen in soil:Soil) named chemical_properties_n,
 level of (im:Depth of landcover:PeatBog earth:Region) named peat_thickness,
-im:Mean im:Height of ecology:Canopy named canopy_height,
-ratio of im:Area to im:Mass of biology:Leaf named specific_leaf_area,
-count of im:Yearly im:Occurrence of chemistry:Fire named recurrence
+level of (im:Mean im:Height of ecology:Canopy) named canopy_height,
+level of (ratio of im:Area to earth:Dry im:Mass of biology:Leaf) named specific_leaf_area,
+level of (im:Yearly im:Occurrence of chemistry:Fire) named recurrence
 lookup (landcover, annual_diurnal_air_temperature_mean, annual_precipitation_total, annual_water_budget_total, seasonal_diurnal_air_temperature_variability, summer_diurnal_air_temperature_mean, thermal_belts, winter_diurnal_air_temperature_mean, annual_net_primary_productivity_total, tree_density, chemical_properties_base_saturation, chemical_properties_n, peat_thickness, canopy_height, specific_leaf_area, recurrence, ?)
 into BIOME_T6_POLAR_ALPINE_ECOSYSTEM_TYPES;
 
