@@ -6,6 +6,7 @@ using
 	hydrology,
 	nca.ecology;
 
+attribute Local;
 observe earth:Region named czech_republic_krkonossky_30m_cz2  
     over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2#weed_site=CZ2',
     			grid="300 m",
@@ -353,14 +354,14 @@ set to [
     (kves_classification == unknown) ? 1 : 0
 ];
 
-model im:Reference geography:CzechRepublic nca.ecosystem.eunis:EcosystemType named reference_czech_ecosystem_type 
+model im:Reference geography:CzechRepublic Local nca.ecosystem.eunis:EcosystemType named reference_czech_ecosystem_type 
 	observing
 		   type of nca.ecosystemtype.classification.czech_republic:CzechEcosystem named czech_national_ecosystem_type_classification 
 	lookup(czech_national_ecosystem_type_classification, ?) into CZECH_REPUBLIC_EUNIS
 	over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2#weed_site=CZ2');
 
 
-model nca.ecosystem.iucn:EcosystemType named crosswalked_national_map_to_ecosystem_type_iucn_get 
+model im:Reference nca.ecosystem.iucn:EcosystemType named crosswalked_national_map_to_ecosystem_type_iucn_get 
 	observing
 		   type of nca.ecosystemtype.classification.czech_republic:CzechEcosystem named czech_national_ecosystem_type_classification 
 //		   type of hydrology:WaterRegime  named wetness_regime ,
