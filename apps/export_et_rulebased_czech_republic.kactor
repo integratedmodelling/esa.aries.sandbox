@@ -112,7 +112,7 @@ action main:
  */
 	wkt_context = Space(shape='POLYGON ((19.016595 48.192287, ..., 19.016595 48.192287))') //Set the context using WKT or the URN of a resource
 	spatial_contexts_urn = "local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2"//"local:rubencc:esa.aries.sandbox:esa_weed_vietnam_priority_areas_epsg4326_v2"//"local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_priority_areas_epsg4326_v2"//"local:rubencc:esa.aries.sandbox:esa_weed_vietnam_priority_areas_epsg4326_v2"//"local:justus.muhando:esa.aries.sandbox:esa_weed_south_africa_priority_areas_epsg4326_v2"
-	resolution = 100.m
+	resolution = 30.m
 
 /*
  * Set temporal boundaries of the analysis 
@@ -129,8 +129,8 @@ action main:
  */			
 //		for urn in observables_urns(	
 //			context(spatial_contexts_urn,resolution,Time(start=[year], end=[year+1], step=1.year),urn): state -> (
-		for priority_area in spatial_contexts_urn(
-				if [priority_area.weed_site == 'CZ2'|| priority_area.weed_site == 'CZ3'|| priority_area.weed_site == 'CZ1'] //|| feature.layer == 'central_colombia' || feature.layer == 'south_colombia']
+		for priority_area in spatial_contexts_urn (
+				if [priority_area.weed_site == 'CZ1']//|| priority_area.weed_site == 'CZ3'|| priority_area.weed_site == 'CZ1'] //|| feature.layer == 'central_colombia' || feature.layer == 'south_colombia']
 				    context(priority_area,resolution,Time(year=year))
 				    // loop over urns
 				    for urn in observables_urns (
@@ -156,8 +156,7 @@ action main:
 								if [observation.isEmpty()] (
 									warning(["Observation " + urn_name + " is empty"])
 								) else (
-									observation.export([output_folder_directory +"/"+ year +"/"+ "maps" +"/"+ priority_area.name + "/" + urn_name + "_" + priority_area.name + "_" + resolution + "_" + year + ".tiff"])
-								
+									observation.export([output_folder_directory +"/" + priority_area.weed_site + "/"+  urn_name + "_" + priority_area.weed_site + "_" + resolution + "_" + year + ".tiff"])								
 									info(["Exporting urn " + urn_name])
 								)
 							)
