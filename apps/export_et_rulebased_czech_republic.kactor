@@ -80,9 +80,13 @@ action main:
 		
 		primitive_characteristic.ecosystem_typology.iucn.biome_f1_river_stream
 		primitive_characteristic.ecosystem_typology.iucn.biome_f2_lake
+		primitive_characteristic.ecosystem_typology.iucn.biome_f3_artificial_wetland
+//		primitive_characteristic.ecosystem_typology.iucn.biome_t1_tropical_subtropical_forest
 		primitive_characteristic.ecosystem_typology.iucn.biome_t2_temperateborealforestwoodland
 		primitive_characteristic.ecosystem_typology.iucn.biome_t3_shrubland_shrubby_woodland
 		primitive_characteristic.ecosystem_typology.iucn.biome_t4_savanna_grassland
+//		primitive_characteristic.ecosystem_typology.iucn.biome_t5_desert_semidesert
+		primitive_characteristic.ecosystem_typology.iucn.biome_t7_intensive_land_use_system
 		
 	)
 /*
@@ -102,7 +106,7 @@ action main:
  */
 	wkt_context = Space(shape='POLYGON ((19.016595 48.192287, ..., 19.016595 48.192287))') //Set the context using WKT or the URN of a resource
 	spatial_contexts_urn = "local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2"//"local:rubencc:esa.aries.sandbox:esa_weed_vietnam_priority_areas_epsg4326_v2"//"local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_priority_areas_epsg4326_v2"//"local:rubencc:esa.aries.sandbox:esa_weed_vietnam_priority_areas_epsg4326_v2"//"local:justus.muhando:esa.aries.sandbox:esa_weed_south_africa_priority_areas_epsg4326_v2"
-	resolution = 300.m
+	resolution = 100.m
 
 /*
  * Set temporal boundaries of the analysis 
