@@ -23,7 +23,8 @@ using primitive_characteristic,
 	 BIOME_T7_INTENSIVE_LANDUSE_SYSTEM_ECOSYSTEM_TYPES,
 	 BIOME_TF1_PALUSTRINE_WETLAND_ECOSYSTEM_TYPES,
 	 BIOME_MT1_SHORELINE_ECOSYSTEM_TYPES,
-	 BIOME_MT2_SUPRALITTORAL_COASTAL_ECOSYSTEM_TYPES) from table.ecosystem.typology.iucn;
+	 BIOME_MT2_SUPRALITTORAL_COASTAL_ECOSYSTEM_TYPES,
+	 BIOME_MT3_ANTHROPOGENIC_SHORELINE_ECOSYSTEM_TYPES) from table.ecosystem.typology.iucn;
 
 observe earth:Region named vietnam_test
     over space(shape='EPSG:4326 POLYGON ((105.88620462994126 19.84488698624979, 105.71419837570178 19.84488698624979, 105.71419837570178 19.92449883506903, 105.88620462994126 19.92449883506903, 105.88620462994126 19.84488698624979))',
@@ -306,15 +307,10 @@ model nca.ecosystem.iucn:SupralittoralCoastal type of nca.ecosystem.iucn:Ecosyst
 	into BIOME_MT2_SUPRALITTORAL_COASTAL_ECOSYSTEM_TYPES;
 
 
-
-
-
-
-
-
-
-
-
-
-
-												
+//--- BIOME MT3 - AnthropogenicShoreline annotation---
+model nca.ecosystem.iucn:AnthropogenicShoreline type of nca.ecosystem.iucn:Ecosystem named biome_mt3_anthropogenic_shoreline
+	observing
+		landcover:LandCoverType named landcover,
+		presence of earth:Littoral earth:Region named tidal_zone_intertidal
+	lookup (landcover, tidal_zone_intertidal, ?)
+	into BIOME_MT3_ANTHROPOGENIC_SHORELINE_ECOSYSTEM_TYPES;												
