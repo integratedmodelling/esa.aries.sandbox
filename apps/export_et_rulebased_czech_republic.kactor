@@ -113,7 +113,7 @@ action main:
  */
 	wkt_context = Space(shape='POLYGON ((19.016595 48.192287, ..., 19.016595 48.192287))') //Set the context using WKT or the URN of a resource
 	spatial_contexts_urn = "local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2"//"local:rubencc:esa.aries.sandbox:esa_weed_vietnam_priority_areas_epsg4326_v2"//"local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_priority_areas_epsg4326_v2"//"local:rubencc:esa.aries.sandbox:esa_weed_vietnam_priority_areas_epsg4326_v2"//"local:justus.muhando:esa.aries.sandbox:esa_weed_south_africa_priority_areas_epsg4326_v2"
-	resolution = 100.m
+	resolution = 200.m
 
 /*
  * Set temporal boundaries of the analysis 
