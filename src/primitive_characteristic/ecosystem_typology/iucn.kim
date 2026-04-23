@@ -12,10 +12,10 @@ using primitive_characteristic,
 	  primitive_characteristic.wildfire_disturbance, 
 	  nca.ecosystem.iucn,
 	(BIOME_F1_RIVER_STREAM_ECOSYSTEM_TYPES,
-	 BIOME_F2_LAKE_ECOSYSTEM_TYPES,	
+	 BIOME_F2_LAKE_ECOSYSTEM_TYPES,
+	 BIOME_F3_ARTIFICIAL_WETLAND_ECOSYSTEM_TYPES,	
 	 BIOME_T1_TROPICAL_SUBTROPICAL_FOREST_ECOSYSTEM_TYPES,
 	 BIOME_T2_TEMPERATE_BOREAL_FOREST_WOODLAND_ECOSYSTEM_TYPES,
-	 BIOME_T2_TEMPERATE_BOREAL_FOREST_WOODLAND_ECOSYSTEM_TYPES_LONG_TABLE,
 	 BIOME_T3_SHRUBLAND_SHRUBBY_WOODLAND_ECOSYSTEM_TYPES
 	 BIOME_T4_SAVANNA_GRASSLAND_ECOSYSTEM_TYPES,
 	 BIOME_T5_DESERT_SEMIDESERT_ECOSYSTEM_TYPES,
@@ -88,6 +88,16 @@ level of (im:Minimum im:Area of earth:WaterBody) named hydroform_morphology_area
 type of hydrology:WaterPermanence named water_permanence
 lookup (landcover, geothermal, chemical_properties_base_saturation, waterbody_type, hydroform_morphology_area, water_permanence, ?)
 into BIOME_F2_LAKE_ECOSYSTEM_TYPES;
+
+//--- BIOME F3 - ArtificialWetland annotation---
+model nca.ecosystem.iucn:ArtificialWetland type of nca.ecosystem.iucn:Ecosystem named biome_f3_artificial_wetland
+observing
+landcover:LandCoverType named landcover,
+type of hydrology.incubation:ManagedWaterBody named managed_waterbody_type,
+type of hydrology:WaterBody named waterbody_type,
+type of hydrology:WaterPermanence named water_permanence
+lookup (landcover, managed_waterbody_type, waterbody_type, water_permanence, ?)
+into BIOME_F3_ARTIFICIAL_WETLAND_ECOSYSTEM_TYPES;
 
 
 
