@@ -17,10 +17,9 @@ action main:
 		rule_based_modelling.czech_republic.crosswalked_national_map_to_ecosystem_type_iucn_get
 		primitive_characteristic.vegetation.canopy_height_input_czechia
 		primitive_characteristic.vegetation.canopy_cover_input_czech_republic
-		
-		
-		
+//RB model inputs		
 		primitive_characteristic.copernicus_landcover_2020
+
 		primitive_characteristic.climate.summer_diurnal_air_temperature_mean_input
 		primitive_characteristic.climate.summer_diurnal_air_temperature_mean
 		primitive_characteristic.climate.winter_diurnal_air_temperature_mean_input
@@ -84,7 +83,7 @@ action main:
 		primitive_characteristic.wildfire_disturbance.recurrence
 		primitive_characteristic.wildfire_disturbance.periodicity
 		
-		
+//ET modelling by Biome		
 		primitive_characteristic.ecosystem_typology.iucn.biome_f1_river_stream
 		primitive_characteristic.ecosystem_typology.iucn.biome_f2_lake
 		primitive_characteristic.ecosystem_typology.iucn.biome_f3_artificial_wetland
