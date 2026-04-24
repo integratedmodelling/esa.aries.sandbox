@@ -87,12 +87,18 @@ action main:
 		primitive_characteristic.ecosystem_typology.iucn.biome_f1_river_stream
 		primitive_characteristic.ecosystem_typology.iucn.biome_f2_lake
 		primitive_characteristic.ecosystem_typology.iucn.biome_f3_artificial_wetland
-//		primitive_characteristic.ecosystem_typology.iucn.biome_t1_tropical_subtropical_forest
+		primitive_characteristic.ecosystem_typology.iucn.biome_t1_tropical_subtropical_forest
 		primitive_characteristic.ecosystem_typology.iucn.biome_t2_temperateborealforestwoodland
 		primitive_characteristic.ecosystem_typology.iucn.biome_t3_shrubland_shrubby_woodland
 		primitive_characteristic.ecosystem_typology.iucn.biome_t4_savanna_grassland
-//		primitive_characteristic.ecosystem_typology.iucn.biome_t5_desert_semidesert
+		primitive_characteristic.ecosystem_typology.iucn.biome_t5_desert_semidesert
+		primitive_characteristic.ecosystem_typology.iucn.biome_t6_polar_alpine
 		primitive_characteristic.ecosystem_typology.iucn.biome_t7_intensive_land_use_system
+		primitive_characteristic.ecosystem_typology.iucn.biome_tf1_palustrine_wetland
+//		primitive_characteristic.ecosystem_typology.iucn.biome_mft1_brackish_tidal
+//		primitive_characteristic.ecosystem_typology.iucn.biome_mt1_shoreline
+//		primitive_characteristic.ecosystem_typology.iucn.biome_mt2_supralittoral_coastal
+//		primitive_characteristic.ecosystem_typology.iucn.biome_mt3_anthropogenic_shoreline
 		
 	)
 /*
