@@ -24,7 +24,7 @@ using primitive_characteristic,
 	 BIOME_TF1_PALUSTRINE_WETLAND_ECOSYSTEM_TYPES,
 	 BIOME_MFT1_BRACKISH_TIDAL_ECOSYSTEM_TYPES,
 	 BIOME_MT1_SHORELINE_ECOSYSTEM_TYPES,
-//	 BIOME_MT2_SUPRALITTORAL_COASTAL_ECOSYSTEM_TYPES,
+	 BIOME_MT2_SUPRALITTORAL_COASTAL_ECOSYSTEM_TYPES,
 	 BIOME_MT3_ANTHROPOGENIC_SHORELINE_ECOSYSTEM_TYPES
 	 ) from table.ecosystem.typology.iucn;
 	
@@ -320,24 +320,24 @@ model nca.ecosystem.iucn:Shoreline type of nca.ecosystem.iucn:Ecosystem named bi
 	lookup (landcover, tidal_zone_intertidal, chemical_properties_base_saturation, physical_properties_bulk_density, ?)
 	into BIOME_MT1_SHORELINE_ECOSYSTEM_TYPES;			
 	
-////--- BIOME MT2 - SupralittoralCoastal annotation---
-//model nca.ecosystem.iucn:SupralittoralCoastal type of nca.ecosystem.iucn:Ecosystem named biome_mt2_supralittoral_coastal
-//	observing
-//		landcover:LandCoverType named landcover,
-//		presence of earth:Coast with im:High earth:WindSpeed of earth:Storm named coastal_storms_exposure,
-//		presence of GBIF.SPECIES:4941589 ecology:Population named biotic_assemblage_pinniped_colonies,
-//		level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance) named annual_water_budget_total,
-//		level of ecology:NetPrimaryProduction named annual_net_primary_productivity_total
-//	lookup (landcover, coastal_storms_exposure, biotic_assemblage_pinniped_colonies, annual_water_budget_total, annual_net_primary_productivity_total, ?)
-//	into BIOME_MT2_SUPRALITTORAL_COASTAL_ECOSYSTEM_TYPES;
-//
-//
-////--- BIOME MT3 - AnthropogenicShoreline annotation---
-//model nca.ecosystem.iucn:AnthropogenicShoreline type of nca.ecosystem.iucn:Ecosystem named biome_mt3_anthropogenic_shoreline
-//	observing
-//		landcover:LandCoverType named landcover,
-//		presence of earth:Littoral earth:Region named tidal_zone_intertidal
-//	lookup (landcover, tidal_zone_intertidal, ?)
-//	into BIOME_MT3_ANTHROPOGENIC_SHORELINE_ECOSYSTEM_TYPES;	
+//--- BIOME MT2 - SupralittoralCoastal annotation---
+model nca.ecosystem.iucn:SupralittoralCoastal type of nca.ecosystem.iucn:Ecosystem named biome_mt2_supralittoral_coastal
+	observing
+		landcover:LandCoverType named landcover,
+		presence of earth:Coast with im:High earth:WindSpeed of earth:Storm named coastal_storms_exposure,
+		presence of GBIF.SPECIES:4941589 ecology:Population named biotic_assemblage_pinniped_colonies,
+		level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance) named annual_water_budget_total,
+		level of ecology:NetPrimaryProduction named annual_net_primary_productivity_total
+	lookup (landcover, coastal_storms_exposure, biotic_assemblage_pinniped_colonies, annual_water_budget_total, annual_net_primary_productivity_total, ?)
+	into BIOME_MT2_SUPRALITTORAL_COASTAL_ECOSYSTEM_TYPES;
+
+
+//--- BIOME MT3 - AnthropogenicShoreline annotation---
+model nca.ecosystem.iucn:AnthropogenicShoreline type of nca.ecosystem.iucn:Ecosystem named biome_mt3_anthropogenic_shoreline
+	observing
+		landcover:LandCoverType named landcover,
+		presence of earth:Littoral earth:Region named tidal_zone_intertidal
+	lookup (landcover, tidal_zone_intertidal, ?)
+	into BIOME_MT3_ANTHROPOGENIC_SHORELINE_ECOSYSTEM_TYPES;	
 
 										
