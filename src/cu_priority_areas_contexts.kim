@@ -189,6 +189,72 @@ observe earth:Region named colombia_buenaventura_co17
                 projection= "EPSG:4326"),
         time(start=2022, end=2023, step=1.year);  
 
+// Colombia small priority areas:
+
+//Potential Biomes -> Riverine:
+observe earth:Region named colombia_small_sample1
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=COL_1',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+//Potential Biomes -> Coastal lagoon:
+observe earth:Region named colombia_small_sample2
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=COL_2',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+//Potential Biomes -> Coal mines:
+observe earth:Region named colombia_small_sample10
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=COL_10',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+//Potential Biomes -> Ilegal gold mines:
+observe earth:Region named colombia_small_sample11
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=COL_11',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+//Potential Biomes -> Coastal:
+observe earth:Region named colombia_small_sample13
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=COL_13',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+//Potential Biomes -> Coastal:
+observe earth:Region named colombia_small_sample14
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=COL_14',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+//Potential Biomes -> Coastal:
+observe earth:Region named colombia_small_sample15
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=COL_15',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+//Potential Biomes -> Marine:
+observe earth:Region named colombia_small_sample16
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=COL_16',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+//Potential Biomes -> Coastal river - city:
+observe earth:Region named colombia_small_sample17
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=COL_17',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+
 
 //Czech priority areas V2
 observe earth:Region named czech_republic_bilek_cz1  
@@ -382,5 +448,43 @@ observe earth:Region named vietnam_cu_lao_cham__hoi_an_vn3
     over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_vietnam_priority_areas_epsg4326_v2#weed_site=VN3',
     			grid="30 m",
                 projection= "EPSG:4326"),
-        time(start=2022, end=2023, step=1.year);  
+        time(start=2022, end=2023, step=1.year);
+        
+// Vietnam small priority areas:
+
+//Potential Biomes -> Natural:
+observe earth:Region named vietnam_small_sample1
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=VNM_1',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+// Potential Biomes -> Coastal:
+observe earth:Region named vietnam_small_sample3
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=VNM_3',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+// Potential Biomes -> Rural:
+observe earth:Region named vietnam_small_sample5
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=VNM_5',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+// Potential Biomes -> Industrial:        
+observe earth:Region named vietnam_small_sample6
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=VNM_6',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+// Potential Biomes -> Marine:        
+observe earth:Region named vietnam_small_sample7
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=VNM_7',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+                
 ///             
