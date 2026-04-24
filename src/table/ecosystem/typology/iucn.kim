@@ -121,6 +121,14 @@ define BIOME_TF1_PALUSTRINE_WETLAND_ECOSYSTEM_TYPES as {{
   in (landcover:Shrubland, landcover:Grassland, landcover:BareArea, landcover:Wetland)                   | #                          | in (im:ModeratelyHigh, im:High) | #                                            | #               | in (ecology.incubation:VeryCold, ecology.incubation:Cold)                     | im:High                               | #          | in (im:None, ecology:VerySparse, ecology:Sparse) | im:High                             | #                     | in (im:High, im:Moderate) | #                         | #                   | #                                | #                                                  | #                         | #                                         | #                 | #                                        | #           | nca.ecosystem.iucn:BorealTemperateFen                     
 }};
 
+define BIOME_MFT1_BRACKISH_TIDAL_ECOSYSTEM_TYPES as {{
+  landcover                                                         | annual_diurnal_air_temperature_mean                                                                               | annual_precipitation_total | seasonal_diurnal_air_temperature_amplitude | tidal_zone_intertidal | annual_net_primary_productivity_total | floodplain | canopy_height | ecosystem_type                              
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  in (landcover:BareArea, landcover:WaterBody)                      | #                                                                                                                 | #                          | #                                          | #                     | im:High                               | true       | #             | nca.ecosystem.iucn:CoastalRiverDelta         ,
+  in (landcover:Forest, landcover:Shrubland, landcover:LichenMoss)  | in (ecology.incubation:Warm, ecology.incubation:Hot, ecology.incubation:VeryHot, ecology.incubation:ExtremelyHot) | in (im:High, im:VeryHigh)  | im:Low                                     | true                  | #                                     | #          | #             | nca.ecosystem.iucn:IntertidalForestShrubland ,
+  in (landcover:Shrubland, landcover:Grassland, landcover:BareArea) | #                                                                                                                 | #                          | #                                          | true                  | #                                     | #          | im:VeryLow    | nca.ecosystem.iucn:CoastalSaltmarshReedbed  
+}};
+
 define BIOME_MT1_SHORELINE_ECOSYSTEM_TYPES as {{
   landcover          | tidal_zone_intertidal | chemical_properties_base_saturation | physical_properties_bulk_density | ecosystem_type                       
   -----------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -128,4 +136,11 @@ define BIOME_MT1_SHORELINE_ECOSYSTEM_TYPES as {{
   landcover:BareArea | #                     | im:High                             | #                                | nca.ecosystem.iucn:MuddyShoreline     ,
   landcover:BareArea | #                     | #                                   | #                                | nca.ecosystem.iucn:SandyShoreline     ,
   landcover:BareArea | true                  | #                                   | in (im:Low, im:Moderate)         | nca.ecosystem.iucn:BoulderCobbleShore
+}};
+
+define BIOME_MT3_ANTHROPOGENIC_SHORELINE_ECOSYSTEM_TYPES as {{
+  landcover                   | tidal_zone_intertidal | ecosystem_type                        
+  --------------------------------------------------------------------------------------------
+  landcover:BareArea          | true                  | nca.ecosystem.iucn:ArtificialShoreline ,
+  landcover:ArtificialSurface | #                     | #                                  
 }};

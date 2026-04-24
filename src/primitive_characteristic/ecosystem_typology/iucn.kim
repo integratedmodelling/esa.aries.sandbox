@@ -22,16 +22,18 @@ using primitive_characteristic,
 	 BIOME_T6_POLAR_ALPINE_ECOSYSTEM_TYPES,
 	 BIOME_T7_INTENSIVE_LAND_USE_SYSTEM_ECOSYSTEM_TYPES,
 	 BIOME_TF1_PALUSTRINE_WETLAND_ECOSYSTEM_TYPES,
-	 BIOME_MT1_SHORELINE_ECOSYSTEM_TYPES
+	 BIOME_MFT1_BRACKISH_TIDAL_ECOSYSTEM_TYPES,
+	 BIOME_MT1_SHORELINE_ECOSYSTEM_TYPES,
 //	 BIOME_MT2_SUPRALITTORAL_COASTAL_ECOSYSTEM_TYPES,
-//	 BIOME_MT3_ANTHROPOGENIC_SHORELINE_ECOSYSTEM_TYPES
+	 BIOME_MT3_ANTHROPOGENIC_SHORELINE_ECOSYSTEM_TYPES
 	 ) from table.ecosystem.typology.iucn;
+	
 
 observe earth:Region named vietnam_test
     over space(shape='EPSG:4326 POLYGON ((105.88620462994126 19.84488698624979, 105.71419837570178 19.84488698624979, 105.71419837570178 19.92449883506903, 105.88620462994126 19.92449883506903, 105.88620462994126 19.84488698624979))',
     		grid="100 m",
     		projection="EPSG:4326"),
-    time(year=2020); 
+    time(year=2020);
 
  
 observe earth:Region named test_area
@@ -230,27 +232,27 @@ model nca.ecosystem.iucn:DesertSemidesert type of nca.ecosystem.iucn:Ecosystem n
 	into BIOME_T5_DESERT_SEMIDESERT_ECOSYSTEM_TYPES;
 
 
-//// --- BIOME T6 - PolarAlpine annotation---
-//model nca.ecosystem.iucn:PolarAlpine type of nca.ecosystem.iucn:Ecosystem named biome_t6_polar_alpine
-//observing
-//landcover:LandCoverType named landcover,
-//level of im:Daily im:Mean earth:AtmosphericTemperature during im:Year named annual_diurnal_air_temperature_mean,
-//level of im:Yearly earth:PrecipitationVolume named annual_precipitation_total,
-//level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance) named annual_water_budget_total,
-//level of im:Mean im:Changed primitive_characteristic.climate:SeasonalAmplitude earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability,
-//level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_air_temperature_mean,
-//type of ecology:MountainClimaticBeltZone named thermal_belts,
-//level of im:Mean earth:AtmosphericTemperature during earth:Winter named winter_diurnal_air_temperature_mean,
-//level of ecology:NetPrimaryProduction named annual_net_primary_productivity_total,
-//level of ecology:WoodyVegetation ecology:CanopyCover named tree_density,
-//level of (chemistry:Basic chemistry:ExchangeCapacity of chemistry:Cation) named chemical_properties_base_saturation,
-//level of (proportion of chemistry:Nitrogen in soil:Soil) named chemical_properties_n,
-//level of (im:Depth of landcover:PeatBog earth:Region) named peat_thickness,
-//level of (im:Mean im:Height of ecology:Canopy) named canopy_height,
-//level of (ratio of im:Area to earth:Dry im:Mass of biology:Leaf) named specific_leaf_area,
-//level of (im:Yearly im:Occurrence of chemistry:Fire) named recurrence
-//lookup (landcover, annual_diurnal_air_temperature_mean, annual_precipitation_total, annual_water_budget_total, seasonal_diurnal_air_temperature_variability, summer_diurnal_air_temperature_mean, thermal_belts, winter_diurnal_air_temperature_mean, annual_net_primary_productivity_total, tree_density, chemical_properties_base_saturation, chemical_properties_n, peat_thickness, canopy_height, specific_leaf_area, recurrence, ?)
-//into BIOME_T6_POLAR_ALPINE_ECOSYSTEM_TYPES;
+// --- BIOME T6 - PolarAlpine annotation---
+model nca.ecosystem.iucn:PolarAlpine type of nca.ecosystem.iucn:Ecosystem named biome_t6_polar_alpine
+observing
+landcover:LandCoverType named landcover,
+level of im:Daily im:Mean earth:AtmosphericTemperature during im:Year named annual_diurnal_air_temperature_mean,
+level of im:Yearly earth:PrecipitationVolume named annual_precipitation_total,
+level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance) named annual_water_budget_total,
+level of im:Mean im:Changed primitive_characteristic.climate:SeasonalAmplitude earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability,
+level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_air_temperature_mean,
+type of ecology:MountainClimaticBeltZone named thermal_belts,
+level of im:Mean earth:AtmosphericTemperature during earth:Winter named winter_diurnal_air_temperature_mean,
+level of ecology:NetPrimaryProduction named annual_net_primary_productivity_total,
+level of ecology:WoodyVegetation ecology:CanopyCover named tree_density,
+level of (chemistry:Basic chemistry:ExchangeCapacity of chemistry:Cation) named chemical_properties_base_saturation,
+level of (proportion of chemistry:Nitrogen in soil:Soil) named chemical_properties_n,
+level of (im:Depth of landcover:PeatBog earth:Region) named peat_thickness,
+level of (im:Mean im:Height of ecology:Canopy) named canopy_height,
+level of (ratio of im:Area to earth:Dry im:Mass of biology:Leaf) named specific_leaf_area,
+level of (count of im:Yearly im:Occurrence of chemistry:Fire) named recurrence
+lookup (landcover, annual_diurnal_air_temperature_mean, annual_precipitation_total, annual_water_budget_total, seasonal_diurnal_air_temperature_variability, summer_diurnal_air_temperature_mean, thermal_belts, winter_diurnal_air_temperature_mean, annual_net_primary_productivity_total, tree_density, chemical_properties_base_saturation, chemical_properties_n, peat_thickness, canopy_height, specific_leaf_area, recurrence, ?)
+into BIOME_T6_POLAR_ALPINE_ECOSYSTEM_TYPES;
 
 //--- BIOME T7 - IntensiveLandUseSystem annotation---
 model nca.ecosystem.iucn:IntensiveLandUseSystem type of nca.ecosystem.iucn:Ecosystem named biome_t7_intensive_land_use_system
@@ -293,6 +295,20 @@ model nca.ecosystem.iucn:PalustrineWetland type of nca.ecosystem.iucn:Ecosystem 
 		presence of earth:Region with im:High im:Frequency of chemistry:Fire named periodicity
 	lookup (landcover, annual_precipitation_total, annual_water_budget_total, seasonal_diurnal_air_temperature_variability, thermal_belts, winter_diurnal_air_temperature_mean, annual_net_primary_productivity_total, floodplain, tree_density, chemical_properties_base_saturation, chemical_properties_n, peat_thickness, waterbody_type, water_permanence, canopy_cover, canopy_height, leaf_area_index, leaf_size, phenology, specific_leaf_area, periodicity, ?)
 	into BIOME_TF1_PALUSTRINE_WETLAND_ECOSYSTEM_TYPES;
+	
+	//--- BIOME MFT1 - BrackishTidal annotation---
+model nca.ecosystem.iucn:BrackishTidal type of nca.ecosystem.iucn:Ecosystem named biome_mft1_brackish_tidal
+observing
+landcover:LandCoverType named landcover,
+level of im:Daily im:Mean earth:AtmosphericTemperature during im:Year named annual_diurnal_air_temperature_mean,
+level of im:Yearly earth:PrecipitationVolume named annual_precipitation_total,
+level of im:Mean primitive_characteristic.climate:SeasonalAmplitude earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_amplitude,
+presence of earth:Littoral earth:Region named tidal_zone_intertidal,
+level of ecology:NetPrimaryProduction named annual_net_primary_productivity_total,
+presence of hydrology:Floodplain named floodplain,
+level of (im:Mean im:Height of ecology:Canopy) named canopy_height
+lookup (landcover, annual_diurnal_air_temperature_mean, annual_precipitation_total, seasonal_diurnal_air_temperature_amplitude, tidal_zone_intertidal, annual_net_primary_productivity_total, floodplain, canopy_height, ?)
+into BIOME_MFT1_BRACKISH_TIDAL_ECOSYSTEM_TYPES;
 
 //--- BIOME MT1 - Shoreline annotation---
 model nca.ecosystem.iucn:Shoreline type of nca.ecosystem.iucn:Ecosystem named biome_mt1_shoreline
@@ -322,4 +338,6 @@ model nca.ecosystem.iucn:Shoreline type of nca.ecosystem.iucn:Ecosystem named bi
 //		landcover:LandCoverType named landcover,
 //		presence of earth:Littoral earth:Region named tidal_zone_intertidal
 //	lookup (landcover, tidal_zone_intertidal, ?)
-//	into BIOME_MT3_ANTHROPOGENIC_SHORELINE_ECOSYSTEM_TYPES;												
+//	into BIOME_MT3_ANTHROPOGENIC_SHORELINE_ECOSYSTEM_TYPES;	
+
+										
