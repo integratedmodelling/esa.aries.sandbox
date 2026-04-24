@@ -138,9 +138,15 @@ define BIOME_MT1_SHORELINE_ECOSYSTEM_TYPES as {{
   landcover:BareArea | true                  | #                                   | in (im:Low, im:Moderate)         | nca.ecosystem.iucn:BoulderCobbleShore
 }};
 
+define BIOME_MT2_SUPRALITTORAL_COASTAL_ECOSYSTEM_TYPES as {{
+  landcover                                                       | coastal_storms_exposure | biotic_assemblage_pinniped_colonies | annual_water_budget_total     | annual_net_primary_productivity_total | ecosystem_type                              
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  in (landcover:Forest, landcover:Shrubland, landcover:Grassland) | true                    | #                                   | in (im:Low, im:ModeratelyLow) | im:Low                                | nca.ecosystem.iucn:CoastalShrublandGrassland ,
+  #                                                               | #                       | true                                | #                             | #                                     | nca.ecosystem.iucn:SupralittoralCoastalBiome
+}};
+
 define BIOME_MT3_ANTHROPOGENIC_SHORELINE_ECOSYSTEM_TYPES as {{
-  landcover                   | tidal_zone_intertidal | ecosystem_type                        
-  --------------------------------------------------------------------------------------------
-  landcover:BareArea          | true                  | nca.ecosystem.iucn:ArtificialShoreline ,
-  landcover:ArtificialSurface | #                     | #                                  
+  landcover                                            | tidal_zone_intertidal | ecosystem_type                        
+  ---------------------------------------------------------------------------------------------------------------------
+  in (landcover:BareArea, landcover:ArtificialSurface) | true                  | nca.ecosystem.iucn:ArtificialShoreline
 }};
