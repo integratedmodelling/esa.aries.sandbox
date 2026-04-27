@@ -176,3 +176,14 @@ model local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydrof
 //			im:Moderate	if in (2.2 to 4),
 //			im:High	if > 4						
 //	over space(shape='POLYGON ((-180 -55.87, -180 84.01, 180 84.01, 180 -55.87, -180 -55.87))');
+
+/* ----------------------------------------------------------------------------------------------------------------------------- 
+ * # 6) Brackish Waterbodies
+ */
+
+ model 
+ 'local:samjinoj:im.data.global:im-data-global-hydrology:global_wetlands_20m_2020_mosaic',
+ 'local:samjinoj:im.data.global:im-data-global-hydrology:global_wetlands_20m_2021_mosaic',
+ 'local:samjinoj:im.data.global:im-data-global-hydrology:global_wetlands_20m_2022_mosaic'
+	as presence of ecology:Brackish earth:WaterBody
+	set to [self==255]; 
