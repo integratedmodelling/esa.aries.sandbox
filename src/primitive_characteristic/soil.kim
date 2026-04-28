@@ -38,12 +38,12 @@ model level of (im:Depth of landcover:PeatBog earth:Region) named peat_thickness
 model local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020
 	as level of soil.incubation:Fertility named fertility
 	lookup (self, ?) into
-    	fertility	| category
-		-----------------------------------------
-   		in (0 1 2)	| im:None					,
-    	in (3 4) 	| im:Low					,
-       	in (5 6 7) 	| im:Moderate				,
-       	in (8 9 10) | im:High					;
+    	fertility						| category
+		-------------------------------------------------
+   		in (0, 1, 2, 11, 12, 13, 14)	| im:None		,
+    	in (3, 4)						| im:Low		,
+       	in (5, 6, 7)					| im:Moderate	,
+       	in (8, 9, 10)					| im:High		;
        	
 //model local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020
 //	as soil.incubation:Fertility named fertility_input;
