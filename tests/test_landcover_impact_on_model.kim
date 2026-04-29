@@ -1,0 +1,177 @@
+worldview im
+using primitive_characteristic,
+	  primitive_characteristic.anthropogenic, 
+	  primitive_characteristic.atmospheric_disturbance,
+	  primitive_characteristic.climate,
+	  primitive_characteristic.coastal,
+	  primitive_characteristic.ecosystem_function,
+	  primitive_characteristic.geothermal_energy,
+	  primitive_characteristic.soil,
+	  primitive_characteristic.surface_water,
+	  primitive_characteristic.vegetation,
+	  primitive_characteristic.wildfire_disturbance, 
+	  nca.ecosystem.iucn,
+	  (
+	 BIOME_T2_TEMPERATE_BOREAL_FOREST_WOODLAND_ECOSYSTEM_TYPES,
+	 BIOME_T3_SHRUBLAND_SHRUBBY_WOODLAND_ECOSYSTEM_TYPES	  	
+	   ) from table.ecosystem.typology.iucn;
+
+@test(
+    name = "test_landcover_impact_on_model",
+    description  = "",
+    // add to the list any concepts to be observed in the context below
+    observations = (
+//    "data.global.landcover.copernicus_landcover_2020"
+    "primitive_characteristic.copernicus_landcover_2020"
+    "im|esa.aries.sandbox/tests/test_landcover_impact_on_model.biome_t2_temperateborealforestwoodland_with_landcover"
+    "im|esa.aries.sandbox/tests/test_landcover_impact_on_model.biome_t2_temperateborealforestwoodland_without_landcover"
+    "im|esa.aries.sandbox/tests/test_landcover_impact_on_model.biome_t3_shrubland_shrubby_woodland_with_landcover"
+    "im|esa.aries.sandbox/tests/test_landcover_impact_on_model.biome_t3_shrubland_shrubby_woodland_without_landcover"
+    ),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named test_landcover_impact_on_model
+     over space(shape="EPSG:4326 POLYGON ((15.55714842216626 50.72765426409447, 15.556654896087498 50.72448224933078, 15.555193283781637 50.72143193078193, 15.549625520723442 50.716156244099125, 15.541292774445395 50.71263081196051, 15.531463630031794 50.711392781917766, 15.521634485618195 50.71263081196051, 15.513301739340148 50.716156244099125, 15.507733976281953 50.72143193078193, 15.506272363976093 50.72448224933078, 15.50577883789733 50.72765426409447, 15.506272363976093 50.730826064108555, 15.507733976281953 50.73387577110219, 15.513301739340148 50.73914946290864, 15.521634485618195 50.74267290017099, 15.531463630031794 50.74391010390897, 15.541292774445395 50.74267290017099, 15.549625520723442 50.73914946290864, 15.555193283781637 50.73387577110219, 15.556654896087498 50.730826064108555, 15.55714842216626 50.72765426409447))", grid="100 m"),
+     time(year=2020)
+;
+
+define TEST_T2_NO_LANDCOVER as {{
+  landcover | annual_diurnal_air_temperature_mean | annual_water_budget_total       | seasonal_diurnal_air_temperature_amplitude | seasonal_diurnal_air_temperature_variability | summer_diurnal_air_temperature_mean | winter_diurnal_air_temperature_mean                                                         | annual_net_primary_productivity_total | vegetation_type | chemical_properties_base_saturation | chemical_properties_n   | fertility                          | peat_thickness          | canopy_cover                     | canopy_height             | leaf_area_index           | leaf_size                                  | phenology              | specific_leaf_area                              | periodicity      | recurrence                                                              | ecosystem_type                                            
+  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  #         | #                                   | in (im:ModeratelyHigh, im:High) | im:High                                    | #                                            | #                                   | in (ecology.incubation:ExtremelyCold, ecology.incubation:VeryCold, ecology.incubation:Cold) | #                                     | #               | #                                   | #                       | #                                  | #                       | in (ecology:Open, ecology:Dense) | in (im:Low, im:Moderate)  | #                         | #                                          | ecology:Evergreen      | #                                               | #                | in (ecology.incubation:MultiDecadal, false)                             | nca.ecosystem.iucn:BorealTemperateMontaneForestWoodland    ,
+  #         | #                                   | in (im:ModeratelyHigh, im:High) | #                                          | #                                            | #                                   | #                                                                                           | im:High                               | #               | #                                   | im:High                 | in (im:Low, im:None, im:High)      | #                       | in (ecology:Open, ecology:Dense) | #                         | in (im:High, im:VeryHigh) | in (ecology:Notophyll, ecology:Mesophyll)  | #                   	  | in (im:ModeratelyHigh, im:High)                   | #                | false                                                                   | nca.ecosystem.iucn:DeciduousTemperateForest                ,
+  #         | #                                   | #                               | #                                          | #                                            | #                                   | ecology.incubation:Cool                                                                     | in (im:Moderate, im:High)             | #               | #                                   | #                       | in (im:None, im:Low, im:None) | in (im:High, soil:Deep) | #                                | #                         | in (im:High, im:VeryHigh) | in (ecology:Nanophyll, ecology:Microphyll) | in (ecology:Evergreen) | in (im:ModeratelyHigh, im:High)                   | #                | #                                                                       | nca.ecosystem.iucn:OceanicCoolTemperateRainforest          ,
+  #         | ecology.incubation:Mild             | in (im:ModeratelyHigh, im:High) | #                                          | im:Moderate                                  | #                                   | #                                                                                           | im:High                               | #               | #                                   | #                       | #                                  | #                       | ecology:Dense                    | #                         | in (im:High, im:VeryHigh) | in (ecology:Microphyll, ecology:Notophyll) | #                      | in (im:ModeratelyLow, im:ModeratelyHigh)            | #                | #                                                                       | nca.ecosystem.iucn:WarmTemperateLaurophyllForest           ,
+  #         | #                                   | in (im:ModeratelyHigh, im:High) | #                                          | #                                            | ecology.incubation:Warm             | ecology.incubation:Cool                                                                     | im:High                               | #               | #                                   | in (im:VeryLow, im:Low) | in (im:Low, im:None, im:High)      | #                       | ecology:Open                     | in (im:High, im:VeryHigh) | im:VeryHigh               | #                                          | #                      | #                                               | im:ModeratelyLow | in (ecology.incubation:Decadal, ecology.incubation:MultiDecadal, false) | nca.ecosystem.iucn:TemperatePyricHumidForest               ,
+  #         | #                                   | #                               | #                                          | #                                            | #                                   | #                                                                                           | #                                     | #               | im:Low                              | in (im:VeryLow, im:Low) | #                                  | #                       | ecology:Open                     | im:Moderate               | #                         | ecology:Microphyll                         | ecology:Evergreen      | in (ecology:MixedLeafPhenology, im:ModeratelyLow) | #                | in (ecology.incubation:Decadal, ecology.incubation:MultiDecadal)        | nca.ecosystem.iucn:TemperatePyricSclerophyllForestWoodland
+}};
+
+define BIOME_T2_TEMPERATE_BOREAL_FOREST_WOODLAND_ECOSYSTEM_TYPES as {{
+  landcover                                                                        | annual_diurnal_air_temperature_mean | annual_water_budget_total      | seasonal_diurnal_air_temperature_amplitude | seasonal_diurnal_air_temperature_variability | summer_diurnal_air_temperature_mean | winter_diurnal_air_temperature_mean                                                       | annual_net_primary_productivity_total | vegetation_type         | chemical_properties_base_saturation | chemical_properties_n  | fertility                       | peat_thickness              | canopy_cover                      | canopy_height            | leaf_area_index          | leaf_size                                 | phenology         | specific_leaf_area                              | periodicity | recurrence                                                                                    | ecosystem_type                                            
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  in (landcover:Forest, landcover:Shrubland, landcover:Grassland, landcover:BareArea) | #                                   | in (im:ModeratelyHigh im:High) | im:High                                    | #                                            | #                                   | in (ecology.incubation:ExtremelyCold ecology.incubation:VeryCold ecology.incubation:Cold) | #                                     | #                       | #                                   | #                      | #                               | #                           | in (ecology:Open ecology:Dense)  | in (im:Low im:Moderate)  | #                        | #                                         | ecology:Evergreen | #                                                | #          | in (ecology.incubation:MultiDecadal ecology.incubation:Centennial)                            | nca.ecosystem.iucn:BorealTemperateMontaneForestWoodland    ,
+  in (landcover:Forest, landcover:Shrubland, landcover:Grassland, landcover:BareArea) | #                                   | in (im:ModeratelyHigh im:High) | #                                          | #                                            | #                                   | #                                                                                         | im:High                               | #                       | #                                   | im:High                | in (im:Low im:Moderate im:High) | #                           | in (ecology:Open ecology:Dense)  | #                        | in (im:High im:VeryHigh) | in (ecology:Notophyll ecology:Mesophyll)  | ecology:Deciduous | in (im:ModeratelyHigh ecology:MixedLeafPhenology)| false      | ecology.incubation:Centennial                                                                 | nca.ecosystem.iucn:DeciduousTemperateForest                ,
+  in (landcover:Forest, landcover:Shrubland, landcover:Grassland, landcover:BareArea) | #                                   | #                              | #                                          | #                                            | #                                   | ecology.incubation:Cool                                                                   | in (im:Moderate im:High)              | #                       | #                                   | #                      | in (im:None im:Low im:Moderate) | in (im:Moderate im:VeryHigh)| #                                 | #                        | in (im:High im:VeryHigh) | in (ecology:Nanophyll ecology:Microphyll) | #                 | in (im:ModeratelyHigh ecology:MixedLeafPhenology)| #          | #                                                                                             | nca.ecosystem.iucn:OceanicCoolTemperateRainforest          ,
+  in (landcover:Forest, landcover:Shrubland, landcover:Grassland, landcover:BareArea) | ecology.incubation:Mild             | in (im:ModeratelyHigh im:High) | #                                          | im:Moderate                                  | #                                   | #                                                                                         | im:High                               | #                       | #                                   | #                      | #                               | #                           | ecology:Dense                      | #                        | in (im:High im:VeryHigh) | in (ecology:Microphyll ecology:Notophyll) | ecology:Evergreen | in (im:ModeratelyHigh im:ModeratelyHigh)         | #          | #                                                                                             | nca.ecosystem.iucn:WarmTemperateLaurophyllForest           ,
+  in (landcover:Forest, landcover:Shrubland, landcover:Grassland, landcover:BareArea) | #                                   | in (im:ModeratelyHigh im:High) | #                                          | #                                            | ecology.incubation:Warm             | ecology.incubation:Cool                                                                   | im:High                               | ecology:WoodyVegetation | #                                   | in (im:VeryLow im:Low) | in (im:Low im:Moderate im:High) | #                           | ecology:Open                     | in (im:High im:VeryHigh) | im:VeryHigh              | #                                         | #                 | #                                                | false      | in (ecology.incubation:Decadal ecology.incubation:MultiDecadal ecology.incubation:Centennial) | nca.ecosystem.iucn:TemperatePyricHumidForest               ,
+  in (landcover:Forest, landcover:Shrubland, landcover:Grassland, landcover:BareArea) | #                                   | #                              | #                                          | #                                            | #                                   | #                                                                                         | #                                     | ecology:WoodyVegetation | im:Low                              | in (im:VeryLow im:Low) | #                               | #                           | ecology:Open                     | im:Moderate              | #                        | ecology:Microphyll                        | ecology:Evergreen | in (im:Low im:ModeratelyHigh)                    | #          | in (ecology.incubation:Decadal ecology.incubation:MultiDecadal)                               | nca.ecosystem.iucn:TemperatePyricSclerophyllForestWoodland
+}};
+
+//--- BIOME T2 - TemperateBorealForestWoodland annotation---
+model im:Appropriate nca.ecosystem.iucn:TemperateBorealForestWoodland type of nca.ecosystem.iucn:Ecosystem named biome_t2_temperateborealforestwoodland_with_landcover
+observing
+landcover:LandCoverType named landcover,
+level of im:Daily im:Mean earth:AtmosphericTemperature during im:Year named annual_diurnal_air_temperature_mean,
+level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance) named annual_water_budget_total,
+//level of im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_amplitude,
+//level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability,
+level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_air_temperature_mean,
+level of im:Mean earth:AtmosphericTemperature during earth:Winter named winter_diurnal_air_temperature_mean,
+level of ecology:NetPrimaryProduction named annual_net_primary_productivity_total,
+//vegetation_type is not available,
+level of (chemistry:Basic chemistry:ExchangeCapacity of chemistry:Cation) named chemical_properties_base_saturation,
+level of (proportion of chemistry:Nitrogen in soil:Soil) named chemical_properties_n,
+level of soil.incubation:Fertility named fertility,
+level of (im:Depth of landcover:PeatBog earth:Region) named peat_thickness,
+level of ecology:CanopyCover named canopy_cover,
+level of (im:Mean im:Height of ecology:Canopy) named canopy_height,
+level of ecology:LeafAreaIndex named leaf_area_index,
+level of (physical.incubation:Shadow im:Area of biology:Leaf) named leaf_size,
+type of ecology:LeafPhenology named phenology,
+level of (ratio of im:Area to earth:Dry im:Mass of biology:Leaf) named specific_leaf_area,
+presence of earth:Region with im:High im:Frequency of chemistry:Fire named periodicity,
+level of (count of im:Yearly im:Occurrence of chemistry:Fire) named recurrence
+lookup (landcover, annual_diurnal_air_temperature_mean, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, ?)
+//lookup (landcover, annual_diurnal_air_temperature_mean, annual_water_budget_total, *, *, summer_diurnal_air_temperature_mean, winter_diurnal_air_temperature_mean, annual_net_primary_productivity_total, *, *, chemical_properties_n, fertility, peat_thickness, canopy_cover, canopy_height, leaf_area_index, leaf_size, phenology, specific_leaf_area, periodicity, recurrence, ?)
+into BIOME_T2_TEMPERATE_BOREAL_FOREST_WOODLAND_ECOSYSTEM_TYPES;
+
+//--- BIOME T2 - TemperateBorealForestWoodland annotation---
+model im:Inappropriate nca.ecosystem.iucn:TemperateBorealForestWoodland type of nca.ecosystem.iucn:Ecosystem named biome_t2_temperateborealforestwoodland_without_landcover
+observing
+//landcover:LandCoverType named landcover,
+level of im:Daily im:Mean earth:AtmosphericTemperature during im:Year named annual_diurnal_air_temperature_mean,
+level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance) named annual_water_budget_total,
+//level of im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_amplitude,
+//level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability,
+level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_air_temperature_mean,
+level of im:Mean earth:AtmosphericTemperature during earth:Winter named winter_diurnal_air_temperature_mean,
+level of ecology:NetPrimaryProduction named annual_net_primary_productivity_total,
+//vegetation_type is not available,
+level of (chemistry:Basic chemistry:ExchangeCapacity of chemistry:Cation) named chemical_properties_base_saturation,
+level of (proportion of chemistry:Nitrogen in soil:Soil) named chemical_properties_n,
+level of soil.incubation:Fertility named fertility,
+level of (im:Depth of landcover:PeatBog earth:Region) named peat_thickness,
+level of ecology:CanopyCover named canopy_cover,
+level of (im:Mean im:Height of ecology:Canopy) named canopy_height,
+level of ecology:LeafAreaIndex named leaf_area_index,
+level of (physical.incubation:Shadow im:Area of biology:Leaf) named leaf_size,
+type of ecology:LeafPhenology named phenology,
+level of (ratio of im:Area to earth:Dry im:Mass of biology:Leaf) named specific_leaf_area,
+presence of earth:Region with im:High im:Frequency of chemistry:Fire named periodicity,
+level of (count of im:Yearly im:Occurrence of chemistry:Fire) named recurrence
+lookup (landcover, annual_diurnal_air_temperature_mean, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, ?)
+//lookup (landcover, annual_diurnal_air_temperature_mean, annual_water_budget_total, *, *, summer_diurnal_air_temperature_mean, winter_diurnal_air_temperature_mean, annual_net_primary_productivity_total, *, *, chemical_properties_n, fertility, peat_thickness, canopy_cover, canopy_height, leaf_area_index, leaf_size, phenology, specific_leaf_area, periodicity, recurrence, ?)
+into TEST_T2_NO_LANDCOVER;
+
+define TEST_T3_NO_LANDCOVER as {{
+  landcover | coastal_storms_exposure | annual_diurnal_air_temperature_mean                   | annual_water_budget_total       | seasonal_diurnal_air_temperature_variability | summer_diurnal_air_temperature_mean                                                      | winter_diurnal_air_temperature_mean | winter_water_budget_total       | annual_net_primary_productivity_total | geothermal | tree_density                            | chemical_properties_base_saturation | chemical_properties_n   | canopy_cover | canopy_height           | leaf_size                                  | phenology         | specific_leaf_area            | recurrence                                                                                      | ecosystem_type                                         
+  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  #			| #                       | in (ecology.incubation:Mild, ecology.incubation:Warm) | #                               | in (im:VeryLow, im:Low)                      | #                                                                                        | #                                   | in (im:Low, im:ModeratelyLow)   | in (im:Moderate, im:Low)              | #          | #                                       | im:Low                              | in (im:VeryLow, im:Low) | ecology:Open | in (im:VeryLow, im:Low) | in (ecology:Nanophyll, ecology:Microphyll) | ecology:Evergreen | in (im:Low, im:ModeratelyLow) | in (ecology.incubation:Decadal, ecology.incubation:MultiDecadal, ecology.incubation:Centennial) | nca.ecosystem.iucn:SeasonallyDryTropicalShrubland       ,
+  #			| true                    | #                                                     | #                               | #                                            | in (ecology.incubation:Hot, ecology.incubation:VeryHot, ecology.incubation:ExtremelyHot) | #                                   | in (im:ModeratelyHigh, im:High) | in (im:Low, im:Moderate)              | true       | #                                       | #                                   | in (im:VeryLow, im:Low) | #            | in (im:VeryLow, im:Low) | #                                          | #                 | in (im:Low, im:ModeratelyLow) | in (ecology.incubation:SubDecadal, ecology.incubation:Decadal, ecology.incubation:MultiDecadal) | nca.ecosystem.iucn:SeasonallyDryTemperateHeathShrubland ,
+  #			| true                    | #                                                     | in (im:ModeratelyHigh, im:High) | #                                            | ecology.incubation:Mild                                                                  | ecology.incubation:Cool             | #                               | im:Low                                | #          | #                                       | #                                   | #                       | #            | im:VeryLow              | #                                          | ecology:Evergreen | #                             | in (ecology.incubation:SubDecadal, ecology.incubation:Decadal, ecology.incubation:MultiDecadal) | nca.ecosystem.iucn:CoolTemperateHeathland               ,
+  #			| #                       | #                                                     | #                               | #                                            | in (ecology.incubation:Hot, ecology.incubation:VeryHot, ecology.incubation:ExtremelyHot) | #                                   | #                               | im:Low                                | true       | in (ecology:VerySparse, ecology:Sparse) | im:Low                              | #                       | #            | im:VeryLow              | #                                          | #                 | #                             | #                                                                                               | nca.ecosystem.iucn:RockyPavementLavaflowScree          
+}};
+
+//--- BIOME T3 - ShrublandShrubbyWoodland annotation---
+model im:Appropriate nca.ecosystem.iucn:ShrublandShrubbyWoodland type of nca.ecosystem.iucn:Ecosystem named biome_t3_shrubland_shrubby_woodland_with_landcover
+	observing
+		landcover:LandCoverType named landcover,
+		presence of earth:Coast with im:High earth:WindSpeed of earth:Storm named coastal_storms_exposure,
+		level of im:Daily im:Mean earth:AtmosphericTemperature during im:Year named annual_diurnal_air_temperature_mean,
+		level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance) named annual_water_budget_total,
+//level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability,
+		level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_air_temperature_mean,
+		level of im:Mean earth:AtmosphericTemperature during earth:Winter named winter_diurnal_air_temperature_mean,
+		level of (hydrology:WaterVolume caused by hydrology:WaterBalance during earth:Winter) named winter_water_budget_total,
+		level of ecology:NetPrimaryProduction named annual_net_primary_productivity_total,
+		presence of earth:Crust physical:Thermal earth:Region with im:High im:Energy named geothermal,
+		level of ecology:WoodyVegetation ecology:CanopyCover named tree_density,
+		level of (chemistry:Basic chemistry:ExchangeCapacity of chemistry:Cation) named chemical_properties_base_saturation,
+		level of (proportion of chemistry:Nitrogen in soil:Soil) named chemical_properties_n,
+		level of ecology:CanopyCover named canopy_cover,
+		level of (im:Mean im:Height of ecology:Canopy) named canopy_height,
+		level of (physical.incubation:Shadow im:Area of biology:Leaf) named leaf_size,
+		type of ecology:LeafPhenology named phenology,
+		level of (ratio of im:Area to earth:Dry im:Mass of biology:Leaf) named specific_leaf_area,
+		level of (count of im:Yearly im:Occurrence of chemistry:Fire) named recurrence
+//lookup (landcover, coastal_storms_exposure, annual_diurnal_air_temperature_mean, annual_water_budget_total, seasonal_diurnal_air_temperature_variability, summer_diurnal_air_temperature_mean, winter_diurnal_air_temperature_mean, winter_water_budget_total, annual_net_primary_productivity_total, geothermal, tree_density, chemical_properties_base_saturation, chemical_properties_n, canopy_cover, canopy_height, leaf_size, phenology, specific_leaf_area, recurrence, ?)
+	lookup (landcover, coastal_storms_exposure, annual_diurnal_air_temperature_mean, annual_water_budget_total, *, summer_diurnal_air_temperature_mean, winter_diurnal_air_temperature_mean, winter_water_budget_total, annual_net_primary_productivity_total, geothermal, tree_density, chemical_properties_base_saturation, chemical_properties_n, canopy_cover, canopy_height, leaf_size, phenology, specific_leaf_area, recurrence, ?)
+	into BIOME_T3_SHRUBLAND_SHRUBBY_WOODLAND_ECOSYSTEM_TYPES;
+
+//--- BIOME T3 - ShrublandShrubbyWoodland annotation---
+model im:Inappropriate nca.ecosystem.iucn:ShrublandShrubbyWoodland type of nca.ecosystem.iucn:Ecosystem named biome_t3_shrubland_shrubby_woodland_without_landcover
+	observing
+		landcover:LandCoverType named landcover,
+		presence of earth:Coast with im:High earth:WindSpeed of earth:Storm named coastal_storms_exposure,
+		level of im:Daily im:Mean earth:AtmosphericTemperature during im:Year named annual_diurnal_air_temperature_mean,
+		level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance) named annual_water_budget_total,
+//level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability,
+		level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_air_temperature_mean,
+		level of im:Mean earth:AtmosphericTemperature during earth:Winter named winter_diurnal_air_temperature_mean,
+		level of (hydrology:WaterVolume caused by hydrology:WaterBalance during earth:Winter) named winter_water_budget_total,
+		level of ecology:NetPrimaryProduction named annual_net_primary_productivity_total,
+		presence of earth:Crust physical:Thermal earth:Region with im:High im:Energy named geothermal,
+		level of ecology:WoodyVegetation ecology:CanopyCover named tree_density,
+		level of (chemistry:Basic chemistry:ExchangeCapacity of chemistry:Cation) named chemical_properties_base_saturation,
+		level of (proportion of chemistry:Nitrogen in soil:Soil) named chemical_properties_n,
+		level of ecology:CanopyCover named canopy_cover,
+		level of (im:Mean im:Height of ecology:Canopy) named canopy_height,
+		level of (physical.incubation:Shadow im:Area of biology:Leaf) named leaf_size,
+		type of ecology:LeafPhenology named phenology,
+		level of (ratio of im:Area to earth:Dry im:Mass of biology:Leaf) named specific_leaf_area,
+		level of (count of im:Yearly im:Occurrence of chemistry:Fire) named recurrence
+//lookup (landcover, coastal_storms_exposure, annual_diurnal_air_temperature_mean, annual_water_budget_total, seasonal_diurnal_air_temperature_variability, summer_diurnal_air_temperature_mean, winter_diurnal_air_temperature_mean, winter_water_budget_total, annual_net_primary_productivity_total, geothermal, tree_density, chemical_properties_base_saturation, chemical_properties_n, canopy_cover, canopy_height, leaf_size, phenology, specific_leaf_area, recurrence, ?)
+	lookup (landcover, coastal_storms_exposure, annual_diurnal_air_temperature_mean, annual_water_budget_total, *, summer_diurnal_air_temperature_mean, winter_diurnal_air_temperature_mean, winter_water_budget_total, annual_net_primary_productivity_total, geothermal, tree_density, chemical_properties_base_saturation, chemical_properties_n, canopy_cover, canopy_height, leaf_size, phenology, specific_leaf_area, recurrence, ?)
+	into TEST_T3_NO_LANDCOVER;
