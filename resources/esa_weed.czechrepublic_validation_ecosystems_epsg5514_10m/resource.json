@@ -1,5 +1,5 @@
 {
-  "urn" : "local:justus.muhando:esa.aries.sandbox:esa_weed.czechrepublic_validation_ecosystems_epsg5514_10m",
+  "urn" : "local:alessio.bulckaen:esa.aries.sandbox:esa_weed.czechrepublic_validation_ecosystems_epsg5514_10m",
   "version" : "0.0.1",
   "adapterType" : "wcs",
   "localPath" : "esa.aries.sandbox/resources/esa_weed.czechrepublic_validation_ecosystems_epsg5514_10m",
@@ -7,7 +7,7 @@
   "projectName" : "esa.aries.sandbox",
   "localName" : "esa_weed.czechrepublic_validation_ecosystems_epsg5514_10m",
   "type" : "NUMBER",
-  "resourceTimestamp" : 1777467563224,
+  "resourceTimestamp" : 1777556913131,
   "metadata" : { },
   "parameters" : {
     "wcsIdentifier" : "esa_weed__czechrepublic_validation_ecosystems_epsg5514_10m",
