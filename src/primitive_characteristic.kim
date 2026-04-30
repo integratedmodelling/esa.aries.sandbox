@@ -14,6 +14,21 @@ private model local:rubencc:im.data.global:im-data-global-landcover.copernicus_l
 	landcover:Mangrove if 95,
 	landcover:LichenMoss if 100;
 
+/* ------------------------------------------------------------
+ * Polina's suggestion on landcover class code:
+ */	
+//	landcover:ArtificialSurface if 90,		// impervious
+//	landcover:BareArea if 80,				// bare
+//	landcover:Forest if in (10, 20, 60),	// woody(10,20), tree(10,60)
+//	landcover:GlacialArea,  				// this class appeared in the lookup table but there is no class code in the attribute of the original data.
+//	landcover:Grassland if in (30, 40),		// herbaceous
+//	landcover:LichenMoss if 70,				// lichens and mosses
+//	landcover:Shrubland if 20,				// shrub
+//	landcover:SnowCoveredArea,				// this class appeared in the lookup table but there is no class code in the attribute of the original data.
+//	landcover:WaterBody if 80,
+//	landcover:Wetland,						// wetland  // class code is missing, waiting for Polina's input.
+//	landcover:GlacierPerpetualSnow if 110;	// snow or ice
+
 model
 	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2018_mosaic,
 	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2019_mosaic,
