@@ -32,10 +32,14 @@ using primitive_characteristic,
     assertions = ()
 )
 // change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
-observe /* a:urn:to:use#objectid as */ earth:Region named test_landcover_impact_on_model
-     over space(shape="EPSG:4326 POLYGON ((15.55714842216626 50.72765426409447, 15.556654896087498 50.72448224933078, 15.555193283781637 50.72143193078193, 15.549625520723442 50.716156244099125, 15.541292774445395 50.71263081196051, 15.531463630031794 50.711392781917766, 15.521634485618195 50.71263081196051, 15.513301739340148 50.716156244099125, 15.507733976281953 50.72143193078193, 15.506272363976093 50.72448224933078, 15.50577883789733 50.72765426409447, 15.506272363976093 50.730826064108555, 15.507733976281953 50.73387577110219, 15.513301739340148 50.73914946290864, 15.521634485618195 50.74267290017099, 15.531463630031794 50.74391010390897, 15.541292774445395 50.74267290017099, 15.549625520723442 50.73914946290864, 15.555193283781637 50.73387577110219, 15.556654896087498 50.730826064108555, 15.55714842216626 50.72765426409447))", grid="100 m"),
-     time(year=2020)
-;
+observe earth:Region named landcover_impact_on_model__czeck_republic_small_sample1
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=CZE_1',
+//observe /* a:urn:to:use#objectid as */ earth:Region named test_landcover_impact_on_model
+//     over space(shape="EPSG:4326 POLYGON ((15.55714842216626 50.72765426409447, 15.556654896087498 50.72448224933078, 15.555193283781637 50.72143193078193, 15.549625520723442 50.716156244099125, 15.541292774445395 50.71263081196051, 15.531463630031794 50.711392781917766, 15.521634485618195 50.71263081196051, 15.513301739340148 50.716156244099125, 15.507733976281953 50.72143193078193, 15.506272363976093 50.72448224933078, 15.50577883789733 50.72765426409447, 15.506272363976093 50.730826064108555, 15.507733976281953 50.73387577110219, 15.513301739340148 50.73914946290864, 15.521634485618195 50.74267290017099, 15.531463630031794 50.74391010390897, 15.541292774445395 50.74267290017099, 15.549625520723442 50.73914946290864, 15.555193283781637 50.73387577110219, 15.556654896087498 50.730826064108555, 15.55714842216626 50.72765426409447))", grid="100 m"),
+    			grid="100 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
 
 define TEST_T2_NO_LANDCOVER as {{
   landcover | annual_diurnal_air_temperature_mean | annual_water_budget_total       | seasonal_diurnal_air_temperature_amplitude | seasonal_diurnal_air_temperature_variability | summer_diurnal_air_temperature_mean | winter_diurnal_air_temperature_mean                                                         | annual_net_primary_productivity_total | vegetation_type | chemical_properties_base_saturation | chemical_properties_n   | fertility                          | peat_thickness          | canopy_cover                     | canopy_height             | leaf_area_index           | leaf_size                                  | phenology              | specific_leaf_area                              | periodicity      | recurrence                                                              | ecosystem_type                                            
