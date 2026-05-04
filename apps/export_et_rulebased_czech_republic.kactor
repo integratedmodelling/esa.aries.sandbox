@@ -5,7 +5,7 @@ action main:
 /*
  * Set the directory of the your output nesting the results within more folders by separatng them with a slash ("/") 
  */
-	output_folder_directory = "ecosystem_type_analysis/k.lab_outputs/biome_model_testing/czech_republic"
+	output_folder_directory = "klab.data/project_specific/weed/primitive_charactersitics/model_output_comparison_against_reference"
 
 /*
  * Set observable for which a map should be stored (as raster/vector files)
@@ -14,12 +14,12 @@ action main:
 //		{landcover:LandCoverType} //generic semantic concept goes with their URN into {} 
 
 //Local dataset:
-		rule_based_modelling.czech_republic.crosswalked_national_map_to_ecosystem_type_iucn_get
+		primitive_characteristic.reference_maps.reference_ecosystem_czech_republic
 		primitive_characteristic.vegetation.canopy_height_input_czechia
 		primitive_characteristic.vegetation.canopy_cover_input_czech_republic
 //RB model inputs		
-		primitive_characteristic.copernicus_landcover_2020
-
+//		primitive_characteristic.copernicus_landcover_2020
+		primitive_characteristic.glc_fcs30
 		primitive_characteristic.climate.summer_diurnal_air_temperature_mean_input
 		primitive_characteristic.climate.summer_diurnal_air_temperature_mean
 		primitive_characteristic.climate.winter_diurnal_air_temperature_mean_input
@@ -116,10 +116,10 @@ action main:
  * URN of a resource (i.e. a vector file, which can contain multiple features)
  * Creates n output (.tiff and .xlsx files) for each feature (ID) in the spatial context resource (n = n_tables x n_ID_features).  
  */
-	wkt_context = Space(shape='POLYGON ((19.016595 48.192287, ..., 19.016595 48.192287))') //Set the context using WKT or the URN of a resource
-//	spatial_contexts_urn = "local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2"//"local:rubencc:esa.aries.sandbox:esa_weed_vietnam_priority_areas_epsg4326_v2"//"local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_priority_areas_epsg4326_v2"//"local:rubencc:esa.aries.sandbox:esa_weed_vietnam_priority_areas_epsg4326_v2"//"local:justus.muhando:esa.aries.sandbox:esa_weed_south_africa_priority_areas_epsg4326_v2"
-	spatial_contexts_urn = "local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons"
-	resolution = 100.m
+	wkt_context = Space(shape='EPSG:4326 POLYGON ((15.748942702500514 50.681390577244684, 15.747469821192952 50.67191402207328, 15.743107779272918 50.662799841036474, 15.73602420756514 50.654398596983896, 15.726491323757825 50.64703360904173, 15.714875471229597 50.64098845699783, 15.701623040678863 50.63649600013733, 15.687243315579641 50.633729345221326, 15.672288900703256 50.632795123404094, 15.657334485826867 50.633729345221326, 15.642954760727646 50.63649600013733, 15.629702330176912 50.64098845699783, 15.618086477648683 50.64703360904173, 15.608553593841371 50.654398596983896, 15.60147002213359 50.662799841036474, 15.597107980213556 50.67191402207328, 15.595635098905994 50.681390577244684, 15.597107980213556 50.69086521908886, 15.60147002213359 50.69997395143105, 15.608553593841371 50.70836704093631, 15.618086477648683 50.71572240993481, 15.629702330176912 50.721757943035726, 15.642954760727646 50.726242245350846, 15.657334485826867 50.72900345157407, 15.672288900703256 50.72993576006485, 15.687243315579641 50.72900345157407, 15.701623040678863 50.726242245350846, 15.714875471229597 50.721757943035726, 15.726491323757825 50.71572240993481, 15.73602420756514 50.70836704093631, 15.743107779272918 50.69997395143105, 15.747469821192952 50.69086521908886, 15.748942702500514 50.681390577244684))') //Set the context using WKT or the URN of a resource
+	spatial_contexts_urn = "local:justus.muhando:esa.aries.sandbox:esa_weed_czechrepublic_priority_areas_epsg4326_v2"//"local:rubencc:esa.aries.sandbox:esa_weed_vietnam_priority_areas_epsg4326_v2"//"local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_priority_areas_epsg4326_v2"//"local:rubencc:esa.aries.sandbox:esa_weed_vietnam_priority_areas_epsg4326_v2"//"local:justus.muhando:esa.aries.sandbox:esa_weed_south_africa_priority_areas_epsg4326_v2"
+//	spatial_contexts_urn = "local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons"
+	resolution = 30.m
 
 /*
  * Set temporal boundaries of the analysis 
@@ -137,7 +137,8 @@ action main:
 //		for urn in observables_urns(	
 //			context(spatial_contexts_urn,resolution,Time(start=[year], end=[year+1], step=1.year),urn): state -> (
 		for priority_area in spatial_contexts_urn (
-				if [priority_area.new_id == 'CZ1']//|| priority_area.weed_site == 'CZ3'|| priority_area.weed_site == 'CZ1'] //|| feature.layer == 'central_colombia' || feature.layer == 'south_colombia']
+//				if [priority_area.new_id == 'CZ1' ]//|| priority_area.new_id == 'CZ2' ||]//|| priority_area.weed_site == 'CZ3'|| priority_area.weed_site == 'CZ1'] //|| feature.layer == 'central_colombia' || feature.layer == 'south_colombia']
+//				    context(wkt_context,resolution,Time(year=year))
 				    context(priority_area,resolution,Time(year=year))
 				    // loop over urns
 				    for urn in observables_urns (
@@ -163,12 +164,14 @@ action main:
 								if [observation.isEmpty()] (
 									warning(["Observation " + urn_name + " is empty"])
 								) else (
-									observation.export([output_folder_directory +"/" + priority_area.new_id + "/"+  urn_name + "_" + priority_area.new_id + "_" + resolution + "_" + year + ".tiff"])								
+									//observation.export([output_folder_directory + "/" +  urn_name + "_" + resolution + "_" + year + ".tiff"])																	
+									//observation.export([output_folder_directory +"/" + priority_area.new_id + "/"+  urn_name + "_" + priority_area.new_id + "_" + resolution + "_" + year + ".tiff"])								
+									observation.export([output_folder_directory +"/" + priority_area.weed_site + "/"+  urn_name + "_" + priority_area.weed_site + "_" + resolution + "_" + year + ".tiff"])
+									)
 									info(["Exporting urn " + urn_name])
 								)
 							)
 						)	
 					)
-				)
-			)
+			)			
 
