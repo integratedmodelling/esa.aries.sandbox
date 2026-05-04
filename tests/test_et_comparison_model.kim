@@ -1,0 +1,90 @@
+worldview im
+using primitive_characteristic,
+	  primitive_characteristic.anthropogenic, 
+	  primitive_characteristic.atmospheric_disturbance,
+	  primitive_characteristic.climate,
+	  primitive_characteristic.coastal,
+	  primitive_characteristic.ecosystem_function,
+	  primitive_characteristic.geothermal_energy,
+	  primitive_characteristic.soil,
+	  primitive_characteristic.surface_water,
+	  primitive_characteristic.vegetation,
+	  primitive_characteristic.wildfire_disturbance, 
+	  nca.ecosystem.iucn,
+	  (BIOME_T2_TEMPERATE_BOREAL_FOREST_WOODLAND_ECOSYSTEM_TYPES) from table.ecosystem.typology.iucn,
+	  et_result_comparison,
+	  (IUCN_GET_LEVEL_CONSISTENCY_TABLE) from et_result_comparison,
+	  (CZECH_REPUBLIC_IUCN_GET) from rule_based_modelling.czech_republic, 
+	  rule_based_modelling.czech_republic;
+
+@test(
+    name = "test_et_comparison_model",
+    description  = "",
+    // add to the list any concepts to be observed in the context below
+    observations = (
+    "im|esa.aries.sandbox/tests/test_et_comparison_model.biome_t2_temperateborealforestwoodland_with_reduced_variables"
+    "im|esa.aries.sandbox/tests/test_et_comparison_model.crosswalked_national_map_to_ecosystem_type_iucn_get"
+    "im|esa.aries.sandbox/tests/test_et_comparison_model.matching_ecosystem_type_level_3"),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named test_et_comparison_model
+    // add any space and/or time extents: for example
+    over space(shape="EPSG:4326 POLYGON ((15.632548684849466 50.696022691388066, 15.631776205210866 50.69105432642493, 15.629488452254357 50.68627639663083, 15.625773343043075 50.68187260043587, 15.620773647140554 50.67801230088574, 15.614681500056468 50.67484399768446, 15.607731019586735 50.672489597512, 15.600189308797935 50.6710397062935, 15.592346191406248 50.67055012782831, 15.58450307401456 50.6710397062935, 15.576961363225761 50.672489597512, 15.57001088275603 50.67484399768446, 15.56391873567194 50.67801230088574, 15.558919039769421 50.68187260043587, 15.555203930558138 50.68627639663083, 15.552916177601633 50.69105432642493, 15.552143697963029 50.696022691388066, 15.552916177601633 50.700990530111994, 15.555203930558138 50.70576696130371, 15.558919039769421 50.71016851468164, 15.56391873567194 50.71402616864887, 15.57001088275603 50.717191826267225, 15.576961363225761 50.719543983622884, 15.58450307401456 50.72099237623911, 15.592346191406248 50.72148142846518, 15.600189308797935 50.72099237623911, 15.607731019586735 50.719543983622884, 15.614681500056468 50.717191826267225, 15.620773647140554 50.71402616864887, 15.625773343043075 50.71016851468164, 15.629488452254357 50.70576696130371, 15.631776205210866 50.700990530111994, 15.632548684849466 50.696022691388066))", grid="10 m")
+;
+
+//--- BIOME T2 - TemperateBorealForestWoodland annotation---
+model nca.ecosystem.iucn:TemperateBorealForestWoodland type of nca.ecosystem.iucn:Ecosystem named biome_t2_temperateborealforestwoodland_with_reduced_variables
+	observing
+		landcover:LandCoverType named landcover,
+		level of im:Daily im:Mean earth:AtmosphericTemperature during im:Year named annual_diurnal_air_temperature_mean
+//		level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance) named annual_water_budget_total,
+//		//level of im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_amplitude,
+//		//level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability,
+//		level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_air_temperature_mean,
+//		level of im:Mean earth:AtmosphericTemperature during earth:Winter named winter_diurnal_air_temperature_mean,
+//		level of ecology:NetPrimaryProduction named annual_net_primary_productivity_total,
+//		//vegetation_type is not available,
+//		level of (chemistry:Basic chemistry:ExchangeCapacity of chemistry:Cation) named chemical_properties_base_saturation,
+//		level of (proportion of chemistry:Nitrogen in soil:Soil) named chemical_properties_n,
+//		level of soil.incubation:Fertility named fertility,
+//		level of (im:Depth of landcover:PeatBog earth:Region) named peat_thickness,
+//		level of ecology:CanopyCover named canopy_cover,
+//		level of (im:Mean im:Height of ecology:Canopy) named canopy_height,
+//		level of ecology:LeafAreaIndex named leaf_area_index,
+//		level of (physical.incubation:Shadow im:Area of biology:Leaf) named leaf_size,
+//		type of ecology:LeafPhenology named phenology,
+//		level of (ratio of im:Area to earth:Dry im:Mass of biology:Leaf) named specific_leaf_area,
+//		presence of earth:Region with im:High im:Frequency of chemistry:Fire named periodicity,
+//		level of (count of im:Yearly im:Occurrence of chemistry:Fire) named recurrence
+	lookup (landcover, annual_diurnal_air_temperature_mean, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, ?)
+	//lookup (landcover, annual_diurnal_air_temperature_mean, annual_water_budget_total, *, *, summer_diurnal_air_temperature_mean, winter_diurnal_air_temperature_mean, annual_net_primary_productivity_total, *, *, chemical_properties_n, fertility, peat_thickness, canopy_cover, canopy_height, leaf_area_index, leaf_size, phenology, specific_leaf_area, periodicity, recurrence, ?)
+	into BIOME_T2_TEMPERATE_BOREAL_FOREST_WOODLAND_ECOSYSTEM_TYPES;
+
+model im:Reference nca.ecosystem.iucn:EcosystemType named crosswalked_national_map_to_ecosystem_type_iucn_get 
+	observing
+		   type of nca.ecosystemtype.classification.czech_republic:CzechEcosystem named czech_national_ecosystem_type_classification 
+//		   type of hydrology:WaterRegime  named wetness_regime ,
+//		   presence of agriculture:Planted ecology:Forest earth:Region named plantation,
+//		   type of nca.ecology:VegetationComposition named vegetation_composition
+//		   soil_edafogenetic_environment,
+//		   type of dane.colombia.hydrology:RiverWater named water_type,
+//		   type of dane.colombia.ecology:Transformation named transformed,		   
+//		   type of dane.colombia.hydrology:AquaticEnvironment named transitional,		   		   
+//		   non_continental
+	lookup(czech_national_ecosystem_type_classification, ? ,*, *, *) into CZECH_REPUBLIC_IUCN_GET;
+
+
+@colormap(values = {
+	true:	(0 255 0)
+	false:	(255 0 0)	
+})
+model presence of (earth:Region with type of et_result_comparison:Level_3 nca.ecosystem.iucn:Ecosystem) named matching_ecosystem_type_level_3
+	observing
+//		type of nca.ecosystem.iucn:Ecosystem named mapped_ecosystem_type,
+//		im:Reference et_result_comparison:Level_3 nca.ecosystem.iucn:EcosystemType named reference_ecosystem_type_level_3		  		                                                                                         
+		nca.ecosystem.iucn:TemperateBorealForestWoodland type of nca.ecosystem.iucn:Ecosystem named mapped_ecosystem_type,//biome_t2_mapped,
+		im:Reference nca.ecosystem.iucn:EcosystemType named reference_ecosystem_type_level_3		  		                                                                                         	
+	lookup (mapped_ecosystem_type, reference_ecosystem_type_level_3, *, *, ?, *) 
+		into IUCN_GET_LEVEL_CONSISTENCY_TABLE;
