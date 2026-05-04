@@ -4,7 +4,8 @@ using nca.ecosystem.iucn;
 number 'local:alessio.bulckaen:esa.aries.sandbox:esa_weed.czechrepublic_validation_ecosystems_epsg5514_10m' as czechrepublic_validation;
 
 model 'local:alessio.bulckaen:esa.aries.sandbox:esa_weed.czechrepublic_validation_ecosystems_epsg5514_10m'
-as geography:CzechRepublic im:Reference type of nca.ecosystem.iucn:Ecosystem named reference_ecosystem_czech_republic classified into 
+as //geography:CzechRepublic 
+	im:Reference type of nca.ecosystem.iucn:Ecosystem named reference_ecosystem_czech_republic classified into 
 		nca.ecosystem.iucn:DeciduousTemperateForest if 10202,
 		nca.ecosystem.iucn:SeasonalFloodplainMarsh if 50104,
 		nca.ecosystem.iucn:EpisodicAridFloodplain if 60141,

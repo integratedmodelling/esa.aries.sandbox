@@ -29,6 +29,7 @@ private model local:rubencc:im.data.global:im-data-global-landcover.copernicus_l
 //	landcover:Wetland,						// wetland  // class code is missing, waiting for Polina's input.
 //	landcover:GlacierPerpetualSnow if 110;	// snow or ice
 
+@reliability(10)
 model
 	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2018_mosaic,
 	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2019_mosaic,
