@@ -5,11 +5,16 @@ action main:
 /*
  * Set the directory of the your output nesting the results within more folders by separatng them with a slash ("/") 
  */
-	output_folder_directory = "klab.data/project_specific/weed/primitive_charactersitics/model_output_comparison_against_reference"
+	output_folder_directory = "primitive_characteristics/lookup_models_refinement/klab_outputs"
 
 /*
  * Set observable for which a map should be stored (as raster/vector files)
  */
+
+//	set observables_urns (
+//	primitive_characteristic.copernicus_landcover_2020	
+//	)
+
 	set observables_urns (
 //		{landcover:LandCoverType} //generic semantic concept goes with their URN into {} 
 
@@ -18,8 +23,8 @@ action main:
 		primitive_characteristic.vegetation.canopy_height_input_czechia
 		primitive_characteristic.vegetation.canopy_cover_input_czech_republic
 //RB model inputs		
-//		primitive_characteristic.copernicus_landcover_2020
-		primitive_characteristic.glc_fcs30
+		primitive_characteristic.copernicus_landcover_2020
+//		primitive_characteristic.glc_fcs30
 		primitive_characteristic.climate.summer_diurnal_air_temperature_mean_input
 		primitive_characteristic.climate.summer_diurnal_air_temperature_mean
 		primitive_characteristic.climate.winter_diurnal_air_temperature_mean_input
@@ -137,7 +142,7 @@ action main:
 //		for urn in observables_urns(	
 //			context(spatial_contexts_urn,resolution,Time(start=[year], end=[year+1], step=1.year),urn): state -> (
 		for priority_area in spatial_contexts_urn (
-//				if [priority_area.new_id == 'CZ1' ]//|| priority_area.new_id == 'CZ2' ||]//|| priority_area.weed_site == 'CZ3'|| priority_area.weed_site == 'CZ1'] //|| feature.layer == 'central_colombia' || feature.layer == 'south_colombia']
+				if [priority_area.new_id == 'CZ2' ]//|| priority_area.new_id == 'CZ2' ||]//|| priority_area.weed_site == 'CZ3'|| priority_area.weed_site == 'CZ1'] //|| feature.layer == 'central_colombia' || feature.layer == 'south_colombia']
 //				    context(wkt_context,resolution,Time(year=year))
 				    context(priority_area,resolution,Time(year=year))
 				    // loop over urns
