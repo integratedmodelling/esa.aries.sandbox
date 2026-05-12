@@ -1395,3 +1395,8 @@ number local:justus.muhando:esa.aries.sandbox:esa_weed.colombia_pai_sample_epsg4
 number local:justus.muhando:esa.aries.sandbox:esa_weed.colombia_rh50_sample_epsg4326_25m as colombia_rh50_sample;
 
 number "local:justus.muhando:esa.aries.sandbox:esa_weed.czechrepublic_validation_ecosystems_epsg5514_10m" as czechrepublic_validation;
+
+
+model 'local:samjinoj:im.data.global:im-data-global-hydrology:global_wetlands_20m_2020_mosaic'
+	as presence of earth:Marine earth:WaterBody
+	set to [self == 255];
