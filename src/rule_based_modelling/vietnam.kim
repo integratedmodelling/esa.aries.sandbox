@@ -353,12 +353,6 @@ define IUCN_GLOBAL_ECOSYSTEMS_BIOMES_IMPROVED as {{
   #                                        |  #               |  #           |  #        |  #          |  #       |  #                     |  #                         |  #                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |  #           |  #                |		#		|		#		|	#		|  nca.ecosystem.iucn:Terrestrial                             
  }};
  
- observe earth:Region named vietnam_quang_ninh__hai_phong_vn1
-    over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_vietnam_priority_areas_epsg4326_v2#weed_site=VN1',
-    			grid="100 m",
-                projection= "EPSG:4326"),
-        time(start=2022, end=2023, step=1.year); 
- 
 @key(en="Ecosystem type - IUCN GET 2.0 Level 3", es="Ecosystem - IUCN GET 2.0 nivel 3")
 @documented(seeaeea.ecosystemextent)
 model nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get_older_version
@@ -367,15 +361,15 @@ model nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get_older_versi
 //		ratio of earth:PrecipitationVolume to im:Potential hydrology:EvapotranspiredWaterVolume named aridity      ,
 		earth:AtmosphericTemperature in Celsius			                                        named a_temp  	   , 
 		im:Reference earth:AtmosphericTemperature in Celsius	                      			named wm_temp      ,
-//		presence of earth:Mountain																named mountain     ,		
-		geography:Elevation in m                                                                named elevation    
-//		type of soil:SoilTexture																named soil_texture 
+		presence of earth:Mountain																named mountain     ,		
+		geography:Elevation in m                                                                named elevation    ,
+		type of soil:SoilTexture																named soil_texture 
 //        keith_region                                                                                               ,
 //        dinerstein_region                                                                                          ,
 //		KoppenGeigerClimateZone																	named kg_clim      ,
 //		plantation                                                                                                      
 	lookup 
-		(landcover, *, a_temp, wm_temp, *, elevation, *, *, dinerstein_region, * , plantation, ?) 
+		(landcover, *, a_temp, wm_temp, mountain, elevation, soil_texture, *, dinerstein_region, *, plantation, ?) 
 			into IUCN_GLOBAL_ECOSYSTEMS_BIOMES;
 			
 model ImprovedVersion nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get_improved
@@ -387,14 +381,13 @@ model ImprovedVersion nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn
 //		presence of earth:Mountain																named mountain     ,		
 		geography:Elevation in m                                                                named elevation    ,
 		presence of nca.ecosystem.iucn:Terrestrial earth:Region 								named terrestrial,
-//		presence of earth:Coast 																named shoreline,
-		presence of es.nca:Marine earth:WaterBody 												named ocean
-//		type of soil:SoilTexture																named soil_texture 
+		presence of earth:Coast 																named shoreline,
+		presence of es.nca:Marine earth:WaterBody 												named ocean,
+		type of soil:SoilTexture																named soil_texture 
 //        keith_region                                                                                               ,
 //        dinerstein_region                                                                                          ,
 //		KoppenGeigerClimateZone																	named kg_clim      ,
 //		plantation                                                                                                      
 	lookup 
-		(landcover, *, a_temp, wm_temp, *, elevation, *, *, dinerstein_region, *, plantation, terrestrial, *, ocean, ?) 
-//		(landcover, *, a_temp, wm_temp, *, elevation, soil_texture, *, dinerstein_region, *, plantation, terrestrial, shoreline, ocean, ?) 
+		(landcover, *, a_temp, wm_temp, *, elevation, soil_texture, *, dinerstein_region, *, plantation, terrestrial, shoreline, ocean, ?) 
 			into IUCN_GLOBAL_ECOSYSTEMS_BIOMES_IMPROVED;
