@@ -110,6 +110,7 @@ define RULE_BASED_ECOSYSTEM_IUCN_TABLE_IMPROVED as {{
  }};
 
 // IMPROVED MODEL:
+@documented(southafrica.rulebased_improved.coastalecosystemtypes)
 model ImprovedVersion nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get_improved
 	observing
 		landcover:LandCoverType          		named landcover,
@@ -123,7 +124,8 @@ model ImprovedVersion nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn
 			into RULE_BASED_ECOSYSTEM_IUCN_TABLE_IMPROVED
 			over space(shape='MULTIPOLYGON (((21.44401804077235596 -33.49731133074468659, 21.59794895120490565 -33.50359422504805451, 21.68590947145207792 -33.62611066396375747, 22.02204431668234008 -33.66590232788509951, 22.04298729769357124 -33.94025537913222479, 21.79062437650823369 -33.88685077755358321, 21.49846979140155767 -33.73920276142440855, 21.40658246221477867 -33.64181789972217729, 21.44401804077235596 -33.49731133074468659)))');
 
-model alphathree:RuleBased geography:SouthAfrica nca.ecosystem.iucn:EcosystemType
+@documented(southafrica.rulebased_improved.coastalecosystemtypes)
+model ImprovedVersion alphathree:RuleBased geography:SouthAfrica nca.ecosystem.iucn:EcosystemType named rule_based_iucn_sa_improved
 		observing
 		landcover:LandCoverType          			named landcover,
 		rule_based_modelling:ForestType 		named forest_managment,
@@ -148,7 +150,7 @@ model OlderVersion nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_ge
 			into RULE_BASED_ECOSYSTEM_IUCN_TABLE
 			over space(shape='MULTIPOLYGON (((21.44401804077235596 -33.49731133074468659, 21.59794895120490565 -33.50359422504805451, 21.68590947145207792 -33.62611066396375747, 22.02204431668234008 -33.66590232788509951, 22.04298729769357124 -33.94025537913222479, 21.79062437650823369 -33.88685077755358321, 21.49846979140155767 -33.73920276142440855, 21.40658246221477867 -33.64181789972217729, 21.44401804077235596 -33.49731133074468659)))');
 
-model alphathree:RuleBased geography:SouthAfrica nca.ecosystem.iucn:EcosystemType
+model OlderVersion alphathree:RuleBased geography:SouthAfrica nca.ecosystem.iucn:EcosystemType named rule_based_iucn_sa_old
 		observing
 		landcover:LandCoverType          			named landcover,
 		rule_based_modelling:ForestType 		named forest_managment,
@@ -224,7 +226,7 @@ observe earth:Region named rulebased_and_ml_comparison
 	
 model 'local:justus.muhando:esa.aries.sandbox:esa_weed.south_africa_gea_20240722_2_vegetation_reclassified_epsg4326' 
 		// TODO: @Alessio, please help on checking why this resource is not authorised by the system in this repository.
-	as im:Reference geography:SouthAfrica nca.ecosystem.iucn:EcosystemType 
+	as im:Reference geography:SouthAfrica nca.ecosystem.iucn:EcosystemType named south_africa_reference
 	classified into
 		nca.ecosystem.iucn:AnnualCropland if 30,
 		nca.ecosystem.iucn:Plantation if 31,
@@ -270,16 +272,16 @@ define SOUTH_AFRICA_ECOSYSTEM_TYPE_COMPARISON_TABLE as {{
  * ----------------------- Ecosystem Type Comparison Model & Summary Tables ----------------------------------------
  */
 /*
- * # Rule-based approach result vs. Reference.
+ * # Rule-based approach result vs. Reference. OLDER VERSION
  */
 @colormap(values = {
 false:(94 50 50)
 true: (56 93 56)
 })
-model presence of (earth:Region with alphathree:RuleBased geography:SouthAfrica nca.ecosystem.iucn:EcosystemType) named matching_ecosystem_type_southafrica_rulebased 
+model presence of (earth:Region with OlderVersion alphathree:RuleBased geography:SouthAfrica nca.ecosystem.iucn:EcosystemType) named matching_ecosystem_type_southafrica_rulebased_old 
 	observing
 		im:Reference geography:SouthAfrica nca.ecosystem.iucn:EcosystemType named reference_ecosystem_type,
-		alphathree:RuleBased geography:SouthAfrica nca.ecosystem.iucn:EcosystemType named rule_based_ecosystem_type  		                                                                                         
+		OlderVersion alphathree:RuleBased geography:SouthAfrica nca.ecosystem.iucn:EcosystemType named rule_based_ecosystem_type  		                                                                                         
 	lookup 
 		(reference_ecosystem_type, * , rule_based_ecosystem_type, *, ?) 
 			into SOUTH_AFRICA_ECOSYSTEM_TYPE_COMPARISON_TABLE; 
@@ -304,14 +306,60 @@ model presence of (earth:Region with alphathree:RuleBased geography:SouthAfrica 
 //			(reference_ecosystem_type isnca.ecosystem.iucn:UrbanIndustrialEcosystem) && (rule_based_ecosystem_type is nca.ecosystem.iucn:UrbanIndustrialEcosystem) ? true :(
 //			false))))))))))))))) ];
 
-define table southafrica_ecosystem_type_result_comparison_by_ecosystem_type_rulebased_vs_reference as {
+define table old_southafrica_ecosystem_type_result_comparison_by_ecosystem_type_rulebased_vs_reference as {
 	title: "Comparison of the South Africa ecosystem type result between rule-based & reference maps - semantics"
 	label: "Areas of difference between rule-based & reference maps by ES types"
 	target: im:Reference geography:SouthAfrica nca.ecosystem.iucn:EcosystemType
 	columns:({ title: "{classifier}", filter: im:Reference geography:SouthAfrica nca.ecosystem.iucn:EcosystemType}), 	
-	rows:   ({ title: "Consistency in (km²) between rule-based & reference maps ({classifier})", target: im:Area in km^2, filter: presence of (earth:Region with alphathree:RuleBased geography:SouthAfrica nca.ecosystem.iucn:EcosystemType) }
+	rows:   ({ title: "Consistency in (km²) between rule-based & reference maps ({classifier})", target: im:Area in km^2, filter: presence of (earth:Region with OlderVersion alphathree:RuleBased geography:SouthAfrica nca.ecosystem.iucn:EcosystemType) }
 	         { title: "Total area (km²) according to South Africa reference map", summarize: [r1 + r2], style: bold }
 	         { title: "Similarity of the result from the rule-based & reference maps (%)", summarize: [(r1 / (r1 + r2))*100], style: bold })};
+
+
+//Rule-based approach result vs. Reference. IMPROVED
+
+@colormap(values = {
+false:(94 50 50)
+true: (56 93 56)
+})
+model presence of (earth:Region with ImprovedVersion alphathree:RuleBased geography:SouthAfrica nca.ecosystem.iucn:EcosystemType) named matching_ecosystem_type_southafrica_rulebased_improved
+	observing
+		im:Reference geography:SouthAfrica nca.ecosystem.iucn:EcosystemType named reference_ecosystem_type,
+		ImprovedVersion alphathree:RuleBased geography:SouthAfrica nca.ecosystem.iucn:EcosystemType named rule_based_ecosystem_type  		                                                                                         
+	lookup 
+		(reference_ecosystem_type, * , rule_based_ecosystem_type, *, ?) 
+			into SOUTH_AFRICA_ECOSYSTEM_TYPE_COMPARISON_TABLE; 
+//model presence of (earth:Region with alphathree:RuleBased geography:SouthAfrica nca.ecosystem.iucn:EcosystemType) named matching_ecosystem_type_southafrica_rulebased 
+//	observing
+//		im:Reference geography:SouthAfrica nca.ecosystem.iucn:EcosystemType named reference_ecosystem_type,
+//		alphathree:RuleBased geography:SouthAfrica nca.ecosystem.iucn:EcosystemType named rule_based_ecosystem_type  		                                                                                         
+//	set to [(reference_ecosystem_type is nca.ecosystem.iucn:TropicalSubtropicalDryForestThicket ) && (rule_based_ecosystem_type is nca.ecosystem.iucn:TropicalSubtropicalDryForestThicket ) ? true :(
+//			(reference_ecosystem_type isnca.ecosystem.iucn:Plantation) && (rule_based_ecosystem_type is nca.ecosystem.iucn:Plantation) ? true :(
+//			(reference_ecosystem_type isnca.ecosystem.iucn:DerivedSeminaturalPastureOldfield) && (rule_based_ecosystem_type is nca.ecosystem.iucn:DerivedSeminaturalPastureOldfield) ? true :(
+//			(reference_ecosystem_type isnca.ecosystem.iucn:UrbanIndustrialEcosystem) && (rule_based_ecosystem_type is nca.ecosystem.iucn:UrbanIndustrialEcosystem) ? true :(
+//			(reference_ecosystem_type isim:Reference geography:SouthAfrica nca.ecosystem.iucn:TropicalSubtropicalDryForestThicket) && (rule_based_ecosystem_type is im:Reference geography:SouthAfrica nca.ecosystem.iucn:TropicalSubtropicalDryForestThicket) ? true :(
+//			(reference_ecosystem_type isnca.ecosystem.iucn:SeasonallyDryTemperateHeathShrubland) && (rule_based_ecosystem_type is nca.ecosystem.iucn:SeasonallyDryTemperateHeathShrubland) ? true :(
+//			(reference_ecosystem_type isnca.ecosystem.iucn:ThornyDesertSemidesert) && (rule_based_ecosystem_type is nca.ecosystem.iucn:ThornyDesertSemidesert) ? true :(
+//			(reference_ecosystem_type isnca.ecosystem.iucn:ConstructedLacustrineWetland) && (rule_based_ecosystem_type is nca.ecosystem.iucn:ConstructedLacustrineWetland) ? true :(
+//			(reference_ecosystem_type isnca.ecosystem.iucn:Freshwater) && (rule_based_ecosystem_type is nca.ecosystem.iucn:Freshwater) ? true :(
+//			(reference_ecosystem_type isnca.ecosystem.iucn:TropicalSubtropicalForest) && (rule_based_ecosystem_type is nca.ecosystem.iucn:TropicalSubtropicalForest) ? true :(
+//			(reference_ecosystem_type isnca.ecosystem.iucn:TemperateBorealForestWoodland) && (rule_based_ecosystem_type is nca.ecosystem.iucn:TemperateBorealForestWoodland) ? true :(
+//			(reference_ecosystem_type isnca.ecosystem.iucn:SeasonallyDryTemperateHeathShrubland) && (rule_based_ecosystem_type is nca.ecosystem.iucn:SeasonallyDryTemperateHeathShrubland) ? true :(
+//			(reference_ecosystem_type isnca.ecosystem.iucn:ThornyDesertSemidesert) && (rule_based_ecosystem_type is nca.ecosystem.iucn:ThornyDesertSemidesert) ? true :(
+//			(reference_ecosystem_type isnca.ecosystem.iucn:AnnualCropland) && (rule_based_ecosystem_type is nca.ecosystem.iucn:AnnualCropland) ? true :(
+//			(reference_ecosystem_type isnca.ecosystem.iucn:UrbanIndustrialEcosystem) && (rule_based_ecosystem_type is nca.ecosystem.iucn:UrbanIndustrialEcosystem) ? true :(
+//			false))))))))))))))) ];
+
+define table improved_southafrica_ecosystem_type_result_comparison_by_ecosystem_type_rulebased_vs_reference as {
+	title: "Comparison of the South Africa ecosystem type result between rule-based & reference maps - semantics"
+	label: "Areas of difference between rule-based & reference maps by ES types"
+	target: im:Reference geography:SouthAfrica nca.ecosystem.iucn:EcosystemType
+	columns:({ title: "{classifier}", filter: im:Reference geography:SouthAfrica nca.ecosystem.iucn:EcosystemType}), 	
+	rows:   ({ title: "Consistency in (km²) between rule-based & reference maps ({classifier})", target: im:Area in km^2, filter: presence of (earth:Region with ImprovedVersion alphathree:RuleBased geography:SouthAfrica nca.ecosystem.iucn:EcosystemType) }
+	         { title: "Total area (km²) according to South Africa reference map", summarize: [r1 + r2], style: bold }
+	         { title: "Similarity of the result from the rule-based & reference maps (%)", summarize: [(r1 / (r1 + r2))*100], style: bold })};
+
+
 
 /*
  * # ML approach
