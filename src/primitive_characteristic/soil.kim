@@ -25,7 +25,7 @@ model level of (im:Depth of landcover:PeatBog earth:Region) named peat_thickness
 	lookup (peat_thickness_input, ?) into
     	peat_thickness	|	category
 		--------------------------------------
-   				   0	|	ecology:Absent	,
+   				   0	|	im:None			,
    		 	  0 to 0.3	|	im:Low			,
            	0.3 to 1	|	im:Moderate		,
                  > 1	|	im:High			;
