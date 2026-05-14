@@ -351,15 +351,27 @@ action main:
 					)
 				) :hidden #colombia_obs
 				(
-					checkbutton("IUCN GET (Rule-based national model - tier2_old)" #rbsa_national :tooltip "Model based on some national data to model IUCN GET level 3"): (
+					checkbutton("IUCN GET (Rule-based national model - tier2 Old version)" #rbsa_national :tooltip "Model based on some national data to model IUCN GET level 3"): (
 						submit(rule_based_modelling.south_africa.ecosystem_type_iucn_get_older_version)
 					)
-					checkbutton("IUCN GET (Rule-based national model - tier3_improved)" #rbsa_national_improved :tooltip "Improved model based on some national data to model IUCN GET level 3"): (
+					checkbutton("IUCN GET (Rule-based national model - tier3 Improved version)" #rbsa_national_improved :tooltip "Improved model based on some national data to model IUCN GET level 3"): (
 						submit(rule_based_modelling.south_africa.ecosystem_type_iucn_get_improved)
 					)
 					checkbutton("Alpha 3 IUCN-GET L3 (max prob. annotated)" #rbsa_global): (
 						submit(alphathree.ecosystem_type_alpha3_inference_stac_level3_sa)
 					)
+//					checkbutton("Results comparison against reference maps (Old Version)" #rbsa_comparison_old :tooltip "Old version rule-based result comparison vs reference maps"): (
+//						submit(rule_based_modelling.south_africa.south_africa_reference)
+//						submit(rule_based_modelling.south_africa.rule_based_iucn_sa_old)
+//						submit(rule_based_modelling.south_africa.matching_ecosystem_type_southafrica_rulebased_old)
+//						submit(rule_based_modelling.south_africa.old_southafrica_ecosystem_type_result_comparison_by_ecosystem_type_rulebased_vs_reference)
+//					)
+//					checkbutton("Results comparison against reference maps (Improved Version)" #rbsa_comparison_old :tooltip "Improved version rule-based result comparison vs reference maps"): (
+//						submit(rule_based_modelling.south_africa.south_africa_reference)
+//						submit(rule_based_modelling.south_africa.rule_based_iucn_sa_improved)
+//						submit(rule_based_modelling.south_africa.matching_ecosystem_type_southafrica_rulebased_improved)
+//						submit(rule_based_modelling.south_africa.improved_southafrica_ecosystem_type_result_comparison_by_ecosystem_type_rulebased_vs_reference)
+//					)
 				) :hidden #southafrica_obs
 				(
 					checkbutton("IUCN GET (Rule-based global model - tier1)" #obs25 :tooltip "Model based on global data and parameters to model IUCN GET level 3"): (submit(rule_based_modelling.ecosystem_type_iucn_get)) //observe({nca.ecosystem.iucn:EcosystemType})
