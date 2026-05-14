@@ -302,10 +302,10 @@ action main:
 				disable_ctxs("cu_priority_areas_contexts.vietnam_quang_ninh__hai_phong_vn1","Vietnam: Quang Ninh - Hai Phong VN1")
 				activate_vietnam  
 			)
-			checkbutton("Pu Ma - Thanh Hoa VN2" #vn2 :disabled :tooltip "Under development"): (
-				disable_ctxs("cu_priority_areas_contexts.vietnam_pu_ma__thanh_hoa_vn2","Vietnam: Pu Ma - Thanh Hoa VN2")
-				activate_vietnam  
-			)
+//			checkbutton("Pu Ma - Thanh Hoa VN2" #vn2 :disabled :tooltip "Under development"): (
+//				disable_ctxs("cu_priority_areas_contexts.vietnam_pu_ma__thanh_hoa_vn2","Vietnam: Pu Ma - Thanh Hoa VN2")
+//				activate_vietnam  
+//			)
 			checkbutton("Cu Lao Cham - Hoi An VN3" #vn3): (
 				disable_ctxs("cu_priority_areas_contexts.vietnam_cu_lao_cham__hoi_an_vn3","Vietnam: Cu Lao Cham - Hoi An VN3")
 				activate_vietnam
@@ -362,8 +362,12 @@ action main:
 					)
 				) :hidden #southafrica_obs
 				(
-					checkbutton("IUCN GET (Rule-based global model - tier1)" #obs25 :tooltip "Model based on global data and parameters to model IUCN GET level 3"): (submit(rule_based_modelling.ecosystem_type_iucn_get)) //observe({nca.ecosystem.iucn:EcosystemType})
-						
+					checkbutton("IUCN GET (Rule-based global model - tier1_old)" #obs25 :tooltip "Model based on global data and parameters to model IUCN GET level 3"): (
+					submit(rule_based_modelling.vietnam.ecosystem_type_iucn_get_older_version)
+					) 
+					checkbutton("IUCN GET (Rule-based global model - tier1_improved)" #obs25 :tooltip "Model based on global data and parameters to model IUCN GET level 3"): (
+					submit(rule_based_modelling.vietnam.ecosystem_type_iucn_get_improved)
+					)			
 				) :hidden #vietnam_obs
 			)
 		) :hidden #queries	
