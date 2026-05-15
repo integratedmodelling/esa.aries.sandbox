@@ -1,5 +1,16 @@
 private namespace test_stac_resources;
 
+
+//number local:justus.muhando:im.data.global:ecdc__surfacewater__hydroform_morphology_area as test_hydroform_morphology_area;
+//number local:justus.muhando:im.data.global:ecdc__surfacewater__watershed_hydroform_density as test_watershed_hydroform_density;
+//number local:justus.muhando:im.data.global:ecdc__vegetation__canopy_cover as test_canopy_cover;
+//number local:justus.muhando:im.data.global:ecdc__vegetation__canopy_height as test_canopy_height;
+//number local:justus.muhando:im.data.global:ecdc__vegetation__leaf_area_index as test_leaf_area_index;
+//number local:justus.muhando:im.data.global:ecdc__anthropogenic__managed_waters_mariculture as test_managed_waters_mariculture;
+//number local:justus.muhando:im.data.global:ecdc__anthropogenic__managed_waters_reservoir as test_managed_waters_reservoir;
+
+
+
 //model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_diurnal_air_temperature_mean__global__1981_2010 
 //	as im:Daily im:Mean im:Yearly earth:AtmosphericTemperature in Celsius named annual_diurnal_mean_air_temperature;
 ////	set to [self / 100];
