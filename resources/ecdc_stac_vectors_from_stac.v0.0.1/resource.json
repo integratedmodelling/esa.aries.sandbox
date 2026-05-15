@@ -1,0 +1,39 @@
+{
+  "urn" : "local:arnab.moitra:esa.aries.sandbox:ecdc_stac_vectors_from_stac",
+  "version" : "0.0.1",
+  "adapterType" : "stac",
+  "localPath" : "esa.aries.sandbox/resources/ecdc_stac_vectors_from_stac.v0.0.1",
+  "geometry" : "τ1{tend=1767225599000,tscope=1.0,tstart=1672531200000,ttype=logical,tunit=year}s2{bbox=[7.411617435248467 34.83134185320539 31.492342910690294 71.08014633035174],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "ecdc_stac_vectors_from_stac",
+  "type" : "OBJECT",
+  "resourceTimestamp" : 1778751029298,
+  "metadata" : {
+    "im:keywords" : "",
+    "dc:comment" : "This is the STAC metadata for the openEO job 'j-2605071320414909af474179b1fef53c'",
+    "im:notes" : "",
+    "dc:title" : "",
+    "dc:url" : "https://catalogue.weed.apex.esa.int/collections/EU_modelV2-1",
+    "dc:creator" : "",
+    "im:thematic-area" : "",
+    "dc:originator" : "",
+    "im:geographic-area" : "",
+    "dc:source" : ""
+  },
+  "parameters" : {
+    "collection" : "https://catalogue.weed.apex.esa.int/collections/EU_modelV2-1",
+    "band" : "0",
+    "collectionId" : "EU_modelV2-1"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}
