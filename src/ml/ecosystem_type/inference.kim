@@ -2,16 +2,12 @@ private namespace ml.ecosystem_type.inference
 using
 nca.ecosystem.eunis;
 
-observe earth:Region named colombia_lake 
-    over space(shape='POLYGON((-72.25 8.60,
-  -70.90 8.60,
-  -70.90 11.80,
-  -72.25 11.80,
-  -72.25 8.60
-))',
+observe earth:Region named crete_greece 
+    over space(shape='POLYGON ((26.459221641825245 34.584905138119694, 23.3879723825818 34.584905138119694, 23.3879723825818 36.051135431464004, 26.459221641825245 36.051135431464004, 26.459221641825245 34.584905138119694))',
     		grid="100 m",
     		projection="EPSG:4326"),
     time(start=2018, end=2019, step=1.year); 
+    
     
  
 model each local:arnab.moitra:esa.aries.sandbox:ecdc_stac_vectors_from_stac as earth:Location with im:Predicted nca.ecosystem.eunis:Ecosystem;
