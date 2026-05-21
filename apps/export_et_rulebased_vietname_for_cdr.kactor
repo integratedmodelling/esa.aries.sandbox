@@ -1,0 +1,182 @@
+script export_et_rulebased_vietnam_for_cdr
+
+action main:
+
+/*
+ * Set the directory of the your output nesting the results within more folders by separatng them with a slash ("/") 
+ */
+	output_folder_directory = "weed/CDR/Vietnam"
+
+/*
+ * Set observable for which a map should be stored (as raster/vector files)
+ */
+
+//	set observables_urns (
+//	primitive_characteristic.copernicus_landcover_2020	
+//	)
+
+	set observables_urns (
+//		{landcover:LandCoverType} //generic semantic concept goes with their URN into {} 
+		rule_based_modelling.vietnam.matching_ecosystem_type_vietnam_rulebased_improved
+////Local dataset:
+//		primitive_characteristic.reference_maps.reference_ecosystem_czech_republic
+//		primitive_characteristic.vegetation.canopy_height_input_czechia
+//		primitive_characteristic.vegetation.canopy_cover_input_czech_republic
+////RB model inputs		
+//		primitive_characteristic.copernicus_landcover_2020
+////		primitive_characteristic.glc_fcs30
+//		primitive_characteristic.climate.summer_diurnal_air_temperature_mean_input
+//		primitive_characteristic.climate.summer_diurnal_air_temperature_mean
+//		primitive_characteristic.climate.winter_diurnal_air_temperature_mean_input
+//		primitive_characteristic.climate.winter_diurnal_air_temperature_mean
+//		primitive_characteristic.climate.potential_tree_growth
+//		primitive_characteristic.climate.seasonal_diurnal_air_temperature_amplitude
+//		primitive_characteristic.climate.seasonal_diurnal_air_temperature_variability
+//		primitive_characteristic.climate.annual_precipitation_total_input
+//		primitive_characteristic.climate.annual_precipitation_total
+//		primitive_characteristic.climate.annual_diurnal_air_temperature_mean_input
+//		primitive_characteristic.climate.annual_diurnal_air_temperature_mean
+//		primitive_characteristic.climate.annual_water_budget_total_input
+//		primitive_characteristic.climate.annual_water_budget_total
+//		primitive_characteristic.climate.winter_water_budget_total
+//		primitive_characteristic.climate.thermal_belts
+//		
+//		primitive_characteristic.ecosystem_function.annual_net_primary_productivity_total_input
+//		primitive_characteristic.ecosystem_function.annual_net_primary_productivity_total
+//		
+//		primitive_characteristic.geomorphology.floodplain
+//		
+//		primitive_characteristic.geothermal_energy.geothermal
+//		
+//		primitive_characteristic.soil.peat_thickness_input
+//		primitive_characteristic.soil.peat_thickness
+//		primitive_characteristic.soil.fertility
+//		primitive_characteristic.soil.chemical_properties_n_input
+//		primitive_characteristic.soil.chemical_properties_n
+//		primitive_characteristic.soil.chemical_properties_base_saturation_input
+//		primitive_characteristic.soil.chemical_properties_base_saturation
+//		primitive_characteristic.soil.physical_properties_bulk_density_input
+//		primitive_characteristic.soil.physical_properties_bulk_density
+//		
+//		primitive_characteristic.surface_water.hydroform_meander
+//		primitive_characteristic.surface_water.hydroform
+//		primitive_characteristic.surface_water.waterbody_type
+//		primitive_characteristic.surface_water.watershed_hierarchy_input
+//		primitive_characteristic.surface_water.watershed_hierarchy
+//		primitive_characteristic.surface_water.seasonal_water_regime
+//		primitive_characteristic.surface_water.ephemeral_water_regime
+//		primitive_characteristic.surface_water.episodic_water_regime
+//		primitive_characteristic.surface_water.water_permanence_type
+//		primitive_characteristic.surface_water.hydroform_morphology_area_input
+//		primitive_characteristic.surface_water.hydroform_morphology_area
+//		primitive_characteristic.surface_water.watershed_hydroform_density
+//		
+//		primitive_characteristic.vegetation.leaf_area_index_input
+//		primitive_characteristic.vegetation.leaf_area_index
+//		primitive_characteristic.vegetation.phenology
+//		primitive_characteristic.vegetation.specific_leaf_area_input
+//		primitive_characteristic.vegetation.specific_leaf_area
+//		primitive_characteristic.vegetation.leaf_size_input
+//		primitive_characteristic.vegetation.leaf_size
+//		primitive_characteristic.vegetation.canopy_height_input_czechia
+//		primitive_characteristic.vegetation.canopy_height
+//		primitive_characteristic.vegetation.canopy_cover_input_czech_republic
+//		primitive_characteristic.vegetation.canopy_cover
+//		primitive_characteristic.vegetation.tree_density
+//		
+//		primitive_characteristic.wildfire_disturbance.recurrence_input
+//		primitive_characteristic.wildfire_disturbance.recurrence
+//		primitive_characteristic.wildfire_disturbance.periodicity
+//		
+////ET modelling by Biome		
+//		primitive_characteristic.ecosystem_typology.iucn.biome_f1_river_stream
+//		primitive_characteristic.ecosystem_typology.iucn.biome_f2_lake
+//		primitive_characteristic.ecosystem_typology.iucn.biome_f3_artificial_wetland
+//		primitive_characteristic.ecosystem_typology.iucn.biome_t1_tropical_subtropical_forest
+//		primitive_characteristic.ecosystem_typology.iucn.biome_t2_temperateborealforestwoodland
+//		primitive_characteristic.ecosystem_typology.iucn.biome_t3_shrubland_shrubby_woodland
+//		primitive_characteristic.ecosystem_typology.iucn.biome_t4_savanna_grassland
+//		primitive_characteristic.ecosystem_typology.iucn.biome_t5_desert_semidesert
+//		primitive_characteristic.ecosystem_typology.iucn.biome_t6_polar_alpine
+//		primitive_characteristic.ecosystem_typology.iucn.biome_t7_intensive_land_use_system
+//		primitive_characteristic.ecosystem_typology.iucn.biome_tf1_palustrine_wetland
+////		primitive_characteristic.ecosystem_typology.iucn.biome_mft1_brackish_tidal
+////		primitive_characteristic.ecosystem_typology.iucn.biome_mt1_shoreline
+////		primitive_characteristic.ecosystem_typology.iucn.biome_mt2_supralittoral_coastal
+////		primitive_characteristic.ecosystem_typology.iucn.biome_mt3_anthropogenic_shoreline
+		
+	)
+/*
+ * Set the tables to summarise statistics or generate indicator for an observation (as .xls files) 
+ */
+ 	set table_urns (
+//		peopleea.forest.birds.birds_raw_variable // tables are never concepts, so their URN has to be used without {}
+//		peopleea.forest.birds.birds_indicator
+	)
+ 
+/*
+ * Set the spatial dimensions of the analysis
+ * Geographical boundaries can be set using:
+ * WKT (coordinates points of the vertices)
+ * URN of a resource (i.e. a vector file, which can contain multiple features)
+ * Creates n output (.tiff and .xlsx files) for each feature (ID) in the spatial context resource (n = n_tables x n_ID_features).  
+ */
+//	wkt_context = Space(shape='EPSG:4326 POLYGON ((15.748942702500514 50.681390577244684, 15.747469821192952 50.67191402207328, 15.743107779272918 50.662799841036474, 15.73602420756514 50.654398596983896, 15.726491323757825 50.64703360904173, 15.714875471229597 50.64098845699783, 15.701623040678863 50.63649600013733, 15.687243315579641 50.633729345221326, 15.672288900703256 50.632795123404094, 15.657334485826867 50.633729345221326, 15.642954760727646 50.63649600013733, 15.629702330176912 50.64098845699783, 15.618086477648683 50.64703360904173, 15.608553593841371 50.654398596983896, 15.60147002213359 50.662799841036474, 15.597107980213556 50.67191402207328, 15.595635098905994 50.681390577244684, 15.597107980213556 50.69086521908886, 15.60147002213359 50.69997395143105, 15.608553593841371 50.70836704093631, 15.618086477648683 50.71572240993481, 15.629702330176912 50.721757943035726, 15.642954760727646 50.726242245350846, 15.657334485826867 50.72900345157407, 15.672288900703256 50.72993576006485, 15.687243315579641 50.72900345157407, 15.701623040678863 50.726242245350846, 15.714875471229597 50.721757943035726, 15.726491323757825 50.71572240993481, 15.73602420756514 50.70836704093631, 15.743107779272918 50.69997395143105, 15.747469821192952 50.69086521908886, 15.748942702500514 50.681390577244684))') //Set the context using WKT or the URN of a resource
+	spatial_contexts_urn = "local:rubencc:esa.aries.sandbox:esa_weed_vietnam_priority_areas_epsg4326_v2"//"local:rubencc:esa.aries.sandbox:esa_weed_vietnam_priority_areas_epsg4326_v2"//"local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_priority_areas_epsg4326_v2"//"local:rubencc:esa.aries.sandbox:esa_weed_vietnam_priority_areas_epsg4326_v2"//"local:justus.muhando:esa.aries.sandbox:esa_weed_south_africa_priority_areas_epsg4326_v2"
+//	spatial_contexts_urn = "local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons"
+	resolution = 30.m
+
+/*
+ * Set temporal boundaries of the analysis 
+ * currently focused on yearly results because have been used mainly for reporting accounting results
+ * different temporal resolution, both higher (e.g. seasonal, monthly, daily) or lower (i.e. 3 or 5 year-periods) can be observed
+ * Results are adjusted to the temporal dimensions set
+ * but the underlying data must be granular (frequent) enough for higher temporal resolution observations
+ */
+	for year in (2020) (
+		
+	
+/*
+ * Set the right parameters (e.g use the wkt_context for WKT or the spatial_contexts_urn for using vector files) in the context
+ */			
+//		for urn in observables_urns(	
+//			context(spatial_contexts_urn,resolution,Time(start=[year], end=[year+1], step=1.year),urn): state -> (
+		for priority_area in spatial_contexts_urn (
+				if [priority_area.weed_site == 'VN1' || priority_area.weed_site == 'VN3']// || priority_area.weed_site == 'SA6' || priority_area.weed_site == 'SA11']//|| priority_area.new_id == 'CZ2' ||]//|| priority_area.weed_site == 'CZ3'|| priority_area.weed_site == 'CZ1'] //|| feature.layer == 'central_colombia' || feature.layer == 'south_colombia']
+//				    context(wkt_context,resolution,Time(year=year))
+				    context(priority_area,resolution,Time(year=year))
+				    // loop over urns
+				    for urn in observables_urns (
+				    	// submit the observation
+						submit(urn): (
+							WAITING     -> ()
+							STARTED     -> ()
+							ABORTED     -> warning("Aborted")
+							INTERRUPTED -> warning("Interrupted")
+							empty -> (
+								// popup on application
+								alert("The computation did not produce results. Some needed resources may be offline, or the system may be overloaded.")
+								// error with detail in k.LAB console
+								error(["Empty observation: " + urn_name])
+							)
+							observation -> (
+								set urn_name ""
+								if [urn.toString().startsWith("[")] (
+									set urn_name [urn.name]
+								) else (
+									set urn_name urn
+								)
+								if [observation.isEmpty()] (
+									warning(["Observation " + urn_name + " is empty"])
+								) else (
+									//observation.export([output_folder_directory + "/" +  urn_name + "_" + resolution + "_" + year + ".tiff"])																	
+									//observation.export([output_folder_directory +"/" + priority_area.new_id + "/"+  urn_name + "_" + priority_area.new_id + "_" + resolution + "_" + year + ".tiff"])								
+									observation.export([output_folder_directory +"/" + priority_area.weed_site + "/"+  urn_name + "_" + priority_area.weed_site + "_" + resolution + "_" + year + ".tiff"])
+									)
+									info(["Exporting urn " + urn_name])
+								)
+							)
+						)	
+					)
+			)	
+
