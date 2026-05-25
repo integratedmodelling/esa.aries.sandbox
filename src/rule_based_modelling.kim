@@ -173,11 +173,12 @@ number 'local:rubencc:im.data.global:im-data-global-ecology.global_ecosystem_typ
 number 'local:alessio.bulckaen:im.data.global:im-data-global-ecology_dinerstein_ecoregions_2017_4326#biome_num'
 	as dinerstein_region;
 
-private model local:srwohl:im.data.global:im-data-global-climate.worldclim_21_avg_temp_1970_2000_july
+//summer reference temp
+project private model local:srwohl:im.data.global:im-data-global-climate.worldclim_21_avg_temp_1970_2000_july
 	as im:Reference earth:AtmosphericTemperature in Celsius
 	over space (shape="EPSG:4326 POLYGON ((-180.0 0.0, 180.0 0.0, 180.0 90.0, -180.0 90.0, -180.0 0.0))");
 
-private model local:srwohl:im.data.global:im-data-global-climate.worldclim_21_avg_temp_1970_2000_january
+project private model local:srwohl:im.data.global:im-data-global-climate.worldclim_21_avg_temp_1970_2000_january
 	as im:Reference earth:AtmosphericTemperature in Celsius
 	over space (shape="EPSG:4326 POLYGON ((-180.0 0.0, 180.0 0.0, 180.0 -90.0, -180.0 -90.0, -180.0 0.0))"); 
 
