@@ -85,6 +85,52 @@ observe earth:Region named south_africa_capefloral_sa11
     			grid="30 m",
                 projection= "EPSG:4326"),
         time(start=2022, end=2023, step=1.year);
+
+// South Africa priority areas v3
+
+observe earth:Region named south_africa_albany_sa12   
+    over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_southafrica_weed_testsites_alpha2_4326_v3#weed_site=SA12',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+observe earth:Region named south_africa_ecoast_sa13   
+    over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_southafrica_weed_testsites_alpha2_4326_v3#weed_site=SA13',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+observe earth:Region named south_africa_calrens_sa14   
+    over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_southafrica_weed_testsites_alpha2_4326_v3#weed_site=SA14',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+observe earth:Region named south_africa_karoo_sa15   
+    over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_southafrica_weed_testsites_alpha2_4326_v3#weed_site=SA15',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+observe earth:Region named south_africa_namaqua_sa16   
+    over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_southafrica_weed_testsites_alpha2_4326_v3#weed_site=SA16',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+observe earth:Region named south_africa_tswalu_sa17   
+    over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_southafrica_weed_testsites_alpha2_4326_v3#weed_site=SA17',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+observe earth:Region named south_africa_tzaneen_sa18   
+    over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_southafrica_weed_testsites_alpha2_4326_v3#weed_site=SA18',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+
         
 //Colombia priority areas V2
 observe earth:Region named colombia_mojana_co1  
