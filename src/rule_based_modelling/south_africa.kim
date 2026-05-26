@@ -87,7 +87,7 @@ define RULE_BASED_ECOSYSTEM_IUCN_TABLE_IMPROVED as {{
  landcover:IntertidalFlat	  | #										   | #											  |		#		|		#		|	#		| #					|  nca.ecosystem.iucn:BrackishTidal							   ,
  landcover:FloodedFlat		  | #										   | #											  |		#		|		#		|	#		| #					|  nca.ecosystem.iucn:BrackishTidal					   		   ,
  landcover:InlandMarsh		  | #										   | #											  |		false	|		#		|	#		| #					|  nca.ecosystem.iucn:CoastalSaltmarshReedbed				   ,
- landcover:ArtificialSurface  | 					#					   |					#						  |		#		|		#		|	#		| #					|  nca.ecosystem.iucn:UrbanEcosystem						   ,	
+ landcover:ArtificialSurface  | 					#					   |					#						  |		#		|		#		|	#		| #					|  nca.ecosystem.iucn:UrbanIndustrialEcosystem				   ,	
  landcover:Forest             | rule_based_modelling:PlantedForest         | #                                            |		#		|		#		|	#		| #     			|  nca.ecosystem.iucn:Plantation                               , 
  landcover:Forest             | rule_based_modelling:TimberPlantation      | #                                            |		#		|		#		|	#		| #     			|  nca.ecosystem.iucn:Plantation                               , 
  landcover:Forest             | rule_based_modelling:OilPalmPlantation     | #                                            |		#		|		#		|	#		| #     			|  nca.ecosystem.iucn:Plantation                               , 
@@ -106,7 +106,8 @@ define RULE_BASED_ECOSYSTEM_IUCN_TABLE_IMPROVED as {{
  landcover:ArableLand	      | #                                          | #									          |		#		|		#		|	#		| #   				|  nca.ecosystem.iucn:AnnualCropland        				   ,
  landcover:WaterBody		  | #										   |# 											  |		#		|		#		|	true	| #					|  nca.ecosystem.iucn:Marine								   ,
  landcover:WaterBody		  | #										   |# 											  |		#		|		#		|	#		| #					|  nca.ecosystem.iucn:RiverStream							   ,
- #							  | #   									   |#											  |		#		|		#		|	#		| #					|  nca.ecosystem.iucn:Terrestrial
+ landcover:LandSurface        | #   									   |#											  |		#		|		#		|	#		| #					|  nca.ecosystem.iucn:Terrestrial,
+ #							  | #   									   |#											  |		#		|		#		|	#		| #					|  nca.ecosystem.iucn:Ecosystem
  }};
 
 // IMPROVED MODEL:
@@ -446,7 +447,7 @@ define table southafrica_ecosystem_extent_result_by_ecosystem_type_hybrid as {
 	rows:   ({ title: "Area {start} (km²)" })}; 
  
  
-model nca.ecosystem.iucn:Ecosystem nca.ecosystem.naturalness:NaturlanessLevel named natural_and__anthropogenic_iucn_get 
+model nca.ecosystem.iucn:Ecosystem nca.ecosystem.naturalness:NaturalnessLevel named natural_and__anthropogenic_iucn_get 
 observing
 //	alphathree:Hybrid geography:SouthAfrica nca.ecosystem.iucn:EcosystemType
 	nca.ecosystem.iucn:EcosystemType named iucn
