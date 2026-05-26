@@ -15,15 +15,6 @@ action main:
 //all cu_priority_area_contexts for use in alpha 3 
 	(
 		(
-//			checkbutton("Colombia Mojana CO1 BB:18λWQ22 (100 m) " #co_bbox1): (
-//				disable_ctxs
-//				context(cu_bbox_contexts.colombia_cu_mojana_co1_bbox_18lwq22)
-//				header_label.update("Colombia: Mojana CO1 BB:18λWQ22 (100 m)")
-//				headers.show
-//				obs22.show
-//				obs21.hide
-//				obs22.enable
-//			)
 			checkbutton("Mojana CO1" #co1): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_mojana_co1","Colombia: Mojana CO1")
 				activate_colombia
@@ -97,29 +88,29 @@ action main:
 		(
 			checkbutton("Krkhnossky CZ2 BB:33σWS20 (10 m) " #cz_bbox1): (
 				disable_ctxs("cu_bbox_contexts.czech_cu_krkonossky_cz2_bbox_33dws20","Czech Republic: Krkhnossky CZ2 BB:33σWS20 (10 m)")
-				activate_europe(true)
+				activate_europe
 			)	
 			checkbutton("Transect Mid WE CZ8 BB:33δWR11 (10 m) " #cz_bbox2): (
 				disable_ctxs("cu_bbox_contexts.czech_cu_transectmidwe_cz8_bbox_33dwr11","Czech Republic: Transect Mid WE CZ8 BB:33δWR11 (10 m)")
-				activate_europe(true)				
+				activate_europe				
 			)		
 			checkbutton("Bilek CZ1" #cz1): (
 				disable_ctxs("cu_priority_areas_contexts.czech_republic_bilek_cz1","Czech Republic: Bilek CZ1")
 				activate_europe
 			) 
-			checkbutton("Krkhnossky CZ2 (10 m)" #cz2 ): (
+			checkbutton("Krkhnossky CZ2 (10 m)" #cz2_10 ): (
 				disable_ctxs("cu_priority_areas_contexts.czech_republic_krkonossky_cz2","Czech Republic: Krkhnossky CZ2 (10 m)")
 				activate_europe
 			)
-			checkbutton("Krkhnossky CZ2 (30 m)" #cz2 ): (
+			checkbutton("Krkhnossky CZ2 (30 m)" #cz2_30 ): (
 				disable_ctxs("cu_priority_areas_contexts.czech_republic_krkonossky_30m_cz2","Czech Republic: Krkhnossky CZ2 (30 m)")
 				activate_europe
 			)
-			checkbutton("Podyji CZ3 (10 m)" #cz3): (
+			checkbutton("Podyji CZ3 (10 m)" #cz3_10): (
 				disable_ctxs("cu_priority_areas_contexts.czech_republic_podyji_cz3","Czech Republic: Podyji CZ3 (10 m)")
 				activate_europe
 			)
-			checkbutton("Podyji CZ3 (30 m)" #cz3): (
+			checkbutton("Podyji CZ3 (30 m)" #cz3_30): (
 				disable_ctxs("cu_priority_areas_contexts.czech_republic_podyji_30m_cz3","Czech Republic: Podyji CZ3 (30 m)")
 				activate_europe
 			)
@@ -144,130 +135,11 @@ action main:
 				activate_europe		
 			)
 		) :name "Czech Republic" #czec // :opened
-//		(			
-//			checkbutton("Kefalonia_Z EL3 BB:34σDH30 (10 m) " #gr_bbox1): (
-//				disable_ctxs("cu_bbox_contexts.greece_cu_kefaloniaz_el3_bbox_34ddh30","Greece: Kefalonia_Z EL3 BB:34σDH30 (10 m)")
-//				activate_europe(true)
-//			)
-//			checkbutton("Sterea EL9 BB:34δEH13 (10 m) " #gr_bbox2 :disabled :tooltip "Under development"): (
-//				disable_ctxs("cu_bbox_contexts.greece_cu_sterea_el9_bbox_34deh13","Greece: Sterea EL3 BB:34δEH13 (10 m)")
-//				activate_europe(true)			
-//			)			
-//			checkbutton("Xylokastro EL1" #gr1 :disabled :tooltip "Under development"): (
-//				disable_ctxs("cu_priority_areas_contexts.greece_xylokastro_el1","Greece: Xylokastro EL1")
-//				activate_europe 
-//			)
-//			checkbutton("CapeMaleas EL2" #gr2 :disabled :tooltip "Under development" ): (
-//				disable_ctxs("cu_priority_areas_contexts.greece_capemaleas_el2","Greece: CapeMaleas EL2")
-//				activate_europe
-//			)
-//			checkbutton("Kefalonia_Z EL3" #gr3 ): (
-//				disable_ctxs("cu_priority_areas_contexts.greece_kefalonia_z_el3","Greece: Kefalonia_Z EL3")
-//				activate_europe
-//			)
-//			checkbutton("Naxos EL4" #gr4): (
-//				disable_ctxs("cu_priority_areas_contexts.greece_naxos_el4","Greece: Naxos EL4")
-//				activate_europe
-//			)
-//			checkbutton("Kassandra EL5" #gr5 :disabled :tooltip "Under development" ): (
-//				disable_ctxs("cu_priority_areas_contexts.greece_kassandra_el5","Greece: Kassandra EL5")
-//				activate_europe
-//			)
-//			checkbutton("Crete EL6" #gr6): (
-//				disable_ctxs("cu_priority_areas_contexts.greece_crete_el6","Greece: Crete EL6")
-//				activate_europe
-//			)
-//			checkbutton("Zacharo_K EL7 (30 m)" #gr7 ): (
-//				disable_ctxs("cu_priority_areas_contexts.greece_zacharo_k_el7","Greece: Zacharo_K EL7 (30 m)")
-//				activate_europe
-//			)
-//			checkbutton("Menalo EL8 (30 m)" #gr8 ): (
-//				disable_ctxs("cu_priority_areas_contexts.greece_menalo_el8","Greece: Menalo EL8 (30 m)")
-//				activate_europe
-//			)
-//			checkbutton("Sterea_S EL9 (30 m)" #gr9 :disabled :tooltip "Under development"): (
-//				disable_ctxs("cu_priority_areas_contexts.greece_sterea_s_el9","Greece: Sterea_S EL9 (30 m)")
-//				activate_europe
-//			)
-//			checkbutton("M_Vernon EL10 (30 m)" #gr10 :disabled :tooltip "Under development"): (
-//				disable_ctxs("cu_priority_areas_contexts.greece_m_vernon_el10","Greece: M_Vernon EL10 (30 m)")
-//				activate_europe
-//			)
-//			checkbutton("Thessaloniki EL11 (30 m)" #gr11 :disabled :tooltip "Under development"): (
-//				disable_ctxs("cu_priority_areas_contexts.greece_thessaloniki_el11","Greece: Thessaloniki EL11 (30 m)")
-//				activate_europe
-//			)
-//		) :name "Greece" #greece
-//		(
-//			checkbutton("Osloviken NO1 BB:32tNM42 (10 m) " #no_bbox1 :disabled :tooltip "Under development"): (
-//				disable_ctxs("cu_bbox_data_contexts.norway_cu_osloviken_no1_bbox_32tnm42","Norway: Osloviken NO1 BB:32tNM42 (10 m)")
-//				activate_europe(true)
-//			)
-//			checkbutton("Finnmark NO1" #no1 ): (
-//				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1","Norway: Osloviken NO1")
-//				activate_europe			
-//			)
-//			checkbutton("Finnmark NO1_1" #no1_1 :disabled :tooltip "Under development"): (
-//				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1_1","Norway: Osloviken NO1_1")
-//				headers.show
-//				activate_europe				
-//			)
-//			checkbutton("Finnmark NO1_2" #no1_2): (
-//				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1_2","Norway: Osloviken NO1_2")
-//				headers.show
-//				activate_europe			
-//			)
-//			checkbutton("Finnmark NO1_3 (100 m)" #no1_3 :disabled :tooltip "Under development"): (
-//				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1_3","Norway: Osloviken NO1_3 (100 m)")
-//				headers.show
-//				activate_europe			
-//			)
-//			checkbutton("Finnmark NO1_4" #no1_4 :disabled :tooltip "Under development"): (
-//				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1_4","Norway: Osloviken NO1_4")
-//				headers.show
-//				activate_europe			
-//			)
-//			checkbutton("OsloViken NO2" #no2 ): (
-//				disable_ctxs("cu_priority_areas_contexts.norway_finnmark_no2","Norway: Finnmark NO2")
-//				headers.show
-//				activate_europe			
-////			)
-//		) :name "Norway" #norway
 		(
-//			checkbutton("Groenfontein SA9 BB:34δEH33 (100 m) " #sa_bbox1): (
-//				disable_ctxs
-//				context(cu_bbox_contexts.south_africa_cu_groenfontein_sa9_bbox_34deh33)
-//				header_label.update("South Africa: Groenfontein SA9 BB:34δEH33 (100 m)")
-//				headers.show
-//				obs22.show
-//				obs21.hide
-//				obs22.enable
-//			)
-//			checkbutton("Capepoint SA1 BB:34δBH30 (100 m) " #sa_bbox2): (
-//				disable_ctxs
-//				context(cu_bbox_contexts.south_africa_cu_capepoint_sa1_vito_ecdc_bbox_34dbh30)
-//				header_label.update("South Africa: Capepoint SA1 BB:34δBH30 (100 m)")
-//				headers.show
-//				obs22.show
-//				obs21.hide
-//				obs22.enable
-//			)
-//			checkbutton("Cape Point SA1" #sa1): (
-//				disable_ctxs("cu_priority_areas_contexts.south_africa_cape_point_sa1","South Africa: Cape Point SA1")
-//				activate_southafrica	 
-//			)
 			checkbutton("Grootbos SA2" #sa2): (
 				disable_ctxs("cu_priority_areas_contexts.south_africa_grootbos_sa2","South Africa: Grootbos SA2")
 				activate_southafrica	
 			)
-//			checkbutton("Jonkershoek SA3" #sa3): (
-//				disable_ctxs("cu_priority_areas_contexts.south_africa_jonkershoek_sa3","South Africa: Jonkershoek SA3")
-//				activate_southafrica	 
-//			)
-//			checkbutton("West Coast NP SA4" #sa4): (
-//				disable_ctxs("cu_priority_areas_contexts.south_africa_west_coast_np_sa4","South Africa: West Coast NP SA4")
-//				activate_southafrica	
-//			)
 			checkbutton("DeHoop SA5" #sa5): (
 				disable_ctxs("cu_priority_areas_contexts.south_africa_dehoop_sa5","South Africa: DeHoop SA5")
 				activate_southafrica	
@@ -276,22 +148,6 @@ action main:
 				disable_ctxs("cu_priority_areas_contexts.south_africa_kogelberg_sa6","South Africa: Kogelberg SA6")
 				activate_southafrica
 			)
-//			checkbutton("ThuthumiRidge SA7" #sa7): (
-//				disable_ctxs("cu_priority_areas_contexts.south_africa_thuthumiridge_sa7","South Africa: ThuthumiRidge SA7")
-//				activate_southafrica
-//			)
-//			checkbutton("GardenRoute SA8" #sa8): (
-//				disable_ctxs("cu_priority_areas_contexts.south_africa_gardenroute_sa8","South Africa: GardenRoute SA8")
-//				activate_southafrica 
-//			)
-//			checkbutton("Groenfontein SA9" #sa9): (
-//				disable_ctxs("cu_priority_areas_contexts.south_africa_groenfontein_sa9","South Africa: Groenfontein SA9")
-//				activate_southafrica 
-//			)
-//			checkbutton("Swartberg SA10" #sa10): (
-//				disable_ctxs("cu_priority_areas_contexts.south_africa_swatberg_sa10","South Africa: Swartberg SA10")
-//				activate_southafrica 
-//			)
 			checkbutton("CapeFloral SA11" #sa11): (
 				disable_ctxs("cu_priority_areas_contexts.south_africa_capefloral_sa11","South Africa: CapeFloral SA11")
 				activate_southafrica 
@@ -302,33 +158,29 @@ action main:
 				disable_ctxs("cu_priority_areas_contexts.vietnam_quang_ninh__hai_phong_vn1","Vietnam: Quang Ninh - Hai Phong VN1")
 				activate_vietnam  
 			)
-//			checkbutton("Pu Ma - Thanh Hoa VN2" #vn2 :disabled :tooltip "Under development"): (
-//				disable_ctxs("cu_priority_areas_contexts.vietnam_pu_ma__thanh_hoa_vn2","Vietnam: Pu Ma - Thanh Hoa VN2")
-//				activate_vietnam  
-//			)
 			checkbutton("Cu Lao Cham - Hoi An VN3" #vn3): (
 				disable_ctxs("cu_priority_areas_contexts.vietnam_cu_lao_cham__hoi_an_vn3","Vietnam: Cu Lao Cham - Hoi An VN3")
 				activate_vietnam
 			)
 		) :name "Vietnam" #vietnam	
 		(
-		checkbutton("Finnmark NO1_4" #no1_4 ): (
+			checkbutton("Finnmark NO1_4" #no1_4 ): (
 				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1_4","Norway: Osloviken NO1_4")
-				activate_norway			
+				activate_europe			
 			)
-		checkbutton("OsloViken NO2" #no2 ): (
+			checkbutton("OsloViken NO2" #no2 ): (
 				disable_ctxs("cu_priority_areas_contexts.norway_finnmark_no2","Norway: Finnmark NO2")
-				activate_norway		
+				activate_europe		
 			)		
 		) :name "Norway" #norway
 		(
 			checkbutton("Naxos EL4" #gr4): (
 				disable_ctxs("cu_priority_areas_contexts.greece_naxos_el4","Greece: Naxos EL4")
-				activate_greece
+				activate_europe
 			)
 			checkbutton("Crete EL6" #gr6): (
 				disable_ctxs("cu_priority_areas_contexts.greece_crete_el6","Greece: Crete EL6")
-				activate_greece
+				activate_europe
 			)
 		) :name "Greece" #greece
 	) :shelf #contexts
@@ -347,102 +199,58 @@ action main:
 		(
 			separator("Query Ecosystem Types according to:" :iconname "sprout-outline" )
 			(
-//				(
-//					checkbutton("Alpha 2 EUNIS L2 and predictors" #a2l2eu :disabled) : submit (alphatwo_udp.weed_level2) : submit (data.ecdc_predictors)
-//                    checkbutton("Alpha 3 EUNIS L3 (max prob annotated) and predictors" #a3l3eu) : submit (alphathree.ecosystem_type_alpha3_inference_stac_level3)  : submit (alphathree.ecdc_predictors)
-//					//checkbutton("Alpha 3 EUNIS L1 (ARIES band mixer, annotated classes)" #a3l1bandmixer) : submit (alphathree.ecosystem_type_alpha3_bandmixer_level1) 
-//					checkbutton("EU Account Typology" #euaccountipology:disabled :tooltip "Available soon")
-//					checkbutton("RAMSAR Typology" #rmasartipology :disabled :tooltip "Available soon")
-//				) :hidden #europe_obs
 				(
-					checkbutton("Local Classification" #rbc_local): (
-						rbc_global.disable
+//					checkbutton("Machine Learning results (IUCN GET classification)" #colombia_obs_ml): (
+//						submit(ml.ecosystem_type.inference.ecdc_level3_mece)
+//					)
+					checkbutton("Rule-based results (Local classification)" #colombia_obs_local :tooltip "Rule-based results (Local classification)"): (
+						colombia_obs_iucnget.disable
 						submit(rule_based_modelling.colombia.ecosystem_type_colombia)
 					)
-					checkbutton("IUCN GET (Rule-based national model - tier2)" #rbc_national :tooltip "Model based on MEC (Colombian national classification) crosswalked to IUCN GET level 3"): (
-						rbc_global.disable
+					checkbutton("Rule-based results (IUCN GET classification)" #colombia_obs_iucnget :tooltip "Rule-based results (IUCN GET classification)"): (
+						colombia_obs_local.disable
 						submit(rule_based_modelling.colombia.ecosystem_type_iucn_get)
-					)
-					checkbutton("IUCN GET (Rule-based global model - tier1)" #rbc_global :tooltip "Model based on global data and parameters to model IUCN GET level 3"): (
-						rbc_local.disable
-						rbc_national.disable
-						submit(rule_based_modelling.ecosystem_type_iucn_get)
 					)
 				) :hidden #colombia_obs
 				(
-					checkbutton("IUCN GET (Rule-based national model - tier2 Old version)" #rbsa_national :tooltip "Model based on some national data to model IUCN GET level 3"): (
-						submit(rule_based_modelling.south_africa.ecosystem_type_iucn_get_older_version)
-					)
-					checkbutton("IUCN GET (Rule-based national model - tier3 Improved version)" #rbsa_national_improved :tooltip "Improved model based on some national data to model IUCN GET level 3"): (
+//					checkbutton("Machine Learning results (IUCN GET classification)" #southafrica_obs_ml): (
+//						submit(ml.ecosystem_type.inference.ecdc_level3_mece)
+//					)
+					checkbutton("Rule-based results (IUCN GET classification)" #southafrica_iucnget :tooltip "Rule-based results (IUCN GET classification)" ): (
 						submit(rule_based_modelling.south_africa.ecosystem_type_iucn_get_improved)
 					)
-					checkbutton("Alpha 3 IUCN-GET L3 (max prob. annotated)" #rbsa_global): (
-						submit(alphathree.ecosystem_type_alpha3_inference_stac_level3_sa)
-					)
-//					checkbutton("Results comparison against reference maps (Old Version)" #rbsa_comparison_old :tooltip "Old version rule-based result comparison vs reference maps"): (
-//						submit(rule_based_modelling.south_africa.south_africa_reference)
-//						submit(rule_based_modelling.south_africa.rule_based_iucn_sa_old)
-//						submit(rule_based_modelling.south_africa.matching_ecosystem_type_southafrica_rulebased_old)
-//						submit(rule_based_modelling.south_africa.old_southafrica_ecosystem_type_result_comparison_by_ecosystem_type_rulebased_vs_reference)
-//					)
-//					checkbutton("Results comparison against reference maps (Improved Version)" #rbsa_comparison_old :tooltip "Improved version rule-based result comparison vs reference maps"): (
-//						submit(rule_based_modelling.south_africa.south_africa_reference)
-//						submit(rule_based_modelling.south_africa.rule_based_iucn_sa_improved)
-//						submit(rule_based_modelling.south_africa.matching_ecosystem_type_southafrica_rulebased_improved)
-//						submit(rule_based_modelling.south_africa.improved_southafrica_ecosystem_type_result_comparison_by_ecosystem_type_rulebased_vs_reference)
-//					)
 				) :hidden #southafrica_obs
 				(
-					checkbutton("IUCN GET (Rule-based global model - tier1_old)" #obs25_old :tooltip "Model based on global data and parameters to model IUCN GET level 3"): (
-					submit(rule_based_modelling.vietnam.ecosystem_type_iucn_get_older_version)
-					) 
-					checkbutton("IUCN GET (Rule-based global model - tier1_improved)" #obs25_improved :tooltip "Model based on global data and parameters to model IUCN GET level 3"): (
-					submit(rule_based_modelling.vietnam.ecosystem_type_iucn_get_improved)
+//					checkbutton("Machine Learning results (IUCN GET classification)" #vietnam_obs_ml): (
+//						submit(ml.ecosystem_type.inference.ecdc_level3_mece)
+//					) 
+					checkbutton("Rule-based results (IUCN GET classification)" #vietnam_obs_2 :tooltip "Rule-based results (IUCN GET classification)"): (
+						submit(rule_based_modelling.vietnam.matching_ecosystem_type_vietnam_rulebased_improved)
 					)			
 				) :hidden #vietnam_obs
-					(
-					checkbutton("IUCN GET (Rule-based global model - tier1_old)" #obs25_greece_old :tooltip "Model based on global data and parameters to model IUCN GET level 3"): (
-					submit(rule_based_modelling.greece.ecosystem_type_iucn_get_older_version)
+				(
+					checkbutton("Machine Learning results (IUCN GET classification)" #europe_obs_1 :tooltip "Machine Learning results (IUCN GET classification)"): (
+						submit(ml.ecosystem_type.inference.ecdc_level3_mece)
 					) 
-					checkbutton("IUCN GET (Rule-based global model - tier1_improved)" #obs25_greece_improved :tooltip "Model based on global data and parameters to model IUCN GET level 3"): (
-					submit(rule_based_modelling.greece.ecosystem_type_iucn_get_improved)
-					)			
-				) :hidden #greece_obs
-					(
-					checkbutton("IUCN GET (Rule-based global model - tier1_old)" #obs25_norway_old :tooltip "Model based on global data and parameters to model IUCN GET level 3"): (
-					submit(rule_based_modelling.norway.ecosystem_type_iucn_get_older_version)
-					) 
-					checkbutton("IUCN GET (Rule-based global model - tier1_improved)" #obs25_norway_improved :tooltip "Model based on global data and parameters to model IUCN GET level 3"): (
-					submit(rule_based_modelling.norway.ecosystem_type_iucn_get_improved)
-					)			
-				) :hidden #norway_obs
+				) :hidden #europe_obs
 			)
 		) :hidden #queries	
 	)
  	
-	action activate_europe(bbox): (
-		if [bbox] (
-			a2l2eu.enable
-		)
+	action activate_europe: (
 		europe_obs.show
 	)
 	
 	action activate_colombia: (
 		colombia_obs.show
 	)
-	
-	action activate_vietnam: (
-		vietnam_obs.show
-	)
-	
+
 	action activate_southafrica: (
 		southafrica_obs.show
 	)
-	action activate_norway: (
-		norway_obs.show
-	)
-	action activate_greece: (
-		greece_obs.show
+		
+	action activate_vietnam: (
+		vietnam_obs.show
 	)
 	
 	action disable_ctxs(context_name, context_label): (
