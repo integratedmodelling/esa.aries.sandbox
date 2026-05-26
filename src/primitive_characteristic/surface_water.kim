@@ -29,11 +29,11 @@ model type of hydrology:WaterBody named waterbody_type
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 2) Watershed hierarchy.
  */
-//primary_observations of level of (hydrology:StreamOrder of hydrology:Watershed)
+//secondary_observations of level of (hydrology:StreamOrder of hydrology:Watershed)
 model local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__global__2004_2013
 	as hydrology:StreamOrder of hydrology:Watershed named watershed_hierarchy_input;
 
-//secondary_observations of level of (hydrology:StreamOrder of hydrology:Watershed)
+//primary_observations of level of (hydrology:StreamOrder of hydrology:Watershed)
 model level of (hydrology:StreamOrder of hydrology:Watershed) named watershed_hierarchy
 	observing 
 		hydrology:StreamOrder of hydrology:Watershed named watershed_hierarchy_input
