@@ -205,11 +205,11 @@ action main:
 //					)
 					checkbutton("Rule-based results (Local classification)" #colombia_obs_local :tooltip "Rule-based results (Local classification)"): (
 						colombia_obs_iucnget.disable
-						submit(rule_based_modelling.colombia.ecosystem_type_colombia)
+						submit(rule_based_modelling.colombia.ecosystem_type_colombia_new)
 					)
 					checkbutton("Rule-based results (IUCN GET classification)" #colombia_obs_iucnget :tooltip "Rule-based results (IUCN GET classification)"): (
 						colombia_obs_local.disable
-						submit(rule_based_modelling.colombia.ecosystem_type_iucn_get)
+						submit(rule_based_modelling.colombia.ecosystem_type_iucn_get_new)
 					)
 				) :hidden #colombia_obs
 				(
