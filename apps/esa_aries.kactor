@@ -227,9 +227,13 @@ action main:
 					)			
 				) :hidden #vietnam_obs
 				(
-					checkbutton("Machine Learning results (IUCN GET classification)" #europe_obs_1 :tooltip "Machine Learning results (IUCN GET classification)"): (
-						submit(ml.ecosystem_type.inference.ecdc_level3_mece)
+					checkbutton("Machine Learning results (EUNIS Typology)" #europe_obs_1 :tooltip "Machine Learning results (EUNIS Typology)"): (
+						submit(ml.ecosystem_type.inference.ml_inferences)
 					) 
+					
+					checkbutton("Machine Learning Inference Calculated Extent" #europe_obs_2 :tooltip "Machine Learning Inference Calculated Extent"): (
+						submit(ml.ecosystem_type.inference.ml_inference_presence)
+					)
 				) :hidden #europe_obs
 			)
 		) :hidden #queries	
