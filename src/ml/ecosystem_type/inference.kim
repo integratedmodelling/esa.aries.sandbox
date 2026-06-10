@@ -18,8 +18,11 @@ observe earth:Region named some_other_place_greece
 
 model each local:arnab.moitra:esa.aries.sandbox:ecdc_stac_vectors_from_stac as earth:Location with im:Predicted nca.ecosystem.eunis:Ecosystem named ml_inference_presence;
 
+number local:arnab.moitra:esa.aries.sandbox:updated_eunis_inference_mece_eu as ml_inferences;
 
-number  local:arnab.moitra:esa.aries.sandbox:ecdc_level3_inferences_updated  as ml_inferences;
+number im.resources-main:staging:klab.nifi.vito.ml.resources:ml_inference_eunis as nifi_resources_test;
+
+//number local:arnab.moitra:esa.aries.sandbox:terrascope_lcfm as tortilla_con_cebolla;
 
 model local:arnab.moitra:esa.aries.sandbox:ecdc_level3_inferences_updated 
 as type of nca.ecosystem.eunis:Ecosystem named ecosystem_type_alpha3_inference_stac_level3
