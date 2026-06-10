@@ -223,7 +223,7 @@ action main:
 //						submit(ml.ecosystem_type.inference.ecdc_level3_mece)
 //					) 
 					checkbutton("Rule-based results (IUCN GET classification)" #vietnam_obs_2 :tooltip "Rule-based results (IUCN GET classification)"): (
-						submit(rule_based_modelling.vietnam.matching_ecosystem_type_vietnam_rulebased_improved)
+						submit(rule_based_modelling.vietnam.ecosystem_type_iucn_get_improved)
 					)			
 				) :hidden #vietnam_obs
 				(
