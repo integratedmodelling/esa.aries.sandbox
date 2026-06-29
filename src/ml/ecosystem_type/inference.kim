@@ -20,9 +20,9 @@ model each local:arnab.moitra:esa.aries.sandbox:ecdc_stac_vectors_from_stac as e
 
 number local:arnab.moitra:esa.aries.sandbox:updated_eunis_inference_mece_eu as ml_inferences;
 
-number im.resources-main:staging:klab.nifi.vito.ml.resources:ml_inference_eunis as nifi_resources_test;
+//number im.resources-main:staging:klab.nifi.vito.ml.resources:ml_inference_eunis as nifi_resources_test;
 
-//number local:arnab.moitra:esa.aries.sandbox:terrascope_lcfm as tortilla_con_cebolla;
+//number local:arnab.moitra:esa.aries.sandbox:terrascope_lcfm as terrascope_test;
 
 model local:arnab.moitra:esa.aries.sandbox:ecdc_level3_inferences_updated 
 as type of nca.ecosystem.eunis:Ecosystem named ecosystem_type_alpha3_inference_stac_level3
