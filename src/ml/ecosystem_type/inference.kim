@@ -21,3 +21,6 @@ model each local:arnab.moitra:esa.aries.sandbox:ecdc_ml_inference_vectors_from_s
 //number local:arnab.moitra:esa.aries.sandbox:updated_eunis_inference_mece_eu as ml_inferences;  <- Using the usual STAC adapter
 
 number im.resources-main:staging:klab.nifi.vito.ml.resources:ml_inference_eunis as ml_inferences; // <- Using the Resources submitted to the Resources server
+
+
+number local:arnab.moitra:esa.aries.sandbox:lcfm_2020_copernicus_data  as copernicus_data; 
