@@ -1,33 +1,33 @@
 {
-  "urn" : "local:arnab.moitra:esa.aries.sandbox:updated_eunis_inference_mece_eu",
-  "version" : "0.0.1",
-  "adapterType" : "stac",
-  "localPath" : "esa.aries.sandbox/resources/updated_eunis_inference_mece_eu.v0.0.1",
-  "geometry" : "T1{ttype=grid}s2{bbox=[7.411617435248467 34.6533365979462 31.492342910690294 71.08014633035174],proj=EPSG:4326}",
-  "projectName" : "esa.aries.sandbox",
-  "localName" : "updated_eunis_inference_mece_eu",
-  "type" : "NUMBER",
-  "resourceTimestamp" : 1781088671476,
-  "metadata" : {
-    "dc:comment" : "This is the STAC metadata for the openEO job 'j-26050811090548278b59ccdafb92b6d2'",
-    "dc:url" : "https://catalogue.weed.apex.esa.int/collections/EU_modelV2-1-MECE"
+  "urn": "local:arnab.moitra:esa.aries.sandbox:updated_eunis_inference_mece_eu",
+  "version": "0.0.1",
+  "adapterType": "stac",
+  "localPath": "esa.aries.sandbox/resources/updated_eunis_inference_mece_eu.v0.0.1",
+  "geometry": "T1{ttype=grid}s2{bbox=[7.411617435248467 31.492342910690294 34.6533365979462 71.08014633035174],proj=EPSG:4326}",
+  "projectName": "esa.aries.sandbox",
+  "localName": "updated_eunis_inference_mece_eu",
+  "type": "NUMBER",
+  "resourceTimestamp": 1781088671476,
+  "metadata": {
+    "dc:comment": "This is the STAC metadata for the openEO job 'j-26050811090548278b59ccdafb92b6d2'",
+    "dc:url": "https://catalogue.weed.apex.esa.int/collections/EU_modelV2-1-MECE"
   },
-  "parameters" : {
-    "collection" : "https://catalogue.weed.apex.esa.int/collections/EU_modelV2-1-MECE",
-    "band" : "0",
-    "asset" : "EUNIS habitat level3",
-    "s3EndpointUrl" : "https://s3.waw4-1.cloudferro.com",
-    "collectionId" : "EU_modelV2-1-MECE"
+  "parameters": {
+    "collection": "https://catalogue.weed.apex.esa.int/collections/EU_modelV2-1-MECE",
+    "band": "0",
+    "asset": "EUNIS habitat level3",
+    "s3EndpointUrl": "https://s3.waw4-1.cloudferro.com",
+    "collectionId": "EU_modelV2-1-MECE"
   },
-  "localPaths" : [ ],
-  "history" : [ ],
-  "notifications" : [ ],
-  "attributes" : [ ],
-  "spatialExtent" : null,
-  "dependencies" : null,
-  "outputs" : null,
-  "categorizables" : [ ],
-  "codelists" : [ ],
-  "availability" : null,
-  "exportFormats" : { }
+  "localPaths": [],
+  "history": [],
+  "notifications": [],
+  "attributes": [],
+  "spatialExtent": null,
+  "dependencies": null,
+  "outputs": null,
+  "categorizables": [],
+  "codelists": [],
+  "availability": null,
+  "exportFormats": {}
 }
