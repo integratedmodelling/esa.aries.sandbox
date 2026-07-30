@@ -4,8 +4,9 @@ project private namespace rule_based_modelling.colombia
 		colombia.seea.ecology, 
 		colombia.seea.landcover, 
 		colombia.seea.hydrology,
-		nca.ecosystem.iucn;
-
+		nca.ecosystem.iucn,
+		(NEW_COLOMBIA_WITH_IUCN) from rule_based_modelling.colombia.tables;
+/*
 define MODELLED_GET_EFG_COLOMBIA as {{ 
                       landcover                      |                     climate                        |                          biome                           |                            biotic_unit                            | edafog_amb |               water_type              |             transformed              | transitional | non_continental |                    ecosystem_type_colombian_class                    |                  ecosystem_type_iucn_get                   
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1639,38 +1640,74 @@ define MODELLED_GET_EFG_COLOMBIA as {{
  landcover:WaterBody                                  |  #                                                |  #										                 |  #                                                                 |  #    |  #                                     |  #                                    |  #    |  #    | aries.colombia.ecosystem:Unaccounted                       		   |  nca.ecosystem.iucn:Freshwater                        	 	 ,
  #						                              |  #                                                |  #										                 |  #                                                                 |  #    |  #                                     |  #                                    |  #    |  #    | aries.colombia.ecosystem:Unaccounted 			                       |  nca.ecosystem.iucn:Terrestrial                        
 }};
-
+*/
 number 'local:alessio.bulckaen:dane.seea.aries:im-nca-colombia.colombia_soil_espg3316_30m_v21' as 
 	soil_edafogenetic_environment;
 
 number 'local:alessio.bulckaen:dane.seea.aries:im-nca-colombia.invemar_coastal_insular_marine_et_epsg3316_30m' as
 	non_continental;
 
-@documented(colombia.ecosystemextent.ecosystemtype)
-model type of aries.colombia.ecosystem:ModelledColombianEcosystem named ecosystem_type_colombia
-	observing
-		   colombia.seea.landcover:ColombianLandCoverType named landcover,
-		   type of colombia.seea.ecology:ClimateRegion named climate_region,
-		   type of colombia.seea.ecology:Biome named prel_biome,
-		   type of colombia.seea.ecology:BioticUnit named biotic_unit,
-		   soil_edafogenetic_environment,
-		   type of colombia.seea.hydrology:RiverWater named water_type,
-		   type of colombia.seea.ecology:Transformation named transformed,		   
-		   type of colombia.seea.hydrology:AquaticEnvironment named transitional,		   		   
-		   non_continental
-	lookup(landcover,climate_region, prel_biome, biotic_unit, soil_edafogenetic_environment,  water_type, transformed, transitional, non_continental, ?, *) into MODELLED_GET_EFG_COLOMBIA;
-	
-@documented(colombia.ecosystemextent.ecosystemtype) 
-model nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get 
-	observing
-		   colombia.seea.landcover:ColombianLandCoverType named landcover,
-		   type of colombia.seea.ecology:ClimateRegion named climate_region,
-		   type of colombia.seea.ecology:Biome named prel_biome,
-		   type of colombia.seea.ecology:BioticUnit named biotic_unit,
-		   soil_edafogenetic_environment,
-		   type of colombia.seea.hydrology:RiverWater named water_type,
-		   type of colombia.seea.ecology:Transformation named transformed,		   
-		   type of colombia.seea.hydrology:AquaticEnvironment named transitional,		   		   
-		   non_continental
-	lookup(landcover,climate_region, prel_biome, biotic_unit, soil_edafogenetic_environment,  water_type, transformed, transitional, non_continental, *, ?) into MODELLED_GET_EFG_COLOMBIA;
+number 'local:caterina.gilli:esa.aries.sandbox:esa_weed.colombia_humboldt_wetland_25m_epsg4326_2015'
+	as wetlands;
+//@documented(colombia.ecosystemextent.ecosystemtype)
+//model type of aries.colombia.ecosystem:ModelledColombianEcosystem named ecosystem_type_colombia
+//	observing
+//		   colombia.seea.landcover:ColombianLandCoverType named landcover,
+//		   type of colombia.seea.ecology:ClimateRegion named climate_region,
+//		   type of colombia.seea.ecology:Biome named prel_biome,
+//		   type of colombia.seea.ecology:BioticUnit named biotic_unit,
+//		   soil_edafogenetic_environment,
+//		   type of colombia.seea.hydrology:RiverWater named water_type,
+//		   type of colombia.seea.ecology:Transformation named transformed,		   
+//		   type of colombia.seea.hydrology:AquaticEnvironment named transitional,		   		   
+//		   non_continental
+//	lookup(landcover,climate_region, prel_biome, biotic_unit, soil_edafogenetic_environment,  water_type, transformed, transitional, non_continental, ?, *) into MODELLED_GET_EFG_COLOMBIA;
+//	
+//@documented(colombia.ecosystemextent.ecosystemtype) 
+//model nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get 
+//	observing
+//		   colombia.seea.landcover:ColombianLandCoverType named landcover,
+//		   type of colombia.seea.ecology:ClimateRegion named climate_region,
+//		   type of colombia.seea.ecology:Biome named prel_biome,
+//		   type of colombia.seea.ecology:BioticUnit named biotic_unit,
+//		   soil_edafogenetic_environment,
+//		   type of colombia.seea.hydrology:RiverWater named water_type,
+//		   type of colombia.seea.ecology:Transformation named transformed,		   
+//		   type of colombia.seea.hydrology:AquaticEnvironment named transitional,		   		   
+//		   non_continental
+//	lookup(landcover,climate_region, prel_biome, biotic_unit, soil_edafogenetic_environment,  water_type, transformed, transitional, non_continental, *, ?) into MODELLED_GET_EFG_COLOMBIA;
 
+
+
+
+
+
+//--- TypeRbNew annotation ---
+//model nca.ecosystem.iucn:TypeRbNew type of nca.ecosystem.iucn:Ecosystem named ecosystem_type_rb_new
+@documented(colombia.ecosystemextent.ecosystemtype)
+model type of aries.colombia.ecosystem:ModelledColombianEcosystem named ecosystem_type_colombia_new
+observing
+    type of colombia.seea.ecology:Biome named biome_type,
+    type of colombia.seea.ecology:BioticUnit named biotic_unit_type,
+    type of colombia.seea.ecology:ClimateRegion named climate_region,
+    type of colombia.seea.ecology:Transformation named transformation_type,
+    soil_edafogenetic_environment,
+    type of colombia.seea.hydrology:RiverWater named river_water_type,
+    type of colombia.seea.hydrology:AquaticEnvironment named transitionality,
+    wetlands,
+    non_continental 
+lookup (biome_type, biotic_unit_type, climate_region, transformation_type, soil_edafogenetic_environment, river_water_type, transitionality, wetlands, non_continental, ?, *) into NEW_COLOMBIA_WITH_IUCN;
+
+@documented(colombia.ecosystemextent.ecosystemtype) 
+model nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get_new 
+observing
+    type of colombia.seea.ecology:Biome named biome_type,
+    type of colombia.seea.ecology:BioticUnit named biotic_unit_type,
+    type of colombia.seea.ecology:ClimateRegion named climate_region,
+    type of colombia.seea.ecology:Transformation named transformation_type,
+    soil_edafogenetic_environment,
+    type of colombia.seea.hydrology:RiverWater named river_water_type,
+    type of colombia.seea.hydrology:AquaticEnvironment named transitionality,
+    wetlands,
+    non_continental 
+lookup (biome_type, biotic_unit_type, climate_region, transformation_type, soil_edafogenetic_environment, river_water_type, transitionality, wetlands, non_continental, *, ?) into NEW_COLOMBIA_WITH_IUCN;

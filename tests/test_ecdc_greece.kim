@@ -1,0 +1,48 @@
+worldview im;
+
+@test(
+    name = "test_ecdc_greece",
+    description  = "",
+    // add to the list any concepts to be observed in the context below
+    observations = ("im|esa.aries.sandbox/tests/test_ecdc_greece.hydroform"),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named test_ecdc_greece
+    over space(shape='EPSG:4326 POLYGON ((22.357147225076126 38.493707792574895, 22.157272360484562 38.493707792574895, 22.157272360484562 38.56620374670959, 22.357147225076126 38.56620374670959, 22.357147225076126 38.493707792574895))',
+    		grid="100 m",
+    		projection="EPSG:4326"),
+    time(year=2020); 
+// add any models here
+
+@colormap(values = {
+hydrology:WaterBody: (0 77 168)
+hydrology:Watercourse:(0 0 248)
+})
+//model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform__global__1984_2017'
+//as type of hydrology:WaterBody named hydroform classified into
+//	hydrology:Watercourse if 1,
+//	hydrology:WaterBody if in (2 3)
+//over space(shape="POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))");
+//model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform__global__1984_2017'
+//as type of hydrology:WaterBody
+//	lookup(hydroform) into
+//		hydroform | category
+//		--------------------
+//			1	  | hydrology:Watercourse,
+//		 	2 	  | hydrology:WaterBody,
+//		 	3 	  | hydrology:WaterBody;
+
+model type of hydrology:WaterBody
+observing 
+	type of hydrology:WaterBody named hydroform_type,
+	presence of hydrology.incubation:RiverMeander named hydroform_meander
+		lookup(hydroform_type, hydroform_meander) into
+		hydroform_type 	  |hydroform_meander| category
+		--------------------------------------------
+		hydrology:Watercourse		|	#	| hydrology:Watercourse,
+		hydrology:InlandWaterBody	|	#	| hydrology:InlandWaterBody,
+					# 				|  true	| hydrology:Meander
+over space(shape="POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))");
+	

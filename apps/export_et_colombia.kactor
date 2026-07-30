@@ -12,8 +12,20 @@ action main:
  */
 	set observables_urns (
 //		{landcover:LandCoverType} //generic semantic concept goes with their URN into {} 
-		rule_based_modelling.colombia.ecosystem_type_colombia
-		rule_based_modelling.colombia.ecosystem_type_iucn_get
+//		colombia.seea.landcover.colombian_landcover_type
+//		colombia.seea.ecology.climate_region
+//		colombia.seea.ecology.biome_type
+//		colombia.seea.ecology.biotic_unit_type
+//		colombia.seea.ecosystem.soil_edafogenetic_environment
+//		colombia.seea.hydrology.river_water_type
+//		colombia.seea.ecology.transformation_type
+//		colombia.seea.hydrology.transitionality
+//		colombia.seea.ecosystem.non_continental
+//		rule_based_modelling.colombia.wetlands
+////		rule_based_modelling.colombia.ecosystem_type_colombia
+////		rule_based_modelling.colombia.ecosystem_type_iucn_get
+//		colombia.seea.ecosystem.mec.mec_new
+		rule_based_modelling.colombia.ecosystem_type_colombia_new
 
 	)
 /*
@@ -31,10 +43,17 @@ action main:
  * URN of a resource (i.e. a vector file, which can contain multiple features)
  * Creates n output (.tiff and .xlsx files) for each feature (ID) in the spatial context resource (n = n_tables x n_ID_features).  
  */
-	wkt_context = Space(shape='POLYGON ((19.016595 48.192287, ..., 19.016595 48.192287))') //Set the context using WKT or the URN of a resource
+ 
+ //CA4
+//	wkt_context = Space(shape='EPSG:4326 POLYGON ((-74.04785590312142 10.787667526756849, -74.05709141034409 10.695540917575968, -74.08444301664889 10.606928285826356, -74.12885961514445 10.525239679732053, -74.18863430085975 10.453621212033298, -74.26146996614472 10.394833107180531, -74.34456757722921 10.351142433927663, -74.43473373952092 10.324234820749837, -74.52850341796875 10.315148711461475, -74.62227309641656 10.324234820749837, -74.71243925870827 10.351142433927663, -74.79553686979277 10.394833107180531, -74.86837253507775 10.453621212033298, -74.92814722079304 10.525239679732053, -74.97256381928861 10.606928285826356, -74.9999154255934 10.695540917575968, -75.00915093281608 10.787667526756849, -74.9999154255934 10.879765920028547, -74.97256381928861 10.968298199997562, -74.92814722079304 11.049866552068025, -74.86837253507775 11.121343171882714, -74.79553686979277 11.17998943037611, -74.71243925870827 11.223559853286204, -74.62227309641656 11.250387118364543, -74.52850341796875 11.259445013268461, -74.43473373952092 11.250387118364543, -74.34456757722921 11.223559853286204, -74.26146996614472 11.17998943037611, -74.18863430085975 11.121343171882714, -74.12885961514445 11.049866552068025, -74.08444301664889 10.968298199997562, -74.05709141034409 10.879765920028547, -74.04785590312142 10.787667526756849))') //Set the context using WKT or the URN of a resource
+//CA5
+//	wkt_context = Space(shape='EPSG:4326 POLYGON ((-75.71860126360146 9.364611144333097, -75.72152315455433 9.33533882507298, -75.73017654078225 9.307189105765914, -75.74422887750535 9.281244168572414, -75.76314014130399 9.258501661699412, -75.78618358291594 9.239836269041163, -75.812473655803 9.225965990307245, -75.84100004720774 9.217424443438219, -75.87066650390626 9.214540269339139, -75.90033296060479 9.217424443438219, -75.92885935200952 9.225965990307245, -75.95514942489659 9.239836269041163, -75.97819286650855 9.258501661699412, -75.99710413030719 9.281244168572414, -76.01115646703028 9.307189105765914, -76.0198098532582 9.33533882507298, -76.02273174421107 9.364611144333097, -76.0198098532582 9.393880997476415, -76.01115646703028 9.422023693879893, -75.99710413030719 9.447958120563484, -75.97819286650855 9.470688229457195, -75.95514942489659 9.489341224149612, -75.92885935200952 9.503200992406192, -75.90033296060479 9.511735516404158, -75.87066650390626 9.514617224399913, -75.84100004720774 9.511735516404158, -75.812473655803 9.503200992406192, -75.78618358291594 9.489341224149612, -75.76314014130399 9.470688229457195, -75.74422887750535 9.447958120563484, -75.73017654078225 9.422023693879893, -75.72152315455433 9.393880997476415, -75.71860126360146 9.364611144333097))')
+//CA17
+	wkt_context = Space(shape='EPSG:4326 POLYGON ((-77.05381393432617 3.880011411095552, -77.01760768890381 3.8797259645142077, -76.96918487548828 3.8625419029140886, -77.16567993164062 3.554998315297979, -77.21649169921875 3.583781482241733, -77.20001220703124 3.801681275577792, -77.14370727539061 3.828172737330192, -77.1104621887207 3.85620483548324, -77.0635986328125 3.8645971578679337, -77.05381393432617 3.880011411095552))')
+	
+	
 	spatial_contexts_urn ="local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_priority_areas_epsg4326_v2" //"local:rubencc:esa.aries.sandbox:esa_weed_vietnam_priority_areas_epsg4326_v2"//"local:justus.muhando:esa.aries.sandbox:esa_weed_south_africa_priority_areas_epsg4326_v2"
 	resolution = 30.m
-
 /*
  * Set temporal boundaries of the analysis 
  * currently focused on yearly results because have been used mainly for reporting accounting results
@@ -42,18 +61,20 @@ action main:
  * Results are adjusted to the temporal dimensions set
  * but the underlying data must be granular (frequent) enough for higher temporal resolution observations
  */
-	for year in (2022) (
+	for year in (2024) (
 		
 	
 /*
  * Set the right parameters (e.g use the wkt_context for WKT or the spatial_contexts_urn for using vector files) in the context
  */			
-//		for urn in observables_urns(	
+		for urn in observables_urns(	
 //			context(spatial_contexts_urn,resolution,Time(start=[year], end=[year+1], step=1.year),urn): state -> (
 		for priority_area in spatial_contexts_urn(
-				if [priority_area.weed_site == 'CO1'|| priority_area.weed_site == 'CO2'|| priority_area.weed_site == 'CO3'|| priority_area.weed_site == 'CO16' || priority_area.weed_site == 'CO17'] //|| feature.layer == 'central_colombia' || feature.layer == 'south_colombia']
-					(for urn in observables_urns(	
+//				if [priority_area.weed_site == 'CO1' || priority_area.weed_site == 'CO2' ||priority_area.weed_site == 'CO13' || priority_area.weed_site == 'CO14' || priority_area.weed_site == 'CO15']( //|| feature.layer == 'central_colombia' || feature.layer == 'south_colombia']
+					for urn in observables_urns(	
 					context(priority_area,resolution,Time(year=year),urn): state -> (
+//					context(wkt_context,resolution,Time(year=year),urn): state -> (
+
 						set urn_name ""
 						if [urn.toString().startsWith("[")] (
 						set urn_name [urn.name]
@@ -64,20 +85,21 @@ action main:
 				if [state.toString().contains("[nothing")] (
 					warning(["Observation " + urn_name + " return nothing"])
 				) else ( 
-					state.export([output_folder_directory + "/" + "maps" + "/" + priority_area.weed_site +"__"+ urn_name + "__" + year + ".tiff"])
+					state.export([output_folder_directory + "/" + "maps" + "/" + "26052026" + "/" + "es_results" + "/" + priority_area.weed_site + "/" +  priority_area.weed_site + "_rule_based_modelling" + "_" + year + ".tiff"])
 						)
 					)
 				)
-			)
-		)
+			
+//		)
 
 //		for table_urn in table_urns(
 //			context(wkt_context,resolution,Time(start=[year], end=[year+1], step=1.year),table_urn)
 //			pack(:tables): url -> 
 //
 //				save(url, filename=[output_folder_directory + "/" + year + "/" + "tables" + "/" + table_urn + ".xlsx"])
-//		)
+		)
 //
-//	)
-)
+	)
+//)
 
+)

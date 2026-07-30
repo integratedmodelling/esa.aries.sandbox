@@ -1,0 +1,99 @@
+project private namespace primitive_characteristic.anthropogenic;
+
+/* ----------------------------------------------------------------------------------------------------------------------------- 
+ * # 1) Mining areas.
+ */
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__mining_areas__global__2000_2019 
+	as presence of landcover:MineralExtraction earth:Region named mining_areas
+	set to [self == 1 ? true : false];
+
+/* ----------------------------------------------------------------------------------------------------------------------------- 
+ * # 2) Managed waters canal.
+ */	
+ 
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal
+	as presence of hydrology.incubation:Canal earth:Region named managed_waters_canal
+	set to [self == 1 ? true : false];
+//	 
+//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__greece__2025
+//	as presence of hydrology.incubation:Canal earth:Region named managed_waters_canal_greece
+//	set to [self == 1 ? true : false]
+//	over space(shape="POLYGON ((29.63220162 34.9966406, 29.63220162 41.79065352, 19.35250178 41.79065352, 19.35250178 34.9966406, 29.63220162 34.9966406))");
+//	
+//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__viet_nam__2025
+//	as presence of hydrology.incubation:Canal earth:Region named managed_waters_canal_viet_nam
+//	set to [self == 1 ? true : false]
+//	over space(shape="POLYGON ((109.48767457 8.56539723, 109.48767457 23.43431472, 101.9644288 23.43431472, 101.9644288 8.56539723, 109.48767457 8.56539723))");
+//
+//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__colombia__2025 
+//	as presence of hydrology.incubation:Canal earth:Region named managed_waters_canal_colombia
+//	set to [self == 1 ? true : false]
+//	over space(shape="POLYGON ((-66.87024263 -4.0466187, -66.87024263 12.44063129, -78.9991173 12.44063129, -78.9991173 -4.0466187, -66.87024263 -4.0466187))");
+	
+/* ----------------------------------------------------------------------------------------------------------------------------- 
+ * # 3) Managed waters reservoir.
+ */
+
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservoir__greece__2022
+	as presence of hydrology.incubation:Reservoir earth:Region named managed_waters_reservoir_greece
+	set to [self == 3 ? true : false]
+	over space(shape="POLYGON ((29.63220162 34.9966406, 29.63220162 41.79065352, 19.35250178 41.79065352, 19.35250178 34.9966406, 29.63220162 34.9966406))");
+	
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservoir__viet_nam__2022
+	as presence of hydrology.incubation:Reservoir earth:Region named managed_waters_reservoir_viet_nam
+	set to [self == 3 ? true : false]
+	over space(shape="POLYGON ((109.48767457 8.56539723, 109.48767457 23.43431472, 101.9644288 23.43431472, 101.9644288 8.56539723, 109.48767457 8.56539723))");
+
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservoir__colombia__2022 
+	as presence of hydrology.incubation:Reservoir earth:Region named managed_waters_reservoir_colombia
+	set to [self == 3 ? true : false]
+	over space(shape="POLYGON ((-66.87024263 -4.0466187, -66.87024263 12.44063129, -78.9991173 12.44063129, -78.9991173 -4.0466187, -66.87024263 -4.0466187))");
+		 
+/* ----------------------------------------------------------------------------------------------------------------------------- 
+ * # 4) Managed waters mariculture.
+ */
+
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_mariculture__greece__2017
+	as presence of landcover:WaterBody earth:Region caused by agriculture:Mariculture named managed_waters_mariculture_greece
+	set to [self == 1 ? true : false]
+	over space(shape="POLYGON ((29.63220162 34.9966406, 29.63220162 41.79065352, 19.35250178 41.79065352, 19.35250178 34.9966406, 29.63220162 34.9966406))");
+
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservoir__viet_nam__2022
+	as presence of landcover:WaterBody earth:Region caused by agriculture:Mariculture named managed_waters_mariculture_viet_nam
+	set to [self == 1 ? true : false]
+	over space(shape="POLYGON ((109.48767457 8.56539723, 109.48767457 23.43431472, 101.9644288 23.43431472, 101.9644288 8.56539723, 109.48767457 8.56539723))");
+	
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservoir__colombia__2022 
+	as presence of landcover:WaterBody earth:Region caused by agriculture:Mariculture named managed_waters_mariculture_colombia
+	set to [self == 1 ? true : false]
+	over space(shape="POLYGON ((-66.87024263 -4.0466187, -66.87024263 12.44063129, -78.9991173 12.44063129, -78.9991173 -4.0466187, -66.87024263 -4.0466187))");
+	 
+/* ----------------------------------------------------------------------------------------------------------------------------- 
+ * # 5) Managed waters aquaculture.
+ */
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_aquaculture__czechia_greece_norway__2017 
+	as presence of hydrology.incubation:Aquaculture earth:Region named managed_waters_aquaculture
+	set to [self == 1 ? true : false];
+
+/* ----------------------------------------------------------------------------------------------------------------------------- 
+ * # 6) Managed water body.
+ */	
+model type of hydrology.incubation:ManagedWaterBody named managed_waterbody
+	observing
+		presence of hydrology.incubation:Canal earth:Region named managed_waters_canal_presence,
+		presence of hydrology.incubation:Reservoir earth:Region named managed_waters_reservoir_presence,
+		presence of hydrology.incubation:Aquaculture earth:Region named managed_waters_aquaculture_presence
+	lookup (managed_waters_canal_presence, managed_waters_reservoir_presence, managed_waters_aquaculture_presence, ?) into
+			canal_presence	|	reservoir_presence	|	aquaculture_presence	|	managed_waterbody_type
+		------------------------------------------------------------------------------------------------------------------
+				true  		|			#			|			#				|	hydrology.incubation:Canal			,
+				 #  		|		   true			|			#				|	hydrology.incubation:Reservoir		,
+				 #  		|			#			|		   true				|	hydrology.incubation:Aquaculture	;
+				 
+model 'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__land_use_meadows_and_pastures__global__2018'
+	as type of ecology:HerbaceousVegetationLanduse classified into
+	//as type of Grassland named grassland_type classified into
+	ecology:CultivatedGrassland if 1,
+	ecology:NaturalSeminaturalGrassland if 2,
+	ecology:OpenShrubland if 3;
+	 

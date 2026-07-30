@@ -1,5 +1,7 @@
 project private namespace primitive_characteristic.threshold
-using ecology.incubation;
+	using primitive_characteristic,
+		  nca.ecosystem.iucn;
+	
 
 //TODO:Add proper concepts
 identity Variability;
@@ -98,56 +100,111 @@ time(start=2015, end=2016, step=1.year);
  * If any doubt check original classification here:
  * https://docs.google.com/spreadsheets/d/1ouf-TNAxZEIoh7GC6J66jW6pGSpLavgqAXGJgK1d9Kc/edit?gid=16843137#gid=16843137 
  */
+observe /* a:urn:to:use#objectid as */ earth:Region named test_ecdc_greece
+    over space(shape='EPSG:4326 POLYGON ((22.357147225076126 38.493707792574895, 22.157272360484562 38.493707792574895, 22.157272360484562 38.56620374670959, 22.357147225076126 38.56620374670959, 22.357147225076126 38.493707792574895))',
+    		grid="100 m",
+    		projection="EPSG:4326"),
+    time(year=2020); 
+  
+  
+/*
+ * ********************************WATER SURFACE DATA***************************************
+ */   
+//number 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform__global__1984_2017' as hydroform_type; 
+//
+//model type of hydrology:WaterBody
+//observing 
+//	hydroform_type,
+//	presence of hydrology.incubation:RiverMeander named hydroform_meander
+//		lookup(hydroform_type, hydroform_meander) into
+//		hydroform_type 	|hydroform_meander| category
+//		--------------------------------------------
+//			 1			|	#	| hydrology:Watercourse,
+//		in ( 2 3)		|	#	| hydrology:InlandWaterBody,
+//			#			|  true	| hydrology:Meander
+//over space(shape="POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))");
+	
+//number 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_seasonality__global__1984_2021' as seasonal_water_regime;
+//number 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_ephemeral__global__1984_2021' as ephemeral_water_regime;
+//number 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_episodic__global__1984_2021'as episodic_water_regime;
+//
+//model type of hydrology:WaterPermanence
+//observing
+//	seasonal_water_regime,
+//	ephemeral_water_regime,
+//	episodic_water_regime
+//	lookup(seasonal_water_regime, ephemeral_water_regime,episodic_water_regime, ?) into
+//		seasonal_water_regime|ephemeral_water_regime|episodic_water_regime|category
+//		---------------------------------------------------------------------------------------
+//			     1		     |			#			| 		#			  |hydrology:Permanent,
+//			     2		     |			#			| 		#			  |hydrology:Seasonal,
+//	     		 #		     |			#			| 		1			  |hydrology:Ephemeral,			     			 
+//		     	 #		     |		in (1 2)		| 		#			  |hydrology:Episodic;
 
-
-@intensive(space)                        
-model level of (im:Minimum im:Area of earth:WaterBody) named hydroform_morphology_area
-observing im:Minimum im:Area of earth:WaterBody in km^2
-		lookup (hydroform_morphology_area) into
-		hydroform_morphology_area | category
-		------------------------------------
-							< 100 | im:Low,
-	                        > 100 | im:High; 
+//model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__global__2004_2013'
+//as level of (hydrology:StreamOrder of hydrology:Watershed) named watershed_hierarchy
+//lookup (self, ?) into
+//watershed_hierarchy| category
+//------------------------------
+////			  <1   | im:VeryLow,
+//			1 to 4 | im:Low,
+//			4 to 9 | im:Moderate,
+//			  >9   | im:High;
+//over space(shape="POLYGON ((-180 -55.87, -180 84.01, 180 84.01, 180 -55.87, -180 -55.87))");
  
-model level of (hydrology:StreamOrder of hydrology:Watershed) named watershed_hierarchy
-observing hydrology:StreamOrder of hydrology:Watershed	
-	 	lookup (watershed_hierarchy) into
-	 	watershed_hierarchy | category
-		----------------------------------
-					 1 to 4 | im:Low,
-	                 4 to 9 | im:Moderate,
-	                    > 9 | im:High;
-@intensive(space)
-model level of ecology:NetPrimaryProduction
-observing ecology:NetPrimaryProduction in g/m^2 named annual_total_net_primary_productivity //g/m^2/day named npp
-		lookup (annual_total_net_primary_productivity) into
-        annual_total_net_primary_productivity | category
-		----------------------------------------------------
-										< 500 | im:Low,
-				                  500 to 2000 | im:Moderate,
-				                       > 2000 | im:High;
 
-model   
-'local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020'
-as level of soil.incubation:SoilFertility classified into
-  	soil.incubation:Infertile if in (0 1 2),
-	soil.incubation:LowFertility if in (3 4),
-	soil.incubation:MediumFertility if in (5 6 7),
-	soil.incubation:HighFertility if in (8 9 10)
-over space(shape="POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))");
+//annotation of hydroform_morphology_area thresholds
+//@intensive(space) 
+//model 
+////'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__colombia__2013_2020,
+////local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__czechia__2013_2020,
+//local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__greece__2013_2020
+////local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__norway__2013_2020,
+////local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__south_africa__2013_2020,
+////local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__viet_nam__2013_2020
+//	as level of (im:Minimum im:Area of earth:WaterBody) named hydroform_morphology_area
+//		lookup (self,?) into
+//		hydroform_morphology_area | category
+//		------------------------------------
+//		 					 <100 | im:Low,
+//							 >100 | im:High
+//	over space(shape='POLYGON ((-180 -55.87, -180 84.01, 180 84.01, 180 -55.87, -180 -55.87))');
+//@intensive(space)                        
+//model level of (im:Minimum im:Area of earth:WaterBody) named hydroform_morphology_area
+//observing im:Minimum im:Area of earth:WaterBody in km^2
+//		lookup (hydroform_morphology_area) into
+//		hydroform_morphology_area | category
+//		------------------------------------
+//							< 100 | im:Low,
+//	                        > 100 | im:High; 
 
-@intensive(space)
-model level of (im:Depth of landcover:PeatBog earth:Region)
-observing im:Depth of landcover:PeatBog earth:Region in cm named depth_peat_bog//g/m^2/day named npp
-		lookup (depth_peat_bog) into
-        depth_peat_bog | category
-		-------------------------
-   				   0   | Absent,
-   			 0 to  0.3 | im:Low,
-              0.3 to 1 | im:Moderate,
-                   > 1 | im:High;
 
-number 'local:alessio.bulckaen:im.data.global:ecdc__soil__peat_thickness__global__2001_2021' as test;
+//annotation of presence of geothermal (boolean)
+//model 'local:alessio.bulckaen:im.data.global:ecdc__energy__geothermal__global__2019'
+//as presence of earth:Crust physical:Thermal earth:Region
+// set to [self > 60];
+
+//@intensive(space)
+//model level of ecology:NetPrimaryProduction
+//observing ecology:NetPrimaryProduction in g/m^2 named annual_total_net_primary_productivity //g/m^2/day named npp
+//		lookup (annual_total_net_primary_productivity) into
+//        annual_total_net_primary_productivity | category
+//		----------------------------------------------------
+//										< 500 | im:Low,
+//				                  500 to 2000 | im:Moderate,
+//				                       > 2000 | im:High;
+
+
+//@intensive(space)
+//model level of (im:Depth of landcover:PeatBog earth:Region)
+//observing im:Depth of landcover:PeatBog earth:Region in cm named depth_peat_bog//g/m^2/day named npp
+//		lookup (depth_peat_bog) into
+//        depth_peat_bog | category
+//		-------------------------
+//   				   0   | Absent,
+//   			 0 to  0.3 | im:Low,
+//              0.3 to 1 | im:Moderate,
+//                   > 1 | im:High;
 
 //annotation of hydroform_morphology_area thresholds
 //model level of im:Minimum im:Area of earth:WaterBody
@@ -174,14 +231,14 @@ number 'local:alessio.bulckaen:im.data.global:ecdc__soil__peat_thickness__global
 
 
 //annotation of base_saturation thresholds
-//model level of percentage of (chemistry:Basic chemistry:ExchangeCapacity) in (chemistry:ExchangeCapacity of chemistry:Cation)
-//observing percentage of (chemistry:Basic chemistry:ExchangeCapacity) in (chemistry:ExchangeCapacity of chemistry:Cation) named base_saturation
-//lookup (base_saturation) into
-//base_saturation | category
-//--------------------------
-//		   < 49 | im:Low,
-//	   50 to 69 | im:Moderate,
-//	  70 to 100 | im:High;
+//model 'local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_base_saturation__global__1995_2019'
+//	as level of (percentage of (chemistry:Basic chemistry:ExchangeCapacity) in (chemistry:ExchangeCapacity of chemistry:Cation)) named chemical_properties_base_saturation
+//	lookup (self,?) into
+//	base_saturation | category
+//	--------------------------
+//			   < 49 | im:Low,
+//		   50 to 69 | im:Moderate,
+//		  70 to 100 | im:High;
 
 
 
@@ -208,45 +265,16 @@ number 'local:alessio.bulckaen:im.data.global:ecdc__soil__peat_thickness__global
 //				  900 to 2000 | im:High,
 //						>2000 | im:VeryHigh;
 
-//annotation of annual_total_water_budget thresholds
-//model level of (im:Mean hydrology:WaterVolume of hydrology:WaterBalance) 
-//observing im:Mean hydrology:WaterVolume of hydrology:WaterBalance in kg/m^2 named annual_total_water_budget
-//lookup (annual_total_water_budget) into
-//	annual_total_water_budget | category
-//	---------------------------------------
-//					   < -500 | im:Low,
-//	 			   -500 to -1 | im:ModeratelyLow,
-//				      -1 to 1 | im:Moderate,
-//					 1 to 499 | im:ModeratelyHigh,
-//						 >500 | im:High;
 
-//annotation of winter_total_water_budget thresholds
-//model level of (hydrology:WaterVolume of hydrology:WaterBalance during earth:Winter)
-//observing hydrology:WaterVolume of hydrology:WaterBalance during earth:Winter in kg/m^2 named winter_total_water_budget
-//lookup (winter_total_water_budget) into
-//	winter_total_water_budget | category
-//	---------------------------------------
-//					   < -500 | im:VeryLow,
-//	 			   -500 to -1 | im:Low,
-//				      -1 to 1 | im:Moderate,
-//					 1 to 499 | im:High,
-//						> 500 | im:VeryHigh;
+//model 'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation_total__global__1981_2010'
+// as level of earth:PrecipitationVolume classified into
+//	im:VeryLow 	if <200,
+//	im:Low 		if in (200 to 300),
+//    im:Moderate if in (300 to 900),
+//	im:High 	if in (900 to 2000),
+//	im:VeryHigh if >=2000;
+////over space(shape='POLYGON ((180 -90, 180 84, -180 84, -180 -90, 180 -90))');
 
-//annotation of annual_mean_diurnal_air_temperature thresholds 
-model level of im:Mean im:Yearly earth:AtmosphericTemperature
-observing im:Mean im:Yearly earth:AtmosphericTemperature named annual_mean_diurnal_air_temperature
-lookup (annual_mean_diurnal_air_temperature) into
-annual_mean_diurnal_air_temperature | category
-----------------------------------------------
-						   	   <-25 | ecology.incubation:ExtremelyCold,
-						 -25 to -10 | ecology.incubation:VeryCold,
-						   -10 to 0 | ecology.incubation:Cold,
-							0 to 10 | ecology.incubation:Cool,
-					       10 to 18 | ecology.incubation:Mild,
-						   18 to 22 | ecology.incubation:Warm,
-						   22 to 28 | ecology.incubation:Hot,
-						   28 to 35 | ecology.incubation:VeryHot,
-							   > 35 | ecology.incubation:ExtremelyHot;
 
 //annotation of winter_mean_diurnal_air_temperature thresholds
 //model level of im:Mean earth:AtmosphericTemperature during earth:Winter in Celsius
@@ -314,21 +342,11 @@ annual_mean_diurnal_air_temperature | category
 //		      >70 | ecology:Dense;
 
 
-//annotation of canopy_cover thresholds
-model level of ecology:CanopyDensity     
-observing proportion of ecology:CanopyCover  named canopy_cover 
-lookup (canopy_cover) into
-	canopy_cover | category
-	------------------------------
-		 	   0 | ecology:Absent,
-		 1 to 15 | ecology:Sparse,
-		15 to 65 | ecology:Open,
-	   65 to 100 | ecology:Dense; 
-
 //annotation of canopy_height thresholds
-//model level of (im:Mean im:Height of ecology:Canopy)
-//observing im:Mean im:Height of ecology:Canopy in m named canopy_height
-//lookup (canopy_height) into
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__greece__2020
+//as level of (im:Mean im:Height of ecology:Canopy)
+////observing im:Mean im:Height of ecology:Canopy in m named canopy_height
+//	lookup (self) into
 //	canopy_height | category
 //	------------------------
 //				0 | ecology:Absent,
@@ -337,44 +355,60 @@ lookup (canopy_cover) into
 //		  5 to 20 | im:Moderate,
 //		 20 to 40 | im:High,
 //			 > 40 | im:VeryHigh;
+//over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
+
+////annotation of specific_leaf_area thresholds
+//model level of (ratio of  im:Area to im:Mass of biology:Leaf)
+//observing ratio of  im:Area to im:Mass of biology:Leaf in m^2/kg named specific_leaf_area
+//	lookup(specific_leaf_area) into
+//	specific_leaf_area | category
+//	--------------------------------
+//					<3 | im:VeryLow,
+//				3 to 5 | im:Low,
+//				5 to 8 | im:Moderate,
+//					>8 | im:VeryHigh;
 
 //annotation of specific_leaf_area thresholds
-model level of (ratio of  im:Area to im:Mass of biology:Leaf) in m^2/kg
-observing ratio of  im:Area to im:Mass of biology:Leaf in m^2/kg named specific_leaf_area
-	lookup(specific_leaf_area) into
-	specific_leaf_area | category
-	--------------------------------
-					<3 | im:VeryLow,
-				3 to 5 | im:Low,
-				5 to 8 | im:Moderate,
-					>8 | im:VeryHigh;
-
-//annotation of leaf_size thresholds
-model level of (im:Area of biology:Leaf)
-observing im:Area of biology:Leaf in mm^2 named leaf_size
-	lookup(leaf_size) into
-		leaf_size | category
-		-----------------------
-				<0| im:VeryLow,
-		   0 to 3 | im:Low,
-		   3 to 5 | im:Moderate,
-		   5 to 8 | im:High,
-			   >8 | im:VeryHigh;
-
+//model 'local:alessio.bulckaen:im.data.global:ecdc__vegetation__specific_leaf_area__global__2000_2020'
+// as level of (ratio of  im:Area to im:Mass of biology:Leaf) named specific_leaf_area
+//lookup(specific_leaf_area) into
+//specific_leaf_area | category
+//-----------------------------
+//				<3 | im:Low,
+//			3 to 5 | im:ModeratelyLow,
+//			5 to 8 | im:ModeratelyHigh,
+//				>8 | im:High
+//over space(shape='POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))');
 
 //annotation of leaf_area_index thresholds
-model level of ecology:LeafAreaIndex
-observing ecology:LeafAreaIndex named leaf_area_index
-lookup (leaf_area_index) into
-	leaf_area_index | category
-	-------------------------------------
-			0 to 25 | ecology:Leptophyll,
-		  25 to 225 | ecology:Nanophyll,
-		225 to 2025 | ecology:Microphyll,
-	   2025 to 4500 | ecology:Notophyll,
-	  4500 to 18225 | ecology:Mesophyll,
-	18225 to 164025 | ecology:Macrophyll,
-		   > 164025 | ecology:Megaphyll; 
+//model 
+////local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2024,
+////local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2021,
+//local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2018
+//as ecology:LeafAreaIndex named leaf_area_index
+//	lookup (self,?) into
+//	leaf_area_index|category
+//	-----------------------------
+//				<0| im:VeryLow,
+//		   0 to 3 | im:Low,
+//		   3 to 5 | im:Moderate,
+//		   5 to 8 | im:High,
+//			   >8 | im:VeryHigh;
+//over space(shape='POLYGON ((-65.33 -6.3, -65.33 12.63, -80 12.63, -80 -6.3, -65.33 -6.3))');
+
+////annotation of leaf_area_index thresholds
+//model level of ecology:LeafAreaIndex
+//observing ecology:LeafAreaIndex named leaf_area_index
+//lookup (leaf_area_index) into
+//	leaf_area_index | category
+//	-------------------------------------
+//			0 to 25 | ecology:Leptophyll,
+//		  25 to 225 | ecology:Nanophyll,
+//		225 to 2025 | ecology:Microphyll,
+//	   2025 to 4500 | ecology:Notophyll,
+//	  4500 to 18225 | ecology:Mesophyll,
+//	18225 to 164025 | ecology:Macrophyll,
+//		   > 164025 | ecology:Megaphyll; 
 
 
 
@@ -388,4 +422,280 @@ lookup (leaf_area_index) into
 //			 2 to 9 | Frequent,
 //			0 to 19 | Occasional,
 //			0 to 99 | Infrequent,
-//			   >100 | Centennial;                		
+//			   >100 | Centennial;
+
+//model presence of ecology:Tree
+//observing
+//	percentage of ecology:Forest ecology:CanopyCover named tree_density
+//	set to [self == nodata ? false : true];
+//model local:alessio.bulckaen:im.data.global:im-data-global-ecology.global_globmapftc_fractional_tree_cover_epsg4326_250m_2020
+//as 	presence of ecology:Tree
+//set to [self == unknown ? false : true];
+//
+//model level of ecology:WoodyVegetation ecology:CanopyCover
+//observing
+//	percentage of ecology:Forest ecology:CanopyCover named tree_density,
+//	presence of ecology:Tree named tree_cover
+//	lookup(tree_density,tree_cover,?) into
+//	tree_density | tree_cover | category
+//	------------------------------
+//	 	 # 	 	 | 	 false    | ecology:Absent,
+//	   1 to 10 	 | 	 true	  | ecology:VerySparse,
+//	  10 to 40 	 |   true	  | ecology:Sparse;  
+
+
+//annotation of leaf_size thresholds
+//model level of (im:Area of biology:Leaf) named leaf_size_typology
+//observing
+//	im:Area of biology:Leaf named leaf_size
+//	lookup (leaf_size,?) into
+//		  leaf_size | category
+//	-------------------------------------
+//	    0 to 25 	| ecology:Leptophyll,
+//	   25 to 225    | ecology:Nanophyll,
+//	  225 to 2025   | ecology:Microphyll,
+//	 2025 to 4500   | ecology:Notophyll,
+//	 4500 to 18225  | ecology:Mesophyll,
+//	18225 to 164025 | ecology:Macrophyll,
+//		  >= 164025 | ecology:Megaphyll; 
+//over space(shape='POLYGON ((180 -90, 180 90, -180 90, -180 -90, 180 -90))');
+
+//model level of (count of im:Yearly im:Occurrence of chemistry:Fire) 
+//	observing 
+//		count of im:Yearly im:Occurrence of chemistry:Fire named recurrence
+//	lookup (self, ?) into
+//		recurrence 	| category
+//		---------------------
+//		1			| ecology.incubation:Annual, // cate added this manually because it made sense in her head
+//		2 to 9 		| ecology.incubation:SubDecadal,
+//		10 to 19 	| ecology.incubation:Decadal,
+//		20 to 99 	| ecology.incubation:MultiDecadal,
+//		>100 		| ecology.incubation:Centennial;
+
+/*
+ * # Annotations moved from namespace: test_stac_resources ----------------------------------------------------------------------------------------
+ */
+//model level of im:Daily im:Mean im:Yearly earth:AtmosphericTemperature named annual_diurnal_mean_air_temperature_level
+//	observing
+//		im:Daily im:Mean im:Yearly earth:AtmosphericTemperature in Celsius named annual_diurnal_mean_air_temperature
+//	lookup(annual_diurnal_mean_air_temperature, ?) into
+//		  annual_diurnal_mean_air_temperature | category
+//		---------------------------------------------------------------------------
+//					 < -25					  | ecology.incubation:ExtremelyCold ,
+//		 		-25 to -10					  | ecology.incubation:VeryCold		 ,
+//		 		-10 to 0					  | ecology.incubation:Cold			 ,
+//				  0 to 10					  | ecology.incubation:Cool			 ,
+//				 10 to 18					  | ecology.incubation:Mild			 ,
+//				 18 to 22					  | ecology.incubation:Warm			 ,
+//				 22 to 28					  | ecology.incubation:Hot			 ,
+//				 28 to 35					  | ecology.incubation:VeryHot		 ,
+//					 > 35					  | ecology.incubation:ExtremelyHot  ;
+
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation_total__global__1981_2010 
+//	as level of im:Yearly earth:PrecipitationVolume named annual_precipitation_total_level
+//		lookup(self, ?) into
+//		annual_precipitation_total	| category
+//		---------------------------------------------
+//					     < 200		| im:VeryLow  ,
+//					200 to 300		| im:Low	  ,
+//					300 to 900		| im:Moderate ,
+//					900 to 2000		| im:High	  ,
+//				         > 2000		| im:VeryHigh ;
+
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total__global__1981_2010 
+//	as level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance) named annual_total_water_budget_level
+//	lookup(self, ?) into
+//		  annual_water_budget_total | category
+//		-------------------------------------------------
+//				< -500				| im:Low			,
+//		  -499 to -1				| im:ModeratelyLow  ,
+//			 1 to 499				| im:ModeratelyHigh ,
+//				> 500				| im:High			;
+				
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__winter_water_budget_total__global__1980_2010 
+//	as level of (hydrology:WaterVolume caused by hydrology:WaterBalance during earth:Winter) named winter_total_water_budget_level
+//	lookup(self, ?) into
+//		  winter_water_budget_total | category
+//		--------------------------------------------------
+//					  < -500		| im:Low			,
+//		 		-499 to -1			| im:ModeratelyLow	,
+//				   1 to 499			| im:ModeratelyHigh ,
+//					  > 500			| im:High			;
+
+//model local:alessio.bulckaen:im.data.global:ecdc__bioticassemblages__biotic_assemblage_pinniped_colonies__global__2022
+//	as presence of GBIF.SPECIES:4941589 ecology:Population named biotic_assemblage_pinniped_colonies_presence
+//	set to [((self == 1) || (self == 2)) ? true : false];
+
+/*
+ * # Canopy Cover. --------------------------------------------------------------------------------------------
+ */  
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__greece__2015
+//	as level of ecology:CanopyCover named canopy_cover_level_greece
+//	lookup (self, ?) into
+//	 canopy_cover | category
+//	------------------------------
+//		 	   0  | ecology:Absent,		
+//		 1 to 15  | ecology:Sparse,		
+//		15 to 65  | ecology:Open,	
+//	   65 to 100  | ecology:Dense;	
+//	   
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__norway__2015
+//	as level of ecology:CanopyCover named canopy_cover_level_norway
+//	lookup (self, ?) into
+//	 canopy_cover | category
+//	------------------------------
+//		 	   0  | ecology:Absent,		
+//		 1 to 15  | ecology:Sparse,		
+//		15 to 65  | ecology:Open,	
+//	   65 to 100  | ecology:Dense;
+//	   
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__south_africa__2015
+//	as level of ecology:CanopyCover named canopy_cover_level_south_africa
+//	lookup (self, ?) into
+//	 canopy_cover | category
+//	------------------------------
+//		 	   0  | ecology:Absent,		
+//		 1 to 15  | ecology:Sparse,		
+//		15 to 65  | ecology:Open,	
+//	   65 to 100  | ecology:Dense;
+//	   
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__czechia__2015
+//	as level of ecology:CanopyCover named canopy_cover_level_czechia
+//	lookup (self, ?) into
+//	 canopy_cover | category
+//	------------------------------
+//		 	   0  | ecology:Absent,		
+//		 1 to 15  | ecology:Sparse,		
+//		15 to 65  | ecology:Open,	
+//	   65 to 100  | ecology:Dense;
+//	   
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__viet_nam__2015
+//	as level of ecology:CanopyCover named canopy_cover_level_viet_nam
+//	lookup (self, ?) into
+//	 canopy_cover | category
+//	------------------------------
+//		 	   0  | ecology:Absent,		
+//		 1 to 15  | ecology:Sparse,		
+//		15 to 65  | ecology:Open,	
+//	   65 to 100  | ecology:Dense;
+//	   
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__colombia__2015
+//	as level of ecology:CanopyCover named canopy_cover_level_colombia
+//	lookup (self, ?) into
+//	 canopy_cover | category
+//	------------------------------
+//		 	   0  | ecology:Absent,		
+//		 1 to 15  | ecology:Sparse,		
+//		15 to 65  | ecology:Open,	
+//	   65 to 100  | ecology:Dense;
+
+/* --------------------------------------------------------------------------------------------------------------- */
+
+//model local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020
+//	as level of soil.incubation:Fertility named soil_fertility_level
+//	classified into
+//		im:None if in (0 1 2),
+//		im:Low if in (3 4),
+//		im:Moderate if in (5 6 7),
+//		im:High if in (8 9 10);
+
+/* --------------------------------------------------------------------------------------------------------------- */
+//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__mining_areas__global__2000_2019 
+//	as presence of landcover:MineralExtraction earth:Region named mining_areas_presence
+//	set to [self == 1 ? true : false];
+
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_amplitude__global__1981_2010 
+//	as level of im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_amplitude_level
+//	lookup(self, ?) into
+//		seasonal_diurnal_air_temperature_amplitude  | category
+//	   --------------------------------------------------------
+//					0 to 10 						| im:Low  ,
+//					11 to 20 						| im:Moderate,			
+//					   > 21 						| im:High ;
+
+	
+//model level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability_level
+//	observing
+//		im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_variability
+//	lookup(seasonal_diurnal_air_temperature_variability, ?) into
+//		   seasonal_diurnal_air_temperature_variability | category
+//		---------------------------------------------------------------
+//						  0								| im:VeryLow  ,
+//					 1 to 25							| im:Low	  ,
+//					25 to 75							| im:Moderate ,
+//						> 75							| im:High	  ;
+
+
+//model level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_mean_air_temperature_level
+//	observing
+//		im:Mean earth:AtmosphericTemperature during earth:Summer in Celsius named summer_diurnal_mean_air_temperature
+//	lookup(summer_diurnal_mean_air_temperature, ?) into
+//		  summer_diurnal_mean_air_temperature	| category
+//		-----------------------------------------------------------------------------
+//				   -10 to 0						| ecology.incubation:Cold		  ,
+//					 0 to 10					| ecology.incubation:Cool		  ,
+//					10 to 18					| ecology.incubation:Mild		  ,
+//					18 to 22					| ecology.incubation:Warm		  ,
+//					22 to 28					| ecology.incubation:Hot		  ,
+//					28 to 35					| ecology.incubation:VeryHot	  ,
+//					    > 35					| ecology.incubation:ExtremelyHot ;
+
+	
+//model level of im:Mean earth:AtmosphericTemperature during earth:Winter named winter_diurnal_mean_air_temperature_level
+//	observing
+//		im:Mean earth:AtmosphericTemperature during earth:Winter in Celsius named winter_diurnal_mean_air_temperature
+//	lookup(winter_diurnal_mean_air_temperature, ?) into
+//		  winter_diurnal_mean_air_temperature	| category
+//		------------------------------------------------------------------------------
+//				 		< -25					| ecology.incubation:ExtremelyCold	,
+//				   -25 to -10					| ecology.incubation:VeryCold		,
+//				   -10 to 0						| ecology.incubation:Cold		  	,
+//					 0 to 10					| ecology.incubation:Cool		  	,
+//					10 to 18					| ecology.incubation:Mild		  	,
+//					18 to 22					| ecology.incubation:Warm	  		,
+//					22 to 28					| ecology.incubation:Hot 			;		
+
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belts__global__1950_2000 
+//	as type of ecology:MountainClimaticBeltZone named thermal_belts_type
+//	classified into
+//		ecology:UpperAlpine  if 2,
+//		ecology:LowerAlpine  if 3,
+//		ecology:UpperMontane if 4,
+//		ecology:LowerMontane if 5,
+//		ecology:Lowland 	 if in (6, 7);
+
+//model local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__tropical_storms_exposure__global__1990_2015
+//	as presence of ecology:Tropical earth:Region with im:Mean im:Maximum earth:WindSpeed of earth:Storm named tropical_storms_exposure_presence
+//	set to [self >= 50 ? true : false]
+//	over space(shape="POLYGON ((180 -42, 180 66.60000000000001, -176.3 66.60000000000001, -176.3 -42, 180 -42))");
+	
+//model local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__coastal_storms_exposure__global__1979_2014
+//	as presence of earth:Coast with im:High earth:WindSpeed of earth:Storm named coastal_storms_exposure_presence
+//	set to [self == 1 ? true : false];
+
+/*
+ * *********************************GEOHTERMAL************************************
+ */
+//annotation of presence of geothermal (boolean)
+//model 'local:alessio.bulckaen:im.data.global:ecdc__energy__geothermal__global__2019'
+//as presence of earth:Crust physical:Thermal earth:Region
+// set to [self > 60];
+
+
+/*
+ * *********************************ANTHRPOGENIC_SYSTEMS************************************
+ */
+
+//TODO: model in this namesapce resturns error:URN primitive_characteristic.threshold.managed_waterbody_type does not represent a resolvable entity, so moved to primitive_characteristic
+
+////annotation of managed_waterbody_type
+//model type of hydrology.incubation:ManagedWaterBody named managed_waterbody_type
+//observing
+//	presence of hydrology.incubation:Reservoir earth:Region named reservoir,
+//	presence of hydrology.incubation:Canal earth:Region named managed_canal
+//	lookup (reservoir,managed_canal,?) into
+//	reservoir|managed_canal|managed_waterbody_type
+//	----------------------------------------------
+//	   true  | 		#	   |hydrology.incubation:Reservoir,
+//		#	 |	   true	   |hydrology.incubation:Canal
+//over space(shape='POLYGON ((179.96 -52.99, 179.96 78.07, -162.9 78.07, -162.9 -52.99, 179.96 -52.99))');	

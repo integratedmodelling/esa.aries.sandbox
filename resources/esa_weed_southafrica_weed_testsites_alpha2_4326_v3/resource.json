@@ -1,0 +1,73 @@
+{
+  "urn" : "local:rubencc:esa.aries.sandbox:esa_weed_southafrica_weed_testsites_alpha2_4326_v3",
+  "version" : "0.0.1",
+  "adapterType" : "wfs",
+  "localPath" : "esa.aries.sandbox/resources/esa_weed_southafrica_weed_testsites_alpha2_4326_v3",
+  "geometry" : "#s2(9){bbox=[17.267228319744586 30.12838883378725 -34.0980966486946 -23.7115412723374],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "esa_weed_southafrica_weed_testsites_alpha2_4326_v3",
+  "type" : "OBJECT",
+  "resourceTimestamp" : 1776764588484,
+  "metadata" : {
+    "im:keywords" : "features,SouthAfrica_WEED_TestSites_alpha2_4326_v3",
+    "dc:title" : "SouthAfrica_WEED_TestSites_alpha2_4326_v3"
+  },
+  "parameters" : {
+    "serviceUrl" : "https://integration.integratedmodelling.org/geoserver/esa_weed/wms",
+    "wfsVersion" : "1.0.0",
+    "wfsIdentifier" : "esa_weed:SouthAfrica_WEED_TestSites_alpha2_4326_v3"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ {
+    "name" : "area",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "perimeter",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "layer",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "WEED_site",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "Name",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  } ],
+  "spatialExtent" : {
+    "east" : 30.12838883378725,
+    "west" : 17.267228319744586,
+    "north" : -23.7115412723374,
+    "south" : -34.0980966486946,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

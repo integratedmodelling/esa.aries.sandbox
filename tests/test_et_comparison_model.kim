@@ -1,0 +1,77 @@
+worldview im
+	using primitive_characteristic,
+		  primitive_characteristic.anthropogenic, 
+		  primitive_characteristic.atmospheric_disturbance,
+		  primitive_characteristic.climate,
+		  primitive_characteristic.coastal,
+		  primitive_characteristic.ecosystem_function,
+		  primitive_characteristic.geothermal_energy,
+		  primitive_characteristic.soil,
+		  primitive_characteristic.surface_water,
+		  primitive_characteristic.vegetation,
+		  primitive_characteristic.wildfire_disturbance,
+		  primitive_characteristic.reference_maps, 
+		  nca.ecosystem.iucn,
+		  (BIOME_T2_TEMPERATE_BOREAL_FOREST_WOODLAND_ECOSYSTEM_TYPES) from table.ecosystem.typology.iucn,
+		  et_result_comparison,
+		  (IUCN_GET_LEVEL_CONSISTENCY_TABLE,
+		  	IUCN_GET_LEVEL_CONVERSION_TABLE) from et_result_comparison,
+		  (CZECH_REPUBLIC_IUCN_GET) from rule_based_modelling.czech_republic, 
+		  rule_based_modelling.czech_republic;
+
+@test(
+    name = "test_et_comparison_model",
+    description  = "",
+
+    observations = (
+	    "primitive_characteristic.copernicus_landcover_2020"
+	    "im|esa.aries.sandbox/tests/test_et_comparison_model.biome_t2_temperateborealforestwoodland_with_reduced_variables"
+	    "primitive_characteristic.reference_maps.reference_ecosystem_czech_republic"
+	    "im|esa.aries.sandbox/tests/test_et_comparison_model.modelled_ecosystem_type"
+	    "et_result_comparison.matching_ecosystem_type"
+	    "et_result_comparison.ecosystem_type_result_comparison_by_ecosystem_type_modelled_vs_reference"
+	    "et_result_comparison.iucn-get-type-resolver"
+	    "et_result_comparison.ecosystem_type_result_comparison_by_iucn_get_level_modelled_vs_reference"
+    ),
+
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named test_et_comparison_model
+    // add any space and/or time extents: for example
+    over space(shape="EPSG:4326 POLYGON ((15.632548684849466 50.696022691388066, 15.631776205210866 50.69105432642493, 15.629488452254357 50.68627639663083, 15.625773343043075 50.68187260043587, 15.620773647140554 50.67801230088574, 15.614681500056468 50.67484399768446, 15.607731019586735 50.672489597512, 15.600189308797935 50.6710397062935, 15.592346191406248 50.67055012782831, 15.58450307401456 50.6710397062935, 15.576961363225761 50.672489597512, 15.57001088275603 50.67484399768446, 15.56391873567194 50.67801230088574, 15.558919039769421 50.68187260043587, 15.555203930558138 50.68627639663083, 15.552916177601633 50.69105432642493, 15.552143697963029 50.696022691388066, 15.552916177601633 50.700990530111994, 15.555203930558138 50.70576696130371, 15.558919039769421 50.71016851468164, 15.56391873567194 50.71402616864887, 15.57001088275603 50.717191826267225, 15.576961363225761 50.719543983622884, 15.58450307401456 50.72099237623911, 15.592346191406248 50.72148142846518, 15.600189308797935 50.72099237623911, 15.607731019586735 50.719543983622884, 15.614681500056468 50.717191826267225, 15.620773647140554 50.71402616864887, 15.625773343043075 50.71016851468164, 15.629488452254357 50.70576696130371, 15.631776205210866 50.700990530111994, 15.632548684849466 50.696022691388066))", 
+    		   grid="30 m"),
+    	 time(year=2020);
+
+//--- BIOME T2 - TemperateBorealForestWoodland annotation---
+model nca.ecosystem.iucn:TemperateBorealForestWoodland type of nca.ecosystem.iucn:Ecosystem named biome_t2_temperateborealforestwoodland_with_reduced_variables
+	observing
+		landcover:LandCoverType named landcover,
+		level of im:Daily im:Mean earth:AtmosphericTemperature during im:Year named annual_diurnal_air_temperature_mean
+//		level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance) named annual_water_budget_total,
+//		//level of im:Daily im:Differential im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_amplitude,
+//		//level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability,
+//		level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_air_temperature_mean,
+//		level of im:Mean earth:AtmosphericTemperature during earth:Winter named winter_diurnal_air_temperature_mean,
+//		level of ecology:NetPrimaryProduction named annual_net_primary_productivity_total,
+//		//vegetation_type is not available,
+//		level of (chemistry:Basic chemistry:ExchangeCapacity of chemistry:Cation) named chemical_properties_base_saturation,
+//		level of (proportion of chemistry:Nitrogen in soil:Soil) named chemical_properties_n,
+//		level of soil.incubation:Fertility named fertility,
+//		level of (im:Depth of landcover:PeatBog earth:Region) named peat_thickness,
+//		level of ecology:CanopyCover named canopy_cover,
+//		level of (im:Mean im:Height of ecology:Canopy) named canopy_height,
+//		level of ecology:LeafAreaIndex named leaf_area_index,
+//		level of (physical.incubation:Shadow im:Area of biology:Leaf) named leaf_size,
+//		type of ecology:LeafPhenology named phenology,
+//		level of (ratio of im:Area to earth:Dry im:Mass of biology:Leaf) named specific_leaf_area,
+//		presence of earth:Region with im:High im:Frequency of chemistry:Fire named periodicity,
+//		level of (count of im:Yearly im:Occurrence of chemistry:Fire) named recurrence
+	lookup (landcover, annual_diurnal_air_temperature_mean, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, ?)
+	//lookup (landcover, annual_diurnal_air_temperature_mean, annual_water_budget_total, *, *, summer_diurnal_air_temperature_mean, winter_diurnal_air_temperature_mean, annual_net_primary_productivity_total, *, *, chemical_properties_n, fertility, peat_thickness, canopy_cover, canopy_height, leaf_area_index, leaf_size, phenology, specific_leaf_area, periodicity, recurrence, ?)
+	into BIOME_T2_TEMPERATE_BOREAL_FOREST_WOODLAND_ECOSYSTEM_TYPES;
+
+model type of nca.ecosystem.iucn:Ecosystem named modelled_ecosystem_type    // This step is just to unify the input model semantics and names for next step's consistency analysis.
+	observing
+		nca.ecosystem.iucn:TemperateBorealForestWoodland type of nca.ecosystem.iucn:Ecosystem named biome_t2_temperateborealforestwoodland_with_reduced_variables
+	set to [biome_t2_temperateborealforestwoodland_with_reduced_variables];

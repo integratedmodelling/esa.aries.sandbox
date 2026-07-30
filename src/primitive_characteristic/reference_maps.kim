@@ -1,0 +1,24 @@
+project private namespace primitive_characteristic.reference_maps
+using nca.ecosystem.iucn;
+
+number 'local:alessio.bulckaen:esa.aries.sandbox:esa_weed.czechrepublic_validation_ecosystems_epsg5514_10m' as czechrepublic_validation;
+
+model 'local:alessio.bulckaen:esa.aries.sandbox:esa_weed.czechrepublic_validation_ecosystems_epsg5514_10m'
+as //geography:CzechRepublic 
+	im:Reference type of nca.ecosystem.iucn:Ecosystem named reference_ecosystem_czech_republic classified into 
+		nca.ecosystem.iucn:DeciduousTemperateForest if 10202,
+		nca.ecosystem.iucn:SeasonalFloodplainMarsh if 50104,
+		nca.ecosystem.iucn:EpisodicAridFloodplain if 60141,
+		nca.ecosystem.iucn:DerivedSeminaturalPastureOldfield if 10705,
+		nca.ecosystem.iucn:BorealTemperateFen if 50107,
+		nca.ecosystem.iucn:TemperateAlpineGrasslandShrubland if 10604,
+		nca.ecosystem.iucn:TemperateSubhumidGrassland if 10405,
+		nca.ecosystem.iucn:PolarTundraDesert if 10603,
+		nca.ecosystem.iucn:AnnualCropland if 10701,
+		nca.ecosystem.iucn:UrbanIndustrialEcosystem if 10704,
+		nca.ecosystem.iucn:Plantation if 10703,
+		nca.ecosystem.iucn:SownPastureField if 10702,
+		nca.ecosystem.iucn:BorealTemperateMontaneForestWoodland if 10201,
+		nca.ecosystem.iucn:CoolTemperateHeathland if 10303,
+		nca.ecosystem.iucn:LargePermanentFreshwaterLake if 60201,
+		nca.ecosystem.iucn:SmallPermanentFreshwaterLake if 60202;

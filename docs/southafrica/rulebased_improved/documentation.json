@@ -1,0 +1,50 @@
+{
+  "southafrica.rulebased_improved.coastalecosystemtypes#Definition#Results" : {
+    "trigger" : "DEFINITION",
+    "sectionRole" : "RESULTS",
+    "section" : "Results",
+    "documentedId" : "southafrica.rulebased_improved.coastalecosystemtypes",
+    "extended" : null,
+    "template" : "The figure below illustrates the distribution of ecosystem types over the temporal and spatial context of interest.\r\n@figure(self, EcosystemExtent)",
+    "sectionType" : "BODY",
+    "documentedUrns" : [ ],
+    "eventType" : null,
+    "variables" : { }
+  },
+  "southafrica.rulebased_improved.coastalecosystemtypes#Definition#Methods" : {
+    "trigger" : "DEFINITION",
+    "sectionRole" : "METHODS",
+    "section" : "Methods",
+    "documentedId" : "southafrica.rulebased_improved.coastalecosystemtypes",
+    "extended" : null,
+    "template" : "@section(Coastal Ecosystem Type Mapping Method)\r\n\r\nIn this model, we improved coastal ecosystem type classifications by adequately identifying marine, shoreline, brackish tidal and salt marsh ecosystems and distinguish from their terrestrial counterparts. This imporvement has been done by incorporating physical variables enabling the distinction between marine, shoreline and brackish systems.",
+    "sectionType" : "BODY",
+    "documentedUrns" : [ ],
+    "eventType" : null,
+    "variables" : { }
+  },
+  "southafrica.rulebased_improved.coastalecosystemtypes#Definition#Discussion" : {
+    "trigger" : "DEFINITION",
+    "sectionRole" : "DISCUSSION",
+    "section" : "Discussion",
+    "documentedId" : "southafrica.rulebased_improved.coastalecosystemtypes",
+    "extended" : null,
+    "template" : "Our results show that existing rule-based models mapping coastal and marine ecosystems can be improved by distinguishing marine, intertidal and coastal ecosystems from their terrestrial counterparts by incorporating physical variables.",
+    "sectionType" : "BODY",
+    "documentedUrns" : [ ],
+    "eventType" : null,
+    "variables" : { }
+  },
+  "southafrica.rulebased_improved.coastalecosystemtypes#Definition#Introduction" : {
+    "trigger" : "DEFINITION",
+    "sectionRole" : "INTRODUCTION",
+    "section" : "Introduction",
+    "documentedId" : "southafrica.rulebased_improved.coastalecosystemtypes",
+    "extended" : null,
+    "template" : "@section(Coastal Ecosystem Types)\r\n\r\nCoastal and marine systems host ecosystem types with limited extent accounts @cite(CUMMINS2023) due to their inherent data adquisition difficulties. These limitations often lead to incorrect coastal and marine ecosystem type classifications where missclassifications are recurrent.",
+    "sectionType" : "BODY",
+    "documentedUrns" : [ ],
+    "eventType" : null,
+    "variables" : { }
+  }
+}

@@ -59,6 +59,8 @@ number local:alessio.bulckaen:esa.aries.sandbox:esa.weed_ecdc_canopy_structure a
 
 number local:alessio.bulckaen:esa.aries.sandbox:esa.weed_ecdc_water_index as ecdc_water_index_standard_deviation_predictor;
 
+
+
 number local:alessio.bulckaen:esa.aries.sandbox:esa.weed_ecdc_bare_ground as ecdc_bare_ground_predictor 	
  "VV means vertical transmitted signal and vertical received.
   Low for smooth surfaces.";
@@ -1391,3 +1393,10 @@ number local:justus.muhando:esa.aries.sandbox:esa_weed.colombia_canopy_height_sa
 number local:justus.muhando:esa.aries.sandbox:esa_weed.colombia_fhd_pai_sample_epsg4326_25m as colombia_fhd_pai_sample;
 number local:justus.muhando:esa.aries.sandbox:esa_weed.colombia_pai_sample_epsg4326_25m as colombia_pai_sample;
 number local:justus.muhando:esa.aries.sandbox:esa_weed.colombia_rh50_sample_epsg4326_25m as colombia_rh50_sample;
+
+number "local:justus.muhando:esa.aries.sandbox:esa_weed.czechrepublic_validation_ecosystems_epsg5514_10m" as czechrepublic_validation;
+
+
+model 'local:samjinoj:im.data.global:im-data-global-hydrology:global_wetlands_20m_2020_mosaic'
+	as presence of earth:Marine earth:WaterBody
+	set to [self == 255];

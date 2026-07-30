@@ -1,0 +1,26 @@
+private namespace ml.ecosystem_type.inference
+using
+nca.ecosystem.eunis;
+
+observe earth:Region named crete_greece 
+    over space(shape='POLYGON ((26.459221641825245 34.584905138119694, 23.3879723825818 34.584905138119694, 23.3879723825818 36.051135431464004, 26.459221641825245 36.051135431464004, 26.459221641825245 34.584905138119694))',
+    		grid="100 m", 
+    		projection="EPSG:4326"),
+    time(start=2018, end=2019, step=1.year); 
+    
+observe earth:Region named naxos_greece
+ over space(shape='POLYGON ((25.6048779215173 36.98023804586812, 25.50060549411149 36.91659428607155, 25.42727103967224 36.90468379557668, 25.334457120772555 37.00403355284381, 25.313831805461515 37.08680214592554, 25.36081169033667 37.172219624158785, 25.457063161788177 37.198236791010565, 25.495449165283723 37.20781980359156, 25.554460484090317 37.20781980359156, 25.581387979079732 37.20234394538952, 25.615763504598135 37.1932166321805, 25.62836786395487 37.17587169700749, 25.63753467075978 37.149846826373164, 25.64727440298999 37.04748688531133, 25.6048779215173 36.98023804586812))',
+ 			grid="30 m",
+ 			projection="EPSG:4326"),
+ 	time(start=2018, end=2019, step=1.year);
+    
+    
+
+model each local:arnab.moitra:esa.aries.sandbox:ecdc_ml_inference_vectors_from_stac as earth:Location with im:Predicted nca.ecosystem.eunis:Ecosystem named ml_inference_presence;
+
+//number local:arnab.moitra:esa.aries.sandbox:updated_eunis_inference_mece_eu as ml_inferences;  <- Using the usual STAC adapter
+
+number im.resources-main:staging:klab.nifi.vito.ml.resources:ml_inference_eunis as ml_inferences; // <- Using the Resources submitted to the Resources server
+
+
+number local:arnab.moitra:esa.aries.sandbox:lcfm_2020_copernicus_data  as copernicus_data; 

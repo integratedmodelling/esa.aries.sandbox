@@ -21,7 +21,7 @@
     "dc:source" : ""
   },
   "parameters" : {
-    "endpointurl" : "https://s3.waw3-1.cloudferro.com",
+    "s3EndpointUrl" : "https://s3.waw3-1.cloudferro.com",
     "collection" : "https://catalogue.weed.apex.esa.int/collections/wern_features",
     "asset" : "Distance_to_inland_water",
     "collectionId" : "wern_features"

@@ -85,6 +85,52 @@ observe earth:Region named south_africa_capefloral_sa11
     			grid="30 m",
                 projection= "EPSG:4326"),
         time(start=2022, end=2023, step=1.year);
+
+// South Africa priority areas v3
+
+observe earth:Region named south_africa_albany_sa12   
+    over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_southafrica_weed_testsites_alpha2_4326_v3#weed_site=SA12',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+observe earth:Region named south_africa_ecoast_sa13   
+    over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_southafrica_weed_testsites_alpha2_4326_v3#weed_site=SA13',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+observe earth:Region named south_africa_calrens_sa14   
+    over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_southafrica_weed_testsites_alpha2_4326_v3#weed_site=SA14',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+observe earth:Region named south_africa_karoo_sa15   
+    over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_southafrica_weed_testsites_alpha2_4326_v3#weed_site=SA15',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+observe earth:Region named south_africa_namaqua_sa16   
+    over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_southafrica_weed_testsites_alpha2_4326_v3#weed_site=SA16',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+observe earth:Region named south_africa_tswalu_sa17   
+    over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_southafrica_weed_testsites_alpha2_4326_v3#weed_site=SA17',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+observe earth:Region named south_africa_tzaneen_sa18   
+    over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_southafrica_weed_testsites_alpha2_4326_v3#weed_site=SA18',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+
         
 //Colombia priority areas V2
 observe earth:Region named colombia_mojana_co1  
@@ -189,6 +235,72 @@ observe earth:Region named colombia_buenaventura_co17
                 projection= "EPSG:4326"),
         time(start=2022, end=2023, step=1.year);  
 
+// Colombia small priority areas:
+
+//Potential Biomes -> Riverine:
+observe earth:Region named colombia_small_sample1
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=COL_1',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+//Potential Biomes -> Coastal lagoon:
+observe earth:Region named colombia_small_sample2
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=COL_2',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+//Potential Biomes -> Coal mines:
+observe earth:Region named colombia_small_sample10
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=COL_10',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+//Potential Biomes -> Ilegal gold mines:
+observe earth:Region named colombia_small_sample11
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=COL_11',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+//Potential Biomes -> Coastal:
+observe earth:Region named colombia_small_sample13
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=COL_13',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+//Potential Biomes -> Coastal:
+observe earth:Region named colombia_small_sample14
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=COL_14',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+//Potential Biomes -> Coastal:
+observe earth:Region named colombia_small_sample15
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=COL_15',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+//Potential Biomes -> Marine:
+observe earth:Region named colombia_small_sample16
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=COL_16',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+//Potential Biomes -> Coastal river - city:
+observe earth:Region named colombia_small_sample17
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=COL_17',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+
 
 //Czech priority areas V2
 observe earth:Region named czech_republic_bilek_cz1  
@@ -291,7 +403,7 @@ observe earth:Region named greece_kassandra_el5
         
 observe earth:Region named greece_crete_el6 
     over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_greece_priority_areas_epsg4326_v2#weed_site=EL6',
-    			grid="30 m",
+    			grid="100 m",
                 projection= "EPSG:4326"),
         time(start=2022, end=2023, step=1.year); 
         
@@ -368,7 +480,7 @@ observe earth:Region named norway_finnmark_no2
 //Vietnam priority areas V2
 observe earth:Region named vietnam_quang_ninh__hai_phong_vn1
     over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_vietnam_priority_areas_epsg4326_v2#weed_site=VN1',
-    			grid="100 m",
+    			grid="30 m",
                 projection= "EPSG:4326"),
         time(start=2022, end=2023, step=1.year);  
 
@@ -382,5 +494,150 @@ observe earth:Region named vietnam_cu_lao_cham__hoi_an_vn3
     over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_vietnam_priority_areas_epsg4326_v2#weed_site=VN3',
     			grid="30 m",
                 projection= "EPSG:4326"),
-        time(start=2022, end=2023, step=1.year);  
-///             
+        time(start=2022, end=2023, step=1.year);
+        
+// Vietnam small priority areas:
+
+//Potential Biomes -> Natural:
+observe earth:Region named vietnam_small_sample1
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=VNM_1',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+// Potential Biomes -> Coastal:
+observe earth:Region named vietnam_small_sample3
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=VNM_3',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+// Potential Biomes -> Rural:
+observe earth:Region named vietnam_small_sample5
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=VNM_5',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+
+// Potential Biomes -> Industrial:        
+observe earth:Region named vietnam_small_sample6
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=VNM_6',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+// Potential Biomes -> Marine:        
+observe earth:Region named vietnam_small_sample7
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=VNM_7',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+                
+///
+// South_Africa small priority areas:
+
+observe earth:Region named southafrica_small_sample1
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=ZAF_1',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+observe earth:Region named southafrica_small_sample2
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=ZAF_2',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+observe earth:Region named southafrica_small_sample3
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=ZAF_3',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+observe earth:Region named southafrica_small_sample4
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=ZAF_4',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+observe earth:Region named southafrica_small_sample5
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=ZAF_5',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+observe earth:Region named southafrica_small_sample6
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=ZAF_6',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+observe earth:Region named southafrica_small_sample9
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=ZAF_9',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+observe earth:Region named southafrica_small_sample10
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=ZAF_10',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+// Czeck_republic small priority areas:        
+observe earth:Region named czeck_republic_small_sample1
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=CZE_1',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+observe earth:Region named czeck_republic_small_sample2
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=CZE_2',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+observe earth:Region named czeck_republic_small_sample4
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=CZE_4',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+observe earth:Region named czeck_republic_small_sample5
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=CZE_5',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+observe earth:Region named czeck_republic_small_sample13
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=CZE_13',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+observe earth:Region named czeck_republic_small_sample14
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=CZE_14',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+observe earth:Region named czeck_republic_small_sample15
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=CZE_15',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+observe earth:Region named czeck_republic_small_sample16
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=CZE_16',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+observe earth:Region named czeck_republic_small_sample17
+	over space (urn = 'local:Benat_Egidazu:esa.aries.sandbox:esa_weed_small_areas_within_polygons#new_id=CZE_17',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+
+             
