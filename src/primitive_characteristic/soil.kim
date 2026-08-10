@@ -128,5 +128,5 @@ model 'local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_ph_
 		<4		|chemistry:HighlyAcidic,
 	 4 to 6.5	|chemistry:Acidic,
 	 6.5 to 7.5	|chemistry:Neutral,
-	 7.5 to 9	|chemistry:HighlyAlkaline,
-		>9		|chemistry:Alkaline;	
+	 7.5 to 9	|chemistry:Alkaline,
+		>9		|chemistry:HighlyAlkaline;	
