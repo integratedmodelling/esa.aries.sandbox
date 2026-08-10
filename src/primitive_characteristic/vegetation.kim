@@ -101,7 +101,7 @@ model level of (im:Mean im:Height of ecology:Canopy) named canopy_height
 	lookup (canopy_height_input, ?) into
 		 canopy_height	| category
 		--------------------------------------
-					0	| ecology:Absent	,
+					0	| im:None			,
 			   0 to 1	| im:VeryLow		,
 			   1 to 5	| im:Low			,
 			   5 to 20	| im:Moderate		,
