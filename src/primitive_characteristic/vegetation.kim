@@ -74,21 +74,26 @@ model level of (physical.incubation:Shadow im:Area of biology:Leaf) named leaf_s
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 5) Canopy height.
  */
-model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__czechia__2020
-	as im:Mean im:Height of ecology:Canopy in m named canopy_height_input_czechia
-	over space(shape="POLYGON ((21 48, 21 54, 12 54, 12 48, 21 48))");
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__czechia__2020
+//	as im:Mean im:Height of ecology:Canopy in m named canopy_height_input_czechia
+//	over space(shape="POLYGON ((21 48, 21 54, 12 54, 12 48, 21 48))");
+//
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__greece__2020
+//	as im:Mean im:Height of ecology:Canopy in m named canopy_height_input_greece
+//	over space(shape="POLYGON ((29.63220162 34.9966406, 29.63220162 41.79065352, 19.35250178 41.79065352, 19.35250178 34.9966406, 29.63220162 34.9966406))");
+//	
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__viet_nam__2020
+//	as im:Mean im:Height of ecology:Canopy in m named canopy_height_input_viet_nam
+//	over space(shape="POLYGON ((109.48767457 8.56539723, 109.48767457 23.43431472, 101.9644288 23.43431472, 101.9644288 8.56539723, 109.48767457 8.56539723))");
+//
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__colombia__2020
+//	as im:Mean im:Height of ecology:Canopy in m named canopy_height_input_colombia
+//	over space(shape="POLYGON ((-66.87024263 -4.0466187, -66.87024263 12.44063129, -78.9991173 12.44063129, -78.9991173 -4.0466187, -66.87024263 -4.0466187))");
 
-model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__greece__2020
-	as im:Mean im:Height of ecology:Canopy in m named canopy_height_input_greece
-	over space(shape="POLYGON ((29.63220162 34.9966406, 29.63220162 41.79065352, 19.35250178 41.79065352, 19.35250178 34.9966406, 29.63220162 34.9966406))");
+model local:justus.muhando:im.data.global:ecdc__vegetation__canopy_height
+	as im:Mean im:Height of ecology:Canopy in m named canopy_height_input;
 	
-model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__viet_nam__2020
-	as im:Mean im:Height of ecology:Canopy in m named canopy_height_input_viet_nam
-	over space(shape="POLYGON ((109.48767457 8.56539723, 109.48767457 23.43431472, 101.9644288 23.43431472, 101.9644288 8.56539723, 109.48767457 8.56539723))");
-
-model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__colombia__2020
-	as im:Mean im:Height of ecology:Canopy in m named canopy_height_input_colombia
-	over space(shape="POLYGON ((-66.87024263 -4.0466187, -66.87024263 12.44063129, -78.9991173 12.44063129, -78.9991173 -4.0466187, -66.87024263 -4.0466187))");
+number local:justus.muhando:im.data.global:ecdc__vegetation__canopy_height as test_canopy_height;	
 	
 model level of (im:Mean im:Height of ecology:Canopy) named canopy_height
 	observing 

@@ -5,4 +5,5 @@ project private namespace primitive_characteristic.geomorphology;
  */
 model local:alessio.bulckaen:im.data.global:ecdc__geomorphology__floodplain__global__1900_2100 
 	as presence of hydrology:Floodplain named floodplain
-	set to [self == 0 ? true : false];
+	set to [self == 1 ? true : false];
+//	set to [self == 0 ? true : false];

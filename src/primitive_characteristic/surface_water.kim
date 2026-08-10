@@ -43,7 +43,6 @@ model level of (hydrology:StreamOrder of hydrology:Watershed) named watershed_hi
 					1 to 4 | im:Low,
 					4 to 9 | im:Moderate,
 					  >9   | im:High;
-		//			  <1   | im:VeryLow,
 
 ////direct_annotation of level of (hydrology:StreamOrder of hydrology:Watershed)	
 //model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__global__2004_2013'
@@ -82,8 +81,8 @@ model type of hydrology:WaterPermanence named water_permanence_type
 		---------------------------------------------------------------------------------------------------------
 			     1		     	|			#				| 			#			  	|	hydrology:Permanent	,
 			     2		     	|			#				| 			#			  	|	hydrology:Seasonal	,
-	     		 #		     	|			#				| 			1			  	|	hydrology:Ephemeral	,			     			 
-		     	 #		     	|		in (1 2)			| 			#			  	|	hydrology:Episodic	;
+	     		 #		     	|			1				| 			#			  	|	hydrology:Ephemeral	,			     			 
+		     	 #		     	|			#				| 	     in (1 2)		  	|	hydrology:Episodic	;
 		     	  
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 4) Hydroform morphology area.

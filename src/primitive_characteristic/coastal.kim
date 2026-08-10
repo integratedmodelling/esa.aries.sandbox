@@ -6,3 +6,47 @@ project private namespace primitive_characteristic.coastal;
 model local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone_intertidal__global__2017_2019 
 	as presence of earth:Littoral earth:Region named tidal_zone_intertidal
 	set to [self == 1 ? true : false];
+
+model 'ecdc_freshwater_inflow'
+	as earth:Littoral hydrology:WaterVolume named freshwater_inflow
+	classified into
+	im:None if 0,
+	im:Low if 1,
+	im:Moderate if 2,
+	im:High if 3;
+//	lookup (freswater_inflow, ?) into	
+//	freshwater_inflow 	| category
+//	---------------------------------
+//			0			|im:None
+//			1			|im:Low
+//			2			|im:Moderate
+//			3			|im:High;
+
+model 'ecdc_coastal_slope'
+	as earth:Littoral geography:Slope named coastal_slope
+	classified into
+		im:Low if 1,
+		im:Moderate if 2,
+		im:High if 4;
+
+model 'ecdc_wave_energy'
+	as level of (im:Energy of physical:Wave) named wave_energy
+	 classified into
+		im:Low if 1,
+		im:Moderate if 2,
+		im:High if 4;	
+
+model 'ecdc_tidal_zone'
+ as type of hydrology:Tidal earth:Location named tidal_zone
+ 	classified into
+		earth:Subtidal if 1,
+		earth:Intertidal if 2,
+		earth:Supratidal if 3;
+
+model 'ecdc_salt_exposure'
+	as level of (earth:Littoral chemistry:Salinity) named salt_exposure
+	 classified into
+		im:Low if 1,
+		im:Moderate if 2,
+		im:High if 4;	
+	

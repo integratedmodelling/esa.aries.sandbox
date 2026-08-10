@@ -119,3 +119,14 @@ model level of (ratio of earth:Dry soil:Soil im:Mass to soil:Soil im:Volume) nam
 
 
 number 'local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_ph_status__global__1995_2019' as test_ph;
+
+model 'local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_ph_status__global__1995_2019'
+	as chemistry:Ph named ph 
+	lookup (ph,?) into
+	ph 			| category
+	---------------------------------
+		<4		|chemistry:HighlyAcidic,
+	 4 to 6.5	|chemistry:Acidic,
+	 6.5 to 7.5	|chemistry:Neutral,
+	 7.5 to 9	|chemistry:HighlyAlkaline,
+		>9		|chemistry:Alkaline;	

@@ -1,4 +1,5 @@
-project private namespace primitive_characteristic.climate;
+project private namespace primitive_characteristic.climate
+using nca.ecology.ipcc;
 
 
 attribute SeasonalAmplitude;
@@ -227,13 +228,56 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__winter_water_budget_t
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 10) Thermal belts.
  */
-model local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belts__global__1950_2000 
-	as type of ecology:MountainClimaticBeltZone named thermal_belts
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belts__global__1950_2000 
+//	as type of ecology:MountainClimaticBeltZone named thermal_belts
+//	classified into
+//		ecology:UpperAlpine  if 2,
+//		ecology:LowerAlpine  if 3,
+//		ecology:UpperMontane if 4,
+//		ecology:LowerMontane if 5,
+//		ecology:Lowland 	 if in (6, 7);
+		
+model 'ecdc_altitude_zone'//local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belts__global__1950_2000 
+	as type of earth:ElevationZone named altitude_zone
 	classified into
-		ecology:UpperAlpine  if 2,
-		ecology:LowerAlpine  if 3,
-		ecology:UpperMontane if 4,
-		ecology:LowerMontane if 5,
-		ecology:Lowland 	 if in (6, 7);
+		earth:Nival if 1,
+		earth:Alpine if 2,
+		earth:Subalpine if 3,
+		earth:Montane if 4,
+		earth:Lowland if 5;
 
-number local:alessio.bulckaen:im.data.global:ecdc__climate__climate_zone__global__2001_2020 as test_climate_zone;		
+model local:alessio.bulckaen:im.data.global:ecdc__climate__climate_zone__global__2001_2020 
+	as earth:Lowland type of nca.ecology.ipcc:ClimaticZone named climate_zone classified into		
+		nca.ecology.ipcc:Polar if 1,
+		nca.ecology.ipcc:SubPolar if 2,
+		nca.ecology.ipcc:Boreal if 3,
+		nca.ecology.ipcc:ColdTemperate if 4,
+		nca.ecology.ipcc:WarmTemperate if 5,
+		nca.ecology.ipcc:SubTropical if 6,
+		nca.ecology.ipcc:Tropical if 7;
+
+model local:alessio.bulckaen:im.data.global:ecdc__climate__climate_zone__global__2001_2020 
+	as type of nca.ecology.ipcc:ClimaticZone named climate_type classified into		
+		nca.ecology.ipcc:Polar if 1,
+		nca.ecology.ipcc:SubPolar if 2,
+		nca.ecology.ipcc:Boreal if 3,
+		nca.ecology.ipcc:ColdTemperate if 4,
+		nca.ecology.ipcc:WarmTemperate if 5,
+		nca.ecology.ipcc:SubTropical if 6,
+		nca.ecology.ipcc:Tropical if 7;
+
+model 'ecdc_evotranspiration'
+	as type of ecology:MoistureRegime named evotranspiration classified into	
+		ecology:Wet if 1,
+		ecology:Humid if 2,
+		ecology:SubHumid if 3,
+		ecology:SemiArid if 4,
+		ecology:Arid if 5,
+		ecology:HyperArid if 6;
+
+model 'ecdc_continentality'
+	as level of (im:Differential earth:AtmosphericTemperature) named continentality
+	 classified into
+		im:Low if 1,
+		im:Moderate if 2,
+		im:High if 4;	

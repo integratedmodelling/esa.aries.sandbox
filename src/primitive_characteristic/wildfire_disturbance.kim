@@ -25,3 +25,11 @@ model local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__periodic
 	as presence of earth:Region with im:High im:Frequency of chemistry:Fire named periodicity
 	set to [self == 1 ? true : false];
 //	over space(shape='POLYGON ((180 -60, 180 70, -180 70, -180 -60, 180 -60))');
+
+
+model 'ecdc_fire_exposure'
+	as level of (risk:HazardMetric probability of chemistry:Fire) named fire_exposure
+	 classified into
+		im:Low if 1,
+		im:Moderate if 2,
+		im:High if 4;	
