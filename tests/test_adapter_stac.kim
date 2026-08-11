@@ -1,0 +1,22 @@
+worldview im;
+
+@test(
+    name = "test_adapter_stac",
+    description  = "",
+    // add to the list any concepts to be observed in the context below
+    observations = (
+    "primitive_characteristic.vegetation.test_canopy_height"
+    "primitive_characteristic.vegetation.canopy_height_input_colombia"
+    ),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named test_adapter_stac
+    // add any space and/or time extents: for example
+     over space(shape="EPSG:4326 POLYGON ((-76.43338775504458 3.0872712858806324, -76.07800910234539 3.1048631020321267, -76.08296403344609 2.8948421089853866, -76.4521063903678 2.895666876710308, -76.43338775504458 3.0872712858806324))",
+     			grid="100 m"),
+     		time(start=2020, end=2021, step=1.year)	
+;
+
+// add any models here
