@@ -1,0 +1,24 @@
+worldview im;
+
+@test(
+    name = "test_temporal_mediation_dynamic_asset",
+    description  = "",
+    // add to the list any concepts to be observed in the context below
+    observations = (
+    "primitive_characteristic.anthropogenic.test_land_use_meadows_and_pastures"
+    ),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named test_temporal_mediation_dynamic_asset
+    // add any space and/or time extents: for example
+    over space(shape="EPSG:4326 POLYGON ((-0.8069379186949858 42.32440157470916, -3.0262608178409844 42.32440157470916, -3.0262608178409844 43.07060567216587, -0.8069379186949858 43.07060567216587, -0.8069379186949858 42.32440157470916))",
+    		   grid="300 m"),
+    time(start=2018, end=2022, step=1.year)
+//    time(start=2018, end=2019, step=1.year)
+    
+;
+
+
+// add any models here

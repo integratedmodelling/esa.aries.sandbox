@@ -237,7 +237,7 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__winter_water_budget_t
 //		ecology:LowerMontane if 5,
 //		ecology:Lowland 	 if in (6, 7);
 		
-model 'ecdc_altitude_zone'//local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belts__global__1950_2000 
+model 'local:alessio.bulckaen:im.data.global:ecdc__climate__altitude_zone'//local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belts__global__1950_2000 
 	as type of earth:ElevationZone named altitude_zone
 	classified into
 		earth:Nival if 1,
@@ -245,6 +245,8 @@ model 'ecdc_altitude_zone'//local:alessio.bulckaen:im.data.global:ecdc__climate_
 		earth:Subalpine if 3,
 		earth:Montane if 4,
 		earth:Lowland if 5;
+
+number 'local:alessio.bulckaen:im.data.global:ecdc__climate__altitude_zone' as test_altitude_zone;
 
 model local:alessio.bulckaen:im.data.global:ecdc__climate__climate_zone__global__2001_2020 
 	as earth:Lowland type of nca.ecology.ipcc:ClimaticZone named climate_zone classified into		

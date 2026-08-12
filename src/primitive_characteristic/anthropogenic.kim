@@ -102,11 +102,17 @@ model 'ecdc_land_use'
 	agriculture:Annual if 100,
 	agriculture:Perennial if 2;
 
-model 'ecdc_crop_type'
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__crop_type_rice_paddies
 	as type of agriculture:Crop named crop_type classified into
 	agriculture:Rice if 1;
 
+number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__crop_type_rice_paddies as test_rice_paddy;
+
+number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal as test_managed_waters_canal; 
+
+
 model 'ecdc_settlement_type'
+
 	as level of demography:SettlementDensity named settlement_type classified into
 		demography:Urban if in ( 30 23 22 ),
 		demography:Suburban if 21,
@@ -153,7 +159,8 @@ model 'ecdc_settlement_type'
       ]
  */
 	
-model 'ecdc_infrastructure_type_road_transportation'
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__infrastructure_type_road_transportation
+//'ecdc_infrastructure_type_road_transportation'
 	as im:Density of infrastructure:Road named infrastructure_type_road_transportation
 //	classified into
 	lookup into
@@ -162,3 +169,7 @@ model 'ecdc_infrastructure_type_road_transportation'
 		 0 to 0.25 		| im:Low,
 		 0.25 to 0.5	| im:Moderate,
 			>0.5 		| im:High; 
+
+number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__crop_type_rice_paddies as test_crop_type_rice_paddies;
+number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__land_use_meadows_and_pastures as test_land_use_meadows_and_pastures;
+number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__infrastructure_type_road_transportation as test_infrastructure;
