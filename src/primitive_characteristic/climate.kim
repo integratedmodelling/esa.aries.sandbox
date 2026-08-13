@@ -237,7 +237,8 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__winter_water_budget_t
 //		ecology:LowerMontane if 5,
 //		ecology:Lowland 	 if in (6, 7);
 		
-model 'local:alessio.bulckaen:im.data.global:ecdc__climate__altitude_zone'//local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belts__global__1950_2000 
+//model 'local:alessio.bulckaen:im.data.global:ecdc__climate__altitude_zone'//local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belts__global__1950_2000 
+model local:alessio.bulckaen:im.data.global:ecdc__climate__altitude_zone_global_1981_2010
 	as type of earth:ElevationZone named altitude_zone
 	classified into
 		earth:Nival if 1,
@@ -248,7 +249,8 @@ model 'local:alessio.bulckaen:im.data.global:ecdc__climate__altitude_zone'//loca
 
 number 'local:alessio.bulckaen:im.data.global:ecdc__climate__altitude_zone' as test_altitude_zone;
 
-model local:alessio.bulckaen:im.data.global:ecdc__climate__climate_zone__global__2001_2020 
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__climate_zone__global__2001_2020 
+model local:alessio.bulckaen:im.data.global:ecdc__climate__climate_zone_global_1981_2010
 	as earth:Lowland type of nca.ecology.ipcc:ClimaticZone named climate_zone classified into		
 		nca.ecology.ipcc:Polar if 1,
 		nca.ecology.ipcc:SubPolar if 2,
@@ -258,7 +260,8 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__climate_zone__global_
 		nca.ecology.ipcc:SubTropical if 6,
 		nca.ecology.ipcc:Tropical if 7;
 
-model local:alessio.bulckaen:im.data.global:ecdc__climate__climate_zone__global__2001_2020 
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__climate_zone__global__2001_2020 
+model local:alessio.bulckaen:im.data.global:ecdc__climate__climate_type_global_1981_2010
 	as type of nca.ecology.ipcc:ClimaticZone named climate_type classified into		
 		nca.ecology.ipcc:Polar if 1,
 		nca.ecology.ipcc:SubPolar if 2,
@@ -268,7 +271,8 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__climate_zone__global_
 		nca.ecology.ipcc:SubTropical if 6,
 		nca.ecology.ipcc:Tropical if 7;
 
-model 'ecdc_evotranspiration'
+//model 'ecdc_evotranspiration'
+model local:alessio.bulckaen:im.data.global:ecdc__climate__evapotranspiration_global_1981_2010
 	as type of ecology:MoistureRegime named evotranspiration classified into	
 		ecology:Wet if 1,
 		ecology:Humid if 2,
@@ -277,7 +281,8 @@ model 'ecdc_evotranspiration'
 		ecology:Arid if 5,
 		ecology:HyperArid if 6;
 
-model 'ecdc_continentality'
+//model 'ecdc_continentality'
+model local:alessio.bulckaen:im.data.global:ecdc__climate__continentality_global_1981_2010
 	as level of (im:Differential earth:AtmosphericTemperature) named continentality
 	 classified into
 		im:Low if 1,

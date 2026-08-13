@@ -1,0 +1,20 @@
+private namespace primitive_characteristic.land_cover;
+
+identity LandCoverProduct
+has children
+	Copernicus,
+	GLCfcs30;
+
+model local:alessio.bulckaen:im.data.global:copernicus.cdse.landcovermap
+ as Copernicus landcover:LandCoverType classified according to im:copernicus-encoding;
+ 
+number local:alessio.bulckaen:im.data.global:copernicus.cdse.landcovermap as test_lc_copernicus;
+
+@reliability(50)
+model
+	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2018_mosaic,
+	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2019_mosaic,
+	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2020_mosaic,
+	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2021_mosaic,
+	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2022_mosaic
+	as GLCfcs30 landcover:LandCoverType named glc_fcs30 classified according to im:glc-fcs30-enconding;

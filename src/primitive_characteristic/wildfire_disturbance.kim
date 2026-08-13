@@ -27,7 +27,8 @@ model local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__periodic
 //	over space(shape='POLYGON ((180 -60, 180 70, -180 70, -180 -60, 180 -60))');
 
 
-model 'ecdc_fire_exposure'
+//model 'ecdc_fire_exposure'
+model local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__disturbances_exposure_global_2019_2024
 	as level of (risk:HazardMetric probability of chemistry:Fire) named fire_exposure
 	 classified into
 		im:Low if 1,

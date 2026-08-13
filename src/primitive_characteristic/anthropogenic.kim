@@ -102,65 +102,21 @@ model 'ecdc_land_use'
 	agriculture:Annual if 100,
 	agriculture:Perennial if 2;
 
-model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__crop_type_rice_paddies
+//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__crop_type_rice_paddies
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__crop_type_rice_paddies_global_2024
 	as type of agriculture:Crop named crop_type classified into
 	agriculture:Rice if 1;
 
-number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__crop_type_rice_paddies as test_rice_paddy;
-
-number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal as test_managed_waters_canal; 
-
-
 model 'ecdc_settlement_type'
-
 	as level of demography:SettlementDensity named settlement_type classified into
 		demography:Urban if in ( 30 23 22 ),
 		demography:Suburban if 21,
 		demography:Rural if 13,
 		demography:Sparse if in ( 12 11 );
-
-/*
-       "classification:classes": [
-        {
-          "value": 30,
-          "name": "urban",
-          "description": "Areas with high population density and significant infrastructure, including cities and towns."
-        },
-        {
-          "value": 23,
-          "name": "urban",
-          "description": "Areas with high population density and significant infrastructure, including cities and towns."
-        },
-        {
-          "value": 22,
-          "name": "urban",
-          "description": "Areas with high population density and significant infrastructure, including cities and towns."
-        },
-        {
-          "value": 21,
-          "name": "suburban",
-          "description": "Areas located on the outskirts of urban areas."
-        },
-        {
-          "value": 13,
-          "name": "rural",
-          "description": "Areas with low population density."
-        },
-        {
-          "value": 12,
-          "name": "sparse",
-          "description": "Areas where human habitation is spread out over large areas with very low population density."
-        },
-        {
-          "value": 11,
-          "name": "sparse",
-          "description": "Areas where human habitation is spread out over large areas with very low population density."
-        }
-      ]
- */
 	
-model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__infrastructure_type_road_transportation
+//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__infrastructure_type_road_transportation
 //'ecdc_infrastructure_type_road_transportation'
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__infrastructure_type_road_transportation_global_1997_2017
 	as im:Density of infrastructure:Road named infrastructure_type_road_transportation
 //	classified into
 	lookup into

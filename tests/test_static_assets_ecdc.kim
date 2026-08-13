@@ -1,0 +1,25 @@
+worldview im;
+
+@test(
+    name = "test_static_assets_ecdc",
+    description  = "",
+    // add to the list any concepts to be observed in the context below
+    observations = (
+    "primitive_characteristic.climate.altitude_zone"
+    "primitive_characteristic.climate.climate_zone"
+    "primitive_characteristic.climate.climate_type"
+    "primitive_characteristic.climate.evotranspiration"
+    "primitive_characteristic.surface_water.type-of-water-source-resolver"
+    "primitive_characteristic.wildfire_disturbance.fire_exposure"
+    ),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named test_static_assets_ecdc
+    // add any space and/or time extents: for example
+     over space(urn="local:rubencc:esa.aries.sandbox:esa_weed_vietnam_rb_testing_polygons", 
+    			grid="300 m"),
+    	   time(year=2022);
+
+// add any models here

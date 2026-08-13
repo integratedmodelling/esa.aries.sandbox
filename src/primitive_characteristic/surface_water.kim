@@ -191,7 +191,8 @@ model local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydrof
 	as presence of ecology:Brackish earth:WaterBody
 	set to [self==255]; 
 	
-model 'ecdc__surface_water__dominant_source'
+//model 'ecdc__surface_water__dominant_source'
+model local:alessio.bulckaen:im.data.global:ecdc__surfacewater__dominant_source_global_2000_2100
 	as type of hydrology:WaterSource classified into
 	hydrology:Minerotrophic if <0.3,
 	hydrology:Ombrotrophic if >= 0.3;
