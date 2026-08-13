@@ -1,0 +1,38 @@
+{
+  "urn" : "local:rubencc:esa.aries.sandbox:esa_weed_norway_rb_testing_polygons",
+  "version" : "0.0.1",
+  "adapterType" : "wfs",
+  "localPath" : "esa.aries.sandbox/resources/esa_weed_norway_rb_testing_polygons",
+  "geometry" : "#s2(5){bbox=[9.63174889593377 29.681447312022367 59.62577849163255 70.6116091138179],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "esa_weed_norway_rb_testing_polygons",
+  "type" : "OBJECT",
+  "resourceTimestamp" : 1786621019387,
+  "metadata" : {
+    "im:keywords" : "features,norway_rb_testing_polygons",
+    "dc:title" : "norway_rb_testing_polygons"
+  },
+  "parameters" : {
+    "serviceUrl" : "https://integration.integratedmodelling.org/geoserver/esa_weed/wfs",
+    "wfsVersion" : "1.0.0",
+    "wfsIdentifier" : "esa_weed:norway_rb_testing_polygons"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : {
+    "east" : 29.681447312022367,
+    "west" : 9.63174889593377,
+    "north" : 70.6116091138179,
+    "south" : 59.62577849163255,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

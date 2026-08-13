@@ -1,0 +1,38 @@
+{
+  "urn" : "local:rubencc:esa.aries.sandbox:esa_weed_vietnam_rb_testing_polygons",
+  "version" : "0.0.1",
+  "adapterType" : "wfs",
+  "localPath" : "esa.aries.sandbox/resources/esa_weed_vietnam_rb_testing_polygons",
+  "geometry" : "#s2(4){bbox=[106.78233056433615 108.50871754504784 15.945839971317733 21.058960676886283],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "esa_weed_vietnam_rb_testing_polygons",
+  "type" : "OBJECT",
+  "resourceTimestamp" : 1786621017724,
+  "metadata" : {
+    "im:keywords" : "features,vietnam_rb_testing_polygons",
+    "dc:title" : "vietnam_rb_testing_polygons"
+  },
+  "parameters" : {
+    "serviceUrl" : "https://integration.integratedmodelling.org/geoserver/esa_weed/wfs",
+    "wfsVersion" : "1.0.0",
+    "wfsIdentifier" : "esa_weed:vietnam_rb_testing_polygons"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : {
+    "east" : 108.50871754504784,
+    "west" : 106.78233056433615,
+    "north" : 21.058960676886283,
+    "south" : 15.945839971317733,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

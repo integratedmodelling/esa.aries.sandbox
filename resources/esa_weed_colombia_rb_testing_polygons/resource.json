@@ -1,0 +1,38 @@
+{
+  "urn" : "local:rubencc:esa.aries.sandbox:esa_weed_colombia_rb_testing_polygons",
+  "version" : "0.0.1",
+  "adapterType" : "wfs",
+  "localPath" : "esa.aries.sandbox/resources/esa_weed_colombia_rb_testing_polygons",
+  "geometry" : "#s2(5){bbox=[-77.16643813949275 -74.48484288189921 3.675991845220944 10.99566072991976],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "esa_weed_colombia_rb_testing_polygons",
+  "type" : "OBJECT",
+  "resourceTimestamp" : 1786621018668,
+  "metadata" : {
+    "im:keywords" : "features,colombia_rb_testing_polygons",
+    "dc:title" : "colombia_rb_testing_polygons"
+  },
+  "parameters" : {
+    "serviceUrl" : "https://integration.integratedmodelling.org/geoserver/esa_weed/wfs",
+    "wfsVersion" : "1.0.0",
+    "wfsIdentifier" : "esa_weed:colombia_rb_testing_polygons"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : {
+    "east" : -74.48484288189921,
+    "west" : -77.16643813949275,
+    "north" : 10.99566072991976,
+    "south" : 3.675991845220944,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}
