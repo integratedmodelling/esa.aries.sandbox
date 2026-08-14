@@ -2,7 +2,7 @@ worldview im;
 
 @test(
     name = "test_static_assets_ecdc",
-    description  = "",
+    description  = "Data imported as staticasset from STAC doens't cover the whole context despite the data covers the whole geographic area",
     // add to the list any concepts to be observed in the context below
     observations = (
     "primitive_characteristic.climate.altitude_zone"
@@ -11,6 +11,8 @@ worldview im;
     "primitive_characteristic.climate.evotranspiration"
     "primitive_characteristic.surface_water.type-of-water-source-resolver"
     "primitive_characteristic.wildfire_disturbance.fire_exposure"
+    "primitive_characteristic.land_cover.glc_fcs30"
+    "primitive_characteristic.vegetation.test_canopy_height"
     ),
     // add assertions to check the observations after execution
     assertions = ()
@@ -19,7 +21,7 @@ worldview im;
 observe /* a:urn:to:use#objectid as */ earth:Region named test_static_assets_ecdc
     // add any space and/or time extents: for example
      over space(urn="local:rubencc:esa.aries.sandbox:esa_weed_vietnam_rb_testing_polygons", 
-    			grid="300 m"),
-    	   time(year=2022);
+    			grid="30 m"),
+    	   time(year=2020);
 
 // add any models here
