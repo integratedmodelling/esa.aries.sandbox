@@ -96,11 +96,48 @@ model 'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__land_use_meado
 	ecology:CultivatedGrassland if 1,
 	ecology:NaturalSeminaturalGrassland if 2,
 	ecology:OpenShrubland if 3;
+
+// temporary change of URN
+model
+local:rubencc:im.data.global:im-data-global-landcover.global_land_use_annual_crops_2018,
+local:rubencc:im.data.global:im-data-global-landcover.global_land_use_annual_crops_2021,
+local:rubencc:im.data.global:im-data-global-landcover.global_land_use_annual_crops_2024 
+//model
+//	  local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__land_use_annual_crops_2018,
+//	  local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__land_use_annual_crops_2021,
+//	  local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__land_use_annual_crops_2024
+	as presence of agriculture:Annual agriculture:Cropfield named annual_crop 
+	set to [self==100 ? true : false];
+
+//temporary change of URN
+model local:rubencc:im.data.global:im-data-global-landcover.global_land_use_perennial_crops_2020
+//model
+//	  local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__land_use_perennial_crops_2018
+	as presence of agriculture:Perennial agriculture:Cropfield named perennial_crop
+	set to [self==2 ? true : false];
+
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__land_use_meadows_and_pastures_global_2018,
+	  local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__land_use_meadows_and_pastures_global_2021,
+	  local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__land_use_meadows_and_pastures_global_2024
+	as presence of agriculture:Pastureland earth:Region named pasture
+	set to [self==1 ? true : false]; 
 	
-model 'ecdc_land_use'
-	as type of agriculture:CropLifespan named land_use classified into
-	agriculture:Annual if 100,
-	agriculture:Perennial if 2;
+model type of agriculture:AgriculturalLandUse named land_use
+observing
+	presence of agriculture:Annual agriculture:Cropfield named annual_crop,
+	presence of agriculture:Perennial agriculture:Cropfield named perennial_crop,
+	presence of agriculture:Pastureland earth:Region named pasture 
+		lookup into
+		annual_crop | perennial_crop| pasture | land_use
+		-------------------------------------------------
+			true 	|		#		|	 #	  | agriculture:Annual,
+			 # 		|	   true		|	 #	  | agriculture:Perennial,
+ 			 # 		|	    #		|   true  | agriculture:Pastureland;
+
+//model 'ecdc_land_use'
+//	as type of agriculture:CropLifespan named land_use classified into
+//	agriculture:Annual if 100,
+//	agriculture:Perennial if 2;
 
 //model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__crop_type_rice_paddies
 model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__crop_type_rice_paddies_global_2024
