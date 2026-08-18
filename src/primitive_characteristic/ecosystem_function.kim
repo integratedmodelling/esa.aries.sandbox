@@ -6,10 +6,11 @@ project private namespace primitive_characteristic.ecosystem_function;
 @intensive(space)
 @extensive(time)   
 model 
-	local:justus.muhando:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total
+//	local:justus.muhando:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total
 //    local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2018
 //	  local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2021
 //	  local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2024
+	'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.annual_net_primary_productivity_total_testing'
 	as ecology:NetPrimaryProduction in g/m^2 named annual_net_primary_productivity_total_input;      
 //	over space(shape='POLYGON ((180 -60, 180 80, -180 80, -180 -60, 180 -60))');
 	//over space(shape='POLYGON ((179.9985147848 -59.9985130248, 179.9985147848 80.0014880952, -180 80.0014880952, -180 -59.9985130248, 179.9985147848 -59.9985130248))');

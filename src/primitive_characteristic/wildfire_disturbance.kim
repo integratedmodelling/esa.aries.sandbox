@@ -3,7 +3,8 @@ project private namespace primitive_characteristic.wildfire_disturbance;
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 1) Recurrence. 
  */
-model local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__recurrence__global__2002_2024
+//model local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__recurrence__global__2002_2024
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.fire_recurrence_testing'
 	as count of im:Yearly im:Occurrence of chemistry:Fire named recurrence_input;
 //	over space(shape='POLYGON ((180 -60.0003350977, 180 69.9999999937, -180 69.9999999937, -180 -60.0003350977, 180 -60.0003350977))');
 
@@ -21,15 +22,17 @@ observing
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 2) Periodicity. 
  */
-model local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__periodicity__global__2002_2024
+//model local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__periodicity__global__2002_2024
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.fire_periodicity_testing'
 	as presence of earth:Region with im:High im:Frequency of chemistry:Fire named periodicity
 	set to [self == 1 ? true : false];
 //	over space(shape='POLYGON ((180 -60, 180 70, -180 70, -180 -60, 180 -60))');
 
 
 //model 'ecdc_fire_exposure'
-model local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__disturbances_exposure_global_2019_2024
-	as level of (risk:HazardMetric probability of chemistry:Fire) named fire_exposure
+//model local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__disturbances_exposure_global_2019_2024
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.exposure_testing'
+	 as level of (risk:HazardMetric probability of chemistry:Fire) named fire_exposure
 	 classified into
 		im:Low if 1,
 		im:Moderate if 2,

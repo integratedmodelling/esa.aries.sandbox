@@ -8,7 +8,8 @@ model local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone_intertidal
 	set to [self == 1 ? true : false];
 
 //model 'ecdc_freshwater_inflow'
-model local:alessio.bulckaen:im.data.global:ecdc__coastal__freshwater_inflow_global_2000_2100
+//model local:alessio.bulckaen:im.data.global:ecdc__coastal__freshwater_inflow_global_2000_2100
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.freshwater_inflow_testing'
 	as earth:Littoral hydrology:WaterVolume named freshwater_inflow
 	classified into
 	im:None if 0,
@@ -24,14 +25,16 @@ model local:alessio.bulckaen:im.data.global:ecdc__coastal__freshwater_inflow_glo
 //			3			|im:High;
 
 //model 'ecdc_coastal_slope'
-model local:alessio.bulckaen:im.data.global:ecdc__coastal__slope_global_2000_2100
+//model local:alessio.bulckaen:im.data.global:ecdc__coastal__slope_global_2000_2100
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.slope_testing'
 	as earth:Littoral geography:Slope named coastal_slope
 	classified into
 		im:Low if 1,
 		im:Moderate if 2,
 		im:High if 4;
 
-model 'ecdc_wave_energy'
+//model 'ecdc_wave_energy'
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.wave_energy_testing'
 	as level of (im:Energy of physical:Wave) named wave_energy
 	 classified into
 		im:Low if 1,
@@ -39,15 +42,17 @@ model 'ecdc_wave_energy'
 		im:High if 4;	
 
 //model 'ecdc_tidal_zone'
-model local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone_global_1984_2021
- as type of hydrology:Tidal earth:Location named tidal_zone
+//model local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone_global_1984_2021
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.tidal_zone_testing'
+	as type of hydrology:Tidal earth:Location named tidal_zone
  	classified into
 		earth:Subtidal if 1,
 		earth:Intertidal if 2,
 		earth:Supratidal if 3;
 
 //model 'ecdc_salt_exposure'
-model local:alessio.bulckaen:im.data.global:ecdc__coastal__salt_exposure_global_1981_2010
+//model local:alessio.bulckaen:im.data.global:ecdc__coastal__salt_exposure_global_1981_2010
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.salt_exposure_testing'
 	as level of (earth:Littoral chemistry:Salinity) named salt_exposure
 	 classified into
 		im:Low if 1,
