@@ -4,14 +4,16 @@ project private namespace primitive_characteristic.surface_water;
  * # 1) Hydroform meander & hydroform.
  */
 //secondary_observations of type of hydrology:WaterBody
-number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__global__2004_2013 
+//number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__global__2004_2013 
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.hydroform_meander_testing'
 	as hydroform_meander;
 	
 //model local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__global__2004_2013
 //	as presence of hydrology.incubation:RiverMeander named hydroform_meander
 //	set to [(self == 2 || self ==3 ? true : false)];
 	
-number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform__global__1984_2017 
+//number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform__global__1984_2017 
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.hydroform_testing'
 	as hydroform; 
 
 //primary_observations of  type of hydrology:WaterBody
@@ -30,7 +32,8 @@ model type of hydrology:WaterBody named waterbody_type
  * # 2) Watershed hierarchy.
  */
 //secondary_observations of level of (hydrology:StreamOrder of hydrology:Watershed)
-model local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__global__2004_2013
+//model local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__global__2004_2013
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.watershed_hierarchy_testing'
 	as hydrology:StreamOrder of hydrology:Watershed named watershed_hierarchy_input;
 
 //primary_observations of level of (hydrology:StreamOrder of hydrology:Watershed)
@@ -61,13 +64,16 @@ model level of (hydrology:StreamOrder of hydrology:Watershed) named watershed_hi
  * # 3) Occurrence regime seasonality, ephemeral & episodic.
  */
 //secondary_observations of  type of hydrology:WaterPermanence	
-number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_seasonality__global__1984_2021 
+//number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_seasonality__global__1984_2021 
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.occurrence_regime_seasonality_testing'
 	as seasonal_water_regime;
 	
-number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_ephemeral__global__1984_2021 
+//number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_ephemeral__global__1984_2021 
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.occurrence_regime_ephemeral_testing'
 	as ephemeral_water_regime;
 	
-number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_episodic__global__1984_2021
+//number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_episodic__global__1984_2021
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.occurrence_regime_episodic_testing'
 	as episodic_water_regime;
 
 //primary_observations of type of hydrology:WaterPermanence
@@ -115,13 +121,14 @@ model type of hydrology:WaterPermanence named water_permanence_type
 
 //secondary_observation  of level of (im:Minimum im:Area of earth:WaterBody)
 @intensive(space) 
-model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area'
+//model 'local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area'
 //	  local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__greece__2013_2020
 //	  local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__colombia__2013_2020,
 //	  local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__czechia__2013_2020,	  
 //	  local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__norway__2013_2020,
 //	  local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__south_africa__2013_2020,
 //	  local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_morphology_area__viet_nam__2013_2020
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.hydroform_morphology_area_testing'
 	as im:Minimum im:Area of earth:WaterBody in km^2 named hydroform_morphology_area_input;
 
 
@@ -142,7 +149,8 @@ model level of (im:Minimum im:Area of earth:WaterBody) named hydroform_morpholog
  * # 5) Watershed hydroform density.
  */
 
-model local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__greece__2013_2020
+//model local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydroform_density__greece__2013_2020
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.watershed_hydroform_density_testing'
 	as level of (im:Density of earth:WaterBody) named watershed_hydroform_density
 		lookup (self, ?) into
 		  watershed_hydroform_density	|	category
@@ -192,7 +200,8 @@ model local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hydrof
 	set to [self==255]; 
 	
 //model 'ecdc__surface_water__dominant_source'
-model local:alessio.bulckaen:im.data.global:ecdc__surfacewater__dominant_source_global_2000_2100
+//model local:alessio.bulckaen:im.data.global:ecdc__surfacewater__dominant_source_global_2000_2100
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.dominant_source_index_testing'
 	as type of hydrology:WaterSource classified into
 	hydrology:Minerotrophic if <0.3,
 	hydrology:Ombrotrophic if >= 0.3;

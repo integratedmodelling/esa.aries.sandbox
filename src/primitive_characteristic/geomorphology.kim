@@ -3,7 +3,8 @@ project private namespace primitive_characteristic.geomorphology;
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 1) Flood plain.
  */
-model local:alessio.bulckaen:im.data.global:ecdc__geomorphology__floodplain__global__1900_2100 
+//model local:alessio.bulckaen:im.data.global:ecdc__geomorphology__floodplain__global__1900_2100 
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.floodplain_testing'
 	as presence of hydrology:Floodplain named floodplain
 	set to [self == 1 ? true : false];
 //	set to [self == 0 ? true : false];

@@ -9,7 +9,8 @@ attribute SeasonaVariability;
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 1) Summer diurnal mean air temperature.
  */
-model local:alessio.bulckaen:im.data.global:ecdc__climate__summer_diurnal_air_temperature_mean__global__1981_2010 
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__summer_diurnal_air_temperature_mean__global__1981_2010 
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.summer_diurnal_air_temperature_mean_testing'
 	as im:Mean earth:AtmosphericTemperature during earth:Summer in Celsius named summer_diurnal_air_temperature_mean_input
 	set to [self / 100];
 
@@ -30,7 +31,8 @@ model level of im:Mean earth:AtmosphericTemperature during earth:Summer named su
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 2) Winter diurnal mean air temperature.
  */
-model local:alessio.bulckaen:im.data.global:ecdc__climate__winter_diurnal_air_temperature_mean__global__1981_2010 
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__winter_diurnal_air_temperature_mean__global__1981_2010 
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.winter_diurnal_air_temperature_mean_testing'
 	as im:Mean earth:AtmosphericTemperature during earth:Winter in Celsius named winter_diurnal_air_temperature_mean_input
 	set to [self / 100];
 	
@@ -61,7 +63,8 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__potential_tree_growth
 
 //TODO: Commented out because is an unresolvable entity
 
-model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_amplitude__global__1981_2010
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_amplitude__global__1981_2010
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.seasonal_diurnal_air_temperature_amplitude_testing'
 //	as im:Mean im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_amplitude;
 	as level of im:Mean primitive_characteristic.climate:SeasonalAmplitude earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_amplitude
 //	as level of im:Mean im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_amplitude
@@ -91,7 +94,8 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_
 
 //TODO: Commented out because is an unresolvable entity
 
-model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability__global__1981_2010
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability__global__1981_2010
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.seasonal_diurnal_air_temperature_variability_testing'
 	as level of im:Mean im:Changed primitive_characteristic.climate:SeasonalAmplitude earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability
 //	as level of im:Daily im:Changed im:Seasonal earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability
 	lookup(self, ?) into
@@ -124,7 +128,8 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_
  * # 6) Annual total precipitation. (Note: unit of precipitation: 1 mm = 1 L/m^2 = 1 kg/m^2)
  */
 @intensive(space,time)
-model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation_total__global__1981_2010
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation_total__global__1981_2010
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.annual_precipitation_total_testing'
 	as im:Yearly earth:PrecipitationVolume in mm/year named annual_precipitation_total_input;
 	
 model level of im:Yearly earth:PrecipitationVolume named annual_precipitation_total
@@ -142,7 +147,8 @@ model level of im:Yearly earth:PrecipitationVolume named annual_precipitation_to
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 7) Annual diurnal mean air temperature.
  */
-model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_diurnal_air_temperature_mean__global__1981_2010 
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_diurnal_air_temperature_mean__global__1981_2010 
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.annual_diurnal_air_temperature_mean_testing'
 	as im:Daily im:Mean earth:AtmosphericTemperature during im:Year in Celsius named annual_diurnal_air_temperature_mean_input
 	set to [self / 100];
 	
@@ -181,7 +187,8 @@ model level of im:Daily im:Mean earth:AtmosphericTemperature during im:Year name
 
 
 @intensive(space,time)
-model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total__global__1981_2010
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total__global__1981_2010
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.annual_water_budget_total_testing'
 	as im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance in mm/year named annual_water_budget_total_input;
 	
 model level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance) named annual_water_budget_total
@@ -200,7 +207,8 @@ model level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance
  */
 
 @intensive(space,time)
-model local:alessio.bulckaen:im.data.global:ecdc__climate__winter_water_budget_total__global__1980_2010
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__winter_water_budget_total__global__1980_2010
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.winter_water_budget_total_testing'
 	as level of (hydrology:WaterVolume caused by hydrology:WaterBalance during earth:Winter) named winter_water_budget_total
 	lookup(self, ?) into
 		winter_water_budget_total| category
@@ -238,7 +246,8 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__winter_water_budget_t
 //		ecology:Lowland 	 if in (6, 7);
 		
 //model 'local:alessio.bulckaen:im.data.global:ecdc__climate__altitude_zone'//local:alessio.bulckaen:im.data.global:ecdc__climate__thermal_belts__global__1950_2000 
-model local:alessio.bulckaen:im.data.global:ecdc__climate__altitude_zone_global_1981_2010
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__altitude_zone_global_1981_2010
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.altitude_zone_testing'
 	as type of earth:ElevationZone named altitude_zone
 	classified into
 		earth:Nival if 1,
@@ -250,7 +259,8 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__altitude_zone_global_
 number 'local:alessio.bulckaen:im.data.global:ecdc__climate__altitude_zone' as test_altitude_zone;
 
 //model local:alessio.bulckaen:im.data.global:ecdc__climate__climate_zone__global__2001_2020 
-model local:alessio.bulckaen:im.data.global:ecdc__climate__climate_zone_global_1981_2010
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__climate_zone_global_1981_2010
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.climate_zone_testing'
 	as earth:Lowland type of nca.ecology.ipcc:ClimaticZone named climate_zone classified into		
 		nca.ecology.ipcc:Polar if 1,
 		nca.ecology.ipcc:SubPolar if 2,
@@ -261,7 +271,8 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__climate_zone_global_1
 		nca.ecology.ipcc:Tropical if 7;
 
 //model local:alessio.bulckaen:im.data.global:ecdc__climate__climate_zone__global__2001_2020 
-model local:alessio.bulckaen:im.data.global:ecdc__climate__climate_type_global_1981_2010
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__climate_type_global_1981_2010
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.climate_type_testing'
 	as type of nca.ecology.ipcc:ClimaticZone named climate_type classified into		
 		nca.ecology.ipcc:Polar if 1,
 		nca.ecology.ipcc:SubPolar if 2,
@@ -272,8 +283,12 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__climate_type_global_1
 		nca.ecology.ipcc:Tropical if 7;
 
 //model 'ecdc_evotranspiration'
-model local:alessio.bulckaen:im.data.global:ecdc__climate__evapotranspiration_global_1981_2010
-	as type of ecology:MoistureRegime named evotranspiration classified into	
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__evapotranspiration_global_1981_2010
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.evapotranspiration_testing'
+	as type of ecology:MoistureRegime 
+//	named evotranspiration 
+	named evapotranspiration
+	classified into	
 		ecology:Wet if 1,
 		ecology:Humid if 2,
 		ecology:SubHumid if 3,
@@ -282,7 +297,8 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__evapotranspiration_gl
 		ecology:HyperArid if 6;
 
 //model 'ecdc_continentality'
-model local:alessio.bulckaen:im.data.global:ecdc__climate__continentality_global_1981_2010
+//model local:alessio.bulckaen:im.data.global:ecdc__climate__continentality_global_1981_2010
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.continentality_testing'
 	as level of (im:Differential earth:AtmosphericTemperature) named continentality
 	 classified into
 		im:Low if 1,

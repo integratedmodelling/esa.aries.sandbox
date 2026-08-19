@@ -1,5 +1,41 @@
 private namespace primitive_characteristic.small_areas_for_testing;
 
+observe earth:Region named test_rb_colombia_100m
+    over space(
+    		urn='local:rubencc:esa.aries.sandbox:esa_weed_colombia_rb_testing_polygons',
+    		grid="100 m"),
+    time(year=2020); 
+	
+observe earth:Region named test_rb_czechrepublic_100m
+	over space(
+		urn='',
+		grid="100 m"),
+	time(year=2020);
+
+observe earth:Region named test_rb_greece_100m
+	over space(
+		urn='',
+		grid="100 m"),
+	time(year=2020);
+
+observe earth:Region named test_rb_norway_100m
+	over space(
+		urn='',
+		grid="100 m"),
+	time(year=2020);
+
+observe earth:Region named test_rb_southafrica_100m
+	over space(
+		urn='',
+		grid="100 m"),
+	time(year=2020);
+
+observe earth:Region named test_rb_vietnam_100m
+	over space(
+		urn='',
+		grid="100 m"),
+time(year=2020);
+
 observe earth:Region named test_ecdc_greece
     over space(shape='EPSG:4326 POLYGON ((22.357147225076126 38.493707792574895, 22.157272360484562 38.493707792574895, 22.157272360484562 38.56620374670959, 22.357147225076126 38.56620374670959, 22.357147225076126 38.493707792574895))',
     		grid="100 m",

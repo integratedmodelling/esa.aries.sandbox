@@ -3,9 +3,10 @@ project private namespace primitive_characteristic.vegetation;
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 1) Leaf area index.
  */
-model local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2018,
-	  local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2021,
-	  local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2024
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2018,
+//	  local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2021,
+//	  local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2024
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.leaf_area_index_testing'
 	as ecology:LeafAreaIndex named leaf_area_index_input;
 	// TODO: Need to ask Enrico/ other developers the error when using multiple resources "Cannot merge spatial resources with non-spatial resources". 
 
@@ -52,7 +53,8 @@ model
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 3) Specific leaf area.
  */
-model local:alessio.bulckaen:im.data.global:ecdc__vegetation__specific_leaf_area__global__2000_2020
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__specific_leaf_area__global__2000_2020
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.specific_leaf_area_testing'
 	as ratio of im:Area to earth:Dry im:Mass of biology:Leaf in m^2/kg named specific_leaf_area_input;
 	
 model level of (ratio of im:Area to earth:Dry im:Mass of biology:Leaf) named specific_leaf_area
@@ -69,7 +71,8 @@ model level of (ratio of im:Area to earth:Dry im:Mass of biology:Leaf) named spe
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 4) Leaf size.
  */
-model local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_size__global__2000_2020
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_size__global__2000_2020
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.leaf_size_testing'
 	as physical.incubation:Shadow im:Area of biology:Leaf in mm^2 named leaf_size_input
 	set to [(self * 0.48176748292230037) + 15791.77310467295];
 	
@@ -102,11 +105,12 @@ model level of (physical.incubation:Shadow im:Area of biology:Leaf) named leaf_s
 //	as im:Mean im:Height of ecology:Canopy in m named canopy_height_input_viet_nam
 //	over space(shape="POLYGON ((109.48767457 8.56539723, 109.48767457 23.43431472, 101.9644288 23.43431472, 101.9644288 8.56539723, 109.48767457 8.56539723))");
 
-model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__colombia__2020
-	as im:Mean im:Height of ecology:Canopy in m named canopy_height_input_colombia
-	over space(shape="POLYGON ((-66.87024263 -4.0466187, -66.87024263 12.44063129, -78.9991173 12.44063129, -78.9991173 -4.0466187, -66.87024263 -4.0466187))");
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_height__colombia__2020
+//	as im:Mean im:Height of ecology:Canopy in m named canopy_height_input_colombia
+//	over space(shape="POLYGON ((-66.87024263 -4.0466187, -66.87024263 12.44063129, -78.9991173 12.44063129, -78.9991173 -4.0466187, -66.87024263 -4.0466187))");
 
-model local:justus.muhando:im.data.global:ecdc__vegetation__canopy_height
+//model local:justus.muhando:im.data.global:ecdc__vegetation__canopy_height
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.canopy_height_testing'
 	as im:Mean im:Height of ecology:Canopy in m named canopy_height_input;
 	
 number local:justus.muhando:im.data.global:ecdc__vegetation__canopy_height as test_canopy_height;	
@@ -127,22 +131,25 @@ model level of (im:Mean im:Height of ecology:Canopy) named canopy_height
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 6) Canopy cover.
  */
-model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__czechia__2015
-	as ecology:CanopyCover named canopy_cover_input_czech_republic
-	over space(shape="POLYGON ((18.85950056939047 48.551605486921424, 18.85950056939047 51.055749172933005, 12.090335577436228 51.055749172933005, 12.090335577436228 48.551605486921424, 18.85950056939047 48.551605486921424))");
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__czechia__2015
+//	as ecology:CanopyCover named canopy_cover_input_czech_republic
+//	over space(shape="POLYGON ((18.85950056939047 48.551605486921424, 18.85950056939047 51.055749172933005, 12.090335577436228 51.055749172933005, 12.090335577436228 48.551605486921424, 18.85950056939047 48.551605486921424))");
+//
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__greece__2015
+//	as ecology:CanopyCover named canopy_cover_input_greece
+//	over space(shape="POLYGON ((29.63220162 34.9966406, 29.63220162 41.79065352, 19.35250178 41.79065352, 19.35250178 34.9966406, 29.63220162 34.9966406))");
+//	   
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__viet_nam__2015
+//	as ecology:CanopyCover named canopy_cover_input_viet_nam
+//	over space(shape="POLYGON ((109.48767457 8.56539723, 109.48767457 23.43431472, 101.9644288 23.43431472, 101.9644288 8.56539723, 109.48767457 8.56539723))");
+//	   
+//model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__colombia__2015
+//	as ecology:CanopyCover named canopy_cover_input_colombia
+//	over space(shape="POLYGON ((-66.87024263 -4.0466187, -66.87024263 12.44063129, -78.9991173 12.44063129, -78.9991173 -4.0466187, -66.87024263 -4.0466187))");
 
-model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__greece__2015
-	as ecology:CanopyCover named canopy_cover_input_greece
-	over space(shape="POLYGON ((29.63220162 34.9966406, 29.63220162 41.79065352, 19.35250178 41.79065352, 19.35250178 34.9966406, 29.63220162 34.9966406))");
-	   
-model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__viet_nam__2015
-	as ecology:CanopyCover named canopy_cover_input_viet_nam
-	over space(shape="POLYGON ((109.48767457 8.56539723, 109.48767457 23.43431472, 101.9644288 23.43431472, 101.9644288 8.56539723, 109.48767457 8.56539723))");
-	   
-model local:alessio.bulckaen:im.data.global:ecdc__vegetation__canopy_cover__colombia__2015
-	as ecology:CanopyCover named canopy_cover_input_colombia
-	over space(shape="POLYGON ((-66.87024263 -4.0466187, -66.87024263 12.44063129, -78.9991173 12.44063129, -78.9991173 -4.0466187, -66.87024263 -4.0466187))");
-	
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.canopy_cover_testing'	
+	as ecology:CanopyCover named canopy_cover_input;
+		
 model level of ecology:CanopyCover named canopy_cover
 	observing
 		ecology:CanopyCover named canopy_cover_input

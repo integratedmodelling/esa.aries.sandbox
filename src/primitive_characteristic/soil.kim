@@ -14,7 +14,8 @@ project private namespace primitive_characteristic.soil;
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 1) primary and secondary annotation for peat_thickness 
  */
-model local:alessio.bulckaen:im.data.global:ecdc__soil__peat_thickness__global__2001_2021
+//model local:alessio.bulckaen:im.data.global:ecdc__soil__peat_thickness__global__2001_2021
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.peat_thickness_testing'
 	as im:Depth of landcover:PeatBog earth:Region in cm named peat_thickness_input;
 //over space(shape='POLYGON ((180 -60.007460979, 180 88.007948385, -180 88.007948385, -180 -60.007460979, 180 -60.007460979))');
 
@@ -35,7 +36,8 @@ model level of (im:Depth of landcover:PeatBog earth:Region) named peat_thickness
  * # 2) primary and secondary annotation for fertility 
  */
 
-model local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020
+//model local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.fertility_testing'
 	as level of soil.incubation:Fertility named fertility
 	lookup (self, ?) into
     	fertility						| category
@@ -73,7 +75,8 @@ model local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 3) primary and secondary annotation for chemical_properties_N 
  */  
-model local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_n__global__1995_2019
+//model local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_n__global__1995_2019
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.chemical_properties_n_testing'
 	as proportion of chemistry:Nitrogen in soil:Soil named chemical_properties_n_input; //  in g/kg;
 
 model level of (proportion of chemistry:Nitrogen in soil:Soil) named chemical_properties_n
@@ -87,7 +90,8 @@ model level of (proportion of chemistry:Nitrogen in soil:Soil) named chemical_pr
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 4) primary and secondary annotation for chemical_properties_base_saturation 
  */  
-model local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_base_saturation__global__1995_2019
+//model local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_base_saturation__global__1995_2019
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.chemical_properties_base_saturation_testing'
 	as percentage of chemistry:Basic chemistry:ExchangeCapacity in (chemistry:ExchangeCapacity of chemistry:Cation) named chemical_properties_base_saturation_input;
 
 model level of (chemistry:Basic chemistry:ExchangeCapacity of chemistry:Cation) named chemical_properties_base_saturation
@@ -103,7 +107,8 @@ model level of (chemistry:Basic chemistry:ExchangeCapacity of chemistry:Cation) 
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 5) primary and secondary annotation for physical_properties_bulk_density 
  */  			  
-model local:alessio.bulckaen:im.data.global:ecdc__soil__physical_properties_bulk_density__global__1995_2019
+//model local:alessio.bulckaen:im.data.global:ecdc__soil__physical_properties_bulk_density__global__1995_2019
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.physical_properties_bulk_density_testing'	
 	as ratio of earth:Dry soil:Soil im:Mass to soil:Soil im:Volume in g/cm^3 named physical_properties_bulk_density_input; 
 	
 model level of (ratio of earth:Dry soil:Soil im:Mass to soil:Soil im:Volume) named physical_properties_bulk_density
@@ -120,7 +125,8 @@ model level of (ratio of earth:Dry soil:Soil im:Mass to soil:Soil im:Volume) nam
 
 number 'local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_ph_status__global__1995_2019' as test_ph;
 
-model 'local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_ph_status__global__1995_2019'
+//model 'local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_ph_status__global__1995_2019'
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.chemical_properties_ph_status_testing'
 	as chemistry:Ph named ph 
 	lookup (ph,?) into
 	ph 			| category

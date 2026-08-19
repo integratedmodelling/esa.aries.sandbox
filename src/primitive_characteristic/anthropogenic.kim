@@ -3,15 +3,20 @@ project private namespace primitive_characteristic.anthropogenic;
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 1) Mining areas.
  */
-model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__mining_areas__global__2000_2019 
+//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__mining_areas__global__2000_2019 
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.mining_areas_testing'
+//model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.mining_areas_cheng_testing'
 	as presence of landcover:MineralExtraction earth:Region named mining_areas
 	set to [self == 1 ? true : false];
+	
+		
 
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 2) Managed waters canal.
  */	
  
-model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal
+//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.managed_waters_canal_testing'
 	as presence of hydrology.incubation:Canal earth:Region named managed_waters_canal
 	set to [self == 1 ? true : false];
 //	 
@@ -53,25 +58,32 @@ model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_
  * # 4) Managed waters mariculture.
  */
 
-model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_mariculture__greece__2017
-	as presence of landcover:WaterBody earth:Region for agriculture:Mariculture named managed_waters_mariculture_greece
-	set to [self == 1 ? true : false]
-	over space(shape="POLYGON ((29.63220162 34.9966406, 29.63220162 41.79065352, 19.35250178 41.79065352, 19.35250178 34.9966406, 29.63220162 34.9966406))");
-
-model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservoir__viet_nam__2022
-	as presence of landcover:WaterBody earth:Region for agriculture:Mariculture named managed_waters_mariculture_viet_nam
-	set to [self == 1 ? true : false]
-	over space(shape="POLYGON ((109.48767457 8.56539723, 109.48767457 23.43431472, 101.9644288 23.43431472, 101.9644288 8.56539723, 109.48767457 8.56539723))");
+//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_mariculture__greece__2017
+//	as presence of landcover:WaterBody earth:Region for agriculture:Mariculture named managed_waters_mariculture_greece
+//	set to [self == 1 ? true : false]
+//	over space(shape="POLYGON ((29.63220162 34.9966406, 29.63220162 41.79065352, 19.35250178 41.79065352, 19.35250178 34.9966406, 29.63220162 34.9966406))");
+//
+//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservoir__viet_nam__2022
+//	as presence of landcover:WaterBody earth:Region for agriculture:Mariculture named managed_waters_mariculture_viet_nam
+//	set to [self == 1 ? true : false]
+//	over space(shape="POLYGON ((109.48767457 8.56539723, 109.48767457 23.43431472, 101.9644288 23.43431472, 101.9644288 8.56539723, 109.48767457 8.56539723))");
+//	
+//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservoir__colombia__2022 
+//	as presence of landcover:WaterBody earth:Region for agriculture:Mariculture named managed_waters_mariculture_colombia
+//	set to [self == 1 ? true : false]
+//	over space(shape="POLYGON ((-66.87024263 -4.0466187, -66.87024263 12.44063129, -78.9991173 12.44063129, -78.9991173 -4.0466187, -66.87024263 -4.0466187))");
+//	 
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.managed_waters_mariculture_testing'
+	as presence of landcover:WaterBody earth:Region for agriculture:Mariculture 
+	named managed_waters_mariculture_testing
+	set to [self == 1 ? true : false];
 	
-model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservoir__colombia__2022 
-	as presence of landcover:WaterBody earth:Region for agriculture:Mariculture named managed_waters_mariculture_colombia
-	set to [self == 1 ? true : false]
-	over space(shape="POLYGON ((-66.87024263 -4.0466187, -66.87024263 12.44063129, -78.9991173 12.44063129, -78.9991173 -4.0466187, -66.87024263 -4.0466187))");
-	 
+
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 5) Managed waters aquaculture.
  */
-model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_aquaculture__czechia_greece_norway__2017 
+//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_aquaculture__czechia_greece_norway__2017 
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.managed_waters_aquaculture_testing'
 	as presence of hydrology.incubation:Aquaculture earth:Region named managed_waters_aquaculture
 	set to [self == 1 ? true : false];
 
@@ -133,18 +145,40 @@ observing
 			true 	|		#		|	 #	  | agriculture:Annual,
 			 # 		|	   true		|	 #	  | agriculture:Perennial,
  			 # 		|	    #		|   true  | agriculture:Pastureland;
+//model 'ecdc_land_use'
+//	as type of agriculture:CropLifespan named land_use classified into
+//	agriculture:Annual if 100,
+//	agriculture:Perennial if 2;
 
 //model 'ecdc_land_use'
 //	as type of agriculture:CropLifespan named land_use classified into
 //	agriculture:Annual if 100,
 //	agriculture:Perennial if 2;
 
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.land_use_annual_crops_testing'
+	as land_use_annual_crops_testing;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.land_use_perennial_crops_testing'
+	as land_use_perennial_crops_testing;
+model type of agriculture:CropLifespan 
+	named land_use 
+	observing
+		land_use_annual_crops_testing,
+		land_use_perennial_crops_testing
+	lookup (land_use_annual_crops_testing, land_use_perennial_crops_testing, ?) into
+		land_use_annual_crops	|	land_use_perennial_crops	|	category
+		---------------------------------------------------------------------------------------------------------
+			     100		    |			#				|	agriculture:Annual	,
+			     #		     	|			2				|	agriculture:Perennial;
+		
+
 //model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__crop_type_rice_paddies
-model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__crop_type_rice_paddies_global_2024
+//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__crop_type_rice_paddies_global_2024
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.crop_type_rice_paddies_testing'
 	as type of agriculture:Crop named crop_type classified into
 	agriculture:Rice if 1;
 
-model 'ecdc_settlement_type'
+//model 'ecdc_settlement_type'
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.settlement_type_testing'
 	as level of demography:SettlementDensity named settlement_type classified into
 		demography:Urban if in ( 30 23 22 ),
 		demography:Suburban if 21,
@@ -153,7 +187,8 @@ model 'ecdc_settlement_type'
 	
 //model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__infrastructure_type_road_transportation
 //'ecdc_infrastructure_type_road_transportation'
-model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__infrastructure_type_road_transportation_global_1997_2017
+//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__infrastructure_type_road_transportation_global_1997_2017
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.infrastructure_type_road_transportation_testing'
 	as im:Density of infrastructure:Road named infrastructure_type_road_transportation
 //	classified into
 	lookup into
