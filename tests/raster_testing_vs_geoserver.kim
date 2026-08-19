@@ -1,0 +1,77 @@
+worldview im;
+
+@test(
+    name = "raster_testing_vs_geoserver",
+    description  = "",
+    // add to the list any concepts to be observed in the context below
+    observations = (
+    "primitive_characteristic.land_cover.glc_fcs30"
+    "primitive_characteristic.land_cover.glc_fcs30_r_b_testing"
+    "im|esa.aries.sandbox/tests/raster_testing_vs_geoserver.landcover_consistency"),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+//observe /* a:urn:to:use#objectid as */ earth:Region named raster_testing_vs_geoserver
+observe earth:Region named test_rb_colombia_100m
+    over space(
+    		urn='local:rubencc:esa.aries.sandbox:esa_weed_colombia_rb_testing_polygons',
+    		grid="30 m"),
+    time(year=2022); 
+
+// add any models here
+
+define LC_COMPARISON_RB_TESTING_VS_GEOSERVER as {{ 
+   glc_fcs30_r_b_testing      				|                 lc_esa_cci                  |                glc_fcs30                    |consistency
+------------------------------------------------------------------------------------------------------------------------------------------------------
+ landcover:WaterBody          				| landcover:WaterBody                         | landcover:WaterBody                         | true   , 
+ landcover:GlacierPerpetualSnow    			| landcover:GlacierPerpetualSnow           	  | landcover:GlacierPerpetualSnow	          	| true   , 
+ landcover:BareArea           				| landcover:BareArea                          | landcover:BareArea                          | true   , 
+ landcover:BareRock           				| landcover:BareRock                          | landcover:BareRock                          | true   , 
+ landcover:LichenMoss         				| landcover:LichenMoss                        | landcover:LichenMoss                        | true   , 
+ landcover:EvergreenShrubland          		| landcover:Shrubland                         | landcover:EvergreenShrubland                | true   , 
+ landcover:DeciduousShrubland          		| landcover:Shrubland                         | landcover:DeciduousShrubland                | true   , 
+ landcover:InlandSwamp        				| landcover:InlandSwamp                       | landcover:InlandSwamp                       | true   , 
+ landcover:Wetland            				| landcover:Wetland                           | landcover:Wetland                           | true   , 
+ landcover:FloodedFlat            			| landcover:Wetland                           | landcover:FloodedFlat                       | true   , 
+ landcover:InlandSaline            			| landcover:Wetland                           | landcover:InlandSaline                      | true   , 
+ landcover:Mangrove            				| landcover:Wetland                           | landcover:Mangrove                          | true   , 
+ landcover:SaltMarsh            			| landcover:Wetland                           | landcover:SaltMarsh                         | true   , 
+ landcover:IntertidalFlat            		| landcover:Wetland                           | landcover:IntertidalFlat                    | true   , 
+ landcover:InlandMarsh            			| landcover:Wetland                           | landcover:InlandMarsh                       | true   , 
+ landcover:InlandSwamp        				| landcover:InlandSwamp                       | landcover:InlandSwamp                       | true   , 
+ landcover:SparseVegetation   				| landcover:SparseVegetation                  | landcover:SparseVegetation                  | true   , 
+ landcover:ConiferousForest   				| landcover:ConiferousForest   				  | landcover:ConiferousForest   				| true   , 
+ landcover:ClosedEvergreenConiferousForest	| landcover:ClosedEvergreenConiferousForest   | landcover:ClosedEvergreenConiferousForest   | true   , 
+ landcover:OpenEvergreenConiferousForest   	| landcover:OpenEvergreenConiferousForest     | landcover:OpenEvergreenConiferousForest     | true   , 
+ landcover:OpenDeciduousConiferousForest   	| landcover:ClosedDeciduousConiferousForest   | landcover:ClosedDeciduousConiferousForest   | true   , 
+ landcover:OpenDeciduousConiferousForest   	| landcover:OpenDeciduousConiferousForest     | landcover:OpenDeciduousConiferousForest     | true   , 
+ landcover:BroadleafForest    				| landcover:BroadleafForest          		  | landcover:BroadleafForest    				| true   , 
+ landcover:ClosedEvergreenBroadleafForest   | landcover:EvergreenBroadleafForest          | landcover:ClosedEvergreenBroadleafForest    | true   , 
+ landcover:OpenEvergreenBroadleafForest    	| landcover:EvergreenBroadleafForest          | landcover:OpenEvergreenBroadleafForest      | true   , 
+ landcover:ClosedDeciduousBroadleafForest	| landcover:DeciduousBroadleafForest          | landcover:ClosedDeciduousBroadleafForest    | true   , 
+ landcover:OpenDeciduousBroadleafForest   	| landcover:DeciduousBroadleafForest          | landcover:OpenDeciduousBroadleafForest      | true   , 
+ landcover:MixedForest        				| landcover:MixedForest                       | landcover:MixedForest		                | true   ,
+ landcover:OpenMixedForest    				| landcover:MixedForest                       | landcover:OpenMixedForest                   | true   
+}};
+
+model
+	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2018_mosaic,
+	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2019_mosaic,
+	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2020_mosaic,
+	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2021_mosaic,
+	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2022_mosaic
+	as primitive_characteristic.land_cover:GLCfcs30 landcover:LandCoverType named glc_fcs30 classified according to im:glc-fcs30-enconding;
+	
+//Temporary URN local:justus.muhando:esa.aries.sandbox:esa_weed_temp.dominance_glc_testing
+
+model local:justus.muhando:esa.aries.sandbox:esa_weed_temp.hydroform_glc_testing
+	as primitive_characteristic.land_cover:RBTesting landcover:LandCoverType named glc_fcs30_r_b_testing classified according to im:glc-fcs30-enconding;
+
+model presence of aries.spatial.comparison.concept:Consistent earth:Region named landcover_consistency 
+	observing
+		primitive_characteristic.land_cover:GLCfcs30 landcover:LandCoverType named glc_fcs30,
+		primitive_characteristic.land_cover:RBTesting landcover:LandCoverType named glc_fcs30_r_b_testing
+	lookup 
+		(glc_fcs30_r_b_testing, *, glc_fcs30, ?) 
+			into LC_COMPARISON_RB_TESTING_VS_GEOSERVER;
