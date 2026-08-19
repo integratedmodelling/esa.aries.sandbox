@@ -107,7 +107,8 @@ model level of (chemistry:Basic chemistry:ExchangeCapacity of chemistry:Cation) 
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 5) primary and secondary annotation for physical_properties_bulk_density 
  */  			  
-model local:alessio.bulckaen:im.data.global:ecdc__soil__physical_properties_bulk_density__global__1995_2019
+//model local:alessio.bulckaen:im.data.global:ecdc__soil__physical_properties_bulk_density__global__1995_2019
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.physical_properties_bulk_density_testing'	
 	as ratio of earth:Dry soil:Soil im:Mass to soil:Soil im:Volume in g/cm^3 named physical_properties_bulk_density_input; 
 	
 model level of (ratio of earth:Dry soil:Soil im:Mass to soil:Soil im:Volume) named physical_properties_bulk_density

@@ -200,7 +200,8 @@ model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.watershed_hydroform_
 	set to [self==255]; 
 	
 //model 'ecdc__surface_water__dominant_source'
-model local:alessio.bulckaen:im.data.global:ecdc__surfacewater__dominant_source_global_2000_2100
+//model local:alessio.bulckaen:im.data.global:ecdc__surfacewater__dominant_source_global_2000_2100
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.dominant_source_index_testing'
 	as type of hydrology:WaterSource classified into
 	hydrology:Minerotrophic if <0.3,
 	hydrology:Ombrotrophic if >= 0.3;

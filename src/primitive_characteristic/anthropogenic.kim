@@ -5,8 +5,11 @@ project private namespace primitive_characteristic.anthropogenic;
  */
 //model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__mining_areas__global__2000_2019 
 model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.mining_areas_testing'
+//model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.mining_areas_cheng_testing'
 	as presence of landcover:MineralExtraction earth:Region named mining_areas
 	set to [self == 1 ? true : false];
+	
+		
 
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 2) Managed waters canal.
