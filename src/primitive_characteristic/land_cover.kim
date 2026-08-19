@@ -3,8 +3,9 @@ private namespace primitive_characteristic.land_cover;
 identity LandCoverProduct
 has children
 	Copernicus,
-	GLCfcs30;
-
+	GLCfcs30,
+	RBTesting;
+	
 model local:alessio.bulckaen:im.data.global:copernicus.cdse.landcovermap
  as Copernicus landcover:LandCoverType classified according to im:copernicus-encoding;
  
@@ -18,3 +19,14 @@ model
 	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2021_mosaic,
 	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2022_mosaic
 	as GLCfcs30 landcover:LandCoverType named glc_fcs30 classified according to im:glc-fcs30-enconding;
+	
+//Temporary URN local:justus.muhando:esa.aries.sandbox:esa_weed_temp.dominance_glc_testing
+
+
+
+//model local:justus.muhando:esa.aries.sandbox:esa_weed_temp.hydroform_glc_testing
+model local:justus.muhando:esa.aries.sandbox:esa_weed_temp.dominance_glc_testing
+	as RBTesting landcover:LandCoverType named glc_fcs30_r_b_testing classified according to im:glc-fcs30-enconding;
+
+number local:justus.muhando:esa.aries.sandbox:esa_weed_temp.dominance_glc_testing as test_rb_testing_lc;
+number local:justus.muhando:esa.aries.sandbox:esa_weed_temp.hydroform_glc_testing as test_rb_testing_hydroform_lc;	
