@@ -19,6 +19,11 @@ model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.mining_areas_testing
 model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.managed_waters_canal_testing'
 	as presence of hydrology.incubation:Canal earth:Region named managed_waters_canal
 	set to [self == 1 ? true : false];
+	
+//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal
+//	as presence of hydrology.incubation:Canal earth:Region named managed_waters_canal
+//	set to [self == 1 ? true : false];	
+	
 //	 
 //model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal__greece__2025
 //	as presence of hydrology.incubation:Canal earth:Region named managed_waters_canal_greece
@@ -39,21 +44,23 @@ model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.managed_waters_canal
  * # 3) Managed waters reservoir.
  */
 
-model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservoir__greece__2022
-	as presence of hydrology.incubation:Reservoir earth:Region named managed_waters_reservoir_greece
-	set to [self == 3 ? true : false]
-	over space(shape="POLYGON ((29.63220162 34.9966406, 29.63220162 41.79065352, 19.35250178 41.79065352, 19.35250178 34.9966406, 29.63220162 34.9966406))");
-	
-model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservoir__viet_nam__2022
-	as presence of hydrology.incubation:Reservoir earth:Region named managed_waters_reservoir_viet_nam
-	set to [self == 3 ? true : false]
-	over space(shape="POLYGON ((109.48767457 8.56539723, 109.48767457 23.43431472, 101.9644288 23.43431472, 101.9644288 8.56539723, 109.48767457 8.56539723))");
+//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservoir__greece__2022
+//	as presence of hydrology.incubation:Reservoir earth:Region named managed_waters_reservoir_greece
+//	set to [self == 3 ? true : false]
+//	over space(shape="POLYGON ((29.63220162 34.9966406, 29.63220162 41.79065352, 19.35250178 41.79065352, 19.35250178 34.9966406, 29.63220162 34.9966406))");
+//	
+//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservoir__viet_nam__2022
+//	as presence of hydrology.incubation:Reservoir earth:Region named managed_waters_reservoir_viet_nam
+//	set to [self == 3 ? true : false]
+//	over space(shape="POLYGON ((109.48767457 8.56539723, 109.48767457 23.43431472, 101.9644288 23.43431472, 101.9644288 8.56539723, 109.48767457 8.56539723))");
+//
+//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservoir__colombia__2022 
+//	as presence of hydrology.incubation:Reservoir earth:Region named managed_waters_reservoir_colombia
+//	set to [self == 3 ? true : false]
+//	over space(shape="POLYGON ((-66.87024263 -4.0466187, -66.87024263 12.44063129, -78.9991173 12.44063129, -78.9991173 -4.0466187, -66.87024263 -4.0466187))");
 
-model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_reservoir__colombia__2022 
-	as presence of hydrology.incubation:Reservoir earth:Region named managed_waters_reservoir_colombia
-	set to [self == 3 ? true : false]
-	over space(shape="POLYGON ((-66.87024263 -4.0466187, -66.87024263 12.44063129, -78.9991173 12.44063129, -78.9991173 -4.0466187, -66.87024263 -4.0466187))");
-		 
+model local:justus.muhando:im.data.global:ecdc__anthropogenic__managed_waters_reservoir	as presence of hydrology.incubation:Reservoir earth:Region named managed_waters_reservoir
+	set to [self == 3 ? true : false];	 
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 4) Managed waters mariculture.
  */
@@ -82,11 +89,25 @@ model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.managed_waters_maric
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 5) Managed waters aquaculture.
  */
-//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_aquaculture__czechia_greece_norway__2017 
-model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.managed_waters_aquaculture_testing'
+////model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_aquaculture__czechia_greece_norway__2017 
+//model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.managed_waters_aquaculture_testing'
+//	as presence of hydrology.incubation:Aquaculture earth:Region named managed_waters_aquaculture
+//	set to [self == 1 ? true : false];
+//number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.managed_waters_aquaculture_testing' as test_managed_waters_aquaculture;
+
+
+/*
+ * Using substitute as merge mode
+Ordered STAC items. First: [1997-01-01 00:00:00]; Last [2025-01-01 00:00:00]
+Found 1 STAC items satisfying the temporal constraint.
+Unable to build the output from the STAC Resource
+Cannot build STAC raster output. Reason Unable to build the output from the STAC Resource
+Resource local:justus.muhando:im.data.global:ecdc__anthropogenic__managed_waters_mariculture contextualized in 4 secs
+Cannot extract data from resource local:justus.muhando:im.data.global:ecdc__anthropogenic__managed_waters_mariculture
+ */
+model local:justus.muhando:im.data.global:ecdc__anthropogenic__managed_waters_mariculture
 	as presence of hydrology.incubation:Aquaculture earth:Region named managed_waters_aquaculture
 	set to [self == 1 ? true : false];
-
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 6) Managed water body.
  */	
@@ -187,8 +208,7 @@ model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.settlement_type_test
 	as 
 	//level of demography:SettlementDensity of landcover:ArtificialSurface
 	// type of landcover:ArtificialSurface infrastructure:HumanSettlement	
-	type of demography:SettlementDensity infrastructure:HumanSettlement
-		named settlement_type classified into
+	type of demography:SettlementDensity infrastructure:HumanSettlement named settlement_type classified into
 		demography:Urban if in ( 30 23 22 ),
 		demography:Suburban if 21,
 		demography:Rural if 13,
