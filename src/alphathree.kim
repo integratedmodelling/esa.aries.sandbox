@@ -1499,6 +1499,7 @@ model 'local:stefano.balbi:esa.aries.sandbox:alpha3_maxprob_inference_result_lev
 abstract identity Version
 	has children 
 		RuleBased,
+		RuleBasedExternal,
 		MachineLearning,
 		Hybrid;
 /*
