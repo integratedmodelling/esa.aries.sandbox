@@ -111,9 +111,10 @@ model 'local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__land_use_meado
 
 // temporary change of URN
 model
-local:rubencc:im.data.global:im-data-global-landcover.global_land_use_annual_crops_2018,
-local:rubencc:im.data.global:im-data-global-landcover.global_land_use_annual_crops_2021,
-local:rubencc:im.data.global:im-data-global-landcover.global_land_use_annual_crops_2024 
+'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.land_use_perennial_crops_testing'
+//local:rubencc:im.data.global:im-data-global-landcover.global_land_use_annual_crops_2018,
+//local:rubencc:im.data.global:im-data-global-landcover.global_land_use_annual_crops_2021,
+//local:rubencc:im.data.global:im-data-global-landcover.global_land_use_annual_crops_2024 
 //model
 //	  local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__land_use_annual_crops_2018,
 //	  local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__land_use_annual_crops_2021,
@@ -122,7 +123,9 @@ local:rubencc:im.data.global:im-data-global-landcover.global_land_use_annual_cro
 	set to [self==100 ? true : false];
 
 //temporary change of URN
-model local:rubencc:im.data.global:im-data-global-landcover.global_land_use_perennial_crops_2020
+model 
+'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.land_use_perennial_crops_testing'
+//local:rubencc:im.data.global:im-data-global-landcover.global_land_use_perennial_crops_2020
 //model
 //	  local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__land_use_perennial_crops_2018
 	as presence of agriculture:Perennial agriculture:Cropfield named perennial_crop
@@ -155,20 +158,22 @@ observing
 //	agriculture:Annual if 100,
 //	agriculture:Perennial if 2;
 
-number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.land_use_annual_crops_testing'
-	as land_use_annual_crops_testing;
-number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.land_use_perennial_crops_testing'
-	as land_use_perennial_crops_testing;
-model type of agriculture:CropLifespan 
-	named land_use 
-	observing
-		land_use_annual_crops_testing,
-		land_use_perennial_crops_testing
-	lookup (land_use_annual_crops_testing, land_use_perennial_crops_testing, ?) into
-		land_use_annual_crops	|	land_use_perennial_crops	|	category
-		---------------------------------------------------------------------------------------------------------
-			     100		    |			#				|	agriculture:Annual	,
-			     #		     	|			2				|	agriculture:Perennial;
+
+//Comment out Cate's model
+//number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.land_use_annual_crops_testing'
+//	as land_use_annual_crops_testing;
+//number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.land_use_perennial_crops_testing'
+//	as land_use_perennial_crops_testing;
+//model type of agriculture:CropLifespan 
+//	named land_use 
+//	observing
+//		land_use_annual_crops_testing,
+//		land_use_perennial_crops_testing
+//	lookup (land_use_annual_crops_testing, land_use_perennial_crops_testing, ?) into
+//		land_use_annual_crops	|	land_use_perennial_crops	|	category
+//		---------------------------------------------------------------------------------------------------------
+//			     100		    |			#				|	agriculture:Annual	,
+//			     #		     	|			2				|	agriculture:Perennial;
 		
 
 //model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__crop_type_rice_paddies
@@ -179,7 +184,11 @@ model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.crop_type_rice_paddi
 
 //model 'ecdc_settlement_type'
 model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.settlement_type_testing'
-	as level of demography:SettlementDensity named settlement_type classified into
+	as 
+	//level of demography:SettlementDensity of landcover:ArtificialSurface
+	// type of landcover:ArtificialSurface infrastructure:HumanSettlement	
+	type of demography:SettlementDensity infrastructure:HumanSettlement
+		named settlement_type classified into
 		demography:Urban if in ( 30 23 22 ),
 		demography:Suburban if 21,
 		demography:Rural if 13,
