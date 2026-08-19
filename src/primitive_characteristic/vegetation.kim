@@ -47,8 +47,8 @@ model
 	as type of ecology:LeafType named leaf_shape
 	classified into
 	ecology:Broadleaved if in (51,52,61,62,120,121,122),
-	ecology:Mixedleaved if in (91,92),
-	ecology:Needleleaved if in (71,72,81,82,120,121,122);
+	ecology:Needleleaved if in (71,72,81,82,120,121,122),
+	ecology:LeafType if in (91,92);
  
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 3) Specific leaf area.
