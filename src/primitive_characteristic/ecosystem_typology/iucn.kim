@@ -11,6 +11,7 @@ using primitive_characteristic,
 	  primitive_characteristic.vegetation,
 	  primitive_characteristic.wildfire_disturbance, 
 	  nca.ecosystem.iucn,
+	  nca.ecology.ipcc,
 	(BIOME_F1_RIVER_STREAM_ECOSYSTEM_TYPES,
 	 BIOME_F2_LAKE_ECOSYSTEM_TYPES,
 	 BIOME_F3_ARTIFICIAL_WETLAND_ECOSYSTEM_TYPES,	
@@ -72,12 +73,16 @@ observe earth:Region named test_stac_resources_viet_nam
 
 //--- BIOME F1 - RiverStream annotation---
 model nca.ecosystem.iucn:RiverStream type of nca.ecosystem.iucn:Ecosystem named biome_f1_river_stream
-observing
-type of hydrology:WaterBody named waterbody_type,
-type of hydrology:WaterPermanence named water_permanence,
-level of (hydrology:StreamOrder of hydrology:Watershed) named watershed_hierarchy
-lookup (waterbody_type, water_permanence, watershed_hierarchy, ?)
-into BIOME_F1_RIVER_STREAM_ECOSYSTEM_TYPES;
+	observing
+		type of hydrology:WaterBody named waterbody_type,
+		hydrology:StreamOrder of hydrology:Watershed named watershed_hierarchy,
+		type of hydrology:WaterPermanence named water_permanence_type,
+		type of earth:ElevationZone named altitude_zone,
+		earth:Lowland type of nca.ecology.ipcc:ClimaticZone named climate_zone,
+		type of ecology:MoistureRegime named evapotranspiration
+	lookup (waterbody_type, watershed_hierarchy, water_permanence_type, altitude_zone, climate_zone, evapotranspiration, ?)
+	into BIOME_F1_RIVER_STREAM_ECOSYSTEM_TYPES;
+//waterbody_type|watershed_hierarchy|water_permanence_type|altitude_zone|climate_zone|evapotranspiration| ecosystem_type                           
 
 //--- BIOME F2 - Lake annotation---
 model nca.ecosystem.iucn:Lake type of nca.ecosystem.iucn:Ecosystem named biome_f2_lake

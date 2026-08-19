@@ -1,18 +1,18 @@
 private namespace table.ecosystem.typology.iucn
-using nca.ecosystem.iucn;
+using nca.ecosystem.iucn, nca.ecology.ipcc;
 
 define BIOME_F1_RIVER_STREAM_ECOSYSTEM_TYPES as {{
-  waterbody_type        | water_permanence    | watershed_hierarchy | ecosystem_type                           
-  -------------------------------------------------------------------------------------------------------------
-  hydrology:Watercourse | hydrology:Permanent | im:Low              | nca.ecosystem.iucn:PermanentUplandStream  ,
-  hydrology:Watercourse | hydrology:Permanent | im:Moderate         | nca.ecosystem.iucn:PermanentLowlandStream ,
-  hydrology:Meander     | hydrology:Permanent | im:Moderate         | nca.ecosystem.iucn:PermanentLowlandStream ,
-  hydrology:Watercourse | #                   | #                   | nca.ecosystem.iucn:FreezethawRiverStream  ,
-  hydrology:Watercourse | hydrology:Seasonal  | im:Low              | nca.ecosystem.iucn:SeasonalUplandStream   ,
-  hydrology:Watercourse | hydrology:Seasonal  | im:Moderate         | nca.ecosystem.iucn:SeasonalLowlandRiver   ,
-  hydrology:Watercourse | hydrology:Episodic  | #                   | nca.ecosystem.iucn:EpisodicAridRiver      ,
-  hydrology:Watercourse | hydrology:Permanent | im:High             | nca.ecosystem.iucn:LargeLowlandRiver      ,
-  hydrology:Meander     | hydrology:Permanent | im:High             | nca.ecosystem.iucn:LargeLowlandRiver     
+	waterbody_type        | watershed_hierarchy | water_permanence_type | altitude_zone                                     | climate_zone                                                                                                                 | evapotranspiration                                | ecosystem_type                           
+	------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	hydrology:Watercourse | im:Low              | hydrology:Permanent   | in (earth:Alpine, earth:Montane, earth:Subalpine) | #                                                                                                                            | #                                                 | nca.ecosystem.iucn:PermanentUplandStream ,
+	hydrology:Watercourse | #                   | #                     | #                                                 | in (nca.ecology.ipcc:Boreal, nca.ecology.ipcc:Polar, nca.ecology.ipcc:SubPolar)                                              | #                                                 | nca.ecosystem.iucn:FreezethawRiverStream ,
+	hydrology:Watercourse | #                   | #                     | in (earth:Alpine, earth:Nival, earth:Subalpine)   | #                                                                                                                            | #                                                 | nca.ecosystem.iucn:FreezethawRiverStream ,
+	hydrology:Watercourse | im:Low              | hydrology:Seasonal    | in (earth:Alpine, earth:Montane, earth:Subalpine) | #                                                                                                                            | #                                                 | nca.ecosystem.iucn:SeasonalUplandStream ,
+	hydrology:Watercourse | im:Moderate         | hydrology:Permanent   | earth:Lowland                                     | in (nca.ecology.ipcc:ColdTemperate, nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical, nca.ecology.ipcc:WarmTemperate) | #                                                 | nca.ecosystem.iucn:PermanentLowlandStream ,
+	hydrology:Watercourse | im:Moderate         | hydrology:Permanent   | earth:Lowland                                     | #                                                                                                                            | ecology:Arid                                      | nca.ecosystem.iucn:PermanentLowlandStream ,
+	hydrology:Watercourse | im:Moderate         | hydrology:Seasonal    | earth:Lowland                                     | in (nca.ecology.ipcc:ColdTemperate, nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical, nca.ecology.ipcc:WarmTemperate) | ecology:SubHumid                                  | nca.ecosystem.iucn:SeasonalLowlandRiver ,
+	hydrology:Watercourse | #                   | hydrology:Episodic    | earth:Lowland                                     | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:WarmTemperate)                                                            | in (ecology:Arid, ecology:SemiArid)               | nca.ecosystem.iucn:EpisodicAridRiver ,
+	hydrology:Watercourse | im:High             | hydrology:Permanent   | earth:Lowland                                     | #                                                                                                                            | in (ecology:Humid, ecology:SubHumid, ecology:Wet) | nca.ecosystem.iucn:LargeLowlandRiver 
 }};
 
 define BIOME_F2_LAKE_ECOSYSTEM_TYPES as {{
