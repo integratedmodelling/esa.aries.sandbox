@@ -37,7 +37,7 @@ model nca.ecosystem.iucn:RiverStream type of nca.ecosystem.iucn:Ecosystem named 
 		hydrology:StreamOrder of hydrology:Watershed named watershed_hierarchy,
 		type of hydrology:WaterPermanence named water_permanence_type,
 		type of earth:ElevationZone named altitude_zone,
-		type of earth:Lowland nca.ecology.ipcc:ClimaticZone named climate_zone,
+		earth:Lowland type of nca.ecology.ipcc:ClimaticZone named climate_zone,
 		type of ecology:MoistureRegime named evapotranspiration
 	lookup (waterbody_type, watershed_hierarchy, water_permanence_type, altitude_zone, climate_zone, evapotranspiration, ?)
 	into BIOME_F1_RIVER_STREAM_ECOSYSTEM_TYPES;
@@ -48,18 +48,18 @@ model nca.ecosystem.iucn:Lake type of nca.ecosystem.iucn:Ecosystem named biome_f
 		type of hydrology:WaterBody named waterbody_type,
 		type of hydrology:WaterPermanence named water_permanence_type,
 		type of earth:ElevationZone named altitude_zone,
-		type of earth:Lowland nca.ecology.ipcc:ClimaticZone named climate_zone,
+		earth:Lowland type of nca.ecology.ipcc:ClimaticZone named climate_zone,
 		type of ecology:MoistureRegime named evapotranspiration,
 		level of (im:Minimum im:Area of earth:WaterBody) named hydroform_morphology_area,
 		level of (im:Differential earth:AtmosphericTemperature) named continentality,
 		landcover:LandCoverType named landcover,
 		level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_air_temperature_mean,
 		level of im:Mean earth:AtmosphericTemperature during earth:Winter named winter_diurnal_air_temperature_mean,
-		type of ecology:ClimateRegion named climate_type,
+		type of nca.ecology.ipcc:ClimaticZone  named climate_type,
 		type of hydrology:WaterSource named dominant_source,
 		level of (chemistry:Basic chemistry:ExchangeCapacity of chemistry:Cation) named chemical_properties_base_saturation,
 		presence of earth:Crust physical:Thermal earth:Region with im:High im:Energy named energy_geothermal,
-		chemistry:Ph named chemical_properties_ph_status
+		level of chemistry:Ph named chemical_properties_ph_status
 	lookup (waterbody_type, water_permanence_type, altitude_zone, climate_zone, evapotranspiration, hydroform_morphology_area, continentality, landcover, summer_diurnal_air_temperature_mean, winter_diurnal_air_temperature_mean, climate_type, dominant_source, chemical_properties_base_saturation, energy_geothermal, chemical_properties_ph_status, ?)
 	into BIOME_F2_LAKE_ECOSYSTEM_TYPES;
 
@@ -68,7 +68,7 @@ model nca.ecosystem.iucn:ArtificialWetland type of nca.ecosystem.iucn:Ecosystem 
 	observing
 		type of hydrology:WaterBody named waterbody_type,
 		type of hydrology:WaterPermanence named water_permanence_type,
-		type of earth:Lowland nca.ecology.ipcc:ClimaticZone named climate_zone,
+		earth:Lowland type of nca.ecology.ipcc:ClimaticZone named climate_zone,
 		type of ecology:MoistureRegime named evapotranspiration,
 		level of (im:Minimum im:Area of earth:WaterBody) named hydroform_morphology_area,
 		landcover:LandCoverType named landcover,
@@ -86,18 +86,18 @@ model nca.ecosystem.iucn:BrackishTidal type of nca.ecosystem.iucn:Ecosystem name
 	observing
 		type of hydrology:WaterBody named waterbody_type,
 		type of earth:ElevationZone named altitude_zone,
-		type of earth:Lowland nca.ecology.ipcc:ClimaticZone named climate_zone,
+		earth:Lowland type of nca.ecology.ipcc:ClimaticZone named climate_zone,
 		landcover:LandCoverType named landcover,
 		level of im:Mean earth:AtmosphericTemperature during earth:Winter named winter_diurnal_air_temperature_mean,
-		type of ecology:ClimateRegion named climate_type,
+		type of nca.ecology.ipcc:ClimaticZone  named climate_type,
 		level of (im:Energy of physical:Wave) named wave_energy,
-		earth:Littoral hydrology:WaterVolume named freshwater_inflow,
+		level of earth:Littoral hydrology:WaterVolume named freshwater_inflow,
 		level of (earth:Littoral chemistry:Salinity) named salt_exposure,
 		type of hydrology:Tidal earth:Location named tidal_zone,
 		level of ecology:NetPrimaryProduction named annual_net_primary_productivity_total,
 		level of im:Mean primitive_characteristic.climate:SeasonalAmplitude earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_amplitude,
 		level of im:Yearly earth:PrecipitationVolume named annual_precipitation_total,
-		earth:Littoral geography:Slope named slope,
+		level of earth:Littoral geography:Slope named slope,
 		level of (im:Mean im:Height of ecology:Canopy) named canopy_height
 	lookup (waterbody_type, altitude_zone, climate_zone, landcover, winter_diurnal_air_temperature_mean, climate_type, wave_energy, freshwater_inflow, salt_exposure, tidal_zone, annual_net_primary_productivity_total, seasonal_diurnal_air_temperature_amplitude, annual_precipitation_total, slope, canopy_height, ?)
 	into BIOME_MFT1_BRACKISH_TIDAL_ECOSYSTEM_TYPES;
@@ -112,7 +112,7 @@ model nca.ecosystem.iucn:Shoreline type of nca.ecosystem.iucn:Ecosystem named bi
 		level of (earth:Littoral chemistry:Salinity) named salt_exposure,
 		type of hydrology:Tidal earth:Location named tidal_zone,
 		level of (ratio of earth:Dry soil:Soil im:Mass to soil:Soil im:Volume) named physical_properties_bulk_density,
-		earth:Littoral geography:Slope named slope
+		level of earth:Littoral geography:Slope named slope
 	lookup (altitude_zone, landcover, chemical_properties_base_saturation, wave_energy, salt_exposure, tidal_zone, physical_properties_bulk_density, slope, ?)
 	into BIOME_MT1_SHORELINE_ECOSYSTEM_TYPES;
 
@@ -120,7 +120,7 @@ model nca.ecosystem.iucn:Shoreline type of nca.ecosystem.iucn:Ecosystem named bi
 model nca.ecosystem.iucn:SupralittoralCoastal type of nca.ecosystem.iucn:Ecosystem named biome_mt2_supralittoral_coastal
 	observing
 		type of earth:ElevationZone named altitude_zone,
-		type of earth:Lowland nca.ecology.ipcc:ClimaticZone named climate_zone,
+		earth:Lowland type of nca.ecology.ipcc:ClimaticZone named climate_zone,
 		type of ecology:MoistureRegime named evapotranspiration,
 		level of (im:Differential earth:AtmosphericTemperature) named continentality,
 		landcover:LandCoverType named landcover,
@@ -148,12 +148,12 @@ model nca.ecosystem.iucn:AnthropogenicShoreline type of nca.ecosystem.iucn:Ecosy
 model nca.ecosystem.iucn:TropicalSubtropicalForest type of nca.ecosystem.iucn:Ecosystem named biome_t1_tropical_subtropical_forest
 	observing
 		type of earth:ElevationZone named altitude_zone,
-		type of earth:Lowland nca.ecology.ipcc:ClimaticZone named climate_zone,
+		earth:Lowland type of nca.ecology.ipcc:ClimaticZone named climate_zone,
 		type of ecology:MoistureRegime named evapotranspiration,
 		landcover:LandCoverType named landcover,
-		type of ecology:ClimateRegion named climate_type,
+		type of nca.ecology.ipcc:ClimaticZone  named climate_type,
 		level of (chemistry:Basic chemistry:ExchangeCapacity of chemistry:Cation) named chemical_properties_base_saturation,
-		chemistry:Ph named chemical_properties_ph_status,
+		level of chemistry:Ph named chemical_properties_ph_status,
 		level of ecology:NetPrimaryProduction named annual_net_primary_productivity_total,
 		level of im:Yearly earth:PrecipitationVolume named annual_precipitation_total,
 		level of (im:Mean im:Height of ecology:Canopy) named canopy_height,
@@ -176,15 +176,15 @@ model nca.ecosystem.iucn:TropicalSubtropicalForest type of nca.ecosystem.iucn:Ec
 model nca.ecosystem.iucn:TemperateBorealForestWoodland type of nca.ecosystem.iucn:Ecosystem named biome_t2_temperate_boreal_forest_woodland
 	observing
 		type of earth:ElevationZone named altitude_zone,
-		type of earth:Lowland nca.ecology.ipcc:ClimaticZone named climate_zone,
+		earth:Lowland type of nca.ecology.ipcc:ClimaticZone named climate_zone,
 		type of ecology:MoistureRegime named evapotranspiration,
 		level of (im:Differential earth:AtmosphericTemperature) named continentality,
 		landcover:LandCoverType named landcover,
 		level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_air_temperature_mean,
 		level of im:Mean earth:AtmosphericTemperature during earth:Winter named winter_diurnal_air_temperature_mean,
-		type of ecology:ClimateRegion named climate_type,
+		type of nca.ecology.ipcc:ClimaticZone  named climate_type,
 		level of (chemistry:Basic chemistry:ExchangeCapacity of chemistry:Cation) named chemical_properties_base_saturation,
-		chemistry:Ph named chemical_properties_ph_status,
+		level of chemistry:Ph named chemical_properties_ph_status,
 		level of ecology:NetPrimaryProduction named annual_net_primary_productivity_total,
 		level of im:Mean primitive_characteristic.climate:SeasonalAmplitude earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_amplitude,
 		level of im:Yearly earth:PrecipitationVolume named annual_precipitation_total,
@@ -211,16 +211,16 @@ model nca.ecosystem.iucn:TemperateBorealForestWoodland type of nca.ecosystem.iuc
 model nca.ecosystem.iucn:ShrublandShrubbyWoodland type of nca.ecosystem.iucn:Ecosystem named biome_t3_shrubland_shrubby_woodland
 	observing
 		type of earth:ElevationZone named altitude_zone,
-		type of earth:Lowland nca.ecology.ipcc:ClimaticZone named climate_zone,
+		earth:Lowland type of nca.ecology.ipcc:ClimaticZone named climate_zone,
 		type of ecology:MoistureRegime named evapotranspiration,
 		level of (im:Differential earth:AtmosphericTemperature) named continentality,
 		landcover:LandCoverType named landcover,
 		level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_air_temperature_mean,
 		level of im:Mean earth:AtmosphericTemperature during earth:Winter named winter_diurnal_air_temperature_mean,
-		type of ecology:ClimateRegion named climate_type,
+		type of nca.ecology.ipcc:ClimaticZone  named climate_type,
 		level of (chemistry:Basic chemistry:ExchangeCapacity of chemistry:Cation) named chemical_properties_base_saturation,
 		presence of earth:Crust physical:Thermal earth:Region with im:High im:Energy named energy_geothermal,
-		chemistry:Ph named chemical_properties_ph_status,
+		level of chemistry:Ph named chemical_properties_ph_status,
 		level of (ratio of earth:Dry soil:Soil im:Mass to soil:Soil im:Volume) named physical_properties_bulk_density,
 		level of ecology:NetPrimaryProduction named annual_net_primary_productivity_total,
 		level of (im:Mean im:Height of ecology:Canopy) named canopy_height,
@@ -243,13 +243,13 @@ model nca.ecosystem.iucn:ShrublandShrubbyWoodland type of nca.ecosystem.iucn:Eco
 //--- BIOME T4 - SavannaGrassland annotation---
 model nca.ecosystem.iucn:SavannaGrassland type of nca.ecosystem.iucn:Ecosystem named biome_t4_savanna_grassland
 	observing
-		type of earth:Lowland nca.ecology.ipcc:ClimaticZone named climate_zone,
+		earth:Lowland type of nca.ecology.ipcc:ClimaticZone named climate_zone,
 		type of ecology:MoistureRegime named evapotranspiration,
 		level of (im:Differential earth:AtmosphericTemperature) named continentality,
 		landcover:LandCoverType named landcover,
 		level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_air_temperature_mean,
 		level of im:Mean earth:AtmosphericTemperature during earth:Winter named winter_diurnal_air_temperature_mean,
-		type of ecology:ClimateRegion named climate_type,
+		type of nca.ecology.ipcc:ClimaticZone  named climate_type,
 		level of (chemistry:Basic chemistry:ExchangeCapacity of chemistry:Cation) named chemical_properties_base_saturation,
 		level of (ratio of earth:Dry soil:Soil im:Mass to soil:Soil im:Volume) named physical_properties_bulk_density,
 		level of ecology:NetPrimaryProduction named annual_net_primary_productivity_total,
@@ -275,15 +275,15 @@ model nca.ecosystem.iucn:SavannaGrassland type of nca.ecosystem.iucn:Ecosystem n
 model nca.ecosystem.iucn:DesertSemidesert type of nca.ecosystem.iucn:Ecosystem named biome_t5_desert_semidesert
 	observing
 		type of earth:ElevationZone named altitude_zone,
-		type of earth:Lowland nca.ecology.ipcc:ClimaticZone named climate_zone,
+		earth:Lowland type of nca.ecology.ipcc:ClimaticZone named climate_zone,
 		type of ecology:MoistureRegime named evapotranspiration,
 		level of (im:Differential earth:AtmosphericTemperature) named continentality,
 		landcover:LandCoverType named landcover,
 		level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_air_temperature_mean,
 		level of im:Mean earth:AtmosphericTemperature during earth:Winter named winter_diurnal_air_temperature_mean,
-		type of ecology:ClimateRegion named climate_type,
+		type of nca.ecology.ipcc:ClimaticZone  named climate_type,
 		level of (chemistry:Basic chemistry:ExchangeCapacity of chemistry:Cation) named chemical_properties_base_saturation,
-		chemistry:Ph named chemical_properties_ph_status,
+		level of chemistry:Ph named chemical_properties_ph_status,
 		level of (ratio of earth:Dry soil:Soil im:Mass to soil:Soil im:Volume) named physical_properties_bulk_density,
 		level of ecology:NetPrimaryProduction named annual_net_primary_productivity_total,
 		level of im:Yearly earth:PrecipitationVolume named annual_precipitation_total,
@@ -304,7 +304,7 @@ model nca.ecosystem.iucn:DesertSemidesert type of nca.ecosystem.iucn:Ecosystem n
 model nca.ecosystem.iucn:PolarAlpine type of nca.ecosystem.iucn:Ecosystem named biome_t6_polar_alpine
 	observing
 		type of earth:ElevationZone named altitude_zone,
-		type of earth:Lowland nca.ecology.ipcc:ClimaticZone named climate_zone,
+		earth:Lowland type of nca.ecology.ipcc:ClimaticZone named climate_zone,
 		type of ecology:MoistureRegime named evapotranspiration,
 		landcover:LandCoverType named landcover,
 		level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_air_temperature_mean,
@@ -350,14 +350,14 @@ model nca.ecosystem.iucn:PalustrineWetland type of nca.ecosystem.iucn:Ecosystem 
 		type of hydrology:WaterBody named waterbody_type,
 		type of hydrology:WaterPermanence named water_permanence_type,
 		type of earth:ElevationZone named altitude_zone,
-		type of earth:Lowland nca.ecology.ipcc:ClimaticZone named climate_zone,
+		earth:Lowland type of nca.ecology.ipcc:ClimaticZone named climate_zone,
 		type of ecology:MoistureRegime named evapotranspiration,
 		landcover:LandCoverType named landcover,
 		level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_air_temperature_mean,
-		type of ecology:ClimateRegion named climate_type,
+		type of nca.ecology.ipcc:ClimaticZone  named climate_type,
 		type of hydrology:WaterSource named dominant_source,
 		level of (chemistry:Basic chemistry:ExchangeCapacity of chemistry:Cation) named chemical_properties_base_saturation,
-		chemistry:Ph named chemical_properties_ph_status,
+		level of chemistry:Ph named chemical_properties_ph_status,
 		presence of hydrology:Floodplain named floodplain,
 		level of ecology:NetPrimaryProduction named annual_net_primary_productivity_total,
 		level of im:Yearly earth:PrecipitationVolume named annual_precipitation_total,
