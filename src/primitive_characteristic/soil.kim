@@ -127,7 +127,7 @@ number 'local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_ph
 
 //model 'local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_ph_status__global__1995_2019'
 model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.chemical_properties_ph_status_testing'
-	as chemistry:Ph named ph 
+	as level of chemistry:Ph named chemical_properties_ph_status
 	lookup (ph,?) into
 	ph 			| category
 	---------------------------------
