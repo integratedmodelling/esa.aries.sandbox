@@ -8,9 +8,9 @@ model local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone_intertidal
 	set to [self == 1 ? true : false];
 
 //model 'ecdc_freshwater_inflow'
-//model local:alessio.bulckaen:im.data.global:ecdc__coastal__freshwater_inflow_global_2000_2100
-model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.freshwater_inflow_testing'
-	as earth:Littoral hydrology:WaterVolume named freshwater_inflow
+model local:alessio.bulckaen:im.data.global:ecdc__coastal__freshwater_inflow_global_2000_2100
+//model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.freshwater_inflow_testing'
+	as level of earth:Littoral hydrology:WaterVolume named freshwater_inflow
 	classified into
 	im:None if 0,
 	im:Low if 1,
@@ -27,7 +27,7 @@ model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.freshwater_inflow_te
 //model 'ecdc_coastal_slope'
 //model local:alessio.bulckaen:im.data.global:ecdc__coastal__slope_global_2000_2100
 model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.slope_testing'
-	as earth:Littoral geography:Slope named coastal_slope
+	as level of earth:Littoral geography:Slope named coastal_slope
 	classified into
 		im:Low if 1,
 		im:Moderate if 2,
