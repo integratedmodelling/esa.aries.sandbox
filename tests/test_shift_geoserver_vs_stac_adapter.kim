@@ -1,0 +1,33 @@
+worldview im;
+
+@test(
+    name = "test_shift_geoserver_vs_stac_adapter",
+    description  = "",
+    // add to the list any concepts to be observed in the context below
+    observations = (
+    "im|esa.aries.sandbox/tests/test_shift_geoserver_vs_stac_adapter.test_phenology_decidous_stac"
+    "im|esa.aries.sandbox/tests/test_shift_geoserver_vs_stac_adapter.phenology_glc"
+    ),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named test_shift_geoserver_vs_stac_adapter
+    // add any space and/or time extents: for example
+    over space(shape="EPSG:4326 POLYGON ((-1.754805729176278 43.16628172581599, -1.8063041422622153 43.16628172581599, -1.8063041422622153 43.18476230143972, -1.754805729176278 43.18476230143972, -1.754805729176278 43.16628172581599))",
+    	grid="30 m"),
+    	time(year=2022);
+
+// add any models here
+
+number local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_mixed__global__2021 as test_phenology_mixed_stac;
+number local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_deciduous__global__2021 as test_phenology_decidous_stac;
+number local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_evergreen__global__2021 as test_phenology_evergreen_stac;
+
+
+number local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2021_mosaic as phenology_glc
+set to [(self == 62) ? true : false];
+
+number local:rubencc:im.data.global:im-data-global-landcover.cci_lc_300m_2021 as esa_cci;
+ 
+ 
