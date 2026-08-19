@@ -24,14 +24,30 @@ model level of ecology:LeafAreaIndex named leaf_area_index
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 2) Phenology mixed, deciduous and evergreen.
  */
-model local:rubencc:im.data.global:im-data-global-landcover.cci_lc_300m_2020_v2_1_1,
-	  local:rubencc:im.data.global:im-data-global-landcover.cci_lc_300m_2021,
-	  local:rubencc:im.data.global:im-data-global-landcover.cci_lc_300m_2022
+model 
+	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2018_mosaic,
+	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2019_mosaic,
+	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2020_mosaic,
+	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2021_mosaic,
+	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2022_mosaic
 	as type of ecology:LeafPhenology named phenology 
 	classified into
 		ecology:MixedLeafPhenology if in (40, 90, 100, 120),  
 		ecology:Deciduous if in (60, 61, 62, 122), 
 	  	ecology:Evergreen if in (50, 70, 71, 72, 121); 
+ 
+ 
+ model
+ 	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2018_mosaic,
+	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2019_mosaic,
+	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2020_mosaic,
+	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2021_mosaic,
+	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2022_mosaic
+	as type of ecology:LeafType named leaf_shape
+	classified into
+	ecology:Broadleaved if in (51,52,61,62,120,121,122),
+	ecology:Mixedleaved if in (91,92),
+	ecology:Needleleaved if in (71,72,81,82,120,121,122);
  
 /* ----------------------------------------------------------------------------------------------------------------------------- 
  * # 3) Specific leaf area.
@@ -167,4 +183,4 @@ model local:alessio.bulckaen:im.data.global:im-data-global-ecology.global_globma
 //			 1 to 10 	 |		true	| ecology:VerySparse	,
 //			10 to 40 	 |		true	| ecology:Sparse		;
 
- 	
+ model 	
