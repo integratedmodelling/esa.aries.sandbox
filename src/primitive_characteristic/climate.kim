@@ -285,9 +285,7 @@ model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.climate_type_testing
 //model 'ecdc_evotranspiration'
 //model local:alessio.bulckaen:im.data.global:ecdc__climate__evapotranspiration_global_1981_2010
 model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.evapotranspiration_testing'
-	as type of ecology:MoistureRegime 
-//	named evotranspiration 
-	named evapotranspiration
+	as type of ecology:MoistureRegime named evapotranspiration
 	classified into	
 		ecology:Wet if 1,
 		ecology:Humid if 2,
