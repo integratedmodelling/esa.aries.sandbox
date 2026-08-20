@@ -1,32 +1,39 @@
-private namespace primitive_characteristic.land_cover;
+project private namespace primitive_characteristic.land_cover;
 
-identity LandCoverProduct
-has children
-	Copernicus,
-	GLCfcs30,
-	RBTesting;
+//identity LandCoverProduct
+//has children
+//	Copernicus,
+//	GLCfcs30,
+//	RBTesting;
 	
-model local:alessio.bulckaen:im.data.global:copernicus.cdse.landcovermap
- as Copernicus landcover:LandCoverType classified according to im:copernicus-encoding;
+//model local:alessio.bulckaen:im.data.global:copernicus.cdse.landcovermap
+// as Copernicus landcover:LandCoverType classified according to im:copernicus-encoding;
  
 number local:alessio.bulckaen:im.data.global:copernicus.cdse.landcovermap as test_lc_copernicus;
 
-@reliability(50)
+
 model
 	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2018_mosaic,
 	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2019_mosaic,
 	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2020_mosaic,
 	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2021_mosaic,
 	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2022_mosaic
-	as GLCfcs30 landcover:LandCoverType named glc_fcs30 classified according to im:glc-fcs30-enconding;
+	as landcover:LandCoverType named glc_fcs30 classified into
+	landcover:BareArea if in ( 200 201 202 ),
+	landcover:Grassland if in ( 10 11 20 130 153 182 186 ),
+	landcover:ArtificialSurface if 190,
+	landcover:LichenMoss if 140,
+	landcover:Shrubland if in ( 12 120 121 122 152 ),
+	landcover:GlacierPerpetualSnow if 220,
+	landcover:Forest if in ( 12 51 52 61 62 71 72 81 82 91 92 181 185 );
 	
 //Temporary URN local:justus.muhando:esa.aries.sandbox:esa_weed_temp.dominance_glc_testing
 
 
 
-//model local:justus.muhando:esa.aries.sandbox:esa_weed_temp.hydroform_glc_testing
-model local:justus.muhando:esa.aries.sandbox:esa_weed_temp.dominance_glc_testing
-	as RBTesting landcover:LandCoverType named glc_fcs30_r_b_testing classified according to im:glc-fcs30-enconding;
+////model local:justus.muhando:esa.aries.sandbox:esa_weed_temp.hydroform_glc_testing
+//model local:justus.muhando:esa.aries.sandbox:esa_weed_temp.dominance_glc_testing
+//	as RBTesting landcover:LandCoverType named glc_fcs30_r_b_testing classified according to im:glc-fcs30-enconding;
 
 
 number local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2022_mosaic as test_rb_geoserver;
