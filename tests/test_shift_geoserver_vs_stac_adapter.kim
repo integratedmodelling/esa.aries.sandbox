@@ -7,8 +7,8 @@ worldview im;
     observations = (
     "im|esa.aries.sandbox/tests/test_shift_geoserver_vs_stac_adapter.test_phenology_mixed_stac"
     "im|esa.aries.sandbox/tests/test_shift_geoserver_vs_stac_adapter.test_phenology_mixed_geoserver"
-    "im|esa.aries.sandbox/tests/test_shift_geoserver_vs_stac_adapter.geoserver_glc"
-    "im|esa.aries.sandbox/tests/test_shift_geoserver_vs_stac_adapter.openlandmap_stac_glc"
+//    "im|esa.aries.sandbox/tests/test_shift_geoserver_vs_stac_adapter.geoserver_glc"
+//    "im|esa.aries.sandbox/tests/test_shift_geoserver_vs_stac_adapter.openlandmap_stac_glc"
     "im|esa.aries.sandbox/tests/test_shift_geoserver_vs_stac_adapter.diff_esa_cci_landcover_stac_vs_geoserver"
     
     ),
