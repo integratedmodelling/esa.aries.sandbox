@@ -5,8 +5,12 @@ worldview im;
     description  = "",
     // add to the list any concepts to be observed in the context below
     observations = (
-    "im|esa.aries.sandbox/tests/test_shift_geoserver_vs_stac_adapter.test_phenology_decidous_stac"
-    "im|esa.aries.sandbox/tests/test_shift_geoserver_vs_stac_adapter.phenology_glc"
+    "im|esa.aries.sandbox/tests/test_shift_geoserver_vs_stac_adapter.test_phenology_mixed_stac"
+    "im|esa.aries.sandbox/tests/test_shift_geoserver_vs_stac_adapter.test_phenology_mixed_geoserver"
+    "im|esa.aries.sandbox/tests/test_shift_geoserver_vs_stac_adapter.geoserver_glc"
+    "im|esa.aries.sandbox/tests/test_shift_geoserver_vs_stac_adapter.openlandmap_stac_glc"
+    "im|esa.aries.sandbox/tests/test_shift_geoserver_vs_stac_adapter.diff_esa_cci_landcover_stac_vs_geoserver"
+    
     ),
     // add assertions to check the observations after execution
     assertions = ()
@@ -16,18 +20,23 @@ observe /* a:urn:to:use#objectid as */ earth:Region named test_shift_geoserver_v
     // add any space and/or time extents: for example
     over space(shape="EPSG:4326 POLYGON ((-1.754805729176278 43.16628172581599, -1.8063041422622153 43.16628172581599, -1.8063041422622153 43.18476230143972, -1.754805729176278 43.18476230143972, -1.754805729176278 43.16628172581599))",
     	grid="30 m"),
-    	time(year=2022);
+    	time(year=2021);
 
 // add any models here
 
-number local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_mixed__global__2021 as test_phenology_mixed_stac;
-number local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_deciduous__global__2021 as test_phenology_decidous_stac;
-number local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_evergreen__global__2021 as test_phenology_evergreen_stac;
+number local:alessio.bulckaen:im.data.global:ecdc__vegetation__phenology_mixed__global__2021 as test_phenology_mixed_stac
+set to [self != nodata ? 90 : 1];
+
+number local:rubencc:im.data.global:im-data-global-landcover.cci_lc_300m_2021 as test_phenology_mixed_geoserver
+set to [self != 90 ? 1 : 90];
 
 
-number local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2021_mosaic as phenology_glc
-set to [(self == 62) ? true : false];
+number diff_esa_cci_landcover_stac_vs_geoserver
+observing
+	test_phenology_mixed_stac,
+	test_phenology_mixed_geoserver
+set to [test_phenology_mixed_stac - test_phenology_mixed_geoserver];
 
-number local:rubencc:im.data.global:im-data-global-landcover.cci_lc_300m_2021 as esa_cci;
- 
- 
+number local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2021_mosaic as geoserver_glc;
+
+number local:alessio.bulckaen:im.data.global:openlandmap_glc_fcs30d_landcover_2021 as openlandmap_stac_glc;
