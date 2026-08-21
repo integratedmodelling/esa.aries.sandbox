@@ -219,31 +219,30 @@ number land_use_annual_crops_check
 	set to [land_use_annual_crops_stac - land_use_annual_crops_rb_testing == 0 ? true : false];
 
 // secondary_observations for anthropogenic_land_use
-model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__land_use_annual_crops
-	as type of agriculture:AgriculturalLandUse named land_use_annual_crops_input;
+number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__land_use_annual_crops
+	as land_use_annual_crops;
 
-number local:RESOURCE_MISSING_FOR_land_use_perennial_crops as land_use_perennial_crops_stac;
+number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__land_use_perennial_crops as land_use_perennial_crops_stac;
 number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.land_use_perennial_crops_testing' as land_use_perennial_crops_rb_testing;
 number land_use_perennial_crops_check
 	observing land_use_perennial_crops_stac, land_use_perennial_crops_rb_testing
 	set to [land_use_perennial_crops_stac - land_use_perennial_crops_rb_testing == 0 ? true : false];
 
 // secondary_observations for anthropogenic_land_use
-model local:RESOURCE_MISSING_FOR_land_use_perennial_crops
-	as type of agriculture:AgriculturalLandUse named land_use_perennial_crops_input;
+number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__land_use_perennial_crops
+	as land_use_perennial_crops;
 
 // primary_observations
 // primary_observations for anthropogenic_land_use
 model type of agriculture:AgriculturalLandUse named anthropogenic_land_use
 	observing 
-		type of agriculture:AgriculturalLandUse named land_use_annual_crops_input,
-		type of agriculture:AgriculturalLandUse named land_use_perennial_crops_input
-	lookup (land_use_annual_crops_input, land_use_perennial_crops_input, ?) into
-		land_use_annual_crops_input | land_use_perennial_crops_input | category             
+		land_use_annual_crops,
+		land_use_perennial_crops
+	lookup (land_use_annual_crops, land_use_perennial_crops, ?) into
+		land_use_annual_crops 		| land_use_perennial_crops 		 | category             
 		------------------------------------------------------------------------------------
-		100                         | #                              | agriculture:Annual ,
-		#                           | 2                              | agriculture:Perennial 
-		;
+		100                         | #                              | agriculture:Annual   ,
+		#                           | 2                              | agriculture:Perennial;
 
 
 /* --- anthropogenic_crop_type --- */
@@ -268,5 +267,91 @@ model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__mining_areas__g
 		self | category
 		---------------
 		1    | true ,
-		#    | false 
+		#    | false;
+
+number local:justus.muhando:esa.aries.sandbox:esa_weed_temp.mining_areas_cheng_testing as 	anthropogenic_mining_areas_rb_testing;
+number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__mining_areas as anthropogenic_mining_areas_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__mining_areas__global__2000_2019 as anthropogenic_mining_areas_stac_static;
+
+/* --- anthropogenic_managed_waters --- */
+// secondary_observations
+number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform
+// local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform__global__1984_2017
+ as hydroform_stac;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.hydroform_testing' as hydroform_rb_testing;
+number hydroform_check
+	observing hydroform_stac, hydroform_rb_testing
+	set to [hydroform_stac - hydroform_rb_testing == 0 ? true : false];
+
+// secondary_observations for anthropogenic_managed_waters
+number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform
+// local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform__global__1984_2017
+	as hydroform_input;
+
+number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal as managed_waters_canal_stac;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.managed_waters_canal_testing' as managed_waters_canal_rb_testing;
+number managed_waters_canal_check
+	observing managed_waters_canal_stac, managed_waters_canal_rb_testing
+	set to [managed_waters_canal_stac - managed_waters_canal_rb_testing == 0 ? true : false];
+
+// secondary_observations for anthropogenic_managed_waters
+number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal
+	as managed_waters_canal_input;
+
+number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_aquaculture
+// local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_aquaculture__czechia_greece_norway__2017
+as managed_waters_aquaculture_stac;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.managed_waters_aquaculture_testing' as managed_waters_aquaculture_rb_testing;
+number managed_waters_aquaculture_check
+	observing managed_waters_aquaculture_stac, managed_waters_aquaculture_rb_testing
+	set to [managed_waters_aquaculture_stac - managed_waters_aquaculture_rb_testing == 0 ? true : false];
+
+// secondary_observations for anthropogenic_managed_waters
+number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_aquaculture
+// local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_aquaculture__czechia_greece_norway__2017
+	as managed_waters_aquaculture_input;
+
+number local:justus.muhando:im.data.global:ecdc__anthropogenic__managed_waters_mariculture as managed_waters_mariculture_stac;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.managed_waters_mariculture_testing' as managed_waters_mariculture_rb_testing;
+number managed_waters_mariculture_check
+	observing managed_waters_mariculture_stac, managed_waters_mariculture_rb_testing
+	set to [managed_waters_mariculture_stac - managed_waters_mariculture_rb_testing == 0 ? true : false];
+
+// secondary_observations for anthropogenic_managed_waters
+number local:justus.muhando:im.data.global:ecdc__anthropogenic__managed_waters_mariculture
+	as managed_waters_mariculture_input;
+
+// primary_observations
+// primary_observations for anthropogenic_managed_waters
+model type of hydrology.incubation:ManagedWaterBody named anthropogenic_managed_waters
+	observing 
+		hydroform_input,
+		managed_waters_canal_input,
+		managed_waters_aquaculture_input,
+		managed_waters_mariculture_input
+	lookup (hydroform_input, managed_waters_canal_input, managed_waters_aquaculture_input, managed_waters_mariculture_input, ?) into
+		hydroform_input | managed_waters_canal_input | managed_waters_aquaculture_input | managed_waters_mariculture_input | category                        
+		-----------------------------------------------------------------------------------------------------------------------------------------------------
+		3               | #                          | #                                | #                                | hydrology.incubation:Reservoir ,
+		#               | 1                          | #                                | #                                | hydrology.incubation:Canal ,
+		#               | #                          | 1                                | #                                | hydrology.incubation:Aquaculture ,
+		#               | #                          | #                                | 1                                | hydrology.incubation:Mariculture 
 		;
+
+
+
+
+/* --- anthropogenic_settlement_type --- */
+// primary_observations
+// primary_observations for anthropogenic_settlement_type
+model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__settlement_type
+	as type of demography:SettlementDensity infrastructure:HumanSettlement named anthropogenic_settlement_type
+	lookup (self, ?) into
+		self          | category           
+		-----------------------------------
+		in (30 23 22) | demography:Urban ,
+		21            | demography:Suburban ,
+		13            | demography:Rural ,
+		in (12 11)    | ecology:Sparse 
+		;
+
