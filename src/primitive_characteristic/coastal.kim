@@ -63,6 +63,13 @@ project private namespace primitive_characteristic.coastal;
 /* --- coastal_freshwater_inflow --- */
 // primary_observations
 // primary_observations for coastal_freshwater_inflow
+
+//Testing
+number 'local:alessio.bulckaen:im.data.global:ecdc__coastal__freshwater_inflow' 					as freshwater_inflow_stac_dynamic_asset;
+number 'local:alessio.bulckaen:im.data.global:ecdc__coastal__freshwater_inflow_global_2000_2100'	as freshwater_inflow_stac_static_asset;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.freshwater_inflow_testing' 			as freshwater_inflow_rb_testing;
+
+// using STAC_STATIC
 model local:alessio.bulckaen:im.data.global:ecdc__coastal__freshwater_inflow_global_2000_2100
 	as level of earth:Littoral hydrology:WaterVolume named coastal_freshwater_inflow
 	lookup (self, ?) into
@@ -74,13 +81,17 @@ model local:alessio.bulckaen:im.data.global:ecdc__coastal__freshwater_inflow_glo
 		3    | im:High 
 		;
 
-
-
-
 /* --- coastal_slope --- */
 // primary_observations
 // primary_observations for coastal_slope
-model local:alessio.bulckaen:im.data.global:ecdc__coastal__slope_global_2000_2100
+
+//Testing
+number 'local:alessio.bulckaen:im.data.global:ecdc__coastal__slope' 					as slope_stac_dynamic_asset;
+number 'local:alessio.bulckaen:im.data.global:ecdc__coastal__slope_global_2000_2100'	as slope_stac_static_asset;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.slope_testing' 			as slope_rb_testing;
+
+// using GEOSERVER
+model local:justus.muhando:esa.aries.sandbox:esa_weed_temp.slope_testing
 	as level of earth:Littoral geography:Slope named coastal_slope
 	lookup (self, ?) into
 		self | category   
@@ -90,28 +101,36 @@ model local:alessio.bulckaen:im.data.global:ecdc__coastal__slope_global_2000_210
 		4    | im:High 
 		;
 
-
-
-
 /* --- coastal_tidal_zone --- */
 // primary_observations
 // primary_observations for coastal_tidal_zone
-model local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone_global_1984_2021
-	as type of hydrology:Tidal earth:Location named coastal_tidal_zone
-	lookup (self, ?) into
-		self | category        
-		-----------------------
-		1    | earth:Subtidal ,
-		2    | earth:Intertidal ,
-		3    | earth:Supratidal 
-		;
 
+//Testing
+number 'local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone' 					as tidal_zone_stac_dynamic_asset;
+number 'local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone_global_1984_2021'	as tidal_zone_stac_static_asset;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.tidal_zone_testing' 			as tidal_zone_rb_testing;
 
-
+// NONE WORKS
+//model local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone_global_1984_2021
+//	as type of hydrology:Tidal earth:Location named coastal_tidal_zone
+//	lookup (self, ?) into
+//		self | category        
+//		-----------------------
+//		1    | earth:Subtidal ,
+//		2    | earth:Intertidal ,
+//		3    | earth:Supratidal 
+//		;
 
 /* --- coastal_salt_exposure --- */
 // primary_observations
 // primary_observations for coastal_salt_exposure
+
+//Testing
+number 'local:alessio.bulckaen:im.data.global:ecdc__coastal__salt_exposure' 					as salt_exposure_stac_dynamic_asset;
+number 'local:alessio.bulckaen:im.data.global:ecdc__coastal__salt_exposure_global_1981_2010'	as salt_exposure_stac_static_asset;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.salt_exposure_testing' 			as salt_exposure_rb_testing;
+
+// using STAC_STATIC
 model local:alessio.bulckaen:im.data.global:ecdc__coastal__salt_exposure_global_1981_2010
 	as level of (earth:Littoral chemistry:Salinity) named coastal_salt_exposure
 	lookup (self, ?) into
@@ -121,6 +140,18 @@ model local:alessio.bulckaen:im.data.global:ecdc__coastal__salt_exposure_global_
 		1 to 60   | im:Low ,
 		60 to 300 | im:Moderate ,
 		> 300     | im:High 
-		;
-
-	
+		;	
+		
+/* --- coastal_salt_exposure --- */
+//Testing
+number 'local:alessio.bulckaen:im.data.global:ecdc__coastal__wave_energy' 					as wave_energy_stac_dynamic_asset;
+//number ''	as wave_energy_stac_static_asset;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.wave_energy_testing' 			as wave_energy_rb_testing;
+		
+// using GEOSERVER	
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.wave_energy_testing'
+	as level of (im:Energy of physical:Wave) named coastal_wave_energy
+	 classified into
+		im:Low if 1,
+		im:Moderate if 2,
+		im:High if 4;	
