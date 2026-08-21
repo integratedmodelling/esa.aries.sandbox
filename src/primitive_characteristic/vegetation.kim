@@ -228,15 +228,16 @@ model local:justus.muhando:im.data.global:ecdc__vegetation__canopy_height
 
 /* --- vegetation_specific_leaf_area --- */
 // secondary_observations
-number local:alessio.bulckaen:im.data.global:ecdc__vegetation__specific_leaf_area__global__2000_2020 as specific_leaf_area_stac
-	set to [(self * 0.0009152370316885) + (32.47452846826606)];
-number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.specific_leaf_area_testing' as specific_leaf_area_rb_testing;
-number specific_leaf_area_check
-	observing specific_leaf_area_stac, specific_leaf_area_rb_testing
-	set to [specific_leaf_area_stac - specific_leaf_area_rb_testing == 0 ? true : false];
+//number local:alessio.bulckaen:im.data.global:ecdc__vegetation__specific_leaf_area__global__2000_2020 as specific_leaf_area_stac
+//	set to [(self * 0.0009152370316885) + (32.47452846826606)];	
+//number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.specific_leaf_area_testing' as specific_leaf_area_rb_testing;
+//
+//number specific_leaf_area_check
+//	observing specific_leaf_area_stac, specific_leaf_area_rb_testing
+//	set to [specific_leaf_area_stac - specific_leaf_area_rb_testing == 0 ? true : false];
 
 // secondary_observations for vegetation_specific_leaf_area
-model local:alessio.bulckaen:im.data.global:ecdc__vegetation__specific_leaf_area__global__2000_2020
+model local:alessio.bulckaen:im.data.global:ecdc__vegetation__specific_leaf_area
 	as (ratio of im:Area to earth:Dry im:Mass of biology:Leaf) named specific_leaf_area_input
 	set to [(self * 0.0009152370316885) + (32.47452846826606)];
 
@@ -259,12 +260,14 @@ model level of (ratio of im:Area to earth:Dry im:Mass of biology:Leaf) named veg
 
 /* --- vegetation_leaf_size --- */
 // secondary_observations
-number local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_size__global__2000_2020 as leaf_size_stac
-	set to [(self * 0.4817674829223003) + (15791.77310467295)];
-number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.leaf_size_testing' as leaf_size_rb_testing;
-number leaf_size_check
-	observing leaf_size_stac, leaf_size_rb_testing
-	set to [leaf_size_stac - leaf_size_rb_testing == 0 ? true : false];
+
+//number local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_size as leaf_size_stac_dynamic_asset;
+//number local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_size__global__2000_2020 as leaf_size_stac
+//	set to [(self * 0.4817674829223003) + (15791.77310467295)];
+//number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.leaf_size_testing' as leaf_size_rb_testing;
+//number leaf_size_check
+//	observing leaf_size_stac, leaf_size_rb_testing
+//	set to [leaf_size_stac - leaf_size_rb_testing == 0 ? true : false];
 
 // secondary_observations for vegetation_leaf_size
 model local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_size__global__2000_2020
