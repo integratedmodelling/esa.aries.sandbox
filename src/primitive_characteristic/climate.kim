@@ -538,14 +538,14 @@ number winter_diurnal_air_temperature_mean_check
 // secondary_observations for climate_winter_diurnal_air_temperature_mean
 // using STAC STATIC
 model local:alessio.bulckaen:im.data.global:ecdc__climate__winter_diurnal_air_temperature_mean__global__1981_2010
-	as im:Mean earth:AtmosphericTemperature during earth:Winter named winter_diurnal_air_temperature_mean_input
+	as im:Mean earth:AtmosphericTemperature during earth:Winter in Celsius named winter_diurnal_air_temperature_mean_input
 	set to [(self * 0.1) + (-273.15)];
 
 // primary_observations
 // primary_observations for climate_winter_diurnal_air_temperature_mean
 model level of im:Mean earth:AtmosphericTemperature during earth:Winter named climate_winter_diurnal_air_temperature_mean
 	observing 
-		im:Mean earth:AtmosphericTemperature during earth:Winter named winter_diurnal_air_temperature_mean_input
+		im:Mean earth:AtmosphericTemperature during earth:Winter in Celsius named winter_diurnal_air_temperature_mean_input
 	lookup (winter_diurnal_air_temperature_mean_input, ?) into
 		winter_diurnal_air_temperature_mean_input | category                        
 		----------------------------------------------------------------------------
@@ -580,7 +580,7 @@ number summer_diurnal_air_temperature_mean_check
 
 // secondary_observations for climate_summer_diurnal_air_temperature_mean
 model local:alessio.bulckaen:im.data.global:ecdc__climate__summer_diurnal_air_temperature_mean__global__1981_2010
-	as im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_air_temperature_mean_input
+	as im:Mean earth:AtmosphericTemperature during earth:Summer in Celsius named summer_diurnal_air_temperature_mean_input
 	set to [(self * 0.1) + (-273.15)];
 
 number local:alessio.bulckaen:im.data.global:ecdc__climate__summer_diurnal_air_temperature_mean as summer_diurnal_air_temperature_mean_stac_dynamic;
@@ -590,7 +590,7 @@ number local:alessio.bulckaen:im.data.global:ecdc__climate__summer_diurnal_air_t
 // primary_observations for climate_summer_diurnal_air_temperature_mean
 model level of im:Mean earth:AtmosphericTemperature during earth:Summer named climate_summer_diurnal_air_temperature_mean
 	observing 
-		im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_air_temperature_mean_input
+		im:Mean earth:AtmosphericTemperature during earth:Summer in Celsius named summer_diurnal_air_temperature_mean_input
 	lookup (summer_diurnal_air_temperature_mean_input, ?) into
 		summer_diurnal_air_temperature_mean_input | category                        
 		----------------------------------------------------------------------------
@@ -638,14 +638,14 @@ number annual_diurnal_air_temperature_mean_check
 
 // secondary_observations for climate_annual_diurnal_air_temperature_mean
 model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_diurnal_air_temperature_mean__global__1981_2010
-	as im:Daily im:Mean earth:AtmosphericTemperature during im:Year named annual_diurnal_air_temperature_mean_input
+	as im:Daily im:Mean earth:AtmosphericTemperature during im:Year in Celsius named annual_diurnal_air_temperature_mean_input
 	set to [(self * 0.1) + (-273.15)];
 
 // primary_observations
 // primary_observations for climate_annual_diurnal_air_temperature_mean
 model level of im:Daily im:Mean earth:AtmosphericTemperature during im:Year named climate_annual_diurnal_air_temperature_mean
 	observing 
-		im:Daily im:Mean earth:AtmosphericTemperature during im:Year named annual_diurnal_air_temperature_mean_input
+		im:Daily im:Mean earth:AtmosphericTemperature during im:Year in Celsius named annual_diurnal_air_temperature_mean_input
 	lookup (annual_diurnal_air_temperature_mean_input, ?) into
 		annual_diurnal_air_temperature_mean_input | category                        
 		----------------------------------------------------------------------------
@@ -689,7 +689,7 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_
 // primary_observations for climate_seasonal_diurnal_air_temperature_amplitude
 model level of im:Mean primitive_characteristic.climate:SeasonalAmplitude earth:AtmosphericTemperature named climate_seasonal_diurnal_air_temperature_amplitude
 	observing 
-		im:Mean primitive_characteristic.climate:SeasonalAmplitude earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_amplitude_input
+		im:Mean primitive_characteristic.climate:SeasonalAmplitude earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_amplitude_input
 	lookup (seasonal_diurnal_air_temperature_amplitude_input, ?) into
 		seasonal_diurnal_air_temperature_amplitude_input | category   
 		--------------------------------------------------------------
@@ -717,14 +717,14 @@ number local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air
 
 // secondary_observations for climate_seasonal_diurnal_air_temperature_variability
 model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability__global__1981_2010
-	as im:Mean im:Changed primitive_characteristic.climate:SeasonalAmplitude earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability_input
+	as im:Mean im:Changed primitive_characteristic.climate:SeasonalAmplitude earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_variability_input
 	set to [(self * 0.1) + (0.0)];
 
 // primary_observations
 // primary_observations for climate_seasonal_diurnal_air_temperature_variability
 model level of im:Mean im:Changed primitive_characteristic.climate:SeasonalAmplitude earth:AtmosphericTemperature named climate_seasonal_diurnal_air_temperature_variability
 	observing 
-		im:Mean im:Changed primitive_characteristic.climate:SeasonalAmplitude earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_variability_input
+		im:Mean im:Changed primitive_characteristic.climate:SeasonalAmplitude earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_variability_input
 	lookup (seasonal_diurnal_air_temperature_variability_input, ?) into
 		seasonal_diurnal_air_temperature_variability_input | category   
 		----------------------------------------------------------------

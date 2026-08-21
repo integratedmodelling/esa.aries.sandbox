@@ -71,17 +71,18 @@ model type of hydrology.incubation:ManagedWaterBody named anthropogenic_managed_
 
 
 /* DATA NOT WORKING but not used either */
-///* --- anthropogenic_settlement_type --- */
-//// primary_observations
-//// primary_observations for anthropogenic_settlement_type
-//model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__settlement_type
-//	as type of demography:SettlementDensity infrastructure:HumanSettlement named anthropogenic_settlement_type
-//	lookup (self, ?) into
-//		self          | category           
-//		-----------------------------------
-//		in (30 23 22) | demography:Urban ,
-//		21            | demography:Suburban ,
-//		13            | demography:Rural ,
-//		in (12 11)    | ecology:Sparse 
-//		;
+/* --- anthropogenic_settlement_type --- */
+// primary_observations
+// primary_observations for anthropogenic_settlement_type
+model local:justus.muhando:esa.aries.sandbox:esa_weed_temp.settlement_type_testing
+//local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__settlement_type
+	as type of demography:SettlementDensity infrastructure:HumanSettlement named anthropogenic_settlement_type
+	lookup (self, ?) into
+		self          | category           
+		-----------------------------------
+		in (30 23 22) | demography:Urban ,
+		21            | demography:Suburban ,
+		13            | demography:Rural ,
+		in (12 11)    | ecology:Sparse 
+		;
 
