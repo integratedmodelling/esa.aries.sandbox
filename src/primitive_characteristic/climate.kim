@@ -710,7 +710,6 @@ number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.seasonal_diurnal_ai
 // secondary_observations
 number local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability__global__1981_2010 as seasonal_diurnal_air_temperature_variability_stac
 	set to [(self * 0.1) + (0.0)];
-number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.seasonal_diurnal_air_temperature_variability_testing' as seasonal_diurnal_air_temperature_variability_rb_testing;
 number seasonal_diurnal_air_temperature_variability_check
 	observing seasonal_diurnal_air_temperature_variability_stac, seasonal_diurnal_air_temperature_variability_rb_testing
 	set to [seasonal_diurnal_air_temperature_variability_stac - seasonal_diurnal_air_temperature_variability_rb_testing == 0 ? true : false];
