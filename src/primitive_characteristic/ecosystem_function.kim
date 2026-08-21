@@ -30,7 +30,8 @@ project private namespace primitive_characteristic.ecosystem_function;
 /* --- ecosystem_function_annual_net_primary_productivity_total --- */
 // primary_observations
 // primary_observations for ecosystem_function_annual_net_primary_productivity_total
-model local:justus.muhando:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total
+model local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2021
+// local:justus.muhando:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total
 // local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2018
 // local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2021
 	as level of ecology:NetPrimaryProduction named ecosystem_function_annual_net_primary_productivity_total
@@ -42,3 +43,9 @@ model local:justus.muhando:im.data.global:ecdc__ecosystemfunction__annual_net_pr
 		250 to 1000 | im:Moderate ,
 		> 1000      | im:High 
 		;
+		
+// testing
+// number local:justus.muhando:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total as dinamic_stac;
+// number local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2018 as static_stac_2018;
+// number local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2021 as static_static_2021;
+// number local:justus.muhando:esa.aries.sandbox:esa_weed_temp.annual_net_primary_productivity_total_testing as annual_net_primary_productivity_total_testing_rb_testing;
