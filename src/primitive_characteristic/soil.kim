@@ -151,7 +151,9 @@ model local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_
 		in (5 6 7)             | im:Moderate ,
 		in (8 9 10)            | im:High 
 		;
-
+// testing
+// number local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020 as static_stac;
+// number local:justus.muhando:esa.aries.sandbox:esa_weed_temp.fertility_testing as rb_testing;
 
 
 
@@ -167,7 +169,8 @@ model local:alessio.bulckaen:im.data.global:ecdc__soil__physical_properties_bulk
 		0 to 1 | im:Moderate ,
 		> 1    | im:High 
 		;
-
+// testing
+// number local:justus.muhando:esa.aries.sandbox:esa_weed_temp.physical_properties_bulk_density_testing as rb_testing;
 
 
 
@@ -184,7 +187,8 @@ model local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_base
 		50 to 70  | im:Moderate ,
 		70 to 100 | im:High 
 		;
-
+// testing
+// number local:justus.muhando:esa.aries.sandbox:esa_weed_temp.chemical_properties_base_saturation_testing as rb_testing;
 
 
 
@@ -200,6 +204,9 @@ model local:alessio.bulckaen:im.data.global:ecdc__soil__peat_thickness__global__
 		1 to 29 | im:Low ,
 		> 30    | im:High 
 		;
+// testing
+//number local:justus.muhando:esa.aries.sandbox:esa_weed_temp.peat_thickness_testing as soil_peat_thickness_rb_testing;
+
 
 		/* --- soil_chemical_properties_pH_status --- */
 // primary_observations
@@ -215,7 +222,8 @@ model local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_ph_s
 		7 to 8 | chemistry:Alkaline ,
 		> 8    | chemistry:HighlyAlkaline 
 		;
-
+// testing
+// number local:justus.muhando:esa.aries.sandbox:esa_weed_temp.chemical_properties_ph_status_testing as soil_chemical_properties_ph_status_rb_testing;
 
 
 /* --- soil_chemical_properties_N --- */
