@@ -1,0 +1,283 @@
+project private namespace primitive_characteristic.data_testing;
+
+/* --- Testing surface_water_hydroform --- */
+number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform as hydroform_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform__global__1984_2017 as hydroform_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.hydroform_testing' as hydroform_rb_testing;
+
+/* --- Testing surface_water_hydroform --- */
+number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander as hydroform_meander_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__global__2004_2013 as hydroform_meander_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.hydroform_meander_testing' as hydroform_meander_rb_testing;
+
+/* --- Testing surface_water_occurrence_regime --- */
+number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_seasonality as occurrence_regime_seasonality_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_seasonality__global__1984_2021 as occurrence_regime_seasonality_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.occurrence_regime_seasonality_testing' as occurrence_regime_seasonality_rb_testing;
+
+/* --- Testing surface_water_occurrence_regime --- */
+number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_ephemeral as occurrence_regime_ephemeral_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_ephemeral__global__1984_2021 as occurrence_regime_ephemeral_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.occurrence_regime_ephemeral_testing' as occurrence_regime_ephemeral_rb_testing;
+
+/* --- Testing surface_water_occurrence_regime --- */
+number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_episodic as occurrence_regime_episodic_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__occurrence_regime_episodic__global__1984_2021 as occurrence_regime_episodic_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.occurrence_regime_episodic_testing' as occurrence_regime_episodic_rb_testing;
+
+/* --- Testing surface_water_watershed_hierarchy --- */
+number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy as watershed_hierarchy_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__global__2004_2013 as watershed_hierarchy_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.watershed_hierarchy_testing' as watershed_hierarchy_rb_testing;
+
+/* --- Testing soil_fertility --- */
+number local:alessio.bulckaen:im.data.global:ecdc__soil__fertility as fertility_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020 as fertility_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.fertility_testing' as fertility_rb_testing;
+
+/* --- Testing geomorphology_floodplain --- */
+number local:alessio.bulckaen:im.data.global:ecdc__geomorphology__floodplain as floodplain_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__geomorphology__floodplain__global__1900_2100 as floodplain_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.floodplain_testing' as floodplain_rb_testing;
+
+/* --- Testing vegetation_leaf_shape --- */
+//number as dominance_glc_stac_dynamic;
+//number as dominance_glc_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.dominance_glc_testing' as dominance_glc_rb_testing;
+
+/* --- Testing anthropogenic_land_use --- */
+number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__land_use_annual_crops as land_use_annual_crops_stac_dynamic;
+//number as land_use_annual_crops_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.land_use_annual_crops_testing' as land_use_annual_crops_rb_testing;
+
+/* --- Testing anthropogenic_land_use --- */
+number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__land_use_perennial_crops as land_use_perennial_crops_stac_dynamic;
+//number as land_use_perennial_crops_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.land_use_perennial_crops_testing' as land_use_perennial_crops_rb_testing;
+
+/* --- Testing anthropogenic_crop_type --- */
+number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__crop_type_rice_paddies as crop_type_rice_paddies_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__crop_type_rice_paddies_global_2024 as crop_type_rice_paddies_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.crop_type_rice_paddies_testing' as crop_type_rice_paddies_rb_testing;
+
+/* --- Testing anthropogenic_managed_waters --- */
+number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal as managed_waters_canal_stac_dynamic;
+//number as managed_waters_canal_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.managed_waters_canal_testing' as managed_waters_canal_rb_testing;
+
+/* --- Testing anthropogenic_managed_waters --- */
+number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_aquaculture as managed_waters_aquaculture_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_aquaculture__czechia_greece_norway__2017 as managed_waters_aquaculture_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.managed_waters_aquaculture_testing' as managed_waters_aquaculture_rb_testing;
+
+/* --- Testing anthropogenic_managed_waters --- */
+number local:justus.muhando:im.data.global:ecdc__anthropogenic__managed_waters_mariculture as managed_waters_mariculture_stac_dynamic;
+//number as managed_waters_mariculture_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.managed_waters_mariculture_testing' as managed_waters_mariculture_rb_testing;
+
+/* --- Testing wildfire_disturbances_periodicity --- */
+//number as fire_periodicity_stac_dynamic;
+//number as fire_periodicity_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.fire_periodicity_testing' as fire_periodicity_rb_testing;
+
+/* --- Testing atmospheric_disturbances_coastal_storms_exposure --- */
+number local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__coastal_storms_exposure as coastal_storms_exposure_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__coastal_storms_exposure__global__1979_2014 as coastal_storms_exposure_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.coastal_storms_exposure_testing' as coastal_storms_exposure_rb_testing;
+
+/* --- Testing biotic_assemblages_biotic_assemblage_pinniped_colonies --- */
+number local:alessio.bulckaen:im.data.global:ecdc__bioticassemblages__biotic_assemblage_pinniped_colonies as biotic_assemblage_pinniped_colonies_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__bioticassemblages__biotic_assemblage_pinniped_colonies__global__2022 as biotic_assemblage_pinniped_colonies_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.biotic_assemblage_pinniped_colonies_testing' as biotic_assemblage_pinniped_colonies_rb_testing;
+
+/* --- Testing coastal_freshwater_inflow --- */
+number local:alessio.bulckaen:im.data.global:ecdc__coastal__freshwater_inflow as freshwater_inflow_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__coastal__freshwater_inflow_global_2000_2100 as freshwater_inflow_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.freshwater_inflow_testing' as freshwater_inflow_rb_testing;
+
+/* --- Testing coastal_slope --- */
+number local:alessio.bulckaen:im.data.global:ecdc__coastal__slope as slope_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__coastal__slope_global_2000_2100 as slope_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.slope_testing' as slope_rb_testing;
+
+/* --- Testing coastal_wave_energy --- */
+number local:alessio.bulckaen:im.data.global:ecdc__coastal__wave_energy as wave_energy_stac_dynamic;
+//number as wave_energy_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.wave_energy_testing' as wave_energy_rb_testing;
+
+/* --- Testing coastal_tidal_zone --- */
+number local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone as tidal_zone_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone_global_1984_2021 as tidal_zone_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.tidal_zone_testing' as tidal_zone_rb_testing;
+
+/* --- Testing climate_altitude_zone --- */
+number local:alessio.bulckaen:im.data.global:ecdc__climate__altitude_zone as altitude_zone_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__climate__altitude_zone_global_1981_2010 as altitude_zone_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.altitude_zone_testing' as altitude_zone_rb_testing;
+
+/* --- Testing climate_climate_zone --- */
+number local:alessio.bulckaen:im.data.global:ecdc__climate__climate_zone as climate_zone_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__climate__climate_zone__global__2001_2020 as climate_zone_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.climate_zone_testing' as climate_zone_rb_testing;
+
+/* --- Testing climate_climate_type --- */
+number local:alessio.bulckaen:im.data.global:ecdc__climate__climate_type as climate_type_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__climate__climate_type_global_1981_2010 as climate_type_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.climate_type_testing' as climate_type_rb_testing;
+
+/* --- Testing climate_evapotranspiration --- */
+number local:alessio.bulckaen:im.data.global:ecdc__climate__evapotranspiration as evapotranspiration_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__climate__evapotranspiration_global_1981_2010 as evapotranspiration_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.evapotranspiration_testing' as evapotranspiration_rb_testing;
+
+/* --- Testing anthropogenic_mining_areas --- */
+number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__mining_areas as mining_areas_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__mining_areas__global__2000_2019 as mining_areas_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.mining_areas_testing' as mining_areas_rb_testing;
+
+/* --- Testing anthropogenic_settlement_type --- */
+number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__settlement_type as settlement_type_stac_dynamic;
+//number as settlement_type_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.settlement_type_testing' as settlement_type_rb_testing;
+
+/* --- Testing surface_water_hydroform_morphology_area --- */
+number local:justus.muhando:im.data.global:ecdc__surfacewater__hydroform_morphology_area as hydroform_morphology_area_stac_dynamic;
+//number as hydroform_morphology_area_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.hydroform_morphology_area_testing' as hydroform_morphology_area_rb_testing;
+
+/* --- Testing surface_water_watershed_hydroform_density --- */
+number local:justus.muhando:im.data.global:ecdc__surfacewater__watershed_hydroform_density as watershed_hydroform_density_stac_dynamic;
+//number as watershed_hydroform_density_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.watershed_hydroform_density_testing' as watershed_hydroform_density_rb_testing;
+
+/* --- Testing surface_water_dominant_source --- */
+number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__dominant_source as dominant_source_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__dominant_source_global_2000_2100 as dominant_source_stac_static;
+//number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.dominant_source_testing' as dominant_source_rb_testing;
+number local:justus.muhando:esa.aries.sandbox:esa_weed_temp.dominant_source_index_testing as dominant_source_rb_testing;
+
+/* --- Testing soil_physical_properties_bulk_density --- */
+number local:alessio.bulckaen:im.data.global:ecdc__soil__physical_properties_bulk_density as physical_properties_bulk_density_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__soil__physical_properties_bulk_density__global__1995_2019 as physical_properties_bulk_density_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.physical_properties_bulk_density_testing' as physical_properties_bulk_density_rb_testing;
+
+/* --- Testing soil_chemical_properties_base_saturation --- */
+number local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_base_saturation as chemical_properties_base_saturation_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_base_saturation__global__1995_2019 as chemical_properties_base_saturation_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.chemical_properties_base_saturation_testing' as chemical_properties_base_saturation_rb_testing;
+
+/* --- Testing soil_chemical_properties_pH_status --- */
+number local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_ph_status as chemical_properties_ph_status_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_ph_status__global__1995_2019 as chemical_properties_ph_status_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.chemical_properties_ph_status_testing' as chemical_properties_ph_status_rb_testing;
+
+/* --- Testing soil_chemical_properties_N --- */
+number local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_n as chemical_properties_n_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_n__global__1995_2019 as chemical_properties_n_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.chemical_properties_n_testing' as chemical_properties_n_rb_testing;
+
+/* --- Testing soil_peat_thickness --- */
+number local:alessio.bulckaen:im.data.global:ecdc__soil__peat_thickness as peat_thickness_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__soil__peat_thickness__global__2001_2021 as peat_thickness_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.peat_thickness_testing' as peat_thickness_rb_testing;
+
+/* --- Testing climate_annual_precipitation_total --- */
+number local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation_total as annual_precipitation_total_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation_total__global__1981_2010 as annual_precipitation_total_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.annual_precipitation_total_testing' as annual_precipitation_total_rb_testing;
+
+/* --- Testing climate_annual_water_budget_total --- */
+number local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total as annual_water_budget_total_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total__global__1981_2010 as annual_water_budget_total_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.annual_water_budget_total_testing' as annual_water_budget_total_rb_testing;
+
+/* --- Testing climate_winter_water_budget_total --- */
+number local:alessio.bulckaen:im.data.global:ecdc__climate__winter_water_budget_total as winter_water_budget_total_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__climate__winter_water_budget_total__global__1980_2010 as winter_water_budget_total_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.winter_water_budget_total_testing' as winter_water_budget_total_rb_testing;
+
+/* --- Testing climate_winter_diurnal_air_temperature_mean --- */
+number local:alessio.bulckaen:im.data.global:ecdc__climate__winter_diurnal_air_temperature_mean as winter_diurnal_air_temperature_mean_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__climate__winter_diurnal_air_temperature_mean__global__1981_2010 as winter_diurnal_air_temperature_mean_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.winter_diurnal_air_temperature_mean_testing' as winter_diurnal_air_temperature_mean_rb_testing;
+
+/* --- Testing climate_summer_diurnal_air_temperature_mean --- */
+number local:alessio.bulckaen:im.data.global:ecdc__climate__summer_diurnal_air_temperature_mean as summer_diurnal_air_temperature_mean_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__climate__summer_diurnal_air_temperature_mean__global__1981_2010 as summer_diurnal_air_temperature_mean_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.summer_diurnal_air_temperature_mean_testing' as summer_diurnal_air_temperature_mean_rb_testing;
+
+/* --- Testing vegetation_canopy_cover --- */
+number local:justus.muhando:im.data.global:ecdc__vegetation__canopy_cover as canopy_cover_stac_dynamic;
+//number as canopy_cover_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.canopy_cover_testing' as canopy_cover_rb_testing;
+
+/* --- Testing vegetation_canopy_height --- */
+number local:justus.muhando:im.data.global:ecdc__vegetation__canopy_height as canopy_height_stac_dynamic;
+//number as canopy_height_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.canopy_height_testing' as canopy_height_rb_testing;
+
+/* --- Testing vegetation_specific_leaf_area --- */
+number local:alessio.bulckaen:im.data.global:ecdc__vegetation__specific_leaf_area as specific_leaf_area_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__vegetation__specific_leaf_area__global__2000_2020 as specific_leaf_area_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.specific_leaf_area_testing' as specific_leaf_area_rb_testing;
+
+/* --- Testing vegetation_leaf_size --- */
+number local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_size as leaf_size_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_size__global__2000_2020 as leaf_size_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.leaf_size_testing' as leaf_size_rb_testing;
+
+/* --- Testing ecosystem_function_annual_net_primary_productivity_total --- */
+number local:justus.muhando:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total as annual_net_primary_productivity_total_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net_primary_productivity_total__global__2021 as annual_net_primary_productivity_total_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.annual_net_primary_productivity_total_testing' as annual_net_primary_productivity_total_rb_testing;
+
+/* --- Testing wildfire_disturbances_recurrence --- */
+//number as fire_recurrence_stac_dynamic;
+//number as fire_recurrence_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.fire_recurrence_testing' as fire_recurrence_rb_testing;
+
+/* --- Testing atmospheric_disturbances_tropical_storms_exposure --- */
+number local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__tropical_storms_exposure as tropical_storms_exposure_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__tropical_storms_exposure__global__1990_2015 as tropical_storms_exposure_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.tropical_storms_exposure_testing' as tropical_storms_exposure_rb_testing;
+
+/* --- Testing coastal_salt_exposure --- */
+number local:alessio.bulckaen:im.data.global:ecdc__coastal__salt_exposure as salt_exposure_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__coastal__salt_exposure_global_1981_2010 as salt_exposure_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.salt_exposure_testing' as salt_exposure_rb_testing;
+
+/* --- Testing climate_continentality --- */
+number local:alessio.bulckaen:im.data.global:ecdc__climate__continentality as continentality_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__climate__continentality_global_1981_2010 as continentality_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.continentality_testing' as continentality_rb_testing;
+
+/* --- Testing wildfire_disturbances_exposure --- */
+//number as exposure_stac_dynamic;
+//number as exposure_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.exposure_testing' as exposure_rb_testing;
+
+/* --- Testing climate_annual_diurnal_air_temperature_mean --- */
+number local:alessio.bulckaen:im.data.global:ecdc__climate__annual_diurnal_air_temperature_mean as annual_diurnal_air_temperature_mean_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__climate__annual_diurnal_air_temperature_mean__global__1981_2010 as annual_diurnal_air_temperature_mean_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.annual_diurnal_air_temperature_mean_testing' as annual_diurnal_air_temperature_mean_rb_testing;
+
+/* --- Testing climate_seasonal_diurnal_air_temperature_amplitude --- */
+number local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_amplitude as seasonal_diurnal_air_temperature_amplitude_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_amplitude__global__1981_2010 as seasonal_diurnal_air_temperature_amplitude_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.seasonal_diurnal_air_temperature_amplitude_testing' as seasonal_diurnal_air_temperature_amplitude_rb_testing;
+
+/* --- Testing climate_seasonal_diurnal_air_temperature_variability --- */
+number local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability as seasonal_diurnal_air_temperature_variability_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability__global__1981_2010 as seasonal_diurnal_air_temperature_variability_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.seasonal_diurnal_air_temperature_variability_testing' as seasonal_diurnal_air_temperature_variability_rb_testing;
+
+/* --- Testing vegetation_leaf_area_index --- */
+number local:justus.muhando:im.data.global:ecdc__vegetation__leaf_area_index as leaf_area_index_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2021 as leaf_area_index_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.leaf_area_index_testing' as leaf_area_index_rb_testing;
+
+/* --- Testing energy_geothermal --- */
+number local:alessio.bulckaen:im.data.global:ecdc__energy__geothermal as geothermal_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__energy__geothermal__global__2019 as geothermal_stac_static;
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.geothermal_testing' as geothermal_rb_testing;
+
