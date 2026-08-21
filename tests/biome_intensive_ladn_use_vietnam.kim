@@ -1,0 +1,42 @@
+worldview im;
+
+@test(
+    name = "biome_intensive_land_use_vietnam",
+    description  = "",
+    // add to the list any concepts to be observed in the context below
+    observations = (
+
+    "primitive_characteristic.anthropogenic.land_use_annual_crops"
+    "primitive_characteristic.anthropogenic.land_use_perennial_crops"
+    "primitive_characteristic.anthropogenic.anthropogenic_land_use"
+    "primitive_characteristic.anthropogenic.anthropogenic_settlement_type"
+    "primitive_characteristic.anthropogenic.anthropogenic_mining_areas"
+    "primitive_characteristic.anthropogenic.anthropogenic_mining_areas"
+    "primitive_characteristic.geomorphology.geomorphology_floodplain"
+    "primitive_characteristic.ecosystem_function.ecosystem_function_annual_net_primary_productivity_total"
+    "primitive_characteristic.vegetation.vegetation_canopy_height"
+    "primitive_characteristic.vegetation.vegetation_canopy_cover"
+    "primitive_characteristic.vegetation.vegetation_canopy_height"
+    "primitive_characteristic.vegetation.vegetation_canopy_cover"
+    "primitive_characteristic.climate.climate_evapotranspiration"
+    "primitive_characteristic.climate.climate_evapotranspiration"
+    "primitive_characteristic.climate.climate_summer_diurnal_air_temperature_mean"
+    "primitive_characteristic.climate.climate_summer_diurnal_air_temperature_mean"
+    "primitive_characteristic.climate.climate_winter_diurnal_air_temperature_mean"
+    "primitive_characteristic.soil.soil_chemical_properties_base_saturation"   
+    
+    "primitive_characteristic.ecosystem_typology.iucn.glc_fcs30" //landcover
+    
+    "primitive_characteristic.ecosystem_typology.iucn.biome_t7_intensive_land_use_system"
+    ),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named biome_intensive_ladn_use_vietnam
+    over space(
+    		urn='local:rubencc:esa.aries.sandbox:esa_weed_vietnam_rb_testing_polygons',
+    		grid="30 m"),
+    time(year=2021); 
+
+// add any models here
