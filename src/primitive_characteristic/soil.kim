@@ -1,138 +1,250 @@
 project private namespace primitive_characteristic.soil;
 
-/*
- * Primitive characteristics of the 'Soil-V2' collection.
- * Included are the following assets
- * 		* peat_thickness
- * 		* fertility
- *  	* chemical_properties_N
- * 		* chemical_properties_base_saturation
- *		* physical_properties_bulk_density
- */
- 
-
-/* ----------------------------------------------------------------------------------------------------------------------------- 
- * # 1) primary and secondary annotation for peat_thickness 
- */
-//model local:alessio.bulckaen:im.data.global:ecdc__soil__peat_thickness__global__2001_2021
-model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.peat_thickness_testing'
-	as im:Depth of landcover:PeatBog earth:Region in cm named peat_thickness_input;
-//over space(shape='POLYGON ((180 -60.007460979, 180 88.007948385, -180 88.007948385, -180 -60.007460979, 180 -60.007460979))');
-
-@intensive(space)
-model level of (im:Depth of landcover:PeatBog earth:Region) named peat_thickness
-	observing 
-		im:Depth of landcover:PeatBog earth:Region in cm named peat_thickness_input //g/m^2/day named npp
-	lookup (peat_thickness_input, ?) into
-    	peat_thickness	|	category
-		--------------------------------------
-   				   0	|	im:None			,
-   		 	  0 to 0.3	|	im:Low			,
-           	0.3 to 1	|	im:Moderate		,
-                 > 1	|	im:High			;
-
-
-/* ----------------------------------------------------------------------------------------------------------------------------- 
- * # 2) primary and secondary annotation for fertility 
- */
-
-//model local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020
-model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.fertility_testing'
-	as level of soil.incubation:Fertility named fertility
-	lookup (self, ?) into
-    	fertility						| category
-		-------------------------------------------------
-   		in (0, 1, 2, 11, 12, 13, 14)	| im:None		,
-    	in (3, 4)						| im:Low		,
-       	in (5, 6, 7)					| im:Moderate	,
-       	in (8, 9, 10)					| im:High		;
-       	
-//model local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020
-//	as soil.incubation:Fertility named fertility_input;
-//
-//model level of soil.incubation:Fertility named fertility
-//	observing
-//		soil.incubation:Fertility named fertility_input
-//	lookup (fertility, ?) into
-//    	fertility	| category
-//		-----------------------------------------
-//   			0   	| im:None					,
-//   		in (0 1 2)	| soil.incubation:Infertile	,
-//    	in (3 4) 	| im:Low					,
-//       	in (5 6 7) 	| im:Moderate				,
-//       	in (8 9 10) | im:High					;
-///* alternatively:
-//model local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020
-//	as level of soil.incubation:Fertility named soil_fertility_level
-//	classified into	
-//		im:None if 0,
-//		soil.incubation:Infertile if in (0 1 2),
-//		im:Low if in (3 4),
-//		im:Moderate if in (5 6 7),
-//		im:High if in (8 9 10);  
+///*
+// * Primitive characteristics of the 'Soil-V2' collection.
+// * Included are the following assets
+// * 		* peat_thickness
+// * 		* fertility
+// *  	* chemical_properties_N
+// * 		* chemical_properties_base_saturation
+// *		* physical_properties_bulk_density
 // */
+// 
+//
+///* ----------------------------------------------------------------------------------------------------------------------------- 
+// * # 1) primary and secondary annotation for peat_thickness 
+// */
+////model local:alessio.bulckaen:im.data.global:ecdc__soil__peat_thickness__global__2001_2021
+//model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.peat_thickness_testing'
+//	as im:Depth of landcover:PeatBog earth:Region in cm named peat_thickness_input;
+////over space(shape='POLYGON ((180 -60.007460979, 180 88.007948385, -180 88.007948385, -180 -60.007460979, 180 -60.007460979))');
+//
+//@intensive(space)
+//model level of (im:Depth of landcover:PeatBog earth:Region) named peat_thickness
+//	observing 
+//		im:Depth of landcover:PeatBog earth:Region in cm named peat_thickness_input //g/m^2/day named npp
+//	lookup (peat_thickness_input, ?) into
+//    	peat_thickness	|	category
+//		--------------------------------------
+//   				   0	|	im:None			,
+//   		 	  0 to 0.3	|	im:Low			,
+//           	0.3 to 1	|	im:Moderate		,
+//                 > 1	|	im:High			;
+//
+//
+///* ----------------------------------------------------------------------------------------------------------------------------- 
+// * # 2) primary and secondary annotation for fertility 
+// */
+//
+////model local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020
+//model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.fertility_testing'
+//	as level of soil.incubation:Fertility named fertility
+//	lookup (self, ?) into
+//    	fertility						| category
+//		-------------------------------------------------
+//   		in (0, 1, 2, 11, 12, 13, 14)	| im:None		,
+//    	in (3, 4)						| im:Low		,
+//       	in (5, 6, 7)					| im:Moderate	,
+//       	in (8, 9, 10)					| im:High		;
+//       	
+////model local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020
+////	as soil.incubation:Fertility named fertility_input;
+////
+////model level of soil.incubation:Fertility named fertility
+////	observing
+////		soil.incubation:Fertility named fertility_input
+////	lookup (fertility, ?) into
+////    	fertility	| category
+////		-----------------------------------------
+////   			0   	| im:None					,
+////   		in (0 1 2)	| soil.incubation:Infertile	,
+////    	in (3 4) 	| im:Low					,
+////       	in (5 6 7) 	| im:Moderate				,
+////       	in (8 9 10) | im:High					;
+/////* alternatively:
+////model local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020
+////	as level of soil.incubation:Fertility named soil_fertility_level
+////	classified into	
+////		im:None if 0,
+////		soil.incubation:Infertile if in (0 1 2),
+////		im:Low if in (3 4),
+////		im:Moderate if in (5 6 7),
+////		im:High if in (8 9 10);  
+//// */
+//
+///* ----------------------------------------------------------------------------------------------------------------------------- 
+// * # 3) primary and secondary annotation for chemical_properties_N 
+// */  
+////model local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_n__global__1995_2019
+//model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.chemical_properties_n_testing'
+//	as proportion of chemistry:Nitrogen in soil:Soil named chemical_properties_n_input; //  in g/kg;
+//
+//model level of (proportion of chemistry:Nitrogen in soil:Soil) named chemical_properties_n
+//	observing
+//		proportion of chemistry:Nitrogen in soil:Soil named chemical_properties_n_input
+//	lookup (chemical_properties_n_input, ?) into
+//		chemical_properties_n	|	category
+//		---------------------------------------
+//		  		 0 to 10		|	im:Low	;
+//
+///* ----------------------------------------------------------------------------------------------------------------------------- 
+// * # 4) primary and secondary annotation for chemical_properties_base_saturation 
+// */  
+////model local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_base_saturation__global__1995_2019
+//model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.chemical_properties_base_saturation_testing'
+//	as percentage of chemistry:Basic chemistry:ExchangeCapacity in (chemistry:ExchangeCapacity of chemistry:Cation) named chemical_properties_base_saturation_input;
+//
+//model level of (chemistry:Basic chemistry:ExchangeCapacity of chemistry:Cation) named chemical_properties_base_saturation
+//	observing
+//		percentage of chemistry:Basic chemistry:ExchangeCapacity in (chemistry:ExchangeCapacity of chemistry:Cation) named chemical_properties_base_saturation_input
+//	lookup (chemical_properties_base_saturation_input, ?) into
+//		base_saturation | category
+//		--------------------------
+//			< 49 		| im:Low,
+//		  50 to 69 		| im:Moderate,
+//		  70 to 100 	| im:High;   
+//			  
+///* ----------------------------------------------------------------------------------------------------------------------------- 
+// * # 5) primary and secondary annotation for physical_properties_bulk_density 
+// */  			  
+////model local:alessio.bulckaen:im.data.global:ecdc__soil__physical_properties_bulk_density__global__1995_2019
+//model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.physical_properties_bulk_density_testing'	
+//	as ratio of earth:Dry soil:Soil im:Mass to soil:Soil im:Volume in g/cm^3 named physical_properties_bulk_density_input; 
+//	
+//model level of (ratio of earth:Dry soil:Soil im:Mass to soil:Soil im:Volume) named physical_properties_bulk_density
+//	observing 
+//		ratio of earth:Dry soil:Soil im:Mass to soil:Soil im:Volume named physical_properties_bulk_density_input
+//	lookup (physical_properties_bulk_density_input, ?) into
+//		bulk_density 	| category
+//		-------------------------------------------
+//			0 to 1 		| im:Low,
+//			1 to 1 		| im:Moderate,
+//			 >1 		| im:High;
+//// not sure since the annotation seems to link to peatbog depth
+//
+//
+//number 'local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_ph_status__global__1995_2019' as test_ph;
+//
+////model 'local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_ph_status__global__1995_2019'
+//model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.chemical_properties_ph_status_testing'
+//	as level of chemistry:Ph named chemical_properties_ph_status
+//	lookup (ph,?) into
+//	ph 			| category
+//	---------------------------------
+//		<4		|chemistry:HighlyAcidic,
+//	 4 to 6.5	|chemistry:Acidic,
+//	 6.5 to 7.5	|chemistry:Neutral,
+//	 7.5 to 9	|chemistry:Alkaline,
+//		>9		|chemistry:HighlyAlkaline;	
 
-/* ----------------------------------------------------------------------------------------------------------------------------- 
- * # 3) primary and secondary annotation for chemical_properties_N 
- */  
-//model local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_n__global__1995_2019
-model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.chemical_properties_n_testing'
-	as proportion of chemistry:Nitrogen in soil:Soil named chemical_properties_n_input; //  in g/kg;
 
-model level of (proportion of chemistry:Nitrogen in soil:Soil) named chemical_properties_n
-	observing
+/* --- soil_fertility --- */
+// primary_observations
+// primary_observations for soil_fertility
+model local:alessio.bulckaen:im.data.global:ecdc__soil__fertility__global__2001_2020
+	as level of soil.incubation:Fertility named soil_fertility
+	lookup (self, ?) into
+		self                   | category   
+		------------------------------------
+		in (0 1 2 11 12 13 14) | im:None ,
+		in (3 4)               | im:Low ,
+		in (5 6 7)             | im:Moderate ,
+		in (8 9 10)            | im:High 
+		;
+
+
+
+
+/* --- soil_physical_properties_bulk_density --- */
+// primary_observations
+// primary_observations for soil_physical_properties_bulk_density
+model local:alessio.bulckaen:im.data.global:ecdc__soil__physical_properties_bulk_density__global__1995_2019
+	as level of (ratio of earth:Dry soil:Soil im:Mass to soil:Soil im:Volume) named soil_physical_properties_bulk_density
+	lookup (self, ?) into
+		self   | category   
+		--------------------
+		0 to 0 | im:Low ,
+		0 to 1 | im:Moderate ,
+		> 1    | im:High 
+		;
+
+
+
+
+/* --- soil_chemical_properties_base_saturation --- */
+// primary_observations
+// primary_observations for soil_chemical_properties_base_saturation
+model local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_base_saturation__global__1995_2019
+	as level of (chemistry:Basic chemistry:ExchangeCapacity of chemistry:Cation) named soil_chemical_properties_base_saturation
+	lookup (self, ?) into
+		self      | category   
+		-----------------------
+		0 to 25   | im:VeryLow ,
+		25 to 50  | im:Low ,
+		50 to 70  | im:Moderate ,
+		70 to 100 | im:High 
+		;
+
+
+
+
+/* --- soil_peat_thickness --- */
+// primary_observations
+// primary_observations for soil_peat_thickness
+model local:alessio.bulckaen:im.data.global:ecdc__soil__peat_thickness__global__2001_2021
+	as level of (im:Depth of landcover:PeatBog earth:Region) named soil_peat_thickness
+	lookup (self, ?) into
+		self    | category
+		------------------
+		0 to 0  | im:None ,
+		1 to 29 | im:Low ,
+		> 30    | im:High 
+		;
+
+		/* --- soil_chemical_properties_pH_status --- */
+// primary_observations
+// primary_observations for soil_chemical_properties_pH_status
+model local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_ph_status__global__1995_2019
+	as level of chemistry:Ph named soil_chemical_properties_ph_status
+	lookup (self, ?) into
+		self   | category                
+		---------------------------------
+		< 4    | chemistry:HighlyAcidic ,
+		4 to 7 | chemistry:Acidic ,
+		7 to 7 | chemistry:Neutral ,
+		7 to 8 | chemistry:Alkaline ,
+		> 8    | chemistry:HighlyAlkaline 
+		;
+
+
+
+/* --- soil_chemical_properties_N --- */
+// secondary_observations
+
+//number local:RESOURCE_MISSING_FOR_chemical_properties_N as chemical_properties_N_stac_wrong;
+number 'local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_n__global__1995_2019' as chemical_properties_n_stac
+	set to [(self * 0.1)];
+number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.chemical_properties_n_testing' as chemical_properties_n_rb_testing;
+number chemical_properties_n_check
+	observing chemical_properties_n_stac, chemical_properties_n_rb_testing
+	set to [chemical_properties_n_stac - chemical_properties_n_rb_testing == 0 ? true : false];
+
+// secondary_observations for soil_chemical_properties_N
+//wrong model local:RESOURCE_MISSING_FOR_chemical_properties_N
+model local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_n__global__1995_2019
+	as proportion of chemistry:Nitrogen in soil:Soil named chemical_properties_n_input
+	set to [(self * 0.1)];
+
+
+// primary_observations
+// primary_observations for soil_chemical_properties_N
+model level of (proportion of chemistry:Nitrogen in soil:Soil) named soil_chemical_properties_n
+	observing 
 		proportion of chemistry:Nitrogen in soil:Soil named chemical_properties_n_input
 	lookup (chemical_properties_n_input, ?) into
-		chemical_properties_n	|	category
-		---------------------------------------
-		  		 0 to 10		|	im:Low	;
-
-/* ----------------------------------------------------------------------------------------------------------------------------- 
- * # 4) primary and secondary annotation for chemical_properties_base_saturation 
- */  
-//model local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_base_saturation__global__1995_2019
-model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.chemical_properties_base_saturation_testing'
-	as percentage of chemistry:Basic chemistry:ExchangeCapacity in (chemistry:ExchangeCapacity of chemistry:Cation) named chemical_properties_base_saturation_input;
-
-model level of (chemistry:Basic chemistry:ExchangeCapacity of chemistry:Cation) named chemical_properties_base_saturation
-	observing
-		percentage of chemistry:Basic chemistry:ExchangeCapacity in (chemistry:ExchangeCapacity of chemistry:Cation) named chemical_properties_base_saturation_input
-	lookup (chemical_properties_base_saturation_input, ?) into
-		base_saturation | category
-		--------------------------
-			< 49 		| im:Low,
-		  50 to 69 		| im:Moderate,
-		  70 to 100 	| im:High;   
-			  
-/* ----------------------------------------------------------------------------------------------------------------------------- 
- * # 5) primary and secondary annotation for physical_properties_bulk_density 
- */  			  
-//model local:alessio.bulckaen:im.data.global:ecdc__soil__physical_properties_bulk_density__global__1995_2019
-model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.physical_properties_bulk_density_testing'	
-	as ratio of earth:Dry soil:Soil im:Mass to soil:Soil im:Volume in g/cm^3 named physical_properties_bulk_density_input; 
-	
-model level of (ratio of earth:Dry soil:Soil im:Mass to soil:Soil im:Volume) named physical_properties_bulk_density
-	observing 
-		ratio of earth:Dry soil:Soil im:Mass to soil:Soil im:Volume named physical_properties_bulk_density_input
-	lookup (physical_properties_bulk_density_input, ?) into
-		bulk_density 	| category
-		-------------------------------------------
-			0 to 1 		| im:Low,
-			1 to 1 		| im:Moderate,
-			 >1 		| im:High;
-// not sure since the annotation seems to link to peatbog depth
-
-
-number 'local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_ph_status__global__1995_2019' as test_ph;
-
-//model 'local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_ph_status__global__1995_2019'
-model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.chemical_properties_ph_status_testing'
-	as level of chemistry:Ph named chemical_properties_ph_status
-	lookup (ph,?) into
-	ph 			| category
-	---------------------------------
-		<4		|chemistry:HighlyAcidic,
-	 4 to 6.5	|chemistry:Acidic,
-	 6.5 to 7.5	|chemistry:Neutral,
-	 7.5 to 9	|chemistry:Alkaline,
-		>9		|chemistry:HighlyAlkaline;	
+		chemical_properties_n_input | category   
+		-----------------------------------------
+				< 0.5               | im:VeryLow ,
+				0.05 to 0.15        | im:Low ,
+				0.15 to 0.2         | im:Moderate ,
+				> 0.2               | im:High ;

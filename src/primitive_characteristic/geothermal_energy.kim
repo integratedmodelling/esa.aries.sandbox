@@ -14,8 +14,56 @@ project private namespace primitive_characteristic.geothermal_energy;
 //		// TODO: Errors in k.LAB: "unit mW/m^2 is incompatible with a scalar context."
 //	set to [geothermal_input > 60 ? true : false];
 	
-// Alternatives to fix the error:
-//model local:alessio.bulckaen:im.data.global:ecdc__energy__geothermal__global__2019
-model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.geothermal_testing'
-	as presence of earth:Crust physical:Thermal earth:Region with im:High im:Energy named geothermal
-	set to [self > 60 ? true : false];
+//// Alternatives to fix the error:
+////model local:alessio.bulckaen:im.data.global:ecdc__energy__geothermal__global__2019
+//model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.geothermal_testing'
+//	as presence of earth:Crust physical:Thermal earth:Region with im:High im:Energy named geothermal
+//	set to [self > 60 ? true : false];
+//
+//	/* --- energy_geothermal --- */
+//// secondary_observations
+//number local:alessio.bulckaen:im.data.global:ecdc__energy__geothermal as geothermal_stac;
+//number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.geothermal_testing' as geothermal_rb_testing;
+//number geothermal_check
+//	observing geothermal_stac, geothermal_rb_testing
+//	set to [geothermal_stac - geothermal_rb_testing == 0 ? true : false];
+//
+//// secondary_observations for energy_geothermal
+//model local:alessio.bulckaen:im.data.global:ecdc__energy__geothermal
+//	as presence of earth:Crust physical:Thermal earth:Region with im:High im:Energy named geothermal_input;
+
+// primary_observations
+// primary_observations for energy_geothermal
+//model local:alessio.bulckaen:im.data.global:ecdc__energy__geothermal 
+//model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.geothermal_testing'
+//	as presence of earth:Crust physical:Thermal earth:Region with im:High im:Energy named energy_geothermal
+//	set to [self > 60 ? true : false];
+//number'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.geothermal_testing' as test;	
+////	observing 
+//		presence of earth:Crust physical:Thermal earth:Region with im:High im:Energy named geothermal_input
+//	lookup (geothermal_input, ?) into
+//		geothermal_input | category
+//		---------------------------
+//		  > 63           | true ,
+//		0 to 62          | false;
+
+//// Direct observation using 'self' for a continuous threshold
+//model local:justus.muhando:esa.aries.sandbox:esa_weed_temp.geothermal_testing
+//	as presence of earth:Crust physical:Thermal earth:Region with im:High im:Energy named energy_geothermal
+//	lookup (self, ?) into
+//		self     | category
+//		---------------------------
+//		  > 63   | true ,
+//		0 to 62  | false ;
+		
+/* --- energy_geothermal --- */
+// primary_observations
+// primary_observations for energy_geothermal
+model local:alessio.bulckaen:im.data.global:ecdc__energy__geothermal__global__2019
+	as presence of earth:Crust physical:Thermal earth:Region with im:High im:Energy named energy_geothermal
+	lookup (self, ?) into
+		self    | category
+		------------------
+		> 63    | true ,
+		0 to 62 | false 
+		;		
