@@ -1,52 +1,23 @@
 project private namespace primitive_characteristic.atmospheric_disturbance;
-//
-///* ----------------------------------------------------------------------------------------------------------------------------- 
-// * # 1) Tropical storms exposure.
-// */
-////model local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__tropical_storms_exposure__global__1990_2015
-//model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.tropical_storms_exposure_testing'
-//	as presence of ecology:Tropical earth:Region with im:Mean im:Maximum earth:WindSpeed of earth:Storm named tropical_storms_exposure
-//	set to [self >= 50 ? true : false]
-//	over space(shape="POLYGON ((180 -42, 180 66.60000000000001, -176.3 66.60000000000001, -176.3 -42, 180 -42))");
-//	
-///* ----------------------------------------------------------------------------------------------------------------------------- 
-// * # 2) Coastal storms exposure.
-// */
-// 
-////model local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__coastal_storms_exposure__global__1979_2014
-//model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.coastal_storms_exposure_testing'
-//	as presence of earth:Coast with im:High earth:WindSpeed of earth:Storm named coastal_storms_exposure
-//	set to [self == 1 ? true : false];
-
 
 /* --- atmospheric_disturbances_coastal_storms_exposure --- */
 // primary_observations
 // primary_observations for atmospheric_disturbances_coastal_storms_exposure
-model 
-//local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__coastal_storms_exposure
- local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__coastal_storms_exposure__global__1979_2014
+model local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__coastal_storms_exposure__global__1979_2014
 	as presence of earth:Coast with im:High earth:WindSpeed of earth:Storm named atmospheric_disturbances_coastal_storms_exposure
 	lookup (self, ?) into
 		self | category
 		---------------
 		1    | true ,
-		0    | false 
-		;
-
-number local:justus.muhando:esa.aries.sandbox:esa_weed_temp.coastal_storms_exposure_testing as atmospheric_disturbances_coastal_storms_exposure_rb_testing;
-
+		0    | false;
+		
 /* --- atmospheric_disturbances_tropical_storms_exposure --- */
 // primary_observations
 // primary_observations for atmospheric_disturbances_tropical_storms_exposure
-model local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__tropical_storms_exposure
+model local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__tropical_storms_exposure__global__1990_2015 
 	as presence of ecology:Tropical earth:Region with im:Mean im:Maximum earth:WindSpeed of earth:Storm named atmospheric_disturbances_tropical_storms_exposure
 	lookup (self, ?) into
 		self    | category
 		------------------
 		> 48    | true ,
 		0 to 48 | false;
-
-
-number local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__tropical_storms_exposure as atmospheric_disturbances_tropical_storms_exposure_stac_dynamic;
-number local:alessio.bulckaen:im.data.global:ecdc__atmosphericdisturbances__tropical_storms_exposure__global__1990_2015 as atmospheric_disturbances_tropical_storms_exposure_stac_static;
-number local:justus.muhando:esa.aries.sandbox:esa_weed_temp.tropical_storms_exposure_testing as atmospheric_disturbances_tropical_storms_exposure_rb_testing;
