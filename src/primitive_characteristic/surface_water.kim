@@ -12,8 +12,8 @@ number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meand
 // primary_observations for surface_water_hydroform
 model type of hydrology:WaterBody named surface_water_hydroform
 	observing 
-		type of hydrology:WaterBody named hydroform,
-		type of hydrology:WaterBody named hydroform_meander
+		hydroform,
+		hydroform_meander
 	lookup (hydroform, hydroform_meander, ?) into
 		hydroform		| hydroform_meander 	  | category                 
 		---------------------------------------------------------------------
