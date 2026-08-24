@@ -1,0 +1,39 @@
+worldview im;
+
+@test(
+    name = "test.warning_out_of_range",
+    description  = "Coordinates in the BBOX are the same for both dynamic assets, but only Leaf size returns the warning of the resource being observed out of it's coverage",
+    // add to the list any concepts to be observed in the context below
+    observations = (
+    "primitive_characteristic.data_testing.canopy_cover_stac_dynamic"
+    "primitive_characteristic.data_testing.leaf_size_stac_dynamic"
+    "primitive_characteristic.data_testing.leaf_size_stac_static"
+    ),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named test_warning_out_of_range
+    over space(
+    		urn='local:rubencc:esa.aries.sandbox:esa_weed_vietnam_rb_testing_polygons',
+    		grid="30 m"),
+    time(year=2021); 
+// add any models here
+
+
+/*
+  BBOX Canopy height
+  "urn" : "local:justus.muhando:im.data.global:ecdc__vegetation__canopy_height",
+  "version" : "0.0.1",
+  "adapterType" : "stac",
+  "localPath" : "im.data.global/resources/ecdc__vegetation__canopy_height.v0.0.1",
+  "geometry" : "t1{tend=1735689599000,tstart=946684800000,ttype=grid}s2{bbox=[-180.0 -90.0 180.0 90.0],proj=EPSG:4326}",
+ * 
+  BBOX Leaf Size
+  "urn" : "local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_size",
+  "version" : "0.0.1",
+  "adapterType" : "stac",
+  "localPath" : "im.data.global/resources/ecdc__vegetation__leaf_size.v0.0.1",
+  "geometry" : "t1{tend=1735689599000,tstart=946684800000,ttype=grid}s2{bbox=[-180.0 -90.0 180.0 90.0],proj=EPSG:4326}", 
+ */
+ 
