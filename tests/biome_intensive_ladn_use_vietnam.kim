@@ -23,7 +23,11 @@ worldview im;
     "primitive_characteristic.climate.climate_summer_diurnal_air_temperature_mean"
     "primitive_characteristic.climate.climate_summer_diurnal_air_temperature_mean"
     "primitive_characteristic.climate.climate_winter_diurnal_air_temperature_mean"
-    "primitive_characteristic.soil.soil_chemical_properties_base_saturation"   
+    "primitive_characteristic.soil.soil_chemical_properties_base_saturation"
+    "primitive_characteristic.surface_water.occurrence_regime_seasonality"
+    "primitive_characteristic.surface_water.occurrence_regime_ephemeral"   
+    "primitive_characteristic.surface_water.occurrence_regime_episodic"
+    "primitive_characteristic.surface_water.surface_water_occurrence_regime"
     
     "primitive_characteristic.ecosystem_typology.iucn.glc_fcs30" //landcover
     
