@@ -9,8 +9,8 @@ worldview im;
 //    "primitive_characteristic.ecosystem_typology.iucn.biome_f2_lake"
 //    "primitive_characteristic.ecosystem_typology.iucn.biome_f3_artificial_wetland"
     "primitive_characteristic.ecosystem_typology.iucn.biome_mft1_brackish_tidal"
-    "primitive_characteristic.ecosystem_typology.iucn.biome_t1_tropical_subtropical_forest"
-    "primitive_characteristic.ecosystem_typology.iucn.biome_t2_temperate_boreal_forest_woodland"
+//    "primitive_characteristic.ecosystem_typology.iucn.biome_t1_tropical_subtropical_forest"
+//    "primitive_characteristic.ecosystem_typology.iucn.biome_t2_temperate_boreal_forest_woodland"
 //    "primitive_characteristic.ecosystem_typology.iucn.biome_t3_shrubland_shrubby_woodland"
 //    "primitive_characteristic.ecosystem_typology.iucn.biome_t4_savanna_grassland"
 //    "primitive_characteristic.ecosystem_typology.iucn.biome_t5_desert_semidesert"
@@ -24,8 +24,9 @@ worldview im;
 // change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
 observe /* a:urn:to:use#objectid as */ earth:Region named test_rule_based_modelling_version_three
     over space(
-    		urn='local:rubencc:esa.aries.sandbox:esa_weed_colombia_rb_testing_polygons',
+			shape="EPSG:4326 POLYGON ((-77.16643813949275 3.675991845220944, -77.16607472356291 3.705065119607704, -77.12282822791262 3.705065119607704, -77.12282822791262 3.677445508940282, -77.16643813949275 3.675991845220944))",
+//    		urn='local:rubencc:esa.aries.sandbox:esa_weed_colombia_rb_testing_polygons',
     		grid="30 m"),
-    time(year=2022); 
+    time(year=2021); 
 
 // add any models here
