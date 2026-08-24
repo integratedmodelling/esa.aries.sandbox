@@ -5,10 +5,10 @@ worldview im;
     description  = "",
     // add to the list any concepts to be observed in the context below
     observations = (
-//    "primitive_characteristic.ecosystem_typology.iucn.biome_f1_river_stream"
+    "primitive_characteristic.ecosystem_typology.iucn.biome_f1_river_stream"
 //    "primitive_characteristic.ecosystem_typology.iucn.biome_f2_lake"
 //    "primitive_characteristic.ecosystem_typology.iucn.biome_f3_artificial_wetland"
-    "primitive_characteristic.ecosystem_typology.iucn.biome_mft1_brackish_tidal"
+//    "primitive_characteristic.ecosystem_typology.iucn.biome_mft1_brackish_tidal"
 //    "primitive_characteristic.ecosystem_typology.iucn.biome_t1_tropical_subtropical_forest"
 //    "primitive_characteristic.ecosystem_typology.iucn.biome_t2_temperate_boreal_forest_woodland"
 //    "primitive_characteristic.ecosystem_typology.iucn.biome_t3_shrubland_shrubby_woodland"
@@ -28,5 +28,6 @@ observe /* a:urn:to:use#objectid as */ earth:Region named test_rule_based_modell
 //    		urn='local:rubencc:esa.aries.sandbox:esa_weed_colombia_rb_testing_polygons',
     		grid="30 m"),
     time(year=2021); 
+//  time(year=2023);
 
 // add any models here
