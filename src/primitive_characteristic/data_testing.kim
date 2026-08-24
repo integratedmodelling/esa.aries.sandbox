@@ -1,5 +1,20 @@
 project private namespace primitive_characteristic.data_testing;
 
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named test_rule_based_modelling_version_three
+    over space(
+			shape="EPSG:4326 POLYGON ((-77.16643813949275 3.675991845220944, -77.16607472356291 3.705065119607704, -77.12282822791262 3.705065119607704, -77.12282822791262 3.677445508940282, -77.16643813949275 3.675991845220944))",
+//    		urn='local:rubencc:esa.aries.sandbox:esa_weed_colombia_rb_testing_polygons',
+    		grid="30 m"),
+    time(year=2021); 
+
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named test_rule_based_modelling_version_three_vietnam
+    over space(
+    		urn='local:rubencc:esa.aries.sandbox:esa_weed_vietnam_rb_testing_polygons',
+    		grid="30 m"),
+    time(year=2021); 
+
 /* --- Testing surface_water_hydroform --- */
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform as hydroform_stac_dynamic;
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform__global__1984_2017 as hydroform_stac_static;
@@ -232,8 +247,8 @@ number local:alessio.bulckaen:im.data.global:ecdc__ecosystemfunction__annual_net
 number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.annual_net_primary_productivity_total_testing' as annual_net_primary_productivity_total_rb_testing;
 
 /* --- Testing wildfire_disturbances_recurrence --- */
-//number as fire_recurrence_stac_dynamic;
-//number as fire_recurrence_stac_static;
+number local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__recurrence as fire_recurrence_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__recurrence__global__2002_2024 as fire_recurrence_stac_static;
 number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.fire_recurrence_testing' as fire_recurrence_rb_testing;
 
 /* --- Testing atmospheric_disturbances_tropical_storms_exposure --- */
@@ -252,8 +267,8 @@ number local:alessio.bulckaen:im.data.global:ecdc__climate__continentality_globa
 number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.continentality_testing' as continentality_rb_testing;
 
 /* --- Testing wildfire_disturbances_exposure --- */
-//number as exposure_stac_dynamic;
-//number as exposure_stac_static;
+number local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__disturbances_exposure as exposure_stac_dynamic;
+number local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__disturbances_exposure_global_2019_2024 as exposure_stac_static;
 number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.exposure_testing' as exposure_rb_testing;
 
 /* --- Testing climate_annual_diurnal_air_temperature_mean --- */
