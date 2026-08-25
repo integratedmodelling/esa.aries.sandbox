@@ -1,0 +1,117 @@
+script testing_model_input
+
+action main:
+
+output_folder_directory = "WEED/Model_input_testing"
+
+set observables (
+	primitive_characteristic.ecosystem_typology.iucn.glc_fcs30
+	primitive_characteristic.anthropogenic.anthropogenic_crop_type
+	primitive_characteristic.anthropogenic.land_use_annual_crops
+	primitive_characteristic.anthropogenic.land_use_perennial_crops
+	primitive_characteristic.anthropogenic.anthropogenic_land_use
+	primitive_characteristic.anthropogenic.managed_waters_aquaculture
+	primitive_characteristic.anthropogenic.managed_waters_canal
+	primitive_characteristic.anthropogenic.managed_waters_mariculture
+	primitive_characteristic.anthropogenic.hydroform
+	primitive_characteristic.anthropogenic.anthropogenic_mining_areas
+	primitive_characteristic.atmospheric_disturbance.atmospheric_disturbances_coastal_storms_exposure
+	primitive_characteristic.atmospheric_disturbance.atmospheric_disturbances_tropical_storms_exposure
+	primitive_characteristic.atmospheric_disturbance.biotic_assemblages_biotic_assemblage_pinniped_colonies
+	primitive_characteristic.climate.climate_altitude_zone
+	primitive_characteristic.climate.annual_diurnal_air_temperature_mean_input
+	primitive_characteristic.climate.climate_annual_precipitation_total
+	primitive_characteristic.climate.climate_annual_water_budget_total
+	primitive_characteristic.climate.climate_climate_type
+	primitive_characteristic.climate.climate_climate_zone
+	primitive_characteristic.climate.climate_continentality
+	primitive_characteristic.climate.climate_evapotranspiration
+	primitive_characteristic.climate.seasonal_diurnal_air_temperature_amplitude_input
+	primitive_characteristic.climate.seasonal_diurnal_air_temperature_amplitude
+	primitive_characteristic.climate.seasonal_diurnal_air_temperature_variability_input
+	primitive_characteristic.climate.seasonal_diurnal_air_temperature_variability
+	primitive_characteristic.climate.summer_diurnal_air_temperature_mean_input
+	primitive_characteristic.climate.climate_summer_diurnal_air_temperature_mean
+	primitive_characteristic.climate.winter_diurnal_air_temperature_mean_input
+	primitive_characteristic.climate.winter_diurnal_air_temperature_mean
+	primitive_characteristic.climate.climate_winter_water_budget_total
+	primitive_characteristic.coastal.coastal_freshwater_inflow
+	primitive_characteristic.coastal.coastal_salt_exposure
+	primitive_characteristic.coastal.coastal_slope
+	primitive_characteristic.coastal.tidal_zone_intertidal
+	primitive_characteristic.coastal.coastal_wave_energy
+	primitive_characteristic.ecosystem_function.annual_net_primary_productivity_total
+	primitive_characteristic.geothermal_energy.energy_geothermal
+	primitive_characteristic.geomorphology.geomorphology_floodplain
+	primitive_characteristic.soil.soil_chemical_properties_base_saturation
+	primitive_characteristic.soil.chemical_properties_n_input
+	primitive_characteristic.soil.chemical_properties_n
+	primitive_characteristic.soil.chemical_properties_ph_status_input
+	primitive_characteristic.soil.chemical_properties_ph_status
+	primitive_characteristic.soil.soil_fertility
+	primitive_characteristic.soil.soil_peat_thickness
+	primitive_characteristic.soil.soil_physical_properties_bulk_density
+	primitive_characteristic.surface_water.surface_water_dominant_source
+	primitive_characteristic.surface_water.hydroform_meander
+	primitive_characteristic.surface_water.surface_water_hydroform_morphology_area
+	primitive_characteristic.surface_water.occurrence_regime_ephemeral
+	primitive_characteristic.surface_water.occurrence_regime_episodic
+	primitive_characteristic.surface_water.occurrence_regime_seasonality
+	primitive_characteristic.surface_water.surface_water_watershed_hierarchy
+	primitive_characteristic.vegetation.vegetation_canopy_cover
+	primitive_characteristic.vegetation.vegetation_canopy_height
+	primitive_characteristic.vegetation.vegetation_leaf_area_index
+	primitive_characteristic.vegetation.leaf_size_input
+	primitive_characteristic.vegetation.specific_leaf_area_input
+	primitive_characteristic.wildfire_disturbance.wildfire_disturbances_exposure
+	primitive_characteristic.wildfire_disturbance.wildfire_disturbances_recurrence
+)
+
+set country_urns (
+	"local:rubencc:esa.aries.sandbox:esa_weed_colombia_rb_testing_polygons"
+	"local:rubencc:esa.aries.sandbox:esa_weed_czechrepublic_rb_testing_polygons"
+	"local:rubencc:esa.aries.sandbox:esa_weed_greece_rb_testing_polygons"
+	"local:rubencc:esa.aries.sandbox:esa_weed_norway_rb_testing_polygons"
+	"local:rubencc:esa.aries.sandbox:esa_weed_southafrica_rb_testing_polygons"
+	"local:rubencc:esa.aries.sandbox:esa_weed_vietnam_rb_testing_polygons"
+)
+
+resolution=30.m
+
+for year in (2021) (
+	for country_urn in country_urns (
+		
+		// Map the URN to a clean, safe country name
+		set urn_string [country_urn.toString()]
+		set current_country "unknown"
+		
+		if [urn_string.contains("colombia")] ( set current_country "COL" ) else (
+		if [urn_string.contains("czechrepublic")] ( set current_country "CZE" ) else (
+		if [urn_string.contains("greece")] ( set current_country "GRC" ) else (
+		if [urn_string.contains("norway")] ( set current_country "NOR" ) else (
+		if [urn_string.contains("southafrica")] ( set current_country "ZAF" ) else (
+		if [urn_string.contains("vietnam")] ( set current_country "VNM" ) )))))
+
+		// Correctly loop through the polygons for each of the 6 countries
+		for polygon in country_urn (
+			for urn in observables (
+				context(polygon,resolution,Time(year=year),urn):
+					observation -> (
+						set urn_name ""
+						if [urn.toString().startsWith("[")] (
+							set urn_name [urn.name]
+						) else (
+							set urn_name urn
+						)
+						if [observation.isEmpty()] (
+							warning(["Observation " + urn_name + " is empty"])
+						) else (
+							// Inject current_country into the folder structure and filename
+							observation.export([output_folder_directory + "/" + year + "/" + current_country + "/" + current_country + "_" + polygon.fid_id + "__" + urn_name + "__" + year + ".tiff"])						
+							info(["Exporting urn " + urn_name + " for " + current_country])
+						)
+					)
+			)
+		)
+	)
+)
