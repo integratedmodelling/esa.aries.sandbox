@@ -7,7 +7,7 @@
   "projectName" : "esa.aries.sandbox",
   "localName" : "esa_weed_norway_rb_testing_polygons",
   "type" : "OBJECT",
-  "resourceTimestamp" : 1786621019387,
+  "resourceTimestamp" : 1787662055024,
   "metadata" : {
     "im:keywords" : "features,norway_rb_testing_polygons",
     "dc:title" : "norway_rb_testing_polygons"
@@ -20,7 +20,14 @@
   "localPaths" : [ ],
   "history" : [ ],
   "notifications" : [ ],
-  "attributes" : [ ],
+  "attributes" : {
+    "name" : "fid_id",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  },
   "spatialExtent" : {
     "east" : 29.681447312022367,
     "west" : 9.63174889593377,
