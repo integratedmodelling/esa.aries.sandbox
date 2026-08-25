@@ -7,7 +7,7 @@
   "projectName" : "esa.aries.sandbox",
   "localName" : "esa_weed_colombia_rb_testing_polygons",
   "type" : "OBJECT",
-  "resourceTimestamp" : 1786621018668,
+  "resourceTimestamp" : 1787652972667,
   "metadata" : {
     "im:keywords" : "features,colombia_rb_testing_polygons",
     "dc:title" : "colombia_rb_testing_polygons"
@@ -20,7 +20,14 @@
   "localPaths" : [ ],
   "history" : [ ],
   "notifications" : [ ],
-  "attributes" : [ ],
+  "attributes" : {
+    "name" : "fid_id",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  },
   "spatialExtent" : {
     "east" : -74.48484288189921,
     "west" : -77.16643813949275,
