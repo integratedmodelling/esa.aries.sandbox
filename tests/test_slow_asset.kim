@@ -5,9 +5,14 @@ worldview im;
     description  = "",
     // add to the list any concepts to be observed in the context below
     observations = (
-    "primitive_characteristic.vegetation.vegetation_leaf_area_index"
-	"primitive_characteristic.vegetation.specific_leaf_area_input"
-	"primitive_characteristic.anthropogenic.managed_waters_aquaculture"
+    "primitive_characteristic.data_testing.canopy_height_stac_dynamic"
+    "primitive_characteristic.data_testing.canopy_height_rb_testing"
+    "primitive_characteristic.data_testing.specific_leaf_area_stac_dynamic"
+//	"primitive_characteristic.data_testing.specific_leaf_area_stac_static"
+	"primitive_characteristic.data_testing.specific_leaf_area_rb_testing"
+	"primitive_characteristic.data_testing.leaf_area_index_stac_dynamic"
+//	"primitive_characteristic.data_testing.leaf_area_index_stac_static"
+	"primitive_characteristic.data_testing.leaf_area_index_rb_testing"
     ),
     // add assertions to check the observations after execution
     assertions = ()
