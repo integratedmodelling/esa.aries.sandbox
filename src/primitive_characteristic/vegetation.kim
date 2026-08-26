@@ -237,7 +237,7 @@ model local:justus.muhando:im.data.global:ecdc__vegetation__canopy_height
 //	set to [specific_leaf_area_stac - specific_leaf_area_rb_testing == 0 ? true : false];
 
 // secondary_observations for vegetation_specific_leaf_area
-model local:alessio.bulckaen:im.data.global:ecdc__vegetation__specific_leaf_area
+model local:alessio.bulckaen:im.data.global:ecdc__vegetation__specific_leaf_area__global__2000_2020
 	as (ratio of im:Area to earth:Dry im:Mass of biology:Leaf) named specific_leaf_area_input
 	set to [(self * 0.0009152370316885) + (32.47452846826606)];
 
