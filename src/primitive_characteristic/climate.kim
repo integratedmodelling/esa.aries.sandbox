@@ -361,10 +361,10 @@ attribute SeasonaVariability;
 // primary_observations
 // primary_observations for climate_altitude_zone
 
-//Testing
-number 'local:alessio.bulckaen:im.data.global:ecdc__climate__altitude_zone' 					as altitude_zone_stac_dynamic_asset;
-number 'local:alessio.bulckaen:im.data.global:ecdc__climate__altitude_zone_global_1981_2010'	as altitude_zone_stac_static_asset;
-number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.altitude_zone_testing' 			as altitude_zone_rb_testing;
+////Testing
+//number 'local:alessio.bulckaen:im.data.global:ecdc__climate__altitude_zone' 					as altitude_zone_stac_dynamic_asset;
+//number 'local:alessio.bulckaen:im.data.global:ecdc__climate__altitude_zone_global_1981_2010'	as altitude_zone_stac_static_asset;
+//number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.altitude_zone_testing' 			as altitude_zone_rb_testing;
 
 // using STAC_STATIC
  model local:alessio.bulckaen:im.data.global:ecdc__climate__altitude_zone_global_1981_2010
@@ -383,11 +383,11 @@ number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.altitude_zone_testi
 // primary_observations
 // primary_observations for climate_climate_zone
 
-//Testing
-number 'local:alessio.bulckaen:im.data.global:ecdc__climate__altitude_zone' 					as climate_zone_stac_dynamic_asset;
-number 'local:alessio.bulckaen:im.data.global:ecdc__climate__climate_zone__global__2001_2020'	as climate_zone_stac_static_asset_2001_2020;
-number 'local:alessio.bulckaen:im.data.global:ecdc__climate__climate_zone_global_1981_2010'		as climate_zone_stac_static_asset_1981_2010;
-number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.altitude_zone_testing' 			as climate_zone_rb_testing;
+////Testing
+//number 'local:alessio.bulckaen:im.data.global:ecdc__climate__altitude_zone' 					as climate_zone_stac_dynamic_asset;
+//number 'local:alessio.bulckaen:im.data.global:ecdc__climate__climate_zone__global__2001_2020'	as climate_zone_stac_static_asset_2001_2020;
+//number 'local:alessio.bulckaen:im.data.global:ecdc__climate__climate_zone_global_1981_2010'		as climate_zone_stac_static_asset_1981_2010;
+//number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.altitude_zone_testing' 			as climate_zone_rb_testing;
 
 // using GEOSERVER
 model 
@@ -412,10 +412,10 @@ model
 // primary_observations
 // primary_observations for climate_climate_type
 
-//Testing
-number 'local:alessio.bulckaen:im.data.global:ecdc__climate__climate_type' 					as climate_type_stac_dynamic_asset;
-number 'local:alessio.bulckaen:im.data.global:ecdc__climate__climate_type_global_1981_2010'	as climate_type_stac_static_asset;
-number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.climate_type_testing' 			as climate_type_rb_testing;
+////Testing
+//number 'local:alessio.bulckaen:im.data.global:ecdc__climate__climate_type' 					as climate_type_stac_dynamic_asset;
+//number 'local:alessio.bulckaen:im.data.global:ecdc__climate__climate_type_global_1981_2010'	as climate_type_stac_static_asset;
+//number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.climate_type_testing' 			as climate_type_rb_testing;
 
 // using STAC STATIC
 model local:alessio.bulckaen:im.data.global:ecdc__climate__climate_type_global_1981_2010
@@ -436,10 +436,10 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__climate_type_global_1
 // primary_observations
 // primary_observations for climate_evapotranspiration
 
-//Testing
-number 'local:alessio.bulckaen:im.data.global:ecdc__climate__evapotranspiration' 					as evapotranspiration_stac_dynamic_asset;
-number 'local:alessio.bulckaen:im.data.global:ecdc__climate__evapotranspiration_global_1981_2010'	as evapotranspiration_stac_static_asset;
-number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.evapotranspiration_testing' 			as evapotranspiration_rb_testing;
+////Testing
+//number 'local:alessio.bulckaen:im.data.global:ecdc__climate__evapotranspiration' 					as evapotranspiration_stac_dynamic_asset;
+//number 'local:alessio.bulckaen:im.data.global:ecdc__climate__evapotranspiration_global_1981_2010'	as evapotranspiration_stac_static_asset;
+//number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.evapotranspiration_testing' 			as evapotranspiration_rb_testing;
 
 // using STAC STATIC
 model local:alessio.bulckaen:im.data.global:ecdc__climate__evapotranspiration_global_1981_2010
@@ -459,9 +459,9 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__evapotranspiration_gl
 // primary_observations
 // primary_observations for climate_annual_precipitation_total
 //Testing
-number 'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation_total' 					as annual_precipitation_stac_dynamic_asset;
-number 'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation_total__global__1981_2010'	as annual_precipitation_stac_static_asset;
-number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.annual_precipitation_total_testing' 			as annual_precipitation_rb_testing;
+//number 'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation_total' 					as annual_precipitation_stac_dynamic_asset;
+//number 'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation_total__global__1981_2010'	as annual_precipitation_stac_static_asset;
+//number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.annual_precipitation_total_testing' 			as annual_precipitation_rb_testing;
 
 // using STAC STATIC
 model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation_total__global__1981_2010
@@ -479,10 +479,10 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation_
 /* --- climate_annual_water_budget_total --- */
 // primary_observations
 // primary_observations for climate_annual_water_budget_total
-//Testing
-number 'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total' 					as annual_water_budget_stac_dynamic_asset;
-number 'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total__global__1981_2010'	as annual_water_budget_stac_static_asset;
-number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.annual_water_budget_total_testing' 			as annual_water_budget_rb_testing;
+////Testing
+//number 'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total' 					as annual_water_budget_stac_dynamic_asset;
+//number 'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total__global__1981_2010'	as annual_water_budget_stac_static_asset;
+//number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.annual_water_budget_total_testing' 			as annual_water_budget_rb_testing;
 
 // using STAC STATIC
 model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total__global__1981_2010
@@ -503,10 +503,10 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_t
 /* --- climate_winter_water_budget_total --- */
 // primary_observations
 // primary_observations for climate_winter_water_budget_total
-//Testing
-number 'local:alessio.bulckaen:im.data.global:ecdc__climate__winter_water_budget_total' 					as winter_water_budget_stac_dynamic_asset;
-number 'local:alessio.bulckaen:im.data.global:ecdc__climate__winter_water_budget_total__global__1980_2010'	as winter_water_budget_stac_static_asset;
-number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.winter_water_budget_total_testing' 			as winter_water_budget_rb_testing;
+////Testing
+//number 'local:alessio.bulckaen:im.data.global:ecdc__climate__winter_water_budget_total' 					as winter_water_budget_stac_dynamic_asset;
+//number 'local:alessio.bulckaen:im.data.global:ecdc__climate__winter_water_budget_total__global__1980_2010'	as winter_water_budget_stac_static_asset;
+//number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.winter_water_budget_total_testing' 			as winter_water_budget_rb_testing;
 
 // using STAC STATIC
 model local:alessio.bulckaen:im.data.global:ecdc__climate__winter_water_budget_total__global__1980_2010
@@ -525,15 +525,12 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__winter_water_budget_t
 /* --- climate_winter_diurnal_air_temperature_mean --- */
 // secondary_observations
 
-//Testing
-number 'local:alessio.bulckaen:im.data.global:ecdc__climate__winter_diurnal_air_temperature_mean' 						as winter_diurnal_air_temperature_mean_stac_dynamic_asset;
-number 'local:alessio.bulckaen:im.data.global:ecdc__climate__winter_diurnal_air_temperature_mean__global__1981_2010'	as winter_diurnal_air_temperature_mean_stac_static_asset;
-number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.winter_diurnal_air_temperature_mean_testing' 				as winter_diurnal_air_temperature_mean_rb_testing;
-number local:alessio.bulckaen:im.data.global:ecdc__climate__winter_diurnal_air_temperature_mean__global__1981_2010 		as winter_diurnal_air_temperature_mean_stac
-	set to [(self * 0.1) + (-273.15)];
-number winter_diurnal_air_temperature_mean_check
-	observing winter_diurnal_air_temperature_mean_stac, winter_diurnal_air_temperature_mean_rb_testing
-	set to [winter_diurnal_air_temperature_mean_stac - winter_diurnal_air_temperature_mean_rb_testing == 0 ? true : false];
+////Testing
+//number 'local:alessio.bulckaen:im.data.global:ecdc__climate__winter_diurnal_air_temperature_mean' 						as winter_diurnal_air_temperature_mean_stac_dynamic_asset;
+//number 'local:alessio.bulckaen:im.data.global:ecdc__climate__winter_diurnal_air_temperature_mean__global__1981_2010'	as winter_diurnal_air_temperature_mean_stac_static_asset;
+//number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.winter_diurnal_air_temperature_mean_testing' 				as winter_diurnal_air_temperature_mean_rb_testing;
+//number local:alessio.bulckaen:im.data.global:ecdc__climate__winter_diurnal_air_temperature_mean__global__1981_2010 		as winter_diurnal_air_temperature_mean_stac
+//	set to [(self * 0.1) + (-273.15)];
 
 // secondary_observations for climate_winter_diurnal_air_temperature_mean
 // using STAC STATIC
@@ -566,17 +563,10 @@ model level of im:Mean earth:AtmosphericTemperature during earth:Winter named cl
 /* --- climate_summer_diurnal_air_temperature_mean --- */
 // secondary_observations
 
-//Testing
-number 'local:alessio.bulckaen:im.data.global:ecdc__climate__summer_diurnal_air_temperature_mean' 						as summer_diurnal_air_temperature_mean_stac_dynamic_asset;
-number 'local:alessio.bulckaen:im.data.global:ecdc__climate__summer_diurnal_air_temperature_mean__global__1981_2010'	as summer_diurnal_air_temperature_mean_stac_static_asset;
-number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.summer_diurnal_air_temperature_mean_testing' 				as summer_diurnal_air_temperature_mean_rb_testing;
-
-// using STAC STATIC
-number local:alessio.bulckaen:im.data.global:ecdc__climate__summer_diurnal_air_temperature_mean__global__1981_2010 as summer_diurnal_air_temperature_mean_stac
-	set to [(self * 0.1) + (-273.15)];
-number summer_diurnal_air_temperature_mean_check
-	observing summer_diurnal_air_temperature_mean_stac, summer_diurnal_air_temperature_mean_rb_testing
-	set to [summer_diurnal_air_temperature_mean_stac - summer_diurnal_air_temperature_mean_rb_testing == 0 ? true : false];
+////Testing
+//number 'local:alessio.bulckaen:im.data.global:ecdc__climate__summer_diurnal_air_temperature_mean' 						as summer_diurnal_air_temperature_mean_stac_dynamic_asset;
+//number 'local:alessio.bulckaen:im.data.global:ecdc__climate__summer_diurnal_air_temperature_mean__global__1981_2010'	as summer_diurnal_air_temperature_mean_stac_static_asset;
+//number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.summer_diurnal_air_temperature_mean_testing' 				as summer_diurnal_air_temperature_mean_rb_testing;
 
 // secondary_observations for climate_summer_diurnal_air_temperature_mean
 model local:alessio.bulckaen:im.data.global:ecdc__climate__summer_diurnal_air_temperature_mean__global__1981_2010
@@ -610,10 +600,10 @@ model level of im:Mean earth:AtmosphericTemperature during earth:Summer named cl
 /* --- climate_continentality --- */
 // primary_observations
 
-//Testing
-number 'local:alessio.bulckaen:im.data.global:ecdc__climate__continentality' 					as continentality_stac_dynamic_asset;
-number 'local:alessio.bulckaen:im.data.global:ecdc__climate__continentality_global_1981_2010'	as continentality_stac_static_asset;
-number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.continentality_testing' 			as continentality_rb_testing;
+////Testing
+//number 'local:alessio.bulckaen:im.data.global:ecdc__climate__continentality' 					as continentality_stac_dynamic_asset;
+//number 'local:alessio.bulckaen:im.data.global:ecdc__climate__continentality_global_1981_2010'	as continentality_stac_static_asset;
+//number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.continentality_testing' 			as continentality_rb_testing;
 
 // using STAC STATIC
 // primary_observations for climate_continentality
@@ -629,12 +619,9 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__continentality_global
 
 /* --- climate_annual_diurnal_air_temperature_mean --- */
 // secondary_observations
-number local:alessio.bulckaen:im.data.global:ecdc__climate__annual_diurnal_air_temperature_mean__global__1981_2010 as annual_diurnal_air_temperature_mean_stac
-	set to [(self * 0.1) + (-273.15)];
-number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.annual_diurnal_air_temperature_mean_testing' as annual_diurnal_air_temperature_mean_rb_testing;
-number annual_diurnal_air_temperature_mean_check
-	observing annual_diurnal_air_temperature_mean_stac, annual_diurnal_air_temperature_mean_rb_testing
-	set to [annual_diurnal_air_temperature_mean_stac - annual_diurnal_air_temperature_mean_rb_testing == 0 ? true : false];
+//number local:alessio.bulckaen:im.data.global:ecdc__climate__annual_diurnal_air_temperature_mean__global__1981_2010 as annual_diurnal_air_temperature_mean_stac
+//	set to [(self * 0.1) + (-273.15)];
+//number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.annual_diurnal_air_temperature_mean_testing' as annual_diurnal_air_temperature_mean_rb_testing;
 
 // secondary_observations for climate_annual_diurnal_air_temperature_mean
 model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_diurnal_air_temperature_mean__global__1981_2010
@@ -665,24 +652,20 @@ model level of im:Daily im:Mean earth:AtmosphericTemperature during im:Year name
 
 /* --- climate_seasonal_diurnal_air_temperature_amplitude --- */
 
-//Testing
-number 'local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_amplitude' 					as seasonal_diurnal_air_temperature_amplitude_stac_dynamic_asset;
-number 'local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_amplitude__global__1981_2010'	as seasonal_diurnal_air_temperature_amplitude_stac_static_asset;
-number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.seasonal_diurnal_air_temperature_amplitude_testing' 			as seasonal_diurnal_air_temperature_amplitude_rb_testing;
+////Testing
+//number 'local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_amplitude' 					as seasonal_diurnal_air_temperature_amplitude_stac_dynamic_asset;
+//number 'local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_amplitude__global__1981_2010'	as seasonal_diurnal_air_temperature_amplitude_stac_static_asset;
+//number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.seasonal_diurnal_air_temperature_amplitude_testing' 			as seasonal_diurnal_air_temperature_amplitude_rb_testing;
 
 // using STAC STATIC
 // secondary_observations
-number local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_amplitude__global__1981_2010 as seasonal_diurnal_air_temperature_amplitude_stac
-	set to [(self * 0.1) + (0.0)];
-number seasonal_diurnal_air_temperature_amplitude_check
-	observing seasonal_diurnal_air_temperature_amplitude_stac, seasonal_diurnal_air_temperature_amplitude_rb_testing
-	set to [seasonal_diurnal_air_temperature_amplitude_stac - seasonal_diurnal_air_temperature_amplitude_rb_testing == 0 ? true : false];
-
-number local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_amplitude as seasonal_diurnal_air_temperature_amplitude_stac_dynamic;
+//number local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_amplitude__global__1981_2010 as seasonal_diurnal_air_temperature_amplitude_stac
+//	set to [(self * 0.1) + (0.0)];
+//number local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_amplitude as seasonal_diurnal_air_temperature_amplitude_stac_dynamic;
 
 // secondary_observations for climate_seasonal_diurnal_air_temperature_amplitude
 model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_amplitude__global__1981_2010
-	as im:Mean primitive_characteristic.climate:SeasonalAmplitude earth:AtmosphericTemperature named seasonal_diurnal_air_temperature_amplitude_input
+	as im:Mean primitive_characteristic.climate:SeasonalAmplitude earth:AtmosphericTemperature in Celsius named seasonal_diurnal_air_temperature_amplitude_input
 	set to [(self * 0.1) + (0.0)];
 
 // primary_observations
@@ -700,20 +683,17 @@ model level of im:Mean primitive_characteristic.climate:SeasonalAmplitude earth:
 
 
 /* --- climate_seasonal_diurnal_air_temperature_variability --- */
-//Testing
-number 'local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability' 						as seasonal_diurnal_air_temperature_variability_stac_dynamic_asset;
-number 'local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability__global__1981_2010'	as seasonal_diurnal_air_temperature_variability_stac_static_asset;
-number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.seasonal_diurnal_air_temperature_variability_testing' 				as seasonal_diurnal_air_temperature_variability_rb_testing;
+////Testing
+//number 'local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability' 						as seasonal_diurnal_air_temperature_variability_stac_dynamic_asset;
+//number 'local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability__global__1981_2010'	as seasonal_diurnal_air_temperature_variability_stac_static_asset;
+//number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.seasonal_diurnal_air_temperature_variability_testing' 				as seasonal_diurnal_air_temperature_variability_rb_testing;
 
 // using STAC STATIC
 
 // secondary_observations
-number local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability__global__1981_2010 as seasonal_diurnal_air_temperature_variability_stac
-	set to [(self * 0.1) + (0.0)];
-number seasonal_diurnal_air_temperature_variability_check
-	observing seasonal_diurnal_air_temperature_variability_stac, seasonal_diurnal_air_temperature_variability_rb_testing
-	set to [seasonal_diurnal_air_temperature_variability_stac - seasonal_diurnal_air_temperature_variability_rb_testing == 0 ? true : false];
-number local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability as seasonal_diurnal_air_temperature_variability_stac_dynamic;
+//number local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability__global__1981_2010 as seasonal_diurnal_air_temperature_variability_stac
+//	set to [(self * 0.1) + (0.0)];
+//number local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability as seasonal_diurnal_air_temperature_variability_stac_dynamic;
 
 // secondary_observations for climate_seasonal_diurnal_air_temperature_variability
 model local:alessio.bulckaen:im.data.global:ecdc__climate__seasonal_diurnal_air_temperature_variability__global__1981_2010
