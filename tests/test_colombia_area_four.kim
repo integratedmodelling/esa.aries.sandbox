@@ -1,0 +1,22 @@
+worldview im;
+
+@test(
+    name = "test_colombia_area_4",
+    description  = "",
+    // add to the list any concepts to be observed in the context below
+    observations = (
+    "primitive_characteristic.ecosystem_typology.iucn.biome_t1_tropical_subtropical_forest"
+    "primitive_characteristic.ecosystem_typology.iucn.biome_t7_intensive_land_use_system"
+    "primitive_characteristic.ecosystem_typology.iucn.biome_tf1_palustrine_wetland"
+    ),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named test_colombia_testing_area_4
+    over space(
+    		urn='local:rubencc:esa.aries.sandbox:esa_weed_colombia_rb_testing_polygons#fid_id=4',
+    		grid="30 m"),
+    time(year=2021); 
+
+// add any models here
