@@ -2,10 +2,34 @@ private namespace primitive_characteristic.small_areas_for_testing;
 
 observe earth:Region named test_rb_colombia_30m_polygon_1
     over space(
-    		urn='local:rubencc:esa.aries.sandbox:esa_weed_colombia_rb_testing_polygons',
+    		urn='local:rubencc:esa.aries.sandbox:esa_weed_colombia_rb_testing_polygons#fid_id=1',
     		grid="30 m"),
     time(year=2022); 
-	
+
+observe earth:Region named test_rb_colombia_30m_polygon_2
+    over space(
+    		urn='local:rubencc:esa.aries.sandbox:esa_weed_colombia_rb_testing_polygons#fid_id=2',
+    		grid="30 m"),
+    time(year=2022); 
+    
+observe earth:Region named test_rb_colombia_30m_polygon_3
+    over space(
+    		urn='local:rubencc:esa.aries.sandbox:esa_weed_colombia_rb_testing_polygons#fid_id=3',
+    		grid="30 m"),
+    time(year=2022); 
+
+observe earth:Region named test_rb_colombia_30m_polygon_4
+    over space(
+    		urn='local:rubencc:esa.aries.sandbox:esa_weed_colombia_rb_testing_polygons#fid_id=4',
+    		grid="30 m"),
+    time(year=2022); 
+    
+observe earth:Region named test_rb_colombia_30m_polygon_5
+    over space(
+    		urn='local:rubencc:esa.aries.sandbox:esa_weed_colombia_rb_testing_polygons#fid_id=5',
+    		grid="30 m"),
+    time(year=2022); 
+    	
 observe earth:Region named test_rb_czechrepublic_100m
 	over space(
 		urn='',
