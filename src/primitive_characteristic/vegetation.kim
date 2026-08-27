@@ -290,15 +290,19 @@ model level of (physical.incubation:Shadow im:Area of biology:Leaf) named vegeta
 		18225 to 164025 | ecology:Macrophyll ,
 		> 164025        | ecology:Megaphyll; 
 
-
+number  local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2018 as lai_2018;
+number local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2021 as lai_2021;
+number local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2024 as lai_2024;
+number local:justus.muhando:im.data.global:ecdc__vegetation__leaf_area_index as justus_lai;
 
 
 /* --- vegetation_leaf_area_index --- */
 // primary_observations
 // primary_observations for vegetation_leaf_area_index
-model local:justus.muhando:im.data.global:ecdc__vegetation__leaf_area_index
+model 
+//local:justus.muhando:im.data.global:ecdc__vegetation__leaf_area_index
 // local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2018
-// local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2021
+ local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2021
 // local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2024
 	as level of ecology:LeafAreaIndex named vegetation_leaf_area_index
 	lookup (self, ?) into
