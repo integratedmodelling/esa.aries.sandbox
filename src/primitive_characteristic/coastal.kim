@@ -110,16 +110,16 @@ number 'local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone' 					as
 number 'local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone_global_1984_2021'	as tidal_zone_stac_static_asset;
 number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.tidal_zone_testing' 			as tidal_zone_rb_testing;
 
-// NONE WORKS
-//model local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone_global_1984_2021
-//	as type of hydrology:Tidal earth:Location named coastal_tidal_zone
-//	lookup (self, ?) into
-//		self | category        
-//		-----------------------
-//		1    | earth:Subtidal ,
-//		2    | earth:Intertidal ,
-//		3    | earth:Supratidal 
-//		;
+
+model local:alessio.bulckaen:im.data.global:ecdc__coastal__tidal_zone_global_1984_2021
+	as type of hydrology:Tidal earth:Location named coastal_tidal_zone
+	lookup (self, ?) into
+		self | category        
+		-----------------------
+		1    | earth:Subtidal ,
+		2    | earth:Intertidal ,
+		3    | earth:Supratidal 
+		;
 
 /* --- coastal_salt_exposure --- */
 // primary_observations
@@ -149,9 +149,18 @@ number 'local:alessio.bulckaen:im.data.global:ecdc__coastal__wave_energy' 					a
 number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.wave_energy_testing' 			as wave_energy_rb_testing;
 		
 // using GEOSERVER	
-model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.wave_energy_testing'
+/* --- coastal_wave_energy --- */
+// primary_observations
+// primary_observations for coastal_wave_energy
+model local:justus.muhando:esa.aries.sandbox:esa_weed_temp.wave_energy_testing
+//local:alessio.bulckaen:im.data.global:ecdc__coastal__wave_energy
 	as level of (im:Energy of physical:Wave) named coastal_wave_energy
-	 classified into
-		im:Low if 1,
-		im:Moderate if 2,
-		im:High if 4;	
+	lookup (self, ?) into
+		self | category   
+		------------------
+		0    | im:None ,
+		1    | im:VeryLow ,
+		3    | im:Low ,
+		4    | im:Moderate ,
+		5    | im:High 
+		;
