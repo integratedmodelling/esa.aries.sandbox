@@ -238,14 +238,14 @@ model local:justus.muhando:im.data.global:ecdc__vegetation__canopy_height
 
 // secondary_observations for vegetation_specific_leaf_area
 model local:alessio.bulckaen:im.data.global:ecdc__vegetation__specific_leaf_area__global__2000_2020
-	as (ratio of im:Area to earth:Dry im:Mass of biology:Leaf) named specific_leaf_area_input
+	as (ratio of im:Area to earth:Dry im:Mass of biology:Leaf) in m^2/kg named specific_leaf_area_input
 	set to [(self * 0.0009152370316885) + (32.47452846826606)];
 
 // primary_observations
 // primary_observations for vegetation_specific_leaf_area
 model level of (ratio of im:Area to earth:Dry im:Mass of biology:Leaf) named vegetation_specific_leaf_area
 	observing 
-		(ratio of im:Area to earth:Dry im:Mass of biology:Leaf) named specific_leaf_area_input
+		(ratio of im:Area to earth:Dry im:Mass of biology:Leaf) in m^2/kg named specific_leaf_area_input
 	lookup (specific_leaf_area_input, ?) into
 		specific_leaf_area_input | category         
 		--------------------------------------------
@@ -271,14 +271,14 @@ model level of (ratio of im:Area to earth:Dry im:Mass of biology:Leaf) named veg
 
 // secondary_observations for vegetation_leaf_size
 model local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_size__global__2000_2020
-	as (physical.incubation:Shadow im:Area of biology:Leaf) in m^2/kg named leaf_size_input
+	as (physical.incubation:Shadow im:Area of biology:Leaf) in mm^2 named leaf_size_input
 	set to [(self * 0.4817674829223003) + (15791.77310467295)];
 
 // primary_observations
 // primary_observations for vegetation_leaf_size
-model level of (physical.incubation:Shadow im:Area of biology:Leaf) in m^2/kg named vegetation_leaf_size
+model level of (physical.incubation:Shadow im:Area of biology:Leaf) named vegetation_leaf_size
 	observing 
-		(physical.incubation:Shadow im:Area of biology:Leaf) in m^2/kg named leaf_size_input
+		(physical.incubation:Shadow im:Area of biology:Leaf) in mm^2 named leaf_size_input
 	lookup (leaf_size_input, ?) into
 		leaf_size_input | category                             
 		-------------------------------------------------------
