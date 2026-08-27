@@ -94,7 +94,6 @@ for year in (2021) (
 
 		// Correctly loop through the polygons for each of the 6 countries
 		for polygon in country_urn (
-			for urn in observables (
 				context(polygon,resolution,Time(year=year))
 					for	urn in observables_urns (
 					// submit the observation
@@ -128,5 +127,4 @@ for year in (2021) (
 				)
 			)
 		)
-	)	
-)
+	)
