@@ -13,7 +13,8 @@ using primitive_characteristic.anthropogenic,
 	  nca.ecology.ipcc,
 	(BIOME_F1_RIVER_STREAM_ECOSYSTEM_TYPES,
 	 BIOME_F2_LAKE_ECOSYSTEM_TYPES,
-	 BIOME_F3_ARTIFICIAL_WETLAND_ECOSYSTEM_TYPES,	
+	 BIOME_F3_ARTIFICIAL_WETLAND_ECOSYSTEM_TYPES,
+	 BIOME_FM1_SEMICONFINED_TRANSITIONAL_WATER_ECOSYSTEM_TYPES,	
 	 BIOME_T1_TROPICAL_SUBTROPICAL_FOREST_ECOSYSTEM_TYPES,
 	 BIOME_T2_TEMPERATE_BOREAL_FOREST_WOODLAND_ECOSYSTEM_TYPES,
 	 BIOME_T3_SHRUBLAND_SHRUBBY_WOODLAND_ECOSYSTEM_TYPES,
@@ -93,6 +94,20 @@ model nca.ecosystem.iucn:ArtificialWetland type of nca.ecosystem.iucn:Ecosystem 
 		presence of hydrology:Floodplain named floodplain
 	lookup (waterbody_type, water_permanence_type, climate_zone, evapotranspiration, hydroform_morphology_area, landcover, managed_water, land_use, settlement_type, mining_area, crop_type, floodplain, ?)
 	into BIOME_F3_ARTIFICIAL_WETLAND_ECOSYSTEM_TYPES;
+
+//--- BIOME FM1 - SemiconfinedTransitionalWater annotation---
+model nca.ecosystem.iucn:SemiconfinedTransitionalWater type of nca.ecosystem.iucn:Ecosystem named biome_fm1_semiconfined_transitional_water
+	observing
+		type of hydrology:WaterBody named waterbody_type,
+		type of earth:ElevationZone named altitude_zone,
+		earth:Lowland type of nca.ecology.ipcc:ClimaticZone named climate_zone,
+		type of ecology:MoistureRegime named evapotranspiration,
+		level of (im:Energy of physical:Wave) named wave_energy,
+		level of earth:Littoral hydrology:WaterVolume named freshwater_inflow,
+		level of (earth:Littoral chemistry:Salinity) named salt_exposure,
+		type of hydrology:Tidal earth:Location named tidal_zone
+	lookup (waterbody_type, altitude_zone, climate_zone, evapotranspiration, wave_energy, freshwater_inflow, salt_exposure, tidal_zone, ?)
+	into BIOME_FM1_SEMICONFINED_TRANSITIONAL_WATER_ECOSYSTEM_TYPES;
 
 //--- BIOME MFT1 - BrackishTidal annotation---
 model nca.ecosystem.iucn:BrackishTidal type of nca.ecosystem.iucn:Ecosystem named biome_mft1_brackish_tidal
