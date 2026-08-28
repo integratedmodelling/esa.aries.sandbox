@@ -14,7 +14,11 @@ using primitive_characteristic.anthropogenic,
 	(BIOME_F1_RIVER_STREAM_ECOSYSTEM_TYPES,
 	 BIOME_F2_LAKE_ECOSYSTEM_TYPES,
 	 BIOME_F3_ARTIFICIAL_WETLAND_ECOSYSTEM_TYPES,
-	 BIOME_FM1_SEMICONFINED_TRANSITIONAL_WATER_ECOSYSTEM_TYPES,	
+	 BIOME_FM1_SEMICONFINED_TRANSITIONAL_WATER_ECOSYSTEM_TYPES,
+	 BIOME_M1_MARINE_SHELF_ECOSYSTEM_TYPES,
+//	 BIOME_M2_PELAGIC_OCEAN_WATER_ECOSYSTEM_TYPES,
+//	 BIOME_M3_DEEP_SEA_FLOOR_ECOSYSTEM_TYPES,
+	 BIOME_M4_ANTHROPOGENIC_MARINE_ECOSYSTEM_TYPES,	
 	 BIOME_T1_TROPICAL_SUBTROPICAL_FOREST_ECOSYSTEM_TYPES,
 	 BIOME_T2_TEMPERATE_BOREAL_FOREST_WOODLAND_ECOSYSTEM_TYPES,
 	 BIOME_T3_SHRUBLAND_SHRUBBY_WOODLAND_ECOSYSTEM_TYPES,
@@ -108,6 +112,37 @@ model nca.ecosystem.iucn:SemiconfinedTransitionalWater type of nca.ecosystem.iuc
 		type of hydrology:Tidal earth:Location named tidal_zone
 	lookup (waterbody_type, altitude_zone, climate_zone, evapotranspiration, wave_energy, freshwater_inflow, salt_exposure, tidal_zone, ?)
 	into BIOME_FM1_SEMICONFINED_TRANSITIONAL_WATER_ECOSYSTEM_TYPES;
+
+//--- BIOME M1 - MarineShelf annotation---
+model nca.ecosystem.iucn:MarineShelf type of nca.ecosystem.iucn:Ecosystem named biome_m1_marine_shelf
+	observing
+		earth:Lowland type of nca.ecology.ipcc:ClimaticZone named climate_zone,
+		level of (im:Energy of physical:Wave) named wave_energy,
+		type of hydrology:Tidal earth:Location named tidal_zone,
+		level of (ratio of earth:Dry soil:Soil im:Mass to soil:Soil im:Volume) named physical_properties_bulk_density
+	lookup (climate_zone, wave_energy, tidal_zone, physical_properties_bulk_density, ?)
+	into BIOME_M1_MARINE_SHELF_ECOSYSTEM_TYPES;
+
+//--- BIOME M2 - PelagicOceanWater annotation---
+//model nca.ecosystem.iucn:PelagicOceanWater type of nca.ecosystem.iucn:Ecosystem named biome_m2_pelagic_ocean_water
+//	observing
+//
+//	lookup (, ?)
+//	into BIOME_M2_PELAGIC_OCEAN_WATER_ECOSYSTEM_TYPES;
+
+//--- BIOME M3 - DeepSeaFloor annotation---
+//model nca.ecosystem.iucn:DeepSeaFloor type of nca.ecosystem.iucn:Ecosystem named biome_m3_deep_sea_floor
+//	observing
+//
+//	lookup (, ?)
+//	into BIOME_M3_DEEP_SEA_FLOOR_ECOSYSTEM_TYPES;
+
+//--- BIOME M4 - AnthropogenicMarine annotation---
+model nca.ecosystem.iucn:AnthropogenicMarine type of nca.ecosystem.iucn:Ecosystem named biome_m4_anthropogenic_marine
+	observing
+		type of hydrology.incubation:ManagedWaterBody named managed_water
+	lookup (managed_water, ?)
+	into BIOME_M4_ANTHROPOGENIC_MARINE_ECOSYSTEM_TYPES;
 
 //--- BIOME MFT1 - BrackishTidal annotation---
 model nca.ecosystem.iucn:BrackishTidal type of nca.ecosystem.iucn:Ecosystem named biome_mft1_brackish_tidal
