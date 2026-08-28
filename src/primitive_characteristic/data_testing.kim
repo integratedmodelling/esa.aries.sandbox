@@ -1,10 +1,9 @@
 project private namespace primitive_characteristic.data_testing;
 
 // change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
-observe /* a:urn:to:use#objectid as */ earth:Region named test_rule_based_modelling_version_three
+observe /* a:urn:to:use#objectid as */ earth:Region named test_rule_based_modelling_version_three_colombia_1
     over space(
-			shape="EPSG:4326 POLYGON ((-77.16643813949275 3.675991845220944, -77.16607472356291 3.705065119607704, -77.12282822791262 3.705065119607704, -77.12282822791262 3.677445508940282, -77.16643813949275 3.675991845220944))",
-//    		urn='local:rubencc:esa.aries.sandbox:esa_weed_colombia_rb_testing_polygons',
+    		urn='local:rubencc:esa.aries.sandbox:esa_weed_colombia_rb_testing_polygons#fid_id=1',
     		grid="30 m"),
     time(year=2021); 
 
@@ -13,7 +12,20 @@ observe /* a:urn:to:use#objectid as */ earth:Region named test_rule_based_modell
     over space(
     		urn='local:rubencc:esa.aries.sandbox:esa_weed_vietnam_rb_testing_polygons',
     		grid="30 m"),
-    time(year=2021); 
+    time(year=2021);
+    
+observe /* a:urn:to:use#objectid as */ earth:Region named test_rule_based_modelling_version_three_czechia
+    over space(
+    		urn='local:rubencc:esa.aries.sandbox:esa_weed_czechrepublic_rb_testing_polygons',
+    		grid="30 m"),
+    time(year=2021);
+    
+observe /* a:urn:to:use#objectid as */ earth:Region named test_rule_based_modelling_version_three_greece
+    over space(
+    		urn='local:rubencc:esa.aries.sandbox:esa_weed_greece_rb_testing_polygons',
+    		grid="30 m"),
+    time(year=2021);
+    
 
 /* --- Testing surface_water_hydroform --- */
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform as hydroform_stac_dynamic;
@@ -224,6 +236,7 @@ number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.summer_diurnal_air_
 /* --- Testing vegetation_canopy_cover --- */
 number local:justus.muhando:im.data.global:ecdc__vegetation__canopy_cover as canopy_cover_stac_dynamic;
 //number as canopy_cover_stac_static;
+number local:alessio.bulckaen:im.data.global:ecdc_canopy_cover_test_warning as canopy_cover_stac_dynamic_no_time_in_geometry;
 number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.canopy_cover_testing' as canopy_cover_rb_testing;
 
 /* --- Testing vegetation_canopy_height --- */
