@@ -1,0 +1,112 @@
+script testing_biome_models_area_specific_blueprint
+
+action main:
+
+output_folder_directory = "WEED/Biome_models"
+
+// --- COLOMBIA OBSERVABLE LISTS ---
+set colombia_testing_area_1 (
+	primitive_characteristic.ecosystem_typology.iucn.landcover
+	primitive_characteristic.anthropogenic.anthropogenic_crop_type
+)
+set colombia_testing_area_2 (
+	primitive_characteristic.anthropogenic.land_use_annual_crops
+	primitive_characteristic.anthropogenic.land_use_perennial_crops
+)
+set colombia_testing_area_3 (
+	primitive_characteristic.climate.climate_altitude_zone
+	primitive_characteristic.climate.annual_diurnal_air_temperature_mean_input
+)
+set colombia_testing_area_4 (
+	primitive_characteristic.soil.soil_chemical_properties_base_saturation
+	primitive_characteristic.soil.soil_fertility
+)
+
+// --- VIETNAM OBSERVABLE LISTS ---
+set vietnam_testing_area_1 (
+	primitive_characteristic.surface_water.surface_water_dominant_source
+	primitive_characteristic.surface_water.hydroform_meander
+)
+set vietnam_testing_area_2 (
+	primitive_characteristic.vegetation.vegetation_canopy_cover
+	primitive_characteristic.vegetation.vegetation_canopy_height
+)
+set vietnam_testing_area_3 (
+	primitive_characteristic.wildfire_disturbance.wildfire_disturbances_exposure
+	primitive_characteristic.wildfire_disturbance.wildfire_disturbances_recurrence
+)
+set vietnam_testing_area_4 (
+	primitive_characteristic.coastal.coastal_freshwater_inflow
+	primitive_characteristic.coastal.coastal_salt_exposure
+)
+
+set country_urns (
+	"local:rubencc:esa.aries.sandbox:esa_weed_colombia_rb_testing_polygons"
+	"local:rubencc:esa.aries.sandbox:esa_weed_vietnam_rb_testing_polygons"
+)
+
+resolution=30.m
+
+for year in (2021) (
+	for country_urn in country_urns (
+		
+		set urn_string [country_urn.toString()]
+		set current_country "unknown"
+		
+		if [urn_string.contains("colombia")] ( set current_country "COL" ) 
+		if [urn_string.contains("czechrepublic")] ( set current_country "CZE" ) 
+		if [urn_string.contains("greece")] ( set current_country "GRC" ) 
+		if [urn_string.contains("norway")] ( set current_country "NOR" ) 
+		if [urn_string.contains("southafrica")] ( set current_country "ZAF" ) 
+		if [urn_string.contains("vietnam")] ( set current_country "VNM" ) 
+
+		for polygon in country_urn (
+            
+            set current_fid [polygon.fid_id.toString()]
+            set current_observables ()
+            
+            if [current_country == "COL" && current_fid == "1"] ( set current_observables colombia_testing_area_1 ) 
+            if [current_country == "COL" && current_fid == "2"] ( set current_observables colombia_testing_area_2 ) 
+            if [current_country == "COL" && current_fid == "3"] ( set current_observables colombia_testing_area_3 ) 
+            if [current_country == "COL" && current_fid == "4"] ( set current_observables colombia_testing_area_4 ) 
+            
+            if [current_country == "VNM" && current_fid == "1"] ( set current_observables vietnam_testing_area_1 ) 
+            if [current_country == "VNM" && current_fid == "2"] ( set current_observables vietnam_testing_area_2 ) 
+            if [current_country == "VNM" && current_fid == "3"] ( set current_observables vietnam_testing_area_3 ) 
+            if [current_country == "VNM" && current_fid == "4"] ( set current_observables vietnam_testing_area_4 ) 
+
+            if [!current_observables.isEmpty()] (
+				
+                context(polygon,resolution,Time(year=year))
+					
+                for urn in current_observables (
+					submit(urn): (
+						WAITING -> ()
+						STARTED -> ()
+						ABORTED -> warning("Aborted")
+						INTERRUPTED -> warning("Interrupted")
+						empty -> (
+						    alert("The computation did not produce results. Some needed resources may be offline, or the system may be overloaded.")
+						    error(["Empty observation: " + urn.toString()])
+						)
+					    observation -> (
+						    set urn_name ""
+						    if [urn.toString().startsWith("[")] (
+							    set urn_name [urn.name]
+						    ) else (
+							    set urn_name urn
+						    )
+						    if [observation.isEmpty()] (
+							    warning(["Observation " + urn_name + " is empty"])
+						    ) else (
+                                // ADDED A SUBFOLDER FOR THE SPECIFIC TESTING AREA:
+							    observation.export([output_folder_directory + "/" + year + "/" + current_country + "/Area_" + polygon.fid_id + "/" + current_country + "_" + polygon.fid_id + "__" + urn_name + "__" + year + ".tiff"])						
+							    info(["Exporting urn " + urn_name + " for " + current_country + " Area " + polygon.fid_id])
+							)
+						)
+					)
+				)
+            )
+		)
+	)	
+)
