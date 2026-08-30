@@ -379,6 +379,68 @@ attribute SeasonaVariability;
 		5    | earth:Lowland ;
 
 
+// primary_observations
+// primary_observations for climate_annual_diurnal_air_temperature_mean
+model level of im:Daily im:Mean earth:AtmosphericTemperature during im:Year named climate_annual_diurnal_air_temperature_mean
+	observing 
+		im:Daily im:Mean earth:AtmosphericTemperature during im:Year in Celsius named annual_diurnal_air_temperature_mean_input
+	lookup (annual_diurnal_air_temperature_mean_input, ?) into
+		annual_diurnal_air_temperature_mean_input | category                        
+		----------------------------------------------------------------------------
+		< -30                                     | ecology.incubation:ExtremelyCold ,
+		-30 to -10                                | ecology.incubation:VeryCold ,
+		-10 to 0                                  | ecology.incubation:Cold ,
+		0 to 10                                   | ecology.incubation:Cool ,
+		10 to 20                                  | ecology.incubation:Mild ,
+		20 to 30                                  | ecology.incubation:Warm ,
+		30 to 35                                  | ecology.incubation:Hot ,
+		35 to 40                                  | ecology.incubation:VeryHot ,
+		> 40                                      | ecology.incubation:ExtremelyHot 
+		;
+
+/* --- climate_annual_precipitation_total --- */
+// primary_observations
+// primary_observations for climate_annual_precipitation_total
+//Testing
+//number 'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation_total' 					as annual_precipitation_stac_dynamic_asset;
+//number 'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation_total__global__1981_2010'	as annual_precipitation_stac_static_asset;
+//number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.annual_precipitation_total_testing' 			as annual_precipitation_rb_testing;
+
+// using STAC STATIC
+model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation_total__global__1981_2010
+	as level of im:Yearly earth:PrecipitationVolume named climate_annual_precipitation_total
+	lookup (self, ?) into
+		self        | category   
+		-------------------------
+		< 200       | im:VeryLow ,
+		200 to 300  | im:Low ,
+		300 to 900  | im:Moderate ,
+		900 to 2000 | im:High ,
+		> 2000      | im:VeryHigh 
+		;
+		
+/* --- climate_annual_water_budget_total --- */
+// primary_observations
+// primary_observations for climate_annual_water_budget_total
+////Testing
+//number 'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total' 					as annual_water_budget_stac_dynamic_asset;
+//number 'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total__global__1981_2010'	as annual_water_budget_stac_static_asset;
+//number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.annual_water_budget_total_testing' 			as annual_water_budget_rb_testing;
+
+// using STAC STATIC
+model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total__global__1981_2010
+	as level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance) named climate_annual_water_budget_total
+	lookup (self, ?) into
+		self      | category         
+		-----------------------------
+		< -500    | im:Low ,
+		-500 to 0 | im:ModeratelyLow ,
+		0 to 0    | chemistry:Neutral ,
+		0 to 500  | im:ModeratelyHigh ,
+		> 500     | im:High 
+		;
+
+
 /* --- climate_climate_zone --- */
 // primary_observations
 // primary_observations for climate_climate_zone
@@ -455,51 +517,6 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__evapotranspiration_gl
 		6    | ecology:HyperArid 
 		;
 
-/* --- climate_annual_precipitation_total --- */
-// primary_observations
-// primary_observations for climate_annual_precipitation_total
-//Testing
-//number 'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation_total' 					as annual_precipitation_stac_dynamic_asset;
-//number 'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation_total__global__1981_2010'	as annual_precipitation_stac_static_asset;
-//number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.annual_precipitation_total_testing' 			as annual_precipitation_rb_testing;
-
-// using STAC STATIC
-model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_precipitation_total__global__1981_2010
-	as level of im:Yearly earth:PrecipitationVolume named climate_annual_precipitation_total
-	lookup (self, ?) into
-		self        | category   
-		-------------------------
-		< 200       | im:VeryLow ,
-		200 to 300  | im:Low ,
-		300 to 900  | im:Moderate ,
-		900 to 2000 | im:High ,
-		> 2000      | im:VeryHigh 
-		;
-		
-/* --- climate_annual_water_budget_total --- */
-// primary_observations
-// primary_observations for climate_annual_water_budget_total
-////Testing
-//number 'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total' 					as annual_water_budget_stac_dynamic_asset;
-//number 'local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total__global__1981_2010'	as annual_water_budget_stac_static_asset;
-//number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.annual_water_budget_total_testing' 			as annual_water_budget_rb_testing;
-
-// using STAC STATIC
-model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_total__global__1981_2010
-	as level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance) named climate_annual_water_budget_total
-	lookup (self, ?) into
-		self      | category         
-		-----------------------------
-		< -500    | im:Low ,
-		-500 to 0 | im:ModeratelyLow ,
-		0 to 0    | chemistry:Neutral ,
-		0 to 500  | im:ModeratelyHigh ,
-		> 500     | im:High 
-		;
-
-
-
-
 /* --- climate_winter_water_budget_total --- */
 // primary_observations
 // primary_observations for climate_winter_water_budget_total
@@ -516,7 +533,7 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__winter_water_budget_t
 		-----------------------------
 		< -500    | im:Low ,
 		-500 to 0 | im:ModeratelyLow ,
-		0 to 0    | chemistry:Neutral ,
+		0 to 0    | im:Moderate, //chemistry:Neutral fixed, when re-running Tier1 workflow will be correct
 		0 to 500  | im:ModeratelyHigh ,
 		> 500     | im:High 
 		;
@@ -628,24 +645,6 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_diurnal_air_te
 	as im:Daily im:Mean earth:AtmosphericTemperature during im:Year in Celsius named annual_diurnal_air_temperature_mean_input
 	set to [(self * 0.1) + (-273.15)];
 
-// primary_observations
-// primary_observations for climate_annual_diurnal_air_temperature_mean
-model level of im:Daily im:Mean earth:AtmosphericTemperature during im:Year named climate_annual_diurnal_air_temperature_mean
-	observing 
-		im:Daily im:Mean earth:AtmosphericTemperature during im:Year in Celsius named annual_diurnal_air_temperature_mean_input
-	lookup (annual_diurnal_air_temperature_mean_input, ?) into
-		annual_diurnal_air_temperature_mean_input | category                        
-		----------------------------------------------------------------------------
-		< -30                                     | ecology.incubation:ExtremelyCold ,
-		-30 to -10                                | ecology.incubation:VeryCold ,
-		-10 to 0                                  | ecology.incubation:Cold ,
-		0 to 10                                   | ecology.incubation:Cool ,
-		10 to 20                                  | ecology.incubation:Mild ,
-		20 to 30                                  | ecology.incubation:Warm ,
-		30 to 35                                  | ecology.incubation:Hot ,
-		35 to 40                                  | ecology.incubation:VeryHot ,
-		> 40                                      | ecology.incubation:ExtremelyHot 
-		;
 
 
 
