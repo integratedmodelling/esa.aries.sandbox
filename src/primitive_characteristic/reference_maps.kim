@@ -26,7 +26,7 @@ as //geography:CzechRepublic
 		
 		
 //STAC resources EFG_class, EFG_confidence, EFG_classgapfilled
-
 number 'local:justus.muhando:esa.aries.sandbox:EFG_class_2021' as efg_class_2021;
 number 'local:justus.muhando:esa.aries.sandbox:EFG_confidence_2021' as efg_confidence_2021;
 number 'local:justus.muhando:esa.aries.sandbox:EFG_classgapfilled_2021' as efg_classgapfilled_2021;
+number 'local:justus.muhando:esa.aries.sandbox:dominance_glc_landcover_2021' as dominance_glc_landcover_2021;
