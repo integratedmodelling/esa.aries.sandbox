@@ -230,12 +230,9 @@ model local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_ph_s
 // secondary_observations
 
 //number local:RESOURCE_MISSING_FOR_chemical_properties_N as chemical_properties_N_stac_wrong;
-number 'local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_n__global__1995_2019' as chemical_properties_n_stac
-	set to [(self * 0.1)];
-number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.chemical_properties_n_testing' as chemical_properties_n_rb_testing;
-number chemical_properties_n_check
-	observing chemical_properties_n_stac, chemical_properties_n_rb_testing
-	set to [chemical_properties_n_stac - chemical_properties_n_rb_testing == 0 ? true : false];
+//number 'local:alessio.bulckaen:im.data.global:ecdc__soil__chemical_properties_n__global__1995_2019' as chemical_properties_n_stac
+//	set to [(self * 0.1)];
+//number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.chemical_properties_n_testing' as chemical_properties_n_rb_testing;
 
 // secondary_observations for soil_chemical_properties_N
 //wrong model local:RESOURCE_MISSING_FOR_chemical_properties_N

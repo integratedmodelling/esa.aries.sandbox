@@ -70,6 +70,52 @@ define BIOME_F3_ARTIFICIAL_WETLAND_ECOSYSTEM_TYPES as {{
 	hydrology:Watercourse     | #                     | #                                                                                            | #                               | #                         | #                   | hydrology.incubation:Canal       | #                     | #                   | #           | #                | #          | nca.ecosystem.iucn:CanalDitchDrain 
 }};
 
+define BIOME_FM1_SEMICONFINED_TRANSITIONAL_WATER_ECOSYSTEM_TYPES as {{
+	waterbody_type            | altitude_zone | climate_zone                                                                                                                                                                     | evapotranspiration                                | wave_energy                      | freshwater_inflow         | salt_exposure                     | tidal_zone                              | ecosystem_type                                       
+	-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	hydrology:InlandWaterBody | #             | in (nca.ecology.ipcc:Boreal, nca.ecology.ipcc:ColdTemperate, nca.ecology.ipcc:Polar, nca.ecology.ipcc:SubPolar)                                                                  | #                                                 | in (im:Low, im:Moderate)         | in (im:High, im:Moderate) | in (im:High, im:Low, im:Moderate) | #                                       | nca.ecosystem.iucn:DeepwaterCoastalInlet ,
+	hydrology:Watercourse     | #             | in (nca.ecology.ipcc:Boreal, nca.ecology.ipcc:ColdTemperate, nca.ecology.ipcc:Polar, nca.ecology.ipcc:SubPolar)                                                                  | #                                                 | in (im:Low, im:Moderate)         | in (im:High, im:Moderate) | in (im:High, im:Low, im:Moderate) | #                                       | nca.ecosystem.iucn:DeepwaterCoastalInlet ,
+	hydrology:InlandWaterBody | earth:Lowland | in (nca.ecology.ipcc:Boreal, nca.ecology.ipcc:ColdTemperate, nca.ecology.ipcc:SubPolar, nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical, nca.ecology.ipcc:WarmTemperate) | in (ecology:Humid, ecology:SubHumid, ecology:Wet) | im:Moderate                      | in (im:High, im:Moderate) | in (im:High, im:Low, im:Moderate) | in (earth:Intertidal, earth:Supratidal) | nca.ecosystem.iucn:PermanentlyOpenRiverineEstuaryBay ,
+	hydrology:Watercourse     | earth:Lowland | in (nca.ecology.ipcc:Boreal, nca.ecology.ipcc:ColdTemperate, nca.ecology.ipcc:SubPolar, nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical, nca.ecology.ipcc:WarmTemperate) | in (ecology:Humid, ecology:SubHumid, ecology:Wet) | im:Moderate                      | in (im:High, im:Moderate) | in (im:High, im:Low, im:Moderate) | in (earth:Intertidal, earth:Supratidal) | nca.ecosystem.iucn:PermanentlyOpenRiverineEstuaryBay ,
+	hydrology:InlandWaterBody | earth:Lowland | nca.ecology.ipcc:WarmTemperate                                                                                                                                                   | #                                                 | in (im:Low, im:None, im:VeryLow) | in (im:Low, im:None)      | in (im:High, im:Low, im:Moderate) | #                                       | nca.ecosystem.iucn:IntermittentlyClosedOpenLakeLagoon 
+}};
+
+define BIOME_M1_MARINE_SHELF_ECOSYSTEM_TYPES as {{
+	climate_zone                                                                                                                                    | wave_energy             | tidal_zone       | physical_properties_bulk_density | ecosystem_type                                   
+	-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	in (nca.ecology.ipcc:ColdTemperate, nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical, nca.ecology.ipcc:WarmTemperate)                    | #                       | #                | #                                | nca.ecosystem.iucn:SeagrassMeadow ,
+	in (nca.ecology.ipcc:ColdTemperate, nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical, nca.ecology.ipcc:WarmTemperate)                    | #                       | #                | in (im:Low, im:Moderate)         | nca.ecosystem.iucn:SeagrassMeadow ,
+	in (nca.ecology.ipcc:Boreal, nca.ecology.ipcc:ColdTemperate, nca.ecology.ipcc:Polar, nca.ecology.ipcc:SubPolar, nca.ecology.ipcc:WarmTemperate) | #                       | #                | #                                | nca.ecosystem.iucn:KelpForest ,
+	#                                                                                                                                               | #                       | #                | #                                | nca.ecosystem.iucn:PhoticCoralReef ,
+	#                                                                                                                                               | #                       | earth:Intertidal | #                                | nca.ecosystem.iucn:ShellfishBedReef ,
+	#                                                                                                                                               | #                       | earth:Subtidal   | #                                | nca.ecosystem.iucn:ShellfishBedReef ,
+	#                                                                                                                                               | #                       | #                | #                                | nca.ecosystem.iucn:PhotolimitedMarineAnimalForest ,
+	#                                                                                                                                               | #                       | earth:Subtidal   | #                                | nca.ecosystem.iucn:SubtidalRockyReef ,
+	#                                                                                                                                               | in (im:Low, im:VeryLow) | #                | #                                | nca.ecosystem.iucn:SubtidalMudPlain 
+}};
+
+//define BIOME_M2_PELAGIC_OCEAN_WATER_ECOSYSTEM_TYPES as {{
+//	ecosystem_type                            
+//	------------------------------------------
+//	nca.ecosystem.iucn:EpipelagicOceanWater ,
+//	nca.ecosystem.iucn:MesopelagicOceanWater ,
+//	nca.ecosystem.iucn:BathypelagicOceanWater ,
+//	nca.ecosystem.iucn:AbyssopelagicOceanWater ,
+//	nca.ecosystem.iucn:SeaIce 
+//}};
+//
+//define BIOME_M3_DEEP_SEA_FLOOR_ECOSYSTEM_TYPES as {{
+//	ecosystem_type                           
+//	-----------------------------------------
+//	nca.ecosystem.iucn:ContinentalIslandSlope 
+//}};
+
+define BIOME_M4_ANTHROPOGENIC_MARINE_ECOSYSTEM_TYPES as {{
+	managed_water                    | ecosystem_type                   
+	--------------------------------------------------------------------
+	hydrology.incubation:Mariculture | nca.ecosystem.iucn:MarineAquafarm 
+}};
+
 define BIOME_MFT1_BRACKISH_TIDAL_ECOSYSTEM_TYPES as {{
 	waterbody_type        | altitude_zone | climate_zone                                                 | landcover                                  | winter_diurnal_air_temperature_mean | climate_type                                                 | wave_energy                                   | freshwater_inflow         | salt_exposure                     | tidal_zone                                              | annual_net_primary_productivity_total | seasonal_diurnal_air_temperature_amplitude | annual_precipitation_total | slope                     | canopy_height | ecosystem_type                              
 	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

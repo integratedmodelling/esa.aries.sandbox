@@ -1,0 +1,24 @@
+worldview im;
+
+@test(
+    name = "test_shifts_from_stac_catalogues",
+    description  = "",
+    // add to the list any concepts to be observed in the context below
+    observations = (
+    "primitive_characteristic.land_cover.land_cover_dominance"
+    "primitive_characteristic.land_cover.glc_stac"
+    "primitive_characteristic.surface_water.hydroform"
+    
+    "data.global.landcover.glc_fcs30"
+    ),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named test_shifts_from_stac_catalogues
+    over space(
+        urn='local:rubencc:esa.aries.sandbox:esa_weed_colombia_rb_testing_polygons#fid_id=2',
+        grid="30 m"),
+    time(year=2021);
+
+// add any models here
