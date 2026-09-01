@@ -69,19 +69,24 @@ model type of hydrology:WaterPermanence named surface_water_occurrence_regime
 //number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__global__2004_2013 as watershed_hierarchy_stac_static_asset;
 //number local:justus.muhando:esa.aries.sandbox:esa_weed_temp.watershed_hierarchy_testing as watershed_hierarchy_rb_testing;
 
+number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__global__2004_2013 as test;
+
 model local:alessio.bulckaen:im.data.global:ecdc__surfacewater__watershed_hierarchy__global__2004_2013
 	as level of (hydrology:StreamOrder of hydrology:Watershed) named surface_water_watershed_hierarchy
 	lookup (self, ?) into
-		self           | category   
+		self             | category   
 		----------------------------
-		in (1 2 3)     | im:Low ,
-		in (4 5 6 7 8) | im:Moderate ,
-		in (9 10)      | im:High 
+		in (0 1 2 3)     | im:Low ,
+		in (4 5 6 7 8)   | im:Moderate ,
+		in (9 10)        | im:High 
 		;
 
 /* --- surface_water_hydroform_morphology_area --- */
 // primary_observations
 // primary_observations for surface_water_hydroform_morphology_area
+
+
+number local:justus.muhando:im.data.global:ecdc__surfacewater__hydroform_morphology_area as test2;
 
 model local:justus.muhando:im.data.global:ecdc__surfacewater__hydroform_morphology_area
 	as level of (im:Minimum im:Area of earth:WaterBody) named surface_water_hydroform_morphology_area

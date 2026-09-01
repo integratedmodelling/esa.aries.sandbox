@@ -204,8 +204,8 @@ model local:justus.muhando:im.data.global:ecdc__vegetation__canopy_cover
 		> 65     | ecology:Dense 
 		;
 
-
-
+number local:justus.muhando:im.data.global:ecdc__vegetation__canopy_cover as test3;
+ 
 
 /* --- vegetation_canopy_height --- */
 // primary_observations
