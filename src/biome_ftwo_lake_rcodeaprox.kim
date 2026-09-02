@@ -19,7 +19,7 @@ using nca.ecosystem.iucn, nca.ecology.ipcc;
  *
  * Important limitation: no water-salinity observable is available. Therefore
  * freshwater versus salt-lake assignments are confidence proxies and cannot
- * reproduce the full R eligibility test.
+ * reproduce the full R eligibility test --> However R code maybe doesn't use it either in the GLC catalog
  */
 
 define BIOME_F2_LAKE_ECOSYSTEM_TYPES as {{

@@ -1,9 +1,10 @@
 private namespace biome_fthree_artificialwetland_rcodeaprox
 using nca.ecosystem.iucn, nca.ecology.ipcc;    
 
-// Observe (find the bug): 
-//surface_water_hydroform_morphology_area first 
-//mining area
+// Observe first  (find the bug): 
+// surface_water_hydroform_morphology_area 
+// mining area
+// managed waters --> check this model and resources behavior
  
 
 /*

@@ -1,6 +1,6 @@
 private namespace biome_tfone_palustrine_wetland_rcodeaprox
 using nca.ecosystem.iucn, nca.ecology.ipcc,
-primitive_characteristic.climate;  
+primitive_characteristic.climate;  // FLAG use of local concept
 
 //Observe canopy cover and height and LAI first, switched LAI to Geoserver resource because took too long 
 
@@ -32,6 +32,9 @@ define BIOME_TF1_PALUSTRINE_WETLAND_ECOSYSTEM_TYPES as {{
 
   // Lower-priority extension of the preceding fallback allowing high base saturation.
   # | # | earth:Lowland | nca.ecology.ipcc:Tropical | # | in (landcover:Forest, landcover:Shrubland) | # | hydrology:Ombrotrophic | im:High | in (chemistry:Acidic, chemistry:HighlyAcidic) | # | # | in (im:High, im:VeryHigh) | # | # | # | ecology:Evergreen | # | # | # | # | im:High | # | nca.ecosystem.iucn:TropicalFloodedForestPeatForest ,
+
+  // Lower-priority extension of the preceding fallback allowing absence of evergreen.
+  # | # | earth:Lowland | nca.ecology.ipcc:Tropical | # | in (landcover:Forest, landcover:Shrubland) | # | hydrology:Ombrotrophic | im:High | in (chemistry:Acidic, chemistry:HighlyAcidic) | # | # | in (im:High, im:VeryHigh) | # | # | # | # | # | # | # | # | im:High | # | nca.ecosystem.iucn:TropicalFloodedForestPeatForest ,
 
   // TF1.1 floodplain/base-rich branch, fully supported.
   # | # | earth:Lowland | nca.ecology.ipcc:Tropical | # | in (landcover:Forest, landcover:Shrubland) | # | # | in (im:Moderate, im:High) | # | true | # | in (im:High, im:VeryHigh) | # | ecology:Dense | in (im:High, im:VeryHigh) | ecology:Evergreen | in (im:ModeratelyLow, im:ModeratelyHigh) | in (ecology:Notophyll, ecology:Mesophyll) | # | # | in (im:VeryLow, im:Low) | # | nca.ecosystem.iucn:TropicalFloodedForestPeatForest ,
