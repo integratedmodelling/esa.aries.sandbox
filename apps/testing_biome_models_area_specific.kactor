@@ -35,6 +35,7 @@ set colombia_testing_area_1 (
 	primitive_characteristic.ecosystem_typology.iucn.biome_fm1_semiconfined_transitional_water
 	primitive_characteristic.ecosystem_typology.iucn.biome_mft1_brackish_tidal
 	
+	
 	primitive_characteristic.small_areas_for_testing.mapped_ecosystem_type_colombia_testing_area_1
 	primitive_characteristic.small_areas_for_testing.rule_based_external
 	primitive_characteristic.small_areas_for_testing.matching_ecosystem_type
