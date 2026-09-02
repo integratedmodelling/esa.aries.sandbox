@@ -3,7 +3,7 @@ using nca.ecosystem.iucn, nca.ecology.ipcc,
 primitive_characteristic.climate; //FLAG use of local concept
 
 //OBSERVE first 
-//canopy  area, height, LAI and wwtarbudget
+//canopy  area, height, LAI and winter water budget
 
 /*
  * T1 tropical/subtropical forest lookup derived from the effective GET/GLC
