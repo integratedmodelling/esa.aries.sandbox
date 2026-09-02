@@ -524,18 +524,16 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__evapotranspiration_gl
 //number 'local:alessio.bulckaen:im.data.global:ecdc__climate__winter_water_budget_total__global__1980_2010'	as winter_water_budget_stac_static_asset;
 //number 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.winter_water_budget_total_testing' 			as winter_water_budget_rb_testing;
 
-// using STAC STATIC
 model local:alessio.bulckaen:im.data.global:ecdc__climate__winter_water_budget_total__global__1980_2010
 	as level of (hydrology:WaterVolume caused by hydrology:WaterBalance during earth:Winter) named climate_winter_water_budget_total
-	lookup (self, ?) into
+	lookup(self, ?) into
 		self      | category         
 		-----------------------------
-		< -500    | im:Low ,
-		-500 to 0 | im:ModeratelyLow ,
-		0 to 0    | im:Moderate, //chemistry:Neutral fixed, when re-running Tier1 workflow will be correct
-		0 to 500  | im:ModeratelyHigh ,
-		> 500     | im:High 
-		;
+		 <-500    | im:Low ,
+	   -500 to 0  | im:ModeratelyLow ,
+		0 to 1 	  |im:Moderate,
+		1 to 500  | im:ModeratelyHigh,
+		 >= 500   | im:High;
 
 
 /* --- climate_winter_diurnal_air_temperature_mean --- */
