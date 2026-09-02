@@ -32,11 +32,17 @@ observe earth:Region named test_rb_colombia_30m_polygon_5
     		grid="30 m"),
     time(year=2022); 
     	
-observe earth:Region named test_rb_czechrepublic_100m
+observe earth:Region named test_rb_czechrepublic_30m_testing_area_0
 	over space(
-		urn='',
+		urn='local:rubencc:esa.aries.sandbox:esa_weed_czechrepublic_rb_testing_polygons#fid_id=1',
 		grid="100 m"),
-	time(year=2020);
+	time(year=2021);
+
+observe earth:Region named test_rb_czechrepublic_30m_testing_area_2
+	over space(
+		urn='local:rubencc:esa.aries.sandbox:esa_weed_czechrepublic_rb_testing_polygons#fid_id=3',
+		grid="30 m"),
+	time(year=2021);
 
 observe earth:Region named test_rb_greece_100m
 	over space(
@@ -995,7 +1001,7 @@ model type of nca.ecosystem.iucn:Ecosystem named mapped_ecosystem_type
 	into COMBINED_BIOME_ECOSYSTEM_TABLE;
 
 //number 'local:alessio.bulckaen:esa.aries.sandbox:COL_polygon_1_EFG_class'as non_semantic_rb;
-model 'local:alessio.bulckaen:esa.aries.sandbox:COL_polygon_1_EFG_class'
+model 'local:justus.muhando:esa.aries.sandbox:EFG_class_2021'
 	as alphathree:RuleBasedExternal nca.ecosystem.iucn:EcosystemType named rule_based_external
 	classified into
 		nca.ecosystem.iucn:Freshwater if 60000,

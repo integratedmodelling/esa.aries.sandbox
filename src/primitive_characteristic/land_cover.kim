@@ -9,7 +9,8 @@ project private namespace primitive_characteristic.land_cover;
 //model local:alessio.bulckaen:im.data.global:copernicus.cdse.landcovermap
 // as Copernicus landcover:LandCoverType classified according to im:copernicus-encoding;
 number 'local:alessio.bulckaen:esa.aries.sandbox:dominant_landcover_glc' as glc_stac; 
-model 'local:alessio.bulckaen:esa.aries.sandbox:dominant_landcover_glc'
+//model 'local:alessio.bulckaen:esa.aries.sandbox:dominant_landcover_glc'
+model local:alessio.bulckaen:im.data.global:ecdc__land_cover__landcover_glc
 //'local:justus.muhando:esa.aries.sandbox:dominance_glc_landcover_2021'
 //local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2021_mosaic
 	as landcover:LandCoverType named land_cover_dominance classified into

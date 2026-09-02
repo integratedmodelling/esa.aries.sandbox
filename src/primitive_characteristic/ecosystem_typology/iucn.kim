@@ -1,10 +1,13 @@
 private namespace primitive_characteristic.ecosystem_typology.iucn
 using primitive_characteristic.anthropogenic, 
 	  primitive_characteristic.atmospheric_disturbance,
+	  primitive_characteristic.biotic_assemblage,
 	  primitive_characteristic.climate,
 	  primitive_characteristic.coastal,
 	  primitive_characteristic.ecosystem_function,
+	  primitive_characteristic.geomorphology,
 	  primitive_characteristic.geothermal_energy,
+	  primitive_characteristic.land_cover,
 	  primitive_characteristic.soil,
 	  primitive_characteristic.surface_water,
 	  primitive_characteristic.vegetation,
@@ -32,21 +35,6 @@ using primitive_characteristic.anthropogenic,
 	 BIOME_MT2_SUPRALITTORAL_COASTAL_ECOSYSTEM_TYPES,
 	 BIOME_MT3_ANTHROPOGENIC_SHORELINE_ECOSYSTEM_TYPES
 	 ) from table.ecosystem.typology.iucn;
-
-model
-	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2018_mosaic,
-	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2019_mosaic,
-	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2020_mosaic,
-	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2021_mosaic,
-	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2022_mosaic
-	as landcover:LandCoverType named glc_fcs30 classified into
-	landcover:BareArea if in ( 200 201 202 ),
-	landcover:Grassland if in ( 10 11 20 130 153 182 186 ),
-	landcover:ArtificialSurface if 190,
-	landcover:LichenMoss if 140,
-	landcover:Shrubland if in ( 12 120 121 122 152 ),
-	landcover:GlacierPerpetualSnow if 220,
-	landcover:Forest if in ( 12 51 52 61 62 71 72 81 82 91 92 181 185 );	
 
 //--- BIOME F1 - RiverStream annotation---
 model nca.ecosystem.iucn:RiverStream type of nca.ecosystem.iucn:Ecosystem named biome_f1_river_stream
