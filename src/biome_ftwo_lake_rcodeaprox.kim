@@ -1,0 +1,203 @@
+private namespace biome_ftwo_lake_rcodeaprox
+using nca.ecosystem.iucn, nca.ecology.ipcc;    
+
+//PROBLEM with SALINITY missing but use in the R Code
+
+// Observe surface_water_hydroform_morphology_area first (find the bug) 
+/*
+ * F2 lake lookup approximating the R rule engine with the dependencies
+ * currently available in k.LAB. Row order is significant: first match wins.
+ *
+ * STRICT AVAILABLE-INPUT APPROXIMATION rows retain the subject and every
+ * weight-1 R condition that can be represented by this dependency set.
+ * Lower strict rows relax only soft evidence.
+ *
+ * GAP-FILL PROXY rows are evaluated only after every strict row. They retain
+ * subject compatibility but may relax hard conditions, approximating the R
+ * confidence-based gap-filling phase.
+ *
+ * Important limitation: no water-salinity observable is available. Therefore
+ * freshwater versus salt-lake assignments are confidence proxies and cannot
+ * reproduce the full R eligibility test.
+ */
+
+define BIOME_F2_LAKE_ECOSYSTEM_TYPES as {{
+  waterbody_type | water_permanence_type | altitude_zone | climate_zone | evapotranspiration | hydroform_morphology_area | continentality | landcover | summer_diurnal_air_temperature_mean | winter_diurnal_air_temperature_mean | dominant_source | chemical_properties_base_saturation | energy_geothermal | chemical_properties_ph_status | ecosystem_type
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  // ========================================================================
+  // STRICT AVAILABLE-INPUT APPROXIMATION
+  // ========================================================================
+
+  // F2.10 — subject rule: snow or ice land cover.
+  # | # | # | # | # | # | # | landcover:GlacierPerpetualSnow | # | # | # | # | # | # | nca.ecosystem.iucn:SubglacialLake ,
+
+  // F2.9 — geothermal, permanent, small waterbody; summer air temperature is
+  // supporting proxy evidence for the unavailable annual water temperature.
+  hydrology:InlandWaterBody | hydrology:Permanent | # | in (nca.ecology.ipcc:Boreal, nca.ecology.ipcc:ColdTemperate, nca.ecology.ipcc:SubPolar, nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical, nca.ecology.ipcc:WarmTemperate) | # | in (im:VeryLow, im:Low) | # | # | in (ecology.incubation:Hot, ecology.incubation:VeryHot) | # | # | # | true | in (chemistry:HighlyAcidic, chemistry:Acidic, chemistry:Neutral, chemistry:Alkaline, chemistry:HighlyAlkaline) | nca.ecosystem.iucn:GeothermalPoolWetland ,
+
+  // F2.9 — same available hard rules, with the temperature proxy relaxed.
+  hydrology:InlandWaterBody | hydrology:Permanent | # | in (nca.ecology.ipcc:Boreal, nca.ecology.ipcc:ColdTemperate, nca.ecology.ipcc:SubPolar, nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical, nca.ecology.ipcc:WarmTemperate) | # | in (im:VeryLow, im:Low) | # | # | # | # | # | # | true | in (chemistry:HighlyAcidic, chemistry:Acidic, chemistry:Neutral, chemistry:Alkaline, chemistry:HighlyAlkaline) | nca.ecosystem.iucn:GeothermalPoolWetland ,
+
+  // F2.8 — all available hard rules plus temperature proxy support.
+  hydrology:InlandWaterBody | hydrology:Permanent | # | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical, nca.ecology.ipcc:WarmTemperate) | ecology:Arid | # | # | # | in (ecology.incubation:Hot, ecology.incubation:VeryHot) | # | hydrology:Minerotrophic | in (im:Moderate, im:High) | # | # | nca.ecosystem.iucn:ArtesianSpringOase ,
+
+  // F2.8 — relax only the weight-0.9 water-temperature proxy.
+  hydrology:InlandWaterBody | hydrology:Permanent | # | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical, nca.ecology.ipcc:WarmTemperate) | ecology:Arid | # | # | # | # | # | hydrology:Minerotrophic | in (im:Moderate, im:High) | # | # | nca.ecosystem.iucn:ArtesianSpringOase ,
+
+  // F2.4 — strongest available freeze-thaw evidence.
+  hydrology:InlandWaterBody | # | in (earth:Montane, earth:Alpine, earth:Subalpine, earth:Nival) | in (nca.ecology.ipcc:Boreal, nca.ecology.ipcc:Polar, nca.ecology.ipcc:SubPolar) | # | # | # | # | in (ecology.incubation:Cool, ecology.incubation:Mild, ecology.incubation:Warm) | in (ecology.incubation:ExtremelyCold, ecology.incubation:VeryCold, ecology.incubation:Cold) | # | # | # | # | nca.ecosystem.iucn:FreezethawFreshwaterLake ,
+
+  // F2.4 — altitude and summer temperature are soft; winter cold is retained.
+  hydrology:InlandWaterBody | # | # | in (nca.ecology.ipcc:Boreal, nca.ecology.ipcc:Polar, nca.ecology.ipcc:SubPolar) | # | # | # | # | # | in (ecology.incubation:ExtremelyCold, ecology.incubation:VeryCold, ecology.incubation:Cold) | # | # | # | # | nca.ecosystem.iucn:FreezethawFreshwaterLake ,
+
+  // F2.4 — high-altitude branch with winter cold retained.
+  hydrology:InlandWaterBody | # | in (earth:Montane, earth:Alpine, earth:Subalpine, earth:Nival) | # | # | # | # | # | # | in (ecology.incubation:ExtremelyCold, ecology.incubation:VeryCold, ecology.incubation:Cold) | # | # | # | # | nca.ecosystem.iucn:FreezethawFreshwaterLake ,
+
+  // F2.3 — seasonal small lake, strongest moisture support first.
+  hydrology:InlandWaterBody | hydrology:Seasonal | # | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical, nca.ecology.ipcc:WarmTemperate) | ecology:SubHumid | in (im:VeryLow, im:Low) | # | # | # | # | # | # | # | # | nca.ecosystem.iucn:SeasonalFreshwaterLake ,
+
+  // F2.3 — lower-weight arid/semi-arid branch; hard area and seasonality remain.
+  hydrology:InlandWaterBody | hydrology:Seasonal | # | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical, nca.ecology.ipcc:WarmTemperate) | in (ecology:Arid, ecology:SemiArid) | in (im:VeryLow, im:Low) | # | # | # | # | # | # | # | # | nca.ecosystem.iucn:SeasonalFreshwaterLake ,
+
+  // F2.5 — all available hard rules. Area is intentionally unconstrained:
+  // it is not an R condition for this class.
+  hydrology:InlandWaterBody | hydrology:Ephemeral | # | nca.ecology.ipcc:WarmTemperate | in (ecology:Arid, ecology:SemiArid) | # | # | # | # | # | # | # | # | # | nca.ecosystem.iucn:EphemeralFreshwaterLake ,
+
+  // F2.7 — saline interpretation for tropical/subtropical ephemeral lakes,
+  // using high area as the strongest available soft evidence.
+  hydrology:InlandWaterBody | hydrology:Ephemeral | # | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | in (ecology:Arid, ecology:SemiArid) | im:High | # | # | # | # | # | # | # | # | nca.ecosystem.iucn:EphemeralSaltLake ,
+
+  // F2.7 — relax only soft area evidence.
+  hydrology:InlandWaterBody | hydrology:Ephemeral | # | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | in (ecology:Arid, ecology:SemiArid) | # | # | # | # | # | # | # | # | # | nca.ecosystem.iucn:EphemeralSaltLake ,
+
+  // F2.6 — strongest permanent salt/soda proxy: semi-arid and large.
+  hydrology:InlandWaterBody | hydrology:Permanent | # | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical, nca.ecology.ipcc:WarmTemperate) | ecology:SemiArid | im:High | # | # | # | # | # | # | # | # | nca.ecosystem.iucn:PermanentSaltSodaLake ,
+
+  // F2.1 — large permanent freshwater, strongest soft evidence first.
+  hydrology:InlandWaterBody | hydrology:Permanent | # | in (nca.ecology.ipcc:ColdTemperate, nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical, nca.ecology.ipcc:WarmTemperate) | ecology:Humid | im:High | im:High | # | # | # | # | # | # | # | nca.ecosystem.iucn:LargePermanentFreshwaterLake ,
+
+  // F2.1 — relax continentality only.
+  hydrology:InlandWaterBody | hydrology:Permanent | # | in (nca.ecology.ipcc:ColdTemperate, nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical, nca.ecology.ipcc:WarmTemperate) | ecology:Humid | im:High | # | # | # | # | # | # | # | # | nca.ecosystem.iucn:LargePermanentFreshwaterLake ,
+
+  // F2.1 — climate, moisture and continentality are soft; hard area remains.
+  hydrology:InlandWaterBody | hydrology:Permanent | # | # | # | im:High | # | # | # | # | # | # | # | # | nca.ecosystem.iucn:LargePermanentFreshwaterLake ,
+
+  // F2.2 — small permanent freshwater, humid branch.
+  hydrology:InlandWaterBody | hydrology:Permanent | # | in (nca.ecology.ipcc:ColdTemperate, nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical, nca.ecology.ipcc:WarmTemperate) | ecology:Humid | in (im:VeryLow, im:Low) | # | # | # | # | # | # | # | # | nca.ecosystem.iucn:SmallPermanentFreshwaterLake ,
+
+  // F2.2 — lower-support arid/semi-arid/subhumid branch.
+  hydrology:InlandWaterBody | hydrology:Permanent | # | in (nca.ecology.ipcc:ColdTemperate, nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical, nca.ecology.ipcc:WarmTemperate) | in (ecology:Arid, ecology:SemiArid, ecology:SubHumid) | in (im:VeryLow, im:Low) | # | # | # | # | # | # | # | # | nca.ecosystem.iucn:SmallPermanentFreshwaterLake ,
+
+  // F2.2 — relax soft climate and moisture; hard small area remains.
+  hydrology:InlandWaterBody | hydrology:Permanent | # | # | # | in (im:VeryLow, im:Low) | # | # | # | # | # | # | # | # | nca.ecosystem.iucn:SmallPermanentFreshwaterLake ,
+
+  // F2.6 — area is weight 0.9 and may be relaxed after size-specific classes.
+  hydrology:InlandWaterBody | hydrology:Permanent | # | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical, nca.ecology.ipcc:WarmTemperate) | ecology:SemiArid | # | # | # | # | # | # | # | # | # | nca.ecosystem.iucn:PermanentSaltSodaLake ,
+
+  // ========================================================================
+  // GAP-FILL PROXY — only reached when no strict row above matches
+  // ========================================================================
+
+  // F2.9 — relax permanence, area and pH while retaining geothermal evidence.
+  hydrology:InlandWaterBody | # | # | in (nca.ecology.ipcc:Boreal, nca.ecology.ipcc:ColdTemperate, nca.ecology.ipcc:SubPolar, nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical, nca.ecology.ipcc:WarmTemperate) | # | # | # | # | in (ecology.incubation:Hot, ecology.incubation:VeryHot) | # | # | # | true | # | nca.ecosystem.iucn:GeothermalPoolWetland ,
+
+  // F2.8 — relax permanence while retaining the distinctive source/base rules.
+  hydrology:InlandWaterBody | # | # | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical, nca.ecology.ipcc:WarmTemperate) | ecology:Arid | # | # | # | # | # | hydrology:Minerotrophic | in (im:Moderate, im:High) | # | # | nca.ecosystem.iucn:ArtesianSpringOase ,
+
+  // F2.4 — unavailable or failed winter-temperature/ice rules, but strong
+  // cold-climate and high-altitude support remains.
+  hydrology:InlandWaterBody | # | in (earth:Montane, earth:Alpine, earth:Subalpine, earth:Nival) | in (nca.ecology.ipcc:Boreal, nca.ecology.ipcc:Polar, nca.ecology.ipcc:SubPolar) | # | # | # | # | in (ecology.incubation:Cool, ecology.incubation:Mild) | # | # | # | # | # | nca.ecosystem.iucn:FreezethawFreshwaterLake ,
+
+  // F2.3 — relax seasonal occurrence but retain small area and climate support.
+  hydrology:InlandWaterBody | # | # | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical, nca.ecology.ipcc:WarmTemperate) | ecology:SubHumid | in (im:VeryLow, im:Low) | # | # | # | # | # | # | # | # | nca.ecosystem.iucn:SeasonalFreshwaterLake ,
+
+  // F2.5 — relax ephemeral occurrence; small area is proxy evidence only.
+  hydrology:InlandWaterBody | # | # | nca.ecology.ipcc:WarmTemperate | in (ecology:Arid, ecology:SemiArid) | in (im:VeryLow, im:Low) | # | # | # | # | # | # | # | # | nca.ecosystem.iucn:EphemeralFreshwaterLake ,
+
+  // F2.7 — relax ephemeral occurrence; high area supports the salt proxy.
+  hydrology:InlandWaterBody | # | # | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | in (ecology:Arid, ecology:SemiArid) | im:High | # | # | # | # | # | # | # | # | nca.ecosystem.iucn:EphemeralSaltLake ,
+
+  // F2.6 — relax permanence but retain the strongest salt/soda proxy evidence.
+  hydrology:InlandWaterBody | # | # | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical, nca.ecology.ipcc:WarmTemperate) | ecology:SemiArid | im:High | # | # | # | # | # | # | # | # | nca.ecosystem.iucn:PermanentSaltSodaLake ,
+
+  // F2.1 — relax permanence while retaining large area and humid support.
+  hydrology:InlandWaterBody | # | # | in (nca.ecology.ipcc:ColdTemperate, nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical, nca.ecology.ipcc:WarmTemperate) | ecology:Humid | im:High | # | # | # | # | # | # | # | # | nca.ecosystem.iucn:LargePermanentFreshwaterLake ,
+
+  // F2.2 — relax permanence while retaining small area and humid support.
+  hydrology:InlandWaterBody | # | # | in (nca.ecology.ipcc:ColdTemperate, nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical, nca.ecology.ipcc:WarmTemperate) | ecology:Humid | in (im:VeryLow, im:Low) | # | # | # | # | # | # | # | # | nca.ecosystem.iucn:SmallPermanentFreshwaterLake ,
+
+  // Broader subject-compatible proxies for unresolved occurrence cases.
+  hydrology:InlandWaterBody | hydrology:Seasonal | # | # | # | # | # | # | # | # | # | # | # | # | nca.ecosystem.iucn:SeasonalFreshwaterLake ,
+  hydrology:InlandWaterBody | hydrology:Ephemeral | # | # | # | # | # | # | # | # | # | # | # | # | nca.ecosystem.iucn:EphemeralFreshwaterLake ,
+  hydrology:InlandWaterBody | hydrology:Permanent | # | # | # | im:High | # | # | # | # | # | # | # | # | nca.ecosystem.iucn:LargePermanentFreshwaterLake ,
+  hydrology:InlandWaterBody | hydrology:Permanent | # | # | # | in (im:VeryLow, im:Low) | # | # | # | # | # | # | # | # | nca.ecosystem.iucn:SmallPermanentFreshwaterLake
+}};
+
+
+model nca.ecosystem.iucn:Lake
+    type of nca.ecosystem.iucn:Ecosystem
+    named biome_f2_lake
+
+    observing
+        type of hydrology:WaterBody
+            named waterbody_type,
+
+        type of hydrology:WaterPermanence
+            named water_permanence_type,
+
+        type of earth:ElevationZone
+            named altitude_zone,
+
+        type of nca.ecology.ipcc:ClimaticZone
+            named climate_zone,
+
+        type of ecology:MoistureRegime
+            named evapotranspiration,
+
+        level of (im:Minimum im:Area of earth:WaterBody)
+            named hydroform_morphology_area,
+
+        level of (im:Differential earth:AtmosphericTemperature)
+            named continentality,
+
+        landcover:LandCoverType
+            named landcover,
+
+        level of im:Mean earth:AtmosphericTemperature during earth:Summer
+            named summer_diurnal_air_temperature_mean,
+
+        level of im:Mean earth:AtmosphericTemperature during earth:Winter
+            named winter_diurnal_air_temperature_mean,
+
+        type of hydrology:WaterSource
+            named dominant_source,
+
+        level of (chemistry:Basic chemistry:ExchangeCapacity of chemistry:Cation)
+            named chemical_properties_base_saturation,
+
+        presence of earth:Crust physical:Thermal earth:Region
+            with im:High im:Energy
+            named energy_geothermal,
+
+        level of chemistry:Ph
+            named chemical_properties_ph_status
+
+    lookup (
+        waterbody_type,
+        water_permanence_type,
+        altitude_zone,
+        climate_zone,
+        evapotranspiration,
+        hydroform_morphology_area,
+        continentality,
+        landcover,
+        summer_diurnal_air_temperature_mean,
+        winter_diurnal_air_temperature_mean,
+        dominant_source,
+        chemical_properties_base_saturation,
+        energy_geothermal,
+        chemical_properties_ph_status,
+        ?
+    )
+    into BIOME_F2_LAKE_ECOSYSTEM_TYPES;

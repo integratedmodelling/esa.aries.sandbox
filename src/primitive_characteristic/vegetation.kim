@@ -204,8 +204,10 @@ model local:justus.muhando:im.data.global:ecdc__vegetation__canopy_cover
 		> 65     | ecology:Dense 
 		;
 
+number local:justus.muhando:im.data.global:ecdc__vegetation__canopy_cover as test3;
 
-
+number test5
+ observing geography:Elevation summed by conservation:ProtectedArea;
 
 /* --- vegetation_canopy_height --- */
 // primary_observations
@@ -303,7 +305,8 @@ model level of (physical.incubation:Shadow im:Area of biology:Leaf) named vegeta
 // primary_observations for vegetation_leaf_area_index
 
 model 
-local:justus.muhando:im.data.global:ecdc__vegetation__leaf_area_index
+local:justus.muhando:esa.aries.sandbox:esa_weed_temp.leaf_area_index_testing
+//local:justus.muhando:im.data.global:ecdc__vegetation__leaf_area_index
 // local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2018
 // local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2021
 // local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2024

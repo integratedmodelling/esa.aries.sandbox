@@ -31,3 +31,5 @@ model local:alessio.bulckaen:im.data.global:ecdc__geomorphology__floodplain__glo
 		1    | true ,
 		#    | false 
 		;
+		
+number local:alessio.bulckaen:im.data.global:ecdc__geomorphology__floodplain__global__1900_2100  as	test3;	
