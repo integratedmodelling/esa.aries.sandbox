@@ -301,6 +301,7 @@ model level of (physical.incubation:Shadow im:Area of biology:Leaf) named vegeta
 /* --- vegetation_leaf_area_index --- */
 // primary_observations
 // primary_observations for vegetation_leaf_area_index
+
 model 
 local:justus.muhando:im.data.global:ecdc__vegetation__leaf_area_index
 // local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2018
@@ -308,14 +309,13 @@ local:justus.muhando:im.data.global:ecdc__vegetation__leaf_area_index
 // local:alessio.bulckaen:im.data.global:ecdc__vegetation__leaf_area_index__global__2024
 	as level of ecology:LeafAreaIndex named vegetation_leaf_area_index
 	lookup (self, ?) into
-		self   | category   
+		  self   | category   
 		--------------------
-		0 to 0 | im:VeryLow ,
-		0 to 3 | im:Low ,
-		3 to 5 | im:Moderate ,
-		5 to 8 | im:High ,
-		> 8    | im:VeryHigh 
-		;
+	    0 to 0.1 | im:VeryLow ,
+		0.1 to 3 | im:Low ,
+		3 to 5   | im:Moderate ,
+		5 to 8   | im:High ,
+		 >= 8     | im:VeryHigh;
 
 		/* --- vegetation_leaf_shape --- */
 // primary_observations

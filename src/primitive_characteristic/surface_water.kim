@@ -7,7 +7,7 @@ project private namespace primitive_characteristic.surface_water;
 // secondary_observations for surface_water_hydroform
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform as hydroform;
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform_meander__global__2004_2013 as hydroform_meander;
-
+number local:alessio.bulckaen:esa.aries.sandbox:hydroform as rb_testing_hydroform_input;
 // primary_observations
 // primary_observations for surface_water_hydroform
 model type of hydrology:WaterBody named surface_water_hydroform

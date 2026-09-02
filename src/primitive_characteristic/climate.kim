@@ -435,10 +435,9 @@ model local:alessio.bulckaen:im.data.global:ecdc__climate__annual_water_budget_t
 		-----------------------------
 		< -500    | im:Low ,
 		-500 to 0 | im:ModeratelyLow ,
-		0 to 0    | chemistry:Neutral ,
+		0 to 0    | im:Moderate ,
 		0 to 500  | im:ModeratelyHigh ,
-		> 500     | im:High 
-		;
+		> 500     | im:High;
 
 
 /* --- climate_climate_zone --- */
