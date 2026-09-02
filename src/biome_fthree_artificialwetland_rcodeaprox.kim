@@ -1,0 +1,172 @@
+private namespace biome_fthree_artificialwetland_rcodeaprox
+using nca.ecosystem.iucn, nca.ecology.ipcc;    
+
+// Observe (find the bug): 
+//surface_water_hydroform_morphology_area first 
+//mining area
+ 
+
+/*
+ * F3 artificial-wetland lookup derived from the GET R branches.
+ * Row order is significant: first match wins.
+ *
+ * STRICT AVAILABLE-INPUT APPROXIMATION rows retain the subject and every
+ * weight-1 R condition represented by the current k.LAB dependency set.
+ * Stronger combinations of weight-0.9 and weight-0.6 evidence come first.
+ *
+ * GAP-FILL PROXY rows occur only after all strict rows. They retain a surface-
+ * water or herbaceous-land-cover subject proxy, but may relax hard conditions
+ * to approximate the R confidence-based gap-filling phases.
+ *
+ * The current dependencies do not include water salinity, water depth,
+ * recurrence, fertilizer, irrigation, pesticide, nutrients or dissolved O.
+ * Exact classifier names for AnnualCrop, PerennialCrop, MeadowPasture, Rice,
+ * Urban, Suburban and Rural should be checked against the active worldview.
+ */
+
+define BIOME_F3_ARTIFICIAL_WETLAND_ECOSYSTEM_TYPES as {{
+  waterbody_type | water_permanence_type | climate_zone | evapotranspiration | hydroform_morphology_area | landcover | managed_water | land_use | settlement_type | mining_area | crop_type | floodplain | ecosystem_type
+  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  // ========================================================================
+  // STRICT AVAILABLE-INPUT APPROXIMATION
+  // ========================================================================
+
+  // F3.5 — both available R conditions are hard: canal + watercourse subject.
+  hydrology:Watercourse | # | # | # | # | # | hydrology.incubation:Canal | # | # | # | # | # | nca.ecosystem.iucn:CanalDitchDrain ,
+
+  // F3.4 — aquaculture and hydroform are hard; permanence is soft.
+  in (hydrology:InlandWaterBody, hydrology:Watercourse) | hydrology:Permanent | # | # | # | # | hydrology.incubation:Aquaculture | # | # | # | # | # | nca.ecosystem.iucn:FreshwaterAquafarm ,
+  in (hydrology:InlandWaterBody, hydrology:Watercourse) | hydrology:Seasonal | # | # | # | # | hydrology.incubation:Aquaculture | # | # | # | # | # | nca.ecosystem.iucn:FreshwaterAquafarm ,
+
+  // F3.4 — relax only the soft permanence evidence.
+  in (hydrology:InlandWaterBody, hydrology:Watercourse) | # | # | # | # | # | hydrology.incubation:Aquaculture | # | # | # | # | # | nca.ecosystem.iucn:FreshwaterAquafarm ,
+
+  // F3.1 — reservoir + waterbody/watercourse are hard; large area is soft.
+  hydrology:InlandWaterBody | # | # | # | im:High | # | hydrology.incubation:Reservoir | # | # | # | # | # | nca.ecosystem.iucn:LargeReservoir ,
+  hydrology:Watercourse | # | # | # | im:High | # | hydrology.incubation:Reservoir | # | # | # | # | # | nca.ecosystem.iucn:LargeReservoir ,
+
+  // F3.1 — relax only the weight-0.9 area evidence.
+  hydrology:InlandWaterBody | # | # | # | # | # | hydrology.incubation:Reservoir | # | # | # | # | # | nca.ecosystem.iucn:LargeReservoir ,
+  hydrology:Watercourse | # | # | # | # | # | hydrology.incubation:Reservoir | # | # | # | # | # | nca.ecosystem.iucn:LargeReservoir ,
+
+  // F3.3 — rice-crop branch: hard crop, warm climate and herbaceous subject;
+  // humid/wet moisture and floodplain evidence are soft.
+  # | # | in (nca.ecology.ipcc:WarmTemperate, nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | in (ecology:Wet, ecology:Humid) | # | in (landcover:Grassland, landcover:RiceField) | # | # | # | # | agriculture:Rice | true | nca.ecosystem.iucn:RicePaddy ,
+  # | # | in (nca.ecology.ipcc:WarmTemperate, nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | in (ecology:Wet, ecology:Humid) | # | in (landcover:Grassland, landcover:RiceField) | # | # | # | # | agriculture:Rice | # | nca.ecosystem.iucn:RicePaddy ,
+  # | # | in (nca.ecology.ipcc:WarmTemperate, nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | # | # | in (landcover:Grassland, landcover:RiceField) | # | # | # | # | agriculture:Rice | true | nca.ecosystem.iucn:RicePaddy ,
+  # | # | in (nca.ecology.ipcc:WarmTemperate, nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | # | # | in (landcover:Grassland, landcover:RiceField) | # | # | # | # | agriculture:Rice | # | nca.ecosystem.iucn:RicePaddy ,
+
+  // F3.3 — seasonal/ephemeral branches: occurrence is hard in these branches.
+  # | in (hydrology:Seasonal, hydrology:Ephemeral) | in (nca.ecology.ipcc:WarmTemperate, nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | in (ecology:Wet, ecology:Humid) | # | in (landcover:Grassland, landcover:RiceField) | # | # | # | # | # | true | nca.ecosystem.iucn:RicePaddy ,
+  # | in (hydrology:Seasonal, hydrology:Ephemeral) | in (nca.ecology.ipcc:WarmTemperate, nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | in (ecology:Wet, ecology:Humid) | # | in (landcover:Grassland, landcover:RiceField) | # | # | # | # | # | # | nca.ecosystem.iucn:RicePaddy ,
+  # | in (hydrology:Seasonal, hydrology:Ephemeral) | in (nca.ecology.ipcc:WarmTemperate, nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | # | # | in (landcover:Grassland, landcover:RiceField) | # | # | # | # | # | true | nca.ecosystem.iucn:RicePaddy ,
+  # | in (hydrology:Seasonal, hydrology:Ephemeral) | in (nca.ecology.ipcc:WarmTemperate, nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | # | # | in (landcover:Grassland, landcover:RiceField) | # | # | # | # | # | # | nca.ecosystem.iucn:RicePaddy ,
+
+  // F3.3 — annual-crop branch; permanent water, moisture and floodplain are soft.
+  # | hydrology:Permanent | in (nca.ecology.ipcc:WarmTemperate, nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | in (ecology:Wet, ecology:Humid) | # | in (landcover:Grassland, landcover:RiceField) | # | agriculture:Annual | # | # | # | true | nca.ecosystem.iucn:RicePaddy ,
+  # | # | in (nca.ecology.ipcc:WarmTemperate, nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | in (ecology:Wet, ecology:Humid) | # | in (landcover:Grassland, landcover:RiceField) | # | agriculture:Annual | # | # | # | # | nca.ecosystem.iucn:RicePaddy ,
+  # | # | in (nca.ecology.ipcc:WarmTemperate, nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | # | # | in (landcover:Grassland, landcover:RiceField) | # | agriculture:Annual | # | # | # | true | nca.ecosystem.iucn:RicePaddy ,
+  # | # | in (nca.ecology.ipcc:WarmTemperate, nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | # | # | in (landcover:Grassland, landcover:RiceField) | # | agriculture:Annual | # | # | # | # | nca.ecosystem.iucn:RicePaddy ,
+
+  // F3.2 — waterbody and low/very-low area are hard in all branches.
+  // Settlement branches carry more evidence than the reservoir (weight 0.6) branches.
+  hydrology:InlandWaterBody | # | # | # | in (im:VeryLow, im:Low) | # | # | in (agriculture:Annual, agriculture:Perennial, agriculture:Pasture) | in (demography:Urban, demography:Suburban, demography:Rural) | # | # | # | nca.ecosystem.iucn:ConstructedLacustrineWetland ,
+  hydrology:InlandWaterBody | # | # | # | in (im:VeryLow, im:Low) | # | # | # | in (demography:Urban, demography:Suburban, demography:Rural) | true | # | # | nca.ecosystem.iucn:ConstructedLacustrineWetland ,
+  hydrology:InlandWaterBody | # | # | # | in (im:VeryLow, im:Low) | # | hydrology.incubation:Reservoir | in (agriculture:Annual, agriculture:Perennial, agriculture:Pasture) | # | # | # | # | nca.ecosystem.iucn:ConstructedLacustrineWetland ,
+  hydrology:InlandWaterBody | # | # | # | in (im:VeryLow, im:Low) | # | hydrology.incubation:Reservoir | # | # | true | # | # | nca.ecosystem.iucn:ConstructedLacustrineWetland ,
+
+  // F3.2 — managed water is soft in its branches; all available hard rules remain.
+  hydrology:InlandWaterBody | # | # | # | in (im:VeryLow, im:Low) | # | # | in (agriculture:Annual, agriculture:Perennial, agriculture:Pasture) | # | # | # | # | nca.ecosystem.iucn:ConstructedLacustrineWetland ,
+  hydrology:InlandWaterBody | # | # | # | in (im:VeryLow, im:Low) | # | # | # | # | true | # | # | nca.ecosystem.iucn:ConstructedLacustrineWetland ,
+
+  // ========================================================================
+  // GAP-FILL PROXY — only reached when no strict row above matches
+  // ========================================================================
+
+  // F3.5 — canal identity with land-cover support; watercourse may be missing.
+  # | # | # | # | # | in (landcover:WaterBody, landcover:ArtificialSurface) | hydrology.incubation:Canal | # | # | # | # | # | nca.ecosystem.iucn:CanalDitchDrain ,
+
+  // F3.4 — aquaculture identity with surface-water land-cover support.
+  # | in (hydrology:Permanent, hydrology:Seasonal) | # | # | # | in (landcover:WaterBody, landcover:Wetland, landcover:ArtificialSurface) | hydrology.incubation:Aquaculture | # | # | # | # | # | nca.ecosystem.iucn:FreshwaterAquafarm ,
+  # | # | # | # | # | in (landcover:WaterBody, landcover:Wetland, landcover:ArtificialSurface) | hydrology.incubation:Aquaculture | # | # | # | # | # | nca.ecosystem.iucn:FreshwaterAquafarm ,
+
+  // F3.1 — reservoir identity with large-area or water-cover support.
+  # | # | # | # | im:High | landcover:WaterBody | hydrology.incubation:Reservoir | # | # | # | # | # | nca.ecosystem.iucn:LargeReservoir ,
+  # | # | # | # | # | landcover:WaterBody | hydrology.incubation:Reservoir | # | # | # | # | # | nca.ecosystem.iucn:LargeReservoir ,
+
+  // F3.3 — relax climate or herbaceous subject only when rice evidence remains.
+  # | # | # | in (ecology:Wet, ecology:Humid) | # | in (landcover:Grassland, landcover:RiceField) | # | # | # | # | agriculture:Rice | true | nca.ecosystem.iucn:RicePaddy ,
+  # | # | in (nca.ecology.ipcc:WarmTemperate, nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | in (ecology:Wet, ecology:Humid) | # | landcover:RiceField | # | # | # | # | # | # | nca.ecosystem.iucn:RicePaddy ,
+  # | # | # | # | # | landcover:RiceField | # | # | # | # | # | # | nca.ecosystem.iucn:RicePaddy ,
+
+  // F3.2 — relax hard area while retaining waterbody plus anthropogenic evidence.
+  hydrology:InlandWaterBody | # | # | # | # | # | # | in (agriculture:Annual, agriculture:Perennial, agriculture:Pasture) | in (demography:Urban, demography:Suburban, demography:Rural) | # | # | # | nca.ecosystem.iucn:ConstructedLacustrineWetland ,
+  hydrology:InlandWaterBody | # | # | # | # | # | # | # | in (demography:Urban, demography:Suburban, demography:Rural) | true | # | # | nca.ecosystem.iucn:ConstructedLacustrineWetland ,
+  hydrology:InlandWaterBody | # | # | # | # | # | hydrology.incubation:Reservoir | in (agriculture:Annual, agriculture:Perennial, agriculture:Pasture) | # | # | # | # | nca.ecosystem.iucn:ConstructedLacustrineWetland ,
+  hydrology:InlandWaterBody | # | # | # | # | # | hydrology.incubation:Reservoir | # | # | true | # | # | nca.ecosystem.iucn:ConstructedLacustrineWetland ,
+
+  // Broadest subject-compatible constructed-wetland confidence proxy.
+  hydrology:InlandWaterBody | # | # | # | in (im:VeryLow, im:Low) | in (landcover:WaterBody, landcover:Wetland, landcover:BareArea, landcover:ArtificialSurface) | # | # | in (demography:Urban, demography:Suburban, demography:Rural) | # | # | # | nca.ecosystem.iucn:ConstructedLacustrineWetland
+}};
+
+
+//--- BIOME F3 - ArtificialWetland annotation---
+model nca.ecosystem.iucn:ArtificialWetland
+    type of nca.ecosystem.iucn:Ecosystem
+    named biome_f3_artificial_wetland
+
+    observing
+        type of hydrology:WaterBody
+            named waterbody_type,
+
+        type of hydrology:WaterPermanence
+            named water_permanence_type,
+
+        earth:Lowland type of nca.ecology.ipcc:ClimaticZone
+            named climate_zone,
+
+        type of ecology:MoistureRegime
+            named evapotranspiration,
+
+        level of (im:Minimum im:Area of earth:WaterBody)
+            named hydroform_morphology_area,
+
+        landcover:LandCoverType
+            named landcover,
+
+        type of hydrology.incubation:ManagedWaterBody
+            named managed_water,
+
+        type of agriculture:AgriculturalLandUse
+            named land_use,
+
+        type of demography:SettlementDensity infrastructure:HumanSettlement
+            named settlement_type,
+
+        presence of landcover:MineralExtraction earth:Region
+            named mining_area,
+
+        type of agriculture:Crop
+            named crop_type,
+
+        presence of hydrology:Floodplain
+            named floodplain
+
+    lookup (
+        waterbody_type,
+        water_permanence_type,
+        climate_zone,
+        evapotranspiration,
+        hydroform_morphology_area,
+        landcover,
+        managed_water,
+        land_use,
+        settlement_type,
+        mining_area,
+        crop_type,
+        floodplain,
+        ?
+    )
+    into BIOME_F3_ARTIFICIAL_WETLAND_ECOSYSTEM_TYPES;
+
