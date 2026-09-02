@@ -1,0 +1,181 @@
+private namespace biome_fone_riverstream_rcodeaprox
+using nca.ecosystem.iucn, nca.ecology.ipcc;    
+
+define BIOME_F1_RIVER_STREAM_ECOSYSTEM_TYPES as {{
+    waterbody_type        | watershed_hierarchy | water_permanence_type | altitude_zone
+    | climate_zone
+    | evapotranspiration
+    | ecosystem_type
+    ---------------------------------------------------------------------------------------------------------------------------------
+
+    // ============================================================
+    // SPECIFIC HARD-RULE APPROXIMATIONS
+    // ============================================================
+
+    // F1.7 — before the broader permanent-lowland rows.
+    hydrology:Watercourse | im:High
+        | hydrology:Permanent
+        | earth:Lowland
+        | #
+        | in (ecology:Humid, ecology:SubHumid, ecology:Wet)
+        | nca.ecosystem.iucn:LargeLowlandRiver ,
+
+    // F1.5
+    hydrology:Watercourse | im:Moderate
+        | hydrology:Seasonal
+        | earth:Lowland
+        | in (
+            nca.ecology.ipcc:ColdTemperate,
+            nca.ecology.ipcc:WarmTemperate,
+            nca.ecology.ipcc:SubTropical,
+            nca.ecology.ipcc:Tropical)
+        | ecology:SubHumid
+        | nca.ecosystem.iucn:SeasonalLowlandRiver ,
+
+    // F1.4
+    hydrology:Watercourse | im:Low
+        | hydrology:Seasonal
+        | in (earth:Alpine, earth:Montane, earth:Subalpine)
+        | #
+        | #
+        | nca.ecosystem.iucn:SeasonalUplandStream ,
+
+    // F1.6 — lowland is supporting evidence with weight 0.9.
+    hydrology:Watercourse | #
+        | hydrology:Episodic
+        | earth:Lowland
+        | in (
+            nca.ecology.ipcc:SubTropical,
+            nca.ecology.ipcc:WarmTemperate)
+        | in (ecology:Arid, ecology:SemiArid)
+        | nca.ecosystem.iucn:EpisodicAridRiver ,
+
+    // F1.1
+    hydrology:Watercourse | im:Low
+        | hydrology:Permanent
+        | in (earth:Alpine, earth:Montane, earth:Subalpine)
+        | #
+        | #
+        | nca.ecosystem.iucn:PermanentUplandStream ,
+
+
+    // ============================================================
+    // PERMANENT LOWLAND: STRONGER SOFT SUPPORT FIRST
+    // ============================================================
+
+    // F1.2 — climate contributes weight 0.9 in the R model.
+    hydrology:Watercourse | im:Moderate
+        | hydrology:Permanent
+        | earth:Lowland
+        | in (
+            nca.ecology.ipcc:ColdTemperate,
+            nca.ecology.ipcc:WarmTemperate,
+            nca.ecology.ipcc:SubTropical,
+            nca.ecology.ipcc:Tropical)
+        | #
+        | nca.ecosystem.iucn:PermanentLowlandStream ,
+
+    // F1.2 — aridity contributes weaker evidence, weight 0.5.
+    hydrology:Watercourse | im:Moderate
+        | hydrology:Permanent
+        | earth:Lowland
+        | #
+        | ecology:Arid
+        | nca.ecosystem.iucn:PermanentLowlandStream ,
+
+
+    // ============================================================
+    // LEGITIMATE SOFT-RULE FALLBACKS
+    // ============================================================
+
+    // F1.6 — lowland is soft, so it may be relaxed.
+    hydrology:Watercourse | #
+        | hydrology:Episodic
+        | #
+        | in (
+            nca.ecology.ipcc:SubTropical,
+            nca.ecology.ipcc:WarmTemperate)
+        | in (ecology:Arid, ecology:SemiArid)
+        | nca.ecosystem.iucn:EpisodicAridRiver ,
+
+    // F1.2 — neither climate nor aridity support is available.
+    hydrology:Watercourse | im:Moderate
+        | hydrology:Permanent
+        | earth:Lowland
+        | #
+        | #
+        | nca.ecosystem.iucn:PermanentLowlandStream ,
+
+
+    // ============================================================
+    // FREEZE–THAW RESIDUAL APPROXIMATIONS
+    // ============================================================
+    // These are deliberately below permanence-specific classes.
+    // Without seasonal-ice information, they are weaker proxies.
+
+    hydrology:Watercourse | #
+        | #
+        | #
+        | in (
+            nca.ecology.ipcc:Boreal,
+            nca.ecology.ipcc:Polar,
+            nca.ecology.ipcc:SubPolar)
+        | #
+        | nca.ecosystem.iucn:FreezethawRiverStream ,
+
+    hydrology:Watercourse | #
+        | #
+        | in (earth:Alpine, earth:Nival, earth:Subalpine)
+        | #
+        | #
+        | nca.ecosystem.iucn:FreezethawRiverStream,
+        
+        // Approximation only: relaxes the R model's hard medium-hierarchy rule.
+hydrology:Watercourse | im:Low
+    | hydrology:Permanent
+    | earth:Lowland
+    | in (
+        nca.ecology.ipcc:ColdTemperate,
+        nca.ecology.ipcc:WarmTemperate,
+        nca.ecology.ipcc:SubTropical,
+        nca.ecology.ipcc:Tropical)
+    | #
+    | nca.ecosystem.iucn:PermanentLowlandStream 
+        
+}};
+
+
+model nca.ecosystem.iucn:RiverStream
+    type of nca.ecosystem.iucn:Ecosystem
+    named biome_f1_river_stream
+
+    observing
+        type of hydrology:WaterBody
+            named waterbody_type,
+
+        level of (hydrology:StreamOrder of hydrology:Watershed)
+            named watershed_hierarchy,
+
+        type of hydrology:WaterPermanence
+            named water_permanence_type,
+
+        type of earth:ElevationZone
+            named altitude_zone,
+
+        type of nca.ecology.ipcc:ClimaticZone
+            named climate_zone,
+
+        type of ecology:MoistureRegime
+            named evapotranspiration
+
+    lookup (
+        waterbody_type,
+        watershed_hierarchy,
+        water_permanence_type,
+        altitude_zone,
+        climate_zone,
+        evapotranspiration,
+        ?
+    )
+    into BIOME_F1_RIVER_STREAM_ECOSYSTEM_TYPES;  
+    

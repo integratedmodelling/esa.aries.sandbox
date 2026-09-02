@@ -205,7 +205,7 @@ model local:alessio.bulckaen:im.data.global:ecdc__soil__peat_thickness__global__
 		> 30    | im:High 
 		;
 // testing
-//number local:justus.muhando:esa.aries.sandbox:esa_weed_temp.peat_thickness_testing as soil_peat_thickness_rb_testing;
+number local:justus.muhando:esa.aries.sandbox:esa_weed_temp.peat_thickness_testing as soil_peat_thickness_rb_testing;
 
 
 		/* --- soil_chemical_properties_pH_status --- */

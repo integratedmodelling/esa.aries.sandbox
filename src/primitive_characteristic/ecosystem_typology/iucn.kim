@@ -413,7 +413,7 @@ model nca.ecosystem.iucn:PalustrineWetland type of nca.ecosystem.iucn:Ecosystem 
 		type of hydrology:WaterBody named waterbody_type,
 		type of hydrology:WaterPermanence named water_permanence_type,
 		type of earth:ElevationZone named altitude_zone,
-		earth:Lowland type of nca.ecology.ipcc:ClimaticZone named climate_zone,
+		earth:Lowland type of nca.ecology.ipcc:ClimaticZone named climate_zone,/// MIND earth:Lowland here I suggest to delete
 		type of ecology:MoistureRegime named evapotranspiration,
 		landcover:LandCoverType named landcover,
 		level of im:Mean earth:AtmosphericTemperature during earth:Summer named summer_diurnal_air_temperature_mean,
