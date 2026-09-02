@@ -66,7 +66,7 @@ model nca.ecosystem.iucn:Lake type of nca.ecosystem.iucn:Ecosystem named biome_f
 		type of hydrology:WaterBody named waterbody_type,
 		type of hydrology:WaterPermanence named water_permanence_type,
 		type of earth:ElevationZone named altitude_zone,
-		earth:Lowland type of nca.ecology.ipcc:ClimaticZone named climate_zone,
+		earth:Lowland type of nca.ecology.ipcc:ClimaticZone named climate_zone, //AGAIn redundant and blocking RESULTS
 		type of ecology:MoistureRegime named evapotranspiration,
 		level of (im:Minimum im:Area of earth:WaterBody) named hydroform_morphology_area,
 		level of (im:Differential earth:AtmosphericTemperature) named continentality,

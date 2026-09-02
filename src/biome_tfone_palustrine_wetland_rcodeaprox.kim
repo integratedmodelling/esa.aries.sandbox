@@ -1,6 +1,9 @@
 private namespace biome_tfone_palustrine_wetland_rcodeaprox
 using nca.ecosystem.iucn, nca.ecology.ipcc,
 primitive_characteristic.climate;  
+
+//Observe canopy cover and height and LAI first, switched LAI to Geoserver resource because took too long 
+
 /*
  * TF1 palustrine-wetland lookup approximating the R rule engine.
  *
