@@ -4,6 +4,7 @@ using nca.ecosystem.iucn, nca.ecology.ipcc;
 //PROBLEM with SALINITY missing but use in the R Code
 
 // Observe surface_water_hydroform_morphology_area first (find the bug) 
+
 /*
  * F2 lake lookup approximating the R rule engine with the dependencies
  * currently available in k.LAB. Row order is significant: first match wins.
@@ -18,7 +19,7 @@ using nca.ecosystem.iucn, nca.ecology.ipcc;
  *
  * Important limitation: no water-salinity observable is available. Therefore
  * freshwater versus salt-lake assignments are confidence proxies and cannot
- * reproduce the full R eligibility test.
+ * reproduce the full R eligibility test --> However R code maybe doesn't use it either in the GLC catalog
  */
 
 define BIOME_F2_LAKE_ECOSYSTEM_TYPES as {{

@@ -48,7 +48,8 @@ model local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__mining_areas
 // secondary_observations for anthropogenic_managed_waters
 number local:alessio.bulckaen:im.data.global:ecdc__surfacewater__hydroform as hydroform;
 number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_canal as managed_waters_canal;
-number local:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_aquaculture as managed_waters_aquaculture;
+number //Slocal:alessio.bulckaen:im.data.global:ecdc__anthropogenic__managed_waters_aquaculture 
+ local:justus.muhando:esa.aries.sandbox:esa_weed_temp.managed_waters_aquaculture_testing as managed_waters_aquaculture;
 number local:justus.muhando:im.data.global:ecdc__anthropogenic__managed_waters_mariculture as managed_waters_mariculture;
 
 // primary_observations
