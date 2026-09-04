@@ -1,0 +1,267 @@
+script testing_biome_models_area_greece
+
+action main:
+
+
+output_folder_directory = "WEED/Biome_models/greece"
+
+// --- DYNAMIC OBSERVABLE LISTS ---
+set greece_testing_area_1 (
+	primitive_characteristic.surface_water.surface_water_occurrence_regime
+	primitive_characteristic.climate.climate_evapotranspiration
+	primitive_characteristic.land_cover.land_cover_dominance
+	primitive_characteristic.climate.climate_summer_diurnal_air_temperature_mean
+	primitive_characteristic.climate.climate_winter_diurnal_air_temperature_mean
+	primitive_characteristic.soil.soil_chemical_properties_base_saturation
+	primitive_characteristic.anthropogenic.anthropogenic_land_use
+	primitive_characteristic.anthropogenic.anthropogenic_settlement_type
+	primitive_characteristic.anthropogenic.anthropogenic_mining_areas
+	primitive_characteristic.geomorphology.geomorphology_floodplain
+	primitive_characteristic.ecosystem_function.ecosystem_function_annual_net_primary_productivity_total
+	primitive_characteristic.vegetation.vegetation_canopy_height
+	primitive_characteristic.vegetation.vegetation_canopy_cover
+	primitive_characteristic.surface_water.hydroform
+	primitive_characteristic.climate.climate_altitude_zone
+	primitive_characteristic.climate.climate_climate_zone
+	primitive_characteristic.coastal.coastal_wave_energy
+	primitive_characteristic.coastal.coastal_freshwater_inflow
+	primitive_characteristic.coastal.coastal_salt_exposure
+	primitive_characteristic.coastal.coastal_tidal_zone
+	primitive_characteristic.surface_water.surface_water_hydroform_morphology_area
+	primitive_characteristic.climate.climate_continentality
+	primitive_characteristic.climate.climate_climate_type
+	primitive_characteristic.surface_water.surface_water_dominant_source
+	primitive_characteristic.geothermal_energy.energy_geothermal
+	primitive_characteristic.soil.soil_chemical_properties_ph_status
+
+	primitive_characteristic.ecosystem_typology.iucn.biome_fm1_semiconfined_transitional_water
+	primitive_characteristic.ecosystem_typology.iucn.biome_t7_intensive_land_use_system
+//	primitive_characteristic.ecosystem_typology.iucn.biome_f2_lake
+
+	primitive_characteristic.small_areas_for_testing.mapped_ecosystem_type_greece_testing_area_1
+	primitive_characteristic.small_areas_for_testing.rule_based_external
+	primitive_characteristic.small_areas_for_testing.matching_ecosystem_type
+
+)
+set greece_testing_area_2 (
+	primitive_characteristic.surface_water.surface_water_occurrence_regime
+	primitive_characteristic.climate.climate_evapotranspiration
+	primitive_characteristic.land_cover.land_cover_dominance
+	primitive_characteristic.climate.climate_summer_diurnal_air_temperature_mean
+	primitive_characteristic.climate.climate_winter_diurnal_air_temperature_mean
+	primitive_characteristic.soil.soil_chemical_properties_base_saturation
+	primitive_characteristic.anthropogenic.anthropogenic_land_use
+	primitive_characteristic.anthropogenic.anthropogenic_settlement_type
+	primitive_characteristic.anthropogenic.anthropogenic_mining_areas
+	primitive_characteristic.geomorphology.geomorphology_floodplain
+	primitive_characteristic.ecosystem_function.ecosystem_function_annual_net_primary_productivity_total
+	primitive_characteristic.vegetation.vegetation_canopy_height
+	primitive_characteristic.vegetation.vegetation_canopy_cover
+	primitive_characteristic.climate.climate_climate_zone
+	primitive_characteristic.climate.climate_continentality
+	primitive_characteristic.climate.climate_climate_type
+	primitive_characteristic.soil.soil_physical_properties_bulk_density
+	primitive_characteristic.climate.climate_annual_precipitation_total
+	primitive_characteristic.vegetation.vegetation_phenology
+	primitive_characteristic.vegetation.vegetation_specific_leaf_area
+	primitive_characteristic.vegetation.vegetation_leaf_size
+	primitive_characteristic.climate.climate_annual_water_budget_total
+	primitive_characteristic.climate.climate_annual_diurnal_air_temperature_mean
+	primitive_characteristic.wildfire_disturbance.wildfire_disturbances_exposure
+	primitive_characteristic.climate.climate_winter_water_budget_total
+	primitive_characteristic.climate.climate_seasonal_diurnal_air_temperature_variability
+	primitive_characteristic.soil.soil_chemical_properties_n
+	primitive_characteristic.wildfire_disturbance.wildfire_disturbances_recurrence
+	primitive_characteristic.soil.soil_fertility
+	primitive_characteristic.surface_water.surface_water_watershed_hydroform_density
+	primitive_characteristic.surface_water.hydroform
+	primitive_characteristic.climate.climate_altitude_zone
+	primitive_characteristic.surface_water.surface_water_hydroform_morphology_area
+	primitive_characteristic.surface_water.surface_water_dominant_source
+	primitive_characteristic.geothermal_energy.energy_geothermal
+	primitive_characteristic.soil.soil_chemical_properties_ph_status
+	primitive_characteristic.vegetation.vegetation_leaf_area_index
+	primitive_characteristic.soil.soil_peat_thickness
+	primitive_characteristic.climate.climate_seasonal_diurnal_air_temperature_amplitude
+	primitive_characteristic.vegetation.vegetation_leaf_shape
+	
+	primitive_characteristic.ecosystem_typology.iucn.biome_t7_intensive_land_use_system
+	primitive_characteristic.ecosystem_typology.iucn.biome_t4_savanna_grassland
+	primitive_characteristic.ecosystem_typology.iucn.biome_f2_lake
+//	primitive_characteristic.ecosystem_typology.iucn.biome_tf1_palustrine_wetland
+//	primitive_characteristic.ecosystem_typology.iucn.biome_t2_temperate_boreal_forest_woodland
+	
+	
+	primitive_characteristic.small_areas_for_testing.mapped_ecosystem_type_greece_testing_area_2
+	primitive_characteristic.small_areas_for_testing.rule_based_external
+	primitive_characteristic.small_areas_for_testing.matching_ecosystem_type
+)
+set greece_testing_area_3 (
+	primitive_characteristic.surface_water.surface_water_occurrence_regime
+	primitive_characteristic.climate.climate_evapotranspiration
+	primitive_characteristic.land_cover.land_cover_dominance
+	primitive_characteristic.climate.climate_summer_diurnal_air_temperature_mean
+	primitive_characteristic.climate.climate_winter_diurnal_air_temperature_mean
+	primitive_characteristic.soil.soil_chemical_properties_base_saturation
+	primitive_characteristic.anthropogenic.anthropogenic_land_use
+	primitive_characteristic.anthropogenic.anthropogenic_settlement_type
+	primitive_characteristic.anthropogenic.anthropogenic_mining_areas
+	primitive_characteristic.geomorphology.geomorphology_floodplain
+	primitive_characteristic.ecosystem_function.ecosystem_function_annual_net_primary_productivity_total
+	primitive_characteristic.vegetation.vegetation_canopy_height
+	primitive_characteristic.vegetation.vegetation_canopy_cover
+	primitive_characteristic.surface_water.hydroform
+	primitive_characteristic.climate.climate_altitude_zone
+	primitive_characteristic.climate.climate_climate_zone
+	primitive_characteristic.surface_water.surface_water_hydroform_morphology_area
+	primitive_characteristic.climate.climate_continentality
+	primitive_characteristic.climate.climate_climate_type
+	primitive_characteristic.surface_water.surface_water_dominant_source
+	primitive_characteristic.geothermal_energy.energy_geothermal
+	primitive_characteristic.soil.soil_chemical_properties_ph_status
+	primitive_characteristic.climate.climate_annual_precipitation_total
+	primitive_characteristic.vegetation.vegetation_leaf_area_index
+	primitive_characteristic.vegetation.vegetation_phenology
+	primitive_characteristic.vegetation.vegetation_specific_leaf_area
+	primitive_characteristic.vegetation.vegetation_leaf_size
+	primitive_characteristic.climate.climate_annual_water_budget_total
+	primitive_characteristic.wildfire_disturbance.wildfire_disturbances_exposure
+	primitive_characteristic.climate.climate_seasonal_diurnal_air_temperature_variability
+	primitive_characteristic.soil.soil_peat_thickness
+	primitive_characteristic.soil.soil_physical_properties_bulk_density
+	primitive_characteristic.climate.climate_annual_diurnal_air_temperature_mean
+	primitive_characteristic.climate.climate_winter_water_budget_total
+	primitive_characteristic.soil.soil_chemical_properties_n
+	primitive_characteristic.wildfire_disturbance.wildfire_disturbances_recurrence
+	primitive_characteristic.soil.soil_fertility
+	primitive_characteristic.surface_water.surface_water_watershed_hydroform_density
+	primitive_characteristic.climate.climate_seasonal_diurnal_air_temperature_amplitude
+	primitive_characteristic.vegetation.vegetation_leaf_shape
+	primitive_characteristic.surface_water.surface_water_watershed_hierarchy
+
+	primitive_characteristic.ecosystem_typology.iucn.biome_t7_intensive_land_use_system
+	primitive_characteristic.ecosystem_typology.iucn.biome_f2_lake
+//	primitive_characteristic.ecosystem_typology.iucn.biome_tf1_palustrine_wetland
+//	primitive_characteristic.ecosystem_typology.iucn.biome_t4_savanna_grassland
+//	primitive_characteristic.ecosystem_typology.iucn.biome_t2_temperate_boreal_forest_woodland
+//	primitive_characteristic.ecosystem_typology.iucn.biome_f1_river_stream
+	
+
+	primitive_characteristic.small_areas_for_testing.mapped_ecosystem_type_greece_testing_area_3
+	primitive_characteristic.small_areas_for_testing.rule_based_external
+	primitive_characteristic.small_areas_for_testing.matching_ecosystem_type
+)
+set greece_testing_area_4 (
+	primitive_characteristic.climate.climate_climate_zone
+	primitive_characteristic.climate.climate_altitude_zone
+	primitive_characteristic.climate.climate_evapotranspiration
+	primitive_characteristic.climate.climate_continentality
+	primitive_characteristic.land_cover.land_cover_dominance
+	primitive_characteristic.climate.climate_summer_diurnal_air_temperature_mean
+	primitive_characteristic.climate.climate_winter_diurnal_air_temperature_mean
+	primitive_characteristic.climate.climate_climate_type
+	primitive_characteristic.soil.soil_chemical_properties_base_saturation
+	primitive_characteristic.soil.soil_chemical_properties_ph_status
+	primitive_characteristic.ecosystem_function.ecosystem_function_annual_net_primary_productivity_total
+	primitive_characteristic.climate.climate_seasonal_diurnal_air_temperature_amplitude
+	primitive_characteristic.climate.climate_annual_precipitation_total
+	primitive_characteristic.vegetation.vegetation_canopy_height
+	primitive_characteristic.vegetation.vegetation_canopy_cover
+	primitive_characteristic.vegetation.vegetation_leaf_area_index
+	primitive_characteristic.vegetation.vegetation_phenology
+	primitive_characteristic.vegetation.vegetation_specific_leaf_area
+	primitive_characteristic.vegetation.vegetation_leaf_size
+	primitive_characteristic.climate.climate_annual_water_budget_total
+	primitive_characteristic.climate.climate_annual_diurnal_air_temperature_mean
+	primitive_characteristic.wildfire_disturbance.wildfire_disturbances_exposure
+	primitive_characteristic.climate.climate_winter_water_budget_total
+	primitive_characteristic.soil.soil_chemical_properties_n
+	primitive_characteristic.vegetation.vegetation_leaf_shape
+	primitive_characteristic.soil.soil_peat_thickness
+	primitive_characteristic.wildfire_disturbance.wildfire_disturbances_recurrence
+	primitive_characteristic.soil.soil_fertility
+	primitive_characteristic.surface_water.hydroform
+	primitive_characteristic.surface_water.surface_water_occurrence_regime
+	primitive_characteristic.surface_water.surface_water_hydroform_morphology_area
+	primitive_characteristic.surface_water.surface_water_dominant_source
+	primitive_characteristic.geothermal_energy.energy_geothermal
+	primitive_characteristic.soil.soil_physical_properties_bulk_density
+	primitive_characteristic.climate.climate_seasonal_diurnal_air_temperature_variability
+	primitive_characteristic.surface_water.surface_water_watershed_hydroform_density
+	primitive_characteristic.anthropogenic.anthropogenic_land_use
+	primitive_characteristic.anthropogenic.anthropogenic_settlement_type
+	primitive_characteristic.anthropogenic.anthropogenic_mining_areas
+	primitive_characteristic.geomorphology.geomorphology_floodplain
+	
+	primitive_characteristic.ecosystem_typology.iucn.biome_t2_temperate_boreal_forest_woodland
+	primitive_characteristic.ecosystem_typology.iucn.biome_f2_lake
+	primitive_characteristic.ecosystem_typology.iucn.biome_t4_savanna_grassland
+//	primitive_characteristic.ecosystem_typology.iucn.biome_t7_intensive_land_use_system
+//	primitive_characteristic.ecosystem_typology.iucn.biome_tf1_palustrine_wetland
+	
+
+	primitive_characteristic.small_areas_for_testing.mapped_ecosystem_type_greece_testing_area_4
+	primitive_characteristic.small_areas_for_testing.rule_based_external
+	primitive_characteristic.small_areas_for_testing.matching_ecosystem_type
+)
+
+set country_urns (
+	"local:rubencc:esa.aries.sandbox:esa_weed_greece_rb_testing_polygons"
+)
+
+resolution=30.m
+
+for year in (2021) (
+	for country_urn in country_urns (
+		
+		set urn_string [country_urn.toString()]
+		set current_country "unknown"
+		
+        // FLAT IF STATEMENTS FOR COUNTRY
+		if [urn_string.contains("greece")] ( set current_country "GRC" )
+
+		for polygon in country_urn (
+            
+            set current_fid [polygon.fid_id.toString()]
+            set current_observables ()
+            
+            // FLAT IF STATEMENTS FOR AREA
+//            if [current_country == "GRC" && current_fid == "1"] ( set current_observables greece_testing_area_1 )
+//            if [current_country == "GRC" && current_fid == "2"] ( set current_observables greece_testing_area_2 )
+//            if [current_country == "GRC" && current_fid == "3"] ( set current_observables greece_testing_area_3 )
+//            if [current_country == "GRC" && current_fid == "4"] ( set current_observables greece_testing_area_4 )
+
+            if [!current_observables.isEmpty()] (
+				
+                context(polygon,resolution,Time(year=year))
+					
+                for urn in current_observables (
+					submit(urn): (
+						WAITING -> ()
+						STARTED -> ()
+						ABORTED -> warning("Aborted")
+						INTERRUPTED -> warning("Interrupted")
+						empty -> (
+						    alert("The computation did not produce results. Some needed resources may be offline, or the system may be overloaded.")
+						    error(["Empty observation: " + urn.toString()])
+						)
+					    observation -> (
+						    set urn_name ""
+						    if [urn.toString().startsWith("[")] (
+							    set urn_name [urn.name]
+						    ) else (
+							    set urn_name urn
+						    )
+						    if [observation.isEmpty()] (
+							    warning(["Observation " + urn_name + " is empty"])
+						    ) else (
+							    observation.export([output_folder_directory + "/" + year + "/" + current_country + "/Area_" + polygon.fid_id + "/" + current_country + "_" + polygon.fid_id + "__" + urn_name + "__" + year + ".tiff"])						
+							    info(["Exporting urn " + urn_name + " for " + current_country + " Area " + polygon.fid_id])
+							)
+						)
+					)
+				)
+            )
+		)
+	)	
+)
