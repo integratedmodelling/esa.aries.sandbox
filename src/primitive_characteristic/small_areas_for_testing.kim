@@ -464,19 +464,22 @@ define COMBINED_BIOME_ECOSYSTEM_TABLE as {{
 // COLOMBIA TESTING AREA 1
 // ==========================================
 define COMBINED_BIOME_ECOSYSTEM_TABLE_COLOMBIA_TESTING_AREA_1 as {{
-	biome_t1_tropical_subtropical_forest                      | biome_mft1_brackish_tidal                      | biome_fm1_semiconfined_transitional_water              | ecosystem_type_level3                                    
-	-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	nca.ecosystem.iucn:TropicalSubtropicalLowlandRainforest   | #                                              | #                                                      | nca.ecosystem.iucn:TropicalSubtropicalLowlandRainforest   ,
-	#                                                         | nca.ecosystem.iucn:IntertidalForestShrubland   | #                                                      | nca.ecosystem.iucn:IntertidalForestShrubland              ,
-	#                                                         | #                                              | nca.ecosystem.iucn:PermanentlyOpenRiverineEstuaryBay   | nca.ecosystem.iucn:PermanentlyOpenRiverineEstuaryBay     
+	biome_tf1_palustrine_wetland                              | biome_t1_tropical_subtropical_forest                      | biome_mft1_brackish_tidal                      | biome_fm1_semiconfined_transitional_water              | ecosystem_type_level3                                    
+	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	#                                                         | nca.ecosystem.iucn:TropicalSubtropicalLowlandRainforest   | #                                              | #                                                      | nca.ecosystem.iucn:TropicalSubtropicalLowlandRainforest   ,
+    #                                                         |	#                                                         | nca.ecosystem.iucn:IntertidalForestShrubland   | #                                                      | nca.ecosystem.iucn:IntertidalForestShrubland              ,
+    #                                                         |	#														  | nca.ecosystem.iucn:CoastalSaltmarshReedbed     | #                                                      | nca.ecosystem.iucn:CoastalSaltmarshReedbed                ,
+    #                                                         |	#                                                         | #                                              | nca.ecosystem.iucn:PermanentlyOpenRiverineEstuaryBay   | nca.ecosystem.iucn:PermanentlyOpenRiverineEstuaryBay      ,
+    nca.ecosystem.iucn:TropicalFloodedForestPeatForest        | #														  | #											   | #														| nca.ecosystem.iucn:TropicalFloodedForestPeatForest 
 }};
 
 model type of nca.ecosystem.iucn:Ecosystem named mapped_ecosystem_type_colombia_testing_area_1
 	observing
 		nca.ecosystem.iucn:TropicalSubtropicalForest type of nca.ecosystem.iucn:Ecosystem named biome_t1_tropical_subtropical_forest,
 		nca.ecosystem.iucn:BrackishTidal type of nca.ecosystem.iucn:Ecosystem named biome_mft1_brackish_tidal,
-		nca.ecosystem.iucn:SemiconfinedTransitionalWater type of nca.ecosystem.iucn:Ecosystem named biome_fm1_semiconfined_transitional_water
-	lookup (biome_t1_tropical_subtropical_forest, biome_mft1_brackish_tidal, biome_fm1_semiconfined_transitional_water, ?)
+		nca.ecosystem.iucn:SemiconfinedTransitionalWater type of nca.ecosystem.iucn:Ecosystem named biome_fm1_semiconfined_transitional_water,
+		nca.ecosystem.iucn:PalustrineWetland type of nca.ecosystem.iucn:Ecosystem named biome_tf1_palustrine_wetland
+	lookup (biome_t1_tropical_subtropical_forest, biome_mft1_brackish_tidal, biome_fm1_semiconfined_transitional_water, biome_tf1_palustrine_wetland, ?)
 	into COMBINED_BIOME_ECOSYSTEM_TABLE_COLOMBIA_TESTING_AREA_1
 	over space(urn='local:rubencc:esa.aries.sandbox:esa_weed_colombia_rb_testing_polygons#fid_id=1');
 
@@ -484,18 +487,25 @@ model type of nca.ecosystem.iucn:Ecosystem named mapped_ecosystem_type_colombia_
 // COLOMBIA TESTING AREA 2
 // ==========================================
 define COMBINED_BIOME_ECOSYSTEM_TABLE_COLOMBIA_TESTING_AREA_2 as {{
-	biome_f1_river_stream                       | biome_tf1_palustrine_wetland                         | ecosystem_type_level3                               
-	---------------------------------------------------------------------------------------------------------------------------------------------------------
-	nca.ecosystem.iucn:PermanentLowlandStream   | #                                                    | nca.ecosystem.iucn:PermanentLowlandStream            ,
-	#                                           | nca.ecosystem.iucn:TropicalFloodedForestPeatForest   | nca.ecosystem.iucn:TropicalFloodedForestPeatForest   ,
-	#                                           | nca.ecosystem.iucn:SeasonalFloodplainMarsh           | nca.ecosystem.iucn:SeasonalFloodplainMarsh          
+	biome_f1_river_stream                       | biome_tf1_palustrine_wetland                         | biome_t1_tropical_subtropical_forest                    | biome_t7_intensive_land_use_system                   | biome_f2_lake                                       | ecosystem_type_level3                               
+	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	nca.ecosystem.iucn:PermanentLowlandStream   | #                                                    | #                                                       | #                                                    | #                                                   | nca.ecosystem.iucn:PermanentLowlandStream               ,
+	#                                           | nca.ecosystem.iucn:TropicalFloodedForestPeatForest   | #                                                       | #                                                    | #                                                   | nca.ecosystem.iucn:TropicalFloodedForestPeatForest      ,
+	#                                           | nca.ecosystem.iucn:SeasonalFloodplainMarsh           | #                                                       | #                                                    | #                                                   | nca.ecosystem.iucn:SeasonalFloodplainMarsh              , 
+    #                                           | #                                                    | nca.ecosystem.iucn:TropicalSubtropicalLowlandRainforest | #                                                    | #                                                   | nca.ecosystem.iucn:TropicalSubtropicalLowlandRainforest ,
+    #                                           | #                                                    | #                                                       | nca.ecosystem.iucn:DerivedSeminaturalPastureOldfield | #                                                   | nca.ecosystem.iucn:DerivedSeminaturalPastureOldfield    ,
+    #                                           | #                                                    | #                                                       | nca.ecosystem.iucn:Plantation                        | #                                                   | nca.ecosystem.iucn:Plantation                           ,
+    #                                           | #                                                    | #                                                       | #                                                    | nca.ecosystem.iucn:LargePermanentFreshwaterLake     | nca.ecosystem.iucn:LargePermanentFreshwaterLake         
 }};
 
 model type of nca.ecosystem.iucn:Ecosystem named mapped_ecosystem_type_colombia_testing_area_2
 	observing
 		nca.ecosystem.iucn:RiverStream type of nca.ecosystem.iucn:Ecosystem named biome_f1_river_stream,
-		nca.ecosystem.iucn:PalustrineWetland type of nca.ecosystem.iucn:Ecosystem named biome_tf1_palustrine_wetland
-	lookup (biome_f1_river_stream, biome_tf1_palustrine_wetland, ?)
+		nca.ecosystem.iucn:PalustrineWetland type of nca.ecosystem.iucn:Ecosystem named biome_tf1_palustrine_wetland,
+		nca.ecosystem.iucn:TropicalSubtropicalForest type of nca.ecosystem.iucn:Ecosystem named biome_t1_tropical_subtropical_forest,
+		nca.ecosystem.iucn:IntensiveLandUseSystem type of nca.ecosystem.iucn:Ecosystem named biome_t7_intensive_land_use_system,
+		nca.ecosystem.iucn:Lake type of nca.ecosystem.iucn:Ecosystem named biome_f2_lake
+	lookup (biome_f1_river_stream, biome_tf1_palustrine_wetland, biome_t1_tropical_subtropical_forest, biome_t7_intensive_land_use_system, biome_f2_lake, ?)
 	into COMBINED_BIOME_ECOSYSTEM_TABLE_COLOMBIA_TESTING_AREA_2
 	over space(urn='local:rubencc:esa.aries.sandbox:esa_weed_colombia_rb_testing_polygons#fid_id=2');
 
@@ -503,19 +513,28 @@ model type of nca.ecosystem.iucn:Ecosystem named mapped_ecosystem_type_colombia_
 // COLOMBIA TESTING AREA 3
 // ==========================================
 define COMBINED_BIOME_ECOSYSTEM_TABLE_COLOMBIA_TESTING_AREA_3 as {{
-	biome_t1_tropical_subtropical_forest                      | biome_t7_intensive_land_use_system   | biome_tf1_palustrine_wetland                         | ecosystem_type_level3                                    
-	-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	nca.ecosystem.iucn:TropicalSubtropicalLowlandRainforest   | #                                    | #                                                    | nca.ecosystem.iucn:TropicalSubtropicalLowlandRainforest   ,
-	#                                                         | nca.ecosystem.iucn:Plantation        | #                                                    | nca.ecosystem.iucn:Plantation                             ,
-	#                                                         | #                                    | nca.ecosystem.iucn:TropicalFloodedForestPeatForest   | nca.ecosystem.iucn:TropicalFloodedForestPeatForest       
+	biome_t1_tropical_subtropical_forest                      | biome_t7_intensive_land_use_system                   | biome_tf1_palustrine_wetland                         | biome_f2_lake                                   | biome_t3_shrubland_shrubby_woodland             | biome_f3_artificial_wetland            | ecosystem_type_level3                                    
+	-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	nca.ecosystem.iucn:TropicalSubtropicalLowlandRainforest   | #                                                    | #                                                    | #                                               | #                                               | #                                      | nca.ecosystem.iucn:TropicalSubtropicalLowlandRainforest   ,
+	#                                                         | nca.ecosystem.iucn:Plantation                        | #                                                    | #                                               | #                                               | #                                      | nca.ecosystem.iucn:Plantation                             ,
+	#                                                         | #                                                    | nca.ecosystem.iucn:TropicalFloodedForestPeatForest   | #                                               | #                                               | #                                      | nca.ecosystem.iucn:TropicalFloodedForestPeatForest        ,
+	#                                                         | #                                                    | #                                                    | nca.ecosystem.iucn:LargePermanentFreshwaterLake | #                                               | #                                      | nca.ecosystem.iucn:LargePermanentFreshwaterLake           ,
+	#                                                         | #                                                    | nca.ecosystem.iucn:SeasonalFloodplainMarsh           | #                                               | #                                               | #                                      | nca.ecosystem.iucn:SeasonalFloodplainMarsh                ,
+	#                                                         | #                                                    | #                                                    | #                                               | nca.ecosystem.iucn:RockyPavementLavaflowScree   | #                                      | nca.ecosystem.iucn:RockyPavementLavaflowScree             ,
+	#                                                         | nca.ecosystem.iucn:DerivedSeminaturalPastureOldfield | #                                                    | #                                               | #                                               | #                                      | nca.ecosystem.iucn:DerivedSeminaturalPastureOldfield      ,
+	#                                                         | #                                                    | nca.ecosystem.iucn:BorealTemperateFen                | #                                               | #                                               | #                                      | nca.ecosystem.iucn:BorealTemperateFen                     ,
+	#                                                         | #                                                    | #                                                    | #                                               | #                                               | nca.ecosystem.iucn:RicePaddy           | nca.ecosystem.iucn:RicePaddy   
 }};
 
 model type of nca.ecosystem.iucn:Ecosystem named mapped_ecosystem_type_colombia_testing_area_3
 	observing
 		nca.ecosystem.iucn:TropicalSubtropicalForest type of nca.ecosystem.iucn:Ecosystem named biome_t1_tropical_subtropical_forest,
 		nca.ecosystem.iucn:IntensiveLandUseSystem type of nca.ecosystem.iucn:Ecosystem named biome_t7_intensive_land_use_system,
-		nca.ecosystem.iucn:PalustrineWetland type of nca.ecosystem.iucn:Ecosystem named biome_tf1_palustrine_wetland
-	lookup (biome_t1_tropical_subtropical_forest, biome_t7_intensive_land_use_system, biome_tf1_palustrine_wetland, ?)
+		nca.ecosystem.iucn:PalustrineWetland type of nca.ecosystem.iucn:Ecosystem named biome_tf1_palustrine_wetland,
+		nca.ecosystem.iucn:Lake type of nca.ecosystem.iucn:Ecosystem named biome_f2_lake,
+		nca.ecosystem.iucn:ShrublandShrubbyWoodland type of nca.ecosystem.iucn:Ecosystem named biome_t3_shrubland_shrubby_woodland,
+		nca.ecosystem.iucn:ArtificialWetland type of nca.ecosystem.iucn:Ecosystem named biome_f3_artificial_wetland
+	lookup (biome_t1_tropical_subtropical_forest, biome_t7_intensive_land_use_system, biome_tf1_palustrine_wetland, biome_f2_lake, biome_t3_shrubland_shrubby_woodland, biome_f3_artificial_wetland, ?)
 	into COMBINED_BIOME_ECOSYSTEM_TABLE_COLOMBIA_TESTING_AREA_3
 	over space(urn='local:rubencc:esa.aries.sandbox:esa_weed_colombia_rb_testing_polygons#fid_id=3');
 
@@ -523,19 +542,23 @@ model type of nca.ecosystem.iucn:Ecosystem named mapped_ecosystem_type_colombia_
 // COLOMBIA TESTING AREA 4
 // ==========================================
 define COMBINED_BIOME_ECOSYSTEM_TABLE_COLOMBIA_TESTING_AREA_4 as {{
-	biome_t1_tropical_subtropical_forest                      | biome_t7_intensive_land_use_system   | biome_tf1_palustrine_wetland                         | ecosystem_type_level3                                    
-	-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	nca.ecosystem.iucn:TropicalSubtropicalLowlandRainforest   | #                                    | #                                                    | nca.ecosystem.iucn:TropicalSubtropicalLowlandRainforest   ,
-	#                                                         | nca.ecosystem.iucn:Plantation        | #                                                    | nca.ecosystem.iucn:Plantation                             ,
-	#                                                         | #                                    | nca.ecosystem.iucn:TropicalFloodedForestPeatForest   | nca.ecosystem.iucn:TropicalFloodedForestPeatForest       
+	biome_t1_tropical_subtropical_forest                      | biome_t7_intensive_land_use_system                   | biome_tf1_palustrine_wetland                         | biome_t3_shrubland_shrubby_woodland           | ecosystem_type_level3                                    
+	-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	nca.ecosystem.iucn:TropicalSubtropicalLowlandRainforest   | #                                                    | #                                                    | #                                             | nca.ecosystem.iucn:TropicalSubtropicalLowlandRainforest   ,
+	#                                                         | nca.ecosystem.iucn:Plantation                        | #                                                    | #                                             | nca.ecosystem.iucn:Plantation                             ,
+	#                                                         | #                                                    | nca.ecosystem.iucn:TropicalFloodedForestPeatForest   | #                                             | nca.ecosystem.iucn:TropicalFloodedForestPeatForest        ,
+	#                                                         | nca.ecosystem.iucn:DerivedSeminaturalPastureOldfield | #                                                    | #                                             | nca.ecosystem.iucn:DerivedSeminaturalPastureOldfield      ,
+	#                                                         | #                                                    | #                                                    | nca.ecosystem.iucn:RockyPavementLavaflowScree | nca.ecosystem.iucn:RockyPavementLavaflowScree             ,
+	#                                                         | #                                                    | nca.ecosystem.iucn:SeasonalFloodplainMarsh           | #                                             | nca.ecosystem.iucn:SeasonalFloodplainMarsh                
 }};
 
 model type of nca.ecosystem.iucn:Ecosystem named mapped_ecosystem_type_colombia_testing_area_4
 	observing
 		nca.ecosystem.iucn:TropicalSubtropicalForest type of nca.ecosystem.iucn:Ecosystem named biome_t1_tropical_subtropical_forest,
 		nca.ecosystem.iucn:IntensiveLandUseSystem type of nca.ecosystem.iucn:Ecosystem named biome_t7_intensive_land_use_system,
-		nca.ecosystem.iucn:PalustrineWetland type of nca.ecosystem.iucn:Ecosystem named biome_tf1_palustrine_wetland
-	lookup (biome_t1_tropical_subtropical_forest, biome_t7_intensive_land_use_system, biome_tf1_palustrine_wetland, ?)
+		nca.ecosystem.iucn:PalustrineWetland type of nca.ecosystem.iucn:Ecosystem named biome_tf1_palustrine_wetland,
+		nca.ecosystem.iucn:ShrublandShrubbyWoodland type of nca.ecosystem.iucn:Ecosystem named biome_t3_shrubland_shrubby_woodland
+	lookup (biome_t1_tropical_subtropical_forest, biome_t7_intensive_land_use_system, biome_tf1_palustrine_wetland, biome_t3_shrubland_shrubby_woodland, ?)
 	into COMBINED_BIOME_ECOSYSTEM_TABLE_COLOMBIA_TESTING_AREA_4
 	over space(urn='local:rubencc:esa.aries.sandbox:esa_weed_colombia_rb_testing_polygons#fid_id=4');
 
@@ -543,18 +566,22 @@ model type of nca.ecosystem.iucn:Ecosystem named mapped_ecosystem_type_colombia_
 // COLOMBIA TESTING AREA 5
 // ==========================================
 define COMBINED_BIOME_ECOSYSTEM_TABLE_COLOMBIA_TESTING_AREA_5 as {{
-	biome_mft1_brackish_tidal                      | biome_fm1_semiconfined_transitional_water              | ecosystem_type_level3                                 
-	----------------------------------------------------------------------------------------------------------------------------------------------------------------
-	nca.ecosystem.iucn:IntertidalForestShrubland   | #                                                      | nca.ecosystem.iucn:IntertidalForestShrubland           ,
-	nca.ecosystem.iucn:CoastalSaltmarshReedbed     | #                                                      | nca.ecosystem.iucn:CoastalSaltmarshReedbed             ,
-	#                                              | nca.ecosystem.iucn:PermanentlyOpenRiverineEstuaryBay   | nca.ecosystem.iucn:PermanentlyOpenRiverineEstuaryBay  
+	biome_mft1_brackish_tidal                      | biome_fm1_semiconfined_transitional_water              | biome_t7_intensive_land_use_system                    | biome_mt3_anthropogenic_shoreline                | ecosystem_type_level3                                 
+	-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	nca.ecosystem.iucn:IntertidalForestShrubland   | #                                                      | #                                                     | #                                                | nca.ecosystem.iucn:IntertidalForestShrubland           ,
+	nca.ecosystem.iucn:CoastalSaltmarshReedbed     | #                                                      | #                                                     | #                                                | nca.ecosystem.iucn:CoastalSaltmarshReedbed             ,
+	#                                              | nca.ecosystem.iucn:PermanentlyOpenRiverineEstuaryBay   | #                                                     | #                                                | nca.ecosystem.iucn:PermanentlyOpenRiverineEstuaryBay   ,
+	#                                              | #                                                      | nca.ecosystem.iucn:UrbanIndustrialEcosystem           | #                                                | nca.ecosystem.iucn:UrbanIndustrialEcosystem            ,
+	#                                              | #                                                      | #                                                     | nca.ecosystem.iucn:ArtificialShoreline           | nca.ecosystem.iucn:ArtificialShoreline      
 }};
 
 model type of nca.ecosystem.iucn:Ecosystem named mapped_ecosystem_type_colombia_testing_area_5
 	observing
 		nca.ecosystem.iucn:BrackishTidal type of nca.ecosystem.iucn:Ecosystem named biome_mft1_brackish_tidal,
-		nca.ecosystem.iucn:SemiconfinedTransitionalWater type of nca.ecosystem.iucn:Ecosystem named biome_fm1_semiconfined_transitional_water
-	lookup (biome_mft1_brackish_tidal, biome_fm1_semiconfined_transitional_water, ?)
+		nca.ecosystem.iucn:SemiconfinedTransitionalWater type of nca.ecosystem.iucn:Ecosystem named biome_fm1_semiconfined_transitional_water,
+		nca.ecosystem.iucn:IntensiveLandUseSystem type of nca.ecosystem.iucn:Ecosystem named biome_t7_intensive_land_use_system,
+		nca.ecosystem.iucn:AnthropogenicShoreline type of nca.ecosystem.iucn:Ecosystem named biome_mt3_anthropogenic_shoreline
+	lookup (biome_mft1_brackish_tidal, biome_fm1_semiconfined_transitional_water, biome_t7_intensive_land_use_system, biome_mt3_anthropogenic_shoreline, ?)
 	into COMBINED_BIOME_ECOSYSTEM_TABLE_COLOMBIA_TESTING_AREA_5
 	over space(urn='local:rubencc:esa.aries.sandbox:esa_weed_colombia_rb_testing_polygons#fid_id=5');
 
@@ -898,19 +925,31 @@ model type of nca.ecosystem.iucn:Ecosystem named mapped_ecosystem_type_southafri
 // VIETNAM TESTING AREA 1
 // ==========================================
 define COMBINED_BIOME_ECOSYSTEM_TABLE_VIETNAM_TESTING_AREA_1 as {{
-	biome_t2_temperate_boreal_forest_woodland     | biome_t4_savanna_grassland                      | biome_t7_intensive_land_use_system            | ecosystem_type_level3                          
-	-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	nca.ecosystem.iucn:DeciduousTemperateForest   | #                                               | #                                             | nca.ecosystem.iucn:DeciduousTemperateForest     ,
-	#                                             | nca.ecosystem.iucn:TemperateSubhumidGrassland   | #                                             | nca.ecosystem.iucn:TemperateSubhumidGrassland   ,
-	#                                             | #                                               | nca.ecosystem.iucn:UrbanIndustrialEcosystem   | nca.ecosystem.iucn:UrbanIndustrialEcosystem    
+	biome_t2_temperate_boreal_forest_woodland     | biome_t4_savanna_grassland                      | biome_t7_intensive_land_use_system                   | biome_fm1_semiconfined_transitional_water            | biome_f3_artificial_wetland                     | biome_tf1_palustrine_wetland                | biome_f2_lake                                   | ecosystem_type_level3                          
+	-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	nca.ecosystem.iucn:DeciduousTemperateForest   | #                                               | #                                                    | #                                                    | #                                               | #                                           | #                                               | nca.ecosystem.iucn:DeciduousTemperateForest     ,
+	#                                             | nca.ecosystem.iucn:TemperateSubhumidGrassland   | #                                                    | #                                                    | #                                               | #                                           | #                                               | nca.ecosystem.iucn:TemperateSubhumidGrassland   ,
+	#                                             | #                                               | nca.ecosystem.iucn:UrbanIndustrialEcosystem          | #                                                    | #                                               | #                                           | #                                               | nca.ecosystem.iucn:UrbanIndustrialEcosystem     ,
+	#                                             | #                                               | nca.ecosystem.iucn:Plantation                        | #                                                    | #                                               | #                                           | #                                               | nca.ecosystem.iucn:Plantation                   ,
+	#                                             | #                                               | #                                                    | nca.ecosystem.iucn:PermanentlyOpenRiverineEstuaryBay | #                                               | #                                           | #                                               | nca.ecosystem.iucn:PermanentlyOpenRiverineEstuaryBay ,
+	#                                             | #                                               | nca.ecosystem.iucn:AnnualCropland                    | #                                                    | #                                               | #                                           | #                                               | nca.ecosystem.iucn:AnnualCropland               ,
+	#                                             | #                                               | #                                                    | #                                                    | #                                               | nca.ecosystem.iucn:SeasonalFloodplainMarsh  | #                                               | nca.ecosystem.iucn:SeasonalFloodplainMarsh      ,
+	#                                             | #                                               | nca.ecosystem.iucn:DerivedSeminaturalPastureOldfield | #                                                    | #                                               | #                                           | #                                               | nca.ecosystem.iucn:DerivedSeminaturalPastureOldfield,
+	#                                             | #                                               | #                                                    | #                                                    | nca.ecosystem.iucn:RicePaddy                    | #                                           | #                                               | nca.ecosystem.iucn:RicePaddy                    ,
+	#                                             | #                                               | #                                                    | #                                                    | #                                               | #                                           | nca.ecosystem.iucn:LargePermanentFreshwaterLake | nca.ecosystem.iucn:LargePermanentFreshwaterLake
+	    
 }};
 
 model type of nca.ecosystem.iucn:Ecosystem named mapped_ecosystem_type_vietnam_testing_area_1
 	observing
 		nca.ecosystem.iucn:TemperateBorealForestWoodland type of nca.ecosystem.iucn:Ecosystem named biome_t2_temperate_boreal_forest_woodland,
 		nca.ecosystem.iucn:SavannaGrassland type of nca.ecosystem.iucn:Ecosystem named biome_t4_savanna_grassland,
-		nca.ecosystem.iucn:IntensiveLandUseSystem type of nca.ecosystem.iucn:Ecosystem named biome_t7_intensive_land_use_system
-	lookup (biome_t2_temperate_boreal_forest_woodland, biome_t4_savanna_grassland, biome_t7_intensive_land_use_system, ?)
+		nca.ecosystem.iucn:IntensiveLandUseSystem type of nca.ecosystem.iucn:Ecosystem named biome_t7_intensive_land_use_system,
+		nca.ecosystem.iucn:SemiconfinedTransitionalWater type of nca.ecosystem.iucn:Ecosystem named biome_fm1_semiconfined_transitional_water,
+		nca.ecosystem.iucn:PalustrineWetland type of nca.ecosystem.iucn:Ecosystem named biome_tf1_palustrine_wetland,
+		nca.ecosystem.iucn:ArtificialWetland type of nca.ecosystem.iucn:Ecosystem named biome_f3_artificial_wetland,
+		nca.ecosystem.iucn:Lake type of nca.ecosystem.iucn:Ecosystem named biome_f2_lake
+	lookup (biome_t2_temperate_boreal_forest_woodland, biome_t4_savanna_grassland, biome_t7_intensive_land_use_system, biome_fm1_semiconfined_transitional_water, biome_tf1_palustrine_wetland, biome_f3_artificial_wetland, biome_f2_lake, ?)
 	into COMBINED_BIOME_ECOSYSTEM_TABLE_VIETNAM_TESTING_AREA_1
 	over space(urn='local:rubencc:esa.aries.sandbox:esa_weed_vietnam_rb_testing_polygons#fid_id=1');
 
@@ -918,18 +957,26 @@ model type of nca.ecosystem.iucn:Ecosystem named mapped_ecosystem_type_vietnam_t
 // VIETNAM TESTING AREA 2
 // ==========================================
 define COMBINED_BIOME_ECOSYSTEM_TABLE_VIETNAM_TESTING_AREA_2 as {{
-	biome_t7_intensive_land_use_system            | biome_fm1_semiconfined_transitional_water              | ecosystem_type_level3                                 
-	---------------------------------------------------------------------------------------------------------------------------------------------------------------
-	nca.ecosystem.iucn:AnnualCropland             | #                                                      | nca.ecosystem.iucn:AnnualCropland                      ,
-	nca.ecosystem.iucn:UrbanIndustrialEcosystem   | #                                                      | nca.ecosystem.iucn:UrbanIndustrialEcosystem            ,
-	#                                             | nca.ecosystem.iucn:PermanentlyOpenRiverineEstuaryBay   | nca.ecosystem.iucn:PermanentlyOpenRiverineEstuaryBay  
+	biome_t7_intensive_land_use_system            | biome_fm1_semiconfined_transitional_water              | biome_f3_artificial_wetland                        | biome_mft1_brackish_tidal                    | biome_f1_river_stream                     | biome_f2_lake                                     | ecosystem_type_level3                                 
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	nca.ecosystem.iucn:AnnualCropland             | #                                                      | #                                                  | #                                            | #                                         | #                                                 | nca.ecosystem.iucn:AnnualCropland                      ,
+	nca.ecosystem.iucn:UrbanIndustrialEcosystem   | #                                                      | #                                                  | #                                            | #                                         | #                                                 | nca.ecosystem.iucn:UrbanIndustrialEcosystem            ,
+	#                                             | nca.ecosystem.iucn:PermanentlyOpenRiverineEstuaryBay   | #                                                  | #                                            | #                                         | #                                                 | nca.ecosystem.iucn:PermanentlyOpenRiverineEstuaryBay   ,
+	#                                             | #                                                      | nca.ecosystem.iucn:RicePaddy                       | #                                            | #                                         | #                                                 | nca.ecosystem.iucn:RicePaddy                           ,
+	#                                             | #                                                      | #                                                  | nca.ecosystem.iucn:CoastalSaltmarshReedbed   | #                                         | #                                                 | nca.ecosystem.iucn:CoastalSaltmarshReedbed             ,
+	#                                             | #                                                      | #                                                  | #                                            | nca.ecosystem.iucn:PermanentLowlandStream | #                                                 | nca.ecosystem.iucn:PermanentLowlandStream              ,
+	#                                             | #                                                      | #                                                  | #                                            | #                                         | nca.ecosystem.iucn:LargePermanentFreshwaterLake   | nca.ecosystem.iucn:LargePermanentFreshwaterLake
 }};
 
 model type of nca.ecosystem.iucn:Ecosystem named mapped_ecosystem_type_vietnam_testing_area_2
 	observing
 		nca.ecosystem.iucn:IntensiveLandUseSystem type of nca.ecosystem.iucn:Ecosystem named biome_t7_intensive_land_use_system,
-		nca.ecosystem.iucn:SemiconfinedTransitionalWater type of nca.ecosystem.iucn:Ecosystem named biome_fm1_semiconfined_transitional_water
-	lookup (biome_t7_intensive_land_use_system, biome_fm1_semiconfined_transitional_water, ?)
+		nca.ecosystem.iucn:SemiconfinedTransitionalWater type of nca.ecosystem.iucn:Ecosystem named biome_fm1_semiconfined_transitional_water,
+		nca.ecosystem.iucn:ArtificialWetland type of nca.ecosystem.iucn:Ecosystem named biome_f3_artificial_wetland,
+		nca.ecosystem.iucn:BrackishTidal type of nca.ecosystem.iucn:Ecosystem named biome_mft1_brackish_tidal,
+		nca.ecosystem.iucn:RiverStream type of nca.ecosystem.iucn:Ecosystem named biome_f1_river_stream,
+		nca.ecosystem.iucn:Lake type of nca.ecosystem.iucn:Ecosystem named biome_f2_lake
+	lookup (biome_t7_intensive_land_use_system, biome_fm1_semiconfined_transitional_water, biome_f3_artificial_wetland, biome_mft1_brackish_tidal, biome_f1_river_stream, biome_f2_lake, ?)
 	into COMBINED_BIOME_ECOSYSTEM_TABLE_VIETNAM_TESTING_AREA_2
 	over space(urn='local:rubencc:esa.aries.sandbox:esa_weed_vietnam_rb_testing_polygons#fid_id=2');
 
@@ -937,19 +984,25 @@ model type of nca.ecosystem.iucn:Ecosystem named mapped_ecosystem_type_vietnam_t
 // VIETNAM TESTING AREA 3
 // ==========================================
 define COMBINED_BIOME_ECOSYSTEM_TABLE_VIETNAM_TESTING_AREA_3 as {{
-	biome_f1_river_stream                      | biome_mft1_brackish_tidal                    | biome_fm1_semiconfined_transitional_water              | ecosystem_type_level3                                 
-	-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	nca.ecosystem.iucn:PermanentUplandStream   | #                                            | #                                                      | nca.ecosystem.iucn:PermanentUplandStream               ,
-	#                                          | nca.ecosystem.iucn:CoastalSaltmarshReedbed   | #                                                      | nca.ecosystem.iucn:CoastalSaltmarshReedbed             ,
-	#                                          | #                                            | nca.ecosystem.iucn:PermanentlyOpenRiverineEstuaryBay   | nca.ecosystem.iucn:PermanentlyOpenRiverineEstuaryBay  
+	biome_f1_river_stream                      | biome_mft1_brackish_tidal                    | biome_fm1_semiconfined_transitional_water              | biome_t7_intensive_land_use_system               | biome_f2_lake                                   | biome_mt2_supralittoral_coastal                         | ecosystem_type_level3                                 
+	------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	nca.ecosystem.iucn:PermanentUplandStream   | #                                            | #                                                      | #                                                | #                                               | #                                                       | nca.ecosystem.iucn:PermanentUplandStream               ,
+	#                                          | nca.ecosystem.iucn:CoastalSaltmarshReedbed   | #                                                      | #                                                | #                                               | #                                                       | nca.ecosystem.iucn:CoastalSaltmarshReedbed             ,
+	#                                          | #                                            | nca.ecosystem.iucn:PermanentlyOpenRiverineEstuaryBay   | #                                                | #                                               | #                                                       | nca.ecosystem.iucn:PermanentlyOpenRiverineEstuaryBay   ,
+	#                                          | #                                            | #                                                      | nca.ecosystem.iucn:UrbanIndustrialEcosystem      | #                                               | #                                                       | nca.ecosystem.iucn:UrbanIndustrialEcosystem            ,
+	#                                          | #                                            | #                                                      | #                                                | nca.ecosystem.iucn:LargePermanentFreshwaterLake | #                                                       | nca.ecosystem.iucn:LargePermanentFreshwaterLake        ,
+	#                                          | #                                            | #                                                      | #                                                | #                                               | nca.ecosystem.iucn:CoastalShrublandGrassland            | nca.ecosystem.iucn:CoastalShrublandGrassland
 }};
 
 model type of nca.ecosystem.iucn:Ecosystem named mapped_ecosystem_type_vietnam_testing_area_3
 	observing
 		nca.ecosystem.iucn:RiverStream type of nca.ecosystem.iucn:Ecosystem named biome_f1_river_stream,
 		nca.ecosystem.iucn:BrackishTidal type of nca.ecosystem.iucn:Ecosystem named biome_mft1_brackish_tidal,
-		nca.ecosystem.iucn:SemiconfinedTransitionalWater type of nca.ecosystem.iucn:Ecosystem named biome_fm1_semiconfined_transitional_water
-	lookup (biome_f1_river_stream, biome_mft1_brackish_tidal, biome_fm1_semiconfined_transitional_water, ?)
+		nca.ecosystem.iucn:SemiconfinedTransitionalWater type of nca.ecosystem.iucn:Ecosystem named biome_fm1_semiconfined_transitional_water,
+		nca.ecosystem.iucn:IntensiveLandUseSystem type of nca.ecosystem.iucn:Ecosystem named biome_t7_intensive_land_use_system,
+		nca.ecosystem.iucn:SupralittoralCoastal type of nca.ecosystem.iucn:Ecosystem named biome_mt2_supralittoral_coastal,
+		nca.ecosystem.iucn:Lake type of nca.ecosystem.iucn:Ecosystem named biome_f2_lake
+	lookup (biome_f1_river_stream, biome_mft1_brackish_tidal, biome_fm1_semiconfined_transitional_water, biome_t7_intensive_land_use_system, biome_mt2_supralittoral_coastal, biome_f2_lake, ?)
 	into COMBINED_BIOME_ECOSYSTEM_TABLE_VIETNAM_TESTING_AREA_3
 	over space(urn='local:rubencc:esa.aries.sandbox:esa_weed_vietnam_rb_testing_polygons#fid_id=3');
 
@@ -957,19 +1010,21 @@ model type of nca.ecosystem.iucn:Ecosystem named mapped_ecosystem_type_vietnam_t
 // VIETNAM TESTING AREA 4
 // ==========================================
 define COMBINED_BIOME_ECOSYSTEM_TABLE_VIETNAM_TESTING_AREA_4 as {{
-	biome_t7_intensive_land_use_system   | biome_mft1_brackish_tidal                      | biome_fm1_semiconfined_transitional_water              | ecosystem_type_level3                                 
-	-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	nca.ecosystem.iucn:Plantation        | #                                              | #                                                      | nca.ecosystem.iucn:Plantation                          ,
-	#                                    | nca.ecosystem.iucn:IntertidalForestShrubland   | #                                                      | nca.ecosystem.iucn:IntertidalForestShrubland           ,
-	#                                    | #                                              | nca.ecosystem.iucn:PermanentlyOpenRiverineEstuaryBay   | nca.ecosystem.iucn:PermanentlyOpenRiverineEstuaryBay  
+	biome_t1_tropical_subtropical_forest                      | biome_t7_intensive_land_use_system   | biome_mft1_brackish_tidal                      | biome_fm1_semiconfined_transitional_water              | ecosystem_type_level3                                 
+	-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	#                                                         | nca.ecosystem.iucn:Plantation        | #                                              | #                                                      | nca.ecosystem.iucn:Plantation                          ,
+	#                                                         | #                                    | nca.ecosystem.iucn:IntertidalForestShrubland   | #                                                      | nca.ecosystem.iucn:IntertidalForestShrubland           ,
+	#                                                         | #                                    | #                                              | nca.ecosystem.iucn:PermanentlyOpenRiverineEstuaryBay   | nca.ecosystem.iucn:PermanentlyOpenRiverineEstuaryBay   ,
+	nca.ecosystem.iucn:TropicalSubtropicalLowlandRainforest   | #                                    | #                                              | #                                                      | nca.ecosystem.iucn:TropicalSubtropicalLowlandRainforest
 }};
 
 model type of nca.ecosystem.iucn:Ecosystem named mapped_ecosystem_type_vietnam_testing_area_4
 	observing
 		nca.ecosystem.iucn:IntensiveLandUseSystem type of nca.ecosystem.iucn:Ecosystem named biome_t7_intensive_land_use_system,
 		nca.ecosystem.iucn:BrackishTidal type of nca.ecosystem.iucn:Ecosystem named biome_mft1_brackish_tidal,
-		nca.ecosystem.iucn:SemiconfinedTransitionalWater type of nca.ecosystem.iucn:Ecosystem named biome_fm1_semiconfined_transitional_water
-	lookup (biome_t7_intensive_land_use_system, biome_mft1_brackish_tidal, biome_fm1_semiconfined_transitional_water, ?)
+		nca.ecosystem.iucn:SemiconfinedTransitionalWater type of nca.ecosystem.iucn:Ecosystem named biome_fm1_semiconfined_transitional_water,
+		nca.ecosystem.iucn:TropicalSubtropicalForest type of nca.ecosystem.iucn:Ecosystem named biome_t1_tropical_subtropical_forest
+	lookup (biome_t7_intensive_land_use_system, biome_mft1_brackish_tidal, biome_fm1_semiconfined_transitional_water, biome_t1_tropical_subtropical_forest, ?)
 	into COMBINED_BIOME_ECOSYSTEM_TABLE_VIETNAM_TESTING_AREA_4
 	over space(urn='local:rubencc:esa.aries.sandbox:esa_weed_vietnam_rb_testing_polygons#fid_id=4');
 
