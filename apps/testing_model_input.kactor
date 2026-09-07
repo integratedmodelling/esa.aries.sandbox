@@ -5,7 +5,7 @@ action main:
 output_folder_directory = "WEED/Model_input_testing"
 
 set observables (
-	primitive_characteristic.ecosystem_typology.iucn.glc_fcs30
+	primitive_characteristic.land_cover.landcover_dominance
 	primitive_characteristic.anthropogenic.anthropogenic_crop_type
 	primitive_characteristic.anthropogenic.land_use_annual_crops
 	primitive_characteristic.anthropogenic.land_use_perennial_crops
