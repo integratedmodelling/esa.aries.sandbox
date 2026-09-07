@@ -1,32 +1,69 @@
-private namespace primitive_characteristic.land_cover;
+project private namespace primitive_characteristic.land_cover;
 
-identity LandCoverProduct
-has children
-	Copernicus,
-	GLCfcs30,
-	RBTesting;
+//identity LandCoverProduct
+//has children
+//	Copernicus,
+//	GLCfcs30,
+//	RBTesting;
 	
-model local:alessio.bulckaen:im.data.global:copernicus.cdse.landcovermap
- as Copernicus landcover:LandCoverType classified according to im:copernicus-encoding;
- 
-number local:alessio.bulckaen:im.data.global:copernicus.cdse.landcovermap as test_lc_copernicus;
+//model local:alessio.bulckaen:im.data.global:copernicus.cdse.landcovermap
+// as Copernicus landcover:LandCoverType classified according to im:copernicus-encoding;
+number 'local:alessio.bulckaen:esa.aries.sandbox:dominant_landcover_glc' as glc_stac; 
+//model 'local:alessio.bulckaen:esa.aries.sandbox:dominant_landcover_glc'
+model local:alessio.bulckaen:im.data.global:ecdc__land_cover__landcover_glc
+//'local:justus.muhando:esa.aries.sandbox:dominance_glc_landcover_2021'
+//local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2021_mosaic
+	as landcover:LandCoverType named land_cover_dominance classified into
+	landcover:BareArea if in ( 200 201 202 ),
+	landcover:Grassland if in ( 10 11 20 130 153 182 186 ),
+	landcover:ArtificialSurface if 190,
+	landcover:LichenMoss if 140,
+	landcover:Shrubland if in ( 12 120 121 122 152 ),
+	landcover:GlacierPerpetualSnow if 220,
+	landcover:Forest if in ( 12 51 52 61 62 71 72 81 82 91 92 181 185 )
+//	,
+//	landcover:FloodedFlat if 183,
+//	landcover:WaterBody if 210
+	over space(urn='local:rubencc:esa.aries.sandbox:esa_weed_colombia_rb_testing_polygons#fid_id=2');	
 
-@reliability(50)
+@reliability(40)
 model
 	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2018_mosaic,
 	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2019_mosaic,
 	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2020_mosaic,
 	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2021_mosaic,
 	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2022_mosaic
-	as GLCfcs30 landcover:LandCoverType named glc_fcs30 classified according to im:glc-fcs30-enconding;
+//	local:alessio.bulckaen:im.data.global:openlandmap_glc_fcs30d_landcover_2021
+	as landcover:LandCoverType named landcover classified into
+//	named glc_fcs30 classified into
+	landcover:BareArea if in ( 200 201 202 ),
+	landcover:Grassland if in ( 10 11 20 130 153 182 186 ),
+	landcover:ArtificialSurface if 190,
+	landcover:LichenMoss if 140,
+	landcover:Shrubland if in ( 12 120 121 122 152 ),
+	landcover:GlacierPerpetualSnow if 220,
+	landcover:Forest if in ( 12 51 52 61 62 71 72 81 82 91 92 181 185 );	
+
+//number local:alessio.bulckaen:im.data.global:openlandmap_glc_fcs30d_landcover_2021 as open_land;
+number 'local:alessio.bulckaen:esa.aries.sandbox:dominance_GLC' as polina_data;
+//number local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2021_mosaic as geoserver;
+
 	
 //Temporary URN local:justus.muhando:esa.aries.sandbox:esa_weed_temp.dominance_glc_testing
 
 
 
-//model local:justus.muhando:esa.aries.sandbox:esa_weed_temp.hydroform_glc_testing
-model local:justus.muhando:esa.aries.sandbox:esa_weed_temp.dominance_glc_testing
-	as RBTesting landcover:LandCoverType named glc_fcs30_r_b_testing classified according to im:glc-fcs30-enconding;
+////model local:justus.muhando:esa.aries.sandbox:esa_weed_temp.hydroform_glc_testing
+//model local:justus.muhando:esa.aries.sandbox:esa_weed_temp.dominance_glc_testing
+//	as RBTesting landcover:LandCoverType named glc_fcs30_r_b_testing classified according to im:glc-fcs30-enconding;
 
+
+number local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2022_mosaic as test_rb_geoserver;
 number local:justus.muhando:esa.aries.sandbox:esa_weed_temp.dominance_glc_testing as test_rb_testing_lc;
 number local:justus.muhando:esa.aries.sandbox:esa_weed_temp.hydroform_glc_testing as test_rb_testing_hydroform_lc;	
+
+number shift
+	observing
+		test_rb_geoserver,
+		test_rb_testing_lc
+	set to [test_rb_geoserver - test_rb_testing_lc == 0 ? false : true];

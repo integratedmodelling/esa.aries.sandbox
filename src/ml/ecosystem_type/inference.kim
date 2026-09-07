@@ -15,12 +15,16 @@ observe earth:Region named naxos_greece
  	time(start=2018, end=2019, step=1.year);
     
     
-
+ 
 model each local:arnab.moitra:esa.aries.sandbox:ecdc_ml_inference_vectors_from_stac as earth:Location with im:Predicted nca.ecosystem.eunis:Ecosystem named ml_inference_presence;
 
 //number local:arnab.moitra:esa.aries.sandbox:updated_eunis_inference_mece_eu as ml_inferences;  <- Using the usual STAC adapter
 
-number im.resources-main:staging:klab.nifi.vito.ml.resources:ml_inference_eunis as ml_inferences; // <- Using the Resources submitted to the Resources server
+model im.resources-main:staging:klab.nifi.vito.ml.resources:ml_inference_eunis as 
+type of nca.ecosystem.eunis:Ecosystem
+classified into nca.ecosystem.eunis:MarineBenthicHabitats if 1 ; // <- Using the Resources submitted to the Resources server
 
+
+number local:arnab.moitra:esa.aries.sandbox:glc_landcover_30m_2021 as glc_landcover_30m_2021;
 
 number local:arnab.moitra:esa.aries.sandbox:lcfm_2020_copernicus_data  as copernicus_data; 

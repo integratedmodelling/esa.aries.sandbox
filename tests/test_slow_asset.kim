@@ -1,0 +1,27 @@
+worldview im;
+
+@test(
+    name = "test_slow_asset",
+    description  = "",
+    // add to the list any concepts to be observed in the context below
+    observations = (
+    "primitive_characteristic.data_testing.canopy_height_stac_dynamic"
+    "primitive_characteristic.data_testing.canopy_height_rb_testing"
+    "primitive_characteristic.data_testing.specific_leaf_area_stac_dynamic"
+//	"primitive_characteristic.data_testing.specific_leaf_area_stac_static"
+	"primitive_characteristic.data_testing.specific_leaf_area_rb_testing"
+	"primitive_characteristic.data_testing.leaf_area_index_stac_dynamic"
+//	"primitive_characteristic.data_testing.leaf_area_index_stac_static"
+	"primitive_characteristic.data_testing.leaf_area_index_rb_testing"
+    ),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named test_slow_asset
+    over space(
+    		urn='local:rubencc:esa.aries.sandbox:esa_weed_colombia_rb_testing_polygons#fid_id=1',
+    		grid="30 m"),
+    time(year=2021);
+
+// add any models here

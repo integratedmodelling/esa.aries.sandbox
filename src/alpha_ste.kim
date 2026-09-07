@@ -1,0 +1,212 @@
+private namespace alpha_ste
+using nca.ecosystem.iucn, nca.ecology.ipcc;
+
+
+//--- BIOME F1 - RiverStream annotation---   
+define BIOME_F1_RIVER_STREAM_ECOSYSTEM_TYPES as {{
+    waterbody_type        | watershed_hierarchy | water_permanence_type | altitude_zone                                     | climate_zone                                                                                                                 | evapotranspiration                                | ecosystem_type
+    ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    // ============================================================
+    // PERMANENT LOWLAND STREAM — HARD RULE
+    // ============================================================
+    hydrology:Watercourse | #                   | hydrology:Permanent   | earth:Lowland                                     | in (nca.ecology.ipcc:ColdTemperate,
+                                                                                                                                nca.ecology.ipcc:SubTropical,
+                                                                                                                                nca.ecology.ipcc:Tropical,
+                                                                                                                                nca.ecology.ipcc:WarmTemperate)               | #                                                 | nca.ecosystem.iucn:PermanentLowlandStream ,
+
+    // ------------------------------------------------------------
+    // PERMANENT LOWLAND STREAM — SOFT FALLBACK
+    // Allowed in Arid climates in the R script (soft rule)
+    // ------------------------------------------------------------
+    hydrology:Watercourse | #                   | hydrology:Permanent   | earth:Lowland                                     | #                                                                                                                            | ecology:Arid                                      | nca.ecosystem.iucn:PermanentLowlandStream ,
+
+
+    // ============================================================
+    // PERMANENT UPLAND STREAM — HARD RULE
+    // ============================================================
+    hydrology:Watercourse | #                   | hydrology:Permanent   | in (earth:Alpine, earth:Montane, earth:Subalpine) | #                                                                                                                            | #                                                 | nca.ecosystem.iucn:PermanentUplandStream ,
+
+
+    // ============================================================
+    // FREEZE–THAW RIVER STREAM — HARD RULES
+    // ============================================================
+    hydrology:Watercourse | #                   | #                     | #                                                 | in (nca.ecology.ipcc:Boreal,
+                                                                                                                                nca.ecology.ipcc:Polar,
+                                                                                                                                nca.ecology.ipcc:SubPolar)                    | #                                                 | nca.ecosystem.iucn:FreezethawRiverStream ,
+
+    hydrology:Watercourse | #                   | #                     | in (earth:Alpine, earth:Nival, earth:Subalpine)   | #                                                                                                                            | #                                                 | nca.ecosystem.iucn:FreezethawRiverStream ,
+
+
+    // ============================================================
+    // SEASONAL UPLAND STREAM — HARD RULE
+    // ============================================================
+    hydrology:Watercourse | #                   | hydrology:Seasonal    | in (earth:Alpine, earth:Montane, earth:Subalpine) | #                                                                                                                            | #                                                 | nca.ecosystem.iucn:SeasonalUplandStream ,
+
+
+    // ============================================================
+    // SEASONAL LOWLAND RIVER — HARD RULE
+    // ============================================================
+    hydrology:Watercourse | #                   | hydrology:Seasonal    | earth:Lowland                                     | in (nca.ecology.ipcc:ColdTemperate,
+                                                                                                                                nca.ecology.ipcc:SubTropical,
+                                                                                                                                nca.ecology.ipcc:Tropical,
+                                                                                                                                nca.ecology.ipcc:WarmTemperate)               | ecology:SubHumid                                  | nca.ecosystem.iucn:SeasonalLowlandRiver ,
+
+
+    // ============================================================
+    // EPISODIC ARID RIVER — HARD RULE
+    // ============================================================
+    hydrology:Watercourse | #                   | hydrology:Episodic    | earth:Lowland                                     | in (nca.ecology.ipcc:SubTropical,
+                                                                                                                                nca.ecology.ipcc:WarmTemperate)               | in (ecology:Arid, ecology:SemiArid)               | nca.ecosystem.iucn:EpisodicAridRiver ,
+
+    // ============================================================
+    // LARGE LOWLAND RIVER — HARD RULE
+    // ============================================================
+    hydrology:Watercourse | im:High             | hydrology:Permanent   | earth:Lowland                                     | #                                                                                                                            | in (ecology:Humid, ecology:SubHumid, ecology:Wet) | nca.ecosystem.iucn:LargeLowlandRiver
+}};
+
+    
+model nca.ecosystem.iucn:RiverStream type of nca.ecosystem.iucn:Ecosystem named biome_f1_river_stream
+    observing
+        type of hydrology:WaterBody named waterbody_type,
+        level of (hydrology:StreamOrder of hydrology:Watershed) named watershed_hierarchy,
+        type of hydrology:WaterPermanence named water_permanence_type,
+        type of earth:ElevationZone named altitude_zone,
+        earth:Lowland type of nca.ecology.ipcc:ClimaticZone named climate_zone,
+        type of ecology:MoistureRegime named evapotranspiration
+
+    lookup (waterbody_type, watershed_hierarchy, water_permanence_type,
+            altitude_zone, climate_zone, evapotranspiration, ?)
+    into BIOME_F1_RIVER_STREAM_ECOSYSTEM_TYPES;    
+ 
+ 
+//--- BIOME F2 - Lake annotation---
+
+define BIOME_F2_LAKE_ECOSYSTEM_TYPES as {{
+    waterbody_type            | water_permanence_type | altitude_zone                                                  | climate_zone                                                                                                                                                                     | hydroform_morphology_area | dominant_source         | ecosystem_type
+    -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    // ============================================================
+    // LARGE PERMANENT FRESHWATER LAKE — HARD RULE
+    // ============================================================
+    hydrology:InlandWaterBody | hydrology:Permanent   | #                                                              | in (nca.ecology.ipcc:ColdTemperate,
+                                                                                                                                nca.ecology.ipcc:SubTropical,
+                                                                                                                                nca.ecology.ipcc:Tropical,
+                                                                                                                                nca.ecology.ipcc:WarmTemperate)                                                     | im:High                   | #                       | nca.ecosystem.iucn:LargePermanentFreshwaterLake ,
+
+    // LARGE PERMANENT FRESHWATER LAKE — SOFT FALLBACK
+    hydrology:InlandWaterBody | hydrology:Permanent   | #                                                              | #                                                                                                                                                                                | im:High                   | #                       | nca.ecosystem.iucn:LargePermanentFreshwaterLake ,
+
+
+    // ============================================================
+    // SMALL PERMANENT FRESHWATER LAKE — HARD RULE
+    // ============================================================
+    hydrology:InlandWaterBody | hydrology:Permanent   | #                                                              | in (nca.ecology.ipcc:ColdTemperate,
+                                                                                                                                nca.ecology.ipcc:SubTropical,
+                                                                                                                                nca.ecology.ipcc:Tropical,
+                                                                                                                                nca.ecology.ipcc:WarmTemperate)                                                     | in (im:Low, im:VeryLow)   | #                       | nca.ecosystem.iucn:SmallPermanentFreshwaterLake ,
+
+    // SMALL PERMANENT FRESHWATER LAKE — SOFT FALLBACK
+    hydrology:InlandWaterBody | hydrology:Permanent   | #                                                              | #                                                                                                                                                                                | in (im:Low, im:VeryLow)   | #                       | nca.ecosystem.iucn:SmallPermanentFreshwaterLake ,
+
+
+    // ============================================================
+    // SEASONAL FRESHWATER LAKE — HARD RULE
+    // ============================================================
+    hydrology:InlandWaterBody | hydrology:Seasonal    | #                                                              | in (nca.ecology.ipcc:SubTropical,
+                                                                                                                                nca.ecology.ipcc:Tropical,
+                                                                                                                                nca.ecology.ipcc:WarmTemperate)                                                     | in (im:Low, im:VeryLow)   | #                       | nca.ecosystem.iucn:SeasonalFreshwaterLake ,
+
+    // SEASONAL FRESHWATER LAKE — SOFT FALLBACK
+    hydrology:InlandWaterBody | hydrology:Seasonal    | #                                                              | #                                                                                                                                                                                | in (im:Low, im:VeryLow)   | #                       | nca.ecosystem.iucn:SeasonalFreshwaterLake ,
+
+
+    // ============================================================
+    // FREEZETHAW FRESHWATER LAKE — HARD RULE (CLIMATE)
+    // ============================================================
+    hydrology:InlandWaterBody | #                     | #                                                              | in (nca.ecology.ipcc:Boreal,
+                                                                                                                                nca.ecology.ipcc:Polar,
+                                                                                                                                nca.ecology.ipcc:SubPolar)                                                          | #                         | #                       | nca.ecosystem.iucn:FreezethawFreshwaterLake ,
+
+    // FREEZETHAW FRESHWATER LAKE — HARD RULE (ALTITUDE)
+    hydrology:InlandWaterBody | #                     | in (earth:Alpine,
+                                                                 earth:Montane,
+                                                                 earth:Nival,
+                                                                 earth:Subalpine)                                             | in (nca.ecology.ipcc:ColdTemperate,
+                                                                                                                                nca.ecology.ipcc:SubTropical,
+                                                                                                                                nca.ecology.ipcc:Tropical,
+                                                                                                                                nca.ecology.ipcc:WarmTemperate)                                                     | #                         | #                       | nca.ecosystem.iucn:FreezethawFreshwaterLake ,
+
+
+    // ============================================================
+    // EPHEMERAL FRESHWATER LAKE — HARD RULE
+    // ============================================================
+    hydrology:InlandWaterBody | hydrology:Ephemeral   | #                                                              | nca.ecology.ipcc:WarmTemperate                                                                                                                                                   | #                         | #                       | nca.ecosystem.iucn:EphemeralFreshwaterLake ,
+
+
+    // ============================================================
+    // PERMANENT SALT / SODA LAKE — HARD RULE
+    // ============================================================
+    hydrology:InlandWaterBody | hydrology:Permanent   | #                                                              | in (nca.ecology.ipcc:SubTropical,
+                                                                                                                                nca.ecology.ipcc:Tropical,
+                                                                                                                                nca.ecology.ipcc:WarmTemperate)                                                     | im:High                   | #                       | nca.ecosystem.iucn:PermanentSaltSodaLake ,
+
+
+    // ============================================================
+    // EPHEMERAL SALT LAKE — HARD RULE
+    // ============================================================
+    hydrology:InlandWaterBody | hydrology:Ephemeral   | #                                                              | in (nca.ecology.ipcc:SubTropical,
+                                                                                                                                nca.ecology.ipcc:Tropical,
+                                                                                                                                nca.ecology.ipcc:WarmTemperate)                                                     | im:High                   | #                       | nca.ecosystem.iucn:EphemeralSaltLake ,
+
+
+    // ============================================================
+    // ARTESIAN SPRING OASE — HARD RULE
+    // ============================================================
+    hydrology:InlandWaterBody | hydrology:Permanent   | #                                                              | in (nca.ecology.ipcc:SubTropical,
+                                                                                                                                nca.ecology.ipcc:Tropical,
+                                                                                                                                nca.ecology.ipcc:WarmTemperate)                                                     | #                         | hydrology:Minerotrophic | nca.ecosystem.iucn:ArtesianSpringOase ,
+
+
+    // ============================================================
+    // GEOTHERMAL POOL WETLAND — HARD RULE
+    // ============================================================
+    hydrology:InlandWaterBody | hydrology:Permanent   | #                                                              | in (nca.ecology.ipcc:Boreal,
+                                                                                                                                nca.ecology.ipcc:ColdTemperate,
+                                                                                                                                nca.ecology.ipcc:SubPolar,
+                                                                                                                                nca.ecology.ipcc:SubTropical,
+                                                                                                                                nca.ecology.ipcc:Tropical,
+                                                                                                                                nca.ecology.ipcc:WarmTemperate)                                                     | in (im:Low, im:VeryLow)   | #                       | nca.ecosystem.iucn:GeothermalPoolWetland 
+
+
+    // ============================================================
+    // SUBGLACIAL LAKE — HARD RULE
+    // ============================================================
+   //not now #                         | #                     | #                                                              | #                                                                                                                                                                                | #                         | #                       | nca.ecosystem.iucn:SubglacialLake
+}};
+
+
+ 
+ 
+model nca.ecosystem.iucn:Lake 
+    type of nca.ecosystem.iucn:Ecosystem 
+    named biome_f2_lake
+
+    observing
+        type of hydrology:WaterBody named waterbody_type,
+        type of hydrology:WaterPermanence named water_permanence_type,
+        type of earth:ElevationZone named altitude_zone,
+        earth:Lowland type of nca.ecology.ipcc:ClimaticZone named climate_zone,
+        level of (im:Minimum im:Area of earth:WaterBody) named hydroform_morphology_area optional,
+        type of hydrology:WaterSource named dominant_source
+
+    lookup (
+        waterbody_type, 
+        water_permanence_type, 
+        altitude_zone, 
+        climate_zone, 
+        hydroform_morphology_area, 
+        dominant_source, 
+        ?
+    )
+    into BIOME_F2_LAKE_ECOSYSTEM_TYPES; 

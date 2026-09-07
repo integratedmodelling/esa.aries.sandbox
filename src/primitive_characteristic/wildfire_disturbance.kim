@@ -1,39 +1,42 @@
 project private namespace primitive_characteristic.wildfire_disturbance;
 
-/* ----------------------------------------------------------------------------------------------------------------------------- 
- * # 1) Recurrence. 
- */
-//model local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__recurrence__global__2002_2024
-model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.fire_recurrence_testing'
-	as count of im:Yearly im:Occurrence of chemistry:Fire named recurrence_input;
-//	over space(shape='POLYGON ((180 -60.0003350977, 180 69.9999999937, -180 69.9999999937, -180 -60.0003350977, 180 -60.0003350977))');
 
-model level of (count of im:Yearly im:Occurrence of chemistry:Fire) named recurrence 
-observing
-	count of im:Yearly im:Occurrence of chemistry:Fire named recurrence_input
-	lookup (recurrence_input, ?) into
-	 recurrence	|	category
-	--------------------------------------------------
-	   2 to 10	|	ecology.incubation:SubDecadal	,
-	  10 to 20	|	ecology.incubation:Decadal		,
-	  20 to 100	|	ecology.incubation:MultiDecadal	,
-		  > 100	|	ecology.incubation:Centennial	;
+/*DATA NOT USED at the moment */
+///* --- wildfire_disturbances_periodicity --- */
+//// primary_observations
+//// primary_observations for wildfire_disturbances_periodicity
+//model local:justus.muhando:esa.aries.sandbox:esa_weed_temp.fire_periodicity_testing
+//	as presence of earth:Region with im:High im:Frequency of chemistry:Fire named wildfire_disturbances_periodicity
+//	lookup (self, ?) into
+//		self | category
+//		---------------
+//		#    | true ,
+//		#    | false;
 
-/* ----------------------------------------------------------------------------------------------------------------------------- 
- * # 2) Periodicity. 
- */
-//model local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__periodicity__global__2002_2024
-model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.fire_periodicity_testing'
-	as presence of earth:Region with im:High im:Frequency of chemistry:Fire named periodicity
-	set to [self == 1 ? true : false];
-//	over space(shape='POLYGON ((180 -60, 180 70, -180 70, -180 -60, 180 -60))');
+/* --- wildfire_disturbances_recurrence --- */
+// primary_observations
+// primary_observations for wildfire_disturbances_recurrence
+model local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__recurrence__global__2002_2024
+	as type of ecology.incubation:FireFrequency named wildfire_disturbances_recurrence
+	lookup (self, ?) into
+		self     | category                       
+		-------------------------------------------
+		0 to 0   | im:None ,
+		1 to 1   | ecology.incubation:Annual      ,
+		2 to 9   | ecology.incubation:SubDecadal  ,
+		10 to 19 | ecology.incubation:Decadal     ,
+		20 to 99 | ecology.incubation:MultiDecadal,
+		> 100    | ecology.incubation:Centennial  ;
 
-
-//model 'ecdc_fire_exposure'
-//model local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__disturbances_exposure_global_2019_2024
-model 'local:justus.muhando:esa.aries.sandbox:esa_weed_temp.exposure_testing'
-	 as level of (risk:HazardMetric probability of chemistry:Fire) named fire_exposure
-	 classified into
-		im:Low if 1,
-		im:Moderate if 2,
-		im:High if 4;	
+/* --- wildfire_disturbances_exposure --- */
+// primary_observations
+// primary_observations for wildfire_disturbances_exposure
+model local:alessio.bulckaen:im.data.global:ecdc__wildfiredisturbances__disturbances_exposure_global_2019_2024
+	as level of (risk:HazardMetric probability of chemistry:Fire) named wildfire_disturbances_exposure
+	lookup (self, ?) into
+		self        | category   
+		--------------------------
+		0 to 10     | im:None    ,
+		10 to 340   | im:Low     ,
+		340 to 670  | im:Moderate,
+		670 to 1000 | im:High    ;	

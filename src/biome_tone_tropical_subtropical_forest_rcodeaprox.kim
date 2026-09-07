@@ -1,0 +1,192 @@
+private namespace biome_tone_tropical_subtropical_forest_rcodeaprox
+using nca.ecosystem.iucn, nca.ecology.ipcc,
+primitive_characteristic.climate; //FLAG use of local concept
+
+//OBSERVE first 
+//canopy  area, height, LAI and winter water budget
+
+/*
+ * T1 tropical/subtropical forest lookup derived from the effective GET/GLC
+ * branches. Row order is significant: first match wins.
+ *
+ * The 22 dependencies in the previous k.LAB declaration correspond exactly
+ * to the 22 R variables surviving VARDATA filtering for GLC. climate_type is
+ * removed here because k.LAB declares it as the same ClimaticZone observable
+ * as climate_zone. T1.3's discarded cool/warm-temperate climate-type evidence
+ * is approximated with montane altitude plus cool/mild annual temperature.
+ *
+ * STRICT AVAILABLE-INPUT APPROXIMATION rows retain the woody subject and every
+ * other weight-1 effective condition representable after that consolidation.
+ * Rows with stronger soft evidence occur first. GAP-FILL PROXY rows are placed
+ * only after every strict row and remain land-cover compatible with the biome.
+ */
+
+define BIOME_T1_TROPICAL_SUBTROPICAL_FOREST_ECOSYSTEM_TYPES as {{
+  altitude_zone | climate_zone | evapotranspiration | landcover | chemical_properties_base_saturation | chemical_properties_ph_status | annual_net_primary_productivity_total | annual_precipitation_total | canopy_height | canopy_cover | leaf_area_index | phenology | specific_leaf_area | leaf_size | annual_water_budget_total | annual_diurnal_air_temperature_mean | tropical_storms_exposure | exposure | winter_water_budget_total | seasonal_diurnal_air_temperature_variability | chemical_properties_nitrogen | ecosystem_type
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  // ========================================================================
+  // STRICT AVAILABLE-INPUT APPROXIMATION — R mapping order T1.1 to T1.4
+  // ========================================================================
+
+  // T1.1 — all available hard rules plus all four weight-0.9 soft signals.
+  earth:Lowland | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | in (ecology:Wet, ecology:Humid) | in (landcover:Forest, landcover:Shrubland) | # | # | im:High | # | # | ecology:Dense | in (im:High, im:VeryHigh) | ecology:Evergreen | in (im:ModeratelyHigh, im:High) | in (ecology:Notophyll, ecology:Mesophyll, ecology:Macrophyll) | in (im:ModeratelyHigh, im:High) | ecology.incubation:Warm | true | # | # | # | # | nca.ecosystem.iucn:TropicalSubtropicalLowlandRainforest ,
+
+  // T1.1 — tropical storms are soft and may be missing or absent.
+  earth:Lowland | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | in (ecology:Wet, ecology:Humid) | in (landcover:Forest, landcover:Shrubland) | # | # | im:High | # | # | ecology:Dense | in (im:High, im:VeryHigh) | ecology:Evergreen | in (im:ModeratelyHigh, im:High) | in (ecology:Notophyll, ecology:Mesophyll, ecology:Macrophyll) | in (im:ModeratelyHigh, im:High) | ecology.incubation:Warm | # | # | # | # | # | nca.ecosystem.iucn:TropicalSubtropicalLowlandRainforest ,
+
+  // T1.1 — hard-core eligibility; vegetation traits and storm exposure are soft.
+  earth:Lowland | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | in (ecology:Wet, ecology:Humid) | in (landcover:Forest, landcover:Shrubland) | # | # | im:High | # | # | ecology:Dense | # | ecology:Evergreen | # | # | in (im:ModeratelyHigh, im:High) | ecology.incubation:Warm | # | # | # | # | # | nca.ecosystem.iucn:TropicalSubtropicalLowlandRainforest ,
+
+  // T1.2 — deciduous branch with both weight-0.9 soil and LAI evidence.
+  # | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | # | in (landcover:Forest, landcover:Shrubland) | in (im:Moderate, im:High) | # | # | # | # | ecology:Dense | in (im:High, im:VeryHigh) | ecology:Deciduous | # | # | in (im:ModeratelyLow, im:Moderate, im:ModeratelyHigh) | # | # | in (im:Low, im:Moderate, im:High) | im:Low | # | # | nca.ecosystem.iucn:TropicalSubtropicalDryForestThicket ,
+
+  // T1.2 — evergreen provides weight-0.6 support in the second R branch.
+  # | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | # | in (landcover:Forest, landcover:Shrubland) | in (im:Moderate, im:High) | # | # | # | # | ecology:Dense | in (im:High, im:VeryHigh) | ecology:Evergreen | # | # | in (im:ModeratelyLow, im:Moderate, im:ModeratelyHigh) | # | # | in (im:Low, im:Moderate, im:High) | im:Low | # | # | nca.ecosystem.iucn:TropicalSubtropicalDryForestThicket ,
+
+  // T1.2 — phenology is relaxed through the evergreen soft-rule branch.
+  # | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | # | in (landcover:Forest, landcover:Shrubland) | in (im:Moderate, im:High) | # | # | # | # | ecology:Dense | in (im:High, im:VeryHigh) | # | # | # | in (im:ModeratelyLow, im:Moderate, im:ModeratelyHigh) | # | # | in (im:Low, im:Moderate, im:High) | im:Low | # | # | nca.ecosystem.iucn:TropicalSubtropicalDryForestThicket ,
+
+  // T1.2 — hard-core eligibility; base saturation and LAI are weight 0.9.
+  # | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | # | in (landcover:Forest, landcover:Shrubland) | # | # | # | # | # | ecology:Dense | # | # | # | # | in (im:ModeratelyLow, im:Moderate, im:ModeratelyHigh) | # | # | in (im:Low, im:Moderate, im:High) | im:Low | # | # | nca.ecosystem.iucn:TropicalSubtropicalDryForestThicket ,
+
+  // T1.3 — all retained hard rules plus the three weight-0.9 vegetation traits.
+  earth:Montane | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | in (ecology:Wet, ecology:Humid) | in (landcover:Forest, landcover:Shrubland) | # | # | im:Moderate | # | im:Moderate | ecology:Dense | # | ecology:Evergreen | im:ModeratelyHigh | in (ecology:Microphyll, ecology:Notophyll) | # | in (ecology.incubation:Cool, ecology.incubation:Mild) | # | # | # | in (im:Low, im:Moderate) | # | nca.ecosystem.iucn:TropicalSubtropicalMontaneRainforest ,
+
+  // T1.3 — hard-core eligibility after relaxing the soft vegetation traits.
+  earth:Montane | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | in (ecology:Wet, ecology:Humid) | in (landcover:Forest, landcover:Shrubland) | # | # | im:Moderate | # | # | ecology:Dense | # | ecology:Evergreen | # | # | # | in (ecology.incubation:Cool, ecology.incubation:Mild) | # | # | # | in (im:Low, im:Moderate) | # | nca.ecosystem.iucn:TropicalSubtropicalMontaneRainforest ,
+
+  // T1.4 — all hard soil/climate/vegetation rules plus all soft evidence.
+  earth:Lowland | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | in (ecology:Wet, ecology:Humid) | in (landcover:Forest, landcover:Shrubland) | in (im:VeryLow, im:Low) | in (chemistry:HighlyAcidic, chemistry:Acidic) | im:Low | in (im:High, im:VeryHigh) | im:Moderate | in (ecology:Open, ecology:Dense) | in (im:Moderate, im:High, im:VeryHigh) | ecology:Evergreen | # | in (ecology:Microphyll, ecology:Notophyll) | in (im:ModeratelyHigh, im:High) | # | # | # | # | # | in (im:Low, im:Moderate) | nca.ecosystem.iucn:TropicalHeathForest ,
+
+  // T1.4 — NPP has weight 0.6; the other retained traits have weight 0.9.
+  earth:Lowland | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | in (ecology:Wet, ecology:Humid) | in (landcover:Forest, landcover:Shrubland) | in (im:VeryLow, im:Low) | in (chemistry:HighlyAcidic, chemistry:Acidic) | # | in (im:High, im:VeryHigh) | im:Moderate | in (ecology:Open, ecology:Dense) | in (im:Moderate, im:High, im:VeryHigh) | ecology:Evergreen | # | in (ecology:Microphyll, ecology:Notophyll) | in (im:ModeratelyHigh, im:High) | # | # | # | # | # | in (im:Low, im:Moderate) | nca.ecosystem.iucn:TropicalHeathForest ,
+
+  // T1.4 — hard-core eligibility; NPP, height, LAI and leaf size are soft.
+  earth:Lowland | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | in (ecology:Wet, ecology:Humid) | in (landcover:Forest, landcover:Shrubland) | in (im:VeryLow, im:Low) | in (chemistry:HighlyAcidic, chemistry:Acidic) | # | in (im:High, im:VeryHigh) | # | in (ecology:Open, ecology:Dense) | # | ecology:Evergreen | # | # | in (im:ModeratelyHigh, im:High) | # | # | # | # | # | in (im:Low, im:Moderate) | nca.ecosystem.iucn:TropicalHeathForest ,
+
+  // ========================================================================
+  // GAP-FILL PROXY — only reached when no strict row above matches
+  // ========================================================================
+
+  // T1.4 — strong soil signature; relax altitude, canopy and phenology rules.
+  # | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | in (ecology:Wet, ecology:Humid) | in (landcover:Forest, landcover:Shrubland) | in (im:VeryLow, im:Low) | in (chemistry:HighlyAcidic, chemistry:Acidic) | im:Low | in (im:High, im:VeryHigh) | # | # | # | # | # | in (ecology:Microphyll, ecology:Notophyll) | in (im:ModeratelyHigh, im:High) | # | # | # | # | # | in (im:Low, im:Moderate) | nca.ecosystem.iucn:TropicalHeathForest ,
+
+  // T1.3 — retain montane, wet tropical climate and temperature/productivity evidence.
+  earth:Montane | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | in (ecology:Wet, ecology:Humid) | in (landcover:Forest, landcover:Shrubland) | # | # | im:Moderate | # | # | # | # | # | im:ModeratelyHigh | in (ecology:Microphyll, ecology:Notophyll) | # | in (ecology.incubation:Cool, ecology.incubation:Mild) | # | # | # | in (im:Low, im:Moderate) | # | nca.ecosystem.iucn:TropicalSubtropicalMontaneRainforest ,
+
+  // T1.1 — retain the lowland wet-climate/productivity signature.
+  earth:Lowland | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | in (ecology:Wet, ecology:Humid) | in (landcover:Forest, landcover:Shrubland) | # | # | im:High | # | # | # | in (im:High, im:VeryHigh) | # | in (im:ModeratelyHigh, im:High) | in (ecology:Notophyll, ecology:Mesophyll, ecology:Macrophyll) | in (im:ModeratelyHigh, im:High) | ecology.incubation:Warm | # | # | # | # | # | nca.ecosystem.iucn:TropicalSubtropicalLowlandRainforest ,
+
+  // T1.2 — retain dry-season water balance and fire exposure.
+  # | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | # | in (landcover:Forest, landcover:Shrubland) | in (im:Moderate, im:High) | # | # | # | # | # | in (im:High, im:VeryHigh) | in (ecology:Deciduous, ecology:Evergreen) | # | # | in (im:ModeratelyLow, im:Moderate, im:ModeratelyHigh) | # | # | in (im:Low, im:Moderate, im:High) | im:Low | # | # | nca.ecosystem.iucn:TropicalSubtropicalDryForestThicket ,
+
+  // Lower-confidence woody-subject proxies.
+  earth:Lowland | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | in (ecology:Wet, ecology:Humid) | in (landcover:Forest, landcover:Shrubland) | in (im:VeryLow, im:Low) | in (chemistry:HighlyAcidic, chemistry:Acidic) | # | in (im:High, im:VeryHigh) | # | # | # | ecology:Evergreen | # | # | # | # | # | # | # | # | in (im:Low, im:Moderate) | nca.ecosystem.iucn:TropicalHeathForest ,
+  earth:Montane | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | in (ecology:Wet, ecology:Humid) | in (landcover:Forest, landcover:Shrubland) | # | # | # | # | # | # | # | # | # | # | # | in (ecology.incubation:Cool, ecology.incubation:Mild) | # | # | # | # | # | nca.ecosystem.iucn:TropicalSubtropicalMontaneRainforest ,
+  earth:Lowland | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | in (ecology:Wet, ecology:Humid) | in (landcover:Forest, landcover:Shrubland) | # | # | im:High | # | # | # | # | ecology:Evergreen | # | # | in (im:ModeratelyHigh, im:High) | ecology.incubation:Warm | # | # | # | # | # | nca.ecosystem.iucn:TropicalSubtropicalLowlandRainforest ,
+  # | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | # | in (landcover:Forest, landcover:Shrubland) | # | # | # | # | # | # | # | # | # | # | in (im:ModeratelyLow, im:Moderate, im:ModeratelyHigh) | # | # | in (im:Low, im:Moderate, im:High) | im:Low | # | # | nca.ecosystem.iucn:TropicalSubtropicalDryForestThicket ,
+
+  // Final broader subject proxies corresponding to the R global gap fill.
+  earth:Lowland | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | in (ecology:Wet, ecology:Humid) | in (landcover:Forest, landcover:Shrubland, landcover:LichenMoss, landcover:BareArea) | in (im:VeryLow, im:Low) | in (chemistry:HighlyAcidic, chemistry:Acidic) | # | # | # | # | # | # | # | # | # | # | # | # | # | # | # | nca.ecosystem.iucn:TropicalHeathForest ,
+  earth:Montane | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | in (ecology:Wet, ecology:Humid) | in (landcover:Forest, landcover:Shrubland, landcover:LichenMoss, landcover:BareArea) | # | # | # | # | # | # | # | # | # | # | # | in (ecology.incubation:Cool, ecology.incubation:Mild) | # | # | # | # | # | nca.ecosystem.iucn:TropicalSubtropicalMontaneRainforest ,
+  earth:Lowland | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | in (ecology:Wet, ecology:Humid) | in (landcover:Forest, landcover:Shrubland, landcover:LichenMoss, landcover:BareArea) | # | # | # | # | # | # | # | # | # | # | in (im:ModeratelyHigh, im:High) | ecology.incubation:Warm | # | # | # | # | # | nca.ecosystem.iucn:TropicalSubtropicalLowlandRainforest ,
+  # | in (nca.ecology.ipcc:SubTropical, nca.ecology.ipcc:Tropical) | # | in (landcover:Forest, landcover:Shrubland, landcover:LichenMoss, landcover:BareArea) | # | # | # | # | # | # | # | # | # | # | # | # | # | # | im:Low | # | # | nca.ecosystem.iucn:TropicalSubtropicalDryForestThicket
+}};
+
+
+//--- BIOME T1 - TropicalSubtropicalForest annotation---
+model nca.ecosystem.iucn:TropicalSubtropicalForest
+    type of nca.ecosystem.iucn:Ecosystem
+    named biome_t1_tropical_subtropical_forest
+
+    observing
+        type of earth:ElevationZone
+            named altitude_zone,
+
+        type of nca.ecology.ipcc:ClimaticZone
+            named climate_zone,
+
+        type of ecology:MoistureRegime
+            named evapotranspiration,
+
+        landcover:LandCoverType
+            named landcover,
+
+        level of (chemistry:Basic chemistry:ExchangeCapacity of chemistry:Cation)
+            named chemical_properties_base_saturation,
+
+        level of chemistry:Ph
+            named chemical_properties_ph_status,
+
+        level of ecology:NetPrimaryProduction
+            named annual_net_primary_productivity_total,
+
+        level of im:Yearly earth:PrecipitationVolume
+            named annual_precipitation_total,
+
+        level of (im:Mean im:Height of ecology:Canopy)
+            named canopy_height,
+
+        level of ecology:CanopyCover
+            named canopy_cover,
+
+        level of ecology:LeafAreaIndex
+            named leaf_area_index,
+
+        type of ecology:LeafPhenology
+            named phenology,
+
+        level of (ratio of im:Area to earth:Dry im:Mass of biology:Leaf)
+            named specific_leaf_area,
+
+        level of (physical.incubation:Shadow im:Area of biology:Leaf)
+            named leaf_size,
+
+        level of (im:Yearly hydrology:WaterVolume caused by hydrology:WaterBalance)
+            named annual_water_budget_total,
+
+        level of im:Daily im:Mean earth:AtmosphericTemperature during im:Year
+            named annual_diurnal_air_temperature_mean,
+
+        presence of ecology:Tropical earth:Region
+            with im:Mean im:Maximum earth:WindSpeed of earth:Storm
+            named tropical_storms_exposure,
+
+        level of (risk:HazardMetric probability of chemistry:Fire)
+            named exposure,
+
+        level of (hydrology:WaterVolume caused by hydrology:WaterBalance during earth:Winter)
+            named winter_water_budget_total,
+
+        level of im:Mean im:Changed primitive_characteristic.climate:SeasonalAmplitude earth:AtmosphericTemperature
+            named seasonal_diurnal_air_temperature_variability,
+
+        level of (proportion of chemistry:Nitrogen in soil:Soil)
+            named chemical_properties_nitrogen
+
+    lookup (
+        altitude_zone,
+        climate_zone,
+        evapotranspiration,
+        landcover,
+        chemical_properties_base_saturation,
+        chemical_properties_ph_status,
+        annual_net_primary_productivity_total,
+        annual_precipitation_total,
+        canopy_height,
+        canopy_cover,
+        leaf_area_index,
+        phenology,
+        specific_leaf_area,
+        leaf_size,
+        annual_water_budget_total,
+        annual_diurnal_air_temperature_mean,
+        tropical_storms_exposure,
+        exposure,
+        winter_water_budget_total,
+        seasonal_diurnal_air_temperature_variability,
+        chemical_properties_nitrogen,
+        ?
+    )
+    into BIOME_T1_TROPICAL_SUBTROPICAL_FOREST_ECOSYSTEM_TYPES;
