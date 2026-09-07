@@ -8,7 +8,8 @@ worldview im;
     "primitive_characteristic.small_areas_for_testing.rule_based_external"
     "esa.aries.ecosystem.naturalness.ecosystem_naturalness"
     "esa.aries.ecosystem.naturalness.ecosystem_naturalness_separate_table"
-    "esa.aries.ecosystem.naturalness.natural_ecosystem_extent_iucn_get"),
+    "esa.aries.ecosystem.naturalness.natural_ecosystem_extent_iucn_get_static"
+    "esa.aries.ecosystem.naturalness.natural_ecosystem_extent_iucn_get_dynamic"),
     // add assertions to check the observations after execution
     assertions = ()
 )
@@ -17,6 +18,6 @@ observe /* a:urn:to:use#objectid as */ earth:Region named indicator_a_two
 	over space(
 		urn='local:rubencc:esa.aries.sandbox:esa_weed_czechrepublic_rb_testing_polygons#fid_id=1',
 		grid="30 m"),
-	time(year=2021);
+	time(start=2021, end=2022, step=1.year);
 
 // add any models here

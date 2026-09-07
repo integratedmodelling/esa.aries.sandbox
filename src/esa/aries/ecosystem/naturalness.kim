@@ -461,11 +461,30 @@ observing
 	into IUCN_GET_NATURALNESS;
 
 
-define table natural_ecosystem_extent_iucn_get as {
+define table natural_ecosystem_extent_iucn_get_static as {
+	title: "Natural Ecosystem Extent"
+	label: "Extent of natural ecosystems by IUCN GET (km²)"
 	target: nca.ecosystem.naturalness:NaturalnessLevel
-	columns:({ title:  "{classifier}", target: im:Area in km^2, filter: nca.ecosystem.iucn:EcosystemType}
+	columns:({ title:  "{classifier}", target: im:Area in km^2, filter: nca.ecosystem.naturalness:NaturalnessLevel}
 			 {title: "Total", summarize: sum, style: bold}),
-	rows:   ({ title: "Area {start} (km²)" })};
+	rows:   ({ title: "Area in {start} (km²)" })};
+
+@var(timespan=(start end))
+define table natural_ecosystem_extent_iucn_get_dynamic as {
+	title: "Natural Ecosystem Extent"
+	label: "Extent of natural ecosystems by IUCN GET (km²)"
+	target: nca.ecosystem.naturalness:NaturalnessLevel
+	when: end
+	use: tables.compiler.summarize(
+		contabilize-nulls = true, 
+		rowsummary = { filter: "change", title: "Net change", style: bold }, 
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: nca.ecosystem.naturalness:NaturalnessLevel }, 
+		report = 'area', 
+		empty = '', 
+		no-data = ''
+	)
+};
 
 //model nca.ecosystem.iucn:EcosystemType im:nca.ecosystem.naturalness:Natural im:Level
 model nca.ecosystem.naturalness:NaturalnessLevel named ecosystem_naturalness 
