@@ -1,0 +1,22 @@
+worldview im;
+
+@test(
+    name = "indicator_a_two",
+    description  = "",
+    // add to the list any concepts to be observed in the context below
+    observations = (
+    "primitive_characteristic.small_areas_for_testing.rule_based_external"
+    "esa.aries.ecosystem.naturalness.ecosystem_naturalness"
+    "esa.aries.ecosystem.naturalness.ecosystem_naturalness_separate_table"
+    "esa.aries.ecosystem.naturalness.natural_ecosystem_extent_iucn_get"),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named indicator_a_two
+	over space(
+		urn='local:rubencc:esa.aries.sandbox:esa_weed_czechrepublic_rb_testing_polygons#fid_id=1',
+		grid="30 m"),
+	time(year=2021);
+
+// add any models here

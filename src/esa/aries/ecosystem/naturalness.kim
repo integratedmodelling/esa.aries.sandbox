@@ -448,29 +448,40 @@ define ECOSYSTEM_NATURALNESS as {{
   nca.ecosystem.eunis:PeriodicallyExposedSalineShorePioneerEphemeralVegetation                             | nca.ecosystem.iucn:SeasonalFloodplainMarsh                 | nca.ecosystem.naturalness:Natural      
 }};
 
-//model nca.ecosystem.iucn:EcosystemType im:nca.ecosystem.naturalness:Natural im:Level
-model nca.ecosystem.naturalness:NaturalnessLevel named ecosystem_naturalness 
-observing
-	nca.ecosystem.iucn:EcosystemType named iucn
-	lookup (iucn)
-	into IUCN_GET_NATURALNESS;
-	
 model nca.ecosystem.naturalness:NaturalnessLevel named ecosystem_naturalness 	
 observing
 	nca.ecosystem.iucn:EcosystemType named iucn
 	lookup (* , iucn , ? )
 	into ECOSYSTEM_NATURALNESS;
 
-define table natural_ecosystem_extent as {
-	target: nca.ecosystem.iucn:EcosystemType
+model im:Potential nca.ecosystem.naturalness:NaturalnessLevel named ecosystem_naturalness_separate_table 	
+observing
+	nca.ecosystem.iucn:EcosystemType named iucn
+	lookup (iucn, ?)
+	into IUCN_GET_NATURALNESS;
+
+
+define table natural_ecosystem_extent_iucn_get as {
+	target: nca.ecosystem.naturalness:NaturalnessLevel
 	columns:({ title:  "{classifier}", target: im:Area in km^2, filter: nca.ecosystem.iucn:EcosystemType}
 			 {title: "Total", summarize: sum, style: bold}),
 	rows:   ({ title: "Area {start} (km²)" })};
 
-//model es.nca:EcosystemType im:nca.ecosystem.naturalness:Natural im:Level 
-//model nca.ecosystem.eunis:Ecosystem nca.ecosystem.naturalness:NaturlanessLevel named eunis_ecossytem_naturalness 
+//model nca.ecosystem.iucn:EcosystemType im:nca.ecosystem.naturalness:Natural im:Level
+model nca.ecosystem.naturalness:NaturalnessLevel named ecosystem_naturalness 
+observing
+	nca.ecosystem.eunis:EcosystemType named eunis
+	lookup (eunis , * , ?)
+	into ECOSYSTEM_NATURALNESS;
+
 model nca.ecosystem.naturalness:NaturalnessLevel named eunis_ecosystem_naturalness 
 observing
 	nca.ecosystem.eunis:EcosystemType named eunis
 	lookup (eunis,*, ?)
-	into ECOSYSTEM_NATURALNESS;  
+	into ECOSYSTEM_NATURALNESS; 
+
+define table natural_ecosystem_extent_eunis as {
+	target: nca.ecosystem.eunis:EcosystemType
+	columns:({ title:  "{classifier}", target: im:Area in km^2, filter: nca.ecosystem.eunis:EcosystemType}
+			 {title: "Total", summarize: sum, style: bold}),
+	rows:   ({ title: "Area {start} (km²)" })}; 
