@@ -1,4 +1,5 @@
-worldview im;
+worldview im
+using (ECOSYSTEM_NATURALNESS) from esa.aries.ecosystem.naturalness;
 
 @test(
     name = "indicator_a_two",
@@ -6,10 +7,11 @@ worldview im;
     // add to the list any concepts to be observed in the context below
     observations = (
     "primitive_characteristic.small_areas_for_testing.rule_based_external"
-    "esa.aries.ecosystem.naturalness.ecosystem_naturalness"
-    "esa.aries.ecosystem.naturalness.ecosystem_naturalness_separate_table"
+    "esa.aries.ecosystem.naturalness.natural_ecosystem_extent"
+    "im|esa.aries.sandbox/tests/indicator_a_two.natural_ecosystem_extent_using_ecosystem_naturalness_table"
     "esa.aries.ecosystem.naturalness.natural_ecosystem_extent_iucn_get_static"
-    "esa.aries.ecosystem.naturalness.natural_ecosystem_extent_iucn_get_dynamic"),
+//    "esa.aries.ecosystem.naturalness.natural_ecosystem_extent_iucn_get_dynamic"
+    ),
     // add assertions to check the observations after execution
     assertions = ()
 )
@@ -20,4 +22,9 @@ observe /* a:urn:to:use#objectid as */ earth:Region named indicator_a_two
 		grid="30 m"),
 	time(start=2021, end=2022, step=1.year);
 
-// add any models here
+//TODO: some values are missing in the ECOSYSTEM_NATURALNESS table for some EFGs, don't use this model for IUCN GET
+model im:Possible nca.ecosystem.naturalness:NaturalnessLevel named natural_ecosystem_extent_using_ecosystem_naturalness_table 	
+observing
+	nca.ecosystem.iucn:EcosystemType named iucn
+	lookup (* , iucn , ? )
+	into ECOSYSTEM_NATURALNESS;

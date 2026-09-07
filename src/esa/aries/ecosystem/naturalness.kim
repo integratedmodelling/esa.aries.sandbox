@@ -448,13 +448,15 @@ define ECOSYSTEM_NATURALNESS as {{
   nca.ecosystem.eunis:PeriodicallyExposedSalineShorePioneerEphemeralVegetation                             | nca.ecosystem.iucn:SeasonalFloodplainMarsh                 | nca.ecosystem.naturalness:Natural      
 }};
 
-model nca.ecosystem.naturalness:NaturalnessLevel named ecosystem_naturalness 	
-observing
-	nca.ecosystem.iucn:EcosystemType named iucn
-	lookup (* , iucn , ? )
-	into ECOSYSTEM_NATURALNESS;
 
-model im:Potential nca.ecosystem.naturalness:NaturalnessLevel named ecosystem_naturalness_separate_table 	
+//TODO: some values are missing in the ECOSYSTEM_NATURALNESS table for some EFGs, don't use this model for IUCN GET
+//model nca.ecosystem.naturalness:NaturalnessLevel named ecosystem_naturalness 	
+//observing
+//	nca.ecosystem.iucn:EcosystemType named iucn
+//	lookup (* , iucn , ? )
+//	into ECOSYSTEM_NATURALNESS;
+
+model nca.ecosystem.naturalness:NaturalnessLevel named natural_ecosystem_extent 	
 observing
 	nca.ecosystem.iucn:EcosystemType named iucn
 	lookup (iucn, ?)
@@ -486,14 +488,7 @@ define table natural_ecosystem_extent_iucn_get_dynamic as {
 	)
 };
 
-//model nca.ecosystem.iucn:EcosystemType im:nca.ecosystem.naturalness:Natural im:Level
-model nca.ecosystem.naturalness:NaturalnessLevel named ecosystem_naturalness 
-observing
-	nca.ecosystem.eunis:EcosystemType named eunis
-	lookup (eunis , * , ?)
-	into ECOSYSTEM_NATURALNESS;
-
-model nca.ecosystem.naturalness:NaturalnessLevel named eunis_ecosystem_naturalness 
+model nca.ecosystem.naturalness:NaturalnessLevel named eunis_natural_ecosystem_extent
 observing
 	nca.ecosystem.eunis:EcosystemType named eunis
 	lookup (eunis,*, ?)
