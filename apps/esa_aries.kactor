@@ -41,7 +41,7 @@ action main:
 						submit(ml.ecosystem_type.inference.ecdc_level3_mece)
 					)
 					checkbutton("Rule-based (local model) results" #rb_local :tooltip "Rule-based (local model) results"): (
-						submit(rule_based_modelling.colombia.ecosystem_type_colombia_new) : submit(colombia.seea.ecosystem.mec.mec)
+						submit(rule_based_modelling.colombia.ecosystem_type_colombia_new) : submit(colombia.seea.ecosystem.mec.mec_new)
 					)
 					checkbutton("Rule-based (global model) results" #rb :tooltip "Rule-based (global model) results"): (
 						submit(primitive_characteristic.ecosystem_function.ecosystem_function_annual_net_primary_productivity_total) : submit(primitive_characteristic.climate.climate_annual_precipitation_total) : submit(primitive_characteristic.land_cover.land_cover_dominance) : submit(primitive_characteristic.coastal.coastal_salt_exposure) : submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based)
