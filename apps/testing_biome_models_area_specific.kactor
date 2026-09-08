@@ -48,10 +48,10 @@ set colombia_testing_area_1 (
 	primitive_characteristic.geomorphology.geomorphology_floodplain
 	primitive_characteristic.soil.soil_peat_thickness
 	
-	primitive_characteristic.ecosystem_typology.iucn.biome_t1_tropical_subtropical_forest
-	primitive_characteristic.ecosystem_typology.iucn.biome_fm1_semiconfined_transitional_water
-	primitive_characteristic.ecosystem_typology.iucn.biome_mft1_brackish_tidal
-	primitive_characteristic.ecosystem_typology.iucn.biome_tf1_palustrine_wetland
+	//primitive_characteristic.ecosystem_typology.iucn.biome_t1_tropical_subtropical_forest
+	//primitive_characteristic.ecosystem_typology.iucn.biome_fm1_semiconfined_transitional_water
+	//primitive_characteristic.ecosystem_typology.iucn.biome_mft1_brackish_tidal
+	biome_tfone_palustrine_wetland_rcodeaprox.biome_tf1_palustrine_wetland
 	
 	
 	primitive_characteristic.small_areas_for_testing.mapped_ecosystem_type_colombia_testing_area_1
@@ -1441,8 +1441,8 @@ set vietnam_testing_area_4 (
 )
 
 set country_urns (
-	"local:rubencc:esa.aries.sandbox:esa_weed_greece_rb_testing_polygons"
-//	"local:rubencc:esa.aries.sandbox:esa_weed_colombia_rb_testing_polygons"
+//	"local:rubencc:esa.aries.sandbox:esa_weed_greece_rb_testing_polygons"
+	"local:rubencc:esa.aries.sandbox:esa_weed_colombia_rb_testing_polygons"
 //	"local:rubencc:esa.aries.sandbox:esa_weed_southafrica_rb_testing_polygons"
 //	"local:rubencc:esa.aries.sandbox:esa_weed_vietnam_rb_testing_polygons"
 //	"local:rubencc:esa.aries.sandbox:esa_weed_norway_rb_testing_polygons"
@@ -1471,7 +1471,7 @@ for year in (2021) (
             set current_observables ()
             
             // FLAT IF STATEMENTS FOR AREA
-//            if [current_country == "COL" && current_fid == "1"] ( set current_observables colombia_testing_area_1 )
+            if [current_country == "COL" && current_fid == "1"] ( set current_observables colombia_testing_area_1 )
 //            if [current_country == "COL" && current_fid == "2"] ( set current_observables colombia_testing_area_2 )
 //            if [current_country == "COL" && current_fid == "3"] ( set current_observables colombia_testing_area_3 )
 //            if [current_country == "COL" && current_fid == "4"] ( set current_observables colombia_testing_area_4 )
@@ -1480,7 +1480,7 @@ for year in (2021) (
 //            if [current_country == "CZE" && current_fid == "2"] ( set current_observables czechrepublic_testing_area_2 )
 //            if [current_country == "CZE" && current_fid == "3"] ( set current_observables czechrepublic_testing_area_3 )
 //            if [current_country == "CZE" && current_fid == "4"] ( set current_observables czechrepublic_testing_area_4 )
-            if [current_country == "GRC" && current_fid == "1"] ( set current_observables greece_testing_area_1 )
+//            if [current_country == "GRC" && current_fid == "1"] ( set current_observables greece_testing_area_1 )
 //            if [current_country == "GRC" && current_fid == "2"] ( set current_observables greece_testing_area_2 )
 //            if [current_country == "GRC" && current_fid == "3"] ( set current_observables greece_testing_area_3 )
 //            if [current_country == "GRC" && current_fid == "4"] ( set current_observables greece_testing_area_4 )
@@ -1501,7 +1501,8 @@ for year in (2021) (
             if [!current_observables.isEmpty()] (
 				
                 context(polygon,resolution,Time(year=year))
-					
+				set actual_current_fid current_fid
+				set actual_current_country current_country
                 for urn in current_observables (
 					submit(urn): (
 						WAITING -> ()
@@ -1522,8 +1523,8 @@ for year in (2021) (
 						    if [observation.isEmpty()] (
 							    warning(["Observation " + urn_name + " is empty"])
 						    ) else (
-							    observation.export([output_folder_directory + "/" + year + "/" + current_country + "/Area_" + polygon.fid_id + "/" + current_country + "_" + polygon.fid_id + "__" + urn_name + "__" + year + ".tiff"])						
-							    info(["Exporting urn " + urn_name + " for " + current_country + " Area " + polygon.fid_id])
+							    observation.export([output_folder_directory + "/" + year + "/" + actual_current_country + "/Area_" + actual_current_fid + "/" + actual_current_country + "_" + actual_current_fid + "__" + urn_name + "__" + year + ".tiff"])						
+							    info(["Exporting urn " + urn_name + " for " + actual_current_country + " Area " + actual_current_fid])
 							)
 						)
 					)
