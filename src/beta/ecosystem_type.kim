@@ -1,5 +1,5 @@
 private namespace beta.ecosystem_type
-using nca.ecosystem.eunis, nca.ecosystem.iucn;
+using nca.ecosystem.eunis, nca.ecosystem.iucn, nca.ecosystem.naturalness, (IUCN_GET_NATURALNESS) from esa.aries.ecosystem.naturalness;
 
 abstract attribute ModelApproach
 	has children
@@ -651,7 +651,7 @@ model 'local:alessio.bulckaen:esa.aries.sandbox:WEED_STAC_catalogue__EU_modelV2-
 ;
 
 model 'local:justus.muhando:esa.aries.sandbox:EFG_class_2021'
-	as RuleBased type of nca.ecosystem.iucn:Ecosystem named ecosystem_type_iucn_get_level3_rule_based
+	as RuleBased nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get_level3_rule_based
 	classified into //according to
 		nca.ecosystem.iucn:Freshwater if 60000,
 			nca.ecosystem.iucn:RiverStream if 60100,
@@ -797,6 +797,12 @@ model 'local:justus.muhando:esa.aries.sandbox:EFG_class_2021'
 				nca.ecosystem.iucn:EpisodicAridFloodplain if 50105,
 				nca.ecosystem.iucn:BorealCoolTemperatePalustrineWetland if 50106,
 				nca.ecosystem.iucn:BorealTemperateMontanePeatBog if 50107;
+
+model beta.ecosystem_type:RuleBased nca.ecosystem.naturalness:NaturalnessLevel named natural_ecosystem_extent 	
+observing
+	beta.ecosystem_type:RuleBased nca.ecosystem.iucn:EcosystemType named iucn
+	lookup (iucn, ?)
+	into IUCN_GET_NATURALNESS;
 
 //model 'URN'
 //	as HybridModelling type of nca.ecosystem.iucn:Ecosystem named ecosystem_type_iucn_get_level3_hybrid_modelling;
