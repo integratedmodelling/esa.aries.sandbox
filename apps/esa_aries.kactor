@@ -59,7 +59,7 @@ action main:
 						submit(beta.ecosystem_type.ecosystem_type_inference_eunis_level3_machine_learning)
 					)
 					checkbutton("Rule-based results" #rb :tooltip "Rule-based results"): (
-						submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based)
+						submit(primitive_characteristic.anthropogenic.anthropogenic_land_use) : submit(primitive_characteristic.climate.climate_climate_zone) : submit(primitive_characteristic.land_cover.land_cover_dominance) : submit(primitive_characteristic.surface_water.surface_water_hydroform) : submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based)
 					)
 					checkbutton("Hybrid modelling" #hybrid :tooltip "Hybrid modelling" :disabled): (
 						submit()
