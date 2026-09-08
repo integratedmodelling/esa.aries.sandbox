@@ -20,14 +20,14 @@ action main:
 		(
 			checkbutton("Colombian test area" #cotest1): (
 				disable_ctxs("primitive_characteristic.small_areas_for_testing.test_rb_colombia_30m_polygon_1","Colombian test area")
-				activate_observations
+				activate_noneu
 			)
 		) :name "Non-european test areas" #noneu_contexts
 		(
 			
 			checkbutton("Czech Republic test area" #cztest2): (
 				disable_ctxs("primitive_characteristic.small_areas_for_testing.test_rb_czechrepublic_30m_testing_area_2","Czech Republic test area")
-				activate_observations
+				activate_eu
 			)					
 		) :name "European test areas" #eu_contexts
 	) :shelf #contexts
@@ -41,19 +41,31 @@ action main:
 						submit(ml.ecosystem_type.inference.ecdc_level3_mece)
 					)
 					checkbutton("Rule-based results" #rb :tooltip "Rule-based results"): (
-						submit(rule_based_modelling.colombia.ecosystem_type_colombia_new)
+						submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based)
 					)
 					checkbutton("Hybrid modelling" #hybrid :tooltip "Hybrid modelling"): (
 						submit(rule_based_modelling.colombia.ecosystem_type_iucn_get_new)
 					)
 					checkbutton("A2 naturalness indicator" #a2 :tooltip "A2 naturalness indicator"): (
 						submit(esa.aries.ecosystem.naturalness.eunis_ecosystem_naturalness)
+					)					
+				) :hidden #noneu_obs
+				(
+					checkbutton("Machine Learning results" #ml :tooltip "Machine Learning results"): (
+						submit(beta.ecosystem_type.ecosystem_type_inference_eunis_level3_machine_learning)
 					)
-					
-					
-				) :hidden #et_obs
+					checkbutton("Rule-based results" #rb :tooltip "Rule-based results"): (
+						submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based)
+					)
+					checkbutton("Hybrid modelling" #hybrid :tooltip "Hybrid modelling"): (
+						submit(rule_based_modelling.colombia.ecosystem_type_iucn_get_new)
+					)
+					checkbutton("A2 naturalness indicator" #a2 :tooltip "A2 naturalness indicator"): (
+						submit(esa.aries.ecosystem.naturalness.eunis_ecosystem_naturalness)
+					)					
+				) :hidden #eu_obs
 			)
-		) :hidden #queries
+	) :hidden #queries
 	(
 			label(context_label width="100%" :info #header_label)
 			button(:tooltip "Interrupt computation and reset context" #breset :iconname "close-circle-outline" 
@@ -62,8 +74,11 @@ action main:
 	) :hbox :hidden #headers
 	
 		
-	action activate_observations: (
-		et_obs.show
+	action activate_noneu: (
+		noneu_obs.show
+	)
+	action activate_eu: (
+		eu_obs.show
 	)
 
 
