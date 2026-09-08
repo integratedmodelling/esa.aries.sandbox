@@ -44,13 +44,13 @@ action main:
 						submit(rule_based_modelling.colombia.ecosystem_type_colombia_new) : submit(colombia.seea.ecosystem.mec.mec_new)
 					)
 					checkbutton("Rule-based (global model) results" #rb :tooltip "Rule-based (global model) results"): (
-						submit(primitive_characteristic.ecosystem_function.ecosystem_function_annual_net_primary_productivity_total) : submit(primitive_characteristic.climate.climate_annual_precipitation_total) : submit(primitive_characteristic.land_cover.land_cover_dominance) : submit(primitive_characteristic.coastal.coastal_salt_exposure) : submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based)
+						submit(primitive_characteristic.surface_water.surface_water_occurrence_regime) : submit(primitive_characteristic.climate.climate_annual_precipitation_total) : submit(primitive_characteristic.land_cover.land_cover_dominance) : submit(primitive_characteristic.surface_water.surface_water_hydroform) : submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based)
 					)
 					checkbutton("Hybrid modelling" #hybrid :tooltip "Hybrid modelling" :disabled): (
 						submit()
 					)
 					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem" #a2 :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
-						submit(beta.ecosystem_type.natural_ecosystem_extent_iucn_get)
+						 submit(esa.aries.ecosystem.naturalness.natural_ecosystem_extent) : submit(esa.aries.ecosystem.naturalness.natural_ecosystem_extent_iucn_get_static)
 					)
 					hybrid.disable					
 				) :hidden #noneu_obs
@@ -65,7 +65,7 @@ action main:
 						submit()
 					)
 					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem" #a2 :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
-						submit(beta.ecosystem_type.natural_ecosystem_extent_iucn_get)
+						submit(esa.aries.ecosystem.naturalness.eunis_natural_ecosystem_extent) : submit(esa.aries.ecosystem.naturalness.natural_ecosystem_extent_eunis)
 					)
 					hybrid.disable					
 				) :hidden #eu_obs
