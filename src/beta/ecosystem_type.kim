@@ -798,6 +798,7 @@ model 'local:justus.muhando:esa.aries.sandbox:EFG_class_2021'
 				nca.ecosystem.iucn:BorealCoolTemperatePalustrineWetland if 50106,
 				nca.ecosystem.iucn:BorealTemperateMontanePeatBog if 50107;
 
+@documented(global.ecosystemextent.iucn_ecosystem_typology)
 model beta.ecosystem_type:RuleBased nca.ecosystem.naturalness:NaturalnessLevel named natural_ecosystem_extent 	
 observing
 	beta.ecosystem_type:RuleBased nca.ecosystem.iucn:EcosystemType named iucn
