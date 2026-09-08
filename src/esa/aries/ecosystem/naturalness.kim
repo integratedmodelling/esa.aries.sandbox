@@ -454,7 +454,7 @@ define ECOSYSTEM_NATURALNESS as {{
 //observing
 //	nca.ecosystem.iucn:EcosystemType named iucn
 //	lookup (* , iucn , ? )
-//	into ECOSYSTEM_NATURALNESS;
+//	into ECOSYSTEM_NATURALNESS; 
 
 model nca.ecosystem.naturalness:NaturalnessLevel named natural_ecosystem_extent 	
 observing
@@ -465,7 +465,7 @@ observing
 
 define table natural_ecosystem_extent_iucn_get_static as {
 	title: "Natural Ecosystem Extent"
-	label: "Extent of natural ecosystems (km²) - Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"
+	label: "Extent of natural ecosystems (km²) - Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF) derived from IUCN GET"
 	target: nca.ecosystem.naturalness:NaturalnessLevel
 	columns:({ title:  "{classifier}", target: im:Area in km^2, filter: nca.ecosystem.naturalness:NaturalnessLevel}
 			 {title: "Total", summarize: sum, style: bold}),
@@ -474,7 +474,7 @@ define table natural_ecosystem_extent_iucn_get_static as {
 @var(timespan=(start end))
 define table natural_ecosystem_extent_iucn_get_dynamic as {
 	title: "Natural Ecosystem Extent"
-	label: "Extent of natural ecosystems (km²) - Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"
+	label: "Extent of natural ecosystems (km²) - Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF) derived from IUCN GET"
 	target: nca.ecosystem.naturalness:NaturalnessLevel
 	when: end
 	use: tables.compiler.summarize(
@@ -495,7 +495,10 @@ observing
 	into ECOSYSTEM_NATURALNESS; 
 
 define table natural_ecosystem_extent_eunis as {
-	target: nca.ecosystem.eunis:EcosystemType
-	columns:({ title:  "{classifier}", target: im:Area in km^2, filter: nca.ecosystem.eunis:EcosystemType}
+	title: "Natural Ecosystem Extent"
+	label: "Extent of natural ecosystems (km²) - Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF) derived from EUNIS"
+	target: nca.ecosystem.naturalness:NaturalnessLevel
+	columns:({ title:  "{classifier}", target: im:Area in km^2, filter: nca.ecosystem.naturalness:NaturalnessLevel}
 			 {title: "Total", summarize: sum, style: bold}),
-	rows:   ({ title: "Area {start} (km²)" })}; 
+	rows:   ({ title: "Area {start} (km²)" })};
+	
