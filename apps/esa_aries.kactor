@@ -37,17 +37,20 @@ action main:
 			separator("Query Ecosystem Types according to:" :iconname "sprout-outline" )
 			(
 				(
-					checkbutton("Machine Learning results" #ml :tooltip "Machine Learning results"): (
+					checkbutton("Machine Learning results" #ml :tooltip "Machine Learning results" :disabled): (
 						submit(ml.ecosystem_type.inference.ecdc_level3_mece)
 					)
-					checkbutton("Rule-based results" #rb :tooltip "Rule-based results"): (
-						submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based)
+					checkbutton("Rule-based (local model) results" #rb_local :tooltip "Rule-based (local model) results"): (
+						submit(rule_based_modelling.colombia.ecosystem_type_colombia_new) : submit(colombia.seea.ecosystem.mec.mec)
 					)
-					checkbutton("Hybrid modelling" #hybrid :tooltip "Hybrid modelling"): (
-						submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_hybrid_modelling)
+					checkbutton("Rule-based (global model) results" #rb :tooltip "Rule-based (global model) results"): (
+						submit(primitive_characteristic.ecosystem_function.ecosystem_function_annual_net_primary_productivity_total) : submit(primitive_characteristic.climate.climate_annual_precipitation_total) : submit(primitive_characteristic.land_cover.land_cover_dominance) : submit(primitive_characteristic.coastal.coastal_salt_exposure) : submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based)
 					)
-					checkbutton("A2 naturalness indicator" #a2 :tooltip "A2 naturalness indicator"): (
-						submit(esa.aries.ecosystem.naturalness.eunis_ecosystem_naturalness)
+					checkbutton("Hybrid modelling" #hybrid :tooltip "Hybrid modelling" :disabled): (
+						submit()
+					)
+					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem" #a2 :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
+						submit(beta.ecosystem_type.natural_ecosystem_extent_iucn_get)
 					)
 					hybrid.disable					
 				) :hidden #noneu_obs
@@ -58,12 +61,12 @@ action main:
 					checkbutton("Rule-based results" #rb :tooltip "Rule-based results"): (
 						submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based)
 					)
-					checkbutton("Hybrid modelling" #hybrid :tooltip "Hybrid modelling"): (
-						submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_hybrid_modelling)
+					checkbutton("Hybrid modelling" #hybrid :tooltip "Hybrid modelling" :disabled): (
+						submit()
 					)
-					checkbutton("A2 naturalness indicator" #a2 :tooltip "A2 naturalness indicator"): (
-						submit(esa.aries.ecosystem.naturalness.eunis_ecosystem_naturalness)
-					)	
+					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem" #a2 :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
+						submit(beta.ecosystem_type.natural_ecosystem_extent_iucn_get)
+					)
 					hybrid.disable					
 				) :hidden #eu_obs
 			)

@@ -1,0 +1,50 @@
+{
+  "global.ecosystemextent.iucn_ecosystem_typology#Definition#Results" : {
+    "trigger" : "DEFINITION",
+    "sectionRole" : "RESULTS",
+    "section" : "Results",
+    "documentedId" : "global.ecosystemextent.iucn_ecosystem_typology",
+    "extended" : null,
+    "template" : "@section(Categorical Ecosystem Map)\n\n---\n@figure(self, Mapped_Ecosystems)\n---\n\nThe primary deliverable is a discrete categorical raster where each pixel is assigned the unique identifier (GID) corresponding to its classified IUCN GET Ecosystem Functional Group.\n\n@section(Confidence and Purity Metrics)\nAlongside the categorical map, the external pipeline generates secondary rasters:\n1. *Confidence Map*: Displays the normalized probability score for the assigned EFG, reflecting how well the underlying spatial data matched the soft rules.\n2. *Gini Purity Map:* Provides a metric of class purity, highlighting areas where a pixel strongly qualified for multiple overlapping EFGs.",
+    "sectionType" : "BODY",
+    "documentedUrns" : [ ],
+    "eventType" : null,
+    "variables" : { }
+  },
+  "global.ecosystemextent.iucn_ecosystem_typology#Definition#Discussion" : {
+    "trigger" : "DEFINITION",
+    "sectionRole" : "DISCUSSION",
+    "section" : "Discussion",
+    "documentedId" : "global.ecosystemextent.iucn_ecosystem_typology",
+    "extended" : null,
+    "template" : "@section(Limitations)\nBecause the core algorithm relies on a predefined sequential ranking, mutual exclusivity between highly similar ecosystems is resolved by priority rather than continuous probability. If a pixel technically qualifies for two EFGs, it is permanently assigned to whichever EFG is evaluated first in the sequence, which may occasionally obscure secondary overlapping ecosystems.\n\n@section(Data Dependency)\nThe accuracy of the mapping, and particularly the effectiveness of the fuzzy confidence scoring, is strictly dependent on the spatial resolution, temporal alignment, and completeness of the input environmental rasters. Areas with significant NoData clustering rely heavily on the post-processing gap-filling routines.",
+    "sectionType" : "BODY",
+    "documentedUrns" : [ ],
+    "eventType" : null,
+    "variables" : { }
+  },
+  "global.ecosystemextent.iucn_ecosystem_typology#Definition#Methods" : {
+    "trigger" : "DEFINITION",
+    "sectionRole" : "METHODS",
+    "section" : "Methods",
+    "documentedId" : "global.ecosystemextent.iucn_ecosystem_typology",
+    "extended" : null,
+    "template" : "@require(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based, Introduction)\n\n@section(Sequential Fuzzy Classification)\nThe external mapping algorithm executes a first-come, first-served classification based on a strict, predefined hierarchical ranking (`mapping_order`). For each EFG in the hierarchy, the model evaluates a pixel against a dictionary of environmental conditions. \n\nThe evaluation relies on a weighted scoring system:\n1. *Hard Constraints*: Thematic filters (very important veriables to map a particula EFG) act as strict Boolean masks. Failing these conditions explicitly removes a pixel from consideration for that EFG.\n2. *Soft Constraints*: The rest of the variables act as fuzzy modifiers. Failing a soft constraint does not eliminate the pixel but reduces its cumulative confidence score.\n\n@section(Fallback and Gap-Filling)\nAfter the primary sequential loop finishes, the algorithm applies a post-processing gap-filling mechanism. Unclassified pixels are evaluated against known land cover dominance and hydroform associations. The script assigns these remaining pixels to the most probable EFG based on the maximum calculated confidence score derived during the initial evaluation.\n\n@section(Data Sources)\nThe workflow requires harmonized environmental raster layers (e.g., climate zones, canopy cover, surface water permanence) combined based on the rule definitions and weights of each variable for an EFG,Following an execution hierarchy to prioritizehigher confidence or most relevant combination of ecological variables and mapping the residule based on fallback associations, leveraging the estimated probably of the occurence of an EFG in any particualr area.",
+    "sectionType" : "BODY",
+    "documentedUrns" : [ ],
+    "eventType" : null,
+    "variables" : { }
+  },
+  "global.ecosystemextent.iucn_ecosystem_typology#Definition#Introduction" : {
+    "trigger" : "DEFINITION",
+    "sectionRole" : "INTRODUCTION",
+    "section" : "Introduction",
+    "documentedId" : "global.ecosystemextent.iucn_ecosystem_typology",
+    "extended" : null,
+    "template" : "@section(Overview)\nThis model maps the spatial distribution of the IUCN Global Ecosystem Typology (GET) across all applicable Ecosystem Functional Groups (EFGs). The primary objective is to classify global or regional environmental pixels into specific ecosystems based on an extensive matrix of ecological, climatic, hydrological, and geomorphological conditions.\n\nThe classification is carried out using an external, rule-based execution pipeline. It leverages a fuzzy-logic masking engine that processes high-resolution spatial covariates against predefined ecosystem profiles to generate comprehensive categorical maps and confidence metrics.",
+    "sectionType" : "BODY",
+    "documentedUrns" : [ ],
+    "eventType" : null,
+    "variables" : { }
+  }
+}
