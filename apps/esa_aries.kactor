@@ -44,11 +44,12 @@ action main:
 						submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based)
 					)
 					checkbutton("Hybrid modelling" #hybrid :tooltip "Hybrid modelling"): (
-						submit(rule_based_modelling.colombia.ecosystem_type_iucn_get_new)
+						submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_hybrid_modelling)
 					)
 					checkbutton("A2 naturalness indicator" #a2 :tooltip "A2 naturalness indicator"): (
 						submit(esa.aries.ecosystem.naturalness.eunis_ecosystem_naturalness)
-					)					
+					)
+					hybrid.disable					
 				) :hidden #noneu_obs
 				(
 					checkbutton("Machine Learning results" #ml :tooltip "Machine Learning results"): (
@@ -58,11 +59,12 @@ action main:
 						submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based)
 					)
 					checkbutton("Hybrid modelling" #hybrid :tooltip "Hybrid modelling"): (
-						submit(rule_based_modelling.colombia.ecosystem_type_iucn_get_new)
+						submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_hybrid_modelling)
 					)
 					checkbutton("A2 naturalness indicator" #a2 :tooltip "A2 naturalness indicator"): (
 						submit(esa.aries.ecosystem.naturalness.eunis_ecosystem_naturalness)
-					)					
+					)	
+					hybrid.disable					
 				) :hidden #eu_obs
 			)
 	) :hidden #queries
