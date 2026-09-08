@@ -798,6 +798,6 @@ model 'local:justus.muhando:esa.aries.sandbox:EFG_class_2021'
 				nca.ecosystem.iucn:BorealCoolTemperatePalustrineWetland if 50106,
 				nca.ecosystem.iucn:BorealTemperateMontanePeatBog if 50107;
 
-model 'URN'
-	as HybridModelling type of nca.ecosystem.iucn:Ecosystem named ecosystem_type_iucn_get_level3_hybrid_modelling;
+//model 'URN'
+//	as HybridModelling type of nca.ecosystem.iucn:Ecosystem named ecosystem_type_iucn_get_level3_hybrid_modelling;
 
