@@ -1,0 +1,37 @@
+{
+  "urn" : "local:alessio.bulckaen:esa.aries.sandbox:im-data-global-ecology.colombia_et_mec_100m_3116_v2_1",
+  "version" : "0.0.1",
+  "adapterType" : "wcs",
+  "localPath" : "esa.aries.sandbox/resources/im-data-global-ecology.colombia_et_mec_100m_3116_v2_1",
+  "geometry" : "S2(16613,22638){bbox=[-82.04286787042541 -66.5544177965088 -4.240856492855988 16.228648577679902],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "im-data-global-ecology.colombia_et_mec_100m_3116_v2_1",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1788952206693,
+  "metadata" : { },
+  "parameters" : {
+    "wcsIdentifier" : "im-data-global-ecology__colombia_et_mec_100m_3116_v2_1",
+    "transform" : "",
+    "serviceUrl" : "https://integration.integratedmodelling.org/geoserver/im-data-global-ecology/wcs",
+    "nodata" : "0.0",
+    "wcsVersion" : "2.0.1"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : {
+    "east" : -66.5544177965088,
+    "west" : -82.04286787042541,
+    "north" : 16.228648577679902,
+    "south" : -4.240856492855988,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}
