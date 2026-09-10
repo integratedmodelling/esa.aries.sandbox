@@ -326,6 +326,7 @@ model 'local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cz_ecosystem_type_class
 		
 number 'local:alessio.bulckaen:esa.aries.sandbox:esa_weed.cz_ecosystem_type_classification_kves_epsg5514_30m_2022' as kves_raster_value; 
 
+
 number missing_classes 
 observing
 kves_raster_value,
