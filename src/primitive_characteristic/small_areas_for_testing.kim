@@ -68,6 +68,12 @@ observe earth:Region named test_rb_vietnam_100m
 		grid="100 m"),
 time(year=2020);
 
+observe earth:Region named vietnam_testing_area_1
+    over space(
+        urn='local:rubencc:esa.aries.sandbox:esa_weed_vietnam_rb_testing_polygons#fid_id=1',
+        grid="30 m"),
+    time(year=2021);
+
 observe earth:Region named test_ecdc_greece
     over space(shape='EPSG:4326 POLYGON ((22.357147225076126 38.493707792574895, 22.157272360484562 38.493707792574895, 22.157272360484562 38.56620374670959, 22.357147225076126 38.56620374670959, 22.357147225076126 38.493707792574895))',
     		grid="100 m",
