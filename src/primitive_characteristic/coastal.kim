@@ -164,3 +164,13 @@ model local:justus.muhando:esa.aries.sandbox:esa_weed_temp.wave_energy_testing
 		4    | im:Moderate ,
 		5    | im:High 
 		;
+
+model local:alessio.bulckaen:im.data.global:ecdc__coastal__sediment_type
+as type of soil:CoastalSediment classified into
+	soil:CoastalSand if 1,
+	soil:Mud if 2,
+	soil:Gravel if 3,
+	soil:Rock if 4,
+	soil:Impervious if 5,
+	soil:Coral if 6;
+	
