@@ -7,6 +7,12 @@ abstract attribute ModelApproach
 		RuleBased,
 		HybridModelling;
 
+abstract attribute ModelDataFlow
+	has children
+		Input,
+		IntermediateOutput,
+		Output;		
+
 number 'local:alessio.bulckaen:esa.aries.sandbox:WEED_STAC_catalogue__EU_modelV2-1-MECE__EUNIS_level3_V2' as aaa;
 
 model 'local:alessio.bulckaen:esa.aries.sandbox:WEED_STAC_catalogue__EU_modelV2-1-MECE__EUNIS_level3_V2'
