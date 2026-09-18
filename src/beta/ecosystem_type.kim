@@ -9,7 +9,7 @@ abstract attribute ModelApproach
 
 abstract attribute ModelDataFlow
 	has children
-		Input,
+//		ConfidenceLevel,
 		IntermediateOutput,
 		Output;		
 
