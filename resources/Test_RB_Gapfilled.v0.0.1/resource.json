@@ -1,0 +1,34 @@
+{
+  "urn" : "local:alessio.bulckaen:esa.aries.sandbox:Test_RB_Gapfilled",
+  "version" : "0.0.1",
+  "adapterType" : "stac",
+  "localPath" : "esa.aries.sandbox/resources/Test_RB_Gapfilled.v0.0.1",
+  "geometry" : "s2{bbox=[-180.0 180.0 -90.0 90.0],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "Test_RB_Gapfilled",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1789742276540,
+  "metadata" : {
+    "im:keywords" : "k.LAB,Semantic Web",
+    "dc:comment" : "Global Ecosystem Typology Data Catalog for Semantic Web based ARIES Models",
+    "dc:title" : "Global Ecosystem Typology Data Catalog",
+    "dc:url" : "https://stac.integratedmodelling.org/collections/global_ecosystem_typology"
+  },
+  "parameters" : {
+    "collection" : "https://stac.integratedmodelling.org/collections/global_ecosystem_typology",
+    "band" : "0",
+    "asset" : "gapfilled",
+    "collectionId" : "global_ecosystem_typology"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}
