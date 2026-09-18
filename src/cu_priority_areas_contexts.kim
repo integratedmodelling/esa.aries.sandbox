@@ -651,6 +651,43 @@ observe earth:Region named philippines_ph1
                 projection= "EPSG:4326"),
         time(start=2022, end=2023, step=1.year);
         
+//observe earth:Region named philippines_ph1
+//	over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_philippines_natural_areas_4326#id=01',
+//		    	grid="30 m",
+//                projection= "EPSG:4326"),
+//        time(start=2022, end=2023, step=1.year);
+observe earth:Region named philippines_ph2
+	over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_philippines_natural_areas_4326#id=2',
+		    	grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+observe earth:Region named philippines_ph3
+	over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_philippines_natural_areas_4326#id=3',
+		    	grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+observe earth:Region named philippines_ph4
+	over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_philippines_natural_areas_4326#id=4',
+		    	grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+observe earth:Region named philippines_ph2
+	over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_philippines_natural_areas_4326#id=2',
+		    	grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+observe earth:Region named philippines_ph3
+	over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_philippines_natural_areas_4326#id=3',
+		    	grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+observe earth:Region named philippines_ph4
+	over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_philippines_natural_areas_4326#id=4',
+		    	grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2022, end=2023, step=1.year);
+        
+        
 observe earth:Region named slovakia_banskobystricky_kraj_sl1
 	over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_slovakia_banskobystricky_kraj_region_admin_units_4326',
 		    	grid="30 m",
