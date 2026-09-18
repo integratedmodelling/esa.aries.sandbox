@@ -1,0 +1,31 @@
+worldview im;
+
+@test(
+    name = "living_lab_two.day_one",
+    description  = "",
+    // add to the list any concepts to be observed in the context below
+    observations = (
+    "beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based"),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named living_lab_two_day_one
+    // add any space and/or time extents: for example
+    // over space(shape="EPSG:4326 POLYGON((33.796 -7.086, 35.946 -7.086, 35.946 -9.41, 33.796 -9.41, 33.796 -7.086))", grid="1 km")
+
+//observe earth:Region named colombia_san_andres_co2  
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_priority_areas_bbox_epsg4326_v2#weed_site=CO2',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2021, end=2022, step=1.year);
+        
+         
+//observe earth:Region named colombia_pisba_co6  
+//    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_priority_areas_bbox_epsg4326_v2#weed_site=CO6',
+//    			grid="30 m",
+//                projection= "EPSG:4326"),
+//        time(start=2022, end=2023, step=1.year);  
+        
+
+// add any models here
