@@ -648,43 +648,38 @@ observe earth:Region named georgia_guria_ge1
         time(start=2022, end=2023, step=1.year);
         
 observe earth:Region named philippines_ph1
-	over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_philippines_natural_areas_4326',
+	over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_philippines_natural_areas_4326#province=Quirino',
 		    	grid="30 m",
                 projection= "EPSG:4326"),
         time(start=2022, end=2023, step=1.year);
         
-//observe earth:Region named philippines_ph1
-//	over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_philippines_natural_areas_4326#id=01',
-//		    	grid="30 m",
-//                projection= "EPSG:4326"),
-//        time(start=2022, end=2023, step=1.year);
 observe earth:Region named philippines_ph2
-	over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_philippines_natural_areas_4326#id=2',
+	over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_philippines_natural_areas_4326#province=Agusan del Sur',
 		    	grid="30 m",
                 projection= "EPSG:4326"),
         time(start=2022, end=2023, step=1.year);
 observe earth:Region named philippines_ph3
-	over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_philippines_natural_areas_4326#id=3',
+	over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_philippines_natural_areas_4326#province=Nueva Vizcaya, Quirino',
 		    	grid="30 m",
                 projection= "EPSG:4326"),
         time(start=2022, end=2023, step=1.year);
 observe earth:Region named philippines_ph4
-	over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_philippines_natural_areas_4326#id=4',
+	over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_philippines_natural_areas_4326#province=Siquijor',
 		    	grid="30 m",
                 projection= "EPSG:4326"),
         time(start=2022, end=2023, step=1.year);
-observe earth:Region named philippines_ph2
-	over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_philippines_natural_areas_4326#id=2',
+observe earth:Region named philippines_ph5
+	over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_philippines_natural_areas_4326#province=Aurora, Nueva Ecija',
 		    	grid="30 m",
                 projection= "EPSG:4326"),
         time(start=2022, end=2023, step=1.year);
-observe earth:Region named philippines_ph3
-	over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_philippines_natural_areas_4326#id=3',
+observe earth:Region named philippines_ph6
+	over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_philippines_natural_areas_4326#province=Palawan',
 		    	grid="30 m",
                 projection= "EPSG:4326"),
         time(start=2022, end=2023, step=1.year);
-observe earth:Region named philippines_ph4
-	over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_philippines_natural_areas_4326#id=4',
+observe earth:Region named philippines_ph7
+	over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_philippines_natural_areas_4326#province=Pangasinan, Tarlac, Zambales',
 		    	grid="30 m",
                 projection= "EPSG:4326"),
         time(start=2022, end=2023, step=1.year);
