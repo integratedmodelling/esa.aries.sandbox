@@ -1,0 +1,37 @@
+{
+  "urn" : "local:rubencc:esa.aries.sandbox:esa_weed.global_priority_areas_gapfilled_iucn_ecosystemtype_2021",
+  "version" : "0.0.1",
+  "adapterType" : "wcs",
+  "localPath" : "esa.aries.sandbox/resources/esa_weed.global_priority_areas_gapfilled_iucn_ecosystemtype_2021",
+  "geometry" : "S2(770798,391577){bbox=[-81.73561208903807 125.990662095327 -34.64366119819904 70.88454818886323],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "esa_weed.global_priority_areas_gapfilled_iucn_ecosystemtype_2021",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1789982385401,
+  "metadata" : { },
+  "parameters" : {
+    "wcsIdentifier" : "esa_weed__global_priority_areas_gapfilled_iucn_ecosystemtype_2021",
+    "transform" : "",
+    "serviceUrl" : "https://integration.integratedmodelling.org/geoserver/esa_weed/wcs",
+    "nodata" : "-2.147483648E9",
+    "wcsVersion" : "2.0.1"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : {
+    "east" : 125.990662095327,
+    "west" : -81.73561208903807,
+    "north" : 70.88454818886323,
+    "south" : -34.64366119819904,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}
