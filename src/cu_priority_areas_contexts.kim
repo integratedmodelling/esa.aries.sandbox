@@ -224,7 +224,9 @@ observe earth:Region named colombia_arco_de_deforestacion_amazonia_co15
         time(start=2021, end=2022, step=1.year);   
         
 observe earth:Region named colombia_delta_del_patia_co16  
-    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_priority_areas_bbox_epsg4326_v2#weed_site=CO16',
+    over space (
+    	shape="EPSG:4326 POLYGON ((-78.11563888153044 2.6366056218375746, -78.11563888153044 2.4630971602496032, -78.55455972319105 2.4527236246809423, -78.55078407443999 2.4951602445068346, -78.4488411692801 2.5979454746224633, -78.33085168131242 2.657349641203041, -78.16661033411039 2.6931793190640576, -78.1279098155872 2.6818647880607642, -78.11563888153044 2.6366056218375746))",
+    	//urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_priority_areas_bbox_epsg4326_v2#weed_site=CO16',
     			grid="30 m",
                 projection= "EPSG:4326"),
         time(start=2021, end=2022, step=1.year);  
