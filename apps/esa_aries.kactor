@@ -47,7 +47,11 @@ all cu_priority_area_contexts for use in alpha 3
 			checkbutton("Faune Dja Reserve CA2" #ca2): (
 				disable_ctxs("cu_priority_areas_contexts.cameroon_reserve_faune_dja_ca2","Cameroon: Faune Dja Reserve CA2")
 				activate_cameroon
-			)	
+			)
+			checkbutton("Douala Edéa CA3" #ca3): (
+				disable_ctxs("cu_priority_areas_contexts.cameroon_douala_edea_ca3","Cameroon: Douala Edéa CA3")
+				activate_cameroon
+			)		
 		) :name "Cameroon" #cameroon	
 			
 		(	
@@ -279,6 +283,10 @@ all cu_priority_area_contexts for use in alpha 3
 			checkbutton("Bokoro wildlife corridor UG2" #ug2): (
 				disable_ctxs("cu_priority_areas_contexts.uganda_bokoro_wildlife_corridor_ug2","Uganda: Bokoro wildlife corridor UG2")
 				activate_uganda
+			)
+			checkbutton("Bugungu UG3" #ug3): (
+				disable_ctxs("cu_priority_areas_contexts.uganda_bugungu_ug3","Uganda: Bugungu UG3")
+				activate_uganda
 			)	
 		) :name "Uganda" #uganda
 		(			
@@ -311,7 +319,7 @@ all cu_priority_area_contexts for use in alpha 3
 			(
 				(
 					checkbutton("Machine Learning results" #ml :tooltip "Machine Learning results" :disabled): (
-						submit(ml.ecosystem_type.inference.ecdc_level3_mece)
+						submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_machine_learning)
 					)
 					checkbutton("Rule-based (local model) results" #rb_local :tooltip "Rule-based (local model) results"): (
 						submit(rule_based_modelling.colombia.ecosystem_type_colombia_new) : submit(colombia.seea.ecosystem.mec.mec_new)
@@ -329,7 +337,7 @@ all cu_priority_area_contexts for use in alpha 3
 				) :hidden #col_obs
 				(
 					checkbutton("Machine Learning results" #ml :tooltip "Machine Learning results" :disabled): (
-						submit(ml.ecosystem_type.inference.ecdc_level3_mece)
+						submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_machine_learning)
 					)
 					checkbutton("Rule-based (global model) results" #rb :tooltip "Rule-based (global model) results"): (
 						submit(primitive_characteristic.surface_water.surface_water_occurrence_regime) : submit(primitive_characteristic.climate.climate_annual_precipitation_total) : submit(primitive_characteristic.land_cover.land_cover_dominance) : submit(primitive_characteristic.surface_water.surface_water_hydroform) : submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based)
@@ -344,7 +352,7 @@ all cu_priority_area_contexts for use in alpha 3
 				) :hidden #noneu_obs								
 				(
 					checkbutton("Machine Learning results" #ml :tooltip "Machine Learning results"): (
-						submit(beta.ecosystem_type.ecosystem_type_inference_eunis_level3_machine_learning)
+						submit(beta.ecosystem_type.ecosystem_type_eunis_level2_machine_learning)
 					)
 					checkbutton("Rule-based results" #rb :tooltip "Rule-based (global model) results"): (
 						submit(primitive_characteristic.anthropogenic.anthropogenic_land_use) : submit(primitive_characteristic.climate.climate_climate_zone) : submit(primitive_characteristic.land_cover.land_cover_dominance) : submit(primitive_characteristic.surface_water.surface_water_hydroform) : submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based)
