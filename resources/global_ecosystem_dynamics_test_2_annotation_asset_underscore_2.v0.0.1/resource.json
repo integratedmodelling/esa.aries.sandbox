@@ -1,0 +1,40 @@
+{
+  "urn" : "local:alessio.bulckaen:esa.aries.sandbox:global_ecosystem_dynamics_test_2_annotation_asset_underscore_2",
+  "version" : "0.0.1",
+  "adapterType" : "stac",
+  "localPath" : "esa.aries.sandbox/resources/global_ecosystem_dynamics_test_2_annotation_asset_underscore_2.v0.0.1",
+  "geometry" : "s2{bbox=[-180.0 180.0 -90.0 90.0],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "global_ecosystem_dynamics_test_2_annotation_asset_underscore_2",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1789926283524,
+  "metadata" : {
+    "im:keywords" : "k.LAB,Semantic Web,World Ecosystems Extent Dynamics,AI,ESA,Data Modelling",
+    "dc:comment" : "Global Ecosystem Typology Data Catalog for Semantic Web based ARIES Models TEST 2",
+    "im:notes" : "",
+    "dc:title" : "Global Ecosystem Dynamics Test 2",
+    "dc:url" : "https://stac.integratedmodelling.org/collections/global_ecosystem_typology_test_2",
+    "dc:creator" : "",
+    "im:thematic-area" : "",
+    "dc:originator" : "",
+    "im:geographic-area" : "",
+    "dc:source" : ""
+  },
+  "parameters" : {
+    "collection" : "https://stac.integratedmodelling.org/collections/global_ecosystem_typology_test_2",
+    "band" : "0",
+    "asset" : "nca.ecosystem.iucn__EcosystemType",
+    "collectionId" : "global_ecosystem_typology_test_2"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

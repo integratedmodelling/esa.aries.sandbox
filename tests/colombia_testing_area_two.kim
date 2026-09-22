@@ -1,0 +1,107 @@
+worldview im
+using (IUCN_GET_LEVEL_CONSISTENCY_TABLE) from primitive_characteristic.small_areas_for_testing;
+
+@test(
+    name = "colombia_testing_area_2",
+    description = "Combined test for expected EFGs in Colombia Testing Area #2",
+    observations = (
+//        "primitive_characteristic.vegetation.vegetation_specific_leaf_area",
+//        "primitive_characteristic.climate.climate_climate_type",
+//        "primitive_characteristic.wildfire_disturbance.wildfire_disturbances_exposure",
+//        "primitive_characteristic.surface_water.occurrence_regime_seasonality",
+//        "primitive_characteristic.surface_water.occurrence_regime_episodic",
+//        "primitive_characteristic.surface_water.occurrence_regime_ephemeral",
+//        "primitive_characteristic.surface_water.surface_water_occurrence_regime",
+//        "primitive_characteristic.surface_water.hydroform",
+//        "primitive_characteristic.surface_water.hydroform_meander",
+//        "primitive_characteristic.surface_water.surface_water_hydroform",
+//        "primitive_characteristic.ecosystem_function.ecosystem_function_annual_net_primary_productivity_total",
+//        "primitive_characteristic.vegetation.vegetation_canopy_height",
+//        "primitive_characteristic.climate.climate_seasonal_diurnal_air_temperature_variability",
+//        "primitive_characteristic.soil.soil_peat_thickness",
+//        "primitive_characteristic.surface_water.surface_water_dominant_source",
+//        "primitive_characteristic.geomorphology.geomorphology_floodplain",
+//        "primitive_characteristic.climate.climate_evapotranspiration",
+//        "primitive_characteristic.vegetation.vegetation_phenology",
+//        "primitive_characteristic.land_cover.land_cover_dominance",
+//        "primitive_characteristic.climate.climate_climate_zone",
+//        "primitive_characteristic.vegetation.vegetation_leaf_area_index",
+//        "primitive_characteristic.surface_water.surface_water_watershed_hierarchy",
+//        "primitive_characteristic.climate.climate_annual_precipitation_total",
+//        "primitive_characteristic.vegetation.vegetation_leaf_size",
+//        "primitive_characteristic.vegetation.vegetation_canopy_cover",
+//        "primitive_characteristic.soil.soil_chemical_properties_ph_status",
+//        "primitive_characteristic.climate.climate_altitude_zone",
+//        "primitive_characteristic.soil.soil_chemical_properties_base_saturation",
+//        "primitive_characteristic.ecosystem_typology.iucn.biome_tf1_palustrine_wetland",
+//        "primitive_characteristic.ecosystem_typology.iucn.biome_f1_river_stream"
+
+//		"primitive_characteristic.surface_water.surface_water_dominant_source"
+//		"primitive_characteristic.vegetation.vegetation_canopy_cover"
+//		"primitive_characteristic.surface_water.occurrence_regime_seasonality"
+//		"primitive_characteristic.surface_water.occurrence_regime_episodic"
+//		"primitive_characteristic.surface_water.occurrence_regime_ephemeral"
+//		"primitive_characteristic.surface_water.surface_water_occurrence_regime"
+//		"primitive_characteristic.soil.soil_chemical_properties_ph_status"
+//		"primitive_characteristic.ecosystem_function.ecosystem_function_annual_net_primary_productivity_total"
+//		"primitive_characteristic.climate.climate_evapotranspiration"
+//		"primitive_characteristic.surface_water.hydroform"
+//		"primitive_characteristic.surface_water.hydroform_meander"
+//		"primitive_characteristic.surface_water.surface_water_hydroform"
+//		"primitive_characteristic.vegetation.vegetation_leaf_size"
+//		"primitive_characteristic.climate.climate_altitude_zone"
+//		"primitive_characteristic.geomorphology.geomorphology_floodplain"
+//		"primitive_characteristic.wildfire_disturbance.wildfire_disturbances_exposure"
+//		"primitive_characteristic.climate.climate_annual_precipitation_total"
+//		"primitive_characteristic.land_cover.land_cover_dominance"
+//		"primitive_characteristic.climate.climate_seasonal_diurnal_air_temperature_variability"
+//		"primitive_characteristic.climate.climate_climate_type"
+//		"primitive_characteristic.vegetation.vegetation_specific_leaf_area"
+//		"primitive_characteristic.vegetation.vegetation_canopy_height"
+//		"primitive_characteristic.climate.climate_climate_zone"
+//		"primitive_characteristic.vegetation.vegetation_leaf_area_index"
+//		"primitive_characteristic.soil.soil_chemical_properties_base_saturation"
+//		"primitive_characteristic.surface_water.surface_water_watershed_hierarchy"
+//		"primitive_characteristic.vegetation.vegetation_phenology"
+//		"primitive_characteristic.soil.soil_peat_thickness"
+		
+		
+		"et_results_comparison.soft_rules.biome_tf1_palustrine_wetland_hard_rules"
+		"et_results_comparison.soft_rules.biome_tf1_palustrine_wetland_soft_rules"	
+		"et_results_comparison.soft_rules.biome_tf1_palustrine_wetland_r_script_rules"
+//		"primitive_characteristic.ecosystem_typology.iucn.biome_tf1_palustrine_wetland"
+//		"primitive_characteristic.ecosystem_typology.iucn.biome_tf1_palustrine_wetland_soft_rules"	
+//		"primitive_characteristic.small_areas_for_testing.rule_based_external"
+		
+		
+
+  ),
+    assertions = ()
+)
+observe earth:Region named colombia_testing_area_2_region
+    over space(
+        urn='local:rubencc:esa.aries.sandbox:esa_weed_colombia_rb_testing_polygons#fid_id=2',
+        grid="30 m"),
+    time(year=2021);
+
+@colormap(values = {
+    true:   (0 255 0)
+    false:  (255 0 0)
+})
+model presence of (earth:Region with type of nca.ecosystem.iucn:Ecosystem) named matching_ecosystem_type
+    observing
+        alphathree:RuleBased nca.ecosystem.iucn:PalustrineWetland type of nca.ecosystem.iucn:Ecosystem named biome_tf1_palustrine_wetland_soft_rules,
+        alphathree:RuleBasedExternal nca.ecosystem.iucn:EcosystemType named rule_based_external
+    lookup (biome_tf1_palustrine_wetland_soft_rules, rule_based_external, ?) 
+        into IUCN_GET_LEVEL_CONSISTENCY_TABLE;
+
+define table ecosystem_type_result_comparison_by_ecosystem_type_modelled_vs_reference as {
+	title: "Comparison of the ecosystem type result between modelled & reference maps by ES types"
+	label: "Areas of difference between modelled & reference maps by ES types"
+	target: alphathree:RuleBasedExternal nca.ecosystem.iucn:EcosystemType
+	columns:({ title: "{classifier}", filter: alphathree:RuleBasedExternal nca.ecosystem.iucn:EcosystemType}), 	
+	rows:   ({ title: "Consistency in (km²) between modelled & reference maps ({classifier})", target: im:Area in km^2, filter: presence of (earth:Region with type of nca.ecosystem.iucn:Ecosystem) }
+	         { title: "Total area (km²) according to reference map", summarize: [r1 + r2], style: bold }
+	         { title: "Similarity of the result from the modelled & reference maps (%)", summarize: [(r1 / (r1 + r2)) * 100], style: bold }
+	        )
+	};

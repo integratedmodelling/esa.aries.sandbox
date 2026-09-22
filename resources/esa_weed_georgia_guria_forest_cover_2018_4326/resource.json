@@ -1,0 +1,80 @@
+{
+  "urn" : "local:rubencc:esa.aries.sandbox:esa_weed_georgia_guria_forest_cover_2018_4326",
+  "version" : "0.0.1",
+  "adapterType" : "wfs",
+  "localPath" : "esa.aries.sandbox/resources/esa_weed_georgia_guria_forest_cover_2018_4326",
+  "geometry" : "#s2(15426){bbox=[41.71773910522461 42.65105438232422 41.79723358154297 42.169395446777344],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "esa_weed_georgia_guria_forest_cover_2018_4326",
+  "type" : "OBJECT",
+  "resourceTimestamp" : 1789637675534,
+  "metadata" : {
+    "im:keywords" : "georgia_guria_forest_cover_2018_4326,features",
+    "dc:title" : "georgia_guria_forest_cover_2018_4326"
+  },
+  "parameters" : {
+    "serviceUrl" : "https://integration.integratedmodelling.org/geoserver/esa_weed/wfs",
+    "wfsVersion" : "1.0.0",
+    "wfsIdentifier" : "esa_weed:georgia_guria_forest_cover_2018_4326"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ {
+    "name" : "objectid",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "id",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "gridcode",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "shape_leng",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "shape_area",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "cover_type",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  } ],
+  "spatialExtent" : {
+    "east" : 42.65105438232422,
+    "west" : 41.71773910522461,
+    "north" : 42.169395446777344,
+    "south" : 41.79723358154297,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

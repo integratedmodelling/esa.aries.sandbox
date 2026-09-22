@@ -1,0 +1,34 @@
+{
+  "urn" : "local:alessio.bulckaen:esa.aries.sandbox:WEED_rule_based_IUCN_GET",
+  "version" : "0.0.1",
+  "adapterType" : "stac",
+  "localPath" : "esa.aries.sandbox/resources/WEED_rule_based_IUCN_GET.v0.0.1",
+  "geometry" : "s2{bbox=[-180.0 180.0 -90.0 90.0],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "WEED_rule_based_IUCN_GET",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1789993973246,
+  "metadata" : {
+    "im:keywords" : "k.LAB,Semantic Web,World Ecosystems Extent Dynamics,AI,ESA,Data Modelling",
+    "dc:comment" : "Test for Typology Extent",
+    "dc:title" : "Global Ecosystem CU Areas",
+    "dc:url" : "https://stac.integratedmodelling.org/collections/global_ecosystem_typology_cu_areas"
+  },
+  "parameters" : {
+    "collection" : "https://stac.integratedmodelling.org/collections/global_ecosystem_typology_cu_areas",
+    "band" : "0",
+    "asset" : "nca.ecosystem.iucn:EcosystemType",
+    "collectionId" : "global_ecosystem_typology_cu_areas"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

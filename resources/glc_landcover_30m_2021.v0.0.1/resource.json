@@ -1,0 +1,34 @@
+{
+  "urn" : "local:arnab.moitra:esa.aries.sandbox:glc_landcover_30m_2021",
+  "version" : "0.0.1",
+  "adapterType" : "stac",
+  "localPath" : "esa.aries.sandbox/resources/glc_landcover_30m_2021.v0.0.1",
+  "geometry" : "s2{bbox=[-180.0 180.0 -90.0 90.0],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "glc_landcover_30m_2021",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1788269320293,
+  "metadata" : {
+    "im:keywords" : "Landcover,Semantic Web,k.LAB,GLC FCS30D",
+    "dc:comment" : "Landcover layers from glc with a global coverage at 30m resolution",
+    "dc:title" : "Global GLC FCS30D landcover",
+    "dc:url" : "https://stac.integratedmodelling.org/collections/glc_landcover/"
+  },
+  "parameters" : {
+    "collection" : "https://stac.integratedmodelling.org/collections/glc_landcover/",
+    "band" : "0",
+    "asset" : "landcover__LandCoverType",
+    "collectionId" : "glc_landcover"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ "LANDCOVER__LANDCOVERTYPE", "LANDCOVER__LANDCOVERTYPE" ],
+  "availability" : null,
+  "exportFormats" : { }
+}

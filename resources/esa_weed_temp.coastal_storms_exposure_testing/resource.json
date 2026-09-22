@@ -1,0 +1,37 @@
+{
+  "urn" : "local:justus.muhando:esa.aries.sandbox:esa_weed_temp.coastal_storms_exposure_testing",
+  "version" : "0.0.1",
+  "adapterType" : "wcs",
+  "localPath" : "esa.aries.sandbox/resources/esa_weed_temp.coastal_storms_exposure_testing",
+  "geometry" : "S2(688975,388161){bbox=[-77.16654054726472 108.50876081019484 -33.99593344374761 70.61162375057297],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "esa_weed_temp.coastal_storms_exposure_testing",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1787056840777,
+  "metadata" : { },
+  "parameters" : {
+    "wcsIdentifier" : "esa_weed_temp__coastal_storms_exposure_testing",
+    "transform" : "",
+    "serviceUrl" : "https://integration.integratedmodelling.org/geoserver/esa_weed_temp/wcs",
+    "nodata" : "0.0",
+    "wcsVersion" : "2.0.1"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : {
+    "east" : 108.50876081019484,
+    "west" : -77.16654054726472,
+    "north" : 70.61162375057297,
+    "south" : -33.99593344374761,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}
