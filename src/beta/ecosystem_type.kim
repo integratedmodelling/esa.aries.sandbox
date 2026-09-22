@@ -9,13 +9,8 @@ abstract attribute ModelApproach
 
 abstract attribute ModelDataFlow
 	has children
-//		ConfidenceLevel,
 		IntermediateOutput,
 		Output;
-abstract attribute Collection
-	has children
-		GlobalEcosystemDynamicsTest2,
-		GlobalEcosystemTypologyDataCatalog;		
 
 observe earth:Region named colombia_san_andres_co2  
     over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_priority_areas_bbox_epsg4326_v2#weed_site=CO2',
@@ -43,14 +38,8 @@ observe earth:Region named co7_reduced_area_2021
         
         
 
-//TODO: update resource ML for EUNIS
-//ML_EUNIS
-//collection:https://catalogue.weed.apex.esa.int/collections/EUNIS2021plus-V310-MECE
-//asset:openEO
-//band:EUNIS2021plus habitat level3
-
-model 'local:alessio.bulckaen:esa.aries.sandbox:WEED_STAC_catalogue__EU_modelV2-1-MECE__EUNIS_level3_V2'
-	as MachineLearning nca.ecosystem.eunis:EcosystemType named ecosystem_type_inference_eunis_level2_machine_learning_manual_annotation
+model 'local:alessio.bulckaen:esa.aries.sandbox:EUNIS2021plus-V311-extent'
+	as MachineLearning nca.ecosystem.eunis:EcosystemType named ecosystem_type_eunis_level2_machine_learning
 	classified into
 		nca.ecosystem.eunis:MarineBenthicHabitats if 10000,
 		nca.ecosystem.eunis:LittoralRock if in (10100, 10101, 10102, 10103, 10104, 10105),
@@ -168,14 +157,12 @@ model 'local:alessio.bulckaen:esa.aries.sandbox:WEED_STAC_catalogue__EU_modelV2-
 
 //TODO:fix encoding level 2
 model 'local:alessio.bulckaen:esa.aries.sandbox:WEED_STAC_catalogue__EU_modelV2-1-MECE__EUNIS_level3_V2'
-	as MachineLearning IntermediateOutput nca.ecosystem.eunis:EcosystemType named ecosystem_type_inference_eunis_level2_machine_learning_encoding
+	as MachineLearning IntermediateOutput nca.ecosystem.eunis:EcosystemType named ecosystem_type_eunis_level1_machine_learning
 		classified 
 		according to im:eunis-lvl1-encoding;
 //TODO:
-model 'local:alessio.bulckaen:esa.aries.sandbox:WEED_STAC_catalogue__EU_modelV2-1-MECE__EUNIS_level3_V2'
-//	  'https://catalogue.weed.apex.esa.int/collections/IUCNGET-V330-MECE'
-// asset: openEO band:IUCNGET habitat level3
-	as MachineLearning nca.ecosystem.iucn:EcosystemType named ecosystem_type_inference_iucn_get_level3_machine_learning
+model 'local:alessio.bulckaen:esa.aries.sandbox:IUCNGET-V317-extent'
+	as MachineLearning nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get_level3_machine_learning
 		classified 
 		according to im:ecosystem-get-iucn;
 		
@@ -971,7 +958,6 @@ model
 //'local:rubencc:esa.aries.sandbox:esa_weed.global_priority_areas_gapfilled_iucn_ecosystemtype_2021',
 //'local:rubencc:esa.aries.sandbox:esa_weed.global_priority_areas_gapfilled_iucn_ecosystemtype_2024'
 'local:alessio.bulckaen:esa.aries.sandbox:WEED_rule_based_IUCN_GET'
-//model 'local:alessio.bulckaen:esa.aries.sandbox:test_RB'
 	as nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get_level3_rule_based
 	classified according to im:ecosystem-get-iucn;
 //	classified into //according to

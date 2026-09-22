@@ -1,0 +1,33 @@
+{
+  "urn" : "local:alessio.bulckaen:esa.aries.sandbox:EUNIS2021plus-V311-extent",
+  "version" : "0.0.1",
+  "adapterType" : "stac",
+  "localPath" : "esa.aries.sandbox/resources/EUNIS2021plus-V311-extent.v0.0.1",
+  "geometry" : "s2{bbox=[6.751494770315222 7.068892100858968 52.04595358300287 52.41268337243537],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "EUNIS2021plus-V311-extent",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1790022828641,
+  "metadata" : {
+    "dc:comment" : "This is the STAC metadata for the openEO job 'j-26092115302540c384e9f75c6d70941b'",
+    "dc:url" : "https://catalogue.weed.apex.esa.int/collections/EUNIS2021plus-V311-extent"
+  },
+  "parameters" : {
+    "collection" : "https://catalogue.weed.apex.esa.int/collections/EUNIS2021plus-V311-extent",
+    "band" : "0",
+    "asset" : "openEO",
+    "s3EndpointUrl" : "https://s3.waw4-1.cloudferro.com",
+    "collectionId" : "EUNIS2021plus-V311-extent"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}
