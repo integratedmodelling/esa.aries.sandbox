@@ -1,0 +1,80 @@
+{
+  "urn" : "local:rubencc:esa.aries.sandbox:esa_weed_norway_priority_areas_no1_split_epsg4326_v3",
+  "version" : "0.0.1",
+  "adapterType" : "wfs",
+  "localPath" : "esa.aries.sandbox/resources/esa_weed_norway_priority_areas_no1_split_epsg4326_v3",
+  "geometry" : "#s2(7){bbox=[7.438842296600342 11.940938949584961 58.87715148925781 61.09172058105469],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "esa_weed_norway_priority_areas_no1_split_epsg4326_v3",
+  "type" : "OBJECT",
+  "resourceTimestamp" : 1790085049084,
+  "metadata" : {
+    "im:keywords" : "features,norway_priority_areas_no1_split_epsg4326_v3",
+    "dc:title" : "norway_priority_areas_no1_split_epsg4326_v3"
+  },
+  "parameters" : {
+    "serviceUrl" : "https://integration.integratedmodelling.org/geoserver/esa_weed/wfs",
+    "wfsVersion" : "1.0.0",
+    "wfsIdentifier" : "esa_weed:norway_priority_areas_no1_split_epsg4326_v3"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ {
+    "name" : "id",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "fid",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "weed_site",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "name",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "priority",
+    "type" : "BOOLEAN",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "weed_site2",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  } ],
+  "spatialExtent" : {
+    "east" : 11.940938949584961,
+    "west" : 7.438842296600342,
+    "north" : 61.09172058105469,
+    "south" : 58.87715148925781,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}
