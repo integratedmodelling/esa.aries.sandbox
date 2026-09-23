@@ -366,12 +366,9 @@ all cu_priority_area_contexts for use in alpha 3
 						submit(rule_based_modelling.colombia.ecosystem_type_colombia_new) : submit(colombia.seea.ecosystem.mec.mec_new)
 					)
 					checkbutton("Rule-based (global model) results" #rb :tooltip "Rule-based (global model) results"): (
-						submit(primitive_characteristic.surface_water.surface_water_occurrence_regime) 
-						submit(primitive_characteristic.climate.climate_annual_precipitation_total)
 						submit(primitive_characteristic.land_cover.land_cover_dominance)
-						submit(primitive_characteristic.surface_water.surface_water_hydroform)
 						submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based)
-						submit(beta.ecosystem_type.ecosystem_typology_extent_iucn_get_rule_based_static)
+					
 					)
 					checkbutton("Hybrid modelling" #hybrid :tooltip "Hybrid modelling" :disabled)
 					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem" #a2 :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
@@ -381,16 +378,12 @@ all cu_priority_area_contexts for use in alpha 3
 				) :hidden #col_obs
 				(
 					checkbutton("Machine Learning results" #ml :tooltip "Machine Learning results"): (
-						submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_machine_learning) : submit(beta.ecosystem_type.ecosystem_typology_extent_iucn_machine_learning_static)
+						submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_machine_learning)
 					)
 					checkbutton("Rule-based (global model) results" #rb :tooltip "Rule-based (global model) results"): (
-						submit(primitive_characteristic.surface_water.surface_water_occurrence_regime)
-						submit(primitive_characteristic.climate.climate_annual_precipitation_total)
 						submit(primitive_characteristic.land_cover.land_cover_dominance)
-						submit(primitive_characteristic.surface_water.surface_water_hydroform)
 						submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based)
-						submit(beta.ecosystem_type.ecosystem_typology_extent_iucn_get_rule_based_static)
-					)
+				)
 					checkbutton("Hybrid modelling" #hybrid :tooltip "Hybrid modelling" :disabled)
 					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem" #a2 :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
 						 submit(esa.aries.ecosystem.naturalness.natural_ecosystem_extent) : submit(esa.aries.ecosystem.naturalness.natural_ecosystem_extent_iucn_get_static)
@@ -399,15 +392,11 @@ all cu_priority_area_contexts for use in alpha 3
 				) :hidden #noneu_obs								
 				(
 					checkbutton("Machine Learning results" #ml :tooltip "Machine Learning results"): (
-						submit(beta.ecosystem_type.ecosystem_type_eunis_level2_machine_learning) : submit(beta.ecosystem_type.ecosystem_typology_extent_eunis_machine_learning_basic)
+						submit(beta.ecosystem_type.ecosystem_type_eunis_level2_machine_learning)
 					)
 					checkbutton("Rule-based results" #rb :tooltip "Rule-based (global model) results"): (
-						submit(primitive_characteristic.anthropogenic.anthropogenic_land_use)
-						submit(primitive_characteristic.climate.climate_climate_zone)
 						submit(primitive_characteristic.land_cover.land_cover_dominance)
-						submit(primitive_characteristic.surface_water.surface_water_hydroform)
 						submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based)
-						submit(beta.ecosystem_type.ecosystem_typology_extent_iucn_get_rule_based_static)
 					)
 					checkbutton("Hybrid modelling" #hybrid :tooltip "Hybrid modelling" :disabled)
 					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem" #a2 :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
