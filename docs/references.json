@@ -1,6 +1,14 @@
 {
-  "CUMMINS2023" : {
-    "examplecitation" : "Cummins, G.H., Navarro, M.L., Griffin, K., Partridge, J., Langlois, T.J., 2023. A global review of ocean ecosystem accounts and their data: lessons learned and implications for marine policy. Mar. Pol. 153, 105636. https://doi.org/10.1016/j. marpol.2023.105636.",
-    "key" : "CUMMINS2023"
+  "CUMMINS2023": {
+    "examplecitation": "Cummins, G.H., Navarro, M.L., Griffin, K., Partridge, J., Langlois, T.J., 2023. A global review of ocean ecosystem accounts and their data: lessons learned and implications for marine policy. Mar. Pol. 153, 105636. https://doi.org/10.1016/j. marpol.2023.105636.",
+    "key": "CUMMINS2023"
+  },
+  "Keith_et_al_2020": {
+    "examplecitation": "Keith, D. A., et al. (2020). The IUCN Global Ecosystem Typology 2.0: Descriptive profiles for biomes and ecosystem functional groups. IUCN, Gland, Switzerland.",
+    "key": "Keith_et_al_2020"
+  },
+  "Remelgado_2026": {
+    "examplecitation": "Remelgado, R. (2026). Rule-based ecosystem mapping execution pipelines (https://github.com/ESA-WEED-project/ecosystem_characteristics). ESA-WEED-project.",
+    "key": "Remelgado_2026"
   }
 }
