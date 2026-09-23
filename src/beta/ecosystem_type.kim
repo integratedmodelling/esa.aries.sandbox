@@ -1244,15 +1244,15 @@ define table ecosystem_typology_extent_iucn_get_rule_based_static as {
 	title: "Selected ecosystem types (area in km²)",
 	label: "Net change in ecosystem type (km²)",
 	target: beta.ecosystem_type:RuleBased nca.ecosystem.iucn:EcosystemType
-	columns:({ title:  "{classifier}", target: im:Area in km^2, filter: es.nca:EcosystemType}
+	columns:({ title:  "{classifier}", target: im:Area in km^2, filter: beta.ecosystem_type:RuleBased nca.ecosystem.iucn:EcosystemType}
 			 {title: "Total", summarize: sum, style: bold}),
-	rows:   ({ title: "Area {start} (km²)" })};
+	rows:   ({ title: "Area {start} (km²)" })}; 
 
 define table ecosystem_typology_extent_iucn_machine_learning_static as {
 	title: "Selected ecosystem types (area in km²)",
 	label: "Net change in ecosystem type (km²)",
 	target: beta.ecosystem_type:MachineLearning nca.ecosystem.iucn:EcosystemType
-	columns:({ title:  "{classifier}", target: im:Area in km^2, filter: nca.ecosystem.eunis:EcosystemType}
+	columns:({ title:  "{classifier}", target: im:Area in km^2, filter:beta.ecosystem_type:MachineLearning nca.ecosystem.eunis:EcosystemType}
 			 {title: "Total", summarize: sum, style: bold}),
 	rows:   ({ title: "Area {start} (km²)" })};		
 
@@ -1260,6 +1260,6 @@ define table ecosystem_typology_extent_eunis__machine_learning_static as {
 	title: "Selected ecosystem types (area in km²)",
 	label: "Net change in ecosystem type (km²)",
 	target: beta.ecosystem_type:MachineLearning nca.ecosystem.eunis:EcosystemType
-	columns:({ title:  "{classifier}", target: im:Area in km^2, filter: nca.ecosystem.eunis:EcosystemType}
+	columns:({ title:  "{classifier}", target: im:Area in km^2, filter: beta.ecosystem_type:MachineLearning nca.ecosystem.eunis:EcosystemType}
 			 {title: "Total", summarize: sum, style: bold}),
 	rows:   ({ title: "Area {start} (km²)" })};			

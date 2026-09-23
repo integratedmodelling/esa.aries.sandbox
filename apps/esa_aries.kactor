@@ -366,7 +366,7 @@ all cu_priority_area_contexts for use in alpha 3
 						submit(rule_based_modelling.colombia.ecosystem_type_colombia_new) : submit(colombia.seea.ecosystem.mec.mec_new)
 					)
 					checkbutton("Rule-based (global model) results" #rb :tooltip "Rule-based (global model) results"): (
-						submit(primitive_characteristic.surface_water.surface_water_occurrence_regime) : submit(primitive_characteristic.climate.climate_annual_precipitation_total) : submit(primitive_characteristic.land_cover.land_cover_dominance) : submit(primitive_characteristic.surface_water.surface_water_hydroform) : submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based)
+						submit(primitive_characteristic.surface_water.surface_water_occurrence_regime) : submit(primitive_characteristic.climate.climate_annual_precipitation_total) : submit(primitive_characteristic.land_cover.land_cover_dominance) : submit(primitive_characteristic.surface_water.surface_water_hydroform) : submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based) : submit(beta.ecosystem_type.ecosystem_typology_extent_iucn_get_rule_based_static)
 					)
 					checkbutton("Hybrid modelling" #hybrid :tooltip "Hybrid modelling" :disabled): (
 						submit()
@@ -378,10 +378,10 @@ all cu_priority_area_contexts for use in alpha 3
 				) :hidden #col_obs
 				(
 					checkbutton("Machine Learning results" #ml :tooltip "Machine Learning results"): (
-						submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_machine_learning)
+						submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_machine_learning) : submit(beta.ecosystem_type.ecosystem_typology_extent_iucn_machine_learning_static)
 					)
 					checkbutton("Rule-based (global model) results" #rb :tooltip "Rule-based (global model) results"): (
-						submit(primitive_characteristic.surface_water.surface_water_occurrence_regime) : submit(primitive_characteristic.climate.climate_annual_precipitation_total) : submit(primitive_characteristic.land_cover.land_cover_dominance) : submit(primitive_characteristic.surface_water.surface_water_hydroform) : submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based)
+						submit(primitive_characteristic.surface_water.surface_water_occurrence_regime) : submit(primitive_characteristic.climate.climate_annual_precipitation_total) : submit(primitive_characteristic.land_cover.land_cover_dominance) : submit(primitive_characteristic.surface_water.surface_water_hydroform) : submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based) : submit(beta.ecosystem_type.ecosystem_typology_extent_iucn_get_rule_based_static)
 					)
 					checkbutton("Hybrid modelling" #hybrid :tooltip "Hybrid modelling" :disabled): (
 						submit()
@@ -393,10 +393,10 @@ all cu_priority_area_contexts for use in alpha 3
 				) :hidden #noneu_obs								
 				(
 					checkbutton("Machine Learning results" #ml :tooltip "Machine Learning results"): (
-						submit(beta.ecosystem_type.ecosystem_type_eunis_level2_machine_learning)
+						submit(beta.ecosystem_type.ecosystem_type_eunis_level2_machine_learning) : submit(beta.ecosystem_type.ecosystem_typology_extent_eunis_machine_learning_basic)
 					)
 					checkbutton("Rule-based results" #rb :tooltip "Rule-based (global model) results"): (
-						submit(primitive_characteristic.anthropogenic.anthropogenic_land_use) : submit(primitive_characteristic.climate.climate_climate_zone) : submit(primitive_characteristic.land_cover.land_cover_dominance) : submit(primitive_characteristic.surface_water.surface_water_hydroform) : submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based)
+						submit(primitive_characteristic.anthropogenic.anthropogenic_land_use) : submit(primitive_characteristic.climate.climate_climate_zone) : submit(primitive_characteristic.land_cover.land_cover_dominance) : submit(primitive_characteristic.surface_water.surface_water_hydroform) : submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based) : submit(beta.ecosystem_type.ecosystem_typology_extent_iucn_get_rule_based_static)
 					)
 					checkbutton("Hybrid modelling" #hybrid :tooltip "Hybrid modelling" :disabled): (
 						submit()
