@@ -1,14 +1,42 @@
 {
+  "Remelgado_2026" : {
+    "examplecitation" : "Remelgado, R. (2026). Rule-based ecosystem mapping execution pipelines (https://github.com/ESA-WEED-project/ecosystem_characteristics). ESA-WEED-project.",
+    "key" : "Remelgado_2026"
+  },
+  "Kursa2017" : {
+    "examplecitation" : "Kursa, M.B. (2017): Boruta. Webpage: https://m2.icm.edu.pl/boruta/. Retrieved: July 17, 2017.",
+    "key" : "Kursa2017"
+  },
+  "Dorogoush2018" : {
+    "examplecitation" : "Dorogush, A. V., Ershov, V. & Gulin, A., 2018. Catboost: gradient boosting with categorical features\r\nsupport. arXiv preprint. https://doi.org/10.48550/arXiv.1810.11363",
+    "key" : "Dorogoush2018"
+  },
+  "Buchorn2020a" : {
+    "examplecitation" : "Buchhorn, M.; Lesiv, M.; Tsendbazar, N.-E.; Herold, M.; Bertels, L.; Smets, B. Copernicus Global Land\r\nCover Layers—Collection 2. Remote Sens. 2020, 12, 1044. https://doi.org/10.3390/rs12061044",
+    "key" : "Buchorn2020a"
+  },
+  "Kursa2010" : {
+    "examplecitation" : "Kursa, M. B. & Rudnicki, W. R., 2010. Feature Selection with the Boruta Package. Journal of\r\nStatistical Software, 36(11), pp. 1–13. https://doi.org/10.18637/jss.v036.i11",
+    "key" : "Kursa2010"
+  },
   "CUMMINS2023" : {
     "examplecitation" : "Cummins, G.H., Navarro, M.L., Griffin, K., Partridge, J., Langlois, T.J., 2023. A global review of ocean ecosystem accounts and their data: lessons learned and implications for marine policy. Mar. Pol. 153, 105636. https://doi.org/10.1016/j. marpol.2023.105636.",
     "key" : "CUMMINS2023"
   },
+  "Prokhorenkova2018" : {
+    "examplecitation" : "Prokhorenkova, L., Gusev, G., Vorobev, A., Dorogush, A. V., & Gulin, A., 2018. CatBoost: unbiased\r\nboosting with categorical features. Advances in Neural Information Processing Systems, 31.",
+    "key" : "Prokhorenkova2018"
+  },
+  "Keith_et_al_2020" : {
+    "examplecitation" : "Keith, D. A., et al. (2020). The IUCN Global Ecosystem Typology 2.0: Descriptive profiles for biomes and ecosystem functional groups. IUCN, Gland, Switzerland.",
+    "key" : "Keith_et_al_2020"
+  },
+  "Bentejac2021" : {
+    "examplecitation" : "Bentéjac, C., Csörgő, A., & Martínez-Muñoz, G., 2021. A comparative analysis of gradient boosting\r\nalgorithms. Artificial Intelligence Review, 54, 1937–1967.\r\nhttps://doi.org/10.1007/s10462-020-09896-5",
+    "key" : "Bentejac2021"
   "UnitedNations2021" : {
     "examplecitation" : "United Nations et al. (2021). System of Environmental-Economic Accounting—Ecosystem Accounting (SEEA EA). White cover publication, pre-edited text subject to official editing. Available at: https://seea.un.org/ecosystem-accounting.",
     "key" : "UnitedNations2021"
   },
-  "Keith2020" : {
-    "examplecitation" : "Keith, D.A., Ferrer-Paris, J.R., Nicholson, E. and Kingsford, R.T. (eds.) (2020). The IUCN Global Ecosystem Typology 2.0: Descriptive profiles for biomes and ecosystem functional groups. Gland, Switzerland: IUCN",
-    "key" : "Keith2020"
   }
 }

@@ -166,6 +166,7 @@ model 'local:alessio.bulckaen:esa.aries.sandbox:WEED_STAC_catalogue__EU_modelV2-
 		classified 
 		according to im:eunis-lvl1-encoding;
 //TODO:
+@documented(global.ecosystemextent.machinelearning_mapping)
 model 'local:alessio.bulckaen:esa.aries.sandbox:IUCNGET-V317-extent'
 	as beta.ecosystem_type:MachineLearning nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get_level3_machine_learning
 		classified 
@@ -957,7 +958,7 @@ model 'local:alessio.bulckaen:esa.aries.sandbox:IUCNGET-V317-extent'
 //number 'local:alessio.bulckaen:esa.aries.sandbox:WEED_rule_based_IUCN_GET' as test_new_collection;
 //number 'local:rubencc:esa.aries.sandbox:esa_weed.global_priority_areas_gapfilled_iucn_ecosystemtype_2024' as test_geoserver_2024;
 
-@documented(global.ecosystemextent.iucn_ecosystem_typology)
+@documented(global.ecosystemextent.rulebased_mapping)
 model 
 //'local:rubencc:esa.aries.sandbox:esa_weed.global_priority_areas_gapfilled_iucn_ecosystemtype_2018'
 //'local:rubencc:esa.aries.sandbox:esa_weed.global_priority_areas_gapfilled_iucn_ecosystemtype_2021',
