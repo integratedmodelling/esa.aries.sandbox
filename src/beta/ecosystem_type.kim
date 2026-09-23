@@ -39,7 +39,7 @@ observe earth:Region named co7_reduced_area_2021
         
 
 model 'local:alessio.bulckaen:esa.aries.sandbox:EUNIS2021plus-V311-extent'
-	as MachineLearning nca.ecosystem.eunis:EcosystemType named ecosystem_type_eunis_level2_machine_learning
+	as beta.ecosystem_type:MachineLearning nca.ecosystem.eunis:EcosystemType named ecosystem_type_eunis_level2_machine_learning
 	classified into
 		nca.ecosystem.eunis:MarineBenthicHabitats if 10000,
 		nca.ecosystem.eunis:LittoralRock if in (10100, 10101, 10102, 10103, 10104, 10105),
@@ -157,12 +157,12 @@ model 'local:alessio.bulckaen:esa.aries.sandbox:EUNIS2021plus-V311-extent'
 
 //TODO:fix encoding level 2
 model 'local:alessio.bulckaen:esa.aries.sandbox:WEED_STAC_catalogue__EU_modelV2-1-MECE__EUNIS_level3_V2'
-	as MachineLearning IntermediateOutput nca.ecosystem.eunis:EcosystemType named ecosystem_type_eunis_level1_machine_learning
+	as beta.ecosystem_type:MachineLearning IntermediateOutput nca.ecosystem.eunis:EcosystemType named ecosystem_type_eunis_level1_machine_learning
 		classified 
 		according to im:eunis-lvl1-encoding;
 //TODO:
 model 'local:alessio.bulckaen:esa.aries.sandbox:IUCNGET-V317-extent'
-	as MachineLearning nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get_level3_machine_learning
+	as beta.ecosystem_type:MachineLearning nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get_level3_machine_learning
 		classified 
 		according to im:ecosystem-get-iucn;
 		
@@ -958,7 +958,7 @@ model
 //'local:rubencc:esa.aries.sandbox:esa_weed.global_priority_areas_gapfilled_iucn_ecosystemtype_2021',
 //'local:rubencc:esa.aries.sandbox:esa_weed.global_priority_areas_gapfilled_iucn_ecosystemtype_2024'
 'local:alessio.bulckaen:esa.aries.sandbox:WEED_rule_based_IUCN_GET'
-	as nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get_level3_rule_based
+	as beta.ecosystem_type:RuleBased nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get_level3_rule_based
 	classified according to im:ecosystem-get-iucn;
 //	classified into //according to
 //		nca.ecosystem.iucn:Freshwater if 60000,
@@ -1105,4 +1105,161 @@ model
 //				nca.ecosystem.iucn:EpisodicAridFloodplain if 50105,
 //				nca.ecosystem.iucn:BorealCoolTemperatePalustrineWetland if 50106,
 //				nca.ecosystem.iucn:BorealTemperateMontanePeatBog if 50107;
-	
+
+/*
+ * Simplest extent table has a column for each represented ecosystem type and
+ * the total area for each of the first and last year, plus a net change row.
+ */
+@var(timespan=(start end))
+define table ecosystem_typology_extent_iucn_get_rule_based_basic as {
+	name: "ecosystem_extent"
+	title: "Occurring ecosystem types (selected level 3 Ecosystem Functional Groups of the IUCN Global Ecosystem Typology 2.0)",
+	label: "Ecosystem extent account - net balance (km²)",
+	target: beta.ecosystem_type:RuleBased nca.ecosystem.iucn:EcosystemType
+	when: end
+	use: tables.compiler.summarize(contabilize-nulls = true, 
+		rowsummary = { filter: "change" title: "Net change" style: bold}, 
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: beta.ecosystem_type:RuleBased nca.ecosystem.iucn:EcosystemType }, 
+		report='area', 
+		empty='', 
+		no-data = ''
+	)
+};
+
+@var(timespan=(start end))
+define table ecosystem_typology_extent_iucn_get_machine_learning_basic as {
+	name: "ecosystem_extent"
+	title: "Occurring ecosystem types (selected level 3 Ecosystem Functional Groups of the IUCN Global Ecosystem Typology 2.0)",
+	label: "Ecosystem extent account - net balance (km²)",
+	target: beta.ecosystem_type:MachineLearning nca.ecosystem.iucn:EcosystemType
+	when: end
+	use: tables.compiler.summarize(contabilize-nulls = true, 
+		rowsummary = { filter: "change" title: "Net change" style: bold}, 
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: beta.ecosystem_type:MachineLearning nca.ecosystem.iucn:EcosystemType }, 
+		report='area', 
+		empty='', 
+		no-data = ''
+	)
+};
+
+@var(timespan=(start end))
+define table ecosystem_typology_extent_eunis_machine_learning_basic as {
+	name: "ecosystem_extent"
+	title: "Occurring ecosystem types (selected level 3 Ecosystem Functional Groups of the IUCN Global Ecosystem Typology 2.0)",
+	label: "Ecosystem extent account - net balance (km²)",
+	target: beta.ecosystem_type:MachineLearning nca.ecosystem.eunis:EcosystemType
+	when: end
+	use: tables.compiler.summarize(contabilize-nulls = true, 
+		rowsummary = { filter: "change" title: "Net change" style: bold}, 
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: beta.ecosystem_type:MachineLearning nca.ecosystem.eunis:EcosystemType }, 
+		report='area', 
+		empty='', 
+		no-data = ''
+	)
+};
+
+/**
+ * High-level summary table with expansions and regressions as per 
+ * https://seea.un.org/sites/seea.un.org/files/documents/EEA/2_seea_eea_rev._ch4_gc_mar2020_final.pdf.
+ * Missing categorization into managed/natural and reappraisals for lack of source info.
+ * TODO add phys env traits and metadata to classification for grouping and labeling
+ */
+@var(timespan=(start end))
+define table ecosystem_typology_extent_iucn_get_rule_based_additions_reductions as {
+	name: "ecosystem_extent"
+	title: "Occurring ecosystem types (selected level 3 Ecosystem Functional Groups of the IUCN Global Ecosystem Typology 2.0)",
+	label: "Ecosystem extent account - additions and reductions (km²)",
+	target: beta.ecosystem_type:RuleBased nca.ecosystem.iucn:EcosystemType
+	when: end,
+	use: tables.compiler.additionsreductions(contabilize-nulls = true, compare = (start end), report = 'area', empty='', no-data='')
+};
+
+@var(timespan=(start end))
+define table ecosystem_typology_extent_iucn_get_machine_learning_additions_reductions as {
+	name: "ecosystem_extent"
+	title: "Occurring ecosystem types (selected level 3 Ecosystem Functional Groups of the IUCN Global Ecosystem Typology 2.0)",
+	label: "Ecosystem extent account - additions and reductions (km²)",
+	target: beta.ecosystem_type:MachineLearning nca.ecosystem.iucn:EcosystemType
+	when: end,
+	use: tables.compiler.additionsreductions(contabilize-nulls = true, compare = (start end), report = 'area', empty='', no-data='')
+};
+
+@var(timespan=(start end))
+define table ecosystem_typology_extent_eunis_machine_learning_additions_reductions as {
+	name: "ecosystem_extent"
+	title: "Occurring ecosystem types (selected level 3 Ecosystem Functional Groups of the IUCN Global Ecosystem Typology 2.0)",
+	label: "Ecosystem extent account - additions and reductions (km²)",
+	target: beta.ecosystem_type:MachineLearning nca.ecosystem.eunis:EcosystemType
+	when: end,
+	use: tables.compiler.additionsreductions(contabilize-nulls = true, compare = (start end), report = 'area', empty='', no-data='')
+};
+
+/**
+ * Code for cell-wise comparison is quite ad-hoc and cryptic: the check responds true if
+ * each evaluation (accumulating areas for all non-null values of the target) has the
+ * target value in the row (at time init) changed into that of the column at the time
+ * of evaluation. If the row and column describe the same concept and the cell target is
+ * that concept, accumulate the unchanged, too.
+ */
+@var(timespan=(start end))
+define table ecosystem_typology_extent_iucn_get_rule_based_change_pairwise as {
+	name: "ecosystem_extent"
+	title: "Occurring ecosystem types (selected level 3 Ecosystem Functional Groups of the IUCN Global Ecosystem Typology 2.0)",
+	label: "Ecosystem type change matrix (km²)",
+	when: end,
+	target: beta.ecosystem_type:RuleBased nca.ecosystem.iucn:EcosystemType
+	// compile ad-hoc pairwise change matrix on the target observable, also contabilizing nodata<->x transitions
+	use: tables.compiler.pairwise(contabilize-nulls = true, compare = (start end), report = 'area', empty='0.00', no-data='0.00')
+};
+
+@var(timespan=(start end))
+define table ecosystem_typology_extent_iucn_get_machine_learning_change_pairwise as {
+	name: "ecosystem_extent"
+	title: "Occurring ecosystem types (selected level 3 Ecosystem Functional Groups of the IUCN Global Ecosystem Typology 2.0)",
+	label: "Ecosystem type change matrix (km²)",
+	when: end,
+	target: beta.ecosystem_type:MachineLearning nca.ecosystem.iucn:EcosystemType
+	// compile ad-hoc pairwise change matrix on the target observable, also contabilizing nodata<->x transitions
+	use: tables.compiler.pairwise(contabilize-nulls = true, compare = (start end), report = 'area', empty='0.00', no-data='0.00')
+};
+
+@var(timespan=(start end))
+define table ecosystem_typology_extent_eunis_machine_learning_change_pairwise as {
+	name: "ecosystem_extent"
+	title: "Occurring ecosystem types (selected level 3 Ecosystem Functional Groups of the IUCN Global Ecosystem Typology 2.0)",
+	label: "Ecosystem type change matrix (km²)",
+	when: end,
+	target: beta.ecosystem_type:MachineLearning nca.ecosystem.eunis:EcosystemType
+	// compile ad-hoc pairwise change matrix on the target observable, also contabilizing nodata<->x transitions
+	use: tables.compiler.pairwise(contabilize-nulls = true, compare = (start end), report = 'area', empty='0.00', no-data='0.00')
+};
+/*
+ * Table to summerize ecosystem type extent on a unique temporal observation
+ */
+
+define table ecosystem_typology_extent_iucn_get_rule_based_static as {
+	title: "Selected ecosystem types (area in km²)",
+	label: "Net change in ecosystem type (km²)",
+	target: beta.ecosystem_type:RuleBased nca.ecosystem.iucn:EcosystemType
+	columns:({ title:  "{classifier}", target: im:Area in km^2, filter: beta.ecosystem_type:RuleBased nca.ecosystem.iucn:EcosystemType}
+			 {title: "Total", summarize: sum, style: bold}),
+	rows:   ({ title: "Area {start} (km²)" })}; 
+
+define table ecosystem_typology_extent_iucn_machine_learning_static as {
+	title: "Selected ecosystem types (area in km²)",
+	label: "Net change in ecosystem type (km²)",
+	target: beta.ecosystem_type:MachineLearning nca.ecosystem.iucn:EcosystemType
+	columns:({ title:  "{classifier}", target: im:Area in km^2, filter:beta.ecosystem_type:MachineLearning nca.ecosystem.eunis:EcosystemType}
+			 {title: "Total", summarize: sum, style: bold}),
+	rows:   ({ title: "Area {start} (km²)" })};		
+
+define table ecosystem_typology_extent_eunis__machine_learning_static as {
+	title: "Selected ecosystem types (area in km²)",
+	label: "Net change in ecosystem type (km²)",
+	target: beta.ecosystem_type:MachineLearning nca.ecosystem.eunis:EcosystemType
+	columns:({ title:  "{classifier}", target: im:Area in km^2, filter: beta.ecosystem_type:MachineLearning nca.ecosystem.eunis:EcosystemType}
+			 {title: "Total", summarize: sum, style: bold}),
+	rows:   ({ title: "Area {start} (km²)" })};			
