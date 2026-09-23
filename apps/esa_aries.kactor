@@ -359,16 +359,21 @@ all cu_priority_area_contexts for use in alpha 3
 			separator("Query Ecosystem Types according to:" :iconname "sprout-outline" )
 			(
 				(
-					checkbutton("Machine Learning results" #ml :tooltip "Machine Learning results" :disabled): (
+					checkbutton("Machine Learning (IUCN GET) results" #ml :tooltip "Machine Learning (IUCN GET) results"): (
 						submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_machine_learning)
+					)
+					checkbutton("Machine Learning (IUCN GET)summary table" #rb :tooltip "Machine Learning (IUCN GET) summary table"): (
+						submit(beta.ecosystem_type.ecosystem_typology_extent_iucn_machine_learning_static)				
 					)
 					checkbutton("Rule-based (local model) results" #rb_local :tooltip "Rule-based (local model) results"): (
 						submit(rule_based_modelling.colombia.ecosystem_type_colombia_new) : submit(colombia.seea.ecosystem.mec.mec_new)
 					)
-					checkbutton("Rule-based (global model) results" #rb :tooltip "Rule-based (global model) results"): (
+					checkbutton("Rule-based (IUCN GET) results" #rb :tooltip "Rule-based (IUCN GET) results"): (
 						submit(primitive_characteristic.land_cover.land_cover_dominance)
 						submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based)
-					
+					)
+					checkbutton("Rule-based (IUCN GET) summary table" #rb :tooltip "Rule-based (IUCN GET) summary table"): (
+						submit(beta.ecosystem_type.ecosystem_typology_extent_iucn_get_rule_based_basic)				
 					)
 					checkbutton("Hybrid modelling" #hybrid :tooltip "Hybrid modelling" :disabled)
 					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem" #a2 :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
@@ -377,13 +382,19 @@ all cu_priority_area_contexts for use in alpha 3
 					hybrid.disable					
 				) :hidden #col_obs
 				(
-					checkbutton("Machine Learning results" #ml :tooltip "Machine Learning results"): (
+					checkbutton("Machine Learning (IUCN GET) results" #ml :tooltip "Machine Learning (IUCN GET) results"): (
 						submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_machine_learning)
 					)
-					checkbutton("Rule-based (global model) results" #rb :tooltip "Rule-based (global model) results"): (
+					checkbutton("Machine Learning (IUCN GET)summary table" #rb :tooltip "Machine Learning (IUCN GET) summary table"): (
+						submit(beta.ecosystem_type.ecosystem_typology_extent_iucn_machine_learning_static)				
+					)					
+					checkbutton("Rule-based (IUCN GET) results" #rb :tooltip "Rule-based (IUCN GET) results"): (
 						submit(primitive_characteristic.land_cover.land_cover_dominance)
 						submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based)
-				)
+					)
+					checkbutton("Rule-based (global model) summary table" #rb :tooltip "Rule-based (global model) summary table"): (
+						submit(beta.ecosystem_type.ecosystem_typology_extent_iucn_get_rule_based_basic)				
+					)
 					checkbutton("Hybrid modelling" #hybrid :tooltip "Hybrid modelling" :disabled)
 					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem" #a2 :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
 						 submit(esa.aries.ecosystem.naturalness.natural_ecosystem_extent) : submit(esa.aries.ecosystem.naturalness.natural_ecosystem_extent_iucn_get_static)
@@ -391,13 +402,20 @@ all cu_priority_area_contexts for use in alpha 3
 					hybrid.disable					
 				) :hidden #noneu_obs								
 				(
-					checkbutton("Machine Learning results" #ml :tooltip "Machine Learning results"): (
+					checkbutton("Machine Learning (EUNIS classification) results" #ml :tooltip "Machine Learning (EUNIS classification) results"): (
 						submit(beta.ecosystem_type.ecosystem_type_eunis_level2_machine_learning)
 					)
+					checkbutton("Machine Learning (EUNIS classification) summary table" #rb :tooltip "Machine Learning (EUNIS classification) summary table"): (
+						submit(beta.ecosystem_type.ecosystem_typology_extent_eunis__machine_learning_static)				
+					)						
+					ecosystem_typology_extent_eunis__machine_learning_static
 					checkbutton("Rule-based results" #rb :tooltip "Rule-based (global model) results"): (
 						submit(primitive_characteristic.land_cover.land_cover_dominance)
 						submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based)
 					)
+					checkbutton("Rule-based (global model) summary table" #rb :tooltip "Rule-based (global model) summary table"): (
+						submit(beta.ecosystem_type.ecosystem_typology_extent_iucn_get_rule_based_basic)				
+					)					
 					checkbutton("Hybrid modelling" #hybrid :tooltip "Hybrid modelling" :disabled)
 					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem" #a2 :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
 						submit(esa.aries.ecosystem.naturalness.eunis_natural_ecosystem_extent) : submit(esa.aries.ecosystem.naturalness.natural_ecosystem_extent_eunis)
