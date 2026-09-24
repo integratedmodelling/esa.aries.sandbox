@@ -41,8 +41,11 @@ observe earth:Region named czech_republic_prague_test
     			grid="500 m",
                 projection= "EPSG:4326"),
 //        time(start=2024, end=2025, step=1.year);
-		  time (year = 2024);          
-
+		  time (year = 2024);       
+		  
+number 'local:alessio.bulckaen:esa.aries.sandbox:EUNIS2021plus-V311-extent' as parr;
+		     
+@documented(global.ecosystemextent.machinelearning_mapping)
 model 'local:alessio.bulckaen:esa.aries.sandbox:EUNIS2021plus-V311-extent'
 	as beta.ecosystem_type:MachineLearning nca.ecosystem.eunis:EcosystemType named ecosystem_type_eunis_level2_machine_learning
 	classified into
@@ -157,7 +160,10 @@ model 'local:alessio.bulckaen:esa.aries.sandbox:EUNIS2021plus-V311-extent'
 		nca.ecosystem.eunis:ShrubPlantation if in (100500 100501 100502 100503 100504),
 		nca.ecosystem.eunis:TreeDominatedManMadeHabitat if in (100600 100601 100602 100603 100604 100605 100606),
 		nca.ecosystem.eunis:InlandSurfaceWater if in (110000 110100 110200),
-		nca.ecosystem.eunis:ConstructedIndustrialArtificialHabitat if in (120000 120100 120200 120300 120400 120500 120600)
+		nca.ecosystem.eunis:ConstructedIndustrialArtificialHabitat if in (120000 120100 120200 120300 120400 120500 120600),
+		nca.ecosystem.eunis:StandingAquaticHabitat if in (130100 130101 130102 130103 130104 13105 130106 130107 13108 13109 130110 130111 13112 130113 130114 130115 130116 130117 130118 130119 130120 130121 130122)
+		nca.ecosystem.eunis:RunningAquaticHabitat if in (130200 130201 130202 130203 130204 130205 130206 130207 130208 130209 130210 130211 13212 130213 130214 130215 130216 130217 130218 130219 130220 130221 130222 130223 130224 130225 130226)
+		nca.ecosystem.eunis:AquaticPlantCommunity if in (130300 130301 130302 130303 130304 130305 130306 130307 13308)
 ;
 
 //TODO:fix encoding level 2
