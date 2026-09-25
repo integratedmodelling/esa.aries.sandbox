@@ -1268,7 +1268,7 @@ define table ecosystem_typology_extent_iucn_machine_learning_static as {
 			 {title: "Total", summarize: sum, style: bold}),
 	rows:   ({ title: "Area {start} (km²)" })};		
 
-define table ecosystem_typology_extent_eunis__machine_learning_static as {
+define table ecosystem_typology_extent_eunis_machine_learning_static as {
 	title: "Selected ecosystem types (area in km²)",
 	label: "Net change in ecosystem type (km²)",
 	target: beta.ecosystem_type:MachineLearning nca.ecosystem.eunis:EcosystemType

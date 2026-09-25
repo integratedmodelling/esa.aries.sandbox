@@ -376,7 +376,7 @@ all cu_priority_area_contexts for use in alpha 3
 					)
 					checkbutton("Hybrid modelling" #hybrid :tooltip "Hybrid modelling" :disabled)
 					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Machine Learning (IUCN GET) results" #a2 :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
-						 submit(beta.ecosystem_type.natural_ecosystem_extent_iucn_get_machine_learning) : submit(beta.ecosystem_type.natural_ecosystem_extent_iucn_get_machine_learning_static)
+						 submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_machine_learning) : submit(beta.ecosystem_type.natural_ecosystem_extent_iucn_get_machine_learning) : submit(natural_ecosystem_extent_iucn_get_machine_learning_net_change)
 					)
 					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Rule-based (IUCN GET) results" #a2 :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
 						 submit(beta.ecosystem_type.natural_ecosystem_extent_iucn_get_rule_based) : submit(beta.ecosystem_type.natural_ecosystem_extent_iucn_get_static)
@@ -398,7 +398,7 @@ all cu_priority_area_contexts for use in alpha 3
 					)
 					checkbutton("Hybrid modelling" #hybrid :tooltip "Hybrid modelling" :disabled)
 					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Machine Learning (IUCN GET) results" #a2 :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
-						 submit(beta.ecosystem_type.natural_ecosystem_extent_iucn_get_machine_learning) : submit(beta.ecosystem_type.natural_ecosystem_extent_iucn_get_machine_learning_static)
+						 submit(beta.ecosystem_type.natural_ecosystem_extent_iucn_get_machine_learning) : submit(natural_ecosystem_extent_iucn_get_machine_learning_net_change)
 					)
 					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Rule-based (IUCN GET) results" #a2 :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
 						 submit(beta.ecosystem_type.natural_ecosystem_extent_iucn_get_rule_based) : submit(beta.ecosystem_type.natural_ecosystem_extent_iucn_get_static)
