@@ -16,7 +16,7 @@ observe earth:Region named colombia_san_andres_co2
     over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_priority_areas_bbox_epsg4326_v2#weed_site=CO2',
     			grid="100 m",
                 projection= "EPSG:4326"),
-        time(start=2021, end=2022, step=1.year);
+        time(start=2021, end=2025, step=1.year);
      
 observe earth:Region named cz2_reduced_area 
     over space (shape = 'EPSG:4326 POLYGON ((12.558142095505843 50.31976124207688, 12.537542730271468 50.31976124207688, 12.537542730271468 50.326234417674215, 12.558142095505843 50.326234417674215, 12.558142095505843 50.31976124207688))',
@@ -1739,6 +1739,24 @@ define table natural_ecosystem_extent_iucn_get_static as {
 			 {title: "Total", summarize: sum, style: bold}),
 	rows:   ({ title: "Area in {start} (km²)" })};
 	
+@documented(global.ecosystemextent.natural_ecosystem_indicator)	
+@var(timespan=(start end))
+define table natural_ecosystem_extent_iucn_get_rule_based_net_change as {
+	name: "ecosystem_extent"
+	title: "Occurring ecosystem types (selected level 3 Ecosystem Functional Groups of the IUCN Global Ecosystem Typology 2.0)",
+	label: "Ecosystem extent account - net balance (km²)",
+	target: beta.ecosystem_type:RuleBased nca.ecosystem.naturalness:NaturalnessLevel
+	when: end
+	use: tables.compiler.summarize(contabilize-nulls = true, 
+		rowsummary = { filter: "change" title: "Net change" style: bold}, 
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: beta.ecosystem_type:RuleBased nca.ecosystem.naturalness:NaturalnessLevel }, 
+		report='area', 
+		empty='', 
+		no-data = ''
+	)
+};
+		
 model beta.ecosystem_type:MachineLearning nca.ecosystem.naturalness:NaturalnessLevel named natural_ecosystem_extent_iucn_get_machine_learning	
 observing
 	beta.ecosystem_type:MachineLearning nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get_level3_machine_learning
@@ -1752,6 +1770,23 @@ define table natural_ecosystem_extent_iucn_get_machine_learning_static as {
 	columns:({ title:  "{classifier}", target: im:Area in km^2, filter: beta.ecosystem_type:MachineLearning nca.ecosystem.naturalness:NaturalnessLevel}
 			 {title: "Total", summarize: sum, style: bold}),
 	rows:   ({ title: "Area in {start} (km²)" })};
+	
+@var(timespan=(start end))
+define table natural_ecosystem_extent_iucn_get_machine_learning_net_change as {
+	name: "ecosystem_extent"
+	title: "Occurring ecosystem types (selected level 3 Ecosystem Functional Groups of the IUCN Global Ecosystem Typology 2.0)",
+	label: "Ecosystem extent account - net balance (km²)",
+	target: beta.ecosystem_type:MachineLearning nca.ecosystem.naturalness:NaturalnessLevel
+	when: end
+	use: tables.compiler.summarize(contabilize-nulls = true, 
+		rowsummary = { filter: "change" title: "Net change" style: bold}, 
+		rows =       { filter: %timespan% }, 
+		columns =    { filter: beta.ecosystem_type:MachineLearning nca.ecosystem.naturalness:NaturalnessLevel }, 
+		report='area', 
+		empty='', 
+		no-data = ''
+	)
+};	
 
 //abstract attribute EcosystemNaturalness
 //	has children
