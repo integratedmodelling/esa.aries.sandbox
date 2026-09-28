@@ -583,3 +583,9 @@ define table ecosystem_type_result_comparison_by_iucn_get_level_modelled_vs_refe
 	         { title: "Similarity of the result from the modelled & reference maps - Un-mapped (%)", summarize: [(r4 / (r1 + r2 + r3 + r4)) * 100], style: bold }
 	        )
 	};		
+	
+	
+/*RESULT COMPARISON USING POINTS */
+
+model each local:alessio.bulckaen:esa.aries.sandbox:weed_validation
+	as im:Reference nca.ecosystem.iucn:Ecosystem earth:Location;	
