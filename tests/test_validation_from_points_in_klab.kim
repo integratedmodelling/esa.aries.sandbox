@@ -1,0 +1,33 @@
+worldview im;
+
+@test(
+    name = "test_validation_from_points_in_klab",
+    description  = "",
+    // add to the list any concepts to be observed in the context below
+    observations = (
+    "et_result_comparison.reference-ecosystem-location-instantiator"
+    "im|esa.aries.sandbox/tests/test_validation_from_points_in_klab.elevation-resolver"
+    "im|esa.aries.sandbox/tests/test_validation_from_points_in_klab.site-instantiator"
+    "im|esa.aries.sandbox/tests/test_validation_from_points_in_klab.test_ecosystem_type_validation_point"),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named test_validation_from_points_in_klab
+    // add any space and/or time extents: for example
+    over space(shape="EPSG:4326 POLYGON ((-75.62381234325392 4.678810394139589, -75.62415506936064 4.675342224858085, -75.62517007690867 4.6720073191852975, -75.62681835972721 4.66893383846805, -75.6290365752319 4.666239899014897, -75.63173947864487 4.664029032317728, -75.63482319890376 4.662386205648346, -75.6381692303684 4.661374556069077, -75.64164898692611 4.661032963480736, -75.64512874348381 4.661374556069077, -75.64847477494847 4.662386205648346, -75.65155849520735 4.664029032317728, -75.65426139862033 4.666239899014897, -75.656479614125 4.66893383846805, -75.65812789694355 4.6720073191852975, -75.65914290449159 4.675342224858085, -75.65948563059831 4.678810394139589, -75.65914290449159 4.682278546239814, -75.65812789694355 4.6856134029844725, -75.656479614125 4.688686810475588, -75.65426139862033 4.691380663552636, -75.65155849520735 4.693591443873672, -75.64847477494847 4.695234197316935, -75.64512874348381 4.696245797968061, -75.64164898692611 4.696587373375124, -75.6381692303684 4.696245797968061, -75.63482319890376 4.695234197316935, -75.63173947864487 4.693591443873672, -75.6290365752319 4.691380663552636, -75.62681835972721 4.688686810475588, -75.62517007690867 4.6856134029844725, -75.62415506936064 4.682278546239814, -75.62381234325392 4.678810394139589))",
+    grid="5 m"),
+	time(year=2021)
+	;
+
+// add any models here
+model 'local:alessio.bulckaen:esa.aries.sandbox:weed_validation#Type'
+	as geography:Elevation in m; // im:Reference nca.ecosystem.iucn:Ecosystem;
+	
+model each 'local:alessio.bulckaen:esa.aries.sandbox:weed_validation'
+	as earth:Site, Type as geography:Elevation in m; //im:Reference nca.ecosystem.iucn:Ecosystem;
+	
+number 'local:alessio.bulckaen:esa.aries.sandbox:weed_validation#Type' as test_ecosystem_type_validation_point;
+	
+model each local:alessio.bulckaen:esa.aries.sandbox:weed_validation
+	as im:Reference nca.ecosystem.iucn:Ecosystem earth:Location;
