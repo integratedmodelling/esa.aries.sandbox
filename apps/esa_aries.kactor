@@ -312,11 +312,14 @@ action main:
 						submit(beta.ecosystem_type.ecosystem_typology_extent_iucn_get_rule_based_basic)				
 					)
 					checkbutton("Hybrid modelling" #col_hm :tooltip "Hybrid modelling" :disabled)
+					
 					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Machine Learning (IUCN GET) results" #col_a2mlr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
-						 submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_machine_learning) : submit(beta.ecosystem_type.natural_ecosystem_extent_iucn_get_machine_learning) : submit(natural_ecosystem_extent_iucn_get_machine_learning_net_change)
+						submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_machine_learning)
+						submit(beta.ecosystem_type.natural_ecosystem_extent_iucn_get_machine_learning_net_change)
 					)
 					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Rule-based (IUCN GET) results" #col_a2rbr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
-						 submit(beta.ecosystem_type.natural_ecosystem_extent_iucn_get_rule_based) : submit(beta.ecosystem_type.natural_ecosystem_extent_iucn_get_static)
+						 submit(beta.ecosystem_type.natural_ecosystem_extent_iucn_get_rule_based)
+						 submit(beta.ecosystem_type.natural_ecosystem_extent_iucn_get_rule_based_net_change)
 					)					
 				) :hidden #col_obs
 				(
@@ -334,10 +337,12 @@ action main:
 					)
 					checkbutton("Hybrid modelling" #noneu_hm :tooltip "Hybrid modelling" :disabled)
 					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Machine Learning (IUCN GET) results" #noneu_a2mlr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
-						 submit(beta.ecosystem_type.natural_ecosystem_extent_iucn_get_machine_learning) : submit(natural_ecosystem_extent_iucn_get_machine_learning_net_change)
+						submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_machine_learning)
+						submit(beta.ecosystem_type.natural_ecosystem_extent_iucn_get_machine_learning_net_change)
 					)
 					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Rule-based (IUCN GET) results" #noneu_a2rbr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
-						 submit(beta.ecosystem_type.natural_ecosystem_extent_iucn_get_rule_based) : submit(beta.ecosystem_type.natural_ecosystem_extent_iucn_get_static)
+						 submit(beta.ecosystem_type.natural_ecosystem_extent_iucn_get_rule_based) 
+						 submit(beta.ecosystem_type.natural_ecosystem_extent_iucn_get_rule_based_net_change)
 					)						
 				) :hidden #noneu_obs								
 				(
@@ -355,10 +360,13 @@ action main:
 					)					
 					checkbutton("Hybrid modelling" #eu_hm :tooltip "Hybrid modelling" :disabled)
 					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Machine Learning (EUNIS) results" #ey_a2mlr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)":disabled 
-						//submit(beta.ecosystem_type.natural_ecosystem_extent_eunis_machine_learning) : submit(beta.ecosystem_type.natural_ecosystem_extent_eunis_machine_learning_static)
+						submit(beta.ecosystem_type.natural_ecosystem_extent_eunis_machine_learning)
+						submit(beta.ecosystem_type.natural_ecosystem_extent_eunis_machine_learning_static)
+						submit(beta.ecosystem_type.natural_ecosystem_extent_eunis_machine_learning_net_change)
 					)
 					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Rule-based (IUCN GET) results" #eu_a2rbr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
-						 submit(beta.ecosystem_type.natural_ecosystem_extent_iucn_get_rule_based) : submit(beta.ecosystem_type.natural_ecosystem_extent_iucn_get_static)
+						 submit(beta.ecosystem_type.natural_ecosystem_extent_iucn_get_rule_based) 
+						 submit(beta.ecosystem_type.natural_ecosystem_extent_iucn_get_rule_based_net_change)
 					)					
 					hybrid.disable					
 				) :hidden #eu_obs
