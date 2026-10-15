@@ -167,10 +167,21 @@ model 'local:alessio.bulckaen:esa.aries.sandbox:EUNIS2021plus-V311-extent'
 ;
 
 //TODO:fix encoding level 2
-model 'local:alessio.bulckaen:esa.aries.sandbox:WEED_STAC_catalogue__EU_modelV2-1-MECE__EUNIS_level3_V2'
+model 'local:alessio.bulckaen:esa.aries.sandbox:EUNIS2021plus-V311-extent'
 	as beta.ecosystem_type:MachineLearning IntermediateOutput nca.ecosystem.eunis:EcosystemType named ecosystem_type_eunis_level1_machine_learning
 		classified 
 		according to im:eunis-lvl1-encoding;
+		
+model 'local:alessio.bulckaen:esa.aries.sandbox:EUNIS2021plus-V311-extent'
+	as beta.ecosystem_type:MachineLearning IntermediateOutput nca.ecosystem.eunis:EcosystemType named ecosystem_type_eunis_level2_machine_learning
+		classified 
+		according to im:eunis-lvl2-encoding;
+
+number 'local:alessio.bulckaen:esa.aries.sandbox:EUNIS2021plus-V311-extent' as jajaj;		
+number 'local:alessio.bulckaen:esa.aries.sandbox:WEED_STAC_catalogue__EU_modelV2-1-MECE__EUNIS_level3_V2'
+		as patatufla;
+		
+		
 //TODO:
 @documented(global.ecosystemextent.machinelearning_mapping)
 model 'local:alessio.bulckaen:esa.aries.sandbox:IUCNGET-V317-extent'
@@ -858,24 +869,25 @@ define table natural_ecosystem_extent_iucn_get_machine_learning_net_change as {
 	)
 };	
 
-//abstract attribute EcosystemNaturalness
-//	has children
-//		Natural,
-//		(Antrhpogenic
-//			has children
-//				SemiNatural);
-//				
-//model beta.ecosystem_type:MachineLearning beta.ecosystem_type:EcosystemNaturalness nca.ecosystem.eunis:EcosystemType named natural_ecosystem_extent_eunis_machine_learning
-//observing
-//	beta.ecosystem_type:MachineLearning nca.ecosystem.eunis:EcosystemType named ecosystem_type_eunis_level2_machine_learning
-//	lookup (ecosystem_type_eunis_level2_machine_learning,*, ?)
-//	into ECOSYSTEM_NATURALNESS; 
-//
-//
-//define table natural_ecosystem_extent_eunis_machine_learning_static as {
-//	title: "Natural Ecosystem Extent"
-//	label: "Extent of natural ecosystems (km²) - Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF) derived from EUNIS"
-//	target: beta.ecosystem_type:MachineLearning beta.ecosystem_type:EcosystemNaturalness nca.ecosystem.eunis:EcosystemType
-//	columns:({ title:  "{classifier}", target: im:Area in km^2, filter:beta.ecosystem_type:MachineLearning beta.ecosystem_type:EcosystemNaturalness nca.ecosystem.eunis:EcosystemType}
-//			 {title: "Total", summarize: sum, style: bold}),
-//	rows:   ({ title: "Area {start} (km²)" })};			
+abstract attribute EcosystemNaturalness
+	has children
+		Natural,
+		(Anthropogenic
+			has children
+				SemiNatural
+		);
+				
+model beta.ecosystem_type:MachineLearning beta.ecosystem_type:EcosystemNaturalness nca.ecosystem.eunis:EcosystemType named natural_ecosystem_extent_eunis_machine_learning
+observing
+	beta.ecosystem_type:MachineLearning nca.ecosystem.eunis:EcosystemType named ecosystem_type_eunis_level2_machine_learning
+	lookup (ecosystem_type_eunis_level2_machine_learning,*, ?)
+	into ECOSYSTEM_NATURALNESS; 
+
+
+define table natural_ecosystem_extent_eunis_machine_learning_static as {
+	title: "Natural Ecosystem Extent"
+	label: "Extent of natural ecosystems (km²) - Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF) derived from EUNIS"
+	target: beta.ecosystem_type:MachineLearning beta.ecosystem_type:EcosystemNaturalness nca.ecosystem.eunis:EcosystemType
+	columns:({ title:  "{classifier}", target: im:Area in km^2, filter:beta.ecosystem_type:MachineLearning beta.ecosystem_type:EcosystemNaturalness nca.ecosystem.eunis:EcosystemType}
+			 {title: "Total", summarize: sum, style: bold}),
+	rows:   ({ title: "Area {start} (km²)" })};			
