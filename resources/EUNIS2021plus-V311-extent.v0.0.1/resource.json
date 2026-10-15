@@ -3,7 +3,7 @@
   "version" : "0.0.1",
   "adapterType" : "stac",
   "localPath" : "esa.aries.sandbox/resources/EUNIS2021plus-V311-extent.v0.0.1",
-  "geometry" : "s2{bbox=[6.751494770315222 7.068892100858968 52.04595358300287 52.41268337243537],proj=EPSG:4326}",
+  "geometry" : "s2{proj=EPSG:4326}",
   "projectName" : "esa.aries.sandbox",
   "localName" : "EUNIS2021plus-V311-extent",
   "type" : "NUMBER",
