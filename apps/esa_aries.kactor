@@ -2,15 +2,17 @@ public app esa.aries
 	"ARIES for ESA"
 	version 1.0alpha
 	description #ARIES_FOR_ESA_EXPLORER_DESCRIPTION
-	logo static/images/esa_logo.png
+	logo static/images/esa_logo_deepspace.png
 	versionstring "Demonstration version (Alpha 2/3)"
-	style dark
+	style light
 
 
 @left(width=450)
 action main:
 	set context_label ""
 	separator("Context: where, when (2024) " :iconname "earth" )
+
+	
 
 	(
 		(
@@ -297,15 +299,28 @@ action main:
 			(
 				(
 					checkbutton("Machine Learning (IUCN GET) results" #col_mlr :tooltip "Machine Learning (IUCN GET) results"): (
+						alert("This model is computed on demand and may take up to a few hours to process.<br/>If your results don't appear immediately, the computation is running in the background. <br/><br/>
+								We will send a notification to the email adress associated with your k.Hub account once  <br/> 
+								it is complete,	so you can return and view your results.")
 						submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_machine_learning)
 					)
 					checkbutton("Machine Learning (IUCN GET) summary table" #col_mlst :tooltip "Machine Learning (IUCN GET) summary table"): (
+						alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
+								If your results don't appear immediately, the computation is running in the background. <br/><br/>
+								We will send a notification to the email adress associated with your k.Hub account once it is complete, <br/>
+								so you can return and view your results.")
 						submit(beta.ecosystem_type.ecosystem_typology_extent_iucn_machine_learning_static)				
 					)
 					checkbutton("Rule-based (local classification) results" #col_rblr :tooltip "Rule-based (national classification in Colombia) results"): (
+					alert("This model is computed on demand and may take up to a few hours to process.<br/>If your results don't appear immediately, the computation is running in the background. <br/><br/>
+								We will send a notification to the email adress associated with your k.Hub account once  <br/> 
+								it is complete,	so you can return and view your results.")
 						submit(rule_based_modelling.colombia.ecosystem_type_colombia_new) : submit(colombia.seea.ecosystem.mec.mec_new)
 					)
 					checkbutton("Rule-based (IUCN GET) results" #col_rbigr :tooltip "Rule-based (IUCN GET) results"): (
+					alert("This model is computed on demand and may take up to a few hours to process.<br/>If your results don't appear immediately, the computation is running in the background. <br/><br/>
+								We will send a notification to the email adress associated with your k.Hub account once  <br/> 
+								it is complete,	so you can return and view your results.")
 						submit(primitive_characteristic.land_cover.land_cover_dominance) : submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based)
 					)
 					checkbutton("Rule-based (IUCN GET) summary table" #col_rbst :tooltip "Rule-based (IUCN GET) summary table"): (
