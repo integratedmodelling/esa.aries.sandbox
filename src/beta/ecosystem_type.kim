@@ -868,7 +868,7 @@ define table gbf_indicator_a2_natural_ecosystem_extent_iucn_get as { //TODO:add 
     target: beta.ecosystem_type:RuleBased nca.ecosystem.naturalness:NaturalnessLevel
     when: end
     use: tables.compiler.summarize(
-        contabilize-nulls = true,
+    	contabilize-nulls = true,
         rows = {filter: %timespan%},
         columns = {filter: beta.ecosystem_type:RuleBased nca.ecosystem.naturalness:NaturalnessLevel},
 //        colsummary = {
