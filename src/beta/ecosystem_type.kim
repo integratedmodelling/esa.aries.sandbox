@@ -16,7 +16,7 @@ observe earth:Region named colombia_san_andres_co2
     over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_priority_areas_bbox_epsg4326_v2#weed_site=CO2',
     			grid="100 m",
                 projection= "EPSG:4326"),
-        time(start=2021, end=2025, step=1.year);
+        time(start=2024, end=2025, step=1.year);
      
 observe earth:Region named cz2_reduced_area 
     over space (shape = 'EPSG:4326 POLYGON ((12.558142095505843 50.31976124207688, 12.537542730271468 50.31976124207688, 12.537542730271468 50.326234417674215, 12.558142095505843 50.326234417674215, 12.558142095505843 50.31976124207688))',
@@ -339,7 +339,19 @@ define table ecosystem_typology_extent_iucn_get_rule_based_static as {
 	target: beta.ecosystem_type:RuleBased nca.ecosystem.iucn:EcosystemType
 	columns:({ title:  "{classifier}", target: im:Area in km^2, filter: beta.ecosystem_type:RuleBased nca.ecosystem.iucn:EcosystemType}
 			 {title: "Total", summarize: sum, style: bold}),
-	rows:   ({ title: "Area {start} (km²)" })}; 
+	rows:   ({ title: "Area {start} (km²)" })};
+	
+//define table ecosystem_typology_extent_iucn_get_rule_based_static_a2_indicator as {
+//	title: "Selected ecosystem types (area in km²)",
+//	label: "Net change in ecosystem type (km²)",
+//	target: beta.ecosystem_type:RuleBased nca.ecosystem.iucn:EcosystemType
+//	columns:({ title:  "{classifier}", target: im:Area in km^2, filter: beta.ecosystem_type:RuleBased nca.ecosystem.iucn:EcosystemType}
+//			 { title: "Total", summarize: sum, style: bold}),
+//	rows:   ({ title: "Area {start} (km²)" }
+//			 { title: "Total area (km²)",  aggregation: sum, target: im:Area in km^2}
+//			 { title: "Total Natural area (km²)",  aggregation: sum, target: nca.ecosystem.naturalness:Natural im:Area in km^2}
+//			 { title: "Percentage (%) of natural ecosystem relative to the total extent", summarize: [(r1 / r2) * 100], style: bold}	
+//	)};	 
 
 define table ecosystem_typology_extent_iucn_machine_learning_static as {
 	title: "Selected ecosystem types (area in km²)",
@@ -812,13 +824,22 @@ observing
 	into IUCN_GET_NATURALNESS;
 
 @documented(global.ecosystemextent.natural_ecosystem_indicator)
-define table natural_ecosystem_extent_iucn_get_static as {
+define table gbf_indicator_a2_natural_ecosystem_percentage_iucn_get_static as {
+
 	title: "Natural Ecosystem Extent"
-	label: "Extent of natural ecosystems (km²) - Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF) derived from IUCN GET"
+	label: "Natural ecosystem extent (%) - Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"
+
 	target: beta.ecosystem_type:RuleBased nca.ecosystem.naturalness:NaturalnessLevel
-	columns:({ title:  "{classifier}", target: im:Area in km^2, filter: beta.ecosystem_type:RuleBased nca.ecosystem.naturalness:NaturalnessLevel}
-			 {title: "Total", summarize: sum, style: bold}),
-	rows:   ({ title: "Area in {start} (km²)" })};
+
+	columns: (
+		{title: "Natural ecosystem extent (km²)", target: im:Area in km^2, filter: beta.ecosystem_type:RuleBased nca.ecosystem.naturalness:NaturalnessLevel, keep: (any nca.ecosystem.naturalness:Natural)}
+		{title: "Anthropogenic ecosystem extent (km²)", target: im:Area in km^2, filter: beta.ecosystem_type:RuleBased nca.ecosystem.naturalness:NaturalnessLevel, keep: (any nca.ecosystem.naturalness:Anthropogenic)}
+		{title: "Total ecosystem extent (km²)", summarize: [c1 + c2], style: bold}
+		{title: "Natural ecosystem extent (%)", summarize: [(c1 / (c1 + c2)) * 100],style: bold}
+	)
+
+	rows: ({title: "Year {start}"})
+};
 	
 @documented(global.ecosystemextent.natural_ecosystem_indicator)	
 @var(timespan=(start end))
@@ -836,6 +857,28 @@ define table natural_ecosystem_extent_iucn_get_rule_based_net_change as {
 		empty='', 
 		no-data = ''
 	)
+};
+
+@documented(global.ecosystemextent.natural_ecosystem_indicator)
+@var(timespan=(start end))
+define table gbf_indicator_a2_natural_ecosystem_extent_iucn_get as { //TODO:add Java compiler for percentage calculation
+    name: "ecosystem_extent"
+    title: "Natural Ecosystem Extent"
+    label: "Extent of natural and anthropogenic ecosystems (km²) - Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"
+    target: beta.ecosystem_type:RuleBased nca.ecosystem.naturalness:NaturalnessLevel
+    when: end
+    use: tables.compiler.summarize(
+        contabilize-nulls = true,
+        rows = {filter: %timespan%},
+        columns = {filter: beta.ecosystem_type:RuleBased nca.ecosystem.naturalness:NaturalnessLevel},
+//        colsummary = {
+//            filter: "total"
+//            title: "Total ecosystem extent (km²)"
+//        },
+        report = 'area',
+        empty = '',
+        no-data = ''
+    )
 };
 		
 model beta.ecosystem_type:MachineLearning nca.ecosystem.naturalness:NaturalnessLevel named natural_ecosystem_extent_iucn_get_machine_learning	
