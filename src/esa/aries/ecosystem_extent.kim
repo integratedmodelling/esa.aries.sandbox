@@ -1,7 +1,5 @@
 project private namespace esa.aries.ecosystem_extent
-using 
-esa.aries.model_approach, 
-nca.ecosystem.eunis, nca.ecosystem.iucn, nca.ecosystem.naturalness, (IUCN_GET_NATURALNESS, ECOSYSTEM_NATURALNESS) from esa.aries.ecosystem.naturalness;
+using esa.aries.model_approach, nca.ecosystem.eunis, nca.ecosystem.iucn;
 
 @documented(global.ecosystemextent.machinelearning_mapping)
 model 'local:alessio.bulckaen:esa.aries.sandbox:EUNIS2021plus-V311-extent'
@@ -136,7 +134,7 @@ model 'local:alessio.bulckaen:esa.aries.sandbox:EUNIS2021plus-V311-extent'
 //		according to im:eunis-lvl2-encoding;
 
 @documented(global.ecosystemextent.machinelearning_mapping)
-model 'local:alessio.bulckaen:esa.aries.sandbox:IUCNGET-V317-extent'
+model 'local:alessio.bulckaen:esa.aries.sandbox:IUCNGET-V330-MECE'
 	as esa.aries.model_approach:MachineLearning nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get_level3_machine_learning
 		classified 
 		according to im:ecosystem-get-iucn;
@@ -146,4 +144,12 @@ model 'local:alessio.bulckaen:esa.aries.sandbox:WEED_rule_based_IUCN_GET'
 	as esa.aries.model_approach:RuleBased nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get_level3_rule_based
 	classified according to im:ecosystem-get-iucn;
 
+//@documented(global.ecosystemextent.rulebased_mapping)
+//model //'local:alessio.bulckaen:esa.aries.sandbox:WEED_rule_based_IUCN_GET'
+//	as esa.aries.model_approach:HybridModelling nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get_level3_hybrid_modelling
+//	classified according to im:ecosystem-get-iucn;
+
+number ecosystem_charcteristics
+observing	
+	landcover:LandCoverType named land_cover_dominance;
 
