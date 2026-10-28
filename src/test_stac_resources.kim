@@ -665,6 +665,13 @@ model 'local:alessio.bulckaen:esa.aries.sandbox:IUCNGET-RuleBased-V501'
 as esa.aries.model_approach:RuleBased nca.ecosystem.iucn:EcosystemType
 classified according to im:ecosystem-get-iucn;
 
+
+
+observe earth:Region named colombia_rulebased_v501_b91a87c3_950e_48dd_a6bc_beb0ae5ac8e2_2024_01_01t00_00_00z
+        over space(shape='EPSG:4326 POLYGON ((-74.63689662931095 8.141871773271133, -74.63673180952716 8.322777136134407, -74.81836496706067 8.322901657560594, -74.81844737903323 8.141993552342004, -74.63689662931095 8.141871773271133))',
+                grid = "30 m"),
+        time (year=2024);
+
 observe earth:Region named colombia_rulebased_v501_fb8544a0_012b_4ab1_8b33_fda72976bbd4_2024_01_01t00_00_00z
         over space(shape='EPSG:4326 POLYGON ((-74.6356638199212 9.408173523728724, -74.63547255894774 9.589066634230068, -74.8177353257999 9.58921042282655, -74.81783095872089 9.408314551906011, -74.6356638199212 9.408173523728724))',
                 grid = "30 m"),
