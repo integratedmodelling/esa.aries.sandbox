@@ -1,0 +1,218 @@
+private namespace esa.aries.contexts;
+
+observe earth:Region named colombia_4326_30m_2024_co1
+     over space(
+     		shape = "",
+     		grid = "30 m",
+    		projection = "EPSG:4326"),
+    	 time(
+    	 	year = 2024
+    	 );
+
+observe earth:Region named colombia_4326_30m_2024_co2
+     over space(
+     		shape = "",
+     		grid = "30 m",
+    		projection = "EPSG:4326"),
+    	 time(
+    	 	year = 2024
+    	 );
+
+observe earth:Region named colombia_4326_30m_2024_co3
+     over space(
+     		shape = "",
+     		grid = "30 m",
+    		projection = "EPSG:4326"),
+    	 time(
+    	 	year = 2024
+    	 );
+
+observe earth:Region named colombia_4326_30m_2024_co4
+     over space(
+     		shape = "",
+     		grid = "30 m",
+    		projection = "EPSG:4326"),
+    	 time(
+    	 	year = 2024
+    	 );
+
+observe earth:Region named colombia_4326_30m_2024_co5
+     over space(
+     		shape = "",
+     		grid = "30 m",
+    		projection = "EPSG:4326"),
+    	 time(
+    	 	year = 2024
+    	 );
+
+observe earth:Region named colombia_4326_30m_2024_co6
+     over space(
+     		shape = "",
+     		grid = "30 m",
+    		projection = "EPSG:4326"),
+    	 time(
+    	 	year = 2024
+    	 );
+
+observe earth:Region named colombia_4326_30m_2024_co7
+     over space(
+     		shape = "",
+     		grid = "30 m",
+    		projection = "EPSG:4326"),
+    	 time(
+    	 	year = 2024
+    	 );
+
+observe earth:Region named colombia_4326_30m_2024_co8
+     over space(
+     		shape = "",
+     		grid = "30 m",
+    		projection = "EPSG:4326"),
+    	 time(
+    	 	year = 2024
+    	 );
+
+observe earth:Region named colombia_4326_30m_2024_co9
+     over space(
+     		shape = "",
+     		grid = "30 m",
+    		projection = "EPSG:4326"),
+    	 time(
+    	 	year = 2024
+    	 );
+    	 
+observe earth:Region named colombia_4326_30m_2024_co10
+     over space(
+     		shape = "",
+     		grid = "30 m",
+    		projection = "EPSG:4326"),
+    	 time(
+    	 	year = 2024
+    	 );
+
+observe earth:Region named colombia_4326_30m_2024_co11
+     over space(
+     		shape = "",
+     		grid = "30 m",
+    		projection = "EPSG:4326"),
+    	 time(
+    	 	year = 2024
+    	 );
+
+observe earth:Region named colombia_4326_30m_2024_co12
+     over space(
+     		shape = "",
+     		grid = "30 m",
+    		projection = "EPSG:4326"),
+    	 time(
+    	 	year = 2024
+    	 );
+
+observe earth:Region named colombia_4326_30m_2024_co13
+     over space(
+     		shape = "",
+     		grid = "30 m",
+    		projection = "EPSG:4326"),
+    	 time(
+    	 	year = 2024
+    	 );
+
+observe earth:Region named colombia_4326_30m_2024_co14
+     over space(
+     		shape = "",
+     		grid = "30 m",
+    		projection = "EPSG:4326"),
+    	 time(
+    	 	year = 2024
+    	 );
+
+observe earth:Region named colombia_4326_30m_2024_co15
+     over space(
+     		shape = "",
+     		grid = "30 m",
+    		projection = "EPSG:4326"),
+    	 time(
+    	 	year = 2024
+    	 );
+
+observe earth:Region named colombia_4326_30m_2024_co16
+     over space(
+     		shape = "",
+     		grid = "30 m",
+    		projection = "EPSG:4326"),
+    	 time(
+    	 	year = 2024
+    	 );
+
+observe earth:Region named colombia_4326_30m_2024_co17
+     over space(
+     		shape = "",
+     		grid = "30 m",
+    		projection = "EPSG:4326"),
+    	 time(
+    	 	year = 2024
+    	 );
+
+observe earth:Region named colombia_4326_30m_2024_co18
+     over space(
+     		shape = "",
+     		grid = "30 m",
+    		projection = "EPSG:4326"),
+    	 time(
+    	 	year = 2024
+    	 );
+
+observe earth:Region named colombia_4326_30m_2024_co19
+     over space(
+     		shape = "",
+     		grid = "30 m",
+    		projection = "EPSG:4326"),
+    	 time(
+    	 	year = 2024
+    	 );
+    	 
+observe earth:Region named colombia_4326_30m_2024_co20
+     over space(
+     		shape = "",
+     		grid = "30 m",
+    		projection = "EPSG:4326"),
+    	 time(
+    	 	year = 2024
+    	 );
+
+observe earth:Region named colombia_4326_30m_2024_co21
+     over space(
+     		shape = "",
+     		grid = "30 m",
+    		projection = "EPSG:4326"),
+    	 time(
+    	 	year = 2024
+    	 );
+
+observe earth:Region named colombia_4326_30m_2024_co22
+     over space(
+     		shape = "",
+     		grid = "30 m",
+    		projection = "EPSG:4326"),
+    	 time(
+    	 	year = 2024
+    	 );
+
+observe earth:Region named colombia_4326_30m_2024_co23
+     over space(
+     		shape = "",
+     		grid = "30 m",
+    		projection = "EPSG:4326"),
+    	 time(
+    	 	year = 2024
+    	 );
+
+observe earth:Region named colombia_4326_30m_2024_co24
+     over space(
+     		shape = "",
+     		grid = "30 m",
+    		projection = "EPSG:4326"),
+    	 time(
+    	 	year = 2024
+    	 );
+
