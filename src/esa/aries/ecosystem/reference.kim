@@ -1,0 +1,7 @@
+private namespace esa.aries.ecosystem.reference
+using nca.ecosystem.iucn;
+
+model 'local:alessio.bulckaen:esa.aries.sandbox:weed_validation#getraster'
+	as im:Reference type of nca.ecosystem.iucn:Ecosystem named global_validation_points
+	classified according to im:ecosystem-get-iucn;
+
