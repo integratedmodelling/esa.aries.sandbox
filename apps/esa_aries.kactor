@@ -33,71 +33,71 @@ action main:
 		(	
 			checkbutton("Mojana CO1" #co1): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_mojana_co1","Colombia: Mojana CO1")
-				activate_colombia
+				activate_noneu
 			)
 			checkbutton("San Andrés CO2" #co2): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_san_andres_co2","Colombia: San Andrés CO2")
-				activate_colombia
+				activate_noneu
 			)
 			checkbutton("Providencia CO3" #co3): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_providencia_co3","Colombia: Providencia CO3")
-				activate_colombia
+				activate_noneu
 			)
 			checkbutton("Cienaga Grande de Santa Marta CO4" #co4): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_cienaga_grande_de_santa_marta_co4","Colombia: Cienaga Grande de Santa Marta CO4")
-				activate_colombia
+				activate_noneu
 			)
 			checkbutton("Delta Sinú CO5" #co5): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_delta_sinu_co5","Colombia: Delta Sinú CO5")
-				activate_colombia
+				activate_noneu
 			)	
 			checkbutton("Pisba CO6" #co6): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_pisba_co6","Colombia: Pisba CO6")
-				activate_colombia
+				activate_noneu
 						)
 			checkbutton("Santurbán CO7" #co7): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_santurban_co7","Colombia: Santurbán CO7")
-				activate_colombia
+				activate_noneu
 						)
 			checkbutton("Chingaza CO8" #co8): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_chingaza_co8","Colombia: Chingaza CO8")
-				activate_colombia
+				activate_noneu
 						)
 			checkbutton("Putumayo CO9" #co9): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_putumayo_co9","Colombia: Putumayo CO9")
-				activate_colombia
+				activate_noneu
 			)
 			checkbutton("AP_Drummont/Becerril-Cesar CO10" #co10): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_ap_drummont_becerril_cesar_co10","Colombia: AP_Drummont/Becerril-Cesar CO10")
-				activate_colombia
+				activate_noneu
 			)
 			checkbutton("AP_Plata/Simiti-Cesar CO11" #co11): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_ap_plata_simiti_cesar_co11","Colombia: AP_Plata/Simiti-Cesar CO11")
-				activate_colombia
+				activate_noneu
 			)
 			checkbutton("AP_Guane/Barrancabermeja CO12" #co12): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_ap_guane_barrancabermeja_co12","Colombia: AP_Guane/Barrancabermeja CO12")
-				activate_colombia
+				activate_noneu
 			)
 			checkbutton("Piedemonte Casanare CO13" #co13): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_piedemonte_casanare_co13","Colombia: Piedemonte Casanare CO13")
-				activate_colombia
+				activate_noneu
 			)
 			checkbutton("Cuenca alta río Bogotá CO14" #co14 ): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_cuenca_alta_rio_bogota_co14","Colombia: Cuenca alta río Bogotá CO14")
-				activate_colombia
+				activate_noneu
 			)
 			checkbutton("Arco de deforestación Amazonia CO15" #co15): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_arco_de_deforestacion_amazonia_co15","Colombia: Arco de deforestación Amazonia CO1")
-				activate_colombia
+				activate_noneu
 			)	
 			checkbutton("Delta del Patía CO16" #co16): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_delta_del_patia_co16","Colombia: Delta del Patía CO16")
-				activate_colombia
+				activate_noneu
 			)
 			checkbutton("Buenaventura CO17" #co17): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_buenaventura_co17","Colombia: Buenaventura CO17")
-				activate_colombia
+				activate_noneu
 			)	
 		) :name "Colombia" #colombia
 		
@@ -298,46 +298,6 @@ action main:
 			separator("Query Ecosystem Types according to:" :iconname "sprout-outline" )
 			(
 				(
-					checkbutton("Machine Learning (IUCN GET) results" #col_mlr :tooltip "Machine Learning (IUCN GET) results"): (
-						alert("This model is computed on demand and may take up to a few hours to process.<br/>If your results don't appear immediately, the computation is running in the background. <br/><br/>
-								We will send a notification to the email adress associated with your k.Hub account once  <br/> 
-								it is complete,	so you can return and view your results.")
-						submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_machine_learning)
-					)
-					checkbutton("Machine Learning (IUCN GET) summary table" #col_mlst :tooltip "Machine Learning (IUCN GET) summary table"): (
-						alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
-								If your results don't appear immediately, the computation is running in the background. <br/><br/>
-								We will send a notification to the email adress associated with your k.Hub account once it is complete, <br/>
-								so you can return and view your results.")
-						submit(beta.ecosystem_type.ecosystem_typology_extent_iucn_machine_learning_static)				
-					)
-					checkbutton("Rule-based (local classification) results" #col_rblr :tooltip "Rule-based (national classification in Colombia) results"): (
-					alert("This model is computed on demand and may take up to a few hours to process.<br/>If your results don't appear immediately, the computation is running in the background. <br/><br/>
-								We will send a notification to the email adress associated with your k.Hub account once  <br/> 
-								it is complete,	so you can return and view your results.")
-						submit(rule_based_modelling.colombia.ecosystem_type_colombia_new) : submit(colombia.seea.ecosystem.mec.mec_new)
-					)
-					checkbutton("Rule-based (IUCN GET) results" #col_rbigr :tooltip "Rule-based (IUCN GET) results"): (
-					alert("This model is computed on demand and may take up to a few hours to process.<br/>If your results don't appear immediately, the computation is running in the background. <br/><br/>
-								We will send a notification to the email adress associated with your k.Hub account once  <br/> 
-								it is complete,	so you can return and view your results.")
-						submit(primitive_characteristic.land_cover.land_cover_dominance) : submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based)
-					)
-					checkbutton("Rule-based (IUCN GET) summary table" #col_rbst :tooltip "Rule-based (IUCN GET) summary table"): (
-						submit(beta.ecosystem_type.ecosystem_typology_extent_iucn_get_rule_based_basic)				
-					)
-					checkbutton("Hybrid modelling" #col_hm :tooltip "Hybrid modelling" :disabled)
-					
-					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Machine Learning (IUCN GET) results" #col_a2mlr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
-						submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_machine_learning)
-						submit(beta.ecosystem_type.natural_ecosystem_extent_iucn_get_machine_learning_net_change)
-					)
-					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Rule-based (IUCN GET) results" #col_a2rbr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
-						 submit(beta.ecosystem_type.natural_ecosystem_extent_iucn_get_rule_based)
-						 submit(beta.ecosystem_type.natural_ecosystem_extent_iucn_get_rule_based_net_change)
-					)					
-				) :hidden #col_obs
-				(
 					checkbutton("Machine Learning (IUCN GET) results" #noneu_mlr :tooltip "Machine Learning (IUCN GET) results"): (
 						submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_machine_learning)
 					)
@@ -345,7 +305,7 @@ action main:
 						submit(beta.ecosystem_type.ecosystem_typology_extent_iucn_machine_learning_static)				
 					)					
 					checkbutton("Rule-based (IUCN GET) results" #noneu_rbigr :tooltip "Rule-based (IUCN GET) results"): (
-						submit(primitive_characteristic.land_cover.land_cover_dominance) : submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based)
+						submit(esa.aries.ecosystem_extent.ecosystem_characteristics) : submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based)
 					)
 					checkbutton("Rule-based (IUCN GET) summary table" #noneu_rbigst :tooltip "Rule-based (IUCN GET) summary table"): (
 						submit(beta.ecosystem_type.ecosystem_typology_extent_iucn_get_rule_based_basic)				
@@ -367,10 +327,10 @@ action main:
 					checkbutton("Machine Learning (EUNIS classification) summary table" #eu_mlst :tooltip "Machine Learning (EUNIS classification) summary table"): (
 						submit(beta.ecosystem_type.ecosystem_typology_extent_eunis_machine_learning_static)				
 					)						
-					checkbutton("Rule-based (IUCN GET) results" #eu_rbigr :tooltip "Rule-based (IUCN GET) results"): (
-						submit(primitive_characteristic.land_cover.land_cover_dominance) : submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based)
+					checkbutton("Rule-based (IUCN GET) results" #eu_rbigr :tooltip "Rule-based (IUCN GET) results" :disabled): (
+						submit(esa.aries.ecosystem_extent.ecosystem_characteristics) : submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based)
 					)
-					checkbutton("Rule-based (IUCN GET) summary table" #eu_rbigst :tooltip "Rule-based (IUCN GET) summary table"): (
+					checkbutton("Rule-based (IUCN GET) summary table" #eu_rbigst :tooltip "Rule-based (IUCN GET) summary table" :disabled): (
 						submit(beta.ecosystem_type.ecosystem_typology_extent_iucn_get_rule_based_static)				
 					)					
 					checkbutton("Hybrid modelling" #eu_hm :tooltip "Hybrid modelling" :disabled)
@@ -401,9 +361,6 @@ action main:
 	)
 	action activate_eu: (
 		eu_obs.show
-	)
-	action activate_colombia: (
-		col_obs.show
 	)
 
 	action disable_ctxs(context_name, context_label): (
