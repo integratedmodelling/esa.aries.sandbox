@@ -1,0 +1,188 @@
+private namespace esa.aries.ecosystem.reference
+using nca.ecosystem.iucn;
+
+
+/* Global validation point */
+model 'local:alessio.bulckaen:esa.aries.sandbox:weed_validation#getraster'
+	as im:Reference type of nca.ecosystem.iucn:Ecosystem named global_validation_points
+	classified according to im:ecosystem-get-iucn;
+
+/* Czech map  */
+model 'local:alessio.bulckaen:esa.aries.sandbox:esa_weed.czechrepublic_validation_ecosystems_epsg5514_10m'
+as geography:CzechRepublic im:Reference type of nca.ecosystem.iucn:Ecosystem
+		classified into 
+		nca.ecosystem.iucn:DeciduousTemperateForest if 10202,
+		nca.ecosystem.iucn:SeasonalFloodplainMarsh if 50104,
+		nca.ecosystem.iucn:EpisodicAridFloodplain if 60141,
+		nca.ecosystem.iucn:DerivedSeminaturalPastureOldfield if 10705,
+		nca.ecosystem.iucn:BorealTemperateFen if 50107,
+		nca.ecosystem.iucn:TemperateAlpineGrasslandShrubland if 10604,
+		nca.ecosystem.iucn:TemperateSubhumidGrassland if 10405,
+		nca.ecosystem.iucn:PolarTundraDesert if 10603,
+		nca.ecosystem.iucn:AnnualCropland if 10701,
+		nca.ecosystem.iucn:UrbanIndustrialEcosystem if 10704,
+		nca.ecosystem.iucn:Plantation if 10703,
+		nca.ecosystem.iucn:SownPastureField if 10702,
+		nca.ecosystem.iucn:BorealTemperateMontaneForestWoodland if 10201,
+		nca.ecosystem.iucn:CoolTemperateHeathland if 10303,
+		nca.ecosystem.iucn:LargePermanentFreshwaterLake if 60201,
+		nca.ecosystem.iucn:SmallPermanentFreshwaterLake if 60202;
+
+/*South Africa ET crosswalk from vegetation Map */
+model 'local:justus.muhando:esa.aries.sandbox:esa_weed.south_africa_gea_20240722_2_vegetation_reclassified_epsg4326'
+	as geography:SouthAfrica im:Reference type of nca.ecosystem.iucn:Ecosystem
+	classified into
+	nca.ecosystem.iucn:ConstructedLacustrineWetland if 1,
+	nca.ecosystem.iucn:PermanentlyOpenRiverineEstuaryBay if 2,
+	nca.ecosystem.iucn:IntermittentlyClosedOpenLakeLagoon if 3,
+	nca.ecosystem.iucn:KelpForest if 4,
+	nca.ecosystem.iucn:PhoticCoralReef if 5,
+	nca.ecosystem.iucn:PhotolimitedMarineAnimalForest if 6,
+	nca.ecosystem.iucn:SubtidalRockyReef if 7,
+	nca.ecosystem.iucn:SubtidalSandBed if 8,
+	nca.ecosystem.iucn:SubtidalMudPlain if 9,
+	nca.ecosystem.iucn:ContinentalIslandSlope if 10,
+	nca.ecosystem.iucn:SubmarineCanyon if 11,
+	nca.ecosystem.iucn:AbyssalPlain if 12,
+	nca.ecosystem.iucn:SeamountsRidgePlateau if 13,
+	nca.ecosystem.iucn:DeepwaterBiogenicBed if 14,
+	nca.ecosystem.iucn:IntertidalForestShrubland if 15,
+	nca.ecosystem.iucn:RockyShoreline if 16,
+	nca.ecosystem.iucn:SandyShoreline if 17,
+	nca.ecosystem.iucn:BoulderCobbleShore if 18,
+	nca.ecosystem.iucn:CoastalShrublandGrassland if 19,
+	nca.ecosystem.iucn:TropicalSubtropicalDryForestThicket if 20,
+	nca.ecosystem.iucn:WarmTemperateLaurophyllForest if 21,
+	nca.ecosystem.iucn:SeasonallyDryTropicalShrubland if 22,
+	nca.ecosystem.iucn:SeasonallyDryTemperateHeathShrubland if 23,
+	nca.ecosystem.iucn:TrophicSavanna if 24,
+	nca.ecosystem.iucn:PyricTussockSavanna if 25,
+	nca.ecosystem.iucn:TemperateSubhumidGrassland if 26,
+	nca.ecosystem.iucn:SemidesertSteppe if 27,
+	nca.ecosystem.iucn:ThornyDesertSemidesert if 28,
+	nca.ecosystem.iucn:HyperaridDesert if 29,
+	nca.ecosystem.iucn:AnnualCropland if 30,
+	nca.ecosystem.iucn:Plantation if 31,
+	nca.ecosystem.iucn:UrbanIndustrialEcosystem if 32,
+	nca.ecosystem.iucn:DerivedSeminaturalPastureOldfield if 33,
+	nca.ecosystem.iucn:TropicalFloodedForestPeatForest if 34;
+
+/*South African original Vegetation Map */
+model each 'local:justus.muhando:esa.aries.sandbox:esa_weed_south_africa_national_vegetation_map_epsg4326_2025'
+    as geography:SouthAfrica ecology:Vegetation earth:Region named sa_national_vegetation_map_2025;  
+
+/*South Africa NLC raster dataset */
+model local:justus.muhando:esa.aries.sandbox:esa_weed.south_africa_nlc_landcover_2020_epsg4326
+	as geography:SouthAfrica landcover:LandCoverType
+	classified into
+	landcover:TallClosedForest if 1,
+	landcover:LowClosedForest if 2,
+	landcover:ClosedForest if 3,
+	landcover:OpenForest if 4,
+	landcover:ForestPlantation if in (5 6 7),
+	landcover:Shrubland if in (8 9 10 11),
+	landcover:DenseWoodedGrasslandOnFirmGround if 12,
+	landcover:DenseNonwoodedGrasslandOnFirmGround if 13,
+	landcover:Watercourse if 14,
+	landcover:Lagoon if 15,
+	landcover:SeaOcean if 16,
+	landcover:Lake if 17,
+	landcover:StillWaterBody if 18,
+	landcover:Reservoir if 19,
+	landcover:ArtificialWaterBody if in (20 21),
+	landcover:InlandWetland if in (22 23),
+	landcover:Mangrove if 24,
+	landcover:BareRock if 25,
+	landcover:BareArea if 26,
+	landcover:BareDegradedLand if 27,
+	landcover:DuneField if 28,
+	landcover:BeachDuneSand if 29,
+	landcover:Sandbank if in (30 31),
+	landcover:PermanentCropland if 32 to 38,
+	landcover:PermanentlyIrrigatedArableLand if 38,
+	landcover:NonIrrigatedArableLand if in (39 40),
+	landcover:ArableLand if 41,
+	landcover:InactiveAgriculturalLand if in (42 43 44 45 46 73),
+	landcover:ArtificialSurface if 47 to 61,
+	landcover:GreenUrbanArea if 61 to 65,
+	landcover:CommercialUnit if 65,
+	landcover:IndustrialUnit if 66,
+	landcover:RoadRailNetwork if 67,
+	landcover:MineDumpConstruction if 68,
+	landcover:MineralExtraction if 69,
+	landcover:SaltExtraction if 70,
+	landcover:DumpSite if 71,
+	landcover:Landfill if 72;
+
+/* Model as im:Reference type of nca.ecosystem.iucn:Ecosystem to use the best reference data for the model run */
+model 'local:alessio.bulckaen:esa.aries.sandbox:weed_validation#getraster'
+	as im:Reference type of nca.ecosystem.iucn:Ecosystem 
+	classified according to im:ecosystem-get-iucn;	
+
+
+
+/* Additional thematic reference data */
+
+
+// Plantations, as defined by GET, include classes 32, 40, 53 (32 = timber plantation, 40 = oil palm plantation, 53 = agroforestry)
+@colormap(values = {
+PrimaryForest: (0 100 100)
+SecondaryForest: (34 139 139)
+YoungSecondaryForest: (85 165 165)
+OldSecondaryForest: (50 130 130)
+PlantedForest: (60 179 179)
+TimberPlantation: (189 183 183)
+OilPalmPlantation: (210 180 180)
+Agroforestry: (154 205 205)
+})
+abstract attribute ForestManagement has children
+	(PrimaryForest 
+	"Forest without any signs of human activities"),
+	(SecondaryForest 
+	"Forest with signs of human activities(e.g., logging, clear cuts etc.)" has children
+		(YoungSecondaryForest
+		"Human managed forest younger than 20 years"),
+		(OldSecondaryForest
+		"Human managed forest older than 20 years")),
+	(PlantedForest has children
+		TimberPlantation,
+		OilPalmPlantation,
+		Agroforestry);
+
+class ForestType
+	is type of ForestManagement;
+		
+model local:alessio.bulckaen:im.data.global:im-data-global-agriculture.global_forest_management_100m_2015_v3_2
+as ForestType classified into
+	PrimaryForest if 11,
+	SecondaryForest if 20,
+	PlantedForest if 31,
+	TimberPlantation if 32,
+	OilPalmPlantation if 40,
+	Agroforestry if 53;
+	
+//Presence of Mangroves
+@colormap(values = {
+true:	(0 115 76)
+})
+model 	local:alessio.bulckaen:im.data.global:im-data-global-marine.global_mangrove_watch_1996_30m_4326,
+		local:alessio.bulckaen:im.data.global:im-data-global-marine.global_mangrove_watch_2007_30m_4326_v2,
+		local:alessio.bulckaen:im.data.global:im-data-global-marine.global_mangrove_watch_2008_30m_4326_v2,
+		local:alessio.bulckaen:im.data.global:im-data-global-marine.global_mangrove_watch_2009_30m_4326_v2,
+		local:alessio.bulckaen:im.data.global:im-data-global-marine.global_mangrove_watch_2010_30m_4326_v2,
+		local:alessio.bulckaen:im.data.global:im-data-global-marine.global_mangrove_watch_2015_30m_4326_v2,
+		local:alessio.bulckaen:im.data.global:im-data-global-marine.global_mangrove_watch_2016_30m_4326_v2,
+		local:alessio.bulckaen:im.data.global:im-data-global-marine.global_mangrove_watch_2017_30m_4326_v2,
+		local:alessio.bulckaen:im.data.global:im-data-global-marine.global_mangrove_watch_2018_30m_4326_v2,
+		local:alessio.bulckaen:im.data.global:im-data-global-marine.global_mangrove_watch_2020_30m_4326_v2
+		as presence of ecology:Mangrove earth:Region named mangrove
+		set to [( self == 1) ? true : false];
+
+	
+//Presence of Protected Areas
+//Instantiator of PA - identify individually each PA in the selected context
+@reliability(25)
+model each conservation:ProtectedArea
+	observing presence of conservation:ProtectedArea named protected_status
+	using gis.features.extract(select = protected_status);		
+

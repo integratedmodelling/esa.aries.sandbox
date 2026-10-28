@@ -1,6 +1,5 @@
 private namespace et_result_comparison
-	using nca.ecosystem.iucn,
-		  primitive_characteristic.reference_maps;
+	using nca.ecosystem.iucn;
 
 /* -----------------------------------------------------------------------------------------------------------------------------------------------
  * # IUCN ET level conversion & ordered by Biome priorities.

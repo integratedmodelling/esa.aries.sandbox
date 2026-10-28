@@ -1,0 +1,84 @@
+private namespace esa.aries.rule_based_accuracy
+using nca.ecosystem.iucn, et_result_comparison,
+(IUCN_GET_LEVEL_CONVERSION_TABLE) from et_result_comparison,
+(IUCN_GET_LEVEL_CONSISTENCY_TABLE) from et_result_comparison;
+
+/* The reference model has to be written to pick the best data available */
+
+model 'local:alessio.bulckaen:esa.aries.sandbox:weed_validation#getraster'
+	as im:Reference type of nca.ecosystem.iucn:Ecosystem 
+	classified according to im:ecosystem-get-iucn;
+
+observe earth:Region named colombia_reference_data
+        over space(shape='EPSG:4326 POLYGON ((-74.63153010906672 8.209590461887217, -74.63284622207159 8.196364458750793, -74.63674398360152 8.183646308745935, -74.64307360486679 8.17192483504894, -74.6515918420719 8.16165059421131, -74.66197134413811 8.153218545238488, -74.6738132326219 8.146952852460075, -74.68666243038987 8.143094409092171, -74.70002514997772 8.141791563808454, -74.71338786956554 8.143094409092171, -74.72623706733351 8.146952852460075, -74.73807895581733 8.153218545238488, -74.74845845788353 8.16165059421131, -74.75697669508862 8.17192483504894, -74.7633063163539 8.183646308745935, -74.76720407788383 8.196364458750793, -74.76852019088871 8.209590461887217, -74.76720407788383 8.222816024564722, -74.7633063163539 8.235532920248815, -74.75697669508862 8.247252516722398, -74.74845845788353 8.257524543224534, -74.73807895581733 8.265954377862315, -74.72623706733351 8.27221819341851, -74.71338786956554 8.276075382466843, -74.70002514997772 8.277377787292153, -74.68666243038987 8.276075382466843, -74.6738132326219 8.27221819341851, -74.66197134413811 8.265954377862315, -74.6515918420719 8.257524543224534, -74.64307360486679 8.247252516722398, -74.63674398360152 8.235532920248815, -74.63284622207159 8.222816024564722, -74.63153010906672 8.209590461887217))',
+                grid = "30 m"),
+        time (year=2024);
+/*IUCN GET RuleBased */
+model 'local:alessio.bulckaen:esa.aries.sandbox:IUCNGET-RuleBased-V501' 
+as type of nca.ecosystem.iucn:Ecosystem
+classified according to im:ecosystem-get-iucn;
+
+/* -----------------------------------------------------------------------------------------------------------------------------------------------
+ * # 1) Comparison of the ecosystem type result between modelled & reference maps by ES types.
+ */
+model im:Reference type of et_result_comparison:Level_1 nca.ecosystem.iucn:Ecosystem named reference_ecosystem_type_level_1
+	observing
+		im:Reference type of nca.ecosystem.iucn:Ecosystem named reference_ecosystem_type
+	lookup (reference_ecosystem_type, *, ?) 
+		into IUCN_GET_LEVEL_CONVERSION_TABLE;
+		
+model im:Reference type of et_result_comparison:Level_2 nca.ecosystem.iucn:Ecosystem named reference_ecosystem_type_level_2
+	observing
+		im:Reference type of nca.ecosystem.iucn:Ecosystem named reference_ecosystem_type
+	lookup (reference_ecosystem_type, ?, *) 
+		into IUCN_GET_LEVEL_CONVERSION_TABLE;
+		
+@colormap(values = {
+	true:	(0 255 0)
+	false:	(255 0 0)	
+})
+model presence of (earth:Region with type of nca.ecosystem.iucn:Ecosystem) named matching_ecosystem_type
+	observing
+		type of nca.ecosystem.iucn:Ecosystem named mapped_ecosystem_type,
+		im:Reference type of et_result_comparison:Level_1 nca.ecosystem.iucn:Ecosystem named reference_ecosystem_type_level_1,
+		im:Reference type of et_result_comparison:Level_2 nca.ecosystem.iucn:Ecosystem named reference_ecosystem_type_level_2,
+		im:Reference type of nca.ecosystem.iucn:Ecosystem named reference_ecosystem_type		  		                                                                                         
+	lookup (mapped_ecosystem_type, reference_ecosystem_type, reference_ecosystem_type_level_2, reference_ecosystem_type_level_1, ?, *) 
+		into IUCN_GET_LEVEL_CONSISTENCY_TABLE;
+			
+define table ecosystem_type_result_comparison_by_ecosystem_type_modelled_vs_reference as {
+	title: "Comparison of the ecosystem type result between modelled & reference maps by ES types"
+	label: "Areas of difference between modelled & reference maps by ES types"
+	target: im:Reference type of nca.ecosystem.iucn:Ecosystem
+	columns:({ title: "{classifier}", filter: im:Reference type of nca.ecosystem.iucn:Ecosystem }), 	
+	rows:   ({ title: "Consistency in (km²) between modelled & reference maps ({classifier})", target: im:Area in km^2, filter: presence of (earth:Region with type of nca.ecosystem.iucn:Ecosystem) }
+	         { title: "Total area (km²) according to reference map", summarize: [r1 + r2], style: bold }
+	         { title: "Similarity of the result from the modelled & reference maps (%)", summarize: [(r1 / (r1 + r2)) * 100], style: bold }
+	        )
+	};
+
+/* -----------------------------------------------------------------------------------------------------------------------------------------------
+ * # 2) Comparison of the ecosystem type result between modelled & reference maps by IUCN_GET levels.
+ */
+model et_result_comparison:IucnGetType
+	observing
+		type of nca.ecosystem.iucn:Ecosystem named mapped_ecosystem_type,
+		im:Reference type of et_result_comparison:Level_1 nca.ecosystem.iucn:Ecosystem named reference_ecosystem_type_level_1,
+		im:Reference type of et_result_comparison:Level_2 nca.ecosystem.iucn:Ecosystem named reference_ecosystem_type_level_2,
+		im:Reference type of nca.ecosystem.iucn:Ecosystem named reference_ecosystem_type
+	lookup (mapped_ecosystem_type, reference_ecosystem_type, reference_ecosystem_type_level_2, reference_ecosystem_type_level_1, *, ?)
+		into IUCN_GET_LEVEL_CONSISTENCY_TABLE;	         
+
+define table ecosystem_type_result_comparison_by_iucn_get_level_modelled_vs_reference as {
+	title: "Comparison of the ecosystem type result between modelled & reference maps by IUCN_GET Levels"
+	label: "Areas of difference between modelled & reference maps by IUCN_GET Levels"
+	target: im:Reference type of nca.ecosystem.iucn:Ecosystem
+	columns:({ title: "{classifier}", filter: im:Reference type of nca.ecosystem.iucn:Ecosystem }), 	
+	rows:   ({ title: "Consistency in (km²) between modelled & reference maps ({classifier})", target: im:Area in km^2, filter: et_result_comparison:IucnGetType }
+	         { title: "Total area (km²) according to reference map", summarize: [r1 + r2 + r3 + r4], style: bold }
+	         { title: "Similarity of the result from the modelled & reference maps - Level 1 (%)", summarize: [(r1 / (r1 + r2 + r3 + r4)) * 100], style: bold }
+	         { title: "Similarity of the result from the modelled & reference maps - Level 2 (%)", summarize: [(r2 / (r1 + r2 + r3 + r4)) * 100], style: bold }
+	         { title: "Similarity of the result from the modelled & reference maps - Level 3 (%)", summarize: [(r3 / (r1 + r2 + r3 + r4)) * 100], style: bold }
+	         { title: "Similarity of the result from the modelled & reference maps - Un-mapped (%)", summarize: [(r4 / (r1 + r2 + r3 + r4)) * 100], style: bold }
+	        )
+	};		
