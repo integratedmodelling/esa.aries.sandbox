@@ -31,74 +31,102 @@ action main:
 		) :name "Cameroon" #cameroon	
 			
 		(	
-			checkbutton("Mojana CO1" #co1): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_mojana_co1","Colombia: Mojana CO1")
+			checkbutton("CO1" #co1): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co1","Colombia: CO1")
+				activate_noneu
+			)			
+			checkbutton("CO2" #co2): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co2","Colombia: CO2")
 				activate_noneu
 			)
-			checkbutton("San Andrés CO2" #co2): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_san_andres_co2","Colombia: San Andrés CO2")
+			checkbutton("CO3" #co3): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co3","Colombia: CO3")
+				activate_noneu
+			)			
+			checkbutton("CO4" #co4): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co4","Colombia: CO4")
 				activate_noneu
 			)
-			checkbutton("Providencia CO3" #co3): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_providencia_co3","Colombia: Providencia CO3")
+			checkbutton("CO5" #co5): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co5","Colombia: CO5")
+				activate_noneu
+			)			
+			checkbutton("CO6" #co6): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co6","Colombia: CO6")
 				activate_noneu
 			)
-			checkbutton("Cienaga Grande de Santa Marta CO4" #co4): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_cienaga_grande_de_santa_marta_co4","Colombia: Cienaga Grande de Santa Marta CO4")
+			checkbutton("CO7" #co7): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co7","Colombia: CO7")
+				activate_noneu
+			)			
+			checkbutton("CO8" #co8): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co8","Colombia: CO8")
 				activate_noneu
 			)
-			checkbutton("Delta Sinú CO5" #co5): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_delta_sinu_co5","Colombia: Delta Sinú CO5")
-				activate_noneu
-			)	
-			checkbutton("Pisba CO6" #co6): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_pisba_co6","Colombia: Pisba CO6")
-				activate_noneu
-						)
-			checkbutton("Santurbán CO7" #co7): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_santurban_co7","Colombia: Santurbán CO7")
-				activate_noneu
-						)
-			checkbutton("Chingaza CO8" #co8): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_chingaza_co8","Colombia: Chingaza CO8")
-				activate_noneu
-						)
-			checkbutton("Putumayo CO9" #co9): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_putumayo_co9","Colombia: Putumayo CO9")
+			checkbutton("CO9" #co9): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co9","Colombia: CO9")
 				activate_noneu
 			)
-			checkbutton("AP_Drummont/Becerril-Cesar CO10" #co10): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_ap_drummont_becerril_cesar_co10","Colombia: AP_Drummont/Becerril-Cesar CO10")
+			checkbutton("CO10" #co10): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co10","Colombia: CO10")
 				activate_noneu
 			)
-			checkbutton("AP_Plata/Simiti-Cesar CO11" #co11): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_ap_plata_simiti_cesar_co11","Colombia: AP_Plata/Simiti-Cesar CO11")
+			checkbutton("CO11" #co11): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co11","Colombia: CO11")
+				activate_noneu
+			)			
+			checkbutton("CO12" #co12): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co12","Colombia: CO12")
 				activate_noneu
 			)
-			checkbutton("AP_Guane/Barrancabermeja CO12" #co12): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_ap_guane_barrancabermeja_co12","Colombia: AP_Guane/Barrancabermeja CO12")
+			checkbutton("CO13" #co13): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co13","Colombia: CO13")
+				activate_noneu
+			)			
+			checkbutton("CO14" #co14): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co14","Colombia: CO14")
 				activate_noneu
 			)
-			checkbutton("Piedemonte Casanare CO13" #co13): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_piedemonte_casanare_co13","Colombia: Piedemonte Casanare CO13")
+			checkbutton("CO15" #co15): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co15","Colombia: CO15")
+				activate_noneu
+			)			
+			checkbutton("CO16" #co16): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co16","Colombia: CO16")
 				activate_noneu
 			)
-			checkbutton("Cuenca alta río Bogotá CO14" #co14 ): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_cuenca_alta_rio_bogota_co14","Colombia: Cuenca alta río Bogotá CO14")
+			checkbutton("CO17" #co17): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co17","Colombia: CO17")
+				activate_noneu
+			)			
+			checkbutton("CO18" #co18): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co18","Colombia: CO18")
 				activate_noneu
 			)
-			checkbutton("Arco de deforestación Amazonia CO15" #co15): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_arco_de_deforestacion_amazonia_co15","Colombia: Arco de deforestación Amazonia CO1")
-				activate_noneu
-			)	
-			checkbutton("Delta del Patía CO16" #co16): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_delta_del_patia_co16","Colombia: Delta del Patía CO16")
+			checkbutton("CO19" #co19): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co19","Colombia: CO19")
 				activate_noneu
 			)
-			checkbutton("Buenaventura CO17" #co17): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_buenaventura_co17","Colombia: Buenaventura CO17")
+			checkbutton("CO20" #co20): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co20","Colombia: CO20")
 				activate_noneu
-			)	
+			)
+			checkbutton("CO21" #co21): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co21","Colombia: CO21")
+				activate_noneu
+			)			
+			checkbutton("CO22" #co22): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co22","Colombia: CO22")
+				activate_noneu
+			)
+			checkbutton("CO23" #co23): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co23","Colombia: CO23")
+				activate_noneu
+			)			
+			checkbutton("CO24" #co24): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co24","Colombia: CO24")
+				activate_noneu
+			)
 		) :name "Colombia" #colombia
 		
 		(
