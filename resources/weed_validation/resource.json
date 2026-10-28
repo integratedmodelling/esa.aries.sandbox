@@ -7,7 +7,7 @@
   "projectName" : "esa.aries.sandbox",
   "localName" : "weed_validation",
   "type" : "OBJECT",
-  "resourceTimestamp" : 1790593781831,
+  "resourceTimestamp" : 1793115704707,
   "metadata" : {
     "im:keywords" : "features,validation",
     "dc:title" : "validation"
@@ -21,13 +21,6 @@
   "history" : [ ],
   "notifications" : [ ],
   "attributes" : [ {
-    "name" : "Id",
-    "type" : "TEXT",
-    "key" : false,
-    "optional" : true,
-    "exampleValue" : null,
-    "index" : 0
-  }, {
     "name" : "MgrsId10",
     "type" : "TEXT",
     "key" : false,
@@ -57,7 +50,7 @@
     "index" : 0
   }, {
     "name" : "License",
-    "type" : "NUMBER",
+    "type" : "TEXT",
     "key" : false,
     "optional" : true,
     "exampleValue" : null,
@@ -91,14 +84,14 @@
     "exampleValue" : null,
     "index" : 0
   }, {
-    "name" : "OriginalClass",
+    "name" : "Models",
     "type" : "TEXT",
     "key" : false,
     "optional" : true,
     "exampleValue" : null,
     "index" : 0
   }, {
-    "name" : "Description",
+    "name" : "DataSource",
     "type" : "TEXT",
     "key" : false,
     "optional" : true,
@@ -197,21 +190,21 @@
     "index" : 0
   }, {
     "name" : "EuValidated",
-    "type" : "NUMBER",
+    "type" : "BOOLEAN",
     "key" : false,
     "optional" : true,
     "exampleValue" : null,
     "index" : 0
   }, {
     "name" : "Eunis2021PlusValidated",
-    "type" : "NUMBER",
+    "type" : "BOOLEAN",
     "key" : false,
     "optional" : true,
     "exampleValue" : null,
     "index" : 0
   }, {
     "name" : "IucnGetValidated",
-    "type" : "NUMBER",
+    "type" : "BOOLEAN",
     "key" : false,
     "optional" : true,
     "exampleValue" : null,
@@ -225,6 +218,20 @@
     "index" : 0
   }, {
     "name" : "year",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "EunisRaster",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "GetRaster",
     "type" : "NUMBER",
     "key" : false,
     "optional" : true,
