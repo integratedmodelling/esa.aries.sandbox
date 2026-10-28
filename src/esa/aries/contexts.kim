@@ -1,8 +1,11 @@
-private namespace esa.aries.contexts;
+project private namespace esa.aries.contexts;
 
+/*
+ * COLOMBIA
+ */
 observe earth:Region named colombia_4326_30m_2024_co1
      over space(
-     		shape = "",
+     		shape = "EPSG:4326 POLYGON ((-74.63705770667165 7.960964798702609, -74.63689662931095 8.141871773271133, -74.81844737903323 8.141993552342004, -74.81852791974482 7.961083837775365, -74.63705770667165 7.960964798702609))",
      		grid = "30 m",
     		projection = "EPSG:4326"),
     	 time(
@@ -11,7 +14,7 @@ observe earth:Region named colombia_4326_30m_2024_co1
 
 observe earth:Region named colombia_4326_30m_2024_co2
      over space(
-     		shape = "",
+     		shape = "EPSG:4326 POLYGON ((-74.63705770667165 7.960964798702609, -74.63689662931095 8.141871773271133, -74.81844737903323 8.141993552342004, -74.81852791974482 7.961083837775365, -74.63705770667165 7.960964798702609))",
      		grid = "30 m",
     		projection = "EPSG:4326"),
     	 time(
@@ -20,7 +23,7 @@ observe earth:Region named colombia_4326_30m_2024_co2
 
 observe earth:Region named colombia_4326_30m_2024_co3
      over space(
-     		shape = "",
+     		shape = "EPSG:4326 POLYGON ((-74.63689662931095 8.141871773271133, -74.63673180952716 8.322777136134407, -74.81836496706067 8.322901657560594, -74.81844737903323 8.141993552342004, -74.63689662931095 8.141871773271133))",
      		grid = "30 m",
     		projection = "EPSG:4326"),
     	 time(
@@ -29,7 +32,7 @@ observe earth:Region named colombia_4326_30m_2024_co3
 
 observe earth:Region named colombia_4326_30m_2024_co4
      over space(
-     		shape = "",
+     		shape = "EPSG:4326 POLYGON ((-74.2727968900187 8.684062866367908, -74.27244473013808 8.864952187277275, -74.45432693824881 8.865261942261723, -74.45459107377087 8.684366205793744, -74.2727968900187 8.684062866367908))",
      		grid = "30 m",
     		projection = "EPSG:4326"),
     	 time(
@@ -38,7 +41,7 @@ observe earth:Region named colombia_4326_30m_2024_co4
 
 observe earth:Region named colombia_4326_30m_2024_co5
      over space(
-     		shape = "",
+     		shape = "EPSG:4326 POLYGON ((-74.27866541970394 4.704123461007182, -74.27847560652947 4.8850426018944075, -74.45885036041342 4.885212377454239, -74.45899272854533 4.704286921132404, -74.27866541970394 4.704123461007182))",
      		grid = "30 m",
     		projection = "EPSG:4326"),
     	 time(
@@ -47,7 +50,7 @@ observe earth:Region named colombia_4326_30m_2024_co5
 
 observe earth:Region named colombia_4326_30m_2024_co6
      over space(
-     		shape = "",
+     		shape = "EPSG:4326 POLYGON ((-75.18147208025518 7.961083837775365, -75.18155262096677 8.141993552342004, -75.36310337068906 8.141871773271133, -75.36294229332835 7.960964798702609, -75.18147208025518 7.961083837775365))",
      		grid = "30 m",
     		projection = "EPSG:4326"),
     	 time(
@@ -56,7 +59,7 @@ observe earth:Region named colombia_4326_30m_2024_co6
 
 observe earth:Region named colombia_4326_30m_2024_co7
      over space(
-     		shape = "",
+     		shape = "EPSG:4326 POLYGON ((-74.4510443874645 10.854991649827516, -74.45071129953418 11.035864061005295, -74.63380428297484 11.036140681421536, -74.63402635111784 10.855263629594345, -74.4510443874645 10.854991649827516))",
      		grid = "30 m",
     		projection = "EPSG:4326"),
     	 time(
@@ -65,7 +68,7 @@ observe earth:Region named colombia_4326_30m_2024_co7
 
 observe earth:Region named colombia_4326_30m_2024_co8
      over space(
-     		shape = "",
+     		shape = "EPSG:4326 POLYGON ((-74.63585127600436 9.227278559408175, -74.6356638199212 9.408173523728724, -74.81783095872089 9.408314551906011, -74.81792468914534 9.227416829915857, -74.63585127600436 9.227278559408175))",
      		grid = "30 m",
     		projection = "EPSG:4326"),
     	 time(
@@ -74,7 +77,7 @@ observe earth:Region named colombia_4326_30m_2024_co8
 
 observe earth:Region named colombia_4326_30m_2024_co9
      over space(
-     		shape = "",
+     		shape = "EPSG:4326 POLYGON ((-74.45926117857468 4.342433218366825, -74.45912966566634 4.523360522796612, -74.63941676354305 4.523472776781888, -74.63950444244063 4.342540965470939, -74.45926117857468 4.342433218366825))",
      		grid = "30 m",
     		projection = "EPSG:4326"),
     	 time(
@@ -83,7 +86,7 @@ observe earth:Region named colombia_4326_30m_2024_co9
     	 
 observe earth:Region named colombia_4326_30m_2024_co10
      over space(
-     		shape = "",
+     		shape = "EPSG:4326 POLYGON ((-74.27884799195681 4.52320337498744, -74.27866541970394 4.704123461007182, -74.45899272854533 4.704286921132404, -74.45912966566634 4.523360522796612, -74.27884799195681 4.52320337498744))",
      		grid = "30 m",
     		projection = "EPSG:4326"),
     	 time(
@@ -92,7 +95,7 @@ observe earth:Region named colombia_4326_30m_2024_co10
 
 observe earth:Region named colombia_4326_30m_2024_co11
      over space(
-     		shape = "",
+     		shape = "EPSG:4326 POLYGON ((-74.818683403537 7.599259719883851, -74.81860659325801 7.7801725486661, -75 7.780211316435186, -75 7.599297575821104, -74.818683403537 7.599259719883851))",
      		grid = "30 m",
     		projection = "EPSG:4326"),
     	 time(
@@ -101,7 +104,7 @@ observe earth:Region named colombia_4326_30m_2024_co11
 
 observe earth:Region named colombia_4326_30m_2024_co12
      over space(
-     		shape = "",
+     		shape = "EPSG:4326 POLYGON ((-74.45484955756328 8.503468749230393, -74.45459107377087 8.684366205793744, -74.63639090920245 8.684582887631175, -74.63656323899798 8.503680852497212, -74.45484955756328 8.503468749230393))",
      		grid = "30 m",
     		projection = "EPSG:4326"),
     	 time(
@@ -110,7 +113,7 @@ observe earth:Region named colombia_4326_30m_2024_co12
 
 observe earth:Region named colombia_4326_30m_2024_co13
      over space(
-     		shape = "",
+     		shape = "EPSG:4326 POLYGON ((-74.81860659325801 7.7801725486661, -74.81852791974482 7.961083837775365, -75 7.961123518125304, -75 7.780211316435186, -74.81860659325801 7.7801725486661))",
      		grid = "30 m",
     		projection = "EPSG:4326"),
     	 time(
@@ -119,7 +122,7 @@ observe earth:Region named colombia_4326_30m_2024_co13
 
 observe earth:Region named colombia_4326_30m_2024_co14
      over space(
-     		shape = "",
+     		shape = "EPSG:4326 POLYGON ((-74.63941676354305 4.523472776781888, -74.63932546835191 4.704403684139504, -74.8196618289542 4.704473744253827, -74.81970747768295 4.523540131393249, -74.63941676354305 4.523472776781888))",
      		grid = "30 m",
     		projection = "EPSG:4326"),
     	 time(
@@ -128,7 +131,7 @@ observe earth:Region named colombia_4326_30m_2024_co14
 
 observe earth:Region named colombia_4326_30m_2024_co15
      over space(
-     		shape = "",
+     		shape = "EPSG:4326 POLYGON ((-75.18180548741232 8.68471290106149, -75.18189353853417 8.86561597006672, -75.36378518858024 8.86548320687615, -75.36360909079757 8.684582887631175, -75.18180548741232 8.68471290106149))",
      		grid = "30 m",
     		projection = "EPSG:4326"),
     	 time(
@@ -137,7 +140,7 @@ observe earth:Region named colombia_4326_30m_2024_co15
 
 observe earth:Region named colombia_4326_30m_2024_co16
      over space(
-     		shape = "",
+     		shape = "EPSG:4326 POLYGON ((-75 7.961123518125304, -75 8.142034146040167, -75.18155262096677 8.141993552342004, -75.18147208025518 7.961083837775365, -75 7.961123518125304))",
      		grid = "30 m",
     		projection = "EPSG:4326"),
     	 time(
@@ -146,7 +149,7 @@ observe earth:Region named colombia_4326_30m_2024_co16
 
 observe earth:Region named colombia_4326_30m_2024_co17
      over space(
-     		shape = "",
+     		shape = "EPSG:4326 POLYGON ((-74.45510240270589 8.322569607324864, -74.45484955756328 8.503468749230393, -74.63656323899798 8.503680852497212, -74.63673180952716 8.322777136134407, -74.45510240270589 8.322569607324864))",
      		grid = "30 m",
     		projection = "EPSG:4326"),
     	 time(
@@ -155,7 +158,7 @@ observe earth:Region named colombia_4326_30m_2024_co17
 
 observe earth:Region named colombia_4326_30m_2024_co18
      over space(
-     		shape = "",
+     		shape = "EPSG:4326 POLYGON ((-74.63402635111784 10.855263629594345, -74.63380428297484 11.036140681421536, -74.81690116645126 11.036306659242815, -74.81701220337975 10.855426822928573, -74.63402635111784 10.855263629594345))",
      		grid = "30 m",
     		projection = "EPSG:4326"),
     	 time(
@@ -164,7 +167,7 @@ observe earth:Region named colombia_4326_30m_2024_co18
 
 observe earth:Region named colombia_4326_30m_2024_co19
      over space(
-     		shape = "",
+     		shape = "EPSG:4326 POLYGON ((-74.63603493672828 9.046381775641638, -74.63585127600436 9.227278559408175, -74.81792468914534 9.227416829915857, -74.81801652183911 9.046517291172576, -74.63603493672828 9.046381775641638))",
      		grid = "30 m",
     		projection = "EPSG:4326"),
     	 time(
@@ -173,7 +176,7 @@ observe earth:Region named colombia_4326_30m_2024_co19
     	 
 observe earth:Region named colombia_4326_30m_2024_co20
      over space(
-     		shape = "",
+     		shape = "EPSG:4326 POLYGON ((-74.45432693824881 8.865261942261723, -74.45405713761605 9.046155923950444, -74.63603493672828 9.046381775641638, -74.63621481141978 8.86548320687615, -74.45432693824881 8.865261942261723))",
      		grid = "30 m",
     		projection = "EPSG:4326"),
     	 time(
@@ -182,7 +185,7 @@ observe earth:Region named colombia_4326_30m_2024_co20
 
 observe earth:Region named colombia_4326_30m_2024_co21
      over space(
-     		shape = "",
+     		shape = "EPSG:4326 POLYGON ((-74.81852791974482 7.961083837775365, -74.81844737903323 8.141993552342004, -75 8.142034146040167, -75 7.961123518125304, -74.81852791974482 7.961083837775365))",
      		grid = "30 m",
     		projection = "EPSG:4326"),
     	 time(
@@ -191,7 +194,7 @@ observe earth:Region named colombia_4326_30m_2024_co21
 
 observe earth:Region named colombia_4326_30m_2024_co22
      over space(
-     		shape = "",
+     		shape = "EPSG:4326 POLYGON ((-74.63380428297484 11.036140681421536, -74.63357831475977 11.217015573620474, -74.81678817943234 11.217184339200077, -74.81690116645126 11.036306659242815, -74.63380428297484 11.036140681421536))",
      		grid = "30 m",
     		projection = "EPSG:4326"),
     	 time(
@@ -200,7 +203,7 @@ observe earth:Region named colombia_4326_30m_2024_co22
 
 observe earth:Region named colombia_4326_30m_2024_co23
      over space(
-     		shape = "",
+     		shape = "EPSG:4326 POLYGON ((-74.27902333235099 4.342282379877191, -74.27884799195681 4.52320337498744, -74.45912966566634 4.523360522796612, -74.45926117857468 4.342433218366825, -74.27902333235099 4.342282379877191))",
      		grid = "30 m",
     		projection = "EPSG:4326"),
     	 time(
@@ -209,7 +212,7 @@ observe earth:Region named colombia_4326_30m_2024_co23
 
 observe earth:Region named colombia_4326_30m_2024_co24
      over space(
-     		shape = "",
+     		shape = "EPSG:4326 POLYGON ((-74.45459107377087 8.684366205793744, -74.45432693824881 8.865261942261723, -74.63621481141978 8.86548320687615, -74.63639090920245 8.684582887631175, -74.45459107377087 8.684366205793744))",
      		grid = "30 m",
     		projection = "EPSG:4326"),
     	 time(
