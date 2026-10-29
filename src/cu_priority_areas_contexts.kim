@@ -131,6 +131,122 @@ observe earth:Region named south_africa_tzaneen_sa18
         time(start=2024, end=2025, step=1.year);
 
 
+//South Africa priority areas V4 (With validation points)
+observe earth:Region named south_africa_validation_area1
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δDG24',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named south_africa_validation_area2
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δCK10',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named south_africa_validation_area3
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δCH01',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named south_africa_validation_area4
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δFH32',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named south_africa_validation_area5
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δFH22',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named south_africa_validation_area6
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δBJ11',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named south_africa_validation_area7
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δCH10',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named south_africa_validation_area8
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δFJ00',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named south_africa_validation_area9
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δFH41',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named south_africa_validation_area10
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δFH42',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named south_africa_validation_area11
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δBG34',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named south_africa_validation_area12
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δCG04',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named south_africa_validation_area13
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δFH21',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named south_africa_validation_area14
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δCG24',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named south_africa_validation_area15
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δCH00',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named south_africa_validation_area16
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δBJ20',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named south_africa_validation_area17
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δEH33',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named south_africa_validation_area18
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δEJ40',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named south_africa_validation_area19
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δGH01',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+
         
 //Colombia priority areas V2
 observe earth:Region named colombia_mojana_co1  
@@ -303,6 +419,128 @@ observe earth:Region named colombia_small_sample17
         time(start=2024, end=2025, step=1.year);
 
 
+//Colombia priority areas V4 (With validation points)
+observe earth:Region named colombia_validation_area1
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_validation_pa_20km_epsg4326#grid20id=18λXL00',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named colombia_validation_area2
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_validation_pa_20km_epsg4326#grid20id=18λXP10',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named colombia_validation_area3
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_validation_pa_20km_epsg4326#grid20id=18λWL40',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named colombia_validation_area4
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_validation_pa_20km_epsg4326#grid20id=18λYM22',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named colombia_validation_area5
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_validation_pa_20km_epsg4326#grid20id=18λXP11',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named colombia_validation_area6
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_validation_pa_20km_epsg4326#grid20id=18λWL31',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named colombia_validation_area7
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_validation_pa_20km_epsg4326#grid20id=18λXR32',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named colombia_validation_area8
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_validation_pa_20km_epsg4326#grid20id=18λXL12',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named colombia_validation_area9
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_validation_pa_20km_epsg4326#grid20id=18λXN14',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named colombia_validation_area10
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_validation_pa_20km_epsg4326#grid20id=18λYM42',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named colombia_validation_area11
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_validation_pa_20km_epsg4326#grid20id=18λWT11',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named colombia_validation_area12
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_validation_pa_20km_epsg4326#grid20id=18λYL33',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named colombia_validation_area13
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_validation_pa_20km_epsg4326#grid20id=18λTK20',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named colombia_validation_area14
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_validation_pa_20km_epsg4326#grid20id=18λUG10',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named colombia_validation_area15
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_validation_pa_20km_epsg4326#grid20id=18λTK30',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named colombia_validation_area16
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_validation_pa_20km_epsg4326#grid20id=19λFE12',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named colombia_validation_area17
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_validation_pa_20km_epsg4326#grid20id=18λXP21',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named colombia_validation_area18
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_validation_pa_20km_epsg4326#grid20id=18λWK13',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named colombia_validation_area19
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_validation_pa_20km_epsg4326#grid20id=18λTF43',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named colombia_validation_area20
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_colombia_validation_pa_20km_epsg4326#grid20id=18λWQ14',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+
 
 //Czech priority areas V2
 observe earth:Region named czech_republic_bilek_cz1  
@@ -371,6 +609,133 @@ observe earth:Region named czech_republic_transect_mid_we_cz8
                 projection= "EPSG:4326"),
 //        time(start=2024, end=2025, step=1.year);
 		  time(year = 2024);
+
+
+//Czech priority areas V4 (With validation points)
+observe earth:Region named czech_validation_area1
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czech_validation_pa_20km_epsg4326#grid20id=33σVR42',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named czech_validation_area2
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czech_validation_pa_20km_epsg4326#grid20id=33σXQ14',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named czech_validation_area3
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czech_validation_pa_20km_epsg4326#grid20id=33σXR30',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named czech_validation_area4
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czech_validation_pa_20km_epsg4326#grid20id=33σXP04',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named czech_validation_area5
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czech_validation_pa_20km_epsg4326#grid20id=33σWR31',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named czech_validation_area6
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czech_validation_pa_20km_epsg4326#grid20id=33σWS30',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named czech_validation_area7
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czech_validation_pa_20km_epsg4326#grid20id=33σXQ21',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named czech_validation_area8
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czech_validation_pa_20km_epsg4326#grid20id=33σUR13',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named czech_validation_area9
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czech_validation_pa_20km_epsg4326#grid20id=33σVR02',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named czech_validation_area10
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czech_validation_pa_20km_epsg4326#grid20id=33σVR31',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named czech_validation_area11
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czech_validation_pa_20km_epsg4326#grid20id=33σUR23',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named czech_validation_area12
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czech_validation_pa_20km_epsg4326#grid20id=33σWS11',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named czech_validation_area13
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czech_validation_pa_20km_epsg4326#grid20id=33σXQ41',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named czech_validation_area14
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czech_validation_pa_20km_epsg4326#grid20id=33σVR32',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named czech_validation_area15
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czech_validation_pa_20km_epsg4326#grid20id=33σUR42',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named czech_validation_area16
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czech_validation_pa_20km_epsg4326#grid20id=33σVQ42',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named czech_validation_area17
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czech_validation_pa_20km_epsg4326#grid20id=33σWQ30',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named czech_validation_area18
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czech_validation_pa_20km_epsg4326#grid20id=33σVR11',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named czech_validation_area19
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czech_validation_pa_20km_epsg4326#grid20id=33σWQ40',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named czech_validation_area20
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_czech_validation_pa_20km_epsg4326#grid20id=33σVR22',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+
+
+
+
 		  
 //Greece priority areas V2
 observe earth:Region named greece_xylokastro_el1  

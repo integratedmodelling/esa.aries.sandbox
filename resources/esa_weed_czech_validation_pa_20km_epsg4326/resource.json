@@ -1,0 +1,66 @@
+{
+  "urn" : "local:justus.muhando:esa.aries.sandbox:esa_weed_czech_validation_pa_20km_epsg4326",
+  "version" : "0.0.1",
+  "adapterType" : "wfs",
+  "localPath" : "esa.aries.sandbox/resources/esa_weed_czech_validation_pa_20km_epsg4326",
+  "geometry" : "#s2(20){bbox=[12.470108985900879 17.738943099975586 48.56159973144531 50.91130447387695],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "esa_weed_czech_validation_pa_20km_epsg4326",
+  "type" : "OBJECT",
+  "resourceTimestamp" : 1793200262677,
+  "metadata" : {
+    "im:keywords" : "features,czech_validation_pa_20km_epsg4326",
+    "dc:title" : "czech_validation_pa_20km_epsg4326"
+  },
+  "parameters" : {
+    "serviceUrl" : "https://integration.integratedmodelling.org/geoserver/esa_weed/ows",
+    "wfsVersion" : "1.0.0",
+    "wfsIdentifier" : "esa_weed:czech_validation_pa_20km_epsg4326"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ {
+    "name" : "grid20id",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "bbox_dict",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "numpoints",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "romnam",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  } ],
+  "spatialExtent" : {
+    "east" : 17.738943099975586,
+    "west" : 12.470108985900879,
+    "north" : 50.91130447387695,
+    "south" : 48.56159973144531,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}
