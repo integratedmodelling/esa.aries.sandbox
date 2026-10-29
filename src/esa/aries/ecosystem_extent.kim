@@ -123,10 +123,10 @@ model 'local:alessio.bulckaen:esa.aries.sandbox:EUNIS2021plus-V311-extent'
 ;
 
 ////TODO:fix encoding level 2
-//model 'local:alessio.bulckaen:esa.aries.sandbox:EUNIS2021plus-V311-extent'
-//	as esa.aries.model_approach:MachineLearning IntermediateOutput nca.ecosystem.eunis:EcosystemType named ecosystem_type_eunis_level1_machine_learning
-//		classified 
-//		according to im:eunis-lvl1-encoding;
+model 'local:alessio.bulckaen:esa.aries.sandbox:EUNIS2021plus-V311-extent'
+	as esa.aries.model_approach:MachineLearning IntermediateOutput nca.ecosystem.eunis:EcosystemType named ecosystem_type_eunis_level1_machine_learning
+		classified 
+		according to im:eunis-lvl1-encoding;
 //		
 //model 'local:alessio.bulckaen:esa.aries.sandbox:EUNIS2021plus-V311-extent'
 //	as esa.aries.model_approach:MachineLearning IntermediateOutput nca.ecosystem.eunis:EcosystemType named ecosystem_type_eunis_level2_machine_learning
@@ -151,9 +151,12 @@ model 'local:alessio.bulckaen:esa.aries.sandbox:IUCNGET-RuleBased-V501'
 //	as esa.aries.model_approach:HybridModelling nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get_level3_hybrid_modelling
 //	classified according to im:ecosystem-get-iucn;
 
+//model presence of es.nca:Ecosystem im:Attribute
 number ecosystem_characteristics
 	observing	
 		landcover:LandCoverType 				named land_cover_dominance,
 //		type of nca.ecology.ipcc:ClimaticZone 	named climate_climate_type,
-		type of hydrology:WaterBody 			named surface_water_hydroform;
+		type of hydrology:WaterBody 			named surface_water_hydroform
+	set to [nodata(land_cover_dominance) ? 0 : 1];
+//	set to [nodata(land_cover_dominance) ? 0 : (nodata(surface_water_hydroform) ? 0 : 1)];
 
