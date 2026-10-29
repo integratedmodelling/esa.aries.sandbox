@@ -1,0 +1,66 @@
+{
+  "urn" : "local:justus.muhando:esa.aries.sandbox:esa_weed_uganda_validation_pa_20km_epsg4326",
+  "version" : "0.0.1",
+  "adapterType" : "wfs",
+  "localPath" : "esa.aries.sandbox/resources/esa_weed_uganda_validation_pa_20km_epsg4326",
+  "geometry" : "#s2(20){bbox=[29.874771118164062 34.43790817260742 -1.445733070373535 3.616706609725952],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "esa_weed_uganda_validation_pa_20km_epsg4326",
+  "type" : "OBJECT",
+  "resourceTimestamp" : 1793290479770,
+  "metadata" : {
+    "im:keywords" : "features,uganda_validation_pa_20km_epsg4326",
+    "dc:title" : "uganda_validation_pa_20km_epsg4326"
+  },
+  "parameters" : {
+    "serviceUrl" : "https://integration.integratedmodelling.org/geoserver/esa_weed/ows",
+    "wfsVersion" : "1.0.0",
+    "wfsIdentifier" : "esa_weed:uganda_validation_pa_20km_epsg4326"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ {
+    "name" : "grid20id",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "bbox_dict",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "numpoints",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "romnam",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  } ],
+  "spatialExtent" : {
+    "east" : 34.43790817260742,
+    "west" : 29.874771118164062,
+    "north" : 3.616706609725952,
+    "south" : -1.445733070373535,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

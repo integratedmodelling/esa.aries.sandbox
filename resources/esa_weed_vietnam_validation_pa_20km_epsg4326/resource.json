@@ -7,7 +7,7 @@
   "projectName" : "esa.aries.sandbox",
   "localName" : "esa_weed_vietnam_validation_pa_20km_epsg4326",
   "type" : "OBJECT",
-  "resourceTimestamp" : 1793283838850,
+  "resourceTimestamp" : 1793290480102,
   "metadata" : {
     "im:keywords" : "features,vietnam_validation_pa_20km_epsg4326",
     "dc:title" : "vietnam_validation_pa_20km_epsg4326"
