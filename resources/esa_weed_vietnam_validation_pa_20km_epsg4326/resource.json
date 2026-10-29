@@ -1,0 +1,66 @@
+{
+  "urn" : "local:justus.muhando:esa.aries.sandbox:esa_weed_vietnam_validation_pa_20km_epsg4326",
+  "version" : "0.0.1",
+  "adapterType" : "wfs",
+  "localPath" : "esa.aries.sandbox/resources/esa_weed_vietnam_validation_pa_20km_epsg4326",
+  "geometry" : "#s2(20){bbox=[104.23745727539062 108.57382202148438 15.720447540283203 21.681337356567383],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "esa_weed_vietnam_validation_pa_20km_epsg4326",
+  "type" : "OBJECT",
+  "resourceTimestamp" : 1793283838850,
+  "metadata" : {
+    "im:keywords" : "features,vietnam_validation_pa_20km_epsg4326",
+    "dc:title" : "vietnam_validation_pa_20km_epsg4326"
+  },
+  "parameters" : {
+    "serviceUrl" : "https://integration.integratedmodelling.org/geoserver/esa_weed/ows",
+    "wfsVersion" : "1.0.0",
+    "wfsIdentifier" : "esa_weed:vietnam_validation_pa_20km_epsg4326"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ {
+    "name" : "grid20id",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "bbox_dict",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "numpoints",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "romnam",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  } ],
+  "spatialExtent" : {
+    "east" : 108.57382202148438,
+    "west" : 104.23745727539062,
+    "north" : 21.681337356567383,
+    "south" : 15.720447540283203,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}
