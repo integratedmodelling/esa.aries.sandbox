@@ -130,77 +130,248 @@ action main:
 		) :name "Colombia" #colombia
 		
 		(
-			checkbutton("Test Slow Request (10 m) " #cz_sr_test): (
-				disable_ctxs("cu_priority_areas_contexts.czech_republic_test_slow_request","Czech Republic: Slow Request Testing (10 m)")
+			checkbutton("CZ1 " #cz1): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz1","Czech Republic: CZ1")
 				activate_eu
 			)
-			checkbutton("Prague (10 m) " #cz_prague): (
-				disable_ctxs("cu_priority_areas_contexts.czech_republic_prague","Czech Republic: Prague (10 m)")
+8			checkbutton("CZ2 " #cz2): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz2","Czech Republic: CZ2")
 				activate_eu
 			)
-			checkbutton("Krkhnossky CZ2 BB:33σWS20 (10 m) " #cz_bbox1): (
-				disable_ctxs("cu_bbox_contexts.czech_cu_krkonossky_cz2_bbox_33dws20","Czech Republic: Krkhnossky CZ2 BB:33σWS20 (10 m)")
+			checkbutton("CZ3 " #cz3): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz3","Czech Republic: CZ3")
+				activate_eu
+			)
+			checkbutton("CZ4 " #cz4): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz4","Czech Republic: CZ4")
 				activate_eu
 			)	
-			checkbutton("Transect Mid WE CZ8 BB:33δWR11 (10 m) " #cz_bbox2): (
-				disable_ctxs("cu_bbox_contexts.czech_cu_transectmidwe_cz8_bbox_33dwr11","Czech Republic: Transect Mid WE CZ8 BB:33δWR11 (10 m)")
-				activate_eu
-			)		
-			checkbutton("Bilek CZ1" #cz1): (
-				disable_ctxs("cu_priority_areas_contexts.czech_republic_bilek_cz1","Czech Republic: Bilek CZ1")
-				activate_eu
-			) 
-			checkbutton("Krkhnossky CZ2 (10 m)" #cz2_10 ): (
-				disable_ctxs("cu_priority_areas_contexts.czech_republic_krkonossky_cz2","Czech Republic: Krkhnossky CZ2 (10 m)")
+			checkbutton("CZ5 " #cz5): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz5","Czech Republic: CZ5")
 				activate_eu
 			)
-			checkbutton("Krkhnossky CZ2 (30 m)" #cz2_30 ): (
-				disable_ctxs("cu_priority_areas_contexts.czech_republic_krkonossky_30m_cz2","Czech Republic: Krkhnossky CZ2 (30 m)")
+			checkbutton("CZ6 " #cz6): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz6","Czech Republic: CZ6")
 				activate_eu
 			)
-			checkbutton("Podyji CZ3 (10 m)" #cz3_10): (
-				disable_ctxs("cu_priority_areas_contexts.czech_republic_podyji_cz3","Czech Republic: Podyji CZ3 (10 m)")
+			checkbutton("CZ7 " #cz7): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz7","Czech Republic: CZ7")
 				activate_eu
 			)
-			checkbutton("Podyji CZ3 (30 m)" #cz3_30): (
-				disable_ctxs("cu_priority_areas_contexts.czech_republic_podyji_30m_cz3","Czech Republic: Podyji CZ3 (30 m)")
-//				activate_europe
+			checkbutton("CZ8 " #cz8): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz8","Czech Republic: CZ8")
 				activate_eu
 			)
-			checkbutton("Bohemian CZ4 (30 m)" #cz4): (
-				disable_ctxs("cu_priority_areas_contexts.czech_republic_bohemian_cz4","Czech Republic: Bohemian CZ4 (30 m)")
+			checkbutton("CZ9 " #cz9): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz9","Czech Republic: CZ9")
 				activate_eu
 			)
-			checkbutton("Transect Boheman NS CZ5 (100 m)" #cz5): (
-				disable_ctxs("cu_priority_areas_contexts.czech_republic_transect_boheman_ns_cz5","Czech Republic: Transect Boheman NS CZ5 (110 m)")
+			checkbutton("CZ10 " #cz10): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz10","Czech Republic: CZ10")
 				activate_eu
 			)
-			checkbutton("Transect Krkhnossky NS CZ6" #cz6): (
-				disable_ctxs("cu_priority_areas_contexts.czech_republic_transect_krkhnossky_ns_cz6","Czech Republic: Transect Krkhnossky NS CZ6")
+			checkbutton("CZ11 " #cz11): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz11","Czech Republic: CZ11")
 				activate_eu
 			)
-			checkbutton("Transect Podyji WE CZ7" #cz7): (
-				disable_ctxs("cu_priority_areas_contexts.czech_republic_transect_podyji_we_cz7","Czech Republic: Transect Podyji WE CZ7")
+8			checkbutton("CZ12 " #cz12): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz12","Czech Republic: CZ12")
 				activate_eu
 			)
-			checkbutton("Transect Mid WE CZ8" #cz8): (
-				disable_ctxs("cu_priority_areas_contexts.czech_republic_transect_mid_we_cz8","Czech Republic: Transect Mid WE CZ8")
+			checkbutton("CZ13 " #cz13): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz13","Czech Republic: CZ13")
+				activate_eu
+			)
+			checkbutton("CZ14 " #cz14): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz14","Czech Republic: CZ14")
+				activate_eu
+			)	
+			checkbutton("CZ15 " #cz15): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz15","Czech Republic: CZ15")
+				activate_eu
+			)
+			checkbutton("CZ16 " #cz16): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz16","Czech Republic: CZ16")
+				activate_eu
+			)
+			checkbutton("CZ17 " #cz17): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz17","Czech Republic: CZ17")
+				activate_eu
+			)
+			checkbutton("CZ18 " #cz18): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz18","Czech Republic: CZ18")
+				activate_eu
+			)
+			checkbutton("CZ19 " #cz19): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz19","Czech Republic: CZ19")
+				activate_eu
+			)
+			checkbutton("CZ20 " #cz20): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz20","Czech Republic: CZ20")
 				activate_eu
 			)
 		) :name "Czech Republic" #czec
 		(
-			checkbutton("Guria GE1" #ge4): (
-				disable_ctxs("cu_priority_areas_contexts.georgia_guria_ge1","Georgia: Guria GE1")
+			checkbutton("GG1" #gg1): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg1","Georgia: GG1")
+				activate_eu
+			)
+			checkbutton("GG2" #gg2): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg2","Georgia: GG2")
+				activate_eu
+			)
+			checkbutton("GG3" #gg3): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg3","Georgia: GG3")
+				activate_eu
+			)
+			checkbutton("GG4" #gg4): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg4","Georgia: GG4")
+				activate_eu
+			)
+			checkbutton("GG5" #gg5): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg5","Georgia: GG5")
+				activate_eu
+			)
+			checkbutton("GG6" #gg6): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg6","Georgia: GG6")
+				activate_eu
+			)
+			checkbutton("GG7" #gg7): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg7","Georgia: GG7")
+				activate_eu
+			)
+			checkbutton("GG8" #gg8): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg8","Georgia: GG8")
+				activate_eu
+			)
+			checkbutton("GG9" #gg9): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg9","Georgia: GG9")
+				activate_eu
+			)
+			checkbutton("GG10" #gg10): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg10","Georgia: GG10")
+				activate_eu
+			)
+			checkbutton("GG11" #gg11): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg11","Georgia: GG11")
+				activate_eu
+			)
+			checkbutton("GG12" #gg12): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg12","Georgia: GG12")
+				activate_eu
+			)
+			checkbutton("GG13" #gg13): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg13","Georgia: GG13")
+				activate_eu
+			)
+			checkbutton("GG14" #gg14): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg14","Georgia: GG14")
+				activate_eu
+			)
+			checkbutton("GG15" #gg15): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg15","Georgia: GG15")
+				activate_eu
+			)
+			checkbutton("GG16" #gg16): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg16","Georgia: GG16")
+				activate_eu
+			)
+			checkbutton("GG17" #gg17): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg17","Georgia: GG17")
+				activate_eu
+			)
+			checkbutton("GG18" #gg18): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg18","Georgia: GG18")
+				activate_eu
+			)
+			checkbutton("GG19" #gg19): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg19","Georgia: GG19")
+				activate_eu
+			)
+			checkbutton("GG20" #gg20): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg20","Georgia: GG20")
 				activate_eu
 			)
 		) :name "Georgia" #georgia		
 		(
-			checkbutton("Naxos EL4" #gr4): (
-				disable_ctxs("cu_priority_areas_contexts.greece_naxos_el4","Greece: Naxos EL4")
+			checkbutton("GR1 " #gr1): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr1","Greece: GR1")
 				activate_eu
 			)
-			checkbutton("Crete EL6" #gr6): (
-				disable_ctxs("cu_priority_areas_contexts.greece_crete_el6","Greece: Crete EL6")
+			checkbutton("GR2 " #gr2): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr2","Greece: GR2")
+				activate_eu
+			)
+			checkbutton("GR3 " #gr3): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr3","Greece: GR3")
+				activate_eu
+			)
+			checkbutton("GR4 " #gr4): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr4","Greece: GR4")
+				activate_eu
+			)
+			checkbutton("GR5 " #gr5): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr5","Greece: GR5")
+				activate_eu
+			)
+			checkbutton("GR6 " #gr6): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr6","Greece: GR6")
+				activate_eu
+			)
+			checkbutton("GR7 " #gr7): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr7","Greece: GR7")
+				activate_eu
+			)
+			checkbutton("GR8 " #gr8): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr8","Greece: GR8")
+				activate_eu
+			)
+			checkbutton("GR9 " #gr9): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr9","Greece: GR9")
+				activate_eu
+			)
+			checkbutton("GR10 " #gr10): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr10","Greece: GR10")
+				activate_eu
+			)
+			checkbutton("GR11 " #gr11): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr11","Greece: GR11")
+				activate_eu
+			)
+			checkbutton("GR12 " #gr12): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr12","Greece: GR12")
+				activate_eu
+			)
+			checkbutton("GR13 " #gr13): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr13","Greece: GR13")
+				activate_eu
+			)
+			checkbutton("GR14 " #gr14): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr14","Greece: GR14")
+				activate_eu
+			)
+			checkbutton("GR15 " #gr15): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr15","Greece: GR15")
+				activate_eu
+			)
+			checkbutton("GR16 " #gr16): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr16","Greece: GR16")
+				activate_eu
+			)
+			checkbutton("GR17 " #gr17): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr17","Greece: GR17")
+				activate_eu
+			)
+			checkbutton("GR18 " #gr18): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr18","Greece: GR18")
+				activate_eu
+			)
+			checkbutton("GR19 " #gr19): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr19","Greece: GR19")
+				activate_eu
+			)
+			checkbutton("GR20 " #gr20): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr20","Greece: GR20")
 				activate_eu
 			)
 		) :name "Greece" #greece			
