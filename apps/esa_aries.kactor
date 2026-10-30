@@ -40,104 +40,196 @@ action main:
 all cu_priority_area_contexts for use in alpha 3 
 	(
 		(
-			checkbutton("Deng Deng Natural Parc CA1" #ca1): (
-				disable_ctxs("cu_priority_areas_contexts.cameroon_natural_parc_deng_deng_ca1","Cameroon: Deng Deng Natural Parc CA1")
+			checkbutton("Site 1" #ca1): (
+				disable_ctxs("cu_priority_areas_contexts.cameroon_validation_area1","Cameroon: Site 1")
 				activate_cameroon
 			)
-			checkbutton("Faune Dja Reserve CA2" #ca2): (
-				disable_ctxs("cu_priority_areas_contexts.cameroon_reserve_faune_dja_ca2","Cameroon: Faune Dja Reserve CA2")
+			checkbutton("Site 2" #ca2): (
+				disable_ctxs("cu_priority_areas_contexts.cameroon_validation_area2","Cameroon: Site 2")
 				activate_cameroon
 			)
-			checkbutton("Douala Edéa CA3" #ca3): (
-				disable_ctxs("cu_priority_areas_contexts.cameroon_douala_edea_ca3","Cameroon: Douala Edéa CA3")
+			checkbutton("Site 3" #ca3): (
+				disable_ctxs("cu_priority_areas_contexts.cameroon_validation_area3","Cameroon: Site 3")
 				activate_cameroon
-			)		
+			)
+			checkbutton("Site 4" #ca4): (
+				disable_ctxs("cu_priority_areas_contexts.cameroon_validation_area4","Cameroon: Site 4")
+				activate_cameroon
+			)
+			checkbutton("Site 5" #ca5): (
+				disable_ctxs("cu_priority_areas_contexts.cameroon_validation_area5","Cameroon: Site 5")
+				activate_cameroon
+			)
+			checkbutton("Site 6" #ca6): (
+				disable_ctxs("cu_priority_areas_contexts.cameroon_validation_area6","Cameroon: Site 6")
+				activate_cameroon
+			)	
+			checkbutton("Site 7" #ca7): (
+				disable_ctxs("cu_priority_areas_contexts.cameroon_validation_area7","Cameroon: Site 7")
+				activate_cameroon
+			)
+			checkbutton("Site 8" #ca8): (
+				disable_ctxs("cu_priority_areas_contexts.cameroon_validation_area8","Cameroon: Site 8")
+				activate_cameroon
+			)
+			checkbutton("Site 9" #ca9): (
+				disable_ctxs("cu_priority_areas_contexts.cameroon_validation_area9","Cameroon: Site 9")
+				activate_cameroon
+			)
+			checkbutton("Site 10" #ca10): (
+				disable_ctxs("cu_priority_areas_contexts.cameroon_validation_area10","Cameroon: Site 10")
+				activate_cameroon
+			)
+			checkbutton("Site 11" #ca11): (
+				disable_ctxs("cu_priority_areas_contexts.cameroon_validation_area11","Cameroon: Site 11")
+				activate_cameroon
+			)
+			checkbutton("Site 12" #ca12): (
+				disable_ctxs("cu_priority_areas_contexts.cameroon_validation_area12","Cameroon: Site 12")
+				activate_cameroon
+			)
+			checkbutton("Site 13" #ca13): (
+				disable_ctxs("cu_priority_areas_contexts.cameroon_validation_area13","Cameroon: Site 13")
+				activate_cameroon
+			)
+			checkbutton("Site 14" #ca14): (
+				disable_ctxs("cu_priority_areas_contexts.cameroon_validation_area14","Cameroon: Site 14")
+				activate_cameroon
+			)
+			checkbutton("Site 15" #ca15): (
+				disable_ctxs("cu_priority_areas_contexts.cameroon_validation_area15","Cameroon: Site 15")
+				activate_cameroon
+			)
+			checkbutton("Site 16" #ca16): (
+				disable_ctxs("cu_priority_areas_contexts.cameroon_validation_area16","Cameroon: Site 16")
+				activate_cameroon
+			)
+			checkbutton("Site 17" #ca17): (
+				disable_ctxs("cu_priority_areas_contexts.cameroon_validation_area17","Cameroon: Site 17")
+				activate_cameroon
+			)
+			checkbutton("Site 18" #ca18): (
+				disable_ctxs("cu_priority_areas_contexts.cameroon_validation_area18","Cameroon: Site 18")
+				activate_cameroon
+			)
+			checkbutton("Site 19" #ca19): (
+				disable_ctxs("cu_priority_areas_contexts.cameroon_validation_area19","Cameroon: Site 19")
+				activate_cameroon
+			)
+			checkbutton("Site 20" #ca20): (
+				disable_ctxs("cu_priority_areas_contexts.cameroon_validation_area20","Cameroon: Site 20")
+				activate_cameroon
+			)
+//			checkbutton("Deng Deng Natural Parc CA1" #ca1): (
+//				disable_ctxs("cu_priority_areas_contexts.cameroon_natural_parc_deng_deng_ca1","Cameroon: Deng Deng Natural Parc CA1")
+//				activate_cameroon
+//			)
+//			checkbutton("Faune Dja Reserve CA2" #ca2): (
+//				disable_ctxs("cu_priority_areas_contexts.cameroon_reserve_faune_dja_ca2","Cameroon: Faune Dja Reserve CA2")
+//				activate_cameroon
+//			)
+//			checkbutton("Douala Edéa CA3" #ca3): (
+//				disable_ctxs("cu_priority_areas_contexts.cameroon_douala_edea_ca3","Cameroon: Douala Edéa CA3")
+//				activate_cameroon
+//			)	
 		) :name "Cameroon" #cameroon	
 			
 		(	
-			checkbutton("Mojana CO1" #co1): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_mojana_co1","Colombia: Mojana CO1")
+			checkbutton("Site 1" #co1): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_validation_area1","Colombia: Site 1")
 				activate_colombia
 			)
-			checkbutton("San Andrés CO2" #co2): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_san_andres_co2","Colombia: San Andrés CO2")
+			checkbutton("Site 2" #co2): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_validation_area2","Colombia: Site 2")
 				activate_colombia
 			)
-			checkbutton("Providencia CO3" #co3): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_providencia_co3","Colombia: Providencia CO3")
+			checkbutton("Site 3" #co3): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_validation_area3","Colombia: Site 3")
 				activate_colombia
 			)
-			checkbutton("Cienaga Grande de Santa Marta CO4" #co4): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_cienaga_grande_de_santa_marta_co4","Colombia: Cienaga Grande de Santa Marta CO4")
+			checkbutton("Site 4" #co4): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_validation_area4","Colombia: Site 4")
 				activate_colombia
 			)
-			checkbutton("Delta Sinú CO5" #co5): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_delta_sinu_co5","Colombia: Delta Sinú CO5")
+			checkbutton("Site 5" #co5): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_validation_area5","Colombia: Site 5")
 				activate_colombia
 			)	
-			checkbutton("Pisba CO6" #co6): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_pisba_co6","Colombia: Pisba CO6")
+			checkbutton("Site 6" #co6): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_validation_area6","Colombia: Site 6")
 				activate_colombia
 						)
-			checkbutton("Santurbán CO7" #co7): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_santurban_co7","Colombia: Santurbán CO7")
+			checkbutton("Site 7" #co7): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_validation_area7","Colombia: Site 7")
 				activate_colombia
 						)
-			checkbutton("Chingaza CO8" #co8): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_chingaza_co8","Colombia: Chingaza CO8")
+			checkbutton("Site 8" #co8): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_validation_area8","Colombia: Site 8")
 				activate_colombia
 						)
-			checkbutton("Putumayo CO9" #co9): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_putumayo_co9","Colombia: Putumayo CO9")
+			checkbutton("Site 9" #co9): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_validation_area9","Colombia: Site 9")
 				activate_colombia
 			)
-			checkbutton("AP_Drummont/Becerril-Cesar CO10" #co10): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_ap_drummont_becerril_cesar_co10","Colombia: AP_Drummont/Becerril-Cesar CO10")
+			checkbutton("Site 10" #co10): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_validation_area10","Colombia: Site 10")
 				activate_colombia
 			)
-			checkbutton("AP_Plata/Simiti-Cesar CO11" #co11): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_ap_plata_simiti_cesar_co11","Colombia: AP_Plata/Simiti-Cesar CO11")
+			checkbutton("Site 11" #co11): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_validation_area11","Colombia: Site 11")
 				activate_colombia
 			)
-			checkbutton("AP_Guane/Barrancabermeja CO12" #co12): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_ap_guane_barrancabermeja_co12","Colombia: AP_Guane/Barrancabermeja CO12")
+			checkbutton("Site 12" #co12): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_validation_area12","Colombia: Site 12")
 				activate_colombia
 			)
-			checkbutton("Piedemonte Casanare CO13" #co13): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_piedemonte_casanare_co13","Colombia: Piedemonte Casanare CO13")
+			checkbutton("Site 13" #co13): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_validation_area13","Colombia: Site 13")
 				activate_colombia
 			)
-			checkbutton("Cuenca alta río Bogotá CO14" #co14 ): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_cuenca_alta_rio_bogota_co14","Colombia: Cuenca alta río Bogotá CO14")
+			checkbutton("Site 14" #co14 ): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_validation_area14","Colombia: Site 14")
 				activate_colombia
 			)
-			checkbutton("Arco de deforestación Amazonia CO15" #co15): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_arco_de_deforestacion_amazonia_co15","Colombia: Arco de deforestación Amazonia CO1")
+			checkbutton("Site 15" #co15): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_validation_area15","Colombia: Site 15")
 				activate_colombia
 			)	
-			checkbutton("Delta del Patía CO16" #co16): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_delta_del_patia_co16","Colombia: Delta del Patía CO16")
+			checkbutton("Site 16" #co16): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_validation_area16","Colombia: Site 16")
 				activate_colombia
 			)
-			checkbutton("Buenaventura CO17" #co17): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_buenaventura_co17","Colombia: Buenaventura CO17")
+			checkbutton("Site 17" #co17): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_validation_area17","Colombia: Site 17")
+				activate_colombia
+			)
+			checkbutton("Site 18" #co18): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_validation_area18","Colombia: Site 18")
 				activate_colombia
 			)	
+			checkbutton("Site 19" #co19): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_validation_area19","Colombia: Site 19")
+				activate_colombia
+			)
+			checkbutton("Site 20" #co20): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_validation_area20","Colombia: Site 20")
+				activate_colombia
+			)		
 		) :name "Colombia" #colombia
 		
 		(
-			checkbutton("Krkhnossky CZ2 BB:33σWS20 (10 m) " #cz_bbox1): (
-				disable_ctxs("cu_bbox_contexts.czech_cu_krkonossky_cz2_bbox_33dws20","Czech Republic: Krkhnossky CZ2 BB:33σWS20 (10 m)")
+			checkbutton("Site 1 " #cz_bbox1): (
+				disable_ctxs("cu_bbox_contexts.czech_cu_krkonossky_cz2_bbox_33dws20","Czech Republic: Site 1")
 //				activate_europe
 				activate_eu
 			)	
-			checkbutton("Transect Mid WE CZ8 BB:33δWR11 (10 m) " #cz_bbox2): (
-				disable_ctxs("cu_bbox_contexts.czech_cu_transectmidwe_cz8_bbox_33dwr11","Czech Republic: Transect Mid WE CZ8 BB:33δWR11 (10 m)")
+			checkbutton("Site 2 " #cz_bbox2): (
+				disable_ctxs("cu_bbox_contexts.czech_cu_transectmidwe_cz8_bbox_33dwr11","Czech Republic: Site 2")
 //				activate_europe
 				activate_eu
 			)		
-			checkbutton("Bilek CZ1" #cz1): (
-				disable_ctxs("cu_priority_areas_contexts.czech_republic_bilek_cz1","Czech Republic: Bilek CZ1")
+			checkbutton("Site 3" #cz1): (
+				disable_ctxs("cu_priority_areas_contexts.czech_republic_bilek_cz1","Czech Republic: Site 3")
 //				activate_europe
 				activate_eu
 			) 
