@@ -7,7 +7,6 @@ worldview im;
     observations = (
     "im|esa.aries.sandbox/tests/test_arnab_libe.ecosystem_type_iucn_get_level3_machine_learning"
     "im|esa.aries.sandbox/tests/test_arnab_libe.ecosystem_type_iucn_get_level3_rule_based"
-    "im|esa.aries.sandbox/tests/test_arnab_libe.ecosystem_type_iucn_get_level3_machine_learning_v330"
     ),
     
     // add assertions to check the observations after execution
@@ -34,6 +33,3 @@ model 'local:alessio.bulckaen:esa.aries.sandbox:IUCNGET-V330-2-MECE'
 model 'local:alessio.bulckaen:esa.aries.sandbox:RuleBased-V502' 
 	as esa.aries.model_approach:RuleBased nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get_level3_rule_based
 	classified according to im:ecosystem-get-iucn;
-model 'local:alessio.bulckaen:esa.aries.sandbox:ML-IUCNGET-V330-MECE'
-	as im:Potential esa.aries.model_approach:MachineLearning nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get_level3_machine_learning_v330
-		classified according to im:ecosystem-get-iucn;
