@@ -1,0 +1,33 @@
+{
+  "urn" : "local:alessio.bulckaen:esa.aries.sandbox:IUCNGET-V330-2-MECE",
+  "version" : "0.0.1",
+  "adapterType" : "stac",
+  "localPath" : "esa.aries.sandbox/resources/IUCNGET-V330-2-MECE.v0.0.1",
+  "geometry" : "s2{bbox=[-81.73672650353828 107.7025342770052 -34.145403840159354 21.50385028446525],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "IUCNGET-V330-2-MECE",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1793350396839,
+  "metadata" : {
+    "dc:comment" : "This is the STAC metadata for the openEO job 'j-261028162537445e8537c8993e273f23'",
+    "dc:url" : "https://catalogue.weed.apex.esa.int/collections/IUCNGET-V330-2-MECE"
+  },
+  "parameters" : {
+    "collection" : "https://catalogue.weed.apex.esa.int/collections/IUCNGET-V330-2-MECE",
+    "band" : "0",
+    "asset" : "openEO",
+    "s3EndpointUrl" : "https://s3.waw4-1.cloudferro.com",
+    "collectionId" : "IUCNGET-V330-2-MECE"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

@@ -124,7 +124,7 @@ model 'local:alessio.bulckaen:esa.aries.sandbox:EUNIS2021plus-V311-extent'
 
 ////TODO:fix encoding level 2
 model 'local:alessio.bulckaen:esa.aries.sandbox:EUNIS2021plus-V311-extent'
-	as esa.aries.model_approach:MachineLearning IntermediateOutput nca.ecosystem.eunis:EcosystemType named ecosystem_type_eunis_level1_machine_learning
+	as esa.aries.model_approach:MachineLearning nca.ecosystem.eunis:EcosystemType named ecosystem_type_eunis_level1_machine_learning
 		classified 
 		according to im:eunis-lvl1-encoding;
 //		
@@ -134,7 +134,7 @@ model 'local:alessio.bulckaen:esa.aries.sandbox:EUNIS2021plus-V311-extent'
 //		according to im:eunis-lvl2-encoding;
 
 @documented(global.ecosystemextent.machinelearning_mapping)
-model 'local:alessio.bulckaen:esa.aries.sandbox:IUCNGET-V330-MECE'
+model 'local:alessio.bulckaen:esa.aries.sandbox:IUCNGET-V330-2-MECE'
 	as esa.aries.model_approach:MachineLearning nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get_level3_machine_learning
 		classified 
 		according to im:ecosystem-get-iucn;
@@ -142,7 +142,7 @@ model 'local:alessio.bulckaen:esa.aries.sandbox:IUCNGET-V330-MECE'
 
 /*IUCN GET RuleBased */
 @documented(global.ecosystemextent.rulebased_mapping)
-model 'local:alessio.bulckaen:esa.aries.sandbox:IUCNGET-RuleBased-V501' 
+model 'local:alessio.bulckaen:esa.aries.sandbox:RuleBased-V502' 
 	as esa.aries.model_approach:RuleBased nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get_level3_rule_based
 	classified according to im:ecosystem-get-iucn;
 

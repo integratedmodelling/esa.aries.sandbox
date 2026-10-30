@@ -1,0 +1,35 @@
+worldview im;
+
+@test(
+    name = "test_arnab_libe",
+    description  = "",
+    // add to the list any concepts to be observed in the context below
+    observations = (
+    "im|esa.aries.sandbox/tests/test_arnab_libe.ecosystem_type_iucn_get_level3_machine_learning"
+    "im|esa.aries.sandbox/tests/test_arnab_libe.ecosystem_type_iucn_get_level3_rule_based"
+    ),
+    
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe /* a:urn:to:use#objectid as */ earth:Region named test_arnab_libe
+    // add any space and/or time extents: for example
+    over space(shape="EPSG:4326 POLYGON ((-74.39975627761513 8.813195884823799, -74.27809127669963 8.820617323672991, -74.27508720260293 8.707159115339877, -74.39803966384561 8.70800752925777, -74.39975627761513 8.813195884823799))",
+    	grid="30 m"),
+    	time(year=2024);
+
+// add any models here
+
+@documented(global.ecosystemextent.machinelearning_mapping)
+model 'local:alessio.bulckaen:esa.aries.sandbox:IUCNGET-V330-2-MECE'
+	as esa.aries.model_approach:MachineLearning nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get_level3_machine_learning
+		classified 
+		according to im:ecosystem-get-iucn;
+
+
+/*IUCN GET RuleBased */
+@documented(global.ecosystemextent.rulebased_mapping)
+model 'local:alessio.bulckaen:esa.aries.sandbox:RuleBased-V502' 
+	as esa.aries.model_approach:RuleBased nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get_level3_rule_based
+	classified according to im:ecosystem-get-iucn;
