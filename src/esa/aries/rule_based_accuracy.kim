@@ -22,6 +22,7 @@ observe earth:Region named colombia_iucnget_v330_2_mece_65f2c8ca_8e0b_4a75_8682_
 model 'local:alessio.bulckaen:esa.aries.sandbox:RuleBased-V502' 
 as type of nca.ecosystem.iucn:Ecosystem
 classified according to im:ecosystem-get-iucn;
+number 'local:alessio.bulckaen:esa.aries.sandbox:RuleBased-V502' as test_rb_v502;
 
 /* -----------------------------------------------------------------------------------------------------------------------------------------------
  * # 1) Comparison of the ecosystem type result between modelled & reference maps by ES types.
