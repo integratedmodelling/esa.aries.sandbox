@@ -1440,4 +1440,119 @@ observe earth:Region named philippines_4326_30m_2024_pl20
         time(start=2024, end=2025, step=1.year);  
 
 
+//South Africa priority areas V4 (With validation points)
+observe earth:Region named southafrica_4326_30m_2024_sa1
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δDG24',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named southafrica_4326_30m_2024_sa2
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δCK10',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named southafrica_4326_30m_2024_sa3
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δCH01',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named southafrica_4326_30m_2024_sa4
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δFH32',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named southafrica_4326_30m_2024_sa5
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δFH22',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named southafrica_4326_30m_2024_sa6
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δBJ11',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named southafrica_4326_30m_2024_sa7
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δCH10',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named southafrica_4326_30m_2024_sa8
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δFJ00',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named southafrica_4326_30m_2024_sa9
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δFH41',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named southafrica_4326_30m_2024_sa10
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δFH42',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named southafrica_4326_30m_2024_sa11
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δBG34',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named southafrica_4326_30m_2024_sa12
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δCG04',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named southafrica_4326_30m_2024_sa13
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δFH21',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named southafrica_4326_30m_2024_sa14
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δCG24',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named southafrica_4326_30m_2024_sa15
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δCH00',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named southafrica_4326_30m_2024_sa16
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δBJ20',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named southafrica_4326_30m_2024_sa17
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δEH33',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named southafrica_4326_30m_2024_sa18
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δEJ40',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named southafrica_4326_30m_2024_sa19
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326#grid20id=34δGH01',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
 
