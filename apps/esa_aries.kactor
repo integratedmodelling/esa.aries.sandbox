@@ -16,18 +16,86 @@ action main:
 
 	(
 		(
-			checkbutton("Deng Deng Natural Parc CA1" #ca1): (
-				disable_ctxs("cu_priority_areas_contexts.cameroon_natural_parc_deng_deng_ca1","Cameroon: Deng Deng Natural Parc CA1")
+			checkbutton("CM1" #cm1): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm1","Cameroon: CM1")
 				activate_noneu
 			)
-			checkbutton("Faune Dja Reserve CA2" #ca2): (
-				disable_ctxs("cu_priority_areas_contexts.cameroon_reserve_faune_dja_ca2","Cameroon: Faune Dja Reserve CA2")
+			checkbutton("CM2" #cm2): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm2","Cameroon: CM2")
 				activate_noneu
 			)
-			checkbutton("Douala Edéa CA3" #ca3): (
-				disable_ctxs("cu_priority_areas_contexts.cameroon_douala_edea_ca3","Cameroon: Douala Edéa CA3")
+			checkbutton("CM3" #cm3): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm3","Cameroon: CM3")
 				activate_noneu
-			)		
+			)
+			checkbutton("CM4" #cm4): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm4","Cameroon: CM4")
+				activate_noneu
+			)
+			checkbutton("CM5" #cm5): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm5","Cameroon: CM5")
+				activate_noneu
+			)
+			checkbutton("CM6" #cm6): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm6","Cameroon: CM6")
+				activate_noneu
+			)
+			checkbutton("CM7" #cm7): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm7","Cameroon: CM7")
+				activate_noneu
+			)
+			checkbutton("CM8" #cm8): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm8","Cameroon: CM8")
+				activate_noneu
+			)
+			checkbutton("CM9" #cm9): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm9","Cameroon: CM9")
+				activate_noneu
+			)
+			checkbutton("CM10" #cm10): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm10","Cameroon: CM10")
+				activate_noneu
+			)
+			checkbutton("CM11" #cm11): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm11","Cameroon: CM11")
+				activate_noneu
+			)
+			checkbutton("CM12" #cm12): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm12","Cameroon: CM12")
+				activate_noneu
+			)
+			checkbutton("CM13" #cm13): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm13","Cameroon: CM13")
+				activate_noneu
+			)
+			checkbutton("CM14" #cm14): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm14","Cameroon: CM14")
+				activate_noneu
+			)
+			checkbutton("CM15" #cm15): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm15","Cameroon: CM15")
+				activate_noneu
+			)
+			checkbutton("CM16" #cm16): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm16","Cameroon: CM16")
+				activate_noneu
+			)
+			checkbutton("CM17" #cm17): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm17","Cameroon: CM17")
+				activate_noneu
+			)
+			checkbutton("CM18" #cm18): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm18","Cameroon: CM18")
+				activate_noneu
+			)
+			checkbutton("CM19" #cm19): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm19","Cameroon: CM19")
+				activate_noneu
+			)
+			checkbutton("CM20" #cm20): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm20","Cameroon: CM20")
+				activate_noneu
+			)
 		) :name "Cameroon" #cameroon	
 			
 		(	
@@ -376,116 +444,496 @@ action main:
 			)
 		) :name "Greece" #greece			
 		(
-			checkbutton("Finnmark NO1_4_1" #no1_4_1 ): (
-				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1_1","Norway: Osloviken NO1_4_1")
+			checkbutton("NO1 " #no1): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no1","Norway: NO1")
 				activate_eu
 			)
-			checkbutton("Finnmark NO1_4_2" #no1_4_2 ): (
-				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1_1","Norway: Osloviken NO1_4_2")
+			checkbutton("NO2 " #no2): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no2","Norway: NO2")
 				activate_eu
 			)
-			checkbutton("Finnmark NO1_4_3" #no1_4_3 ): (
-				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1_3","Norway: Osloviken NO1_4_3")
+			checkbutton("NO3 " #no3): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no3","Norway: NO3")
 				activate_eu
 			)
-			checkbutton("Finnmark NO1_4_4" #no1_4_4 ): (
-				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1_4","Norway: Osloviken NO1_4_4")
+			checkbutton("NO4 " #no4): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no4","Norway: NO4")
 				activate_eu
 			)
-			checkbutton("OsloViken NO2" #no2 ): (
-				disable_ctxs("cu_priority_areas_contexts.norway_finnmark_no2","Norway: Finnmark NO2")
+
+			checkbutton("NO5 " #no5): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no5","Norway: NO5")
+				activate_eu
+			)
+			checkbutton("NO6 " #no6): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no6","Norway: NO6")
+				activate_eu
+			)
+			checkbutton("NO7 " #no7): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no7","Norway: NO7")
+				activate_eu
+			)
+			checkbutton("NO8 " #no8): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no8","Norway: NO8")
+				activate_eu
+			)
+			checkbutton("NO9 " #no9): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no9","Norway: NO9")
+				activate_eu
+			)
+			checkbutton("NO10 " #no10): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no10","Norway: NO10")
+				activate_eu
+			)
+			checkbutton("NO11 " #no11): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no11","Norway: NO11")
+				activate_eu
+			)
+			checkbutton("NO12 " #no12): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no12","Norway: NO12")
+				activate_eu
+			)
+			checkbutton("NO13 " #no13): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no13","Norway: NO13")
+				activate_eu
+			)
+			checkbutton("NO14 " #no14): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no14","Norway: NO14")
+				activate_eu
+			)
+			checkbutton("NO15 " #no15): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no15","Norway: NO15")
+				activate_eu
+			)
+			checkbutton("NO16 " #no16): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no16","Norway: NO16")
+				activate_eu
+			)
+			checkbutton("NO17 " #no17): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no17","Norway: NO17")
+				activate_eu
+			)
+			checkbutton("NO18 " #no18): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no18","Norway: NO18")
+				activate_eu
+			)
+			checkbutton("NO19 " #no19): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no19","Norway: NO19")
+				activate_eu
+			)
+			checkbutton("NO20 " #no20): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no20","Norway: NO20")
 				activate_eu
 			)					
-			
 		) :name "Norway" #norway
 		(
-			checkbutton("Quirino PH1" #ph1): (
-				disable_ctxs("cu_priority_areas_contexts.philippines_ph1","Philippines: Quirino PH1")
+			checkbutton("PL1" #pl1): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl1","Philippines: PL1")
 				activate_noneu
 			)
-			checkbutton("Agusan del Sur PH2" #ph2): (
-				disable_ctxs("cu_priority_areas_contexts.philippines_ph2","Philippines: Agusan del Sur PH2")
+			checkbutton("PL2" #pl2): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl2","Philippines: PL2")
 				activate_noneu
 			)
-			checkbutton("Nueva Vizcaya, Quirino PH3" #ph3): (
-				disable_ctxs("cu_priority_areas_contexts.philippines_ph3","Philippines: Nueva Vizcaya, Quirino PH3")
+			checkbutton("PL3" #pl3): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl3","Philippines: PL3")
 				activate_noneu
 			)
-			checkbutton("Siquijor PH4" #ph4): (
-				disable_ctxs("cu_priority_areas_contexts.philippines_ph4","Philippines: Siquijor PH4")
+			checkbutton("PL4" #pl4): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl4","Philippines: PL4")
 				activate_noneu
 			)
-			checkbutton("Aurora, Nueva Ecija PH5" #ph5): (
-				disable_ctxs("cu_priority_areas_contexts.philippines_ph5","Philippines: Aurora, Nueva Ecija PH5")
+			checkbutton("PL5" #pl5): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl5","Philippines: PL5")
 				activate_noneu
-			)		
-			checkbutton("Palawan PH6" #ph6): (
-				disable_ctxs("cu_priority_areas_contexts.philippines_ph6","Philippines: Palawan PH6")
+			)
+			checkbutton("PL6" #pl6): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl6","Philippines: PL6")
 				activate_noneu
-			)		
-			checkbutton("Pangasinan, Tarlac, Zambales PH7" #ph7): (
-				disable_ctxs("cu_priority_areas_contexts.philippines_ph7","Philippines: Pangasinan, Tarlac, Zambales PH7")
+			)
+			checkbutton("PL7" #pl7): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl7","Philippines: PL7")
+				activate_noneu
+			)
+			checkbutton("PL8" #pl8): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl8","Philippines: PL8")
+				activate_noneu
+			)
+			checkbutton("PL9" #pl9): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl9","Philippines: PL9")
+				activate_noneu
+			)
+			checkbutton("PL10" #pl10): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl10","Philippines: PL10")
+				activate_noneu
+			)
+			checkbutton("PL11" #pl11): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl11","Philippines: PL11")
+				activate_noneu
+			)
+			checkbutton("PL12" #pl12): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl12","Philippines: PL12")
+				activate_noneu
+			)
+			checkbutton("PL13" #pl13): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl13","Philippines: PL13")
+				activate_noneu
+			)
+			checkbutton("PL14" #pl14): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl14","Philippines: PL14")
+				activate_noneu
+			)
+			checkbutton("PL15" #pl15): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl15","Philippines: PL15")
+				activate_noneu
+			)
+			checkbutton("PL16" #pl16): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl16","Philippines: PL16")
+				activate_noneu
+			)
+			checkbutton("PL17" #pl17): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl17","Philippines: PL17")
+				activate_noneu
+			)
+			checkbutton("PL18" #pl18): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl18","Philippines: PL18")
+				activate_noneu
+			)
+			checkbutton("PL19" #pl19): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl19","Philippines: PL19")
+				activate_noneu
+			)
+			checkbutton("PL20" #pl20): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl20","Philippines: PL20")
 				activate_noneu
 			)
 		) :name "Philippines" #philippines		
 		(
-			checkbutton("Slovakia SL1" #sl1): (
-				disable_ctxs("cu_priority_areas_contexts.slovakia_banskobystricky_kraj_sl1","Slovakia: Banskobystricky Kraj SL1")
+			checkbutton("SL1" #sl1): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl1","Slovakia: SL1")
 				activate_eu
 			)
-//			checkbutton("Slovakia SL1_1" #sl1_1): (
-//				disable_ctxs("cu_priority_areas_contexts.slovakia_banskobystricky_kraj_sl1_1","Slovakia: Banskobystricky Kraj SL1_1")
-//				activate_eu
-//			)
-//			checkbutton("Slovakia SL1_2" #sl1_2): (
-//				disable_ctxs("cu_priority_areas_contexts.slovakia_banskobystricky_kraj_sl1_2","Slovakia: Banskobystricky Kraj SL1_2")
-//				activate_eu
-//			)
-//			checkbutton("Slovakia SL1_1" #sl1_3): (
-//				disable_ctxs("cu_priority_areas_contexts.slovakia_banskobystricky_kraj_sl1_3","Slovakia: Banskobystricky Kraj SL1_3")
-//				activate_eu
-//			)
+			checkbutton("SL2" #sl2): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl2","Slovakia: SL2")
+				activate_eu
+			)
+			checkbutton("SL3" #sl3): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl3","Slovakia: SL3")
+				activate_eu
+			)
+			checkbutton("SL4" #sl4): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl4","Slovakia: SL4")
+				activate_eu
+			)
+			checkbutton("SL5" #sl5): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl5","Slovakia: SL5")
+				activate_eu
+			)
+			checkbutton("SL6" #sl6): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl6","Slovakia: SL6")
+				activate_eu
+			)
+			checkbutton("SL7" #sl7): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl7","Slovakia: SL7")
+				activate_eu
+			)
+			checkbutton("SL8" #sl8): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl8","Slovakia: SL8")
+				activate_eu
+			)
+			checkbutton("SL9" #sl9): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl9","Slovakia: SL9")
+				activate_eu
+			)
+			checkbutton("SL10" #sl10): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl10","Slovakia: SL10")
+				activate_eu
+			)
+			checkbutton("SL11" #sl11): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl11","Slovakia: SL11")
+				activate_eu
+			)
+			checkbutton("SL12" #sl12): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl12","Slovakia: SL12")
+				activate_eu
+			)
+			checkbutton("SL13" #sl13): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl13","Slovakia: SL13")
+				activate_eu
+			)
+			checkbutton("SL14" #sl14): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl14","Slovakia: SL14")
+				activate_eu
+			)
+			checkbutton("SL15" #sl15): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl15","Slovakia: SL15")
+				activate_eu
+			)
+			checkbutton("SL16" #sl16): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl16","Slovakia: SL16")
+				activate_eu
+			)
+			checkbutton("SL17" #sl17): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl17","Slovakia: SL17")
+				activate_eu
+			)
+			checkbutton("SL18" #sl18): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl18","Slovakia: SL18")
+				activate_eu
+			)
+			checkbutton("SL19" #sl19): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl19","Slovakia: SL19")
+				activate_eu
+			)
+			checkbutton("SL20" #sl20): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl20","Slovakia: SL20")
+				activate_eu
+			)
 		) :name "Slovakia" #slovakia					
 		(
-			checkbutton("Grootbos SA2" #sa2): (
-				disable_ctxs("cu_priority_areas_contexts.south_africa_grootbos_sa2","South Africa: Grootbos SA2")
-				activate_noneu	
+			checkbutton("SA1" #sa1): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa1","South Africa: SA1")
+				activate_noneu
 			)
-			checkbutton("DeHoop SA5" #sa5): (
-				disable_ctxs("cu_priority_areas_contexts.south_africa_dehoop_sa5","South Africa: DeHoop SA5")
-//				activate_southafrica
-				activate_noneu	
+			checkbutton("SA2" #sa2): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa2","South Africa: SA2")
+				activate_noneu
 			)
-			checkbutton("Kogelberg SA6" #sa6): (
-				disable_ctxs("cu_priority_areas_contexts.south_africa_kogelberg_sa6","South Africa: Kogelberg SA6")
-				activate_noneu	
+			checkbutton("SA3" #sa3): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa3","South Africa: SA3")
+				activate_noneu
 			)
-			checkbutton("CapeFloral SA11" #sa11): (
-				disable_ctxs("cu_priority_areas_contexts.south_africa_capefloral_sa11","South Africa: CapeFloral SA11")
-				activate_noneu	
+			checkbutton("SA4" #sa4): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa4","South Africa: SA4")
+				activate_noneu
+			)
+			checkbutton("SA5" #sa5): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa5","South Africa: SA5")
+				activate_noneu
+			)
+			checkbutton("SA6" #sa6): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa6","South Africa: SA6")
+				activate_noneu
+			)
+			checkbutton("SA7" #sa7): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa7","South Africa: SA7")
+				activate_noneu
+			)
+			checkbutton("SA8" #sa8): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa8","South Africa: SA8")
+				activate_noneu
+			)
+			checkbutton("SA9" #sa9): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa9","South Africa: SA9")
+				activate_noneu
+			)
+			checkbutton("SA10" #sa10): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa10","South Africa: SA10")
+				activate_noneu
+			)
+			checkbutton("SA11" #sa11): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa11","South Africa: SA11")
+				activate_noneu
+			)
+			checkbutton("SA12" #sa12): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa12","South Africa: SA12")
+				activate_noneu
+			)
+			checkbutton("SA13" #sa13): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa13","South Africa: SA13")
+				activate_noneu
+			)
+			checkbutton("SA14" #sa14): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa14","South Africa: SA14")
+				activate_noneu
+			)
+			checkbutton("SA15" #sa15): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa15","South Africa: SA15")
+				activate_noneu
+			)
+			checkbutton("SA16" #sa16): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa16","South Africa: SA16")
+				activate_noneu
+			)
+			checkbutton("SA17" #sa17): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa17","South Africa: SA17")
+				activate_noneu
+			)
+			checkbutton("SA18" #sa18): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa18","South Africa: SA18")
+				activate_noneu
+			)
+			checkbutton("SA19" #sa19): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa19","South Africa: SA19")
+				activate_noneu
+			)
+			checkbutton("SA20" #sa20): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa20","South Africa: SA20")
+				activate_noneu
 			)
 		) :name "South Africa" #sa
 		(
-			checkbutton("Kitagwenda UG1" #ug1): (
-				disable_ctxs("cu_priority_areas_contexts.uganda_kitagwenda_ug1","Uganda: Kitagwenda UG1")
+			checkbutton("UG1" #ug1): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug1","Uganda: UG1")
 				activate_noneu
 			)
-			checkbutton("Bokoro wildlife corridor UG2" #ug2): (
-				disable_ctxs("cu_priority_areas_contexts.uganda_bokoro_wildlife_corridor_ug2","Uganda: Bokoro wildlife corridor UG2")
+			checkbutton("UG2" #ug2): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug2","Uganda: UG2")
 				activate_noneu
 			)
-			checkbutton("Bugungu UG3" #ug3): (
-				disable_ctxs("cu_priority_areas_contexts.uganda_bugungu_ug3","Uganda: Bugungu UG3")
+			checkbutton("UG3" #ug3): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug3","Uganda: UG3")
 				activate_noneu
-			)	
+			)
+			checkbutton("UG4" #ug4): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug4","Uganda: UG4")
+				activate_noneu
+			)
+			checkbutton("UG5" #ug5): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug5","Uganda: UG5")
+				activate_noneu
+			)
+			checkbutton("UG6" #ug6): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug6","Uganda: UG6")
+				activate_noneu
+			)
+			checkbutton("UG7" #ug7): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug7","Uganda: UG7")
+				activate_noneu
+			)
+			checkbutton("UG8" #ug8): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug8","Uganda: UG8")
+				activate_noneu
+			)
+			checkbutton("UG9" #ug9): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug9","Uganda: UG9")
+				activate_noneu
+			)
+			checkbutton("UG10" #ug10): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug10","Uganda: UG10")
+				activate_noneu
+			)
+			checkbutton("UG11" #ug11): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug11","Uganda: UG11")
+				activate_noneu
+			)
+			checkbutton("UG12" #ug12): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug12","Uganda: UG12")
+				activate_noneu
+			)
+			checkbutton("UG13" #ug13): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug13","Uganda: UG13")
+				activate_noneu
+			)
+			checkbutton("UG14" #ug14): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug14","Uganda: UG14")
+				activate_noneu
+			)
+			checkbutton("UG15" #ug15): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug15","Uganda: UG15")
+				activate_noneu
+			)
+			checkbutton("UG16" #ug16): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug16","Uganda: UG16")
+				activate_noneu
+			)
+			checkbutton("UG17" #ug17): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug17","Uganda: UG17")
+				activate_noneu
+			)
+			checkbutton("UG18" #ug18): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug18","Uganda: UG18")
+				activate_noneu
+			)
+			checkbutton("UG19" #ug19): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug19","Uganda: UG19")
+				activate_noneu
+			)
+			checkbutton("UG20" #ug20): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug20","Uganda: UG20")
+				activate_noneu
+			)
 		) :name "Uganda" #uganda
 		(			
-			checkbutton("Quang Ninh - Hai Phong VN1" #vn1): (
-				disable_ctxs("cu_priority_areas_contexts.vietnam_quang_ninh__hai_phong_vn1","Vietnam: Quang Ninh - Hai Phong VN1")
+			checkbutton("VN1" #vn1): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn1","Vietnam: VN1")
 				activate_noneu
 			)
-			checkbutton("Cu Lao Cham - Hoi An VN3" #vn3): (
-				disable_ctxs("cu_priority_areas_contexts.vietnam_cu_lao_cham__hoi_an_vn3","Vietnam: Cu Lao Cham - Hoi An VN3")
+			checkbutton("VN2" #vn2): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn2","Vietnam: VN2")
+				activate_noneu
+			)
+			checkbutton("VN3" #vn3): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn3","Vietnam: VN3")
+				activate_noneu
+			)
+			checkbutton("VN4" #vn4): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn4","Vietnam: VN4")
+				activate_noneu
+			)
+			checkbutton("VN5" #vn5): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn5","Vietnam: VN5")
+				activate_noneu
+			)
+
+			checkbutton("VN6" #vn6): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn6","Vietnam: VN6")
+				activate_noneu
+			)
+			checkbutton("VN7" #vn7): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn7","Vietnam: VN7")
+				activate_noneu
+			)
+			checkbutton("VN8" #vn8): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn8","Vietnam: VN8")
+				activate_noneu
+			)
+			checkbutton("VN9" #vn9): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn9","Vietnam: VN9")
+				activate_noneu
+			)
+			checkbutton("VN10" #vn10): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn10","Vietnam: VN10")
+				activate_noneu
+			)
+			checkbutton("VN11" #vn11): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn11","Vietnam: VN11")
+				activate_noneu
+			)
+			checkbutton("VN12" #vn12): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn12","Vietnam: VN12")
+				activate_noneu
+			)
+			checkbutton("VN13" #vn13): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn13","Vietnam: VN13")
+				activate_noneu
+			)
+			checkbutton("VN14" #vn14): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn14","Vietnam: VN14")
+				activate_noneu
+			)
+			checkbutton("VN15" #vn15): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn15","Vietnam: VN15")
+				activate_noneu
+			)
+			checkbutton("VN16" #vn16): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn16","Vietnam: VN16")
+				activate_noneu
+			)
+			checkbutton("VN17" #vn17): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn17","Vietnam: VN17")
+				activate_noneu
+			)
+			checkbutton("VN18" #vn18): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn18","Vietnam: VN18")
+				activate_noneu
+			)
+			checkbutton("VN19" #vn19): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn19","Vietnam: VN19")
+				activate_noneu
+			)
+			checkbutton("VN20" #vn20): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn20","Vietnam: VN20")
 				activate_noneu
 			)
 		) :name "Vietnam" #vietnam	
