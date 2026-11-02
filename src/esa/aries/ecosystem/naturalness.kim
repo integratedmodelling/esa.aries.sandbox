@@ -548,7 +548,7 @@ observing
 	into IUCN_GET_NATURALNESS;
 
 @documented(global.ecosystemextent.natural_ecosystem_indicator)
-define table gbf_indicator_a2_natural_ecosystem_percentage_iucn_get__rule_based_static as {
+define table gbf_indicator_a2_natural_ecosystem_percentage_iucn_get_rule_based_static as {
 
 	title: "Natural ecosystem extent (%) - Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF) - RuleBased results"
 	label: "Natural Ecosystem Extent"
