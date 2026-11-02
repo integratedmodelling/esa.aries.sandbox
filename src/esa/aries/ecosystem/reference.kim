@@ -1,5 +1,6 @@
 private namespace esa.aries.ecosystem.reference
-using nca.ecosystem.iucn;
+using nca.ecosystem.iucn,
+(CROSSWALK_COLOMBIA_NATIONAL_CLASSIFICATION_TO_IUCN_GET) from rule_based_modelling.colombia;
 
 
 /* Global validation point */
@@ -7,7 +8,14 @@ model 'local:alessio.bulckaen:esa.aries.sandbox:weed_validation#getraster'
 	as im:Reference type of nca.ecosystem.iucn:Ecosystem named global_validation_points
 	classified according to im:ecosystem-get-iucn;
 
-model each 
+model im:Reference type of nca.ecosystem.iucn:Ecosystem named colombia_reference_ecosystem_type
+ observing
+ geography:Colombia im:Reference type of nca.ecosystem.iucn:Ecosystem named colombian_ecosystem_type_national_classification 
+ lookup (colombian_ecosystem_type_national_classification, ?)
+  into CROSSWALK_COLOMBIA_NATIONAL_CLASSIFICATION_TO_IUCN_GET
+  over space(shape='EPSG:4326 POLYGON ((-74.72446240398484 8.201517351065604, -74.72510858022173 8.198302015418747, -74.7269487344579 8.195576165115554, -74.729702719892 8.193754799763099, -74.73295126720657 8.193115219326899, -74.73619981452114 8.193754799763099, -74.73895379995521 8.195576165115554, -74.7407939541914 8.198302015418747, -74.74144013042829 8.201517351065604, -74.7407939541914 8.204732660706199, -74.73895379995521 8.207458448224614, -74.73619981452114 8.209279750792305, -74.73295126720657 8.2099193052222, -74.729702719892 8.209279750792305, -74.7269487344579 8.207458448224614, -74.72510858022173 8.204732660706199, -74.72446240398484 8.201517351065604))'
+  );
+
 /* Czech map  */
 model 'local:alessio.bulckaen:esa.aries.sandbox:esa_weed.czechrepublic_validation_ecosystems_epsg5514_10m'
 as geography:CzechRepublic im:Reference type of nca.ecosystem.iucn:Ecosystem
