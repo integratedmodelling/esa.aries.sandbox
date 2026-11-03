@@ -3,7 +3,7 @@
   "version" : "0.0.1",
   "adapterType" : "stac",
   "localPath" : "esa.aries.sandbox/resources/IUCNGET-V330-2-MECE.v0.0.1",
-  "geometry" : "s2{bbox=[-81.73672650353828 107.7025342770052 -34.145403840159354 21.50385028446525],proj=EPSG:4326}",
+  "geometry" : "s2{}",
   "projectName" : "esa.aries.sandbox",
   "localName" : "IUCNGET-V330-2-MECE",
   "type" : "NUMBER",
