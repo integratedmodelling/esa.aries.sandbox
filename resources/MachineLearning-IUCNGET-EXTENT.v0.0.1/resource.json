@@ -1,0 +1,33 @@
+{
+  "urn" : "local:alessio.bulckaen:esa.aries.sandbox:MachineLearning-IUCNGET-EXTENT",
+  "version" : "0.0.1",
+  "adapterType" : "stac",
+  "localPath" : "esa.aries.sandbox/resources/MachineLearning-IUCNGET-EXTENT.v0.0.1",
+  "geometry" : "t1{ttype=grid}S2",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "MachineLearning-IUCNGET-EXTENT",
+  "type" : "NUMBER",
+  "resourceTimestamp" : 1793742220500,
+  "metadata" : {
+    "dc:comment" : "This is the STAC metadata for the openEO job 'j-2611031350044b9083c7826021e9f5de'",
+    "dc:url" : "https://catalogue.weed.apex.esa.int/collections/MachineLearning-IUCNGET-EXTENT-V330"
+  },
+  "parameters" : {
+    "collection" : "https://catalogue.weed.apex.esa.int/collections/MachineLearning-IUCNGET-EXTENT-V330",
+    "band" : "0",
+    "asset" : "openEO",
+    "s3EndpointUrl" : "https://s3.waw4-1.cloudferro.com",
+    "collectionId" : "MachineLearning-IUCNGET-EXTENT-V330"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}
