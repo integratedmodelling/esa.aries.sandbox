@@ -819,6 +819,7 @@ action main:
 //			)
 		) :name "South Africa" #sa
 		(
+			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)
 			checkbutton("UG1" #ug1): (
 				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug1","Uganda: UG1")
 				activate_noneu
@@ -899,6 +900,12 @@ action main:
 				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug20","Uganda: UG20")
 				activate_noneu
 			)
+			separator(:empty)
+			label(#LL2_CONTEXTS width="100%" fsize="0.95em" :left)
+			checkbutton("Bugungu UG3" #ug3): (
+				disable_ctxs("cu_priority_areas_contexts.uganda_bugungu_ug3","Uganda: Bugungu UG3")
+				activate_noneu
+			)	
 		) :name "Uganda" #uganda
 		(			
 			checkbutton("VN1" #vn1): (
