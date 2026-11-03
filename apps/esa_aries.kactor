@@ -197,6 +197,7 @@ action main:
 				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co24","Colombia: CO24")
 				activate_noneu
 			)
+			separator(:empty)
 			label(#LL2_CONTEXTS width="100%" fsize="0.95em" :left)
 			checkbutton("Cienaga Grande de Santa Marta CO4" #co4): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_cienaga_grande_de_santa_marta_co4","Colombia: Cienaga Grande de Santa Marta CO4")
@@ -542,6 +543,7 @@ action main:
 			)					
 		) :name "Norway" #norway
 		(
+			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)
 			checkbutton("PL1" #pl1): (
 				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl1","Philippines: PL1")
 				activate_noneu
@@ -706,6 +708,7 @@ action main:
 			)
 		) :name "Slovakia" #slovakia					
 		(
+			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)
 			checkbutton("SA1" #sa1): (
 				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa1","South Africa: SA1")
 				activate_noneu
@@ -786,6 +789,20 @@ action main:
 				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa20","South Africa: SA20")
 				activate_noneu
 			)
+			separator(:empty)
+			label(#LL2_CONTEXTS width="100%" fsize="0.95em" :left)
+//			checkbutton("Cederberg SA?" #sa): (
+//				disable_ctxs("","South Africa: Cederberg SA?")
+//				activate_noneu	
+//			)
+			checkbutton("Grootbos SA2" #sa2): (
+				disable_ctxs("cu_priority_areas_contexts.south_africa_grootbos_sa2","South Africa: Grootbos SA2")
+				activate_noneu	
+			)
+//			checkbutton("Hottentots mountains SA?" #sa): (
+//				disable_ctxs("","South Africa: Cederberg SA?")
+//				activate_noneu	
+//			)
 		) :name "South Africa" #sa
 		(
 			checkbutton("UG1" #ug1): (
