@@ -907,7 +907,8 @@ action main:
 				activate_noneu
 			)	
 		) :name "Uganda" #uganda
-		(			
+		(	
+			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)		
 			checkbutton("VN1" #vn1): (
 				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn1","Vietnam: VN1")
 				activate_noneu
@@ -987,6 +988,16 @@ action main:
 			)
 			checkbutton("VN20" #vn20): (
 				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn20","Vietnam: VN20")
+				activate_noneu
+			)
+			separator(:empty)
+			label(#LL2_CONTEXTS width="100%" fsize="0.95em" :left)
+			checkbutton("Quang Ninh - Hai Phong VN1" #vn1): (
+				disable_ctxs("cu_priority_areas_contexts.vietnam_quang_ninh__hai_phong_vn1","Vietnam: Quang Ninh - Hai Phong VN1")
+				activate_noneu
+			)
+			checkbutton("Cu Lao Cham - Hoi An VN3" #vn3): (
+				disable_ctxs("cu_priority_areas_contexts.vietnam_cu_lao_cham__hoi_an_vn3","Vietnam: Cu Lao Cham - Hoi An VN3")
 				activate_noneu
 			)
 		) :name "Vietnam" #vietnam	
