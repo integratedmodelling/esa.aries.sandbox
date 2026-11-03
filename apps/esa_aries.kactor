@@ -16,6 +16,7 @@ action main:
 
 	(
 		(
+			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)
 			checkbutton("CM1" #cm1): (
 				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm1","Cameroon: CM1")
 				activate_noneu
@@ -99,6 +100,7 @@ action main:
 		) :name "Cameroon" #cameroon	
 			
 		(	
+			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)
 			checkbutton("CO1" #co1): (
 				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co1","Colombia: CO1")
 				activate_noneu
@@ -193,6 +195,19 @@ action main:
 			)			
 			checkbutton("CO24" #co24): (
 				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co24","Colombia: CO24")
+				activate_noneu
+			)
+			label(#LL2_CONTEXTS width="100%" fsize="0.95em" :left)
+			checkbutton("Cienaga Grande de Santa Marta CO4" #co4): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_cienaga_grande_de_santa_marta_co4","Colombia: Cienaga Grande de Santa Marta CO4")
+				activate_noneu
+			)
+			checkbutton("Santurbán CO7" #co7): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_santurban_co7","Colombia: Santurbán CO7")
+				activate_noneu
+			)
+			checkbutton("AP_Drummont/Becerril-Cesar CO10" #co10): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_ap_drummont_becerril_cesar_co10","Colombia: AP_Drummont/Becerril-Cesar CO10")
 				activate_noneu
 			)
 		) :name "Colombia" #colombia
