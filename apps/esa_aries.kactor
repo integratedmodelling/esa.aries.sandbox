@@ -624,6 +624,20 @@ action main:
 				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl20","Philippines: PL20")
 				activate_noneu
 			)
+			separator(:empty)
+			label(#LL2_CONTEXTS width="100%" fsize="0.95em" :left)
+			checkbutton("Agusan del Sur PH2" #ph2): (
+				disable_ctxs("cu_priority_areas_contexts.philippines_ph2","Philippines: Agusan del Sur PH2")
+				activate_noneu
+			)
+			checkbutton("Siquijor PH4" #ph4): (
+				disable_ctxs("cu_priority_areas_contexts.philippines_ph4","Philippines: Siquijor PH4")
+				activate_noneu
+			)
+//			checkbutton("Mount Mantaligngahan" #ph4): (
+//				disable_ctxs("cu_priority_areas_contexts.philippines_ph4","Philippines: Siquijor PH4")
+//				activate_noneu
+//			)
 		) :name "Philippines" #philippines		
 		(
 			checkbutton("SL1" #sl1): (
