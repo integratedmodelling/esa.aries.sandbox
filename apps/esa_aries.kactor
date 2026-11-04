@@ -819,84 +819,84 @@ action main:
 		) :name "South Africa" #sa
 		(
 			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)
-			checkbutton("UG1" #ug1): (
-				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug1","Uganda: UG1")
+			checkbutton("UG_v2_01" #ug_v2_01): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug1","Uganda: UG_v2_01")
 				activate_noneu
 			)
-			checkbutton("UG2" #ug2): (
-				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug2","Uganda: UG2")
+			checkbutton("UG_v2_02" #ug_v2_02): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug2","Uganda: UG_v2_02")
 				activate_noneu
 			)
-			checkbutton("UG3" #ug3): (
-				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug3","Uganda: UG3")
+			checkbutton("UG_v2_03" #ug_v2_03): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug3","Uganda: UG_v2_03")
 				activate_noneu
 			)
-			checkbutton("UG4" #ug4): (
-				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug4","Uganda: UG4")
+			checkbutton("UG_v2_04" #ug_v2_04): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug4","Uganda: UG_v2_04")
 				activate_noneu
 			)
-			checkbutton("UG5" #ug5): (
-				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug5","Uganda: UG5")
+			checkbutton("UG_v2_05" #ug_v2_05): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug5","Uganda: UG_v2_05")
 				activate_noneu
 			)
-			checkbutton("UG6" #ug6): (
-				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug6","Uganda: UG6")
+			checkbutton("UG_v2_06" #ug_v2_06): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug6","Uganda: UG_v2_06")
 				activate_noneu
 			)
-			checkbutton("UG7" #ug7): (
-				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug7","Uganda: UG7")
+			checkbutton("UG_v2_07" #ug_v2_07): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug7","Uganda: UG_v2_07")
 				activate_noneu
 			)
-			checkbutton("UG8" #ug8): (
-				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug8","Uganda: UG8")
+			checkbutton("UG_v2_08" #ug_v2_08): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug8","Uganda: UG_v2_08")
 				activate_noneu
 			)
-			checkbutton("UG9" #ug9): (
-				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug9","Uganda: UG9")
+			checkbutton("UG_v2_09" #ug_v2_09): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug9","Uganda: UG_v2_09")
 				activate_noneu
 			)
-			checkbutton("UG10" #ug10): (
-				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug10","Uganda: UG10")
+			checkbutton("UG_v2_10" #ug_v2_10): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug10","Uganda: UG_v2_10")
 				activate_noneu
 			)
-			checkbutton("UG11" #ug11): (
-				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug11","Uganda: UG11")
+			checkbutton("UG_v2_11" #ug_v2_11): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug11","Uganda: UG_v2_11")
 				activate_noneu
 			)
-			checkbutton("UG12" #ug12): (
-				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug12","Uganda: UG12")
+			checkbutton("UG_v2_12" #ug_v2_12): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug12","Uganda: UG_v2_12")
 				activate_noneu
 			)
-			checkbutton("UG13" #ug13): (
-				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug13","Uganda: UG13")
+			checkbutton("UG_v2_13" #ug_v2_13): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug13","Uganda: UG_v2_13")
 				activate_noneu
 			)
-			checkbutton("UG14" #ug14): (
-				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug14","Uganda: UG14")
+			checkbutton("UG_v2_14" #ug_v2_14): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug14","Uganda: UG_v2_14")
 				activate_noneu
 			)
-			checkbutton("UG15" #ug15): (
-				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug15","Uganda: UG15")
+			checkbutton("UG_v2_15" #ug_v2_15): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug15","Uganda: UG_v2_15")
 				activate_noneu
 			)
-			checkbutton("UG16" #ug16): (
-				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug16","Uganda: UG16")
+			checkbutton("UG_v2_16" #ug_v2_16): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug16","Uganda: UG_v2_16")
 				activate_noneu
 			)
-			checkbutton("UG17" #ug17): (
-				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug17","Uganda: UG17")
+			checkbutton("UG_v2_17" #ug_v2_17): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug17","Uganda: UG_v2_17")
 				activate_noneu
 			)
-			checkbutton("UG18" #ug18): (
-				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug18","Uganda: UG18")
+			checkbutton("UG_v2_18" #ug_v2_18): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug18","Uganda: UG_v2_18")
 				activate_noneu
 			)
-			checkbutton("UG19" #ug19): (
-				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug19","Uganda: UG19")
+			checkbutton("UG_v2_19" #ug_v2_19): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug19","Uganda: UG_v2_19")
 				activate_noneu
 			)
-			checkbutton("UG20" #ug20): (
-				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug20","Uganda: UG20")
+			checkbutton("UG_v2_20" #ug_v2_20): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug20","Uganda: UG_v2_20")
 				activate_noneu
 			)
 			separator(:empty)
