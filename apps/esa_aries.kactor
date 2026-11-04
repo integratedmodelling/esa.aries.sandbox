@@ -3,7 +3,7 @@ public app esa.aries
 	version 1.0alpha
 	description #ARIES_FOR_ESA_EXPLORER_DESCRIPTION
 	logo static/images/esa_logo_deepspace.png
-	versionstring "Demonstration version (Alpha 2/3)"
+	versionstring "Demonstration version (Beta)"
 	style light
 
 
@@ -17,12 +17,12 @@ action main:
 	(
 		(
 			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)
-			checkbutton("CM1" #cm1): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm1","Cameroon: CM1")
+			checkbutton("CM-2-01" #cm2_1): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm1","Cameroon: CM-2-01")
 				activate_noneu
 			)
 			checkbutton("CM2" #cm2): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm2","Cameroon: CM2")
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm2","Cameroon: CM-2-02")
 				activate_noneu
 			)
 			checkbutton("CM3" #cm3): (
@@ -1010,54 +1010,72 @@ action main:
 			(
 				(
 					checkbutton("Machine Learning (IUCN GET) results" #noneu_mlr :tooltip "Machine Learning (IUCN GET) results"): (
+						alert("This model is computed on demand and may take up to a few hours to process.<br/>If your results don't appear immediately, the computation is running in the background.")
 						submit(esa.aries.ecosystem_extent.ecosystem_type_iucn_get_level3_machine_learning)
 					)
 					checkbutton("Machine Learning (IUCN GET) summary table" #noneu_mlst :tooltip "Machine Learning (IUCN GET) summary table"): (
+						alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
+								If your results don't appear immediately, the computation is running in the background.")
 						submit(esa.aries.ecosystem_extent_table.ecosystem_typology_extent_iucn_machine_learning_static)				
 					)					
 					checkbutton("Rule-based (IUCN GET) results" #noneu_rbigr :tooltip "Rule-based (IUCN GET) results"): (
-						submit(esa.aries.ecosystem_extent.ecosystem_type_iucn_get_level3_rule_based) 
-//						:
-//						submit(esa.aries.ecosystem_extent.ecosystem_characteristics)
+						alert("This model is computed on demand and may take up to a few hours to process.<br/>If your results don't appear immediately, the computation is running in the background.")
+						submit(esa.aries.ecosystem_extent.ecosystem_type_iucn_get_level3_rule_based) : submit(esa.aries.ecosystem_extent.ecosystem_characteristics)
 					)
 					checkbutton("Rule-based (IUCN GET) summary table" #noneu_rbigst :tooltip "Rule-based (IUCN GET) summary table"): (
+						alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
+								If your results don't appear immediately, the computation is running in the background.")
 						submit(esa.aries.ecosystem_extent_table.ecosystem_typology_extent_iucn_get_rule_based_basic)				
 					)
 					checkbutton("Hybrid modelling" #noneu_hm :tooltip "Hybrid modelling" :disabled)
 					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Machine Learning (IUCN GET) results" #noneu_a2mlr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
+						alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
+								If your results don't appear immediately, the computation is running in the background.")
 						submit(esa.aries.ecosystem_extent.ecosystem_type_iucn_get_level3_machine_learning)
 						submit(esa.aries.ecosystem_extent_table.natural_ecosystem_extent_iucn_get_machine_learning_net_change)
 					)
 					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Rule-based (IUCN GET) results" #noneu_a2rbr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
-						 submit(esa.aries.ecosystem_extent.ecosystem_type_iucn_get_level3_rule_based) 
-						 submit(esa.aries.ecosystem_extent_table.natural_ecosystem_extent_iucn_get_rule_based_net_change)
+						 alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
+								If your results don't appear immediately, the computation is running in the background.")
+						submit(esa.aries.ecosystem_extent.ecosystem_type_iucn_get_level3_rule_based) 
+						submit(esa.aries.ecosystem_extent_table.natural_ecosystem_extent_iucn_get_rule_based_net_change)
 					)						
 				) :hidden #noneu_obs								
 				(
 					checkbutton("Machine Learning (EUNIS classification) results" #eu_mlr :tooltip "Machine Learning (EUNIS classification) results"): (
+						alert("This model is computed on demand and may take up to a few hours to process.<br/>If your results don't appear immediately, the computation is running in the background.")
 						submit(esa.aries.ecosystem_extent.ecosystem_type_eunis_level2_machine_learning)
 					)
 					checkbutton("Machine Learning (EUNIS classification) summary table" #eu_mlst :tooltip "Machine Learning (EUNIS classification) summary table"): (
+						alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
+								If your results don't appear immediately, the computation is running in the background.")
 						submit(esa.aries.ecosystem_extent_table.ecosystem_typology_extent_eunis_machine_learning_static)				
 					)						
 					checkbutton("Rule-based (IUCN GET) results" #eu_rbigr :tooltip "Rule-based (IUCN GET) results" :disabled): (
-						submit(esa.aries.ecosystem_extent.ecosystem_type_iucn_get_level3_rule_based)
-//						:
-//						submit(esa.aries.ecosystem_extent.ecosystem_characteristics)
+						alert("This model is computed on demand and may take up to a few hours to process.<br/>If your results don't appear immediately, the computation is running in the background.")
+						submit(esa.aries.ecosystem_extent.ecosystem_type_iucn_get_level3_rule_based) : submit(esa.aries.ecosystem_extent.ecosystem_characteristics)
 					)
 					checkbutton("Rule-based (IUCN GET) summary table" #eu_rbigst :tooltip "Rule-based (IUCN GET) summary table" :disabled): (
+						alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
+								If your results don't appear immediately, the computation is running in the background.")
 						submit(esa.aries.ecosystem_extent_table.ecosystem_typology_extent_iucn_get_rule_based_static)				
 					)					
 					checkbutton("Hybrid modelling" #eu_hm :tooltip "Hybrid modelling" :disabled)
 					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Machine Learning (EUNIS) results" #ey_a2mlr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)":disabled 
+						alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
+								If your results don't appear immediately, the computation is running in the background.")
 						submit(esa.aries.ecosystem.naturalness.eunis_natural_ecosystem_extent)
 						submit(esa.aries.ecosystem.naturalness.natural_ecosystem_extent_eunis)
 					)
 					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Rule-based (IUCN GET) results" #eu_a2rbr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
+						alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
+								If your results don't appear immediately, the computation is running in the background.")
 						submit(esa.aries.ecosystem.naturalness.natural_ecosystem_extent_iucn_get_rule_based)
 						submit(esa.aries.ecosystem.naturalness.gbf_indicator_a2_natural_ecosystem_percentage_iucn_get_rule_based_static) 
 					)
 					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Machine Learning (IUCN GET) results" #eu_a2rbr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
+						alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
+								If your results don't appear immediately, the computation is running in the background.")
 						submit(esa.aries.ecosystem.naturalness.natural_ecosystem_extent_iucn_get_machine_learning)
 						submit(esa.aries.ecosystem.naturalness.gbf_indicator_a2_natural_ecosystem_percentage_iucn_get__machine_learning_static) 
 					)					
