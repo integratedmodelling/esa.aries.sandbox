@@ -908,85 +908,84 @@ action main:
 		) :name "Uganda" #uganda
 		(	
 			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)		
-			checkbutton("VN1" #vn1): (
-				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn1","Vietnam: VN1")
+			checkbutton("VN_v2_01" #vn_v2_01): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn1","Vietnam: VN_v2_01")
 				activate_noneu
 			)
-			checkbutton("VN2" #vn2): (
-				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn2","Vietnam: VN2")
+			checkbutton("VN_v2_02" #vn_v2_02): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn2","Vietnam: VN_v2_02")
 				activate_noneu
 			)
-			checkbutton("VN3" #vn3): (
-				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn3","Vietnam: VN3")
+			checkbutton("VN_v2_03" #vn_v2_03): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn3","Vietnam: VN_v2_03")
 				activate_noneu
 			)
-			checkbutton("VN4" #vn4): (
-				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn4","Vietnam: VN4")
+			checkbutton("VN_v2_04" #vn_v2_04): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn4","Vietnam: VN_v2_04")
 				activate_noneu
 			)
-			checkbutton("VN5" #vn5): (
-				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn5","Vietnam: VN5")
+			checkbutton("VN_v2_05" #vn_v2_05): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn5","Vietnam: VN_v2_05")
 				activate_noneu
 			)
-
-			checkbutton("VN6" #vn6): (
-				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn6","Vietnam: VN6")
+			checkbutton("VN_v2_06" #vn_v2_06): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn6","Vietnam: VN_v2_06")
 				activate_noneu
 			)
-			checkbutton("VN7" #vn7): (
-				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn7","Vietnam: VN7")
+			checkbutton("VN_v2_07" #vn_v2_07): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn7","Vietnam: VN_v2_07")
 				activate_noneu
 			)
-			checkbutton("VN8" #vn8): (
-				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn8","Vietnam: VN8")
+			checkbutton("VN_v2_08" #vn_v2_08): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn8","Vietnam: VN_v2_08")
 				activate_noneu
 			)
-			checkbutton("VN9" #vn9): (
-				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn9","Vietnam: VN9")
+			checkbutton("VN_v2_09" #vn_v2_09): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn9","Vietnam: VN_v2_09")
 				activate_noneu
 			)
-			checkbutton("VN10" #vn10): (
-				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn10","Vietnam: VN10")
+			checkbutton("VN_v2_10" #vn_v2_10): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn10","Vietnam: VN_v2_10")
 				activate_noneu
 			)
-			checkbutton("VN11" #vn11): (
-				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn11","Vietnam: VN11")
+			checkbutton("VN_v2_11" #vn_v2_11): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn11","Vietnam: VN_v2_11")
 				activate_noneu
 			)
-			checkbutton("VN12" #vn12): (
-				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn12","Vietnam: VN12")
+			checkbutton("VN_v2_12" #vn_v2_12): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn12","Vietnam: VN_v2_12")
 				activate_noneu
 			)
-			checkbutton("VN13" #vn13): (
-				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn13","Vietnam: VN13")
+			checkbutton("VN_v2_13" #vn_v2_13): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn13","Vietnam: VN_v2_13")
 				activate_noneu
 			)
-			checkbutton("VN14" #vn14): (
-				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn14","Vietnam: VN14")
+			checkbutton("VN_v2_14" #vn_v2_14): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn14","Vietnam: VN_v2_14")
 				activate_noneu
 			)
-			checkbutton("VN15" #vn15): (
-				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn15","Vietnam: VN15")
+			checkbutton("VN_v2_15" #vn_v2_15): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn15","Vietnam: VN_v2_15")
 				activate_noneu
 			)
-			checkbutton("VN16" #vn16): (
-				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn16","Vietnam: VN16")
+			checkbutton("VN_v2_16" #vn_v2_16): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn16","Vietnam: VN_v2_16")
 				activate_noneu
 			)
-			checkbutton("VN17" #vn17): (
-				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn17","Vietnam: VN17")
+			checkbutton("VN_v2_17" #vn_v2_17): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn17","Vietnam: VN_v2_17")
 				activate_noneu
 			)
-			checkbutton("VN18" #vn18): (
-				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn18","Vietnam: VN18")
+			checkbutton("VN_v2_18" #vn_v2_18): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn18","Vietnam: VN_v2_18")
 				activate_noneu
 			)
-			checkbutton("VN19" #vn19): (
-				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn19","Vietnam: VN19")
+			checkbutton("VN_v2_19" #vn_v2_19): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn19","Vietnam: VN_v2_19")
 				activate_noneu
 			)
-			checkbutton("VN20" #vn20): (
-				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn20","Vietnam: VN20")
+			checkbutton("VN_v2_20" #vn_v2_20): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn20","Vietnam: VN_v2_20")
 				activate_noneu
 			)
 			separator(:empty)
