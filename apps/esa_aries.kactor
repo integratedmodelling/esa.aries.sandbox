@@ -17,84 +17,84 @@ action main:
 	(
 		(
 			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)
-			checkbutton("CM-2-01" #cm2_1): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm1","Cameroon: CM-2-01")
+			checkbutton("CM-v2-01" #cm_v2_01): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm1","Cameroon: CM-v2-01")
 				activate_noneu
 			)
-			checkbutton("CM2" #cm2): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm2","Cameroon: CM-2-02")
+			checkbutton("CM-v2-02" #cm_v2_02): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm2","Cameroon: CM-v2-02")
 				activate_noneu
 			)
-			checkbutton("CM3" #cm3): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm3","Cameroon: CM3")
+			checkbutton("CM-v2-03" #cm_v2_03): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm3","Cameroon: CM-v2-03")
 				activate_noneu
 			)
-			checkbutton("CM4" #cm4): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm4","Cameroon: CM4")
+			checkbutton("CM-v2-04" #cm_v2_04): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm4","Cameroon: CM-v2-40")
 				activate_noneu
 			)
-			checkbutton("CM5" #cm5): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm5","Cameroon: CM5")
+			checkbutton("CM-v2-05" #cm_v2_05): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm5","Cameroon: CM-v2-05")
 				activate_noneu
 			)
-			checkbutton("CM6" #cm6): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm6","Cameroon: CM6")
+			checkbutton("CM-v2-6" #cm_v2_06): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm6","Cameroon: CM-v2-6")
 				activate_noneu
 			)
-			checkbutton("CM7" #cm7): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm7","Cameroon: CM7")
+			checkbutton("CM-v2-07" #cm_v2_07): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm7","Cameroon: CM-v2-07")
 				activate_noneu
 			)
-			checkbutton("CM8" #cm8): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm8","Cameroon: CM8")
+			checkbutton("CM-v2-08" #cm_v2_08): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm8","Cameroon: CM-v2-08")
 				activate_noneu
 			)
-			checkbutton("CM9" #cm9): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm9","Cameroon: CM9")
+			checkbutton("CM-v2-09" #cm_v2_09): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm9","Cameroon: CM-v2-09")
 				activate_noneu
 			)
-			checkbutton("CM10" #cm10): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm10","Cameroon: CM10")
+			checkbutton("CM-v2-10" #cm_v2_10): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm10","Cameroon: CM-v2-10")
 				activate_noneu
 			)
-			checkbutton("CM11" #cm11): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm11","Cameroon: CM11")
+			checkbutton("CM-v2-11" #cm_v2_11): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm11","Cameroon: CM-v2-11")
 				activate_noneu
 			)
-			checkbutton("CM12" #cm12): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm12","Cameroon: CM12")
+			checkbutton("CM-v2-12" #cm_v2_12): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm12","Cameroon: CM-v2-12")
 				activate_noneu
 			)
-			checkbutton("CM13" #cm13): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm13","Cameroon: CM13")
+			checkbutton("CM-v2-13" #cm_v2_13): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm13","Cameroon: CM-v2-13")
 				activate_noneu
 			)
-			checkbutton("CM14" #cm14): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm14","Cameroon: CM14")
+			checkbutton("CM-v2-14" #cm_v2_14): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm14","Cameroon: CM-v2-14")
 				activate_noneu
 			)
-			checkbutton("CM15" #cm15): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm15","Cameroon: CM15")
+			checkbutton("CM-v2-15" #cm_v2_15): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm15","Cameroon: CM-v2-15")
 				activate_noneu
 			)
-			checkbutton("CM16" #cm16): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm16","Cameroon: CM16")
+			checkbutton("CM-v2-16" #cm_v2_16): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm16","Cameroon: CM-v2-16")
 				activate_noneu
 			)
-			checkbutton("CM17" #cm17): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm17","Cameroon: CM17")
+			checkbutton("CM-v2-17" #cm_v2_17): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm17","Cameroon: CM-v2-17")
 				activate_noneu
 			)
-			checkbutton("CM18" #cm18): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm18","Cameroon: CM18")
+			checkbutton("CM-v2-18" #cm_v2_18): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm18","Cameroon: CM-v2-18")
 				activate_noneu
 			)
-			checkbutton("CM19" #cm19): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm19","Cameroon: CM19")
+			checkbutton("CM-v2-19" #cm_v2_19): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm19","Cameroon: CM-v2-19")
 				activate_noneu
 			)
-			checkbutton("CM20" #cm20): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm20","Cameroon: CM20")
+			checkbutton("CM-v2-20" #cm_v2_20): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm20","Cameroon: CM-v2-20")
 				activate_noneu
 			)
 		) :name "Cameroon" #cameroon	
