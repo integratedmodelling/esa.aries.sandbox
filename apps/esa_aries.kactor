@@ -20,6 +20,7 @@ action main:
 			checkbutton("CM1" #cm1): (
 				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm1","Cameroon: CM1")
 				activate_noneu
+				activate_noneu_computation_links
 			)
 			checkbutton("CM2" #cm2): (
 				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm2","Cameroon: CM2")
@@ -1016,8 +1017,9 @@ action main:
 						submit(esa.aries.ecosystem_extent_table.ecosystem_typology_extent_iucn_machine_learning_static)				
 					)					
 					checkbutton("Rule-based (IUCN GET) results" #noneu_rbigr :tooltip "Rule-based (IUCN GET) results"): (
-						submit(esa.aries.ecosystem_extent.ecosystem_type_iucn_get_level3_rule_based) :
-						submit(esa.aries.ecosystem_extent.ecosystem_characteristics)
+						submit(esa.aries.ecosystem_extent.ecosystem_type_iucn_get_level3_rule_based) 
+//						:
+//						submit(esa.aries.ecosystem_extent.ecosystem_characteristics)
 					)
 					checkbutton("Rule-based (IUCN GET) summary table" #noneu_rbigst :tooltip "Rule-based (IUCN GET) summary table"): (
 						submit(esa.aries.ecosystem_extent_table.ecosystem_typology_extent_iucn_get_rule_based_basic)				
@@ -1040,8 +1042,9 @@ action main:
 						submit(esa.aries.ecosystem_extent_table.ecosystem_typology_extent_eunis_machine_learning_static)				
 					)						
 					checkbutton("Rule-based (IUCN GET) results" #eu_rbigr :tooltip "Rule-based (IUCN GET) results" :disabled): (
-						submit(esa.aries.ecosystem_extent.ecosystem_type_iucn_get_level3_rule_based):
-						submit(esa.aries.ecosystem_extent.ecosystem_characteristics)
+						submit(esa.aries.ecosystem_extent.ecosystem_type_iucn_get_level3_rule_based)
+//						:
+//						submit(esa.aries.ecosystem_extent.ecosystem_characteristics)
 					)
 					checkbutton("Rule-based (IUCN GET) summary table" #eu_rbigst :tooltip "Rule-based (IUCN GET) summary table" :disabled): (
 						submit(esa.aries.ecosystem_extent_table.ecosystem_typology_extent_iucn_get_rule_based_static)				
@@ -1063,13 +1066,22 @@ action main:
 				) :hidden #eu_obs
 			)
 	) :hidden #queries
-	
 	(
 			label(context_label width="100%" :info #header_label)
 			button(:tooltip "Interrupt computation and reset context" #breset :iconname "close-circle-outline" 
 					color="red-8"
 				): reset_buttons
 	) :hbox :hidden #headers
+	(
+		label("Use the links below to check if your tile is already computed or currently generating: " width="100%" fsize="0.95em" :left)
+		button("IUCN GET (Machine Learning)"): website_iucnget_ml
+		button("IUCN GET (Rule-Based)"): website_iucnget_rb
+
+	):hidden #noneu_computation_links
+	(
+		label("Use the links below to check if your tile is already computed or currently generating: " width="100%" fsize="0.95em" :left)
+		button("EUNIS (Machine Learning)"): website_eunis_ml
+	):hidden #eu_computation_links
 	
 		
 	action activate_noneu: (
@@ -1084,8 +1096,15 @@ action main:
 		reset_context.enable
 		header_label.update([context_label])
 		headers.show
+		computation_links.show
 		context([context_name])
 		queries.show
+	)
+	action activate_noneu_computation_links: (
+		noneu_computation_links.show
+	)
+	action activate_eu_computation_links: (
+		eu_computation_links.show
 	)
 	action reset_buttons: (
 		headers.hide
@@ -1093,3 +1112,13 @@ action main:
 		context(:reset)
 		reset(:wait)
 	)
+	
+@modal(width=700, height=480, title="EUNIS (Machine Learning)")
+action website_eunis_ml:
+	html("https://esa-weed-project.github.io/openeo_jobdb_viewer/#url=https%3A%2F%2Fcatalogue.weed.apex.esa.int%2Fcollections%2FMachineLearning-EUNIS2021plus-PROBA-V320-jobdb&refreshIntervalSeconds=30")
+@modal(width=1100, height=650, title="IUCN GET (Machine Learning)")
+action website_iucnget_ml:
+	html("https://esa-weed-project.github.io/openeo_jobdb_viewer/#url=https%3A%2F%2Fcatalogue.weed.apex.esa.int%2Fcollections%2FMachineLearning-IUCNGET-PROBA-V330-jobdb&refreshIntervalSeconds=30")
+@modal(width=700, height=480, title="IUCN GET (Rule-Based)")
+action website_iucnget_rb:
+	html("https://esa-weed-project.github.io/openeo_jobdb_viewer/#url=https%3A%2F%2Fcatalogue.weed.apex.esa.int%2Fcollections%2FRuleBased-EXTENT-V502-jobdb&refreshIntervalSeconds=30")
