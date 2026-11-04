@@ -543,84 +543,84 @@ action main:
 		) :name "Norway" #norway
 		(
 			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)
-			checkbutton("PL1" #pl1): (
-				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl1","Philippines: PL1")
+			checkbutton("PL_v2_01" #pl_v2_01): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl1","Philippines: PL_v2_01")
 				activate_noneu
 			)
-			checkbutton("PL2" #pl2): (
-				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl2","Philippines: PL2")
+			checkbutton("PL_v2_02" #pl_v2_02): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl2","Philippines: PL_v2_02")
 				activate_noneu
 			)
-			checkbutton("PL3" #pl3): (
-				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl3","Philippines: PL3")
+			checkbutton("PL_v2_03" #pl_v2_03): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl3","Philippines: PL_v2_03")
 				activate_noneu
 			)
-			checkbutton("PL4" #pl4): (
-				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl4","Philippines: PL4")
+			checkbutton("PL_v2_04" #pl_v2_04): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl4","Philippines: PL_v2_04")
 				activate_noneu
 			)
-			checkbutton("PL5" #pl5): (
-				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl5","Philippines: PL5")
+			checkbutton("PL_v2_05" #pl_v2_05): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl5","Philippines: PL_v2_05")
 				activate_noneu
 			)
-			checkbutton("PL6" #pl6): (
-				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl6","Philippines: PL6")
+			checkbutton("PL_v2_06" #pl_v2_06): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl6","Philippines: PL_v2_06")
 				activate_noneu
 			)
-			checkbutton("PL7" #pl7): (
-				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl7","Philippines: PL7")
+			checkbutton("PL_v2_07" #pl_v2_07): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl7","Philippines: PL_v2_07")
 				activate_noneu
 			)
-			checkbutton("PL8" #pl8): (
-				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl8","Philippines: PL8")
+			checkbutton("PL_v2_08" #pl_v2_08): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl8","Philippines: PL_v2_08")
 				activate_noneu
 			)
-			checkbutton("PL9" #pl9): (
-				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl9","Philippines: PL9")
+			checkbutton("PL_v2_09" #pl_v2_09): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl9","Philippines: PL_v2_09")
 				activate_noneu
 			)
-			checkbutton("PL10" #pl10): (
-				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl10","Philippines: PL10")
+			checkbutton("PL_v2_10" #pl_v2_10): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl10","Philippines: PL_v2_10")
 				activate_noneu
 			)
-			checkbutton("PL11" #pl11): (
-				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl11","Philippines: PL11")
+			checkbutton("PL_v2_11" #pl_v2_11): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl11","Philippines: PL_v2_11")
 				activate_noneu
 			)
-			checkbutton("PL12" #pl12): (
-				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl12","Philippines: PL12")
+			checkbutton("PL_v2_12" #pl_v2_12): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl12","Philippines: PL_v2_12")
 				activate_noneu
 			)
-			checkbutton("PL13" #pl13): (
-				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl13","Philippines: PL13")
+			checkbutton("PL_v2_13" #pl_v2_13): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl13","Philippines: PL_v2_13")
 				activate_noneu
 			)
-			checkbutton("PL14" #pl14): (
-				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl14","Philippines: PL14")
+			checkbutton("PL_v2_14" #pl_v2_14): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl14","Philippines: PL_v2_14")
 				activate_noneu
 			)
-			checkbutton("PL15" #pl15): (
-				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl15","Philippines: PL15")
+			checkbutton("PL_v2_15" #pl_v2_15): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl15","Philippines: PL_v2_15")
 				activate_noneu
 			)
-			checkbutton("PL16" #pl16): (
-				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl16","Philippines: PL16")
+			checkbutton("PL_v2_16" #pl_v2_16): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl16","Philippines: PL_v2_16")
 				activate_noneu
 			)
-			checkbutton("PL17" #pl17): (
-				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl17","Philippines: PL17")
+			checkbutton("PL_v2_17" #pl_v2_17): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl17","Philippines: PL_v2_17")
 				activate_noneu
 			)
-			checkbutton("PL18" #pl18): (
-				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl18","Philippines: PL18")
+			checkbutton("PL_v2_18" #pl_v2_18): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl18","Philippines: PL_v2_18")
 				activate_noneu
 			)
-			checkbutton("PL19" #pl19): (
-				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl19","Philippines: PL19")
+			checkbutton("PL_v2_19" #pl_v2_19): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl19","Philippines: PL_v2_19")
 				activate_noneu
 			)
-			checkbutton("PL20" #pl20): (
-				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl20","Philippines: PL20")
+			checkbutton("PL_v2_20" #pl_v2_20): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl20","Philippines: PL_v2_20")
 				activate_noneu
 			)
 			separator(:empty)
