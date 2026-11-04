@@ -214,84 +214,84 @@ action main:
 		) :name "Colombia" #colombia
 		
 		(
-			checkbutton("CZ1 " #cz1): (
-				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz1","Czech Republic: CZ1")
+			checkbutton("CZ_v2_01 " #cz_v2_01): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz1","Czech Republic: CZ_v2_01")
 				activate_eu
 			)
-8			checkbutton("CZ2 " #cz2): (
-				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz2","Czech Republic: CZ2")
+8			checkbutton("CZ_v2_02 " #cz_v2_02): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz2","Czech Republic: CZ_v2_02")
 				activate_eu
 			)
-			checkbutton("CZ3 " #cz3): (
-				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz3","Czech Republic: CZ3")
+			checkbutton("CZ_v2_03 " #cz_v2_03): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz3","Czech Republic: CZ_v2_03")
 				activate_eu
 			)
-			checkbutton("CZ4 " #cz4): (
-				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz4","Czech Republic: CZ4")
+			checkbutton("CZ_v2_04 " #cz_v2_04): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz4","Czech Republic: CZ_v2_04")
 				activate_eu
 			)	
-			checkbutton("CZ5 " #cz5): (
-				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz5","Czech Republic: CZ5")
+			checkbutton("CZ_v2_05 " #cz_v2_05): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz5","Czech Republic: CZ_v2_05")
 				activate_eu
 			)
-			checkbutton("CZ6 " #cz6): (
-				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz6","Czech Republic: CZ6")
+			checkbutton("CZ_v2_06 " #cz_v2_06): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz6","Czech Republic: CZ_v2_06")
 				activate_eu
 			)
-			checkbutton("CZ7 " #cz7): (
-				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz7","Czech Republic: CZ7")
+			checkbutton("CZ_v2_07 " #cz_v2_07): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz7","Czech Republic: CZ_v2_07")
 				activate_eu
 			)
-			checkbutton("CZ8 " #cz8): (
-				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz8","Czech Republic: CZ8")
+			checkbutton("CZ_v2_08 " #cz_v2_08): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz8","Czech Republic: CZ_v2_08")
 				activate_eu
 			)
-			checkbutton("CZ9 " #cz9): (
-				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz9","Czech Republic: CZ9")
+			checkbutton("CZ_v2_09 " #cz_v2_09): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz9","Czech Republic: CZ_v2_09")
 				activate_eu
 			)
-			checkbutton("CZ10 " #cz10): (
-				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz10","Czech Republic: CZ10")
+			checkbutton("CZ_v2_10 " #cz_v2_10): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz10","Czech Republic: CZ_v2_10")
 				activate_eu
 			)
-			checkbutton("CZ11 " #cz11): (
-				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz11","Czech Republic: CZ11")
+			checkbutton("CZ_v2_11 " #cz_v2_11): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz11","Czech Republic: CZ_v2_11")
 				activate_eu
 			)
-8			checkbutton("CZ12 " #cz12): (
-				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz12","Czech Republic: CZ12")
+8			checkbutton("CZ_v2_12 " #cz_v2_12): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz12","Czech Republic: CZ_v2_12")
 				activate_eu
 			)
-			checkbutton("CZ13 " #cz13): (
-				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz13","Czech Republic: CZ13")
+			checkbutton("CZ_v2_13 " #cz_v2_13): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz13","Czech Republic: CZ_v2_13")
 				activate_eu
 			)
-			checkbutton("CZ14 " #cz14): (
-				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz14","Czech Republic: CZ14")
+			checkbutton("CZ_v2_14 " #cz_v2_14): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz14","Czech Republic: CZ_v2_14")
 				activate_eu
 			)	
-			checkbutton("CZ15 " #cz15): (
-				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz15","Czech Republic: CZ15")
+			checkbutton("CZ_v2_15 " #cz_v2_15): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz15","Czech Republic: CZ_v2_15")
 				activate_eu
 			)
-			checkbutton("CZ16 " #cz16): (
-				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz16","Czech Republic: CZ16")
+			checkbutton("CZ_v2_16 " #cz_v2_16): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz16","Czech Republic: CZ_v2_16")
 				activate_eu
 			)
-			checkbutton("CZ17 " #cz17): (
-				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz17","Czech Republic: CZ17")
+			checkbutton("CZ_v2_17 " #cz_v2_17): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz17","Czech Republic: CZ_v2_17")
 				activate_eu
 			)
-			checkbutton("CZ18 " #cz18): (
-				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz18","Czech Republic: CZ18")
+			checkbutton("CZ_v2_18 " #cz_v2_18): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz18","Czech Republic: CZ_v2_18")
 				activate_eu
 			)
-			checkbutton("CZ19 " #cz19): (
-				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz19","Czech Republic: CZ19")
+			checkbutton("CZ_v2_19 " #cz_v2_19): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz19","Czech Republic: CZ_v2_19")
 				activate_eu
 			)
-			checkbutton("CZ20 " #cz20): (
-				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz20","Czech Republic: CZ20")
+			checkbutton("CZ_v2_20 " #cz_v2_20): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz20","Czech Republic: CZ_v2_20")
 				activate_eu
 			)
 		) :name "Czech Republic" #czec
