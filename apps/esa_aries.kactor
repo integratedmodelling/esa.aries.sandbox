@@ -101,100 +101,100 @@ action main:
 			
 		(	
 			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)
-			checkbutton("CO-v2-01" #co_v2_01): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co1","Colombia: CO-v2-01")
+			checkbutton("CO_v2_01" #co_v2_01): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co1","Colombia: CO_v2_01")
 				activate_noneu
 			)			
-			checkbutton("CO-v2-02" #co_v2_02): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co2","Colombia: CO-v2-02")
+			checkbutton("CO_v2_02" #co_v2_02): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co2","Colombia: CO_v2_02")
 				activate_noneu
 			)
-			checkbutton("CO-v2-03" #co_v2_03): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co3","Colombia: CO-v2-03")
+			checkbutton("CO_v2_03" #co_v2_03): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co3","Colombia: CO_v2_03")
 				activate_noneu
 			)			
-			checkbutton("CO-v2-04" #co_v2_04): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co4","Colombia: CO-v2-04")
+			checkbutton("CO_v2_04" #co_v2_04): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co4","Colombia: CO_v2_04")
 				activate_noneu
 			)
-			checkbutton("CO-v2-05" #co_v2_05): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co5","Colombia: CO-v2-05")
+			checkbutton("CO_v2_05" #co_v2_05): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co5","Colombia: CO_v2_05")
 				activate_noneu
 			)			
-			checkbutton("CO-v2-06" #co_v2_06): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co6","Colombia: CO-v2-06")
+			checkbutton("CO_v2_06" #co_v2_06): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co6","Colombia: CO_v2_06")
 				activate_noneu
 			)
-			checkbutton("CO-v2-07" #co_v2_07): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co7","Colombia: CO-v2-07")
+			checkbutton("CO_v2_07" #co_v2_07): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co7","Colombia: CO_v2_07")
 				activate_noneu
 			)			
-			checkbutton("CO-v2-08" #co_v2_08): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co8","Colombia: CO-v2-08")
+			checkbutton("CO_v2_08" #co_v2_08): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co8","Colombia: CO_v2_08")
 				activate_noneu
 			)
-			checkbutton("CO-v2-09" #co_v2_09): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co9","Colombia: CO-v2-09")
+			checkbutton("CO_v2_09" #co_v2_09): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co9","Colombia: CO_v2_09")
 				activate_noneu
 			)
-			checkbutton("CO-v2-10" #co_v2_10): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co10","Colombia: CO-v2-10")
+			checkbutton("CO_v2_10" #co_v2_10): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co10","Colombia: CO_v2_10")
 				activate_noneu
 			)
-			checkbutton("CO-v2-11" #co_v2_11): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co11","Colombia: CO-v2-11")
+			checkbutton("CO_v2_11" #co_v2_11): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co11","Colombia: CO_v2_11")
 				activate_noneu
 			)			
-			checkbutton("CO-v2-12" #co_v2_12): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co12","Colombia: CO-v2-12")
+			checkbutton("CO_v2_12" #co_v2_12): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co12","Colombia: CO_v2_12")
 				activate_noneu
 			)
-			checkbutton("CO-v2-13" #co_v2_13): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co13","Colombia: CO-v2-13")
+			checkbutton("CO_v2_13" #co_v2_13): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co13","Colombia: CO_v2_13")
 				activate_noneu
 			)			
-			checkbutton("CO-v2-14" #co_v2_14): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co14","Colombia: CO-v2-14")
+			checkbutton("CO_v2_14" #co_v2_14): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co14","Colombia: CO_v2_14")
 				activate_noneu
 			)
-			checkbutton("CO-v2-15" #co_v2_15): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co15","Colombia: CO-v2-15")
+			checkbutton("CO_v2_15" #co_v2_15): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co15","Colombia: CO_v2_15")
 				activate_noneu
 			)			
-			checkbutton("CO-v2-16" #co_v2_16): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co16","Colombia: CO-v2-16")
+			checkbutton("CO_v2_16" #co_v2_16): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co16","Colombia: CO_v2_16")
 				activate_noneu
 			)
-			checkbutton("CO-v2-17" #co_v2_17): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co17","Colombia: CO-v2-17")
+			checkbutton("CO_v2_17" #co_v2_17): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co17","Colombia: CO_v2_17")
 				activate_noneu
 			)			
-			checkbutton("CO-v2-18" #co_v2_18): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co18","Colombia: CO-v2-18")
+			checkbutton("CO_v2_18" #co_v2_18): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co18","Colombia: CO_v2_18")
 				activate_noneu
 			)
-			checkbutton("CO-v2-19" #co_v2_19): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co19","Colombia: CO-v2-19")
+			checkbutton("CO_v2_19" #co_v2_19): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co19","Colombia: CO_v2_19")
 				activate_noneu
 			)
-			checkbutton("CO-v2-20" #co_v2_20): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co20","Colombia: CO-v2-20")
+			checkbutton("CO_v2_20" #co_v2_20): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co20","Colombia: CO_v2_20")
 				activate_noneu
 			)
-			checkbutton("CO-v2-21" #co_v2_21): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co21","Colombia: CO-v2-21")
+			checkbutton("CO_v2_21" #co_v2_21): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co21","Colombia: CO_v2_21")
 				activate_noneu
 			)			
-			checkbutton("CO-v2-22" #co_v2_22): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co22","Colombia: CO-v2-22")
+			checkbutton("CO_v2_22" #co_v2_22): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co22","Colombia: CO_v2_22")
 				activate_noneu
 			)
-			checkbutton("CO-v2-23" #co_v2_23): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co23","Colombia: CO-v2-23")
+			checkbutton("CO_v2_23" #co_v2_23): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co23","Colombia: CO_v2_23")
 				activate_noneu
 			)			
-			checkbutton("CO-v2-24" #co_v2_24): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co24","Colombia: CO-v2-24")
+			checkbutton("CO_v2_24" #co_v2_24): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co24","Colombia: CO_v2_24")
 				activate_noneu
 			)
 			separator(:empty)
@@ -460,85 +460,84 @@ action main:
 			)
 		) :name "Greece" #greece			
 		(
-			checkbutton("NO1 " #no1): (
-				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no1","Norway: NO1")
+			checkbutton("NO_v2_01 " #no_v2_01): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no1","Norway: NO_v2_01")
 				activate_eu
 			)
-			checkbutton("NO2 " #no2): (
-				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no2","Norway: NO2")
+			checkbutton("NO_v2_02 " #no_v2_02): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no2","Norway: NO_v2_02")
 				activate_eu
 			)
-			checkbutton("NO3 " #no3): (
-				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no3","Norway: NO3")
+			checkbutton("NO_v2_03 " #no_v2_03): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no3","Norway: NO_v2_03")
 				activate_eu
 			)
-			checkbutton("NO4 " #no4): (
-				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no4","Norway: NO4")
+			checkbutton("NO_v2_04 " #no_v2_04): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no4","Norway: NO_v2_04")
 				activate_eu
 			)
-
-			checkbutton("NO5 " #no5): (
-				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no5","Norway: NO5")
+			checkbutton("NO_v2_05 " #no_v2_05): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no5","Norway: NO_v2_05")
 				activate_eu
 			)
-			checkbutton("NO6 " #no6): (
-				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no6","Norway: NO6")
+			checkbutton("NO_v2_06 " #no_v2_06): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no6","Norway: NO_v2_06")
 				activate_eu
 			)
-			checkbutton("NO7 " #no7): (
-				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no7","Norway: NO7")
+			checkbutton("NO_v2_07 " #no_v2_07): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no7","Norway: NO_v2_07")
 				activate_eu
 			)
-			checkbutton("NO8 " #no8): (
-				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no8","Norway: NO8")
+			checkbutton("NO_v2_08 " #no_v2_08): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no8","Norway: NO_v2_08")
 				activate_eu
 			)
-			checkbutton("NO9 " #no9): (
-				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no9","Norway: NO9")
+			checkbutton("NO_v2_09 " #no_v2_09): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no9","Norway: NO_v2_09")
 				activate_eu
 			)
-			checkbutton("NO10 " #no10): (
-				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no10","Norway: NO10")
+			checkbutton("NO_v2_10 " #no_v2_10): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no10","Norway: NO_v2_10")
 				activate_eu
 			)
-			checkbutton("NO11 " #no11): (
-				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no11","Norway: NO11")
+			checkbutton("NO_v2_11 " #no_v2_11): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no11","Norway: NO_v2_11")
 				activate_eu
 			)
-			checkbutton("NO12 " #no12): (
-				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no12","Norway: NO12")
+			checkbutton("NO_v2_12 " #no_v2_12): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no12","Norway: NO_v2_12")
 				activate_eu
 			)
-			checkbutton("NO13 " #no13): (
-				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no13","Norway: NO13")
+			checkbutton("NO_v2_13 " #no_v2_13): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no13","Norway: NO_v2_13")
 				activate_eu
 			)
-			checkbutton("NO14 " #no14): (
-				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no14","Norway: NO14")
+			checkbutton("NO_v2_14 " #no_v2_14): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no14","Norway: NO_v2_14")
 				activate_eu
 			)
-			checkbutton("NO15 " #no15): (
-				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no15","Norway: NO15")
+			checkbutton("NO_v2_15 " #no_v2_15): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no15","Norway: NO_v2_15")
 				activate_eu
 			)
-			checkbutton("NO16 " #no16): (
-				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no16","Norway: NO16")
+			checkbutton("NO_v2_16 " #no_v2_16): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no16","Norway: NO_v2_16")
 				activate_eu
 			)
-			checkbutton("NO17 " #no17): (
-				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no17","Norway: NO17")
+			checkbutton("NO_v2_17 " #no_v2_17): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no17","Norway: NO_v2_17")
 				activate_eu
 			)
-			checkbutton("NO18 " #no18): (
-				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no18","Norway: NO18")
+			checkbutton("NO_v2_18 " #no_v2_18): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no18","Norway: NO_v2_18")
 				activate_eu
 			)
-			checkbutton("NO19 " #no19): (
-				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no19","Norway: NO19")
+			checkbutton("NO_v2_19 " #no_v2_19): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no19","Norway: NO_v2_19")
 				activate_eu
 			)
-			checkbutton("NO20 " #no20): (
-				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no20","Norway: NO20")
+			checkbutton("NO_v2_20 " #no_v2_20): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no20","Norway: NO_v2_20")
 				activate_eu
 			)					
 		) :name "Norway" #norway
