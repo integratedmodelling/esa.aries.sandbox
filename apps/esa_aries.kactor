@@ -101,100 +101,100 @@ action main:
 			
 		(	
 			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)
-			checkbutton("CO1" #co1): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co1","Colombia: CO1")
+			checkbutton("CO-v2-01" #co_v2_01): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co1","Colombia: CO-v2-01")
 				activate_noneu
 			)			
-			checkbutton("CO2" #co2): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co2","Colombia: CO2")
+			checkbutton("CO-v2-02" #co_v2_02): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co2","Colombia: CO-v2-02")
 				activate_noneu
 			)
-			checkbutton("CO3" #co3): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co3","Colombia: CO3")
+			checkbutton("CO-v2-03" #co_v2_03): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co3","Colombia: CO-v2-03")
 				activate_noneu
 			)			
-			checkbutton("CO4" #co4): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co4","Colombia: CO4")
+			checkbutton("CO-v2-04" #co_v2_04): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co4","Colombia: CO-v2-04")
 				activate_noneu
 			)
-			checkbutton("CO5" #co5): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co5","Colombia: CO5")
+			checkbutton("CO-v2-05" #co_v2_05): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co5","Colombia: CO-v2-05")
 				activate_noneu
 			)			
-			checkbutton("CO6" #co6): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co6","Colombia: CO6")
+			checkbutton("CO-v2-06" #co_v2_06): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co6","Colombia: CO-v2-06")
 				activate_noneu
 			)
-			checkbutton("CO7" #co7): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co7","Colombia: CO7")
+			checkbutton("CO-v2-07" #co_v2_07): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co7","Colombia: CO-v2-07")
 				activate_noneu
 			)			
-			checkbutton("CO8" #co8): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co8","Colombia: CO8")
+			checkbutton("CO-v2-08" #co_v2_08): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co8","Colombia: CO-v2-08")
 				activate_noneu
 			)
-			checkbutton("CO9" #co9): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co9","Colombia: CO9")
+			checkbutton("CO-v2-09" #co_v2_09): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co9","Colombia: CO-v2-09")
 				activate_noneu
 			)
-			checkbutton("CO10" #co10): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co10","Colombia: CO10")
+			checkbutton("CO-v2-10" #co_v2_10): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co10","Colombia: CO-v2-10")
 				activate_noneu
 			)
-			checkbutton("CO11" #co11): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co11","Colombia: CO11")
+			checkbutton("CO-v2-11" #co_v2_11): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co11","Colombia: CO-v2-11")
 				activate_noneu
 			)			
-			checkbutton("CO12" #co12): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co12","Colombia: CO12")
+			checkbutton("CO-v2-12" #co_v2_12): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co12","Colombia: CO-v2-12")
 				activate_noneu
 			)
-			checkbutton("CO13" #co13): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co13","Colombia: CO13")
+			checkbutton("CO-v2-13" #co_v2_13): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co13","Colombia: CO-v2-13")
 				activate_noneu
 			)			
-			checkbutton("CO14" #co14): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co14","Colombia: CO14")
+			checkbutton("CO-v2-14" #co_v2_14): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co14","Colombia: CO-v2-14")
 				activate_noneu
 			)
-			checkbutton("CO15" #co15): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co15","Colombia: CO15")
+			checkbutton("CO-v2-15" #co_v2_15): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co15","Colombia: CO-v2-15")
 				activate_noneu
 			)			
-			checkbutton("CO16" #co16): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co16","Colombia: CO16")
+			checkbutton("CO-v2-16" #co_v2_16): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co16","Colombia: CO-v2-16")
 				activate_noneu
 			)
-			checkbutton("CO17" #co17): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co17","Colombia: CO17")
+			checkbutton("CO-v2-17" #co_v2_17): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co17","Colombia: CO-v2-17")
 				activate_noneu
 			)			
-			checkbutton("CO18" #co18): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co18","Colombia: CO18")
+			checkbutton("CO-v2-18" #co_v2_18): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co18","Colombia: CO-v2-18")
 				activate_noneu
 			)
-			checkbutton("CO19" #co19): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co19","Colombia: CO19")
+			checkbutton("CO-v2-19" #co_v2_19): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co19","Colombia: CO-v2-19")
 				activate_noneu
 			)
-			checkbutton("CO20" #co20): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co20","Colombia: CO20")
+			checkbutton("CO-v2-20" #co_v2_20): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co20","Colombia: CO-v2-20")
 				activate_noneu
 			)
-			checkbutton("CO21" #co21): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co21","Colombia: CO21")
+			checkbutton("CO-v2-21" #co_v2_21): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co21","Colombia: CO-v2-21")
 				activate_noneu
 			)			
-			checkbutton("CO22" #co22): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co22","Colombia: CO22")
+			checkbutton("CO-v2-22" #co_v2_22): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co22","Colombia: CO-v2-22")
 				activate_noneu
 			)
-			checkbutton("CO23" #co23): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co23","Colombia: CO23")
+			checkbutton("CO-v2-23" #co_v2_23): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co23","Colombia: CO-v2-23")
 				activate_noneu
 			)			
-			checkbutton("CO24" #co24): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co24","Colombia: CO24")
+			checkbutton("CO-v2-24" #co_v2_24): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co24","Colombia: CO-v2-24")
 				activate_noneu
 			)
 			separator(:empty)
