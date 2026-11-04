@@ -2,7 +2,8 @@ project private namespace esa.aries.ecosystem_extent
 using esa.aries.model_approach, nca.ecosystem.eunis, nca.ecosystem.iucn, nca.ecology.ipcc;
 
 @documented(global.ecosystemextent.machinelearning_mapping)
-model 'local:alessio.bulckaen:esa.aries.sandbox:EUNIS2021plus-V311-extent'
+//model 'local:alessio.bulckaen:esa.aries.sandbox:EUNIS2021plus-V311-extent'
+model 'local:alessio.bulckaen:esa.aries.sandbox:MachineLearning-EUNIS2021plus-EXTENT'
 	as esa.aries.model_approach:MachineLearning nca.ecosystem.eunis:EcosystemType named ecosystem_type_eunis_level2_machine_learning
 	classified into
 		nca.ecosystem.eunis:MarineBenthicHabitats if 10000,
@@ -123,7 +124,8 @@ model 'local:alessio.bulckaen:esa.aries.sandbox:EUNIS2021plus-V311-extent'
 ;
 
 ////TODO:fix encoding level 2
-model 'local:alessio.bulckaen:esa.aries.sandbox:EUNIS2021plus-V311-extent'
+//model 'local:alessio.bulckaen:esa.aries.sandbox:EUNIS2021plus-V311-extent'
+model 'local:alessio.bulckaen:esa.aries.sandbox:MachineLearning-EUNIS2021plus-EXTENT'
 	as esa.aries.model_approach:MachineLearning nca.ecosystem.eunis:EcosystemType named ecosystem_type_eunis_level1_machine_learning
 		classified 
 		according to im:eunis-lvl1-encoding;
