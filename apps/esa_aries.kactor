@@ -722,84 +722,84 @@ action main:
 		) :name "Slovakia" #slovakia					
 		(
 			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)
-			checkbutton("SA1" #sa1): (
-				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa1","South Africa: SA1")
+			checkbutton("SA_v2_01" #sa_v2_01): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa1","South Africa: SA_v2_01")
 				activate_noneu
 			)
-			checkbutton("SA2" #sa2): (
-				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa2","South Africa: SA2")
+			checkbutton("SA_v2_02" #sa_v2_02): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa2","South Africa: SA_v2_02")
 				activate_noneu
 			)
-			checkbutton("SA3" #sa3): (
-				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa3","South Africa: SA3")
+			checkbutton("SA_v2_03" #sa_v2_03): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa3","South Africa: SA_v2_03")
 				activate_noneu
 			)
-			checkbutton("SA4" #sa4): (
-				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa4","South Africa: SA4")
+			checkbutton("SA_v2_04" #sa_v2_04): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa4","South Africa: SA_v2_04")
 				activate_noneu
 			)
-			checkbutton("SA5" #sa5): (
-				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa5","South Africa: SA5")
+			checkbutton("SA_v2_05" #sa_v2_05): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa5","South Africa: SA_v2_05")
 				activate_noneu
 			)
-			checkbutton("SA6" #sa6): (
-				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa6","South Africa: SA6")
+			checkbutton("SA_v2_06" #sa_v2_06): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa6","South Africa: SA_v2_06")
 				activate_noneu
 			)
-			checkbutton("SA7" #sa7): (
-				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa7","South Africa: SA7")
+			checkbutton("SA_v2_07" #sa_v2_07): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa7","South Africa: SA_v2_07")
 				activate_noneu
 			)
-			checkbutton("SA8" #sa8): (
-				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa8","South Africa: SA8")
+			checkbutton("SA_v2_08" #sa_v2_08): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa8","South Africa: SA_v2_08")
 				activate_noneu
 			)
-			checkbutton("SA9" #sa9): (
-				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa9","South Africa: SA9")
+			checkbutton("SA_v2_09" #sa_v2_09): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa9","South Africa: SA_v2_09")
 				activate_noneu
 			)
-			checkbutton("SA10" #sa10): (
-				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa10","South Africa: SA10")
+			checkbutton("SA_v2_10" #sa_v2_10): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa10","South Africa: SA_v2_10")
 				activate_noneu
 			)
-			checkbutton("SA11" #sa11): (
-				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa11","South Africa: SA11")
+			checkbutton("SA_v2_11" #sa_v2_11): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa11","South Africa: SA_v2_11")
 				activate_noneu
 			)
-			checkbutton("SA12" #sa12): (
-				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa12","South Africa: SA12")
+			checkbutton("SA_v2_12" #sa_v2_12): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa12","South Africa: SA_v2_12")
 				activate_noneu
 			)
-			checkbutton("SA13" #sa13): (
-				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa13","South Africa: SA13")
+			checkbutton("SA_v2_13" #sa_v2_13): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa13","South Africa: SA_v2_13")
 				activate_noneu
 			)
-			checkbutton("SA14" #sa14): (
-				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa14","South Africa: SA14")
+			checkbutton("SA_v2_14" #sa_v2_14): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa14","South Africa: SA_v2_14")
 				activate_noneu
 			)
-			checkbutton("SA15" #sa15): (
-				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa15","South Africa: SA15")
+			checkbutton("SA_v2_15" #sa_v2_15): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa15","South Africa: SA_v2_15")
 				activate_noneu
 			)
-			checkbutton("SA16" #sa16): (
-				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa16","South Africa: SA16")
+			checkbutton("SA_v2_16" #sa_v2_16): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa16","South Africa: SA_v2_16")
 				activate_noneu
 			)
-			checkbutton("SA17" #sa17): (
-				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa17","South Africa: SA17")
+			checkbutton("SA_v2_17" #sa_v2_17): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa17","South Africa: SA_v2_17")
 				activate_noneu
 			)
-			checkbutton("SA18" #sa18): (
-				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa18","South Africa: SA18")
+			checkbutton("SA_v2_18" #sa_v2_18): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa18","South Africa: SA_v2_18")
 				activate_noneu
 			)
-			checkbutton("SA19" #sa19): (
-				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa19","South Africa: SA19")
+			checkbutton("SA_v2_19" #sa_v2_19): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa19","South Africa: SA_v2_19")
 				activate_noneu
 			)
-			checkbutton("SA20" #sa20): (
-				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa20","South Africa: SA20")
+			checkbutton("SA_v2_20" #sa_v2_20): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa20","South Africa: SA_v2_20")
 				activate_noneu
 			)
 			separator(:empty)
