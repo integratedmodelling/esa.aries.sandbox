@@ -378,84 +378,84 @@ action main:
 			)
 		) :name "Georgia" #georgia		
 		(
-			checkbutton("GR1 " #gr1): (
-				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr1","Greece: GR1")
+			checkbutton("GR_v2_01 " #gr_v2_01): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr1","Greece: GR_v2_01")
 				activate_eu
 			)
-			checkbutton("GR2 " #gr2): (
-				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr2","Greece: GR2")
+			checkbutton("GR_v2_02 " #gr_v2_02): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr2","Greece: GR_v2_02")
 				activate_eu
 			)
-			checkbutton("GR3 " #gr3): (
-				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr3","Greece: GR3")
+			checkbutton("GR_v2_03 " #gr_v2_03): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr3","Greece: GR_v2_03")
 				activate_eu
 			)
-			checkbutton("GR4 " #gr4): (
-				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr4","Greece: GR4")
+			checkbutton("GR_v2_04 " #gr_v2_04): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr4","Greece: GR_v2_04")
 				activate_eu
 			)
-			checkbutton("GR5 " #gr5): (
-				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr5","Greece: GR5")
+			checkbutton("GR_v2_05 " #gr_v2_05): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr5","Greece: GR_v2_05")
 				activate_eu
 			)
-			checkbutton("GR6 " #gr6): (
-				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr6","Greece: GR6")
+			checkbutton("GR_v2_06 " #gr_v2_06): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr6","Greece: GR_v2_06")
 				activate_eu
 			)
-			checkbutton("GR7 " #gr7): (
-				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr7","Greece: GR7")
+			checkbutton("GR_v2_07 " #gr_v2_07): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr7","Greece: GR_v2_07")
 				activate_eu
 			)
-			checkbutton("GR8 " #gr8): (
-				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr8","Greece: GR8")
+			checkbutton("GR_v2_08 " #gr_v2_08): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr8","Greece: GR_v2_08")
 				activate_eu
 			)
-			checkbutton("GR9 " #gr9): (
-				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr9","Greece: GR9")
+			checkbutton("GR_v2_09 " #gr_v2_09): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr9","Greece: GR_v2_09")
 				activate_eu
 			)
-			checkbutton("GR10 " #gr10): (
-				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr10","Greece: GR10")
+			checkbutton("GR_v2_10 " #gr_v2_10): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr10","Greece: GR_v2_10")
 				activate_eu
 			)
-			checkbutton("GR11 " #gr11): (
-				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr11","Greece: GR11")
+			checkbutton("GR_v2_11 " #gr_v2_11): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr11","Greece: GR_v2_11")
 				activate_eu
 			)
-			checkbutton("GR12 " #gr12): (
-				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr12","Greece: GR12")
+			checkbutton("GR_v2_12 " #gr_v2_12): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr12","Greece: GR_v2_12")
 				activate_eu
 			)
-			checkbutton("GR13 " #gr13): (
-				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr13","Greece: GR13")
+			checkbutton("GR_v2_13 " #gr_v2_13): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr13","Greece: GR_v2_13")
 				activate_eu
 			)
-			checkbutton("GR14 " #gr14): (
-				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr14","Greece: GR14")
+			checkbutton("GR_v2_14 " #gr_v2_14): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr14","Greece: GR_v2_14")
 				activate_eu
 			)
-			checkbutton("GR15 " #gr15): (
-				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr15","Greece: GR15")
+			checkbutton("GR_v2_15 " #gr_v2_15): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr15","Greece: GR_v2_15")
 				activate_eu
 			)
-			checkbutton("GR16 " #gr16): (
-				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr16","Greece: GR16")
+			checkbutton("GR_v2_16 " #gr_v2_16): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr16","Greece: GR_v2_16")
 				activate_eu
 			)
-			checkbutton("GR17 " #gr17): (
-				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr17","Greece: GR17")
+			checkbutton("GR_v2_17 " #gr_v2_17): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr17","Greece: GR_v2_17")
 				activate_eu
 			)
-			checkbutton("GR18 " #gr18): (
-				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr18","Greece: GR18")
+			checkbutton("GR_v2_18 " #gr_v2_18): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr18","Greece: GR_v2_18")
 				activate_eu
 			)
-			checkbutton("GR19 " #gr19): (
-				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr19","Greece: GR19")
+			checkbutton("GR_v2_19 " #gr_v2_19): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr19","Greece: GR_v2_19")
 				activate_eu
 			)
-			checkbutton("GR20 " #gr20): (
-				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr20","Greece: GR20")
+			checkbutton("GR_v2_20 " #gr_v2_20): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr20","Greece: GR_v2_20")
 				activate_eu
 			)
 		) :name "Greece" #greece			
