@@ -639,84 +639,84 @@ action main:
 //			)
 		) :name "Philippines" #philippines		
 		(
-			checkbutton("SL1" #sl1): (
-				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl1","Slovakia: SL1")
+			checkbutton("SL_v2_01" #sl_v2_01): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl1","Slovakia: SL_v2_01")
 				activate_eu
 			)
-			checkbutton("SL2" #sl2): (
-				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl2","Slovakia: SL2")
+			checkbutton("SL_v2_02" #sl_v2_02): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl2","Slovakia: SL_v2_02")
 				activate_eu
 			)
-			checkbutton("SL3" #sl3): (
-				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl3","Slovakia: SL3")
+			checkbutton("SL_v2_03" #sl_v2_03): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl3","Slovakia: SL_v2_03")
 				activate_eu
 			)
-			checkbutton("SL4" #sl4): (
-				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl4","Slovakia: SL4")
+			checkbutton("SL_v2_04" #sl_v2_04): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl4","Slovakia: SL_v2_04")
 				activate_eu
 			)
-			checkbutton("SL5" #sl5): (
-				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl5","Slovakia: SL5")
+			checkbutton("SL_v2_05" #sl_v2_05): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl5","Slovakia: SL_v2_05")
 				activate_eu
 			)
-			checkbutton("SL6" #sl6): (
-				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl6","Slovakia: SL6")
+			checkbutton("SL_v2_06" #sl_v2_06): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl6","Slovakia: SL_v2_06")
 				activate_eu
 			)
-			checkbutton("SL7" #sl7): (
-				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl7","Slovakia: SL7")
+			checkbutton("SL_v2_07" #sl_v2_07): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl7","Slovakia: SL_v2_07")
 				activate_eu
 			)
-			checkbutton("SL8" #sl8): (
-				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl8","Slovakia: SL8")
+			checkbutton("SL_v2_08" #sl_v2_08): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl8","Slovakia: SL_v2_08")
 				activate_eu
 			)
-			checkbutton("SL9" #sl9): (
-				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl9","Slovakia: SL9")
+			checkbutton("SL_v2_09" #sl_v2_09): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl9","Slovakia: SL_v2_09")
 				activate_eu
 			)
-			checkbutton("SL10" #sl10): (
-				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl10","Slovakia: SL10")
+			checkbutton("SL_v2_10" #sl_v2_10): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl10","Slovakia: SL_v2_10")
 				activate_eu
 			)
-			checkbutton("SL11" #sl11): (
-				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl11","Slovakia: SL11")
+			checkbutton("SL_v2_11" #sl_v2_11): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl11","Slovakia: SL_v2_11")
 				activate_eu
 			)
-			checkbutton("SL12" #sl12): (
-				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl12","Slovakia: SL12")
+			checkbutton("SL_v2_12" #sl_v2_12): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl12","Slovakia: SL_v2_12")
 				activate_eu
 			)
-			checkbutton("SL13" #sl13): (
-				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl13","Slovakia: SL13")
+			checkbutton("SL_v2_13" #sl_v2_13): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl13","Slovakia: SL_v2_13")
 				activate_eu
 			)
-			checkbutton("SL14" #sl14): (
-				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl14","Slovakia: SL14")
+			checkbutton("SL_v2_14" #sl_v2_14): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl14","Slovakia: SL_v2_14")
 				activate_eu
 			)
-			checkbutton("SL15" #sl15): (
-				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl15","Slovakia: SL15")
+			checkbutton("SL_v2_15" #sl_v2_15): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl15","Slovakia: SL_v2_15")
 				activate_eu
 			)
-			checkbutton("SL16" #sl16): (
-				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl16","Slovakia: SL16")
+			checkbutton("SL_v2_16" #sl_v2_16): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl16","Slovakia: SL_v2_16")
 				activate_eu
 			)
-			checkbutton("SL17" #sl17): (
-				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl17","Slovakia: SL17")
+			checkbutton("SL_v2_17" #sl_v2_17): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl17","Slovakia: SL_v2_17")
 				activate_eu
 			)
-			checkbutton("SL18" #sl18): (
-				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl18","Slovakia: SL18")
+			checkbutton("SL_v2_18" #sl_v2_18): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl18","Slovakia: SL_v2_18")
 				activate_eu
 			)
-			checkbutton("SL19" #sl19): (
-				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl19","Slovakia: SL19")
+			checkbutton("SL_v2_19" #sl_v2_19): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl19","Slovakia: SL_v2_19")
 				activate_eu
 			)
-			checkbutton("SL20" #sl20): (
-				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl20","Slovakia: SL20")
+			checkbutton("SL_v2_20" #sl_v2_20): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl20","Slovakia: SL_v2_20")
 				activate_eu
 			)
 		) :name "Slovakia" #slovakia					
