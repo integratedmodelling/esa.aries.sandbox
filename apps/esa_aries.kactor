@@ -296,84 +296,84 @@ action main:
 			)
 		) :name "Czech Republic" #czec
 		(
-			checkbutton("GG1" #gg1): (
-				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg1","Georgia: GG1")
+			checkbutton("GG_v2_01" #gg_v2_01): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg1","Georgia: GG_v2_01")
 				activate_eu
 			)
-			checkbutton("GG2" #gg2): (
-				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg2","Georgia: GG2")
+			checkbutton("GG_v2_02" #gg_v2_02): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg2","Georgia: GG_v2_02")
 				activate_eu
 			)
-			checkbutton("GG3" #gg3): (
-				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg3","Georgia: GG3")
+			checkbutton("GG_v2_03" #gg_v2_03): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg3","Georgia: GG_v2_03")
 				activate_eu
 			)
-			checkbutton("GG4" #gg4): (
-				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg4","Georgia: GG4")
+			checkbutton("GG_v2_04" #gg_v2_04): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg4","Georgia: GG_v2_04")
 				activate_eu
 			)
-			checkbutton("GG5" #gg5): (
-				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg5","Georgia: GG5")
+			checkbutton("GG_v2_05" #gg_v2_05): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg5","Georgia: GG_v2_05")
 				activate_eu
 			)
-			checkbutton("GG6" #gg6): (
-				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg6","Georgia: GG6")
+			checkbutton("GG_v2_06" #gg_v2_06): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg6","Georgia: GG_v2_06")
 				activate_eu
 			)
-			checkbutton("GG7" #gg7): (
-				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg7","Georgia: GG7")
+			checkbutton("GG_v2_07" #gg_v2_07): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg7","Georgia: GG_v2_07")
 				activate_eu
 			)
-			checkbutton("GG8" #gg8): (
-				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg8","Georgia: GG8")
+			checkbutton("GG_v2_08" #gg_v2_08): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg8","Georgia: GG_v2_08")
 				activate_eu
 			)
-			checkbutton("GG9" #gg9): (
-				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg9","Georgia: GG9")
+			checkbutton("GG_v2_09" #gg_v2_09): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg9","Georgia: GG_v2_09")
 				activate_eu
 			)
-			checkbutton("GG10" #gg10): (
-				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg10","Georgia: GG10")
+			checkbutton("GG_v2_10" #gg_v2_10): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg10","Georgia: GG_v2_10")
 				activate_eu
 			)
-			checkbutton("GG11" #gg11): (
-				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg11","Georgia: GG11")
+			checkbutton("GG_v2_11" #gg_v2_11): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg11","Georgia: GG_v2_11")
 				activate_eu
 			)
-			checkbutton("GG12" #gg12): (
-				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg12","Georgia: GG12")
+			checkbutton("GG_v2_12" #gg_v2_12): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg12","Georgia: GG_v2_12")
 				activate_eu
 			)
-			checkbutton("GG13" #gg13): (
-				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg13","Georgia: GG13")
+			checkbutton("GG_v2_13" #gg_v2_13): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg13","Georgia: GG_v2_13")
 				activate_eu
 			)
-			checkbutton("GG14" #gg14): (
-				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg14","Georgia: GG14")
+			checkbutton("GG_v2_14" #gg_v2_14): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg14","Georgia: GG_v2_14")
 				activate_eu
 			)
-			checkbutton("GG15" #gg15): (
-				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg15","Georgia: GG15")
+			checkbutton("GG_v2_15" #gg_v2_15): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg15","Georgia: GG_v2_15")
 				activate_eu
 			)
-			checkbutton("GG16" #gg16): (
-				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg16","Georgia: GG16")
+			checkbutton("GG_v2_16" #gg_v2_16): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg16","Georgia: GG_v2_16")
 				activate_eu
 			)
-			checkbutton("GG17" #gg17): (
-				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg17","Georgia: GG17")
+			checkbutton("GG_v2_17" #gg_v2_17): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg17","Georgia: GG_v2_17")
 				activate_eu
 			)
-			checkbutton("GG18" #gg18): (
-				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg18","Georgia: GG18")
+			checkbutton("GG_v2_18" #gg_v2_18): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg18","Georgia: GG_v2_18")
 				activate_eu
 			)
-			checkbutton("GG19" #gg19): (
-				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg19","Georgia: GG19")
+			checkbutton("GG_v2_19" #gg_v2_19): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg19","Georgia: GG_v2_19")
 				activate_eu
 			)
-			checkbutton("GG20" #gg20): (
-				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg20","Georgia: GG20")
+			checkbutton("GG_v2_20" #gg_v2_20): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg20","Georgia: GG_v2_20")
 				activate_eu
 			)
 		) :name "Georgia" #georgia		
