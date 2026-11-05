@@ -2,9 +2,9 @@ public app esa.aries
 	"ARIES for ESA"
 	version 1.0alpha
 	description #ARIES_FOR_ESA_EXPLORER_DESCRIPTION
-	logo static/images/esa_logo.png
-	versionstring "Demonstration version (Alpha 2/3)"
-	style dark
+	logo static/images/esa_logo_deepspace.png
+	versionstring "Demonstration version (Beta)"
+	style light
 
 
 @left(width=450)
@@ -12,333 +12,990 @@ action main:
 	set context_label ""
 	separator("Context: where, when (2024) " :iconname "earth" )
 
-
-/*
- * APP for Living Lab 2
- */
-//	(
-//		(
-//			checkbutton("Colombian test area" #cotest1): (
-//				disable_ctxs("primitive_characteristic.small_areas_for_testing.test_rb_colombia_30m_polygon_1","Colombian test area")
-//				activate_noneu
-//			)
-//		) :name "Non-european test areas" #noneu_contexts
-//		(
-//			
-//			checkbutton("Czech Republic test area" #cztest2): (
-//				disable_ctxs("primitive_characteristic.small_areas_for_testing.test_rb_czechrepublic_30m_testing_area_2","Czech Republic test area")
-//				activate_eu
-//			)					
-//		) :name "European test areas" #eu_contexts
-//	) :shelf #contexts
-
 	
 
-	
-			
-	
-all cu_priority_area_contexts for use in alpha 3 
 	(
 		(
-			checkbutton("Deng Deng Natural Parc CA1" #ca1): (
-				disable_ctxs("cu_priority_areas_contexts.cameroon_natural_parc_deng_deng_ca1","Cameroon: Deng Deng Natural Parc CA1")
+			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)
+			checkbutton("CM-v2-01" #cm_v2_01): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm1","Cameroon: CM-v2-01")
 				activate_noneu
 			)
-			checkbutton("Faune Dja Reserve CA2" #ca2): (
-				disable_ctxs("cu_priority_areas_contexts.cameroon_reserve_faune_dja_ca2","Cameroon: Faune Dja Reserve CA2")
+			checkbutton("CM-v2-02" #cm_v2_02): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm2","Cameroon: CM-v2-02")
 				activate_noneu
 			)
-			checkbutton("Douala Edéa CA3" #ca3): (
-				disable_ctxs("cu_priority_areas_contexts.cameroon_douala_edea_ca3","Cameroon: Douala Edéa CA3")
+			checkbutton("CM-v2-03" #cm_v2_03): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm3","Cameroon: CM-v2-03")
 				activate_noneu
-			)		
+			)
+			checkbutton("CM-v2-04" #cm_v2_04): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm4","Cameroon: CM-v2-40")
+				activate_noneu
+			)
+			checkbutton("CM-v2-05" #cm_v2_05): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm5","Cameroon: CM-v2-05")
+				activate_noneu
+			)
+			checkbutton("CM-v2-6" #cm_v2_06): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm6","Cameroon: CM-v2-6")
+				activate_noneu
+			)
+			checkbutton("CM-v2-07" #cm_v2_07): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm7","Cameroon: CM-v2-07")
+				activate_noneu
+			)
+			checkbutton("CM-v2-08" #cm_v2_08): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm8","Cameroon: CM-v2-08")
+				activate_noneu
+			)
+			checkbutton("CM-v2-09" #cm_v2_09): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm9","Cameroon: CM-v2-09")
+				activate_noneu
+			)
+			checkbutton("CM-v2-10" #cm_v2_10): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm10","Cameroon: CM-v2-10")
+				activate_noneu
+			)
+			checkbutton("CM-v2-11" #cm_v2_11): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm11","Cameroon: CM-v2-11")
+				activate_noneu
+			)
+			checkbutton("CM-v2-12" #cm_v2_12): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm12","Cameroon: CM-v2-12")
+				activate_noneu
+			)
+			checkbutton("CM-v2-13" #cm_v2_13): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm13","Cameroon: CM-v2-13")
+				activate_noneu
+			)
+			checkbutton("CM-v2-14" #cm_v2_14): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm14","Cameroon: CM-v2-14")
+				activate_noneu
+			)
+			checkbutton("CM-v2-15" #cm_v2_15): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm15","Cameroon: CM-v2-15")
+				activate_noneu
+			)
+			checkbutton("CM-v2-16" #cm_v2_16): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm16","Cameroon: CM-v2-16")
+				activate_noneu
+			)
+			checkbutton("CM-v2-17" #cm_v2_17): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm17","Cameroon: CM-v2-17")
+				activate_noneu
+			)
+			checkbutton("CM-v2-18" #cm_v2_18): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm18","Cameroon: CM-v2-18")
+				activate_noneu
+			)
+			checkbutton("CM-v2-19" #cm_v2_19): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm19","Cameroon: CM-v2-19")
+				activate_noneu
+			)
+			checkbutton("CM-v2-20" #cm_v2_20): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm20","Cameroon: CM-v2-20")
+				activate_noneu
+			)
 		) :name "Cameroon" #cameroon	
 			
 		(	
-			checkbutton("Mojana CO1" #co1): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_mojana_co1","Colombia: Mojana CO1")
-				activate_colombia
+			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)
+			checkbutton("CO_v2_01" #co_v2_01): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co1","Colombia: CO_v2_01")
+				activate_noneu
+			)			
+			checkbutton("CO_v2_02" #co_v2_02): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co2","Colombia: CO_v2_02")
+				activate_noneu
 			)
-			checkbutton("San Andrés CO2" #co2): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_san_andres_co2","Colombia: San Andrés CO2")
-				activate_colombia
+			checkbutton("CO_v2_03" #co_v2_03): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co3","Colombia: CO_v2_03")
+				activate_noneu
+			)			
+			checkbutton("CO_v2_04" #co_v2_04): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co4","Colombia: CO_v2_04")
+				activate_noneu
 			)
-			checkbutton("Providencia CO3" #co3): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_providencia_co3","Colombia: Providencia CO3")
-				activate_colombia
+			checkbutton("CO_v2_05" #co_v2_05): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co5","Colombia: CO_v2_05")
+				activate_noneu
+			)			
+			checkbutton("CO_v2_06" #co_v2_06): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co6","Colombia: CO_v2_06")
+				activate_noneu
 			)
+			checkbutton("CO_v2_07" #co_v2_07): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co7","Colombia: CO_v2_07")
+				activate_noneu
+			)			
+			checkbutton("CO_v2_08" #co_v2_08): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co8","Colombia: CO_v2_08")
+				activate_noneu
+			)
+			checkbutton("CO_v2_09" #co_v2_09): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co9","Colombia: CO_v2_09")
+				activate_noneu
+			)
+			checkbutton("CO_v2_10" #co_v2_10): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co10","Colombia: CO_v2_10")
+				activate_noneu
+			)
+			checkbutton("CO_v2_11" #co_v2_11): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co11","Colombia: CO_v2_11")
+				activate_noneu
+			)			
+			checkbutton("CO_v2_12" #co_v2_12): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co12","Colombia: CO_v2_12")
+				activate_noneu
+			)
+			checkbutton("CO_v2_13" #co_v2_13): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co13","Colombia: CO_v2_13")
+				activate_noneu
+			)			
+			checkbutton("CO_v2_14" #co_v2_14): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co14","Colombia: CO_v2_14")
+				activate_noneu
+			)
+			checkbutton("CO_v2_15" #co_v2_15): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co15","Colombia: CO_v2_15")
+				activate_noneu
+			)			
+			checkbutton("CO_v2_16" #co_v2_16): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co16","Colombia: CO_v2_16")
+				activate_noneu
+			)
+			checkbutton("CO_v2_17" #co_v2_17): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co17","Colombia: CO_v2_17")
+				activate_noneu
+			)			
+			checkbutton("CO_v2_18" #co_v2_18): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co18","Colombia: CO_v2_18")
+				activate_noneu
+			)
+			checkbutton("CO_v2_19" #co_v2_19): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co19","Colombia: CO_v2_19")
+				activate_noneu
+			)
+			checkbutton("CO_v2_20" #co_v2_20): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co20","Colombia: CO_v2_20")
+				activate_noneu
+			)
+			checkbutton("CO_v2_21" #co_v2_21): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co21","Colombia: CO_v2_21")
+				activate_noneu
+			)			
+			checkbutton("CO_v2_22" #co_v2_22): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co22","Colombia: CO_v2_22")
+				activate_noneu
+			)
+			checkbutton("CO_v2_23" #co_v2_23): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co23","Colombia: CO_v2_23")
+				activate_noneu
+			)			
+			checkbutton("CO_v2_24" #co_v2_24): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co24","Colombia: CO_v2_24")
+				activate_noneu
+			)
+			separator(:empty)
+			label(#LL2_CONTEXTS width="100%" fsize="0.95em" :left)
 			checkbutton("Cienaga Grande de Santa Marta CO4" #co4): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_cienaga_grande_de_santa_marta_co4","Colombia: Cienaga Grande de Santa Marta CO4")
-				activate_colombia
+				activate_noneu
 			)
-			checkbutton("Delta Sinú CO5" #co5): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_delta_sinu_co5","Colombia: Delta Sinú CO5")
-				activate_colombia
-			)	
-			checkbutton("Pisba CO6" #co6): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_pisba_co6","Colombia: Pisba CO6")
-				activate_colombia
-						)
 			checkbutton("Santurbán CO7" #co7): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_santurban_co7","Colombia: Santurbán CO7")
-				activate_colombia
-						)
-			checkbutton("Chingaza CO8" #co8): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_chingaza_co8","Colombia: Chingaza CO8")
-				activate_colombia
-						)
-			checkbutton("Putumayo CO9" #co9): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_putumayo_co9","Colombia: Putumayo CO9")
-				activate_colombia
+				activate_noneu
 			)
 			checkbutton("AP_Drummont/Becerril-Cesar CO10" #co10): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_ap_drummont_becerril_cesar_co10","Colombia: AP_Drummont/Becerril-Cesar CO10")
-				activate_colombia
+				activate_noneu
 			)
-			checkbutton("AP_Plata/Simiti-Cesar CO11" #co11): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_ap_plata_simiti_cesar_co11","Colombia: AP_Plata/Simiti-Cesar CO11")
-				activate_colombia
-			)
-			checkbutton("AP_Guane/Barrancabermeja CO12" #co12): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_ap_guane_barrancabermeja_co12","Colombia: AP_Guane/Barrancabermeja CO12")
-				activate_colombia
-			)
-			checkbutton("Piedemonte Casanare CO13" #co13): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_piedemonte_casanare_co13","Colombia: Piedemonte Casanare CO13")
-				activate_colombia
-			)
-			checkbutton("Cuenca alta río Bogotá CO14" #co14 ): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_cuenca_alta_rio_bogota_co14","Colombia: Cuenca alta río Bogotá CO14")
-				activate_colombia
-			)
-			checkbutton("Arco de deforestación Amazonia CO15" #co15): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_arco_de_deforestacion_amazonia_co15","Colombia: Arco de deforestación Amazonia CO1")
-				activate_colombia
-			)	
-			checkbutton("Delta del Patía CO16" #co16): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_delta_del_patia_co16","Colombia: Delta del Patía CO16")
-				activate_colombia
-			)
-			checkbutton("Buenaventura CO17" #co17): (
-				disable_ctxs("cu_priority_areas_contexts.colombia_buenaventura_co17","Colombia: Buenaventura CO17")
-				activate_colombia
-			)	
 		) :name "Colombia" #colombia
 		
 		(
-			checkbutton("Test Slow Request (10 m) " #cz_sr_test): (
-				disable_ctxs("cu_priority_areas_contexts.czech_republic_test_slow_request","Czech Republic: Slow Request Testing (10 m)")
-//				activate_europe
+			checkbutton("CZ_v2_01 " #cz_v2_01): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz1","Czech Republic: CZ_v2_01")
 				activate_eu
 			)
-			checkbutton("Prague (10 m) " #cz_prague): (
-				disable_ctxs("cu_priority_areas_contexts.czech_republic_prague","Czech Republic: Prague (10 m)")
-//				activate_europe
+8			checkbutton("CZ_v2_02 " #cz_v2_02): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz2","Czech Republic: CZ_v2_02")
 				activate_eu
 			)
-			checkbutton("Krkhnossky CZ2 BB:33σWS20 (10 m) " #cz_bbox1): (
-				disable_ctxs("cu_bbox_contexts.czech_cu_krkonossky_cz2_bbox_33dws20","Czech Republic: Krkhnossky CZ2 BB:33σWS20 (10 m)")
-//				activate_europe
+			checkbutton("CZ_v2_03 " #cz_v2_03): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz3","Czech Republic: CZ_v2_03")
+				activate_eu
+			)
+			checkbutton("CZ_v2_04 " #cz_v2_04): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz4","Czech Republic: CZ_v2_04")
 				activate_eu
 			)	
-			checkbutton("Transect Mid WE CZ8 BB:33δWR11 (10 m) " #cz_bbox2): (
-				disable_ctxs("cu_bbox_contexts.czech_cu_transectmidwe_cz8_bbox_33dwr11","Czech Republic: Transect Mid WE CZ8 BB:33δWR11 (10 m)")
-//				activate_europe
-				activate_eu
-			)		
-			checkbutton("Bilek CZ1" #cz1): (
-				disable_ctxs("cu_priority_areas_contexts.czech_republic_bilek_cz1","Czech Republic: Bilek CZ1")
-//				activate_europe
-				activate_eu
-			) 
-			checkbutton("Krkhnossky CZ2 (10 m)" #cz2_10 ): (
-				disable_ctxs("cu_priority_areas_contexts.czech_republic_krkonossky_cz2","Czech Republic: Krkhnossky CZ2 (10 m)")
-//				activate_europe
+			checkbutton("CZ_v2_05 " #cz_v2_05): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz5","Czech Republic: CZ_v2_05")
 				activate_eu
 			)
-			checkbutton("Krkhnossky CZ2 (30 m)" #cz2_30 ): (
-				disable_ctxs("cu_priority_areas_contexts.czech_republic_krkonossky_30m_cz2","Czech Republic: Krkhnossky CZ2 (30 m)")
-//				activate_europe
+			checkbutton("CZ_v2_06 " #cz_v2_06): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz6","Czech Republic: CZ_v2_06")
 				activate_eu
 			)
-			checkbutton("Podyji CZ3 (10 m)" #cz3_10): (
-				disable_ctxs("cu_priority_areas_contexts.czech_republic_podyji_cz3","Czech Republic: Podyji CZ3 (10 m)")
-//				activate_europe
+			checkbutton("CZ_v2_07 " #cz_v2_07): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz7","Czech Republic: CZ_v2_07")
 				activate_eu
 			)
-			checkbutton("Podyji CZ3 (30 m)" #cz3_30): (
-				disable_ctxs("cu_priority_areas_contexts.czech_republic_podyji_30m_cz3","Czech Republic: Podyji CZ3 (30 m)")
-//				activate_europe
+			checkbutton("CZ_v2_08 " #cz_v2_08): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz8","Czech Republic: CZ_v2_08")
 				activate_eu
 			)
-			checkbutton("Bohemian CZ4 (30 m)" #cz4): (
-				disable_ctxs("cu_priority_areas_contexts.czech_republic_bohemian_cz4","Czech Republic: Bohemian CZ4 (30 m)")
-//				activate_europe
+			checkbutton("CZ_v2_09 " #cz_v2_09): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz9","Czech Republic: CZ_v2_09")
 				activate_eu
 			)
-			checkbutton("Transect Boheman NS CZ5 (100 m)" #cz5): (
-				disable_ctxs("cu_priority_areas_contexts.czech_republic_transect_boheman_ns_cz5","Czech Republic: Transect Boheman NS CZ5 (110 m)")
-//				activate_europe
+			checkbutton("CZ_v2_10 " #cz_v2_10): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz10","Czech Republic: CZ_v2_10")
 				activate_eu
 			)
-			checkbutton("Transect Krkhnossky NS CZ6" #cz6): (
-				disable_ctxs("cu_priority_areas_contexts.czech_republic_transect_krkhnossky_ns_cz6","Czech Republic: Transect Krkhnossky NS CZ6")
-//				activate_europe
+			checkbutton("CZ_v2_11 " #cz_v2_11): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz11","Czech Republic: CZ_v2_11")
 				activate_eu
 			)
-			checkbutton("Transect Podyji WE CZ7" #cz7): (
-				disable_ctxs("cu_priority_areas_contexts.czech_republic_transect_podyji_we_cz7","Czech Republic: Transect Podyji WE CZ7")
-//				activate_europe
+8			checkbutton("CZ_v2_12 " #cz_v2_12): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz12","Czech Republic: CZ_v2_12")
 				activate_eu
 			)
-			checkbutton("Transect Mid WE CZ8" #cz8): (
-				disable_ctxs("cu_priority_areas_contexts.czech_republic_transect_mid_we_cz8","Czech Republic: Transect Mid WE CZ8")
-//				activate_europe
+			checkbutton("CZ_v2_13 " #cz_v2_13): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz13","Czech Republic: CZ_v2_13")
 				activate_eu
 			)
-		) :name "Czech Republic" #czec // :opened
+			checkbutton("CZ_v2_14 " #cz_v2_14): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz14","Czech Republic: CZ_v2_14")
+				activate_eu
+			)	
+			checkbutton("CZ_v2_15 " #cz_v2_15): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz15","Czech Republic: CZ_v2_15")
+				activate_eu
+			)
+			checkbutton("CZ_v2_16 " #cz_v2_16): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz16","Czech Republic: CZ_v2_16")
+				activate_eu
+			)
+			checkbutton("CZ_v2_17 " #cz_v2_17): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz17","Czech Republic: CZ_v2_17")
+				activate_eu
+			)
+			checkbutton("CZ_v2_18 " #cz_v2_18): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz18","Czech Republic: CZ_v2_18")
+				activate_eu
+			)
+			checkbutton("CZ_v2_19 " #cz_v2_19): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz19","Czech Republic: CZ_v2_19")
+				activate_eu
+			)
+			checkbutton("CZ_v2_20 " #cz_v2_20): (
+				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz20","Czech Republic: CZ_v2_20")
+				activate_eu
+			)
+		) :name "Czech Republic" #czec
 		(
-			checkbutton("Guria GE1" #ge4): (
-				disable_ctxs("cu_priority_areas_contexts.georgia_guria_ge1","Georgia: Guria GE1")
+			checkbutton("GG_v2_01" #gg_v2_01): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg1","Georgia: GG_v2_01")
+				activate_eu
+			)
+			checkbutton("GG_v2_02" #gg_v2_02): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg2","Georgia: GG_v2_02")
+				activate_eu
+			)
+			checkbutton("GG_v2_03" #gg_v2_03): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg3","Georgia: GG_v2_03")
+				activate_eu
+			)
+			checkbutton("GG_v2_04" #gg_v2_04): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg4","Georgia: GG_v2_04")
+				activate_eu
+			)
+			checkbutton("GG_v2_05" #gg_v2_05): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg5","Georgia: GG_v2_05")
+				activate_eu
+			)
+			checkbutton("GG_v2_06" #gg_v2_06): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg6","Georgia: GG_v2_06")
+				activate_eu
+			)
+			checkbutton("GG_v2_07" #gg_v2_07): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg7","Georgia: GG_v2_07")
+				activate_eu
+			)
+			checkbutton("GG_v2_08" #gg_v2_08): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg8","Georgia: GG_v2_08")
+				activate_eu
+			)
+			checkbutton("GG_v2_09" #gg_v2_09): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg9","Georgia: GG_v2_09")
+				activate_eu
+			)
+			checkbutton("GG_v2_10" #gg_v2_10): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg10","Georgia: GG_v2_10")
+				activate_eu
+			)
+			checkbutton("GG_v2_11" #gg_v2_11): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg11","Georgia: GG_v2_11")
+				activate_eu
+			)
+			checkbutton("GG_v2_12" #gg_v2_12): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg12","Georgia: GG_v2_12")
+				activate_eu
+			)
+			checkbutton("GG_v2_13" #gg_v2_13): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg13","Georgia: GG_v2_13")
+				activate_eu
+			)
+			checkbutton("GG_v2_14" #gg_v2_14): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg14","Georgia: GG_v2_14")
+				activate_eu
+			)
+			checkbutton("GG_v2_15" #gg_v2_15): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg15","Georgia: GG_v2_15")
+				activate_eu
+			)
+			checkbutton("GG_v2_16" #gg_v2_16): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg16","Georgia: GG_v2_16")
+				activate_eu
+			)
+			checkbutton("GG_v2_17" #gg_v2_17): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg17","Georgia: GG_v2_17")
+				activate_eu
+			)
+			checkbutton("GG_v2_18" #gg_v2_18): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg18","Georgia: GG_v2_18")
+				activate_eu
+			)
+			checkbutton("GG_v2_19" #gg_v2_19): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg19","Georgia: GG_v2_19")
+				activate_eu
+			)
+			checkbutton("GG_v2_20" #gg_v2_20): (
+				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg20","Georgia: GG_v2_20")
 				activate_eu
 			)
 		) :name "Georgia" #georgia		
 		(
-			checkbutton("Naxos EL4" #gr4): (
-				disable_ctxs("cu_priority_areas_contexts.greece_naxos_el4","Greece: Naxos EL4")
-//				activate_europe
+			checkbutton("GR_v2_01 " #gr_v2_01): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr1","Greece: GR_v2_01")
 				activate_eu
 			)
-			checkbutton("Crete EL6" #gr6): (
-				disable_ctxs("cu_priority_areas_contexts.greece_crete_el6","Greece: Crete EL6")
-//				activate_europe
+			checkbutton("GR_v2_02 " #gr_v2_02): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr2","Greece: GR_v2_02")
+				activate_eu
+			)
+			checkbutton("GR_v2_03 " #gr_v2_03): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr3","Greece: GR_v2_03")
+				activate_eu
+			)
+			checkbutton("GR_v2_04 " #gr_v2_04): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr4","Greece: GR_v2_04")
+				activate_eu
+			)
+			checkbutton("GR_v2_05 " #gr_v2_05): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr5","Greece: GR_v2_05")
+				activate_eu
+			)
+			checkbutton("GR_v2_06 " #gr_v2_06): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr6","Greece: GR_v2_06")
+				activate_eu
+			)
+			checkbutton("GR_v2_07 " #gr_v2_07): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr7","Greece: GR_v2_07")
+				activate_eu
+			)
+			checkbutton("GR_v2_08 " #gr_v2_08): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr8","Greece: GR_v2_08")
+				activate_eu
+			)
+			checkbutton("GR_v2_09 " #gr_v2_09): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr9","Greece: GR_v2_09")
+				activate_eu
+			)
+			checkbutton("GR_v2_10 " #gr_v2_10): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr10","Greece: GR_v2_10")
+				activate_eu
+			)
+			checkbutton("GR_v2_11 " #gr_v2_11): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr11","Greece: GR_v2_11")
+				activate_eu
+			)
+			checkbutton("GR_v2_12 " #gr_v2_12): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr12","Greece: GR_v2_12")
+				activate_eu
+			)
+			checkbutton("GR_v2_13 " #gr_v2_13): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr13","Greece: GR_v2_13")
+				activate_eu
+			)
+			checkbutton("GR_v2_14 " #gr_v2_14): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr14","Greece: GR_v2_14")
+				activate_eu
+			)
+			checkbutton("GR_v2_15 " #gr_v2_15): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr15","Greece: GR_v2_15")
+				activate_eu
+			)
+			checkbutton("GR_v2_16 " #gr_v2_16): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr16","Greece: GR_v2_16")
+				activate_eu
+			)
+			checkbutton("GR_v2_17 " #gr_v2_17): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr17","Greece: GR_v2_17")
+				activate_eu
+			)
+			checkbutton("GR_v2_18 " #gr_v2_18): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr18","Greece: GR_v2_18")
+				activate_eu
+			)
+			checkbutton("GR_v2_19 " #gr_v2_19): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr19","Greece: GR_v2_19")
+				activate_eu
+			)
+			checkbutton("GR_v2_20 " #gr_v2_20): (
+				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr20","Greece: GR_v2_20")
 				activate_eu
 			)
 		) :name "Greece" #greece			
 		(
-			checkbutton("Finnmark NO1_4_1" #no1_4_1 ): (
-				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1_1","Norway: Osloviken NO1_4_1")
-//				activate_europe
+			checkbutton("NO_v2_01 " #no_v2_01): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no1","Norway: NO_v2_01")
 				activate_eu
 			)
-			checkbutton("Finnmark NO1_4_2" #no1_4_2 ): (
-				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1_1","Norway: Osloviken NO1_4_2")
-//				activate_europe
+			checkbutton("NO_v2_02 " #no_v2_02): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no2","Norway: NO_v2_02")
 				activate_eu
 			)
-			checkbutton("Finnmark NO1_4_3" #no1_4_3 ): (
-				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1_3","Norway: Osloviken NO1_4_3")
-//				activate_europe
+			checkbutton("NO_v2_03 " #no_v2_03): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no3","Norway: NO_v2_03")
 				activate_eu
 			)
-			checkbutton("Finnmark NO1_4_4" #no1_4_4 ): (
-				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1_4","Norway: Osloviken NO1_4_4")
-//				activate_europe
+			checkbutton("NO_v2_04 " #no_v2_04): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no4","Norway: NO_v2_04")
 				activate_eu
 			)
-			checkbutton("OsloViken NO2" #no2 ): (
-				disable_ctxs("cu_priority_areas_contexts.norway_finnmark_no2","Norway: Finnmark NO2")
-//				activate_europe
+			checkbutton("NO_v2_05 " #no_v2_05): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no5","Norway: NO_v2_05")
+				activate_eu
+			)
+			checkbutton("NO_v2_06 " #no_v2_06): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no6","Norway: NO_v2_06")
+				activate_eu
+			)
+			checkbutton("NO_v2_07 " #no_v2_07): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no7","Norway: NO_v2_07")
+				activate_eu
+			)
+			checkbutton("NO_v2_08 " #no_v2_08): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no8","Norway: NO_v2_08")
+				activate_eu
+			)
+			checkbutton("NO_v2_09 " #no_v2_09): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no9","Norway: NO_v2_09")
+				activate_eu
+			)
+			checkbutton("NO_v2_10 " #no_v2_10): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no10","Norway: NO_v2_10")
+				activate_eu
+			)
+			checkbutton("NO_v2_11 " #no_v2_11): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no11","Norway: NO_v2_11")
+				activate_eu
+			)
+			checkbutton("NO_v2_12 " #no_v2_12): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no12","Norway: NO_v2_12")
+				activate_eu
+			)
+			checkbutton("NO_v2_13 " #no_v2_13): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no13","Norway: NO_v2_13")
+				activate_eu
+			)
+			checkbutton("NO_v2_14 " #no_v2_14): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no14","Norway: NO_v2_14")
+				activate_eu
+			)
+			checkbutton("NO_v2_15 " #no_v2_15): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no15","Norway: NO_v2_15")
+				activate_eu
+			)
+			checkbutton("NO_v2_16 " #no_v2_16): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no16","Norway: NO_v2_16")
+				activate_eu
+			)
+			checkbutton("NO_v2_17 " #no_v2_17): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no17","Norway: NO_v2_17")
+				activate_eu
+			)
+			checkbutton("NO_v2_18 " #no_v2_18): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no18","Norway: NO_v2_18")
+				activate_eu
+			)
+			checkbutton("NO_v2_19 " #no_v2_19): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no19","Norway: NO_v2_19")
+				activate_eu
+			)
+			checkbutton("NO_v2_20 " #no_v2_20): (
+				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no20","Norway: NO_v2_20")
 				activate_eu
 			)					
-			
 		) :name "Norway" #norway
 		(
-			checkbutton("Quirino PH1" #ph1): (
-				disable_ctxs("cu_priority_areas_contexts.philippines_ph1","Philippines: Quirino PH1")
+			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)
+			checkbutton("PL_v2_01" #pl_v2_01): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl1","Philippines: PL_v2_01")
 				activate_noneu
 			)
+			checkbutton("PL_v2_02" #pl_v2_02): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl2","Philippines: PL_v2_02")
+				activate_noneu
+			)
+			checkbutton("PL_v2_03" #pl_v2_03): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl3","Philippines: PL_v2_03")
+				activate_noneu
+			)
+			checkbutton("PL_v2_04" #pl_v2_04): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl4","Philippines: PL_v2_04")
+				activate_noneu
+			)
+			checkbutton("PL_v2_05" #pl_v2_05): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl5","Philippines: PL_v2_05")
+				activate_noneu
+			)
+			checkbutton("PL_v2_06" #pl_v2_06): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl6","Philippines: PL_v2_06")
+				activate_noneu
+			)
+			checkbutton("PL_v2_07" #pl_v2_07): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl7","Philippines: PL_v2_07")
+				activate_noneu
+			)
+			checkbutton("PL_v2_08" #pl_v2_08): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl8","Philippines: PL_v2_08")
+				activate_noneu
+			)
+			checkbutton("PL_v2_09" #pl_v2_09): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl9","Philippines: PL_v2_09")
+				activate_noneu
+			)
+			checkbutton("PL_v2_10" #pl_v2_10): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl10","Philippines: PL_v2_10")
+				activate_noneu
+			)
+			checkbutton("PL_v2_11" #pl_v2_11): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl11","Philippines: PL_v2_11")
+				activate_noneu
+			)
+			checkbutton("PL_v2_12" #pl_v2_12): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl12","Philippines: PL_v2_12")
+				activate_noneu
+			)
+			checkbutton("PL_v2_13" #pl_v2_13): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl13","Philippines: PL_v2_13")
+				activate_noneu
+			)
+			checkbutton("PL_v2_14" #pl_v2_14): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl14","Philippines: PL_v2_14")
+				activate_noneu
+			)
+			checkbutton("PL_v2_15" #pl_v2_15): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl15","Philippines: PL_v2_15")
+				activate_noneu
+			)
+			checkbutton("PL_v2_16" #pl_v2_16): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl16","Philippines: PL_v2_16")
+				activate_noneu
+			)
+			checkbutton("PL_v2_17" #pl_v2_17): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl17","Philippines: PL_v2_17")
+				activate_noneu
+			)
+			checkbutton("PL_v2_18" #pl_v2_18): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl18","Philippines: PL_v2_18")
+				activate_noneu
+			)
+			checkbutton("PL_v2_19" #pl_v2_19): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl19","Philippines: PL_v2_19")
+				activate_noneu
+			)
+			checkbutton("PL_v2_20" #pl_v2_20): (
+				disable_ctxs("esa.aries.contexts.philippines_4326_30m_2024_pl20","Philippines: PL_v2_20")
+				activate_noneu
+			)
+			separator(:empty)
+			label(#LL2_CONTEXTS width="100%" fsize="0.95em" :left)
 			checkbutton("Agusan del Sur PH2" #ph2): (
 				disable_ctxs("cu_priority_areas_contexts.philippines_ph2","Philippines: Agusan del Sur PH2")
-				activate_noneu
-			)
-			checkbutton("Nueva Vizcaya, Quirino PH3" #ph3): (
-				disable_ctxs("cu_priority_areas_contexts.philippines_ph3","Philippines: Nueva Vizcaya, Quirino PH3")
 				activate_noneu
 			)
 			checkbutton("Siquijor PH4" #ph4): (
 				disable_ctxs("cu_priority_areas_contexts.philippines_ph4","Philippines: Siquijor PH4")
 				activate_noneu
 			)
-			checkbutton("Aurora, Nueva Ecija PH5" #ph5): (
-				disable_ctxs("cu_priority_areas_contexts.philippines_ph5","Philippines: Aurora, Nueva Ecija PH5")
-				activate_noneu
-			)		
-			checkbutton("Palawan PH6" #ph6): (
-				disable_ctxs("cu_priority_areas_contexts.philippines_ph6","Philippines: Palawan PH6")
-				activate_noneu
-			)		
-			checkbutton("Pangasinan, Tarlac, Zambales PH7" #ph7): (
-				disable_ctxs("cu_priority_areas_contexts.philippines_ph7","Philippines: Pangasinan, Tarlac, Zambales PH7")
-				activate_noneu
-			)
+//			checkbutton("Mount Mantaligngahan" #ph4): (
+//				disable_ctxs("cu_priority_areas_contexts.philippines_ph4","Philippines: Siquijor PH4")
+//				activate_noneu
+//			)
 		) :name "Philippines" #philippines		
 		(
-			checkbutton("Slovakia SL1" #sl1): (
-				disable_ctxs("cu_priority_areas_contexts.slovakia_banskobystricky_kraj_sl1","Slovakia: Banskobystricky Kraj SL1")
+			checkbutton("SL_v2_01" #sl_v2_01): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl1","Slovakia: SL_v2_01")
 				activate_eu
 			)
-//			checkbutton("Slovakia SL1_1" #sl1_1): (
-//				disable_ctxs("cu_priority_areas_contexts.slovakia_banskobystricky_kraj_sl1_1","Slovakia: Banskobystricky Kraj SL1_1")
-//				activate_eu
-//			)
-//			checkbutton("Slovakia SL1_2" #sl1_2): (
-//				disable_ctxs("cu_priority_areas_contexts.slovakia_banskobystricky_kraj_sl1_2","Slovakia: Banskobystricky Kraj SL1_2")
-//				activate_eu
-//			)
-//			checkbutton("Slovakia SL1_1" #sl1_3): (
-//				disable_ctxs("cu_priority_areas_contexts.slovakia_banskobystricky_kraj_sl1_3","Slovakia: Banskobystricky Kraj SL1_3")
-//				activate_eu
-//			)
+			checkbutton("SL_v2_02" #sl_v2_02): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl2","Slovakia: SL_v2_02")
+				activate_eu
+			)
+			checkbutton("SL_v2_03" #sl_v2_03): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl3","Slovakia: SL_v2_03")
+				activate_eu
+			)
+			checkbutton("SL_v2_04" #sl_v2_04): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl4","Slovakia: SL_v2_04")
+				activate_eu
+			)
+			checkbutton("SL_v2_05" #sl_v2_05): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl5","Slovakia: SL_v2_05")
+				activate_eu
+			)
+			checkbutton("SL_v2_06" #sl_v2_06): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl6","Slovakia: SL_v2_06")
+				activate_eu
+			)
+			checkbutton("SL_v2_07" #sl_v2_07): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl7","Slovakia: SL_v2_07")
+				activate_eu
+			)
+			checkbutton("SL_v2_08" #sl_v2_08): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl8","Slovakia: SL_v2_08")
+				activate_eu
+			)
+			checkbutton("SL_v2_09" #sl_v2_09): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl9","Slovakia: SL_v2_09")
+				activate_eu
+			)
+			checkbutton("SL_v2_10" #sl_v2_10): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl10","Slovakia: SL_v2_10")
+				activate_eu
+			)
+			checkbutton("SL_v2_11" #sl_v2_11): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl11","Slovakia: SL_v2_11")
+				activate_eu
+			)
+			checkbutton("SL_v2_12" #sl_v2_12): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl12","Slovakia: SL_v2_12")
+				activate_eu
+			)
+			checkbutton("SL_v2_13" #sl_v2_13): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl13","Slovakia: SL_v2_13")
+				activate_eu
+			)
+			checkbutton("SL_v2_14" #sl_v2_14): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl14","Slovakia: SL_v2_14")
+				activate_eu
+			)
+			checkbutton("SL_v2_15" #sl_v2_15): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl15","Slovakia: SL_v2_15")
+				activate_eu
+			)
+			checkbutton("SL_v2_16" #sl_v2_16): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl16","Slovakia: SL_v2_16")
+				activate_eu
+			)
+			checkbutton("SL_v2_17" #sl_v2_17): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl17","Slovakia: SL_v2_17")
+				activate_eu
+			)
+			checkbutton("SL_v2_18" #sl_v2_18): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl18","Slovakia: SL_v2_18")
+				activate_eu
+			)
+			checkbutton("SL_v2_19" #sl_v2_19): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl19","Slovakia: SL_v2_19")
+				activate_eu
+			)
+			checkbutton("SL_v2_20" #sl_v2_20): (
+				disable_ctxs("esa.aries.contexts.slovakia_4326_10m_2024_sl20","Slovakia: SL_v2_20")
+				activate_eu
+			)
 		) :name "Slovakia" #slovakia					
 		(
+			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)
+			checkbutton("SA_v2_01" #sa_v2_01): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa1","South Africa: SA_v2_01")
+				activate_noneu
+			)
+			checkbutton("SA_v2_02" #sa_v2_02): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa2","South Africa: SA_v2_02")
+				activate_noneu
+			)
+			checkbutton("SA_v2_03" #sa_v2_03): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa3","South Africa: SA_v2_03")
+				activate_noneu
+			)
+			checkbutton("SA_v2_04" #sa_v2_04): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa4","South Africa: SA_v2_04")
+				activate_noneu
+			)
+			checkbutton("SA_v2_05" #sa_v2_05): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa5","South Africa: SA_v2_05")
+				activate_noneu
+			)
+			checkbutton("SA_v2_06" #sa_v2_06): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa6","South Africa: SA_v2_06")
+				activate_noneu
+			)
+			checkbutton("SA_v2_07" #sa_v2_07): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa7","South Africa: SA_v2_07")
+				activate_noneu
+			)
+			checkbutton("SA_v2_08" #sa_v2_08): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa8","South Africa: SA_v2_08")
+				activate_noneu
+			)
+			checkbutton("SA_v2_09" #sa_v2_09): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa9","South Africa: SA_v2_09")
+				activate_noneu
+			)
+			checkbutton("SA_v2_10" #sa_v2_10): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa10","South Africa: SA_v2_10")
+				activate_noneu
+			)
+			checkbutton("SA_v2_11" #sa_v2_11): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa11","South Africa: SA_v2_11")
+				activate_noneu
+			)
+			checkbutton("SA_v2_12" #sa_v2_12): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa12","South Africa: SA_v2_12")
+				activate_noneu
+			)
+			checkbutton("SA_v2_13" #sa_v2_13): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa13","South Africa: SA_v2_13")
+				activate_noneu
+			)
+			checkbutton("SA_v2_14" #sa_v2_14): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa14","South Africa: SA_v2_14")
+				activate_noneu
+			)
+			checkbutton("SA_v2_15" #sa_v2_15): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa15","South Africa: SA_v2_15")
+				activate_noneu
+			)
+			checkbutton("SA_v2_16" #sa_v2_16): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa16","South Africa: SA_v2_16")
+				activate_noneu
+			)
+			checkbutton("SA_v2_17" #sa_v2_17): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa17","South Africa: SA_v2_17")
+				activate_noneu
+			)
+			checkbutton("SA_v2_18" #sa_v2_18): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa18","South Africa: SA_v2_18")
+				activate_noneu
+			)
+			checkbutton("SA_v2_19" #sa_v2_19): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa19","South Africa: SA_v2_19")
+				activate_noneu
+			)
+			checkbutton("SA_v2_20" #sa_v2_20): (
+				disable_ctxs("esa.aries.contexts.southafrica_4326_30m_2024_sa20","South Africa: SA_v2_20")
+				activate_noneu
+			)
+			separator(:empty)
+			label(#LL2_CONTEXTS width="100%" fsize="0.95em" :left)
+//			checkbutton("Cederberg SA?" #sa): (
+//				disable_ctxs("","South Africa: Cederberg SA?")
+//				activate_noneu	
+//			)
 			checkbutton("Grootbos SA2" #sa2): (
 				disable_ctxs("cu_priority_areas_contexts.south_africa_grootbos_sa2","South Africa: Grootbos SA2")
-//				activate_southafrica
 				activate_noneu	
 			)
-			checkbutton("DeHoop SA5" #sa5): (
-				disable_ctxs("cu_priority_areas_contexts.south_africa_dehoop_sa5","South Africa: DeHoop SA5")
-//				activate_southafrica
-				activate_noneu	
-			)
-			checkbutton("Kogelberg SA6" #sa6): (
-				disable_ctxs("cu_priority_areas_contexts.south_africa_kogelberg_sa6","South Africa: Kogelberg SA6")
-//				activate_southafrica
-				activate_noneu	
-			)
-			checkbutton("CapeFloral SA11" #sa11): (
-				disable_ctxs("cu_priority_areas_contexts.south_africa_capefloral_sa11","South Africa: CapeFloral SA11")
-//				activate_southafrica
-				activate_noneu	
-			)
+//			checkbutton("Hottentots mountains SA?" #sa): (
+//				disable_ctxs("","South Africa: Cederberg SA?")
+//				activate_noneu	
+//			)
 		) :name "South Africa" #sa
 		(
-			checkbutton("Kitagwenda UG1" #ug1): (
-				disable_ctxs("cu_priority_areas_contexts.uganda_kitagwenda_ug1","Uganda: Kitagwenda UG1")
-//				activate_uganda
+			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)
+			checkbutton("UG_v2_01" #ug_v2_01): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug1","Uganda: UG_v2_01")
 				activate_noneu
 			)
-			checkbutton("Bokoro wildlife corridor UG2" #ug2): (
-				disable_ctxs("cu_priority_areas_contexts.uganda_bokoro_wildlife_corridor_ug2","Uganda: Bokoro wildlife corridor UG2")
-//				activate_uganda
+			checkbutton("UG_v2_02" #ug_v2_02): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug2","Uganda: UG_v2_02")
 				activate_noneu
 			)
+			checkbutton("UG_v2_03" #ug_v2_03): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug3","Uganda: UG_v2_03")
+				activate_noneu
+			)
+			checkbutton("UG_v2_04" #ug_v2_04): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug4","Uganda: UG_v2_04")
+				activate_noneu
+			)
+			checkbutton("UG_v2_05" #ug_v2_05): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug5","Uganda: UG_v2_05")
+				activate_noneu
+			)
+			checkbutton("UG_v2_06" #ug_v2_06): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug6","Uganda: UG_v2_06")
+				activate_noneu
+			)
+			checkbutton("UG_v2_07" #ug_v2_07): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug7","Uganda: UG_v2_07")
+				activate_noneu
+			)
+			checkbutton("UG_v2_08" #ug_v2_08): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug8","Uganda: UG_v2_08")
+				activate_noneu
+			)
+			checkbutton("UG_v2_09" #ug_v2_09): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug9","Uganda: UG_v2_09")
+				activate_noneu
+			)
+			checkbutton("UG_v2_10" #ug_v2_10): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug10","Uganda: UG_v2_10")
+				activate_noneu
+			)
+			checkbutton("UG_v2_11" #ug_v2_11): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug11","Uganda: UG_v2_11")
+				activate_noneu
+			)
+			checkbutton("UG_v2_12" #ug_v2_12): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug12","Uganda: UG_v2_12")
+				activate_noneu
+			)
+			checkbutton("UG_v2_13" #ug_v2_13): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug13","Uganda: UG_v2_13")
+				activate_noneu
+			)
+			checkbutton("UG_v2_14" #ug_v2_14): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug14","Uganda: UG_v2_14")
+				activate_noneu
+			)
+			checkbutton("UG_v2_15" #ug_v2_15): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug15","Uganda: UG_v2_15")
+				activate_noneu
+			)
+			checkbutton("UG_v2_16" #ug_v2_16): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug16","Uganda: UG_v2_16")
+				activate_noneu
+			)
+			checkbutton("UG_v2_17" #ug_v2_17): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug17","Uganda: UG_v2_17")
+				activate_noneu
+			)
+			checkbutton("UG_v2_18" #ug_v2_18): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug18","Uganda: UG_v2_18")
+				activate_noneu
+			)
+			checkbutton("UG_v2_19" #ug_v2_19): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug19","Uganda: UG_v2_19")
+				activate_noneu
+			)
+			checkbutton("UG_v2_20" #ug_v2_20): (
+				disable_ctxs("esa.aries.contexts.uganda_4326_30m_2024_ug20","Uganda: UG_v2_20")
+				activate_noneu
+			)
+			separator(:empty)
+			label(#LL2_CONTEXTS width="100%" fsize="0.95em" :left)
 			checkbutton("Bugungu UG3" #ug3): (
 				disable_ctxs("cu_priority_areas_contexts.uganda_bugungu_ug3","Uganda: Bugungu UG3")
-//				activate_uganda
 				activate_noneu
 			)	
 		) :name "Uganda" #uganda
-		(			
+		(	
+			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)		
+			checkbutton("VN_v2_01" #vn_v2_01): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn1","Vietnam: VN_v2_01")
+				activate_noneu
+			)
+			checkbutton("VN_v2_02" #vn_v2_02): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn2","Vietnam: VN_v2_02")
+				activate_noneu
+			)
+			checkbutton("VN_v2_03" #vn_v2_03): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn3","Vietnam: VN_v2_03")
+				activate_noneu
+			)
+			checkbutton("VN_v2_04" #vn_v2_04): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn4","Vietnam: VN_v2_04")
+				activate_noneu
+			)
+			checkbutton("VN_v2_05" #vn_v2_05): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn5","Vietnam: VN_v2_05")
+				activate_noneu
+			)
+			checkbutton("VN_v2_06" #vn_v2_06): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn6","Vietnam: VN_v2_06")
+				activate_noneu
+			)
+			checkbutton("VN_v2_07" #vn_v2_07): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn7","Vietnam: VN_v2_07")
+				activate_noneu
+			)
+			checkbutton("VN_v2_08" #vn_v2_08): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn8","Vietnam: VN_v2_08")
+				activate_noneu
+			)
+			checkbutton("VN_v2_09" #vn_v2_09): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn9","Vietnam: VN_v2_09")
+				activate_noneu
+			)
+			checkbutton("VN_v2_10" #vn_v2_10): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn10","Vietnam: VN_v2_10")
+				activate_noneu
+			)
+			checkbutton("VN_v2_11" #vn_v2_11): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn11","Vietnam: VN_v2_11")
+				activate_noneu
+			)
+			checkbutton("VN_v2_12" #vn_v2_12): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn12","Vietnam: VN_v2_12")
+				activate_noneu
+			)
+			checkbutton("VN_v2_13" #vn_v2_13): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn13","Vietnam: VN_v2_13")
+				activate_noneu
+			)
+			checkbutton("VN_v2_14" #vn_v2_14): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn14","Vietnam: VN_v2_14")
+				activate_noneu
+			)
+			checkbutton("VN_v2_15" #vn_v2_15): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn15","Vietnam: VN_v2_15")
+				activate_noneu
+			)
+			checkbutton("VN_v2_16" #vn_v2_16): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn16","Vietnam: VN_v2_16")
+				activate_noneu
+			)
+			checkbutton("VN_v2_17" #vn_v2_17): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn17","Vietnam: VN_v2_17")
+				activate_noneu
+			)
+			checkbutton("VN_v2_18" #vn_v2_18): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn18","Vietnam: VN_v2_18")
+				activate_noneu
+			)
+			checkbutton("VN_v2_19" #vn_v2_19): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn19","Vietnam: VN_v2_19")
+				activate_noneu
+			)
+			checkbutton("VN_v2_20" #vn_v2_20): (
+				disable_ctxs("esa.aries.contexts.vietnam_4326_30m_2024_vn20","Vietnam: VN_v2_20")
+				activate_noneu
+			)
+			separator(:empty)
+			label(#LL2_CONTEXTS width="100%" fsize="0.95em" :left)
 			checkbutton("Quang Ninh - Hai Phong VN1" #vn1): (
 				disable_ctxs("cu_priority_areas_contexts.vietnam_quang_ninh__hai_phong_vn1","Vietnam: Quang Ninh - Hai Phong VN1")
-//				activate_vietnam  
 				activate_noneu
 			)
 			checkbutton("Cu Lao Cham - Hoi An VN3" #vn3): (
 				disable_ctxs("cu_priority_areas_contexts.vietnam_cu_lao_cham__hoi_an_vn3","Vietnam: Cu Lao Cham - Hoi An VN3")
-//				activate_vietnam  
 				activate_noneu
 			)
 		) :name "Vietnam" #vietnam	
@@ -346,76 +1003,80 @@ all cu_priority_area_contexts for use in alpha 3
 
 	) :shelf #contexts
 
-	(
-		(
-			label(context_label width="100%" :info #header_label)
-			button(:tooltip "Interrupt computation and reset context" #breset :iconname "close-circle-outline" 
-					color="red-8"
-				): reset_buttons
-		) :hbox :hidden #headers
-			
-	)
 	(	
 			separator("Query Ecosystem Types according to:" :iconname "sprout-outline" )
 			(
 				(
-					checkbutton("Machine Learning (IUCN GET) results" #ml :tooltip "Machine Learning (IUCN GET) results"): (
-						submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_machine_learning)
+					checkbutton("Machine Learning (IUCN GET) results" #noneu_mlr :tooltip "Machine Learning (IUCN GET) results"): (
+						alert("This model is computed on demand and may take up to a few hours to process.<br/>If your results don't appear immediately, the computation is running in the background.")
+						submit(esa.aries.ecosystem_extent.ecosystem_type_iucn_get_level3_machine_learning)
 					)
-					checkbutton("Machine Learning (IUCN GET) summary table" #rb :tooltip "Machine Learning (IUCN GET) summary table"): (
-						submit(beta.ecosystem_type.ecosystem_typology_extent_iucn_machine_learning_static)				
-					)
-					checkbutton("Rule-based (local model) results" #rb_local :tooltip "Rule-based (local model) results"): (
-						submit(rule_based_modelling.colombia.ecosystem_type_colombia_new) : submit(colombia.seea.ecosystem.mec.mec_new)
-					)
-					checkbutton("Rule-based (IUCN GET) results" #rb :tooltip "Rule-based (IUCN GET) results"): (
-						submit(primitive_characteristic.land_cover.land_cover_dominance) : submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based)
-					)
-					checkbutton("Rule-based (IUCN GET) summary table" #rb :tooltip "Rule-based (IUCN GET) summary table"): (
-						submit(beta.ecosystem_type.ecosystem_typology_extent_iucn_get_rule_based_basic)				
-					)
-					checkbutton("Hybrid modelling" #hybrid :tooltip "Hybrid modelling" :disabled)
-					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem" #a2 :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
-						 submit(esa.aries.ecosystem.naturalness.natural_ecosystem_extent) : submit(esa.aries.ecosystem.naturalness.natural_ecosystem_extent_iucn_get_static)
-					)
-					hybrid.disable					
-				) :hidden #col_obs
-				(
-					checkbutton("Machine Learning (IUCN GET) results" #ml :tooltip "Machine Learning (IUCN GET) results"): (
-						submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_machine_learning)
-					)
-					checkbutton("Machine Learning (IUCN GET) summary table" #rb :tooltip "Machine Learning (IUCN GET) summary table"): (
-						submit(beta.ecosystem_type.ecosystem_typology_extent_iucn_machine_learning_static)				
+					checkbutton("Machine Learning (IUCN GET) summary table" #noneu_mlst :tooltip "Machine Learning (IUCN GET) summary table"): (
+						alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
+								If your results don't appear immediately, the computation is running in the background.")
+						submit(esa.aries.ecosystem_extent_table.ecosystem_typology_extent_iucn_machine_learning_static)				
 					)					
-					checkbutton("Rule-based (IUCN GET) results" #rb :tooltip "Rule-based (IUCN GET) results"): (
-						submit(primitive_characteristic.land_cover.land_cover_dominance) : submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based)
+					checkbutton("Rule-based (IUCN GET) results" #noneu_rbigr :tooltip "Rule-based (IUCN GET) results"): (
+						alert("This model is computed on demand and may take up to a few hours to process.<br/>If your results don't appear immediately, the computation is running in the background.")
+						submit(esa.aries.ecosystem_extent.ecosystem_type_iucn_get_level3_rule_based) : submit(esa.aries.ecosystem_extent.ecosystem_characteristics)
 					)
-					checkbutton("Rule-based (global model) summary table" #rb :tooltip "Rule-based (global model) summary table"): (
-						submit(beta.ecosystem_type.ecosystem_typology_extent_iucn_get_rule_based_basic)				
+					checkbutton("Rule-based (IUCN GET) summary table" #noneu_rbigst :tooltip "Rule-based (IUCN GET) summary table"): (
+						alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
+								If your results don't appear immediately, the computation is running in the background.")
+						submit(esa.aries.ecosystem_extent_table.ecosystem_typology_extent_iucn_get_rule_based_basic)				
 					)
-					checkbutton("Hybrid modelling" #hybrid :tooltip "Hybrid modelling" :disabled)
-					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem" #a2 :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
-						 submit(esa.aries.ecosystem.naturalness.natural_ecosystem_extent) : submit(esa.aries.ecosystem.naturalness.natural_ecosystem_extent_iucn_get_static)
+					checkbutton("Hybrid modelling" #noneu_hm :tooltip "Hybrid modelling" :disabled)
+					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Machine Learning (IUCN GET) results" #noneu_a2mlr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
+						alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
+								If your results don't appear immediately, the computation is running in the background.")
+						submit(esa.aries.ecosystem_extent.ecosystem_type_iucn_get_level3_machine_learning)
+						submit(esa.aries.ecosystem_extent_table.natural_ecosystem_extent_iucn_get_machine_learning_net_change)
 					)
-					hybrid.disable					
+					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Rule-based (IUCN GET) results" #noneu_a2rbr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
+						 alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
+								If your results don't appear immediately, the computation is running in the background.")
+						submit(esa.aries.ecosystem_extent.ecosystem_type_iucn_get_level3_rule_based) 
+						submit(esa.aries.ecosystem_extent_table.natural_ecosystem_extent_iucn_get_rule_based_net_change)
+					)						
 				) :hidden #noneu_obs								
 				(
-					checkbutton("Machine Learning (EUNIS classification) results" #ml :tooltip "Machine Learning (EUNIS classification) results"): (
-						submit(beta.ecosystem_type.ecosystem_type_eunis_level2_machine_learning)
+					checkbutton("Machine Learning (EUNIS classification) results" #eu_mlr :tooltip "Machine Learning (EUNIS classification) results"): (
+						alert("This model is computed on demand and may take up to a few hours to process.<br/>If your results don't appear immediately, the computation is running in the background.")
+						submit(esa.aries.ecosystem_extent.ecosystem_type_eunis_level2_machine_learning)
 					)
-					checkbutton("Machine Learning (EUNIS classification) summary table" #rb :tooltip "Machine Learning (EUNIS classification) summary table"): (
-						submit(beta.ecosystem_type.ecosystem_typology_extent_eunis__machine_learning_static)				
+					checkbutton("Machine Learning (EUNIS classification) summary table" #eu_mlst :tooltip "Machine Learning (EUNIS classification) summary table"): (
+						alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
+								If your results don't appear immediately, the computation is running in the background.")
+						submit(esa.aries.ecosystem_extent_table.ecosystem_typology_extent_eunis_machine_learning_static)				
 					)						
-					checkbutton("Rule-based (IUCN GET) results" #rb :tooltip "Rule-based (IUCN GET) results"): (
-						submit(primitive_characteristic.land_cover.land_cover_dominance) : submit(beta.ecosystem_type.ecosystem_type_iucn_get_level3_rule_based)
+					checkbutton("Rule-based (IUCN GET) results" #eu_rbigr :tooltip "Rule-based (IUCN GET) results" :disabled): (
+						alert("This model is computed on demand and may take up to a few hours to process.<br/>If your results don't appear immediately, the computation is running in the background.")
+						submit(esa.aries.ecosystem_extent.ecosystem_type_iucn_get_level3_rule_based) : submit(esa.aries.ecosystem_extent.ecosystem_characteristics)
 					)
-					checkbutton("Rule-based (IUCN GET) summary table" #rb :tooltip "Rule-based (IUCN GET) summary table"): (
-						submit(beta.ecosystem_type.ecosystem_typology_extent_iucn_get_rule_based_static)				
+					checkbutton("Rule-based (IUCN GET) summary table" #eu_rbigst :tooltip "Rule-based (IUCN GET) summary table" :disabled): (
+						alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
+								If your results don't appear immediately, the computation is running in the background.")
+						submit(esa.aries.ecosystem_extent_table.ecosystem_typology_extent_iucn_get_rule_based_static)				
 					)					
-					checkbutton("Hybrid modelling" #hybrid :tooltip "Hybrid modelling" :disabled)
-					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem" #a2 :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
-						submit(esa.aries.ecosystem.naturalness.eunis_natural_ecosystem_extent) : submit(esa.aries.ecosystem.naturalness.natural_ecosystem_extent_eunis)
+					checkbutton("Hybrid modelling" #eu_hm :tooltip "Hybrid modelling" :disabled)
+					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Machine Learning (EUNIS) results" #ey_a2mlr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)":disabled 
+						alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
+								If your results don't appear immediately, the computation is running in the background.")
+						submit(esa.aries.ecosystem.naturalness.eunis_natural_ecosystem_extent)
+						submit(esa.aries.ecosystem.naturalness.natural_ecosystem_extent_eunis)
 					)
+					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Rule-based (IUCN GET) results" #eu_a2rbr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
+						alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
+								If your results don't appear immediately, the computation is running in the background.")
+						submit(esa.aries.ecosystem.naturalness.natural_ecosystem_extent_iucn_get_rule_based)
+						submit(esa.aries.ecosystem.naturalness.gbf_indicator_a2_natural_ecosystem_percentage_iucn_get_rule_based_static) 
+					)
+					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Machine Learning (IUCN GET) results" #eu_a2rbr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
+						alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
+								If your results don't appear immediately, the computation is running in the background.")
+						submit(esa.aries.ecosystem.naturalness.natural_ecosystem_extent_iucn_get_machine_learning)
+						submit(esa.aries.ecosystem.naturalness.gbf_indicator_a2_natural_ecosystem_percentage_iucn_get__machine_learning_static) 
+					)					
 					hybrid.disable					
 				) :hidden #eu_obs
 			)
@@ -426,90 +1087,50 @@ all cu_priority_area_contexts for use in alpha 3
 					color="red-8"
 				): reset_buttons
 	) :hbox :hidden #headers
+	(
+		label("Use the links below to check if your tile is already computed or currently generating: " width="100%" fsize="0.95em" :left)
+		button("IUCN GET (Machine Learning)"): website_iucnget_ml
+		button("IUCN GET (Rule-Based)"): website_iucnget_rb
+
+	):hidden #noneu_computation_links
+	(
+		label("Use the links below to check if your tile is already computed or currently generating: " width="100%" fsize="0.95em" :left)
+		button("EUNIS (Machine Learning)"): website_eunis_ml
+	):hidden #eu_computation_links
 	
 		
 	action activate_noneu: (
 		noneu_obs.show
+		noneu_computation_links.show
 	)
 	action activate_eu: (
 		eu_obs.show
-	)
-	action activate_colombia: (
-		col_obs.show
+		eu_computation_links.show
 	)
 
-
-//	(
-//		(
-//			separator("Query Ecosystem Types according to:" :iconname "sprout-outline" )
-//			(
-//				(
-////					checkbutton("Machine Learning results (IUCN GET classification)" #colombia_obs_ml): (
-////						submit(ml.ecosystem_type.inference.ecdc_level3_mece)
-////					)
-//					checkbutton("Rule-based results (Local classification)" #colombia_obs_local :tooltip "Rule-based results (Local classification)"): (
-//						submit(rule_based_modelling.colombia.ecosystem_type_colombia_new)
-//					)
-//					checkbutton("Rule-based results (IUCN GET classification)" #colombia_obs_iucnget :tooltip "Rule-based results (IUCN GET classification)"): (
-//						submit(rule_based_modelling.colombia.ecosystem_type_iucn_get_new)
-//					)
-//				) :hidden #colombia_obs
-//				(
-////					checkbutton("Machine Learning results (IUCN GET classification)" #southafrica_obs_ml): (
-////						submit(ml.ecosystem_type.inference.ecdc_level3_mece)
-////					)
-//					checkbutton("Rule-based results (IUCN GET classification)" #southafrica_iucnget :tooltip "Rule-based results (IUCN GET classification)" ): (
-//						submit(rule_based_modelling.south_africa.ecosystem_type_iucn_get_improved)
-//					)
-//				) :hidden #southafrica_obs
-//				(
-////					checkbutton("Machine Learning results (IUCN GET classification)" #vietnam_obs_ml): (
-////						submit(ml.ecosystem_type.inference.ecdc_level3_mece)
-////					) 
-//					checkbutton("Rule-based results (IUCN GET classification)" #vietnam_obs_2 :tooltip "Rule-based results (IUCN GET classification)"): (
-//						submit(rule_based_modelling.vietnam.ecosystem_type_iucn_get_improved)
-//					)			
-//				) :hidden #vietnam_obs
-//				(
-//					checkbutton("Machine Learning results (EUNIS Typology)" #europe_obs_1 :tooltip "Machine Learning results (EUNIS Typology)"): (
-//						submit(ml.ecosystem_type.inference.ml_inferences)
-//					) 
-//					
-//					checkbutton("Machine Learning Inference Calculated Extent" #europe_obs_2 :tooltip "Machine Learning Inference Calculated Extent"): (
-//						submit(ml.ecosystem_type.inference.ml_inference_presence)
-//					)
-//				) :hidden #europe_obs
-//			)
-//		) :hidden #queries	
-//	)
-// 	
-//	action activate_europe: (
-//		europe_obs.show
-//	)
-//	
-//	action activate_colombia: (
-//		colombia_obs.show
-//	)
-//
-//	action activate_southafrica: (
-//		southafrica_obs.show
-//	)
-//		
-//	action activate_vietnam: (
-//		vietnam_obs.show
-//	)
-//	
 	action disable_ctxs(context_name, context_label): (
 		contexts.hide
 		reset_context.enable
 		header_label.update([context_label])
 		headers.show
+		computation_links.show
 		context([context_name])
 		queries.show
 	)
+
 	action reset_buttons: (
 		headers.hide
 		queries.hide
 		context(:reset)
 		reset(:wait)
 	)
+	
+@modal(width=1100, height=650, title="EUNIS (Machine Learning)")
+action website_eunis_ml:
+	html("https://esa-weed-project.github.io/openeo_jobdb_viewer/#url=https%3A%2F%2Fcatalogue.weed.apex.esa.int%2Fcollections%2FMachineLearning-EUNIS2021plus-PROBA-V320-jobdb&refreshIntervalSeconds=30")
+@modal(width=1100, height=650, title="IUCN GET (Machine Learning)")
+action website_iucnget_ml:
+	html("https://esa-weed-project.github.io/openeo_jobdb_viewer/#url=https%3A%2F%2Fcatalogue.weed.apex.esa.int%2Fcollections%2FMachineLearning-IUCNGET-PROBA-V330-jobdb&refreshIntervalSeconds=30")
+@modal(width=1100, height=650, title="IUCN GET (Rule-based)")
+action website_iucnget_rb:
+	html("https://esa-weed-project.github.io/openeo_jobdb_viewer/#url=https%3A%2F%2Fcatalogue.weed.apex.esa.int%2Fcollections%2FRuleBased-EXTENT-V502-jobdb&refreshIntervalSeconds=30")

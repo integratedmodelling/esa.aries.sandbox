@@ -1,5 +1,9 @@
 {
-  "en" : { 
-    "ARIES_FOR_ESA_EXPLORER_DESCRIPTION":"Ecosystem Types modeller powered by k.LAB semantic web technology and openEO"
+  "en" : {
+    "ARIES_FOR_ESA_EXPLORER_DESCRIPTION" : "Ecosystem Types modeller powered by k.LAB semantic web technology and openEO",
+    "SLOW_REQUEST_ALERT" : "This models are computed on demand and may take up to a few hours to process.<br/> Holapapapapapappapa",
+    "SLOW_REQUEST_ALERT_SECONDARY_OBS" : "Some intermediate results needed to run this model <br/> are computed on demand and may take up to a few hours to process.<br/>",
+    "DRR_CONTEXTS" : "New contexts",
+    "LL2_CONTEXTS" : "Contexts used in the LL2"
   }
 }

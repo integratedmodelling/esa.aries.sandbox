@@ -1,0 +1,7 @@
+project private namespace esa.aries.model_approach;
+
+abstract attribute ModelApproach
+	has children
+		MachineLearning,
+		RuleBased,
+		HybridModelling;

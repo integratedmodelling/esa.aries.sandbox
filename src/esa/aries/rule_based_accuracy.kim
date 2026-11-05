@@ -1,0 +1,386 @@
+private namespace esa.aries.rule_based_accuracy
+using nca.ecosystem.iucn, et_result_comparison,
+(IUCN_GET_LEVEL_CONVERSION_TABLE) from et_result_comparison,
+(IUCN_GET_LEVEL_CONSISTENCY_TABLE) from et_result_comparison;
+
+/* The reference model has to be written to pick the best data available */
+
+model 'local:alessio.bulckaen:esa.aries.sandbox:weed_validation#getraster'
+	as im:Reference type of nca.ecosystem.iucn:Ecosystem 
+	classified according to im:ecosystem-get-iucn;
+
+observe earth:Region named colombia_iucnget_rb_v502
+        over space(shape='EPSG:4326 POLYGON ((-74.63689662931095 8.141871773271133, -74.63673180952716 8.322777136134407, -74.81836496706067 8.322901657560594, -74.81844737903323 8.141993552342004, -74.63689662931095 8.141871773271133))',
+                grid = "30 m"),
+        time (year=2024);
+observe earth:Region named small_area_test_colombia
+        over space(shape='EPSG:4326 POLYGON ((-74.72446240398484 8.201517351065604, -74.72510858022173 8.198302015418747, -74.7269487344579 8.195576165115554, -74.729702719892 8.193754799763099, -74.73295126720657 8.193115219326899, -74.73619981452114 8.193754799763099, -74.73895379995521 8.195576165115554, -74.7407939541914 8.198302015418747, -74.74144013042829 8.201517351065604, -74.7407939541914 8.204732660706199, -74.73895379995521 8.207458448224614, -74.73619981452114 8.209279750792305, -74.73295126720657 8.2099193052222, -74.729702719892 8.209279750792305, -74.7269487344579 8.207458448224614, -74.72510858022173 8.204732660706199, -74.72446240398484 8.201517351065604))',
+                grid = "30 m"),
+        time (year=2024);
+        
+/*IUCN GET RuleBased */
+//model 'local:alessio.bulckaen:esa.aries.sandbox:WEED-RB-IUCNGET_mece-cube_year2024_18λWQ33_V502_2024-01-01Z' 
+model 'local:alessio.bulckaen:esa.aries.sandbox:RuleBased-V502'
+as type of nca.ecosystem.iucn:Ecosystem
+classified according to im:ecosystem-get-iucn;
+
+/* -----------------------------------------------------------------------------------------------------------------------------------------------
+ * # 1) Comparison of the ecosystem type result between modelled & reference maps by ES types.
+ */
+@colormap(values = { 
+ nca.ecosystem.iucn:Ecosystem: (0 0 0),//Temporary, black is easier to distinguish than gray
+	 nca.ecosystem.iucn:Terrestrial: (0 0 0),
+	 nca.ecosystem.iucn:TropicalSubtropicalForest: (160 255 160),
+		 nca.ecosystem.iucn:TropicalSubtropicalLowlandRainforest: (20, 120, 20),
+		 nca.ecosystem.iucn:TropicalSubtropicalDryForestThicket: (112 168 0), 
+		 nca.ecosystem.iucn:TropicalSubtropicalMontaneRainforest: (76 115 0),
+		 nca.ecosystem.iucn:TropicalHeathForest: (115 115 0),
+	 nca.ecosystem.iucn:TemperateBorealForestWoodland: (38 115 0),
+		 nca.ecosystem.iucn:BorealTemperateMontaneForestWoodland: (38 115 0),
+		 nca.ecosystem.iucn:ConiferousTemperateForest: (40 120 20),
+		 nca.ecosystem.iucn:DeciduousTemperateForest: (56 168 0),
+		 nca.ecosystem.iucn:OceanicCoolTemperateRainforest: (92 137 68),
+		 nca.ecosystem.iucn:WarmTemperateLaurophyllForest: (85 255 0),
+		 nca.ecosystem.iucn:TemperatePyricHumidForest: (137 205 102),
+		 nca.ecosystem.iucn:TemperatePyricSclerophyllForestWoodland: (137 137 68),
+	 nca.ecosystem.iucn:ShrublandShrubbyWoodland: (205 170 102),
+		 nca.ecosystem.iucn:SeasonallyDryTropicalShrubland: (171 205 102),
+		 nca.ecosystem.iucn:SeasonallyDryTemperateHeathShrubland: (205 170 102),
+		 nca.ecosystem.iucn:CoolTemperateHeathland: (205 205 102),
+		 nca.ecosystem.iucn:RockyPavementLavaflowScree: (215 194 158),
+	 nca.ecosystem.iucn:SavannaGrassland: (209 255 115),
+		 nca.ecosystem.iucn:TrophicSavanna: (180 215 158),
+		 nca.ecosystem.iucn:PyricTussockSavanna: (218 165 32),
+		 nca.ecosystem.iucn:HummockSavanna: (170 255 0),
+		 nca.ecosystem.iucn:TemperateWoodland: (152 230 0),
+		 nca.ecosystem.iucn:TemperateSubhumidGrassland: (209 255 115),
+	 nca.ecosystem.iucn:DesertSemidesert: (245 245 152),
+		 nca.ecosystem.iucn:SemidesertSteppe: (245 245 152),
+		 nca.ecosystem.iucn:ThornyDesertSemidesert: (255 255 190),
+		 nca.ecosystem.iucn:SclerophyllHotDesertSemidesert: (245 202 122),
+		 nca.ecosystem.iucn:CoolDesertSemidesert: (215 215 158), 
+		 nca.ecosystem.iucn:HyperaridDesert: (255 235 175),
+	 nca.ecosystem.iucn:IntensiveLandUseSystem: (255 0 0),
+		 nca.ecosystem.iucn:AnnualCropland: (230 230 0),
+			 nca.ecosystem.iucn:PermanentlyIrrigatedArableLand:(230 230 100),
+			 nca.ecosystem.iucn:NotIrrigatedArableLand:(230 230 150),
+		 nca.ecosystem.iucn:Plantation: (114 137 168),
+			 nca.ecosystem.iucn:OrchardMeadow:(120 140 150),
+			 nca.ecosystem.iucn:Hedgerow:(120 150 160),
+	 nca.ecosystem.iucn:UrbanIndustrialEcosystem: (168 0 0),
+			 nca.ecosystem.iucn:UrbanEcosystem: (168 0 0),
+				 nca.ecosystem.iucn:GreenUrbanArea:(35 130 40), //TO be revised
+			 nca.ecosystem.iucn:IndustrialEcosystem: (138 43 226),
+		 nca.ecosystem.iucn:Pasture: (233 255 190),
+			 nca.ecosystem.iucn:DerivedSeminaturalPastureOldfield: (211 255 190),
+			 nca.ecosystem.iucn:SownPastureField: (240 230 80),
+	 nca.ecosystem.iucn:PolarAlpine: (221 221 221),
+		 nca.ecosystem.iucn:TemperateAlpineGrasslandShrubland: (232 190 255),
+		 nca.ecosystem.iucn:TropicalAlpineGrasslandShrubland: (100 140 17),
+		 nca.ecosystem.iucn:IceSheetGlacierPerennialSnowfield: (221 221 221),
+		 nca.ecosystem.iucn:PolarAlpineCliffScreeOutcropLavaFlow: (204 204 204),
+		 nca.ecosystem.iucn:PolarTundraDesert: (255 190 232),
+	 nca.ecosystem.iucn:PalustrineWetland: (0 168 132),
+		 nca.ecosystem.iucn:TropicalFloodedForestPeatForest: (0 230 169),
+		 nca.ecosystem.iucn:SubtropicalWarmTemperateForestedWetland: (0 168 132),
+		 nca.ecosystem.iucn:PermanentMarsh: (115 255 223),
+			 nca.ecosystem.iucn:WarmTemperateTropicalMarsh: (115 250 220),
+		 nca.ecosystem.iucn:SeasonalFloodplainMarsh: (128 219 140),
+		 nca.ecosystem.iucn:EpisodicAridFloodplain: (158 215 194),
+	    nca.ecosystem.iucn:BorealCoolTemperatePalustrineWetland: (0 255 197),
+		 nca.ecosystem.iucn:BorealTemperateMontanePeatBog: (60,179,113), //TODO check colors
+		 nca.ecosystem.iucn:BorealTemperateFen: (144,238,144),			//TODO check colors
+		 nca.ecosystem.iucn:Marine: (0 77 168),
+			 nca.ecosystem.iucn:SeagrassMeadow: (64,224,208),
+			 nca.ecosystem.iucn:SubtidalRockyReef: (0,139,139),	
+			 nca.ecosystem.iucn:SubtidalSandBed: (189,183,107),
+			 nca.ecosystem.iucn:PhoticCoralReef: (230, 103, 113),
+			 nca.ecosystem.iucn:PermanentlyOpenRiverineEstuaryBay: (0,0,128),
+		 nca.ecosystem.iucn:Freshwater: (0 92 230),
+			 nca.ecosystem.iucn:RiverStream: (32 111 230),
+				 nca.ecosystem.iucn:SeasonalUplandStream: (33 111 230),
+				 nca.ecosystem.iucn:SeasonalLowlandRiver: (36 115 240),
+				 nca.ecosystem.iucn:PermanentUplandStream: (46 120 230),
+				 nca.ecosystem.iucn:PermanentLowlandStream: (9 98 230),				
+			 nca.ecosystem.iucn:Lake: (138 190 249),
+				 nca.ecosystem.iucn:SeasonalFreshwaterLake: (92 134 182),
+				 nca.ecosystem.iucn:EphemeralFreshwaterLake: (100 150 200),
+				 nca.ecosystem.iucn:EphemeralSaltLake: (173, 216, 230),
+				 nca.ecosystem.iucn:LargePermanentFreshwaterLake:(10 50 115),
+				 nca.ecosystem.iucn:SmallPermanentFreshwaterLake:(30,144,255),
+				 nca.ecosystem.iucn:PermanentSaltSodaLake: (10 50 75),
+				 nca.ecosystem.iucn:FreezethawFreshwaterLake: (164,244,249),
+			 nca.ecosystem.iucn:ArtificialWetland: (46,139,87),	
+				 nca.ecosystem.iucn:CanalDitchDrain: (102,102,153),
+				 nca.ecosystem.iucn:RicePaddy: (247,255,230),		
+//	 nca.ecosystem.iucn:CoastalEcosystem: (175 175 255),
+		 nca.ecosystem.iucn:MarineTerrestrial: (28 28 239),
+			 nca.ecosystem.iucn:Shoreline: (255,215,0),
+				 nca.ecosystem.iucn:RockyShoreline: (250 242 122),
+				 nca.ecosystem.iucn:MuddyShoreline: (243 128 14),
+				 nca.ecosystem.iucn:SandyShoreline: (224 240 143),
+				 nca.ecosystem.iucn:BoulderCobbleShore: (224 240 143), 
+			 nca.ecosystem.iucn:CoastalShrublandGrassland: (0,106,78),	//TODO check color 	
+		 nca.ecosystem.iucn:BrackishTidal: (190 255 232),
+			 nca.ecosystem.iucn:IntermittentlyClosedOpenLakeLagoon:(185 250 220),
+			 nca.ecosystem.iucn:CoastalRiverDelta: (115 223 255),
+			 nca.ecosystem.iucn:IntertidalForestShrubland: (0 115 76),
+				 nca.ecosystem.iucn:CoastalRiverDeltaIntertidalForestShrubland:(0 120 100),
+			 nca.ecosystem.iucn:CoastalSaltmarshReedbed: (190 255 232),
+				 nca.ecosystem.iucn:CoastalRiverDeltaSaltmarshReedbed:(170 250 200),
+				 nca.ecosystem.iucn:Aquatic: (0 77 168)
+}) 
+model im:Reference type of et_result_comparison:Level_1 nca.ecosystem.iucn:Ecosystem named reference_ecosystem_type_level_1
+	observing
+		im:Reference type of nca.ecosystem.iucn:Ecosystem named reference_ecosystem_type
+	lookup (reference_ecosystem_type, *, ?) 
+		into IUCN_GET_LEVEL_CONVERSION_TABLE;
+@colormap(values = { 
+ nca.ecosystem.iucn:Ecosystem: (0 0 0),//Temporary, black is easier to distinguish than gray
+	 nca.ecosystem.iucn:Terrestrial: (0 0 0),
+	 nca.ecosystem.iucn:TropicalSubtropicalForest: (160 255 160),
+		 nca.ecosystem.iucn:TropicalSubtropicalLowlandRainforest: (20, 120, 20),
+		 nca.ecosystem.iucn:TropicalSubtropicalDryForestThicket: (112 168 0), 
+		 nca.ecosystem.iucn:TropicalSubtropicalMontaneRainforest: (76 115 0),
+		 nca.ecosystem.iucn:TropicalHeathForest: (115 115 0),
+	 nca.ecosystem.iucn:TemperateBorealForestWoodland: (38 115 0),
+		 nca.ecosystem.iucn:BorealTemperateMontaneForestWoodland: (38 115 0),
+		 nca.ecosystem.iucn:ConiferousTemperateForest: (40 120 20),
+		 nca.ecosystem.iucn:DeciduousTemperateForest: (56 168 0),
+		 nca.ecosystem.iucn:OceanicCoolTemperateRainforest: (92 137 68),
+		 nca.ecosystem.iucn:WarmTemperateLaurophyllForest: (85 255 0),
+		 nca.ecosystem.iucn:TemperatePyricHumidForest: (137 205 102),
+		 nca.ecosystem.iucn:TemperatePyricSclerophyllForestWoodland: (137 137 68),
+	 nca.ecosystem.iucn:ShrublandShrubbyWoodland: (205 170 102),
+		 nca.ecosystem.iucn:SeasonallyDryTropicalShrubland: (171 205 102),
+		 nca.ecosystem.iucn:SeasonallyDryTemperateHeathShrubland: (205 170 102),
+		 nca.ecosystem.iucn:CoolTemperateHeathland: (205 205 102),
+		 nca.ecosystem.iucn:RockyPavementLavaflowScree: (215 194 158),
+	 nca.ecosystem.iucn:SavannaGrassland: (209 255 115),
+		 nca.ecosystem.iucn:TrophicSavanna: (180 215 158),
+		 nca.ecosystem.iucn:PyricTussockSavanna: (218 165 32),
+		 nca.ecosystem.iucn:HummockSavanna: (170 255 0),
+		 nca.ecosystem.iucn:TemperateWoodland: (152 230 0),
+		 nca.ecosystem.iucn:TemperateSubhumidGrassland: (209 255 115),
+	 nca.ecosystem.iucn:DesertSemidesert: (245 245 152),
+		 nca.ecosystem.iucn:SemidesertSteppe: (245 245 152),
+		 nca.ecosystem.iucn:ThornyDesertSemidesert: (255 255 190),
+		 nca.ecosystem.iucn:SclerophyllHotDesertSemidesert: (245 202 122),
+		 nca.ecosystem.iucn:CoolDesertSemidesert: (215 215 158), 
+		 nca.ecosystem.iucn:HyperaridDesert: (255 235 175),
+	 nca.ecosystem.iucn:IntensiveLandUseSystem: (255 0 0),
+		 nca.ecosystem.iucn:AnnualCropland: (230 230 0),
+			 nca.ecosystem.iucn:PermanentlyIrrigatedArableLand:(230 230 100),
+			 nca.ecosystem.iucn:NotIrrigatedArableLand:(230 230 150),
+		 nca.ecosystem.iucn:Plantation: (114 137 168),
+			 nca.ecosystem.iucn:OrchardMeadow:(120 140 150),
+			 nca.ecosystem.iucn:Hedgerow:(120 150 160),
+	 nca.ecosystem.iucn:UrbanIndustrialEcosystem: (168 0 0),
+			 nca.ecosystem.iucn:UrbanEcosystem: (168 0 0),
+				 nca.ecosystem.iucn:GreenUrbanArea:(35 130 40), //TO be revised
+			 nca.ecosystem.iucn:IndustrialEcosystem: (138 43 226),
+		 nca.ecosystem.iucn:Pasture: (233 255 190),
+			 nca.ecosystem.iucn:DerivedSeminaturalPastureOldfield: (211 255 190),
+			 nca.ecosystem.iucn:SownPastureField: (240 230 80),
+	 nca.ecosystem.iucn:PolarAlpine: (221 221 221),
+		 nca.ecosystem.iucn:TemperateAlpineGrasslandShrubland: (232 190 255),
+		 nca.ecosystem.iucn:TropicalAlpineGrasslandShrubland: (100 140 17),
+		 nca.ecosystem.iucn:IceSheetGlacierPerennialSnowfield: (221 221 221),
+		 nca.ecosystem.iucn:PolarAlpineCliffScreeOutcropLavaFlow: (204 204 204),
+		 nca.ecosystem.iucn:PolarTundraDesert: (255 190 232),
+	 nca.ecosystem.iucn:PalustrineWetland: (0 168 132),
+		 nca.ecosystem.iucn:TropicalFloodedForestPeatForest: (0 230 169),
+		 nca.ecosystem.iucn:SubtropicalWarmTemperateForestedWetland: (0 168 132),
+		 nca.ecosystem.iucn:PermanentMarsh: (115 255 223),
+			 nca.ecosystem.iucn:WarmTemperateTropicalMarsh: (115 250 220),
+		 nca.ecosystem.iucn:SeasonalFloodplainMarsh: (128 219 140),
+		 nca.ecosystem.iucn:EpisodicAridFloodplain: (158 215 194),
+	    nca.ecosystem.iucn:BorealCoolTemperatePalustrineWetland: (0 255 197),
+		 nca.ecosystem.iucn:BorealTemperateMontanePeatBog: (60,179,113), //TODO check colors
+		 nca.ecosystem.iucn:BorealTemperateFen: (144,238,144),			//TODO check colors
+		 nca.ecosystem.iucn:Marine: (0 77 168),
+			 nca.ecosystem.iucn:SeagrassMeadow: (64,224,208),
+			 nca.ecosystem.iucn:SubtidalRockyReef: (0,139,139),	
+			 nca.ecosystem.iucn:SubtidalSandBed: (189,183,107),
+			 nca.ecosystem.iucn:PhoticCoralReef: (230, 103, 113),
+			 nca.ecosystem.iucn:PermanentlyOpenRiverineEstuaryBay: (0,0,128),
+		 nca.ecosystem.iucn:Freshwater: (0 92 230),
+			 nca.ecosystem.iucn:RiverStream: (32 111 230),
+				 nca.ecosystem.iucn:SeasonalUplandStream: (33 111 230),
+				 nca.ecosystem.iucn:SeasonalLowlandRiver: (36 115 240),
+				 nca.ecosystem.iucn:PermanentUplandStream: (46 120 230),
+				 nca.ecosystem.iucn:PermanentLowlandStream: (9 98 230),				
+			 nca.ecosystem.iucn:Lake: (138 190 249),
+				 nca.ecosystem.iucn:SeasonalFreshwaterLake: (92 134 182),
+				 nca.ecosystem.iucn:EphemeralFreshwaterLake: (100 150 200),
+				 nca.ecosystem.iucn:EphemeralSaltLake: (173, 216, 230),
+				 nca.ecosystem.iucn:LargePermanentFreshwaterLake:(10 50 115),
+				 nca.ecosystem.iucn:SmallPermanentFreshwaterLake:(30,144,255),
+				 nca.ecosystem.iucn:PermanentSaltSodaLake: (10 50 75),
+				 nca.ecosystem.iucn:FreezethawFreshwaterLake: (164,244,249),
+			 nca.ecosystem.iucn:ArtificialWetland: (46,139,87),	
+				 nca.ecosystem.iucn:CanalDitchDrain: (102,102,153),
+				 nca.ecosystem.iucn:RicePaddy: (247,255,230),		
+//	 nca.ecosystem.iucn:CoastalEcosystem: (175 175 255),
+		 nca.ecosystem.iucn:MarineTerrestrial: (28 28 239),
+			 nca.ecosystem.iucn:Shoreline: (255,215,0),
+				 nca.ecosystem.iucn:RockyShoreline: (250 242 122),
+				 nca.ecosystem.iucn:MuddyShoreline: (243 128 14),
+				 nca.ecosystem.iucn:SandyShoreline: (224 240 143),
+				 nca.ecosystem.iucn:BoulderCobbleShore: (224 240 143), 
+			 nca.ecosystem.iucn:CoastalShrublandGrassland: (0,106,78),	//TODO check color 	
+		 nca.ecosystem.iucn:BrackishTidal: (190 255 232),
+			 nca.ecosystem.iucn:IntermittentlyClosedOpenLakeLagoon:(185 250 220),
+			 nca.ecosystem.iucn:CoastalRiverDelta: (115 223 255),
+			 nca.ecosystem.iucn:IntertidalForestShrubland: (0 115 76),
+				 nca.ecosystem.iucn:CoastalRiverDeltaIntertidalForestShrubland:(0 120 100),
+			 nca.ecosystem.iucn:CoastalSaltmarshReedbed: (190 255 232),
+				 nca.ecosystem.iucn:CoastalRiverDeltaSaltmarshReedbed:(170 250 200),
+				 nca.ecosystem.iucn:Aquatic: (0 77 168)
+}) 		
+model im:Reference type of et_result_comparison:Level_2 nca.ecosystem.iucn:Ecosystem named reference_ecosystem_type_level_2
+	observing
+		im:Reference type of nca.ecosystem.iucn:Ecosystem named reference_ecosystem_type
+	lookup (reference_ecosystem_type, ?, *) 
+		into IUCN_GET_LEVEL_CONVERSION_TABLE;
+		
+@colormap(values = {
+	true:	(0 255 0)
+	false:	(255 0 0)	
+})
+model presence of (earth:Region with type of nca.ecosystem.iucn:Ecosystem) named matching_ecosystem_type
+	observing
+		type of nca.ecosystem.iucn:Ecosystem named mapped_ecosystem_type,
+		im:Reference type of et_result_comparison:Level_1 nca.ecosystem.iucn:Ecosystem named reference_ecosystem_type_level_1,
+		im:Reference type of et_result_comparison:Level_2 nca.ecosystem.iucn:Ecosystem named reference_ecosystem_type_level_2,
+		im:Reference type of nca.ecosystem.iucn:Ecosystem named reference_ecosystem_type		  		                                                                                         
+	lookup (mapped_ecosystem_type, reference_ecosystem_type, reference_ecosystem_type_level_2, reference_ecosystem_type_level_1, ?, *) 
+		into IUCN_GET_LEVEL_CONSISTENCY_TABLE;
+			
+define table ecosystem_type_result_comparison_by_ecosystem_type_modelled_vs_reference as {
+	title: "Comparison of the ecosystem type result between modelled & reference maps by ES types"
+	label: "Areas of difference between modelled & reference maps by ES types"
+	target: im:Reference type of nca.ecosystem.iucn:Ecosystem
+	columns:({ title: "{classifier}", filter: im:Reference type of nca.ecosystem.iucn:Ecosystem }), 	
+	rows:   ({ title: "Consistency in (km²) between modelled & reference maps ({classifier})", target: im:Area in km^2, filter: presence of (earth:Region with type of nca.ecosystem.iucn:Ecosystem) }
+	         { title: "Total area (km²) according to reference map", summarize: [r1 + r2], style: bold }
+	         { title: "Similarity of the result from the modelled & reference maps (%)", summarize: [(r1 / (r1 + r2)) * 100], style: bold }
+	        )
+	};
+
+/* -----------------------------------------------------------------------------------------------------------------------------------------------
+ * # 2) Comparison of the ecosystem type result between modelled & reference maps by IUCN_GET levels.
+ */
+model et_result_comparison:IucnGetType
+	observing
+		type of nca.ecosystem.iucn:Ecosystem named mapped_ecosystem_type,
+		im:Reference type of et_result_comparison:Level_1 nca.ecosystem.iucn:Ecosystem named reference_ecosystem_type_level_1,
+		im:Reference type of et_result_comparison:Level_2 nca.ecosystem.iucn:Ecosystem named reference_ecosystem_type_level_2,
+		im:Reference type of nca.ecosystem.iucn:Ecosystem named reference_ecosystem_type
+	lookup (mapped_ecosystem_type, reference_ecosystem_type, reference_ecosystem_type_level_2, reference_ecosystem_type_level_1, *, ?)
+		into IUCN_GET_LEVEL_CONSISTENCY_TABLE;	         
+
+define table ecosystem_type_result_comparison_by_iucn_get_level_modelled_vs_reference as {
+	title: "Comparison of the ecosystem type result between modelled & reference maps by IUCN_GET Levels"
+	label: "Areas of difference between modelled & reference maps by IUCN_GET Levels"
+	target: im:Reference type of nca.ecosystem.iucn:Ecosystem
+	columns:({ title: "{classifier}", filter: im:Reference type of nca.ecosystem.iucn:Ecosystem }), 	
+	rows:   ({ title: "Consistency in (km²) between modelled & reference maps ({classifier})", target: im:Area in km^2, filter: et_result_comparison:IucnGetType }
+	         { title: "Total area (km²) according to reference map", summarize: [r1 + r2 + r3 + r4], style: bold }
+	         { title: "Similarity of the result from the modelled & reference maps - Level 1 (%)", summarize: [(r1 / (r1 + r2 + r3 + r4)) * 100], style: bold }
+	         { title: "Similarity of the result from the modelled & reference maps - Level 2 (%)", summarize: [(r2 / (r1 + r2 + r3 + r4)) * 100], style: bold }
+	         { title: "Similarity of the result from the modelled & reference maps - Level 3 (%)", summarize: [(r3 / (r1 + r2 + r3 + r4)) * 100], style: bold }
+	         { title: "Similarity of the result from the modelled & reference maps - Un-mapped (%)", summarize: [(r4 / (r1 + r2 + r3 + r4)) * 100], style: bold }
+	        )
+	};	
+	
+/*
+ * Confusion matrix implementation
+ */
+
+define table confusion_matrix_iucn_get_level_3_rule_based_m2 as {
+    title: "IUCN GET Level 3 - Accuracy Assessment"
+    label: "Rule-based ecosystem classification versus reference data (m²)"
+    target: type of nca.ecosystem.iucn:Ecosystem
+    columns:
+    ({title:"Reference {classifier}" target:im:Area in m^2 filter:im:Reference type of nca.ecosystem.iucn:Ecosystem}
+     {title:"Row total (m²)" summarize:sum style:bold})
+    rows:
+    ({title:"Modelled {classifier}" filter:type of nca.ecosystem.iucn:Ecosystem}
+     {title:"Column total (m²)" summarize:sum style:bold})
+};
+
+define table confusion_matrix_iucn_get_level_3_rule_based_km2 as {
+    title: "IUCN GET Level 3 - Accuracy Assessment"
+    label: "Rule-based ecosystem classification versus reference data"
+    target: type of nca.ecosystem.iucn:Ecosystem
+    columns:
+    ({ title: "Reference {classifier}" target:im:Area in km^2 filter:im:Reference type of nca.ecosystem.iucn:Ecosystem}
+     {title: "Row total (km²)" summarize:sum style:bold})
+    rows:
+    ({title: "Modelled {classifier}" filter:type of nca.ecosystem.iucn:Ecosystem}
+     {title: "Column total (km²)" summarize:sum style:bold})
+};	
+
+///*
+// * Convert modelled IUCN GET Level 3 classes to Level 2 biomes.
+// */
+//model et_result_comparison:Level_2 type of nca.ecosystem.iucn:Ecosystem named modelled_ecosystem_type_level_2
+//    observing
+//        type of nca.ecosystem.iucn:Ecosystem named mapped_ecosystem_type
+//    lookup (mapped_ecosystem_type, ?, *)
+//        into IUCN_GET_LEVEL_CONVERSION_TABLE;
+////model im:Reference type of et_result_comparison:Level_2 nca.ecosystem.iucn:Ecosystem named reference_ecosystem_type_level_2
+////    observing
+////        im:Reference type of nca.ecosystem.iucn:Ecosystem named reference_ecosystem_type
+////    lookup (reference_ecosystem_type, ?, *)
+////        into IUCN_GET_LEVEL_CONVERSION_TABLE;
+//define table confusion_matrix_iucn_get_level_2_rule_based_test as {
+//    title: "IUCN GET Level 2 - Accuracy Assessment"
+//    label: "Rule-based ecosystem classification versus reference data by biome (m²)"
+//    target: et_result_comparison:Level_2 type of nca.ecosystem.iucn:Ecosystem
+//    columns:
+//    ({title:"Reference {classifier}" target:im:Area in m^2 filter:im:Reference type of et_result_comparison:Level_2 nca.ecosystem.iucn:Ecosystem}
+//     {title:"Row total (m²)" summarize:sum style:bold})
+//    rows:
+//    ({title:"Modelled {classifier}" filter:et_result_comparison:Level_2 type of nca.ecosystem.iucn:Ecosystem}
+//     {title:"Column total (m²)" summarize:sum style:bold})
+//};
+//
+//// Diagnose table columns
+//define table test_reference_iucn_get_level_2 as {
+//    title: "Reference IUCN GET Level 2 - Diagnostic"
+//    target: im:Reference type of et_result_comparison:Level_2 nca.ecosystem.iucn:Ecosystem
+//    columns:
+//    ({title:"Reference {classifier}" target:im:Area in m^2 filter:im:Reference type of et_result_comparison:Level_2 nca.ecosystem.iucn:Ecosystem}
+//     {title:"Total (m²)" summarize:sum style:bold})
+//    rows:({title:"Reference extent (m²)"})
+//};
+//
+//model im:Potential im:Reference type of nca.ecosystem.iucn:Ecosystem named test_reference_ecosystem_lookup
+//    observing im:Reference type of nca.ecosystem.iucn:Ecosystem named reference_ecosystem_type
+//    lookup (reference_ecosystem_type, ?, *) into IUCN_GET_LEVEL_CONVERSION_TABLE;
+//    
+//
+//define table test_iucn_level_2_river_stream as {
+//    title: "IUCN GET - River Stream Aggregation Test"
+//    target: type of nca.ecosystem.iucn:Ecosystem
+//    columns:
+//    ({title:"Reference {classifier}" target:im:Area in m^2 filter:im:Reference type of nca.ecosystem.iucn:Ecosystem}
+//     {title:"Total (m²)" summarize:sum style:bold})
+//    rows:
+//    ({title:"Modelled River Stream" filter:type of nca.ecosystem.iucn:Ecosystem keep:(any nca.ecosystem.iucn:RiverStream)})
+//};
+//
+//
+// 
+//define table test_iucn_level_2_lookup_comparison as {
+//    title: "IUCN GET Level 2 - Lookup Comparison Test"
+//    target: et_result_comparison:Level_2 type of nca.ecosystem.iucn:Ecosystem
+//    columns:
+//    ({title:"Reference {classifier}" target:im:Area in m^2 filter:im:Potential im:Reference type of nca.ecosystem.iucn:Ecosystem}
+//     {title:"Row total (m²)" summarize:sum style:bold})
+//    rows:
+//    ({title:"Modelled {classifier}" filter:et_result_comparison:Level_2 type of nca.ecosystem.iucn:Ecosystem}
+//     {title:"Column total (m²)" summarize:sum style:bold})
+//};

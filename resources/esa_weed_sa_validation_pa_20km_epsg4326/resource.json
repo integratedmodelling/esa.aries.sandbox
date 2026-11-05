@@ -1,0 +1,66 @@
+{
+  "urn" : "local:justus.muhando:esa.aries.sandbox:esa_weed_sa_validation_pa_20km_epsg4326",
+  "version" : "0.0.1",
+  "adapterType" : "wfs",
+  "localPath" : "esa.aries.sandbox/resources/esa_weed_sa_validation_pa_20km_epsg4326",
+  "geometry" : "#s2(19){bbox=[18.0 23.38589859008789 -34.52089309692383 -32.34242630004883],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "esa_weed_sa_validation_pa_20km_epsg4326",
+  "type" : "OBJECT",
+  "resourceTimestamp" : 1793375214912,
+  "metadata" : {
+    "im:keywords" : "features,sa_validation_pa_20km_epsg4326",
+    "dc:title" : "sa_validation_pa_20km_epsg4326"
+  },
+  "parameters" : {
+    "serviceUrl" : "https://integration.integratedmodelling.org/geoserver/esa_weed/ows",
+    "wfsVersion" : "1.0.0",
+    "wfsIdentifier" : "esa_weed:sa_validation_pa_20km_epsg4326"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ {
+    "name" : "grid20id",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "bbox_dict",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "numpoints",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
+    "name" : "romnam",
+    "type" : "TEXT",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  } ],
+  "spatialExtent" : {
+    "east" : 23.38589859008789,
+    "west" : 18.0,
+    "north" : -32.34242630004883,
+    "south" : -34.52089309692383,
+    "gridResolution" : null,
+    "gridUnit" : null
+  },
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

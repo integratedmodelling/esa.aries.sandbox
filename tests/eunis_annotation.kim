@@ -1,0 +1,18 @@
+worldview im;
+
+@test(
+    name = "eunis_annotation",
+    description  = "",
+    // add to the list any concepts to be observed in the context below
+    observations = (
+    "esa.aries.ecosystem_extent.ecosystem_type_eunis_level2_machine_learning"),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+observe earth:Region named test_eunis_annotation
+over space(shape="EPSG:4326 POLYGON ((13.647720250724285 48.92363330843858, 13.621971044181317 48.92363330843858, 13.621971044181317 48.93195811627331, 13.647720250724285 48.93195811627331, 13.647720250724285 48.92363330843858))",
+//over space(shape="EPSG:3035 POLYGON((4580000.0 4600000.0, 2860000.0 4600000.0, 2860000.0 2880000.0, 4580000.0 2880000.0, 4580000.0 4600000.0))",
+           grid = "10 m"),
+        time (year=2024);
+// add any models here

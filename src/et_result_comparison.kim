@@ -1,6 +1,5 @@
 private namespace et_result_comparison
-	using nca.ecosystem.iucn,
-		  primitive_characteristic.reference_maps;
+	using nca.ecosystem.iucn;
 
 /* -----------------------------------------------------------------------------------------------------------------------------------------------
  * # IUCN ET level conversion & ordered by Biome priorities.
@@ -30,8 +29,9 @@ define IUCN_GET_LEVEL_CONVERSION_TABLE as {{
 	nca.ecosystem.iucn:SeasonalUplandStream						|	nca.ecosystem.iucn:RiverStream							|	nca.ecosystem.iucn:Freshwater					,
 	nca.ecosystem.iucn:SeasonalLowlandRiver						|	nca.ecosystem.iucn:RiverStream							|	nca.ecosystem.iucn:Freshwater					,
 	nca.ecosystem.iucn:EpisodicAridRiver						|	nca.ecosystem.iucn:RiverStream							|	nca.ecosystem.iucn:Freshwater					,
-	nca.ecosystem.iucn:LargeLowlandRiver						|	nca.ecosystem.iucn:RiverStream							|	nca.ecosystem.iucn:Freshwater					,	// F1
-
+	nca.ecosystem.iucn:LargeLowlandRiver						|	nca.ecosystem.iucn:RiverStream							|	nca.ecosystem.iucn:Freshwater					,	
+	nca.ecosystem.iucn:RiverStream 								|   nca.ecosystem.iucn:RiverStream 							|   nca.ecosystem.iucn:Freshwater					,   // F1
+	
 	nca.ecosystem.iucn:LargePermanentFreshwaterLake				|	nca.ecosystem.iucn:Lake									|	nca.ecosystem.iucn:Freshwater					,
 	nca.ecosystem.iucn:SmallPermanentFreshwaterLake				|	nca.ecosystem.iucn:Lake									|	nca.ecosystem.iucn:Freshwater					,
 	nca.ecosystem.iucn:SeasonalFreshwaterLake					|	nca.ecosystem.iucn:Lake									|	nca.ecosystem.iucn:Freshwater					,
@@ -42,12 +42,17 @@ define IUCN_GET_LEVEL_CONVERSION_TABLE as {{
 	nca.ecosystem.iucn:ArtesianSpringOase						|	nca.ecosystem.iucn:Lake									|	nca.ecosystem.iucn:Freshwater					,
 	nca.ecosystem.iucn:GeothermalPoolWetland					|	nca.ecosystem.iucn:Lake									|	nca.ecosystem.iucn:Freshwater					,
 	nca.ecosystem.iucn:SubglacialLake							|	nca.ecosystem.iucn:Lake									|	nca.ecosystem.iucn:Freshwater					,	// F2
+	nca.ecosystem.iucn:Lake        								|   nca.ecosystem.iucn:Lake        							|   nca.ecosystem.iucn:Freshwater					,
+
 	
 	nca.ecosystem.iucn:LargeReservoir							|	nca.ecosystem.iucn:ArtificialWetland					|	nca.ecosystem.iucn:Freshwater					,
 	nca.ecosystem.iucn:ConstructedLacustrineWetland				|	nca.ecosystem.iucn:ArtificialWetland					|	nca.ecosystem.iucn:Freshwater					,
 	nca.ecosystem.iucn:RicePaddy								|	nca.ecosystem.iucn:ArtificialWetland					|	nca.ecosystem.iucn:Freshwater					,
-	nca.ecosystem.iucn:FreshwaterAquafarm						|	nca.ecosystem.iucn:ArtificialWetland					|	nca.ecosystem.iucn:Freshwater					,	// F3
-	nca.ecosystem.iucn:CanalDitchDrain							|	nca.ecosystem.iucn:ArtificialWetland					|	nca.ecosystem.iucn:Freshwater					,	// F --------------------
+	nca.ecosystem.iucn:FreshwaterAquafarm						|	nca.ecosystem.iucn:ArtificialWetland					|	nca.ecosystem.iucn:Freshwater					,	
+	nca.ecosystem.iucn:CanalDitchDrain							|	nca.ecosystem.iucn:ArtificialWetland					|	nca.ecosystem.iucn:Freshwater					,	
+	nca.ecosystem.iucn:ArtificialWetland						|	nca.ecosystem.iucn:ArtificialWetland					|	nca.ecosystem.iucn:Freshwater					,	// F3
+
+	nca.ecosystem.iucn:Freshwater								|   nca.ecosystem.iucn:Freshwater							|   nca.ecosystem.iucn:Freshwater					,   // F --------------------
 	
 	nca.ecosystem.iucn:SeagrassMeadow							|	nca.ecosystem.iucn:MarineShelf							|	nca.ecosystem.iucn:Marine						,
 	nca.ecosystem.iucn:KelpForest								|	nca.ecosystem.iucn:MarineShelf							|	nca.ecosystem.iucn:Marine						,
@@ -522,6 +527,7 @@ define IUCN_GET_LEVEL_CONSISTENCY_TABLE as {{
 /* -----------------------------------------------------------------------------------------------------------------------------------------------
  * # 1) Comparison of the ecosystem type result between modelled & reference maps by ES types.
  */
+
 model im:Reference type of et_result_comparison:Level_1 nca.ecosystem.iucn:Ecosystem named reference_ecosystem_type_level_1
 	observing
 		im:Reference type of nca.ecosystem.iucn:Ecosystem named reference_ecosystem_type
@@ -548,8 +554,8 @@ model presence of (earth:Region with type of nca.ecosystem.iucn:Ecosystem) named
 		into IUCN_GET_LEVEL_CONSISTENCY_TABLE;
 			
 define table ecosystem_type_result_comparison_by_ecosystem_type_modelled_vs_reference as {
-	title: "Comparison of the ecosystem type result between modelled & reference maps by ES types"
-	label: "Areas of difference between modelled & reference maps by ES types"
+	title: "Comparison of the ecosystem type result between modelled & reference maps by ET"
+	label: "Areas of difference between modelled & reference maps by ET"
 	target: im:Reference type of nca.ecosystem.iucn:Ecosystem
 	columns:({ title: "{classifier}", filter: im:Reference type of nca.ecosystem.iucn:Ecosystem }), 	
 	rows:   ({ title: "Consistency in (km²) between modelled & reference maps ({classifier})", target: im:Area in km^2, filter: presence of (earth:Region with type of nca.ecosystem.iucn:Ecosystem) }
@@ -583,3 +589,9 @@ define table ecosystem_type_result_comparison_by_iucn_get_level_modelled_vs_refe
 	         { title: "Similarity of the result from the modelled & reference maps - Un-mapped (%)", summarize: [(r4 / (r1 + r2 + r3 + r4)) * 100], style: bold }
 	        )
 	};		
+	
+	
+/*RESULT COMPARISON USING POINTS */
+
+model each local:alessio.bulckaen:esa.aries.sandbox:weed_validation
+	as im:Reference nca.ecosystem.iucn:Ecosystem earth:Location;	
