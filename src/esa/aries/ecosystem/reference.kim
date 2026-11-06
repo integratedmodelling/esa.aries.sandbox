@@ -13,8 +13,9 @@ model im:Reference type of nca.ecosystem.iucn:Ecosystem named colombia_reference
  geography:Colombia im:Reference type of nca.ecosystem.iucn:Ecosystem named colombian_ecosystem_type_national_classification 
  lookup (colombian_ecosystem_type_national_classification, ?)
   into CROSSWALK_COLOMBIA_NATIONAL_CLASSIFICATION_TO_IUCN_GET
-  over space(shape='EPSG:4326 POLYGON ((-74.72446240398484 8.201517351065604, -74.72510858022173 8.198302015418747, -74.7269487344579 8.195576165115554, -74.729702719892 8.193754799763099, -74.73295126720657 8.193115219326899, -74.73619981452114 8.193754799763099, -74.73895379995521 8.195576165115554, -74.7407939541914 8.198302015418747, -74.74144013042829 8.201517351065604, -74.7407939541914 8.204732660706199, -74.73895379995521 8.207458448224614, -74.73619981452114 8.209279750792305, -74.73295126720657 8.2099193052222, -74.729702719892 8.209279750792305, -74.7269487344579 8.207458448224614, -74.72510858022173 8.204732660706199, -74.72446240398484 8.201517351065604))'
-  );
+//	  over space(shape='EPSG:4326 POLYGON ((-74.72446240398484 8.201517351065604, -74.72510858022173 8.198302015418747, -74.7269487344579 8.195576165115554, -74.729702719892 8.193754799763099, -74.73295126720657 8.193115219326899, -74.73619981452114 8.193754799763099, -74.73895379995521 8.195576165115554, -74.7407939541914 8.198302015418747, -74.74144013042829 8.201517351065604, -74.7407939541914 8.204732660706199, -74.73895379995521 8.207458448224614, -74.73619981452114 8.209279750792305, -74.73295126720657 8.2099193052222, -74.729702719892 8.209279750792305, -74.7269487344579 8.207458448224614, -74.72510858022173 8.204732660706199, -74.72446240398484 8.201517351065604))')
+;
+  
 
 /* Czech map  */
 model 'local:alessio.bulckaen:esa.aries.sandbox:esa_weed.czechrepublic_validation_ecosystems_epsg5514_10m'
@@ -195,3 +196,368 @@ model each conservation:ProtectedArea
 	observing presence of conservation:ProtectedArea named protected_status
 	using gis.features.extract(select = protected_status);		
 
+
+//Colombian Reference data//
+@colormap(values={
+RiceAgroecosystem: (255, 255, 0)
+CoffeeAgroecosystem: (255, 255, 20)
+SugarcaneAgroecosystem: (255, 255, 40)
+PermanentCropAgroecosystem: (255, 255, 60)
+TransitoryCropAgroecosystem: (255, 255, 80)
+MosaicCropNaturalSpaceAgroecosystem: (255, 255, 100)
+MosaicCropPastureAgroecosystem: (240, 230, 0)
+MosaicCropPastureNaturalSpaceAgroecosystem: (240, 230, 20)
+MosaicPastureNaturalSpaceAgroecosystem: (240, 230, 40)
+ForestryAgroecosystem: (240, 230, 60)
+LivestockAgroecosystem: (240, 230, 80)
+PalmAgroecosystem: (240, 230, 100)
+PotatoAgroecosystem: (240, 230, 120)
+PlantainBananaAgroecosystem: (240, 230, 140)
+HumidAndeanShrubland: (100, 140, 35)
+HumidBasalShrubland: (105, 145, 40)
+FloodedAndeanShrubland: (95, 135, 30)
+FloodedBasalShrubland: (105, 135, 35)
+CoastalFloodedShrubland: (105, 135, 30)
+FloodedSubAndeanShrubland: (95, 145, 40)
+HumidSubAndeanShrubland: (95, 135, 30)
+HumidAndeanForest: (0, 100, 0)
+DryAndeanForest: (10, 110, 10)
+HumidBasalForest: (20, 120, 20)
+DryBasalForest: (30, 130, 30)
+HumidBasalGalleryForest: (40, 140, 40)
+DryBasalGalleryForest: (50, 150, 50)
+FloodedBasalGalleryForest: (60, 160, 60)
+CoastalFloodedGalleryForest: (70, 170, 70)
+FragmentedForestWithPastureCrop: (80, 180, 80)
+FragmentedForestWithSecondaryVegetation: (90, 190, 90)
+FloodedAndeanForest: (100, 200, 100)
+FloodedBasalForest: (110, 210, 110)
+CoastalFloodedForest: (120, 220, 120)
+FloodedSubAndeanForest: (130, 230, 130)
+MixedGuandalForest: (140, 240, 140)
+FloodedRiparianSubAndeanForest: (150, 250, 150)
+HumidSubAndeanForest: (160, 255, 160)
+DrySubAndeanForest: (170, 255, 170)
+AndeanRockyComplex: (100, 100, 100)
+MountainRangeRockyComplex: (110, 110, 110)
+ContinentalCoral: (120, 120, 120)
+OceanicCoral: (130, 130, 130)
+ArtificialWaterBody: (140, 140, 140)
+Desert: (150, 150, 150)
+SoftBottom: (160, 160, 160)
+SoftBottomWithNonVascularVegetation: (170, 170, 170)
+HardBottomWithNonVascularVegetation: (180, 180, 180)
+NonCoralHardBottom: (190, 190, 190)
+GlacierSnowfield: (200, 200, 200)
+HumidAndeanGrassland: (57, 255, 20)
+HumidBasalGrassland: (50, 205, 50)
+FloodedAndeanGrassland: (0, 170, 170)
+FloodedBasalGrassland: (10, 180, 180)
+CoastalFloodedGrassland: (20, 190, 190)
+FloodedSubAndeanGrassland: (30, 200, 200)
+HumidSubAndeanGrassland: (40, 210, 210)
+TectonicLake: (0, 0, 255)
+AlluvialLagoon: (10, 10, 250)
+CoastalLagoon: (20, 20, 245)
+GlacialLagoon: (30, 30, 240)
+TectonicLagoon: (40, 40, 235)
+TidalFlat: (50, 50, 230)
+Mangrove: (130, 255, 212)
+MarineWaterMangrove: (0, 204, 153)
+BrackishWaterMangrove: (170, 240, 209)
+Paramo: (100, 140, 17)
+CoastalBeach: (255, 235, 205)
+SeagrassMeadow: (50, 205, 50)
+River: (76,127,247)
+WhiteWaterRiver: (102, 180, 255)
+ClearWaterRiver: (100, 150, 255)
+BlackWaterRiver: (90, 140, 255)
+SeasonalSavanna: (218, 165, 32)
+FloodedSavanna: (252, 194, 0)
+AndeanSubxerophytic: (150, 75, 0)
+BasalSubxerophytic: (181, 101, 29)
+SubAndeanSubxerophytic: (131, 105, 83)
+ArtificializedTerritory: (255, 0, 0)
+TransformedTransitional: (164, 0, 0)
+CoastalTransformedTransitional: (220, 20, 60)
+AndeanPeatland: (128, 128, 0)
+ParamoPeatland: (107, 142, 35)
+SecondaryVegetation: (80, 125, 42)
+AridXerophytic: (195, 176, 145)
+DesertXerophytic: (227, 218, 201)
+AndeanSwampyArea: (0, 155, 125)
+BasalSwampyArea: (0, 117, 94)
+SubAndeanSwampyArea: (1, 121, 111)
+NaturalSandyArea: (194, 178, 128)
+CoastalSwampyArea: (85, 107, 47)
+SalineSwampyArea: (164, 198, 57)
+MixohalineWaterMangrove: (0, 255, 255)
+ComplejoRocosoDeLosAndesOSubxerofitiaBasal: (255, 20, 147)
+ArbustalBasalHumedoOComplejoRocosoDeLosAndes: (255, 20, 147)
+ArbustalAndinoHumedoOComplejoRocosoDeLosAndes: (255, 20, 147)
+ComplejoRocosoDeLosAndesOSubxerofitiaAndina: (255, 20, 147)
+ComplejoRocosoDeLosAndesOParamo: (255, 20, 147)
+ArbustalSubandinoHumedoOComplejoRocosoDeLosAndes: (255, 20, 147)
+ComplejoRocosoDeLosAndesOXerofitiaArida: (255, 20, 147)
+ArbustalInundableAndinoOTurberaDeParamo: (255, 20, 147)
+SabanaInundableOTransicionalTransformado: (255, 20, 147)
+ComplejoRocosoDeLosAndesOOtrasAreas: (255, 20, 147)
+BosqueAndinoHumedoOComplejoRocosoDeLosAndes: (255, 20, 147)
+BosqueInundableCosteroOManglarDeAguasMixohalinas: (255, 20, 147)
+BosqueInundableCosteroOBosqueMixtoDeGuandal: (255, 20, 147)
+BosqueBasalSecoOComplejoRocosoDeLosAndes: (255, 20, 147)
+BosqueBasalSecoOAgroecosistemaDeMosaicoDePastosOEspaciosNaturales: (255, 20, 147)
+BosqueInundableAndinoOturberaDeParamo: (255, 20, 147)
+BosqueSubandinoHumedoOComplejoRocosoDeLosAndes: (255, 20, 147)
+ComplejoRocosoDeLosAndesOHerbazalSubandinoHumedo: (255, 20, 147)
+HerbazalInundableBasalOSabanaInundable: (255, 20, 147)
+ComplejoRocosoDeSerraniasOAgroecosistemaDeMosaicoDePastosOEspacioNatural: (255, 20, 147)
+ComplejoRocosoDeSerraniasOAgroecosistemaGanadero: (255, 20, 147)
+ComplejoRocosoDeLosAndesOHerbazalBasalHumedo: (255, 20, 147)
+ComplejoRocosoDeLosAndesOHerbazalAndinoHumedo: (255, 20, 147)
+HerbazalInundableAndinoOTurberaAndinaOTurberaDeParamo: (255, 20, 147)
+HerbazalInundableAndinoOTurberaDeParamo: (255, 20, 147)
+LagunaGlacialOLagunaTectonica: (255, 20, 147)
+PlayaCosteraOZonaPantanosaCostera: (255, 20, 147)
+LagunaAluvialOLagunaTectonica: (255, 20, 147)
+ManglarOManglarDeAguasMixohalinas: (255, 20, 147)
+CoralinoContinentalOCoralinoOceanicoOFondoMarino: (255, 20, 147)
+PlayaCosteraOZonaPantanosaCostera: (255, 20, 147)
+ZonaPantanosaCosteraOTransicionalTransformadoCostero: (255, 20, 147)
+NoInformation: (0, 0, 0)
+OtherArea: (221, 160, 221)
+Unaccounted: (191, 0, 255)
+})
+abstract attribute ColombianEcosystem
+//geography:Colombia im:Reference type of nca.ecosystem.iucn:Ecosystem
+	has children
+		RiceAgroecosystem,
+		CoffeeAgroecosystem,
+		SugarcaneAgroecosystem,
+		PermanentCropAgroecosystem,
+		TransitoryCropAgroecosystem,
+		MosaicCropNaturalSpaceAgroecosystem,
+		MosaicCropPastureAgroecosystem,
+		MosaicCropPastureNaturalSpaceAgroecosystem,
+		MosaicPastureNaturalSpaceAgroecosystem,
+		ForestryAgroecosystem,
+		LivestockAgroecosystem,
+		PalmAgroecosystem,
+		PotatoAgroecosystem,
+		PlantainBananaAgroecosystem,
+		HumidAndeanShrubland,
+		HumidBasalShrubland,
+		FloodedAndeanShrubland,
+		FloodedBasalShrubland,
+		CoastalFloodedShrubland,
+		FloodedSubAndeanShrubland,
+		HumidSubAndeanShrubland,
+		HumidAndeanForest,
+		DryAndeanForest,
+		HumidBasalForest,
+		DryBasalForest,
+		HumidBasalGalleryForest,
+		DryBasalGalleryForest,
+		FloodedBasalGalleryForest,
+		CoastalFloodedGalleryForest,
+		FragmentedForestWithPastureCrop,
+		FragmentedForestWithSecondaryVegetation,
+		FloodedAndeanForest,
+		FloodedBasalForest,
+		CoastalFloodedForest,
+		FloodedSubAndeanForest,
+		MixedGuandalForest,
+		FloodedRiparianSubAndeanForest,
+		HumidSubAndeanForest,
+		DrySubAndeanForest,
+		AndeanRockyComplex,
+		MountainRangeRockyComplex,
+		ContinentalCoral,
+		OceanicCoral,
+		ArtificialWaterBody,
+		Desert,
+		SoftBottom,
+		SoftBottomWithNonVascularVegetation,
+		HardBottomWithNonVascularVegetation,
+		NonCoralHardBottom,
+		GlacierSnowfield,
+		HumidAndeanGrassland,
+		HumidBasalGrassland,
+		FloodedAndeanGrassland,
+		FloodedBasalGrassland,
+		CoastalFloodedGrassland,
+		FloodedSubAndeanGrassland,
+		HumidSubAndeanGrassland,
+		TectonicLake,
+		AlluvialLagoon,
+		CoastalLagoon,
+		GlacialLagoon,
+		TectonicLagoon,
+		TidalFlat,
+		Mangrove,
+		MarineWaterMangrove,
+		BrackishWaterMangrove,
+		Paramo,
+		CoastalBeach,
+		SeagrassMeadow,
+		(River has children
+			WhiteWaterRiver,
+			ClearWaterRiver,
+			BlackWaterRiver),
+		SeasonalSavanna,
+		FloodedSavanna,
+		AndeanSubxerophytic,
+		BasalSubxerophytic,
+		SubAndeanSubxerophytic,
+		ArtificializedTerritory,
+		TransformedTransitional,
+		CoastalTransformedTransitional,
+		AndeanPeatland,
+		ParamoPeatland,
+		SecondaryVegetation,
+		AridXerophytic,
+		DesertXerophytic,
+		AndeanSwampyArea,
+		BasalSwampyArea,
+		SubAndeanSwampyArea,
+		NaturalSandyArea,
+		CoastalSwampyArea,
+		SalineSwampyArea,
+		MixohalineWaterMangrove,
+
+	ComplejoRocosoDeLosAndesOSubxerofitiaBasal,
+	ArbustalBasalHumedoOComplejoRocosoDeLosAndes,
+	ArbustalAndinoHumedoOComplejoRocosoDeLosAndes,
+	ComplejoRocosoDeLosAndesOSubxerofitiaAndina,
+	ComplejoRocosoDeLosAndesOParamo,
+	ArbustalSubandinoHumedoOComplejoRocosoDeLosAndes,
+	ComplejoRocosoDeLosAndesOXerofitiaArida,
+	ArbustalInundableAndinoOTurberaDeParamo,
+	SabanaInundableOTransicionalTransformado,
+	ComplejoRocosoDeLosAndesOOtrasAreas,
+	BosqueAndinoHumedoOComplejoRocosoDeLosAndes,
+	BosqueInundableCosteroOManglarDeAguasMixohalinas,
+	BosqueInundableCosteroOBosqueMixtoDeGuandal,
+	BosqueBasalSecoOComplejoRocosoDeLosAndes,
+	BosqueBasalSecoOAgroecosistemaDeMosaicoDePastosOEspaciosNaturales,
+	BosqueInundableAndinoOturberaDeParamo,
+	BosqueSubandinoHumedoOComplejoRocosoDeLosAndes,
+	ComplejoRocosoDeLosAndesOHerbazalSubandinoHumedo,
+	HerbazalInundableBasalOSabanaInundable,
+	ComplejoRocosoDeSerraniasOAgroecosistemaDeMosaicoDePastosOEspacioNatural,
+	ComplejoRocosoDeSerraniasOAgroecosistemaGanadero,
+	ComplejoRocosoDeLosAndesOHerbazalBasalHumedo,
+	ComplejoRocosoDeLosAndesOHerbazalAndinoHumedo,
+	HerbazalInundableAndinoOTurberaAndinaOTurberaDeParamo,
+	HerbazalInundableAndinoOTurberaDeParamo,
+	LagunaGlacialOLagunaTectonica,
+	PlayaCosteraOZonaPantanosaCostera,
+	LagunaAluvialOLagunaTectonica,
+	ManglarOManglarDeAguasMixohalinas,
+	CoralinoContinentalOCoralinoOceanicoOFondoMarino,
+//	PlayaCosteraOZonaPantanosaCostera,
+	ZonaPantanosaCosteraOTransicionalTransformadoCostero,
+	
+		NoInformation,
+		Unaccounted,
+		OtherArea
+;
+
+//quality ColombianEcosystemType is
+//	 type of ColombianEcosystem;
+model 'local:rubencc:colombia.seea.aries:im-data-global-ecology.colombia_et_mec_100m_3116_v2_1' 
+	as  geography:Colombia im:Reference type of nca.ecosystem.iucn:Ecosystem named colombian_ecosystem_type_national_classification 
+	classified into
+	RiceAgroecosystem if 1,
+	CoffeeAgroecosystem if 2,
+	SugarcaneAgroecosystem if 3,
+	PermanentCropAgroecosystem if 4,
+	TransitoryCropAgroecosystem if 5,
+	MosaicCropNaturalSpaceAgroecosystem if 6,
+	MosaicCropPastureAgroecosystem if 7,
+	MosaicCropPastureNaturalSpaceAgroecosystem if 8,
+	MosaicPastureNaturalSpaceAgroecosystem if 9,
+	ForestryAgroecosystem if 10,
+	LivestockAgroecosystem if 11,
+	PalmAgroecosystem if 12,
+	PotatoAgroecosystem if 13,
+	PlantainBananaAgroecosystem if 14,
+	HumidAndeanShrubland if 15,
+	HumidBasalShrubland if 16,
+	FloodedAndeanShrubland if 17,
+	FloodedBasalShrubland if 18,
+	CoastalFloodedShrubland if 19,
+	FloodedSubAndeanShrubland if 20,
+	HumidSubAndeanShrubland if 21,
+	HumidAndeanForest if 22,
+	DryAndeanForest if 23,
+	HumidBasalForest if 24,
+	DryBasalForest if 25,
+	HumidBasalGalleryForest if 26,
+	DryBasalGalleryForest if 27,
+	FloodedBasalGalleryForest if 28,
+	CoastalFloodedGalleryForest if 29,
+	FragmentedForestWithPastureCrop if 30,
+	FragmentedForestWithSecondaryVegetation if 31,
+	FloodedAndeanForest if 32,
+	FloodedBasalForest if 33,
+	CoastalFloodedForest if 34,
+	FloodedSubAndeanForest if 35,
+	MixedGuandalForest if 36,
+	FloodedRiparianSubAndeanForest if 37,
+	HumidSubAndeanForest if 38,
+	DrySubAndeanForest if 39,
+	AndeanRockyComplex if 40,
+	MountainRangeRockyComplex if 41,
+	ContinentalCoral if 42,
+	OceanicCoral if 43,
+	ArtificialWaterBody if 44,
+	Desert if 45,
+	SoftBottom if 46,
+	SoftBottomWithNonVascularVegetation if 47,
+	HardBottomWithNonVascularVegetation if 48,
+	NonCoralHardBottom if 49,
+	GlacierSnowfield if 50,
+	HumidAndeanGrassland if 51,
+	HumidBasalGrassland if 52,
+	FloodedAndeanGrassland if 53,
+	FloodedBasalGrassland if 54,
+	CoastalFloodedGrassland if 55,
+	FloodedSubAndeanGrassland if 56,
+	HumidSubAndeanGrassland if 57,
+	TectonicLake if 58,
+	AlluvialLagoon if 59,
+	CoastalLagoon if 61,
+	GlacialLagoon if 60,
+	TectonicLagoon if 62,
+	TidalFlat if 63,
+	Mangrove if 64,
+	MarineWaterMangrove if 65,
+	BrackishWaterMangrove if 66,
+	OtherArea if 67,
+	Paramo if 68,
+	CoastalBeach if 69,
+	SeagrassMeadow if 70,
+	WhiteWaterRiver if 71,
+	ClearWaterRiver if 72,
+	BlackWaterRiver if 73,
+	SeasonalSavanna if 74,
+	FloodedSavanna if 75,
+	NoInformation if 76,
+	AndeanSubxerophytic if 77,
+	BasalSubxerophytic if 78,
+	SubAndeanSubxerophytic if 79,
+	ArtificializedTerritory if 80,
+	TransformedTransitional if 81,
+	CoastalTransformedTransitional if 82,
+	AndeanPeatland if 83,
+	ParamoPeatland if 84,
+	SecondaryVegetation if 85,
+	AridXerophytic if 86,
+	DesertXerophytic if 87,
+	AndeanSwampyArea if 88,
+	BasalSwampyArea if 89,
+	SubAndeanSwampyArea if 90,
+	NaturalSandyArea if 91,
+	CoastalSwampyArea if 92,
+	SalineSwampyArea if 93;
