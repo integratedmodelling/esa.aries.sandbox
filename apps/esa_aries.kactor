@@ -539,6 +539,12 @@ action main:
 			checkbutton("NO_v2_20 " #no_v2_20): (
 				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no20","Norway: NO_v2_20")
 				activate_eu
+			)
+			separator(:empty)
+			label(#LL2_CONTEXTS width="100%" fsize="0.95em" :left)
+			checkbutton("Norway: Finnmark NO_2" #no2): (
+				disable_ctxs("cu_priority_areas_contexts.norway_finnmark_no2","Norway: Finnmark NO_2")
+				activate_eu
 			)					
 		) :name "Norway" #norway
 		(
