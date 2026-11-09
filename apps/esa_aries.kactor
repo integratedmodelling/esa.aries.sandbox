@@ -459,7 +459,9 @@ action main:
 				activate_eu
 			)
 		) :name "Greece" #greece			
-		(
+
+		(	
+			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)
 			checkbutton("NO_v2_01 " #no_v2_01): (
 				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no1","Norway: NO_v2_01")
 				activate_eu
@@ -542,6 +544,22 @@ action main:
 			)
 			separator(:empty)
 			label(#LL2_CONTEXTS width="100%" fsize="0.95em" :left)
+			checkbutton("Norway: Osloviken_1 NO_1_1" #no1_1): (
+				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1_1","Norway: Osloviken NO_1_1")
+				activate_eu
+			)
+			checkbutton("Norway: Osloviken_2 NO_1_2" #no1_2): (
+				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1_2","Norway: Osloviken NO_1_2")
+				activate_eu
+			)
+			checkbutton("Norway: Osloviken_3 NO_1_3" #no1_3): (
+				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1_3","Norway: Osloviken NO_1_3")
+				activate_eu
+			)
+			checkbutton("Norway: Osloviken_4 NO_1_4" #no1_4): (
+				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1_4","Norway: Osloviken NO_1_4")
+				activate_eu
+			)			
 			checkbutton("Norway: Finnmark NO_2" #no2): (
 				disable_ctxs("cu_priority_areas_contexts.norway_finnmark_no2","Norway: Finnmark NO_2")
 				activate_eu
