@@ -199,6 +199,14 @@ action main:
 			)
 			separator(:empty)
 			label(#LL2_CONTEXTS width="100%" fsize="0.95em" :left)
+			checkbutton("Mojana CO1" #co1): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_mojana_co1","Colombia: Mojana CO1")
+				activate_noneu
+			)
+			checkbutton("Providencia CO3" #co3): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_providencia_co3","Colombia: Providencia CO3")
+				activate_noneu
+			)
 			checkbutton("Cienaga Grande de Santa Marta CO4" #co4): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_cienaga_grande_de_santa_marta_co4","Colombia: Cienaga Grande de Santa Marta CO4")
 				activate_noneu
@@ -207,8 +215,24 @@ action main:
 				disable_ctxs("cu_priority_areas_contexts.colombia_santurban_co7","Colombia: Santurbán CO7")
 				activate_noneu
 			)
+			checkbutton("Chingaza CO8" #co8): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_chingaza_co8","Colombia: Chingaza  CO8")
+				activate_noneu
+			)
 			checkbutton("AP_Drummont/Becerril-Cesar CO10" #co10): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_ap_drummont_becerril_cesar_co10","Colombia: AP_Drummont/Becerril-Cesar CO10")
+				activate_noneu
+			)
+			checkbutton("Ap Guane Barrancabermeja CO12" #co12): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_ap_guane_barrancabermeja_co12","Colombia: Ap Guane Barrancabermeja CO12")
+				activate_noneu
+			)
+			checkbutton("Arco de deferestación Amazonia CO15" #co15): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_arco_de_deforestacion_amazonia_co15 ","Colombia: Arco de deferestación Amazonia CO15")
+				activate_noneu
+			)
+			checkbutton("Buenaventura CO17" #co17): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_buenaventura_co17","Colombia: Buenaventura CO17")
 				activate_noneu
 			)
 		) :name "Colombia" #colombia
