@@ -1133,7 +1133,7 @@ action main:
 					)					
 					checkbutton("Hybrid modelling" #eu_hm :tooltip "Hybrid modelling" :disabled)
 					
-					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Machine Learning (EUNIS) results" #ey_a2mlr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)":disabled 
+					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Machine Learning (EUNIS) results" #ey_a2mlr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)":disabled ): (
 						alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
 								If your results don't appear immediately, the computation is running in the background.")
 						submit(esa.aries.ecosystem.naturalness.eunis_natural_ecosystem_extent)
