@@ -4,4 +4,83 @@ abstract attribute ModelApproach
 	has children
 		MachineLearning,
 		RuleBased,
-		HybridModelling;
+		(Hybrid
+		has children
+		HybridFirstBest,
+		HybridSecondBest,
+		HybridThirdBest);
+
+
+//@colormap(values = {
+//	im:VeryLow:(255 0 0)
+//	im:Low:(204 51 0)
+//	im:ModeratelyLow:(153 102 0)
+//	im:Moderate:(102 153 0)
+//	im:ModeratelyHigh:(51 204 0)
+//	im:High:(75 250 0)
+//	im:VeryHigh:(0 255 0)
+//})
+@colormap(colors=(red white green), midpoint=0)
+class ConfidenceLevel 
+	is im:Observed es.nca:EcosystemType within earth:Region;
+
+
+//@colormap(values = {
+//	im:VeryLow:(255 0 0)
+//	im:Low:(204 51 0)
+//	im:ModeratelyLow:(153 102 0)
+//	im:Moderate:(102 153 0)
+//	im:ModeratelyHigh:(51 204 0)
+//	im:High:(75 250 0)
+//	im:VeryHigh:(0 255 0)
+//})
+@colormap(colors=(red white green), midpoint=0)
+define CONFIDENCE_LEVEL as {{
+		  hybrid_model_probability  | confidence_level
+		--------------------------------------------------
+			     < 0.2	  			| im:VeryLow		,		
+			  0.2 to 0.4	  		| im:Low			,
+			  0.4 to 0.5 			| im:ModeratelyLow	,
+		 	  0.5 to 0.6 			| im:Moderate		,
+			  0.6 to  0.75			| im:ModeratelyHigh ,
+			 0.75 to  0.9			| im:High 			,
+				>= 0.9				| im:VeryHigh			
+}};
+
+	
+@colormap(values = {
+	VeryLow:(255 0 0)
+	Low:(204 51 0)
+	ModeratelyLow:(153 102 0)
+	Moderate:(102 153 0)
+	ModeratelyHigh:(51 204 0)
+	High:(75 250 0)
+	VeryHigh:(0 255 0)
+})
+class ConfidenceLevels 
+	is im:Observed es.nca:EcosystemType within earth:Region
+	has children
+		VeryHigh,
+		High,
+		ModeratelyHigh,
+		Moderate,
+		ModeratelyLow,
+		Low,
+		VeryLow;
+
+define CONFIDENCE_LEVELS as {{
+		  hybrid_model_probability  | confidence_level
+		--------------------------------------------------
+			     < 0.2	  			| VeryLow		,		
+			  0.2 to 0.4	  		| Low			,
+			  0.4 to 0.5 			| ModeratelyLow	,
+		 	  0.5 to 0.6 			| Moderate		,
+			  0.6 to  0.75			| ModeratelyHigh ,
+			 0.75 to  0.9			| High 			,
+				>= 0.9				| VeryHigh			
+}};
+
+model 'local:liberentaizp:esa.aries.sandbox:esa_weed_temp.hm_top1_probability_mosaic'
+	as esa.aries.model_approach:HybridFirstBest esa.aries.model_approach:ConfidenceLevel
+	lookup (self,?)
+	into CONFIDENCE_LEVELS;
