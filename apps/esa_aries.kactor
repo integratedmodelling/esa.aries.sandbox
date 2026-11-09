@@ -329,7 +329,8 @@ action main:
 			
 		) :name "Czech Republic" #czec
 
-		(
+		(		
+			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)
 			checkbutton("GG_v2_01" #gg_v2_01): (
 				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg1","Georgia: GG_v2_01")
 				activate_eu
@@ -408,6 +409,12 @@ action main:
 			)
 			checkbutton("GG_v2_20" #gg_v2_20): (
 				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg20","Georgia: GG_v2_20")
+				activate_eu
+			)
+			separator(:empty)
+			label(#LL2_CONTEXTS width="100%" fsize="0.95em" :left)
+			checkbutton("Guria GG_01" #gg_01): (
+				disable_ctxs("esa.aries.contexts.georgia_guria_ge1","Georgia: Guria GG_01")
 				activate_eu
 			)
 		) :name "Georgia" #georgia		
