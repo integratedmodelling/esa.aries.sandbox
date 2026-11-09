@@ -401,7 +401,7 @@ observe earth:Region named greece_capemaleas_el2
         
 observe earth:Region named greece_kefalonia_z_el3
     over space (urn = 'local:rubencc:esa.aries.sandbox:esa_weed_greece_priority_areas_epsg4326_v2#weed_site=EL3',
-    			grid="30 m",
+    			grid="10 m",
                 projection= "EPSG:4326"),
         time(start=2024, end=2025, step=1.year);  
         

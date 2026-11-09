@@ -237,7 +237,9 @@ action main:
 			)
 		) :name "Colombia" #colombia
 		
-		(
+		(		
+			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)
+			
 			checkbutton("CZ_v2_01 " #cz_v2_01): (
 				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz1","Czech Republic: CZ_v2_01")
 				activate_eu
@@ -318,7 +320,15 @@ action main:
 				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz20","Czech Republic: CZ_v2_20")
 				activate_eu
 			)
+			separator(:empty)
+			label(#LL2_CONTEXTS width="100%" fsize="0.95em" :left)
+			checkbutton("Krkonossky CZ_02" #cz_02): (
+				disable_ctxs("esa.aries.contexts.czech_republic_krkonossky_cz2","Czech Republic: Krkonossky CZ_02")
+				activate_eu
+			)
+			
 		) :name "Czech Republic" #czec
+
 		(
 			checkbutton("GG_v2_01" #gg_v2_01): (
 				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg1","Georgia: GG_v2_01")
@@ -401,7 +411,8 @@ action main:
 				activate_eu
 			)
 		) :name "Georgia" #georgia		
-		(
+		(		
+			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)
 			checkbutton("GR_v2_01 " #gr_v2_01): (
 				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr1","Greece: GR_v2_01")
 				activate_eu
@@ -480,6 +491,12 @@ action main:
 			)
 			checkbutton("GR_v2_20 " #gr_v2_20): (
 				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr20","Greece: GR_v2_20")
+				activate_eu
+			)
+			separator(:empty)
+			label(#LL2_CONTEXTS width="100%" fsize="0.95em" :left)
+			checkbutton("Kefalonia GR_03" #gr_03): (
+				disable_ctxs("esa.aries.contexts.greece_kefalonia_z_el3","Greece: Kefalonia GR_03")
 				activate_eu
 			)
 		) :name "Greece" #greece			
