@@ -199,6 +199,14 @@ action main:
 			)
 			separator(:empty)
 			label(#LL2_CONTEXTS width="100%" fsize="0.95em" :left)
+			checkbutton("Mojana CO1" #co1): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_mojana_co1","Colombia: Mojana CO1")
+				activate_noneu
+			)
+			checkbutton("Providencia CO3" #co3): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_providencia_co3","Colombia: Providencia CO3")
+				activate_noneu
+			)
 			checkbutton("Cienaga Grande de Santa Marta CO4" #co4): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_cienaga_grande_de_santa_marta_co4","Colombia: Cienaga Grande de Santa Marta CO4")
 				activate_noneu
@@ -207,13 +215,31 @@ action main:
 				disable_ctxs("cu_priority_areas_contexts.colombia_santurban_co7","Colombia: Santurbán CO7")
 				activate_noneu
 			)
+			checkbutton("Chingaza CO8" #co8): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_chingaza_co8","Colombia: Chingaza  CO8")
+				activate_noneu
+			)
 			checkbutton("AP_Drummont/Becerril-Cesar CO10" #co10): (
 				disable_ctxs("cu_priority_areas_contexts.colombia_ap_drummont_becerril_cesar_co10","Colombia: AP_Drummont/Becerril-Cesar CO10")
 				activate_noneu
 			)
+			checkbutton("Ap Guane Barrancabermeja CO12" #co12): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_ap_guane_barrancabermeja_co12","Colombia: Ap Guane Barrancabermeja CO12")
+				activate_noneu
+			)
+			checkbutton("Arco de deferestación Amazonia CO15" #co15): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_arco_de_deforestacion_amazonia_co15 ","Colombia: Arco de deferestación Amazonia CO15")
+				activate_noneu
+			)
+			checkbutton("Buenaventura CO17" #co17): (
+				disable_ctxs("cu_priority_areas_contexts.colombia_buenaventura_co17","Colombia: Buenaventura CO17")
+				activate_noneu
+			)
 		) :name "Colombia" #colombia
 		
-		(
+		(		
+			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)
+			
 			checkbutton("CZ_v2_01 " #cz_v2_01): (
 				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz1","Czech Republic: CZ_v2_01")
 				activate_eu
@@ -294,8 +320,17 @@ action main:
 				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz20","Czech Republic: CZ_v2_20")
 				activate_eu
 			)
+			separator(:empty)
+			label(#LL2_CONTEXTS width="100%" fsize="0.95em" :left)
+			checkbutton("Krkonossky CZ_02" #cz_02): (
+				disable_ctxs("esa.aries.contexts.czech_republic_krkonossky_cz2","Czech Republic: Krkonossky CZ_02")
+				activate_eu
+			)
+			
 		) :name "Czech Republic" #czec
-		(
+
+		(		
+			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)
 			checkbutton("GG_v2_01" #gg_v2_01): (
 				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg1","Georgia: GG_v2_01")
 				activate_eu
@@ -376,8 +411,15 @@ action main:
 				disable_ctxs("esa.aries.contexts.georgia_4326_30m_2024_gg20","Georgia: GG_v2_20")
 				activate_eu
 			)
+			separator(:empty)
+			label(#LL2_CONTEXTS width="100%" fsize="0.95em" :left)
+			checkbutton("Guria GG_01" #gg_01): (
+				disable_ctxs("esa.aries.contexts.georgia_guria_ge1","Georgia: Guria GG_01")
+				activate_eu
+			)
 		) :name "Georgia" #georgia		
-		(
+		(		
+			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)
 			checkbutton("GR_v2_01 " #gr_v2_01): (
 				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr1","Greece: GR_v2_01")
 				activate_eu
@@ -458,8 +500,16 @@ action main:
 				disable_ctxs("esa.aries.contexts.greece_4326_10m_2024_gr20","Greece: GR_v2_20")
 				activate_eu
 			)
+			separator(:empty)
+			label(#LL2_CONTEXTS width="100%" fsize="0.95em" :left)
+			checkbutton("Kefalonia GR_03" #gr_03): (
+				disable_ctxs("esa.aries.contexts.greece_kefalonia_z_el3","Greece: Kefalonia GR_03")
+				activate_eu
+			)
 		) :name "Greece" #greece			
-		(
+
+		(	
+			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)
 			checkbutton("NO_v2_01 " #no_v2_01): (
 				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no1","Norway: NO_v2_01")
 				activate_eu
@@ -538,6 +588,28 @@ action main:
 			)
 			checkbutton("NO_v2_20 " #no_v2_20): (
 				disable_ctxs("esa.aries.contexts.norway_4326_10m_2024_no20","Norway: NO_v2_20")
+				activate_eu
+			)
+			separator(:empty)
+			label(#LL2_CONTEXTS width="100%" fsize="0.95em" :left)
+			checkbutton("Norway: Osloviken_1 NO_1_1" #no1_1): (
+				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1_1","Norway: Osloviken NO_1_1")
+				activate_eu
+			)
+			checkbutton("Norway: Osloviken_2 NO_1_2" #no1_2): (
+				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1_2","Norway: Osloviken NO_1_2")
+				activate_eu
+			)
+			checkbutton("Norway: Osloviken_3 NO_1_3" #no1_3): (
+				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1_3","Norway: Osloviken NO_1_3")
+				activate_eu
+			)
+			checkbutton("Norway: Osloviken_4 NO_1_4" #no1_4): (
+				disable_ctxs("cu_priority_areas_contexts.norway_osloviken_no1_4","Norway: Osloviken NO_1_4")
+				activate_eu
+			)			
+			checkbutton("Norway: Finnmark NO_2" #no2): (
+				disable_ctxs("cu_priority_areas_contexts.norway_finnmark_no2","Norway: Finnmark NO_2")
 				activate_eu
 			)					
 		) :name "Norway" #norway
@@ -1026,6 +1098,7 @@ action main:
 						submit(esa.aries.ecosystem_extent_table.ecosystem_typology_extent_iucn_get_rule_based_basic)				
 					)
 					checkbutton("Hybrid modelling" #noneu_hm :tooltip "Hybrid modelling" :disabled)
+					
 					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Machine Learning (IUCN GET) results" #noneu_a2mlr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
 						alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
 								If your results don't appear immediately, the computation is running in the background.")
@@ -1035,8 +1108,8 @@ action main:
 					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Rule-based (IUCN GET) results" #noneu_a2rbr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
 						 alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
 								If your results don't appear immediately, the computation is running in the background.")
-						submit(esa.aries.ecosystem_extent.ecosystem_type_iucn_get_level3_rule_based) 
-						submit(esa.aries.ecosystem_extent_table.natural_ecosystem_extent_iucn_get_rule_based_net_change)
+						submit(esa.aries.ecosystem.naturalness.natural_ecosystem_extent_iucn_get_rule_based)
+						submit(esa.aries.ecosystem.naturalness.gbf_indicator_a2_natural_ecosystem_percentage_iucn_get_rule_based_static) 
 					)						
 				) :hidden #noneu_obs								
 				(
@@ -1059,19 +1132,20 @@ action main:
 						submit(esa.aries.ecosystem_extent_table.ecosystem_typology_extent_iucn_get_rule_based_static)				
 					)					
 					checkbutton("Hybrid modelling" #eu_hm :tooltip "Hybrid modelling" :disabled)
-					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Machine Learning (EUNIS) results" #ey_a2mlr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)":disabled 
+					
+					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Machine Learning (EUNIS) results" #ey_a2mlr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)":disabled ): (
 						alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
 								If your results don't appear immediately, the computation is running in the background.")
 						submit(esa.aries.ecosystem.naturalness.eunis_natural_ecosystem_extent)
 						submit(esa.aries.ecosystem.naturalness.natural_ecosystem_extent_eunis)
 					)
-					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Rule-based (IUCN GET) results" #eu_a2rbr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
+					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Rule-based (IUCN GET) results" #eu_a2rbr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)" :disabled): (
 						alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
 								If your results don't appear immediately, the computation is running in the background.")
 						submit(esa.aries.ecosystem.naturalness.natural_ecosystem_extent_iucn_get_rule_based)
 						submit(esa.aries.ecosystem.naturalness.gbf_indicator_a2_natural_ecosystem_percentage_iucn_get_rule_based_static) 
 					)
-					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Machine Learning (IUCN GET) results" #eu_a2rbr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
+					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Machine Learning (IUCN GET) results" #eu_a2rbr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)" :disabled): (
 						alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
 								If your results don't appear immediately, the computation is running in the background.")
 						submit(esa.aries.ecosystem.naturalness.natural_ecosystem_extent_iucn_get_machine_learning)

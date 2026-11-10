@@ -1,5 +1,6 @@
 project private namespace esa.aries.ecosystem_extent
-using esa.aries.model_approach, nca.ecosystem.eunis, nca.ecosystem.iucn, nca.ecology.ipcc;
+using esa.aries.model_approach, nca.ecosystem.eunis, nca.ecosystem.iucn, nca.ecology.ipcc,
+(CONFIDENCE_LEVEL) from esa.aries.model_approach;
 
 @documented(global.ecosystemextent.machinelearning_mapping)
 //model 'local:alessio.bulckaen:esa.aries.sandbox:EUNIS2021plus-V311-extent'
@@ -136,7 +137,6 @@ model 'local:alessio.bulckaen:esa.aries.sandbox:MachineLearning-EUNIS2021plus-EX
 //		according to im:eunis-lvl2-encoding;
 
 @documented(global.ecosystemextent.machinelearning_mapping)
-//model 'local:alessio.bulckaen:esa.aries.sandbox:IUCNGET-V330-2-MECE' //older collection kept as back-up
 model'local:alessio.bulckaen:esa.aries.sandbox:MachineLearning-IUCNGET-EXTENT'
 	as esa.aries.model_approach:MachineLearning nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get_level3_machine_learning
 		classified 
@@ -145,15 +145,9 @@ model'local:alessio.bulckaen:esa.aries.sandbox:MachineLearning-IUCNGET-EXTENT'
 
 /*IUCN GET RuleBased */
 @documented(global.ecosystemextent.rulebased_mapping)
-//model 'local:alessio.bulckaen:esa.aries.sandbox:RuleBased-V502' //older collection kept as back-up
 model 'local:alessio.bulckaen:esa.aries.sandbox:RuleBased-IUCNGET-EXTENT' 
 	as esa.aries.model_approach:RuleBased nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get_level3_rule_based
 	classified according to im:ecosystem-get-iucn;
-
-//@documented(global.ecosystemextent.rulebased_mapping)
-//model //'local:alessio.bulckaen:esa.aries.sandbox:WEED_rule_based_IUCN_GET'
-//	as esa.aries.model_approach:HybridModelling nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get_level3_hybrid_modelling
-//	classified according to im:ecosystem-get-iucn;
 
 //model presence of es.nca:Ecosystem im:Attribute
 model presence of earth:Region with es.nca:TerrestrialEcosystem
@@ -167,3 +161,36 @@ model presence of earth:Region with es.nca:TerrestrialEcosystem
 	set to [nodata(land_cover_dominance) ? false : true];
 //	set to [nodata(land_cover_dominance) ? 0 : (nodata(surface_water_hydroform) ? 0 : 1)];
 
+model 'local:liberentaizp:esa.aries.sandbox:esa_weed_temp.hm_top1_classification_mosaic'
+	as esa.aries.model_approach:HybridFirstBest nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get_level3_hybrid
+	classified according to im:ecosystem-get-iucn;
+model 'local:liberentaizp:esa.aries.sandbox:esa_weed_temp.hm_top1_probability_mosaic'
+	as esa.aries.model_approach:HybridFirstBest esa.aries.model_approach:ConfidenceLevel
+	lookup (self,?)
+	into CONFIDENCE_LEVEL;
+
+model 'local:liberentaizp:esa.aries.sandbox:esa_weed_temp.hm_top2_classification_mosaic'
+	as esa.aries.model_approach:HybridSecondBest nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get_level3_hybrid_second_best
+	classified according to im:ecosystem-get-iucn;
+model 'local:liberentaizp:esa.aries.sandbox:esa_weed_temp.hm_top2_probability_mosaic'
+	as esa.aries.model_approach:HybridSecondBest esa.aries.model_approach:ConfidenceLevel
+	lookup (self,?)
+	into CONFIDENCE_LEVEL;
+
+model 'local:liberentaizp:esa.aries.sandbox:esa_weed_temp.hm_top3_classification_mosaic'
+	as esa.aries.model_approach:HybridThirdBest nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get_level3_hybrid_third_best
+	classified according to im:ecosystem-get-iucn;
+@colormap(values = {
+	im:VeryLow:(255 0 0)
+	im:Low:(204 51 0)
+	im:ModeratelyLow:(153 102 0)
+	im:Moderate:(102 153 0)
+	im:ModeratelyHigh:(51 204 0)
+	im:High:(75 250 0)
+	im:VeryHigh:(0 255 0)
+})
+model 'local:liberentaizp:esa.aries.sandbox:esa_weed_temp.hm_top3_probability_mosaic'
+	as esa.aries.model_approach:HybridThirdBest esa.aries.model_approach:ConfidenceLevel
+	lookup (self,?)
+	into CONFIDENCE_LEVEL;
+	

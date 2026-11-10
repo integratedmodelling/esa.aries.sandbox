@@ -4,4 +4,101 @@ abstract attribute ModelApproach
 	has children
 		MachineLearning,
 		RuleBased,
-		HybridModelling;
+		(Hybrid
+		has children
+		HybridFirstBest,
+		HybridSecondBest,
+		HybridThirdBest);
+
+
+//@colormap(values = {
+//	im:VeryLow:(255 0 0)
+//	im:Low:(204 51 0)
+//	im:ModeratelyLow:(153 102 0)
+//	im:Moderate:(102 153 0)
+//	im:ModeratelyHigh:(51 204 0)
+//	im:High:(75 250 0)
+//	im:VeryHigh:(0 255 0)
+//})
+//@colormap(colors=(red white green), midpoint=0)
+//class ConfidenceLevel 
+//	is im:Observed es.nca:EcosystemType within earth:Region;
+
+
+//@colormap(values = {
+//	im:VeryLow:(255 0 0)
+//	im:Low:(204 51 0)
+//	im:ModeratelyLow:(153 102 0)
+//	im:Moderate:(102 153 0)
+//	im:ModeratelyHigh:(51 204 0)
+//	im:High:(75 250 0)
+//	im:VeryHigh:(0 255 0)
+//})
+@colormap(colors=(red white green), midpoint=0)
+define CONFIDENCE_LEVEL as {{
+		  hybrid_model_probability  | confidence_level
+		--------------------------------------------------
+			     < 0.2	  			| im:VeryLow		,		
+			  0.2 to 0.4	  		| im:Low			,
+			  0.4 to 0.5 			| im:ModeratelyLow	,
+		 	  0.5 to 0.6 			| im:Moderate		,
+			  0.6 to  0.75			| im:ModeratelyHigh ,
+			 0.75 to  0.9			| im:High 			,
+				>= 0.9				| im:VeryHigh			
+}};
+
+	
+//@colormap(values = {
+//	esa.aries.model_approach:VeryLow:(255 0 0)
+//	esa.aries.model_approach:Low:(204 51 0)
+//	esa.aries.model_approach:ModeratelyLow:(153 102 0)
+//	esa.aries.model_approach:Moderate:(102 153 0)
+//	esa.aries.model_approach:ModeratelyHigh:(51 204 0)
+//	esa.aries.model_approach:High:(75 250 0)
+//	esa.aries.model_approach:VeryHigh:(0 255 0)
+//}, continuous=true)
+//abstract subjective ordering ConfidenceLevels 
+//	is im:Observed es.nca:EcosystemType im:Level within earth:Region
+//	has children
+//		VeryHigh,
+//		High,
+//		ModeratelyHigh,
+//		Moderate,
+//		ModeratelyLow,
+//		Low,
+//		VeryLow;
+////		
+//
+//define CONFIDENCE_LEVELS as {{
+//		  hybrid_model_probability  | confidence_level
+//		--------------------------------------------------
+//			     < 0.2	  			| esa.aries.model_approach:VeryLow		,		
+//			  0.2 to 0.4	  		| esa.aries.model_approach:Low			,
+//			  0.4 to 0.5 			| esa.aries.model_approach:ModeratelyLow	,
+//		 	  0.5 to 0.6 			| esa.aries.model_approach:Moderate		,
+//			  0.6 to  0.75			| esa.aries.model_approach:ModeratelyHigh ,
+//			 0.75 to  0.9			| esa.aries.model_approach:High 			,
+//				>= 0.9				| esa.aries.model_approach:VeryHigh			
+//}};
+
+//@colormap(values = {
+//	esa.aries.model_approach:VeryLow: (255 0 0)
+//	esa.aries.model_approach:Low: (204 51 0)
+//	esa.aries.model_approach:ModeratelyLow: (153 102 0)
+//	esa.aries.model_approach:Moderate: (102 153 0)
+//	esa.aries.model_approach:ModeratelyHigh: (51 204 0)
+//	esa.aries.model_approach:High: (75 250 0)
+//	esa.aries.model_approach:VeryHigh: (0 255 0)
+//}, continuous=true)
+model 'local:liberentaizp:esa.aries.sandbox:esa_weed_temp.hm_top1_probability_mosaic'
+	as type of esa.aries.model_approach:HybridFirstBest im:Level 
+	lookup (self,?)
+	into CONFIDENCE_LEVEL;
+	
+model 'local:caterina.gilli:im.aries.valencia:im_aries_valencia_valencia_vulnerability_by_barrio_4326_2021#ind_global'
+	as type of risk:VulnerabilityMetric im:Level
+	classified into
+		im:Low if > 2.6,
+		im:Moderate if 2.3 to 2.6,
+		im:High if < 2.3
+		;
