@@ -37,7 +37,7 @@ action main:
 				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm5","Cameroon: CM-v2-05")
 				activate_noneu
 			)
-			checkbutton("CM-v2-6" #cm_v2_06): (
+			checkbutton("CM-v2-06" #cm_v2_06): (
 				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm6","Cameroon: CM-v2-6")
 				activate_noneu
 			)
@@ -97,6 +97,18 @@ action main:
 				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm20","Cameroon: CM-v2-20")
 				activate_noneu
 			)
+			checkbutton("CM-v2-21" #cm_v2_01): (
+				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm21_congo_river_basin","Cameroon: Congo River Basin CM-v2-21")
+				activate_noneu
+			)
+			checkbutton("CM-v2-22" #cm_v2_01): (
+				disable_ctxs("cameroon_4326_30m_2024_cm22_congo_river_basin","Cameroon: Congo River Basin CM-v2-22")
+				activate_noneu
+			)
+			checkbutton("CM-v2-22" #cm_v2_01): (
+				disable_ctxs("cameroon_4326_30m_2024_cm22_congo_river_basin","Cameroon: Congo River Basin CM-v2-22")
+				activate_noneu
+			)			
 		) :name "Cameroon" #cameroon	
 			
 		(	
@@ -1110,7 +1122,10 @@ action main:
 								If your results don't appear immediately, the computation is running in the background.")
 						submit(esa.aries.ecosystem.naturalness.natural_ecosystem_extent_iucn_get_rule_based)
 						submit(esa.aries.ecosystem.naturalness.gbf_indicator_a2_natural_ecosystem_percentage_iucn_get_rule_based_static) 
-					)						
+					)
+					checkbutton("Reference data points from Global Validation dataset (IUCN GET)" #noneu_ref_data :tooltip "Reference data points from Global Validation dataset: original data and IUCN GET classification (rasterized points)"): (
+						submit(esa.aries.ecosystem.reference.global_validation_points) : submit(esa.aries.ecosystem.reference.global_validation_data_iucn_get)
+					)
 				) :hidden #noneu_obs								
 				(
 					checkbutton("Machine Learning (EUNIS classification) results" #eu_mlr :tooltip "Machine Learning (EUNIS classification) results"): (
@@ -1150,6 +1165,9 @@ action main:
 								If your results don't appear immediately, the computation is running in the background.")
 						submit(esa.aries.ecosystem.naturalness.natural_ecosystem_extent_iucn_get_machine_learning)
 						submit(esa.aries.ecosystem.naturalness.gbf_indicator_a2_natural_ecosystem_percentage_iucn_get__machine_learning_static) 
+					)
+					checkbutton("Reference data points from Global Validation dataset (EUNIS)" #eu_ref_data :tooltip "Reference data points from Global Validation dataset: original data and EUNIS classification (rasterized points)"): (
+						submit(esa.aries.ecosystem.reference.global_validation_points) : submit(esa.aries.ecosystem.reference.global_validation_data_eunis)
 					)					
 					hybrid.disable					
 				) :hidden #eu_obs
