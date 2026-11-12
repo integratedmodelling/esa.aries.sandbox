@@ -1,5 +1,5 @@
 private namespace esa.aries.rule_based_accuracy
-using nca.ecosystem.iucn, et_result_comparison,
+using nca.ecosystem.iucn, et_result_comparison, esa.aries.model_approach,
 (IUCN_GET_LEVEL_CONVERSION_TABLE) from et_result_comparison,
 (IUCN_GET_LEVEL_CONSISTENCY_TABLE) from et_result_comparison;
 
@@ -19,10 +19,10 @@ observe earth:Region named small_area_test_colombia
         time (year=2024);
         
 /*IUCN GET RuleBased */
-//model 'local:alessio.bulckaen:esa.aries.sandbox:WEED-RB-IUCNGET_mece-cube_year2024_18λWQ33_V502_2024-01-01Z' 
-model 'local:alessio.bulckaen:esa.aries.sandbox:RuleBased-V502'
-as type of nca.ecosystem.iucn:Ecosystem
-classified according to im:ecosystem-get-iucn;
+@documented(global.ecosystemextent.rulebased_mapping)
+model 'local:alessio.bulckaen:esa.aries.sandbox:RuleBased-IUCNGET-EXTENT' 
+	as esa.aries.model_approach:RuleBased nca.ecosystem.iucn:EcosystemType named ecosystem_type_iucn_get_level3_rule_based
+	classified according to im:ecosystem-get-iucn;
 
 /* -----------------------------------------------------------------------------------------------------------------------------------------------
  * # 1) Comparison of the ecosystem type result between modelled & reference maps by ES types.
