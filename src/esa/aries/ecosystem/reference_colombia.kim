@@ -1,0 +1,475 @@
+private namespace esa.aries.ecosystem.reference_colombia
+using nca.ecosystem.iucn;
+
+@colormap(values={
+RiceAgroecosystem: (255, 255, 0)
+CoffeeAgroecosystem: (255, 255, 20)
+SugarcaneAgroecosystem: (255, 255, 40)
+PermanentCropAgroecosystem: (255, 255, 60)
+TransitoryCropAgroecosystem: (255, 255, 80)
+MosaicCropNaturalSpaceAgroecosystem: (255, 255, 100)
+MosaicCropPastureAgroecosystem: (240, 230, 0)
+MosaicCropPastureNaturalSpaceAgroecosystem: (240, 230, 20)
+MosaicPastureNaturalSpaceAgroecosystem: (240, 230, 40)
+ForestryAgroecosystem: (240, 230, 60)
+LivestockAgroecosystem: (240, 230, 80)
+PalmAgroecosystem: (240, 230, 100)
+PotatoAgroecosystem: (240, 230, 120)
+PlantainBananaAgroecosystem: (240, 230, 140)
+HumidAndeanShrubland: (100, 140, 35)
+HumidBasalShrubland: (105, 145, 40)
+FloodedAndeanShrubland: (95, 135, 30)
+FloodedBasalShrubland: (105, 135, 35)
+CoastalFloodedShrubland: (105, 135, 30)
+FloodedSubAndeanShrubland: (95, 145, 40)
+HumidSubAndeanShrubland: (95, 135, 30)
+HumidAndeanForest: (0, 100, 0)
+DryAndeanForest: (10, 110, 10)
+HumidBasalForest: (20, 120, 20)
+DryBasalForest: (30, 130, 30)
+HumidBasalGalleryForest: (40, 140, 40)
+DryBasalGalleryForest: (50, 150, 50)
+FloodedBasalGalleryForest: (60, 160, 60)
+CoastalFloodedGalleryForest: (70, 170, 70)
+FragmentedForestWithPastureCrop: (80, 180, 80)
+FragmentedForestWithSecondaryVegetation: (90, 190, 90)
+FloodedAndeanForest: (100, 200, 100)
+FloodedBasalForest: (110, 210, 110)
+CoastalFloodedForest: (120, 220, 120)
+FloodedSubAndeanForest: (130, 230, 130)
+MixedGuandalForest: (140, 240, 140)
+FloodedRiparianSubAndeanForest: (150, 250, 150)
+HumidSubAndeanForest: (160, 255, 160)
+DrySubAndeanForest: (170, 255, 170)
+AndeanRockyComplex: (100, 100, 100)
+MountainRangeRockyComplex: (110, 110, 110)
+ContinentalCoral: (120, 120, 120)
+OceanicCoral: (130, 130, 130)
+ArtificialWaterBody: (140, 140, 140)
+Desert: (150, 150, 150)
+SoftBottom: (160, 160, 160)
+SoftBottomWithNonVascularVegetation: (170, 170, 170)
+HardBottomWithNonVascularVegetation: (180, 180, 180)
+NonCoralHardBottom: (190, 190, 190)
+GlacierSnowfield: (200, 200, 200)
+HumidAndeanGrassland: (57, 255, 20)
+HumidBasalGrassland: (50, 205, 50)
+FloodedAndeanGrassland: (0, 170, 170)
+FloodedBasalGrassland: (10, 180, 180)
+CoastalFloodedGrassland: (20, 190, 190)
+FloodedSubAndeanGrassland: (30, 200, 200)
+HumidSubAndeanGrassland: (40, 210, 210)
+TectonicLake: (0, 0, 255)
+AlluvialLagoon: (10, 10, 250)
+CoastalLagoon: (20, 20, 245)
+GlacialLagoon: (30, 30, 240)
+TectonicLagoon: (40, 40, 235)
+TidalFlat: (50, 50, 230)
+Mangrove: (130, 255, 212)
+MarineWaterMangrove: (0, 204, 153)
+BrackishWaterMangrove: (170, 240, 209)
+Paramo: (100, 140, 17)
+CoastalBeach: (255, 235, 205)
+SeagrassMeadow: (50, 205, 50)
+River: (76,127,247)
+WhiteWaterRiver: (102, 180, 255)
+ClearWaterRiver: (100, 150, 255)
+BlackWaterRiver: (90, 140, 255)
+SeasonalSavanna: (218, 165, 32)
+FloodedSavanna: (252, 194, 0)
+AndeanSubxerophytic: (150, 75, 0)
+BasalSubxerophytic: (181, 101, 29)
+SubAndeanSubxerophytic: (131, 105, 83)
+ArtificializedTerritory: (255, 0, 0)
+TransformedTransitional: (164, 0, 0)
+CoastalTransformedTransitional: (220, 20, 60)
+AndeanPeatland: (128, 128, 0)
+ParamoPeatland: (107, 142, 35)
+SecondaryVegetation: (80, 125, 42)
+AridXerophytic: (195, 176, 145)
+DesertXerophytic: (227, 218, 201)
+AndeanSwampyArea: (0, 155, 125)
+BasalSwampyArea: (0, 117, 94)
+SubAndeanSwampyArea: (1, 121, 111)
+NaturalSandyArea: (194, 178, 128)
+CoastalSwampyArea: (85, 107, 47)
+SalineSwampyArea: (164, 198, 57)
+MixohalineWaterMangrove: (0, 255, 255)
+ComplejoRocosoDeLosAndesOSubxerofitiaBasal: (255, 20, 147)
+ArbustalBasalHumedoOComplejoRocosoDeLosAndes: (255, 20, 147)
+ArbustalAndinoHumedoOComplejoRocosoDeLosAndes: (255, 20, 147)
+ComplejoRocosoDeLosAndesOSubxerofitiaAndina: (255, 20, 147)
+ComplejoRocosoDeLosAndesOParamo: (255, 20, 147)
+ArbustalSubandinoHumedoOComplejoRocosoDeLosAndes: (255, 20, 147)
+ComplejoRocosoDeLosAndesOXerofitiaArida: (255, 20, 147)
+ArbustalInundableAndinoOTurberaDeParamo: (255, 20, 147)
+SabanaInundableOTransicionalTransformado: (255, 20, 147)
+ComplejoRocosoDeLosAndesOOtrasAreas: (255, 20, 147)
+BosqueAndinoHumedoOComplejoRocosoDeLosAndes: (255, 20, 147)
+BosqueInundableCosteroOManglarDeAguasMixohalinas: (255, 20, 147)
+BosqueInundableCosteroOBosqueMixtoDeGuandal: (255, 20, 147)
+BosqueBasalSecoOComplejoRocosoDeLosAndes: (255, 20, 147)
+BosqueBasalSecoOAgroecosistemaDeMosaicoDePastosOEspaciosNaturales: (255, 20, 147)
+BosqueInundableAndinoOturberaDeParamo: (255, 20, 147)
+BosqueSubandinoHumedoOComplejoRocosoDeLosAndes: (255, 20, 147)
+ComplejoRocosoDeLosAndesOHerbazalSubandinoHumedo: (255, 20, 147)
+HerbazalInundableBasalOSabanaInundable: (255, 20, 147)
+ComplejoRocosoDeSerraniasOAgroecosistemaDeMosaicoDePastosOEspacioNatural: (255, 20, 147)
+ComplejoRocosoDeSerraniasOAgroecosistemaGanadero: (255, 20, 147)
+ComplejoRocosoDeLosAndesOHerbazalBasalHumedo: (255, 20, 147)
+ComplejoRocosoDeLosAndesOHerbazalAndinoHumedo: (255, 20, 147)
+HerbazalInundableAndinoOTurberaAndinaOTurberaDeParamo: (255, 20, 147)
+HerbazalInundableAndinoOTurberaDeParamo: (255, 20, 147)
+LagunaGlacialOLagunaTectonica: (255, 20, 147)
+PlayaCosteraOZonaPantanosaCostera: (255, 20, 147)
+LagunaAluvialOLagunaTectonica: (255, 20, 147)
+ManglarOManglarDeAguasMixohalinas: (255, 20, 147)
+CoralinoContinentalOCoralinoOceanicoOFondoMarino: (255, 20, 147)
+PlayaCosteraOZonaPantanosaCostera: (255, 20, 147)
+ZonaPantanosaCosteraOTransicionalTransformadoCostero: (255, 20, 147)
+NoInformation: (0, 0, 0)
+OtherArea: (221, 160, 221)
+Unaccounted: (191, 0, 255)
+})
+
+abstract attribute ColombianEcosystem
+	has children
+		RiceAgroecosystem,
+		CoffeeAgroecosystem,
+		SugarcaneAgroecosystem,
+		PermanentCropAgroecosystem,
+		TransitoryCropAgroecosystem,
+		MosaicCropNaturalSpaceAgroecosystem,
+		MosaicCropPastureAgroecosystem,
+		MosaicCropPastureNaturalSpaceAgroecosystem,
+		MosaicPastureNaturalSpaceAgroecosystem,
+		ForestryAgroecosystem,
+		LivestockAgroecosystem,
+		PalmAgroecosystem,
+		PotatoAgroecosystem,
+		PlantainBananaAgroecosystem,
+		HumidAndeanShrubland,
+		HumidBasalShrubland,
+		FloodedAndeanShrubland,
+		FloodedBasalShrubland,
+		CoastalFloodedShrubland,
+		FloodedSubAndeanShrubland,
+		HumidSubAndeanShrubland,
+		HumidAndeanForest,
+		DryAndeanForest,
+		HumidBasalForest,
+		DryBasalForest,
+		HumidBasalGalleryForest,
+		DryBasalGalleryForest,
+		FloodedBasalGalleryForest,
+		CoastalFloodedGalleryForest,
+		FragmentedForestWithPastureCrop,
+		FragmentedForestWithSecondaryVegetation,
+		FloodedAndeanForest,
+		FloodedBasalForest,
+		CoastalFloodedForest,
+		FloodedSubAndeanForest,
+		MixedGuandalForest,
+		FloodedRiparianSubAndeanForest,
+		HumidSubAndeanForest,
+		DrySubAndeanForest,
+		AndeanRockyComplex,
+		MountainRangeRockyComplex,
+		ContinentalCoral,
+		OceanicCoral,
+		ArtificialWaterBody,
+		Desert,
+		SoftBottom,
+		SoftBottomWithNonVascularVegetation,
+		HardBottomWithNonVascularVegetation,
+		NonCoralHardBottom,
+		GlacierSnowfield,
+		HumidAndeanGrassland,
+		HumidBasalGrassland,
+		FloodedAndeanGrassland,
+		FloodedBasalGrassland,
+		CoastalFloodedGrassland,
+		FloodedSubAndeanGrassland,
+		HumidSubAndeanGrassland,
+		TectonicLake,
+		AlluvialLagoon,
+		CoastalLagoon,
+		GlacialLagoon,
+		TectonicLagoon,
+		TidalFlat,
+		Mangrove,
+		MarineWaterMangrove,
+		BrackishWaterMangrove,
+		Paramo,
+		CoastalBeach,
+		SeagrassMeadow,
+		(River has children
+			WhiteWaterRiver,
+			ClearWaterRiver,
+			BlackWaterRiver),
+		SeasonalSavanna,
+		FloodedSavanna,
+		AndeanSubxerophytic,
+		BasalSubxerophytic,
+		SubAndeanSubxerophytic,
+		ArtificializedTerritory,
+		TransformedTransitional,
+		CoastalTransformedTransitional,
+		AndeanPeatland,
+		ParamoPeatland,
+		SecondaryVegetation,
+		AridXerophytic,
+		DesertXerophytic,
+		AndeanSwampyArea,
+		BasalSwampyArea,
+		SubAndeanSwampyArea,
+		NaturalSandyArea,
+		CoastalSwampyArea,
+		SalineSwampyArea,
+		MixohalineWaterMangrove,
+
+	ComplejoRocosoDeLosAndesOSubxerofitiaBasal,
+	ArbustalBasalHumedoOComplejoRocosoDeLosAndes,
+	ArbustalAndinoHumedoOComplejoRocosoDeLosAndes,
+	ComplejoRocosoDeLosAndesOSubxerofitiaAndina,
+	ComplejoRocosoDeLosAndesOParamo,
+	ArbustalSubandinoHumedoOComplejoRocosoDeLosAndes,
+	ComplejoRocosoDeLosAndesOXerofitiaArida,
+	ArbustalInundableAndinoOTurberaDeParamo,
+	SabanaInundableOTransicionalTransformado,
+	ComplejoRocosoDeLosAndesOOtrasAreas,
+	BosqueAndinoHumedoOComplejoRocosoDeLosAndes,
+	BosqueInundableCosteroOManglarDeAguasMixohalinas,
+	BosqueInundableCosteroOBosqueMixtoDeGuandal,
+	BosqueBasalSecoOComplejoRocosoDeLosAndes,
+	BosqueBasalSecoOAgroecosistemaDeMosaicoDePastosOEspaciosNaturales,
+	BosqueInundableAndinoOturberaDeParamo,
+	BosqueSubandinoHumedoOComplejoRocosoDeLosAndes,
+	ComplejoRocosoDeLosAndesOHerbazalSubandinoHumedo,
+	HerbazalInundableBasalOSabanaInundable,
+	ComplejoRocosoDeSerraniasOAgroecosistemaDeMosaicoDePastosOEspacioNatural,
+	ComplejoRocosoDeSerraniasOAgroecosistemaGanadero,
+	ComplejoRocosoDeLosAndesOHerbazalBasalHumedo,
+	ComplejoRocosoDeLosAndesOHerbazalAndinoHumedo,
+	HerbazalInundableAndinoOTurberaAndinaOTurberaDeParamo,
+	HerbazalInundableAndinoOTurberaDeParamo,
+	LagunaGlacialOLagunaTectonica,
+	PlayaCosteraOZonaPantanosaCostera,
+	LagunaAluvialOLagunaTectonica,
+	ManglarOManglarDeAguasMixohalinas,
+	CoralinoContinentalOCoralinoOceanicoOFondoMarino,
+//	PlayaCosteraOZonaPantanosaCostera,
+	ZonaPantanosaCosteraOTransicionalTransformadoCostero,
+	
+		NoInformation,
+		Unaccounted,
+		OtherArea
+;
+
+quality ColombianEcosystemType is
+	 type of ColombianEcosystem;
+
+model 'local:rubencc:colombia.seea.aries:im-data-global-ecology.colombia_et_mec_100m_3116_v2_1' 
+	as ColombianEcosystemType named colombian_ecosystem_type_national_classification 
+//	as geography:Colombia im:Reference type of nca.ecosystem.iucn:Ecosystem named colombian_ecosystem_type_national_classification 
+	classified into
+	esa.aries.ecosystem.reference_colombia:RiceAgroecosystem if 1,
+	esa.aries.ecosystem.reference_colombia:CoffeeAgroecosystem if 2,
+	esa.aries.ecosystem.reference_colombia:SugarcaneAgroecosystem if 3,
+	esa.aries.ecosystem.reference_colombia:PermanentCropAgroecosystem if 4,
+	esa.aries.ecosystem.reference_colombia:TransitoryCropAgroecosystem if 5,
+	esa.aries.ecosystem.reference_colombia:MosaicCropNaturalSpaceAgroecosystem if 6,
+	esa.aries.ecosystem.reference_colombia:MosaicCropPastureAgroecosystem if 7,
+	esa.aries.ecosystem.reference_colombia:MosaicCropPastureNaturalSpaceAgroecosystem if 8,
+	esa.aries.ecosystem.reference_colombia:MosaicPastureNaturalSpaceAgroecosystem if 9,
+	esa.aries.ecosystem.reference_colombia:ForestryAgroecosystem if 10,
+	esa.aries.ecosystem.reference_colombia:LivestockAgroecosystem if 11,
+	esa.aries.ecosystem.reference_colombia:PalmAgroecosystem if 12,
+	esa.aries.ecosystem.reference_colombia:PotatoAgroecosystem if 13,
+	esa.aries.ecosystem.reference_colombia:PlantainBananaAgroecosystem if 14,
+	esa.aries.ecosystem.reference_colombia:HumidAndeanShrubland if 15,
+	esa.aries.ecosystem.reference_colombia:HumidBasalShrubland if 16,
+	esa.aries.ecosystem.reference_colombia:FloodedAndeanShrubland if 17,
+	esa.aries.ecosystem.reference_colombia:FloodedBasalShrubland if 18,
+	esa.aries.ecosystem.reference_colombia:CoastalFloodedShrubland if 19,
+	esa.aries.ecosystem.reference_colombia:FloodedSubAndeanShrubland if 20,
+	esa.aries.ecosystem.reference_colombia:HumidSubAndeanShrubland if 21,
+	esa.aries.ecosystem.reference_colombia:HumidAndeanForest if 22,
+	esa.aries.ecosystem.reference_colombia:DryAndeanForest if 23,
+	esa.aries.ecosystem.reference_colombia:HumidBasalForest if 24,
+	esa.aries.ecosystem.reference_colombia:DryBasalForest if 25,
+	esa.aries.ecosystem.reference_colombia:HumidBasalGalleryForest if 26,
+	esa.aries.ecosystem.reference_colombia:DryBasalGalleryForest if 27,
+	esa.aries.ecosystem.reference_colombia:FloodedBasalGalleryForest if 28,
+	esa.aries.ecosystem.reference_colombia:CoastalFloodedGalleryForest if 29,
+	esa.aries.ecosystem.reference_colombia:FragmentedForestWithPastureCrop if 30,
+	esa.aries.ecosystem.reference_colombia:FragmentedForestWithSecondaryVegetation if 31,
+	esa.aries.ecosystem.reference_colombia:FloodedAndeanForest if 32,
+	esa.aries.ecosystem.reference_colombia:FloodedBasalForest if 33,
+	esa.aries.ecosystem.reference_colombia:CoastalFloodedForest if 34,
+	esa.aries.ecosystem.reference_colombia:FloodedSubAndeanForest if 35,
+	esa.aries.ecosystem.reference_colombia:MixedGuandalForest if 36,
+	esa.aries.ecosystem.reference_colombia:FloodedRiparianSubAndeanForest if 37,
+	esa.aries.ecosystem.reference_colombia:HumidSubAndeanForest if 38,
+	esa.aries.ecosystem.reference_colombia:DrySubAndeanForest if 39,
+	esa.aries.ecosystem.reference_colombia:AndeanRockyComplex if 40,
+	esa.aries.ecosystem.reference_colombia:MountainRangeRockyComplex if 41,
+	esa.aries.ecosystem.reference_colombia:ContinentalCoral if 42,
+	esa.aries.ecosystem.reference_colombia:OceanicCoral if 43,
+	esa.aries.ecosystem.reference_colombia:ArtificialWaterBody if 44,
+	esa.aries.ecosystem.reference_colombia:Desert if 45,
+	esa.aries.ecosystem.reference_colombia:SoftBottom if 46,
+	esa.aries.ecosystem.reference_colombia:SoftBottomWithNonVascularVegetation if 47,
+	esa.aries.ecosystem.reference_colombia:HardBottomWithNonVascularVegetation if 48,
+	esa.aries.ecosystem.reference_colombia:NonCoralHardBottom if 49,
+	esa.aries.ecosystem.reference_colombia:GlacierSnowfield if 50,
+	esa.aries.ecosystem.reference_colombia:HumidAndeanGrassland if 51,
+	esa.aries.ecosystem.reference_colombia:HumidBasalGrassland if 52,
+	esa.aries.ecosystem.reference_colombia:FloodedAndeanGrassland if 53,
+	esa.aries.ecosystem.reference_colombia:FloodedBasalGrassland if 54,
+	esa.aries.ecosystem.reference_colombia:CoastalFloodedGrassland if 55,
+	esa.aries.ecosystem.reference_colombia:FloodedSubAndeanGrassland if 56,
+	esa.aries.ecosystem.reference_colombia:HumidSubAndeanGrassland if 57,
+	esa.aries.ecosystem.reference_colombia:TectonicLake if 58,
+	esa.aries.ecosystem.reference_colombia:AlluvialLagoon if 59,
+	esa.aries.ecosystem.reference_colombia:CoastalLagoon if 61,
+	esa.aries.ecosystem.reference_colombia:GlacialLagoon if 60,
+	esa.aries.ecosystem.reference_colombia:TectonicLagoon if 62,
+	esa.aries.ecosystem.reference_colombia:TidalFlat if 63,
+	esa.aries.ecosystem.reference_colombia:Mangrove if 64,
+	esa.aries.ecosystem.reference_colombia:MarineWaterMangrove if 65,
+	esa.aries.ecosystem.reference_colombia:BrackishWaterMangrove if 66,
+	esa.aries.ecosystem.reference_colombia:OtherArea if 67,
+	esa.aries.ecosystem.reference_colombia:Paramo if 68,
+	esa.aries.ecosystem.reference_colombia:CoastalBeach if 69,
+	esa.aries.ecosystem.reference_colombia:SeagrassMeadow if 70,
+	esa.aries.ecosystem.reference_colombia:WhiteWaterRiver if 71,
+	esa.aries.ecosystem.reference_colombia:ClearWaterRiver if 72,
+	esa.aries.ecosystem.reference_colombia:BlackWaterRiver if 73,
+	esa.aries.ecosystem.reference_colombia:SeasonalSavanna if 74,
+	esa.aries.ecosystem.reference_colombia:FloodedSavanna if 75,
+	esa.aries.ecosystem.reference_colombia:NoInformation if 76,
+	esa.aries.ecosystem.reference_colombia:AndeanSubxerophytic if 77,
+	esa.aries.ecosystem.reference_colombia:BasalSubxerophytic if 78,
+	esa.aries.ecosystem.reference_colombia:SubAndeanSubxerophytic if 79,
+	esa.aries.ecosystem.reference_colombia:ArtificializedTerritory if 80,
+	esa.aries.ecosystem.reference_colombia:TransformedTransitional if 81,
+	esa.aries.ecosystem.reference_colombia:CoastalTransformedTransitional if 82,
+	esa.aries.ecosystem.reference_colombia:AndeanPeatland if 83,
+	esa.aries.ecosystem.reference_colombia:ParamoPeatland if 84,
+	esa.aries.ecosystem.reference_colombia:SecondaryVegetation if 85,
+	esa.aries.ecosystem.reference_colombia:AridXerophytic if 86,
+	esa.aries.ecosystem.reference_colombia:DesertXerophytic if 87,
+	esa.aries.ecosystem.reference_colombia:AndeanSwampyArea if 88,
+	esa.aries.ecosystem.reference_colombia:BasalSwampyArea if 89,
+	esa.aries.ecosystem.reference_colombia:SubAndeanSwampyArea if 90,
+	esa.aries.ecosystem.reference_colombia:NaturalSandyArea if 91,
+	esa.aries.ecosystem.reference_colombia:CoastalSwampyArea if 92,
+	esa.aries.ecosystem.reference_colombia:SalineSwampyArea if 93;
+
+define CROSSWALK_COLOMBIA_NATIONAL_CLASSIFICATION_TO_IUCN_GET as {{
+  ecosystem_type_colombian_class                                                    | ecosystem_type_iucn_get                                
+  -------------------------------------------------------------------------------------------------------------------------------------------
+  esa.aries.ecosystem.reference_colombia:SecondaryVegetation                        | nca.ecosystem.iucn:DerivedSeminaturalPastureOldfield    ,
+  esa.aries.ecosystem.reference_colombia:TectonicLake                               | nca.ecosystem.iucn:SmallPermanentFreshwaterLake         ,
+  esa.aries.ecosystem.reference_colombia:CoastalFloodedGrassland                    | nca.ecosystem.iucn:CoastalShrublandGrassland            ,
+  esa.aries.ecosystem.reference_colombia:ArtificialWaterBody                        | nca.ecosystem.iucn:CanalDitchDrain                      ,
+  esa.aries.ecosystem.reference_colombia:AndeanSubxerophytic                        | nca.ecosystem.iucn:SeasonallyDryTemperateHeathShrubland ,
+  esa.aries.ecosystem.reference_colombia:CoastalLagoon                              | nca.ecosystem.iucn:CoastalRiverDelta                    ,
+  esa.aries.ecosystem.reference_colombia:CoastalSwampyArea                          | nca.ecosystem.iucn:MuddyShoreline                       ,
+  esa.aries.ecosystem.reference_colombia:Paramo                                     | nca.ecosystem.iucn:TropicalAlpineGrasslandShrubland     ,
+  esa.aries.ecosystem.reference_colombia:MarineWaterMangrove                        | nca.ecosystem.iucn:IntertidalForestShrubland            ,
+  esa.aries.ecosystem.reference_colombia:TidalFlat                                  | nca.ecosystem.iucn:CoastalRiverDelta                    ,
+  esa.aries.ecosystem.reference_colombia:CoastalBeach                               | nca.ecosystem.iucn:SandyShoreline                       ,
+  esa.aries.ecosystem.reference_colombia:MixedGuandalForest                         | nca.ecosystem.iucn:TropicalSubtropicalLowlandRainforest ,
+  esa.aries.ecosystem.reference_colombia:GlacierSnowfield                           | nca.ecosystem.iucn:IceSheetGlacierPerennialSnowfield    ,
+  esa.aries.ecosystem.reference_colombia:SugarcaneAgroecosystem                     | nca.ecosystem.iucn:AnnualCropland                       ,
+  esa.aries.ecosystem.reference_colombia:WhiteWaterRiver                            | nca.ecosystem.iucn:PermanentUplandStream                ,
+  esa.aries.ecosystem.reference_colombia:ClearWaterRiver                            | nca.ecosystem.iucn:PermanentUplandStream                ,
+  esa.aries.ecosystem.reference_colombia:BlackWaterRiver                            | nca.ecosystem.iucn:PermanentLowlandStream               ,
+  esa.aries.ecosystem.reference_colombia:River                                      | nca.ecosystem.iucn:RiverStream                          ,
+  esa.aries.ecosystem.reference_colombia:ContinentalCoral                           | nca.ecosystem.iucn:PhoticCoralReef                      ,
+  esa.aries.ecosystem.reference_colombia:OceanicCoral                               | nca.ecosystem.iucn:PhoticCoralReef                      ,
+  esa.aries.ecosystem.reference_colombia:SoftBottom                                 | nca.ecosystem.iucn:SubtidalSandBed                      ,
+  esa.aries.ecosystem.reference_colombia:SoftBottomWithNonVascularVegetation        | nca.ecosystem.iucn:SubtidalSandBed                      ,
+  esa.aries.ecosystem.reference_colombia:HardBottomWithNonVascularVegetation        | nca.ecosystem.iucn:SubtidalSandBed                      ,
+  esa.aries.ecosystem.reference_colombia:NonCoralHardBottom                         | nca.ecosystem.iucn:SubtidalSandBed                      ,
+  esa.aries.ecosystem.reference_colombia:SeagrassMeadow                             | nca.ecosystem.iucn:SeagrassMeadow                       ,
+  esa.aries.ecosystem.reference_colombia:CoastalFloodedShrubland                    | nca.ecosystem.iucn:CoastalShrublandGrassland            ,
+  esa.aries.ecosystem.reference_colombia:SeasonalSavanna                            | nca.ecosystem.iucn:PyricTussockSavanna                  ,
+  esa.aries.ecosystem.reference_colombia:MountainRangeRockyComplex                  | nca.ecosystem.iucn:RockyPavementLavaflowScree           ,
+  esa.aries.ecosystem.reference_colombia:HumidBasalGrassland                        | nca.ecosystem.iucn:SeasonallyDryTemperateHeathShrubland ,
+  esa.aries.ecosystem.reference_colombia:CoastalTransformedTransitional             | nca.ecosystem.iucn:PermanentlyOpenRiverineEstuaryBay    ,
+  esa.aries.ecosystem.reference_colombia:CoastalFloodedGalleryForest                | nca.ecosystem.iucn:TropicalFloodedForestPeatForest      ,
+  esa.aries.ecosystem.reference_colombia:DryAndeanForest                            | nca.ecosystem.iucn:TropicalSubtropicalDryForestThicket  ,
+  esa.aries.ecosystem.reference_colombia:DrySubAndeanForest                         | nca.ecosystem.iucn:TropicalSubtropicalDryForestThicket  ,
+  esa.aries.ecosystem.reference_colombia:HumidAndeanForest                          | nca.ecosystem.iucn:TropicalSubtropicalMontaneRainforest ,
+  esa.aries.ecosystem.reference_colombia:HumidSubAndeanForest                       | nca.ecosystem.iucn:TropicalSubtropicalMontaneRainforest ,
+  esa.aries.ecosystem.reference_colombia:DryBasalGalleryForest                      | nca.ecosystem.iucn:TropicalSubtropicalDryForestThicket  ,
+  esa.aries.ecosystem.reference_colombia:HumidBasalGalleryForest                    | nca.ecosystem.iucn:TropicalSubtropicalLowlandRainforest ,
+  esa.aries.ecosystem.reference_colombia:DryBasalForest                             | nca.ecosystem.iucn:TropicalSubtropicalDryForestThicket  ,
+  esa.aries.ecosystem.reference_colombia:HumidBasalForest                           | nca.ecosystem.iucn:TropicalSubtropicalLowlandRainforest ,
+  esa.aries.ecosystem.reference_colombia:FloodedBasalForest                         | nca.ecosystem.iucn:TropicalFloodedForestPeatForest      ,
+  esa.aries.ecosystem.reference_colombia:TransformedTransitional                    | nca.ecosystem.iucn:CanalDitchDrain                      ,
+  esa.aries.ecosystem.reference_colombia:CoffeeAgroecosystem                        | nca.ecosystem.iucn:AnnualCropland                       ,
+  esa.aries.ecosystem.reference_colombia:HumidAndeanGrassland                       | nca.ecosystem.iucn:SeasonallyDryTemperateHeathShrubland ,
+  esa.aries.ecosystem.reference_colombia:OtherArea                                  | nca.ecosystem.iucn:Terrestrial                          ,
+  esa.aries.ecosystem.reference_colombia:SalineSwampyArea                           | nca.ecosystem.iucn:MuddyShoreline                       ,
+  esa.aries.ecosystem.reference_colombia:BasalSwampyArea                            | nca.ecosystem.iucn:SeasonalFloodplainMarsh              ,
+  esa.aries.ecosystem.reference_colombia:AndeanSwampyArea                           | nca.ecosystem.iucn:SeasonalFloodplainMarsh              ,
+  esa.aries.ecosystem.reference_colombia:SubAndeanSwampyArea                        | nca.ecosystem.iucn:SeasonalFloodplainMarsh              ,
+  esa.aries.ecosystem.reference_colombia:NaturalSandyArea                           | nca.ecosystem.iucn:SeasonalFloodplainMarsh              ,
+  esa.aries.ecosystem.reference_colombia:AridXerophytic                             | nca.ecosystem.iucn:ThornyDesertSemidesert               ,
+  esa.aries.ecosystem.reference_colombia:BasalSubxerophytic                         | nca.ecosystem.iucn:SeasonallyDryTemperateHeathShrubland ,
+  esa.aries.ecosystem.reference_colombia:ParamoPeatland                             | nca.ecosystem.iucn:TropicalAlpineGrasslandShrubland     ,
+  esa.aries.ecosystem.reference_colombia:AlluvialLagoon                             | nca.ecosystem.iucn:SmallPermanentFreshwaterLake         ,
+  esa.aries.ecosystem.reference_colombia:TectonicLagoon                             | nca.ecosystem.iucn:SmallPermanentFreshwaterLake         ,
+  esa.aries.ecosystem.reference_colombia:GlacialLagoon                              | nca.ecosystem.iucn:FreezethawFreshwaterLake             ,
+  esa.aries.ecosystem.reference_colombia:FragmentedForestWithSecondaryVegetation    | nca.ecosystem.iucn:DerivedSeminaturalPastureOldfield    ,
+  esa.aries.ecosystem.reference_colombia:FragmentedForestWithPastureCrop            | nca.ecosystem.iucn:DerivedSeminaturalPastureOldfield    ,
+  esa.aries.ecosystem.reference_colombia:MosaicPastureNaturalSpaceAgroecosystem     | nca.ecosystem.iucn:DerivedSeminaturalPastureOldfield    ,
+  esa.aries.ecosystem.reference_colombia:LivestockAgroecosystem                     | nca.ecosystem.iucn:SownPastureField                     ,
+  esa.aries.ecosystem.reference_colombia:MosaicCropPastureAgroecosystem             | nca.ecosystem.iucn:SownPastureField                     ,
+  esa.aries.ecosystem.reference_colombia:ForestryAgroecosystem                      | nca.ecosystem.iucn:Plantation                           ,
+  esa.aries.ecosystem.reference_colombia:RiceAgroecosystem                          | nca.ecosystem.iucn:RicePaddy                            ,
+  esa.aries.ecosystem.reference_colombia:RiceAgroecosystem                          | nca.ecosystem.iucn:AnnualCropland                       ,
+  esa.aries.ecosystem.reference_colombia:MosaicCropPastureNaturalSpaceAgroecosystem | nca.ecosystem.iucn:DerivedSeminaturalPastureOldfield    ,
+  esa.aries.ecosystem.reference_colombia:PalmAgroecosystem                          | nca.ecosystem.iucn:Plantation                           ,
+  esa.aries.ecosystem.reference_colombia:TransitoryCropAgroecosystem                | nca.ecosystem.iucn:SownPastureField                     ,
+  esa.aries.ecosystem.reference_colombia:ArtificializedTerritory                    | nca.ecosystem.iucn:UrbanIndustrialEcosystem             ,
+  esa.aries.ecosystem.reference_colombia:MosaicCropNaturalSpaceAgroecosystem        | nca.ecosystem.iucn:DerivedSeminaturalPastureOldfield    ,
+  esa.aries.ecosystem.reference_colombia:PotatoAgroecosystem                        | nca.ecosystem.iucn:AnnualCropland                       ,
+  esa.aries.ecosystem.reference_colombia:PlantainBananaAgroecosystem                | nca.ecosystem.iucn:Plantation                           ,
+  esa.aries.ecosystem.reference_colombia:HumidBasalShrubland                        | nca.ecosystem.iucn:TropicalSubtropicalLowlandRainforest ,
+  esa.aries.ecosystem.reference_colombia:Mangrove                                   | nca.ecosystem.iucn:IntertidalForestShrubland            ,
+  esa.aries.ecosystem.reference_colombia:CoastalFloodedForest                       | nca.ecosystem.iucn:TropicalFloodedForestPeatForest      ,
+  esa.aries.ecosystem.reference_colombia:AndeanRockyComplex                         | nca.ecosystem.iucn:RockyPavementLavaflowScree           ,
+  esa.aries.ecosystem.reference_colombia:Desert                                     | nca.ecosystem.iucn:ThornyDesertSemidesert               ,
+  esa.aries.ecosystem.reference_colombia:FloodedBasalShrubland                      | nca.ecosystem.iucn:SeasonalFloodplainMarsh              ,
+  esa.aries.ecosystem.reference_colombia:FloodedAndeanShrubland                     | nca.ecosystem.iucn:SeasonalFloodplainMarsh              ,
+  esa.aries.ecosystem.reference_colombia:FloodedSubAndeanShrubland                  | nca.ecosystem.iucn:SeasonalFloodplainMarsh              ,
+  esa.aries.ecosystem.reference_colombia:SubAndeanSubxerophytic                     | nca.ecosystem.iucn:SeasonallyDryTemperateHeathShrubland ,
+  esa.aries.ecosystem.reference_colombia:HumidAndeanShrubland                       | nca.ecosystem.iucn:TropicalSubtropicalMontaneRainforest ,
+  esa.aries.ecosystem.reference_colombia:HumidSubAndeanShrubland                    | nca.ecosystem.iucn:TropicalSubtropicalMontaneRainforest ,
+  esa.aries.ecosystem.reference_colombia:DesertXerophytic                           | nca.ecosystem.iucn:ThornyDesertSemidesert               ,
+  esa.aries.ecosystem.reference_colombia:FloodedBasalGalleryForest                  | nca.ecosystem.iucn:TropicalFloodedForestPeatForest      ,
+  esa.aries.ecosystem.reference_colombia:FloodedAndeanForest                        | nca.ecosystem.iucn:TropicalFloodedForestPeatForest      ,
+  esa.aries.ecosystem.reference_colombia:FloodedRiparianSubAndeanForest             | nca.ecosystem.iucn:TropicalFloodedForestPeatForest      ,
+  esa.aries.ecosystem.reference_colombia:FloodedSubAndeanForest                     | nca.ecosystem.iucn:TropicalFloodedForestPeatForest      ,
+  esa.aries.ecosystem.reference_colombia:FloodedBasalGrassland                      | nca.ecosystem.iucn:SeasonalFloodplainMarsh              ,
+  esa.aries.ecosystem.reference_colombia:FloodedSubAndeanGrassland                  | nca.ecosystem.iucn:SeasonalFloodplainMarsh              ,
+  esa.aries.ecosystem.reference_colombia:FloodedSavanna                             | nca.ecosystem.iucn:SeasonalFloodplainMarsh              ,
+  esa.aries.ecosystem.reference_colombia:HumidSubAndeanGrassland                    | nca.ecosystem.iucn:SeasonallyDryTemperateHeathShrubland ,
+  esa.aries.ecosystem.reference_colombia:PermanentCropAgroecosystem                 | nca.ecosystem.iucn:AnnualCropland                       ,
+  esa.aries.ecosystem.reference_colombia:FloodedAndeanGrassland                     | nca.ecosystem.iucn:SeasonalFloodplainMarsh              ,
+  esa.aries.ecosystem.reference_colombia:NoInformation                              | nca.ecosystem.iucn:Terrestrial                           
+}};
+
+
+model geography:Colombia im:Reference type of nca.ecosystem.iucn:Ecosystem named colombia_reference_ecosystem_type
+ observing
+ ColombianEcosystemType named colombian_ecosystem_type_national_classification 
+ lookup (colombian_ecosystem_type_national_classification, ?)
+  into CROSSWALK_COLOMBIA_NATIONAL_CLASSIFICATION_TO_IUCN_GET
+//	  over space(shape='EPSG:4326 POLYGON ((-74.72446240398484 8.201517351065604, -74.72510858022173 8.198302015418747, -74.7269487344579 8.195576165115554, -74.729702719892 8.193754799763099, -74.73295126720657 8.193115219326899, -74.73619981452114 8.193754799763099, -74.73895379995521 8.195576165115554, -74.7407939541914 8.198302015418747, -74.74144013042829 8.201517351065604, -74.7407939541914 8.204732660706199, -74.73895379995521 8.207458448224614, -74.73619981452114 8.209279750792305, -74.73295126720657 8.2099193052222, -74.729702719892 8.209279750792305, -74.7269487344579 8.207458448224614, -74.72510858022173 8.204732660706199, -74.72446240398484 8.201517351065604))')
+;
