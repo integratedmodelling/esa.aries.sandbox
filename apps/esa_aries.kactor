@@ -113,8 +113,8 @@ action main:
 			
 		(	
 			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)
-			checkbutton("CO_v2_01" #co_v2_01): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co1","Colombia: CO_v2_01")
+			checkbutton("Colombia: Nechí, Bajo Cauca, Antioquia - CO_v2_01" #co_v2_01): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co1","Colombia: Nechí, Bajo Cauca, Antioquia - CO_v2_01")
 				activate_noneu
 			)			
 			checkbutton("CO_v2_02" #co_v2_02): (
