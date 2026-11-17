@@ -320,8 +320,7 @@ define table ecosystem_type_result_comparison_by_iucn_get_level_modelled_vs_refe
 define table confusion_matrix_iucn_get_level_3_rule_based_m2 as {
     title: "IUCN GET Level 3 - Accuracy Assessment"
     label: "Rule-based ecosystem classification versus reference data (m²)"
-//    target: type of nca.ecosystem.iucn:Ecosystem
-    target: esa.aries.model_approach:RuleBased nca.ecosystem.iucn:EcosystemType
+    target: esa.aries.model_approach:RuleBased nca.ecosystem.iucn:EcosystemType// type of nca.ecosystem.iucn:Ecosystem
     columns:
     ({title:"Reference {classifier}" target:im:Area in m^2 filter:im:Reference type of nca.ecosystem.iucn:Ecosystem}
      {title:"Row total (m²)" summarize:sum style:bold})
@@ -334,8 +333,7 @@ define table confusion_matrix_iucn_get_level_3_rule_based_m2 as {
 define table confusion_matrix_iucn_get_level_3_rule_based_km2 as {
     title: "IUCN GET Level 3 - Accuracy Assessment"
     label: "Rule-based ecosystem classification versus reference data"
-//    target: type of nca.ecosystem.iucn:Ecosystem
-    target: esa.aries.model_approach:RuleBased nca.ecosystem.iucn:EcosystemType
+    target: esa.aries.model_approach:RuleBased nca.ecosystem.iucn:EcosystemType// type of nca.ecosystem.iucn:Ecosystem
     columns:
     ({ title: "Reference {classifier}" target:im:Area in km^2 filter:im:Reference type of nca.ecosystem.iucn:Ecosystem}
      {title: "Row total (km²)" summarize:sum style:bold})
