@@ -292,27 +292,27 @@ model presence of earth:Region with et_result_comparison:Level_1 nca.ecosystem.i
 		et_result_comparison:IucnGetType where (et_result_comparison:IucnGetType = et_result_comparison:Level_1) named et_level1,
 		et_result_comparison:IucnGetType where (et_result_comparison:IucnGetType = et_result_comparison:Level_2) named et_level2,
 		et_result_comparison:IucnGetType where (et_result_comparison:IucnGetType = et_result_comparison:Level_3) named et_level3,
-		presence of earth:Region with im:Reference nca.ecosystem.iucn:Ecosystem named reference_es_presence
-	set to [(et_level1 || et_level2 || et_level3) && reference_es_presence ? true : false];
+		presence of earth:Region with im:Reference nca.ecosystem.iucn:Ecosystem named reference_ecosystem_type_presence
+	set to [(et_level1 || et_level2 || et_level3) && reference_ecosystem_type_presence ? true : false];
 	
 model presence of earth:Region with et_result_comparison:Level_2 nca.ecosystem.iucn:Ecosystem named et_level2_presence
 	observing
 		et_result_comparison:IucnGetType where (et_result_comparison:IucnGetType = et_result_comparison:Level_2) named et_level2,
 		et_result_comparison:IucnGetType where (et_result_comparison:IucnGetType = et_result_comparison:Level_3) named et_level3,
-		presence of earth:Region with im:Reference nca.ecosystem.iucn:Ecosystem named reference_es_presence
-	set to [(et_level2 || et_level3) && reference_es_presence ? true : false];
+		presence of earth:Region with im:Reference nca.ecosystem.iucn:Ecosystem named reference_ecosystem_type_presence
+	set to [(et_level2 || et_level3) && reference_ecosystem_type_presence ? true : false];
 	
 model presence of earth:Region with et_result_comparison:Level_3 nca.ecosystem.iucn:Ecosystem named et_level3_presence
 	observing
 		et_result_comparison:IucnGetType where (et_result_comparison:IucnGetType = et_result_comparison:Level_3) named et_level3,
-		presence of earth:Region with im:Reference nca.ecosystem.iucn:Ecosystem named reference_es_presence
-	set to [et_level3 && reference_es_presence ? true : false];
+		presence of earth:Region with im:Reference nca.ecosystem.iucn:Ecosystem named reference_ecosystem_type_presence
+	set to [et_level3 && reference_ecosystem_type_presence ? true : false];
 
 model presence of earth:Region with et_result_comparison:UnMapped nca.ecosystem.iucn:Ecosystem named et_unmapped_presence
 	observing
 		et_result_comparison:IucnGetType where (et_result_comparison:IucnGetType = et_result_comparison:UnMapped) named et_unmapped,
-		presence of earth:Region with im:Reference nca.ecosystem.iucn:Ecosystem named reference_es_presence
-	set to [et_unmapped && reference_es_presence ? true : false];
+		presence of earth:Region with im:Reference nca.ecosystem.iucn:Ecosystem named reference_ecosystem_type_presence
+	set to [et_unmapped && reference_ecosystem_type_presence ? true : false];
 
 define table ecosystem_type_result_comparison_by_iucn_get_level_modelled_vs_reference as {
 	title: "Comparison of the ecosystem type result between modelled & reference maps by IUCN_GET Levels"
@@ -324,11 +324,11 @@ define table ecosystem_type_result_comparison_by_iucn_get_level_modelled_vs_refe
 	         { title: "Consistency in (km²) between modelled & reference maps - Level 2 ({classifier})", filter: (presence of earth:Region with et_result_comparison:Level_2 nca.ecosystem.iucn:Ecosystem)}
 	         { title: "Consistency in (km²) between modelled & reference maps - Level 1 ({classifier})", filter: (presence of earth:Region with et_result_comparison:Level_1 nca.ecosystem.iucn:Ecosystem)}
 	         { title: "Consistency in (km²) between modelled & reference maps - Un-mapped ({classifier})", filter: (presence of earth:Region with et_result_comparison:UnMapped nca.ecosystem.iucn:Ecosystem)}
-	         { title: "Total area (km²) according to reference map", summarize: [r5 + r7], style: bold }
-	         { title: "Similarity of the result from the modelled & reference maps - Level 3 (%)", summarize: [(r1 / (r5 + r7)) * 100], style: bold }
-	         { title: "Similarity of the result from the modelled & reference maps - Level 2 (%)", summarize: [(r3 / (r5 + r7)) * 100], style: bold }
-	         { title: "Similarity of the result from the modelled & reference maps - Level 1 (%)", summarize: [(r5 / (r5 + r7)) * 100], style: bold }
-	         { title: "Similarity of the result from the modelled & reference maps - Un-mapped (%)", summarize: [(r7 / (r5 + r7)) * 100], style: bold }
+	         { title: "Total extent (km²) of reference data ", summarize: [r5 + r7], style: bold }
+	         { title: "Accuracy (overlap of modelled & reference maps) - Level 3 (%)", summarize: [(r1 / (r5 + r7)) * 100], style: bold }
+	         { title: "Accuracy (overlap of modelled & reference maps) - Level 2 (%)", summarize: [(r3 / (r5 + r7)) * 100], style: bold }
+	         { title: "Accuracy (overlap of modelled & reference maps) - Level 1 (%)", summarize: [(r5 / (r5 + r7)) * 100], style: bold }
+	         { title: "Unmapped area (mismatch between modelled & reference maps at all level) - Level 3, 2 and 1 (%)", summarize: [(r7 / (r5 + r7)) * 100], style: bold }
 	        )	        
 	};
 	
