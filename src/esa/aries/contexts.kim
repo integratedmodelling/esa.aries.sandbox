@@ -953,125 +953,126 @@ observe earth:Region named uganda_4326_30m_2024_ug20
 
 
 //Cameroon priority areas V4 (With validation points)
-observe earth:Region named cameroon_4326_30m_2024_cm1
-    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=33λVN41',
-    			grid="30 m",
-                projection= "EPSG:4326"),
-        time(start=2024, end=2025, step=1.year);
-
-observe earth:Region named cameroon_4326_30m_2024_cm2
-    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=33λVD13',
-    			grid="30 m",
-                projection= "EPSG:4326"),
-        time(start=2024, end=2025, step=1.year);
-
-observe earth:Region named cameroon_4326_30m_2024_cm3
-    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=33λVD03',
-    			grid="30 m",
-                projection= "EPSG:4326"),
-        time(start=2024, end=2025, step=1.year);
-
-observe earth:Region named cameroon_4326_30m_2024_cm4
-    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=33λVE10',
-    			grid="30 m",
-                projection= "EPSG:4326"),
-        time(start=2024, end=2025, step=1.year);
-
-observe earth:Region named cameroon_4326_30m_2024_cm5
-    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=32λMM40',
-    			grid="30 m",
-                projection= "EPSG:4326"),
-        time(start=2024, end=2025, step=1.year);
-
-observe earth:Region named cameroon_4326_30m_2024_cm6
-    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=32λPM10',
-    			grid="30 m",
-                projection= "EPSG:4326"),
-        time(start=2024, end=2025, step=1.year);
-
-observe earth:Region named cameroon_4326_30m_2024_cm7
-    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_uganda_validation_pa_20km_epsg4326#grid20id=32λNK12',
-    			grid="30 m",
-                projection= "EPSG:4326"),
-        time(start=2024, end=2025, step=1.year);
-
-observe earth:Region named cameroon_4326_30m_2024_cm8
-    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=32λML44',
-    			grid="30 m",
-                projection= "EPSG:4326"),
-        time(start=2024, end=2025, step=1.year);
-
-observe earth:Region named cameroon_4326_30m_2024_cm9
-    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=33λVC32',
-    			grid="30 m",
-                projection= "EPSG:4326"),
-        time(start=2024, end=2025, step=1.year);
-
-observe earth:Region named cameroon_4326_30m_2024_cm10
-    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=32λPM30',
-    			grid="30 m",
-                projection= "EPSG:4326"),
-        time(start=2024, end=2025, step=1.year);
-
-observe earth:Region named cameroon_4326_30m_2024_cm11
-    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=33λTF43',
-    			grid="30 m",
-                projection= "EPSG:4326"),
-        time(start=2024, end=2025, step=1.year);
-
-observe earth:Region named cameroon_4326_30m_2024_cm12
-    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=33λVM20',
-    			grid="30 m",
-                projection= "EPSG:4326"),
-        time(start=2024, end=2025, step=1.year);
-
-observe earth:Region named cameroon_4326_30m_2024_cm13
-    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=33λWM03',
-    			grid="30 m",
-                projection= "EPSG:4326"),
-        time(start=2024, end=2025, step=1.year);
-
-observe earth:Region named cameroon_4326_30m_2024_cm14
-    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=32λRK04',
-    			grid="30 m",
-                projection= "EPSG:4326"),
-        time(start=2024, end=2025, step=1.year);
-
-observe earth:Region named cameroon_4326_30m_2024_cm15
-    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=33λVM40',
-    			grid="30 m",
-                projection= "EPSG:4326"),
-        time(start=2024, end=2025, step=1.year);
-
-observe earth:Region named cameroon_4326_30m_2024_cm16
-    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=33λUC02',
-    			grid="30 m",
-                projection= "EPSG:4326"),
-        time(start=2024, end=2025, step=1.year);
-
-observe earth:Region named cameroon_4326_30m_2024_cm17
-    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=33λTJ20',
-    			grid="30 m",
-                projection= "EPSG:4326"),
-        time(start=2024, end=2025, step=1.year);
-
-observe earth:Region named cameroon_4326_30m_2024_cm18
-    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=33λUF11',
-    			grid="30 m",
-                projection= "EPSG:4326"),
-        time(start=2024, end=2025, step=1.year);
-
-observe earth:Region named cameroon_4326_30m_2024_cm19
-    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=32λQH03',
-    			grid="30 m",
-                projection= "EPSG:4326"),
-        time(start=2024, end=2025, step=1.year);
-
-observe earth:Region named cameroon_4326_30m_2024_cm20
-    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=33λVN00',
-    			grid="30 m",
-                projection= "EPSG:4326"),
-        time(start=2024, end=2025, step=1.year);
+//observe earth:Region named cameroon_4326_30m_2024_cm1
+//    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=33λVN41',
+//    			grid="30 m",
+//                projection= "EPSG:4326"),
+//        time(start=2024, end=2025, step=1.year);
+//
+//observe earth:Region named cameroon_4326_30m_2024_cm2
+//    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=33λVD13',
+//    			grid="30 m",
+//                projection= "EPSG:4326"),
+//        time(start=2024, end=2025, step=1.year);
+//
+//observe earth:Region named cameroon_4326_30m_2024_cm3
+//    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=33λVD03',
+//    			grid="30 m",
+//                projection= "EPSG:4326"),
+//        time(start=2024, end=2025, step=1.year);
+//
+//observe earth:Region named cameroon_4326_30m_2024_cm4
+//    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=33λVE10',
+//    			grid="30 m",
+//                projection= "EPSG:4326"),
+//        time(start=2024, end=2025, step=1.year);
+//
+//observe earth:Region named cameroon_4326_30m_2024_cm5
+//    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=32λMM40',
+//    			grid="30 m",
+//                projection= "EPSG:4326"),
+//        time(start=2024, end=2025, step=1.year);
+//
+//observe earth:Region named cameroon_4326_30m_2024_cm6
+//    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=32λPM10',
+//    			grid="30 m",
+//                projection= "EPSG:4326"),
+//        time(start=2024, end=2025, step=1.year);
+//
+//observe earth:Region named cameroon_4326_30m_2024_cm7
+//    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_uganda_validation_pa_20km_epsg4326#grid20id=32λNK12',
+//    			grid="30 m",
+//                projection= "EPSG:4326"),
+//        time(start=2024, end=2025, step=1.year);
+//
+//observe earth:Region named cameroon_4326_30m_2024_cm8
+//    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=32λML44',
+//    			grid="30 m",
+//                projection= "EPSG:4326"),
+//        time(start=2024, end=2025, step=1.year);
+//
+//observe earth:Region named cameroon_4326_30m_2024_cm9
+//    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=33λVC32',
+//    			grid="30 m",
+//                projection= "EPSG:4326"),
+//        time(start=2024, end=2025, step=1.year);
+//
+//observe earth:Region named cameroon_4326_30m_2024_cm10
+//    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=32λPM30',
+//    			grid="30 m",
+//                projection= "EPSG:4326"),
+//        time(start=2024, end=2025, step=1.year);
+//
+//observe earth:Region named cameroon_4326_30m_2024_cm11
+//    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=33λTF43',
+//    			grid="30 m",
+//                projection= "EPSG:4326"),
+//        time(start=2024, end=2025, step=1.year);
+//
+//observe earth:Region named cameroon_4326_30m_2024_cm12
+//    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=33λVM20',
+//    			grid="30 m",
+//                projection= "EPSG:4326"),
+//        time(start=2024, end=2025, step=1.year);
+//
+//observe earth:Region named cameroon_4326_30m_2024_cm13
+//    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=33λWM03',
+//    			grid="30 m",
+//                projection= "EPSG:4326"),
+//        time(start=2024, end=2025, step=1.year);
+//
+//observe earth:Region named cameroon_4326_30m_2024_cm14
+//    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=32λRK04',
+//    			grid="30 m",
+//                projection= "EPSG:4326"),
+//        time(start=2024, end=2025, step=1.year);
+//
+//observe earth:Region named cameroon_4326_30m_2024_cm15
+//    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=33λVM40',
+//    			grid="30 m",
+//                projection= "EPSG:4326"),
+//        time(start=2024, end=2025, step=1.year);
+//
+//observe earth:Region named cameroon_4326_30m_2024_cm16
+//    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=33λUC02',
+//    			grid="30 m",
+//                projection= "EPSG:4326"),
+//        time(start=2024, end=2025, step=1.year);
+//
+//observe earth:Region named cameroon_4326_30m_2024_cm17
+//    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=33λTJ20',
+//    			grid="30 m",
+//                projection= "EPSG:4326"),
+//        time(start=2024, end=2025, step=1.year);
+//
+//observe earth:Region named cameroon_4326_30m_2024_cm18
+//    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=33λUF11',
+//    			grid="30 m",
+//                projection= "EPSG:4326"),
+//        time(start=2024, end=2025, step=1.year);
+//
+//observe earth:Region named cameroon_4326_30m_2024_cm19
+//    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=32λQH03',
+//    			grid="30 m",
+//                projection= "EPSG:4326"),
+//        time(start=2024, end=2025, step=1.year);
+//
+//observe earth:Region named cameroon_4326_30m_2024_cm20
+//    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=33λVN00',
+//    			grid="30 m",
+//                projection= "EPSG:4326"),
+//        time(start=2024, end=2025, step=1.year);
+//
 
 observe earth:Region named cameroon_4326_30m_2024_cm21_congo_river_basin
     over space ( shape = "EPSG:4326 POLYGON ((15.237002215884601 2.6693981525761075, 15.227575411232014 2.5737863816607103, 15.199657264090431 2.481842149863212, 15.15432065319784 2.39710019190737, 15.09330783908576 2.3228189231383283, 15.018963509984152 2.2618549371939167, 14.934144676767607 2.2165529457910367, 14.842110879629685 2.188655425674, 14.746398925781248 2.1792354683459365, 14.650686971932812 2.188655425674, 14.558653174794893 2.2165529457910367, 14.473834341578346 2.2618549371939167, 14.399490012476736 2.3228189231383283, 14.33847719836466 2.39710019190737, 14.293140587472065 2.481842149863212, 14.265222440330483 2.5737863816607103, 14.255795635677895 2.6693981525761075, 14.265222440330483 2.7650024852322304, 14.293140587472065 2.8569255347538984, 14.33847719836466 2.9416357914550844, 14.399490012476736 3.0158796664474607, 14.473834341578346 3.0768062590511818, 14.558653174794893 3.1220765502520464, 14.650686971932812 3.1499528891458937, 14.746398925781248 3.159365408650686, 14.842110879629685 3.1499528891458937, 14.934144676767607 3.1220765502520464, 15.018963509984152 3.0768062590511818, 15.09330783908576 3.0158796664474607, 15.15432065319784 2.9416357914550844, 15.199657264090431 2.8569255347538984, 15.227575411232014 2.7650024852322304, 15.237002215884601 2.6693981525761075))",
@@ -1084,6 +1085,97 @@ observe earth:Region named cameroon_4326_30m_2024_cm22_congo_river_basin
     			grid="30 m",
                 projection= "EPSG:4326"),
         time(start=2024, end=2025, step=1.year);
+
+
+//UPDATED CAMEROON CONTEXTS
+observe earth:Region named cameroon_32633_30m_cm31
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#name=31',
+    			grid="30 m",
+                projection= "EPSG:32633"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named cameroon_32633_30m_cm32
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#name=32',
+    			grid="30 m",
+                projection= "EPSG:32633"),
+        time(start=2024, end=2025, step=1.year);
+observe earth:Region named cameroon_32633_30m_cm33
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#name=33',
+    			grid="30 m",
+                projection= "EPSG:32633"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named cameroon_32633_30m_cm34
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#name=34',
+    			grid="30 m",
+                projection= "EPSG:32633"),
+        time(start=2024, end=2025, step=1.year);      
+
+observe earth:Region named cameroon_32633_30m_cm35
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#name=35',
+    			grid="30 m",
+                projection= "EPSG:32633"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named cameroon_32633_30m_cm36
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#name=36',
+    			grid="30 m",
+                projection= "EPSG:32633"),
+        time(start=2024, end=2025, step=1.year);
+observe earth:Region named cameroon_32633_30m_cm37
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#name=37',
+    			grid="30 m",
+                projection= "EPSG:32633"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named cameroon_32633_30m_cm38
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#name=38',
+    			grid="30 m",
+                projection= "EPSG:32633"),
+        time(start=2024, end=2025, step=1.year);  
+
+observe earth:Region named cameroon_32633_30m_cm39
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#name=39',
+    			grid="30 m",
+                projection= "EPSG:32633"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named cameroon_32633_30m_cm40
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#name=40',
+    			grid="30 m",
+                projection= "EPSG:32633"),
+        time(start=2024, end=2025, step=1.year);
+observe earth:Region named cameroon_32633_30m_cm41
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#name=41',
+    			grid="30 m",
+                projection= "EPSG:32633"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named cameroon_32633_30m_cm42
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#name=42',
+    			grid="30 m",
+                projection= "EPSG:32633"),
+        time(start=2024, end=2025, step=1.year);      
+
+observe earth:Region named cameroon_32633_30m_cm43
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#name=43',
+    			grid="30 m",
+                projection= "EPSG:32633"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named cameroon_32633_30m_cm44
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#name=44',
+    			grid="30 m",
+                projection= "EPSG:32633"),
+        time(start=2024, end=2025, step=1.year);
+observe earth:Region named cameroon_32633_30m_cm45
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#name=45',
+    			grid="30 m",
+                projection= "EPSG:32633"),
+        time(start=2024, end=2025, step=1.year);
+
+
+
 
 //Slovakia priority areas V4 (With validation points)
 observe earth:Region named slovakia_4326_10m_2024_sl1
