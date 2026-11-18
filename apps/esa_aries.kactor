@@ -256,7 +256,7 @@ action main:
 				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz1","Czech Republic: CZ_v2_01")
 				activate_eu
 			)
-8			checkbutton("CZ_v2_02 " #cz_v2_02): (
+			checkbutton("CZ_v2_02 " #cz_v2_02): (
 				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz2","Czech Republic: CZ_v2_02")
 				activate_eu
 			)
@@ -296,7 +296,7 @@ action main:
 				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz11","Czech Republic: CZ_v2_11")
 				activate_eu
 			)
-8			checkbutton("CZ_v2_12 " #cz_v2_12): (
+			checkbutton("CZ_v2_12 " #cz_v2_12): (
 				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz12","Czech Republic: CZ_v2_12")
 				activate_eu
 			)
