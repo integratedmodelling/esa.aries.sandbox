@@ -159,7 +159,7 @@ define table ecosystem_typology_extent_iucn_machine_learning_static as {
 	title: "Selected ecosystem types (area in km²)",
 	label: "Net change in ecosystem type (km²)",
 	target: esa.aries.model_approach:MachineLearning nca.ecosystem.iucn:EcosystemType
-	columns:({ title:  "{classifier}", target: im:Area in km^2, filter:esa.aries.model_approach:MachineLearning nca.ecosystem.eunis:EcosystemType}
+	columns:({ title:  "{classifier}", target: im:Area in km^2, filter:esa.aries.model_approach:MachineLearning nca.ecosystem.iucn:EcosystemType}
 			 {title: "Total", summarize: sum, style: bold}),
 	rows:   ({ title: "Area {start} (km²)" })};		
 
