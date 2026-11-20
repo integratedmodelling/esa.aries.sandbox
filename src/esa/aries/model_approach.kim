@@ -11,6 +11,12 @@ abstract attribute ModelApproach
 		HybridSecondBest,
 		HybridThirdBest);
 		
+abstract attribute Status
+	has children
+		Finished,
+		Computing,
+		NotComputed;
+		
 define CONFIDENCE_LEVEL as {{
 		  hybrid_model_probability  | confidence_level
 		--------------------------------------------------
@@ -23,5 +29,16 @@ define CONFIDENCE_LEVEL as {{
 				>= 0.9				| im:VeryHigh			
 }};
 
+
+
+
+
+model each 'local:alessio.bulckaen:esa.aries.sandbox:RuleBased-V502_items_completed'
+	as esa.aries.model_approach:Finished esa.aries.model_approach:RuleBased earth:Region;
+model each 'local:alessio.bulckaen:esa.aries.sandbox:weed:RuleBased-V502-jobdb'
+	as esa.aries.model_approach:RuleBased earth:Region;
+	
+model 'local:alessio.bulckaen:esa.aries.sandbox:RuleBased-V502_items_completed'
+	as esa.aries.model_approach:Finished esa.aries.model_approach:RuleBased earth:Region;	
 
 	
