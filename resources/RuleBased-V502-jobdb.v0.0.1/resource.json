@@ -1,0 +1,31 @@
+{
+  "urn" : "local:alessio.bulckaen:esa.aries.sandbox:weed:RuleBased-V502-jobdb",
+  "version" : "0.0.1",
+  "adapterType" : "stac",
+  "localPath" : "esa.aries.sandbox/resources/RuleBased-V502-jobdb.v0.0.1",
+  "geometry" : "s2{bbox=[-180.0 180.0 -90.0 90.0],proj=EPSG:4326}",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "RuleBased-V502-jobdb",
+  "type" : "OBJECT",
+  "resourceTimestamp" : 1795173557738,
+  "metadata" : {
+    "dc:comment" : "STAC API job database collection.",
+    "dc:url" : "https://catalogue.weed.apex.esa.int/collections/RuleBased-V502-jobdb"
+  },
+  "parameters" : {
+    "collection" : "https://catalogue.weed.apex.esa.int/collections/RuleBased-V502-jobdb",
+    "band" : "0",
+    "collectionId" : "RuleBased-V502-jobdb"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}
