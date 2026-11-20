@@ -7,7 +7,7 @@
   "projectName" : "esa.aries.sandbox",
   "localName" : "esa_weed_cameroon_validation_pa_20km_epsg32633",
   "type" : "OBJECT",
-  "resourceTimestamp" : 1795012674019,
+  "resourceTimestamp" : 1795167764334,
   "metadata" : {
     "im:keywords" : "features,cameroon_validation_pa_20km_epsg32633",
     "dc:title" : "cameroon_validation_pa_20km_epsg32633"
@@ -21,6 +21,13 @@
   "history" : [ ],
   "notifications" : [ ],
   "attributes" : [ {
+    "name" : "site_id",
+    "type" : "NUMBER",
+    "key" : false,
+    "optional" : true,
+    "exampleValue" : null,
+    "index" : 0
+  }, {
     "name" : "name",
     "type" : "TEXT",
     "key" : false,
@@ -28,71 +35,36 @@
     "exampleValue" : null,
     "index" : 0
   }, {
-    "name" : "descriptio",
+    "name" : "descript",
     "type" : "TEXT",
     "key" : false,
     "optional" : true,
     "exampleValue" : null,
     "index" : 0
   }, {
-    "name" : "timestamp",
+    "name" : "region",
     "type" : "TEXT",
     "key" : false,
     "optional" : true,
     "exampleValue" : null,
     "index" : 0
   }, {
-    "name" : "begin",
-    "type" : "TEXT",
-    "key" : false,
-    "optional" : true,
-    "exampleValue" : null,
-    "index" : 0
-  }, {
-    "name" : "end",
-    "type" : "TEXT",
-    "key" : false,
-    "optional" : true,
-    "exampleValue" : null,
-    "index" : 0
-  }, {
-    "name" : "altitudemo",
-    "type" : "TEXT",
-    "key" : false,
-    "optional" : true,
-    "exampleValue" : null,
-    "index" : 0
-  }, {
-    "name" : "tessellate",
+    "name" : "lat",
     "type" : "NUMBER",
     "key" : false,
     "optional" : true,
     "exampleValue" : null,
     "index" : 0
   }, {
-    "name" : "extrude",
+    "name" : "lon",
     "type" : "NUMBER",
     "key" : false,
     "optional" : true,
     "exampleValue" : null,
     "index" : 0
   }, {
-    "name" : "visibility",
+    "name" : "area_km2",
     "type" : "NUMBER",
-    "key" : false,
-    "optional" : true,
-    "exampleValue" : null,
-    "index" : 0
-  }, {
-    "name" : "draworder",
-    "type" : "NUMBER",
-    "key" : false,
-    "optional" : true,
-    "exampleValue" : null,
-    "index" : 0
-  }, {
-    "name" : "icon",
-    "type" : "TEXT",
     "key" : false,
     "optional" : true,
     "exampleValue" : null,
