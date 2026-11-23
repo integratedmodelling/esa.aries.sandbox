@@ -1,13 +1,13 @@
 {
-  "urn" : "local:alessio.bulckaen:esa.aries.sandbox:MachineLearning-EUNIS2021plus-EXTENT-V320_items_complete",
+  "urn" : "local:alessio.bulckaen:esa.aries.sandbox:MachineLearning-EUNIS2021plus-EXTENT-V320_items_completed",
   "version" : "0.0.1",
   "adapterType" : "stac",
-  "localPath" : "esa.aries.sandbox/resources/MachineLearning-EUNIS2021plus-EXTENT-V320_items_complete.v0.0.1",
+  "localPath" : "esa.aries.sandbox/resources/MachineLearning-EUNIS2021plus-EXTENT-V320_items_completed.v0.0.1",
   "geometry" : "s2{bbox=[-3.6085743978624714 44.821094769609715 35.19001360132932 71.08014633035174],proj=EPSG:4326}",
   "projectName" : "esa.aries.sandbox",
-  "localName" : "MachineLearning-EUNIS2021plus-EXTENT-V320_items_complete",
+  "localName" : "MachineLearning-EUNIS2021plus-EXTENT-V320_items_completed",
   "type" : "OBJECT",
-  "resourceTimestamp" : 1795444781322,
+  "resourceTimestamp" : 1795449690202,
   "metadata" : {
     "dc:comment" : "This is the STAC metadata for the openEO job 'j-26110320272743cc9c9cecdd20d334b6'",
     "dc:url" : "https://catalogue.weed.apex.esa.int/collections/MachineLearning-EUNIS2021plus-EXTENT-V320"

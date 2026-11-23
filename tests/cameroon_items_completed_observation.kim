@@ -5,8 +5,8 @@ worldview im;
     description  = "",
     // add to the list any concepts to be observed in the context below
     observations = (
-    "esa.aries.model_approach.rule-based-finished-region-instantiator"
-    "esa.aries.model_approach.rule-based-region-instantiator"),
+    "esa.aries.ecosystem_extent.rule_based_areas_computed"
+    "esa.aries.ecosystem_extent.machine_learning_areas_computed"),
     // add assertions to check the observations after execution
     assertions = ()
 )
@@ -21,8 +21,11 @@ observe /* a:urn:to:use#objectid as */ earth:Region named cameroon_items_complet
 // add any models here
 model each 'local:alessio.bulckaen:esa.aries.sandbox:RuleBased-V502_items_completed'
 	as esa.aries.model_approach:Finished esa.aries.model_approach:RuleBased earth:Region;
-model each 'local:alessio.bulckaen:esa.aries.sandbox:weed:RuleBased-V502-jobdb'
-	as esa.aries.model_approach:RuleBased earth:Region;
+model each 'local:alessio.bulckaen:esa.aries.sandbox:MachineLearning-IUCNGET-EXTENT-V330_items_completed_'
+	as esa.aries.model_approach:Finished esa.aries.model_approach:MachineLearning earth:Region;
+	
+//model each 'local:alessio.bulckaen:esa.aries.sandbox:weed:RuleBased-V502-jobdb'
+//	as esa.aries.model_approach:RuleBased earth:Region;
 	
 model 'local:alessio.bulckaen:esa.aries.sandbox:RuleBased-V502_items_completed'
 	as esa.aries.model_approach:Finished esa.aries.model_approach:RuleBased earth:Region;	

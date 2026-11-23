@@ -10,11 +10,14 @@ worldview im;
     // add assertions to check the observations after execution
     assertions = ()
 )
+//TODO:allow to trigger a slow request using a local projection
 // change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
 observe /* a:urn:to:use#objectid as */ earth:Region named cameroon_launch_contexts
-    over space (urn = "local:alessio.bulckaen:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#site_id=4",
+    over space (urn = "local:alessio.bulckaen:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#site_id=15",
     			grid="30 m",
-                projection= "EPSG:32633"),
+                projection= "EPSG:4326"
+//                projection= "EPSG:32633"
+				),
         time(start=2024, end=2025, step=1.year);
 
 // add any models here
