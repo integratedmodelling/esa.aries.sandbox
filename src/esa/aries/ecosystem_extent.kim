@@ -156,8 +156,8 @@ model presence of earth:Region with es.nca:TerrestrialEcosystem
 		landcover:LandCoverType 				named land_cover_dominance,
 //		type of nca.ecology.ipcc:ClimaticZone 	named climate_climate_type,
 		type of hydrology:WaterBody 			named surface_water_hydroform,
-		level of ecology:LeafAreaIndex 			named vegetation_leaf_area_index,
-		level of (proportion of chemistry:Nitrogen in soil:Soil) named soil_chemical_properties_n
+		level of ecology:LeafAreaIndex 			named vegetation_leaf_area_index
+//		level of (proportion of chemistry:Nitrogen in soil:Soil) named soil_chemical_properties_n
 	set to [nodata(land_cover_dominance) ? false : true];
 //	set to [nodata(land_cover_dominance) ? 0 : (nodata(surface_water_hydroform) ? 0 : 1)];
 
