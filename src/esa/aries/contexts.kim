@@ -957,6 +957,32 @@ observe earth:Region named cameroon_2024
     			grid="1 km",
                 projection= "EPSG:4326"),
         time(start=2024, end=2025, step=1.year);
+        
+//Cameroon new areas
+observe earth:Region named cameroon_32633_30m_2024_cm31
+    over space (urn = "local:alessio.bulckaen:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#site_id=1",
+    			grid="30 m",
+                projection= "EPSG:32633"),
+        time(start=2024, end=2025, step=1.year);
+        
+observe earth:Region named cameroon_4326_30m_2024_cm32
+    over space (urn = "local:alessio.bulckaen:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#site_id=2",
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+        
+observe earth:Region named cameroon_32633_30m_2024_cm32
+    over space (urn = "local:alessio.bulckaen:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#site_id=2",
+    			grid="30 m",
+                projection= "EPSG:32633"),
+        time(start=2024, end=2025, step=1.year);
+
+observe earth:Region named cameroon_32633_30m_2024_cm32
+    over space (urn = "local:alessio.bulckaen:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#site_id=2",
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+             
 //Cameroon priority areas V4 (With validation points)
 //observe earth:Region named cameroon_4326_30m_2024_cm1
 //    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=33λVN41',
