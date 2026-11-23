@@ -1,5 +1,5 @@
 {
-  "urn" : "local:alessio.bulckaen:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633",
+  "urn" : "local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633",
   "version" : "0.0.1",
   "adapterType" : "wfs",
   "localPath" : "esa.aries.sandbox/resources/esa_weed_cameroon_validation_pa_20km_epsg32633",
@@ -7,7 +7,7 @@
   "projectName" : "esa.aries.sandbox",
   "localName" : "esa_weed_cameroon_validation_pa_20km_epsg32633",
   "type" : "OBJECT",
-  "resourceTimestamp" : 1795431496443,
+  "resourceTimestamp" : 1795444188660,
   "metadata" : {
     "im:keywords" : "features,cameroon_validation_pa_20km_epsg32633",
     "dc:title" : "cameroon_validation_pa_20km_epsg32633"
