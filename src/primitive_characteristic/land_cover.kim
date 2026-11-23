@@ -1,7 +1,11 @@
 project private namespace primitive_characteristic.land_cover;
 
-model 'local:alessio.bulckaen:esa.aries.sandbox:ecdc__land_cover_dominance_GLC'
-	as landcover:LandCoverType named land_cover_dominance classified into
+ model
+	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2022_mosaic
+	as landcover:LandCoverType named ecosystem_map classified according to im:glc-fcs30-encoding;
+
+model 	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2022_mosaic
+ as landcover:LandCoverType named land_cover_dominance classified into
 	landcover:BareArea if in (150 183 184 186 187 200 201 202),
 	landcover:Grassland if in (10 11 20 130 153 182 186),
 	landcover:ArtificialSurface if 190,
@@ -9,24 +13,3 @@ model 'local:alessio.bulckaen:esa.aries.sandbox:ecdc__land_cover_dominance_GLC'
 	landcover:Shrubland if in (12 120 121 122 152),
 	landcover:GlacierPerpetualSnow if 220,
 	landcover:Forest if in (51 52 61 62 71 72 81 82 91 92 181 185);
-
-number 'local:alessio.bulckaen:esa.aries.sandbox:ecdc__land_cover_dominance_GLC' as glc
-observing;
-
-//@reliability(40)
-//model
-//	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2018_mosaic,
-//	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2019_mosaic,
-//	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2020_mosaic,
-//	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2021_mosaic,
-//	local:alessio.bulckaen:im.data.global:im-data-global-landcover.global_glc_fcs30d_landcover_epsg4326_30m_2022_mosaic
-////	local:alessio.bulckaen:im.data.global:openlandmap_glc_fcs30d_landcover_2021
-//	as landcover:LandCoverType named landcover classified into
-////	named glc_fcs30 classified into
-//	landcover:BareArea if in ( 200 201 202 ),
-//	landcover:Grassland if in ( 10 11 20 130 153 182 186 ),
-//	landcover:ArtificialSurface if 190,
-//	landcover:LichenMoss if 140,
-//	landcover:Shrubland if in ( 12 120 121 122 152 ),
-//	landcover:GlacierPerpetualSnow if 220,
-//	landcover:Forest if in ( 12 51 52 61 62 71 72 81 82 91 92 181 185 );	
