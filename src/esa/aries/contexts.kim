@@ -962,7 +962,7 @@ observe earth:Region named cameroon_2024
 observe earth:Region named cameroon_32633_30m_2024_cm31
     over space (urn = "local:alessio.bulckaen:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#site_id=1",
     			grid="30 m",
-                projection= "EPSG:32633"),
+                projection= "EPSG:4326"),
         time(start=2024, end=2025, step=1.year);
         
 observe earth:Region named cameroon_4326_30m_2024_cm32
@@ -974,7 +974,7 @@ observe earth:Region named cameroon_4326_30m_2024_cm32
 observe earth:Region named cameroon_32633_30m_2024_cm32
     over space (urn = "local:alessio.bulckaen:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#site_id=2",
     			grid="30 m",
-                projection= "EPSG:32633"),
+                projection= "EPSG:4326"),
         time(start=2024, end=2025, step=1.year);
 
 observe earth:Region named cameroon_32633_30m_2024_cm32
