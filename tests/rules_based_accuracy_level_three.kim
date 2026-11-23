@@ -1,0 +1,25 @@
+worldview im;
+
+@test(
+    name = "rules_based_accuracy_iucn_get_level_3",
+    description  = "",
+    // add to the list any concepts to be observed in the context below
+    observations = (
+    "esa.aries.ecosystem.reference.global_validation_points"
+	"esa.aries.ecosystem.reference.global_validation_data_iucn_get"
+	"esa.aries.rule_based_accuracy.ecosystem_type_iucn_get_level3_rule_based"
+	"esa.aries.rule_based_accuracy.matching_ecosystem_type"
+	"esa.aries.rule_based_accuracy.ecosystem_typology_modelled_vs_reference_points_accuracy_at_level3"
+    ),
+    // add assertions to check the observations after execution
+    assertions = ()
+)
+// change the concept to the one you want; use a URN optionally (in a separate test project including the resource)
+//observe /* a:urn:to:use#objectid as */ earth:Region named rules_based_accuracy_level_three
+observe earth:Region named cameroon_4326_30m_2024_cm1_rules_based_accuracy_iucn_get_level_3
+    over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg4326#grid20id=33λVN41',
+    			grid="30 m",
+                projection= "EPSG:4326"),
+        time(start=2024, end=2025, step=1.year);
+
+// add any models here
