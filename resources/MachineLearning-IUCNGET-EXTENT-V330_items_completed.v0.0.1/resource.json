@@ -1,0 +1,31 @@
+{
+  "urn" : "local:alessio.bulckaen:esa.aries.sandbox:MachineLearning-IUCNGET-EXTENT-V330_items_completed",
+  "version" : "0.0.1",
+  "adapterType" : "stac",
+  "localPath" : "esa.aries.sandbox/resources/MachineLearning-IUCNGET-EXTENT-V330_items_completed.v0.0.1",
+  "geometry" : "s2",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "MachineLearning-IUCNGET-EXTENT-V330_items_completed",
+  "type" : "OBJECT",
+  "resourceTimestamp" : 1795443957700,
+  "metadata" : {
+    "dc:comment" : "This is the STAC metadata for the openEO job 'j-26110320272743cc9c9cecdd20d334b6'",
+    "dc:url" : "https://catalogue.weed.apex.esa.int/collections/MachineLearning-EUNIS2021plus-EXTENT-V320"
+  },
+  "parameters" : {
+    "collection" : "https://catalogue.weed.apex.esa.int/collections/MachineLearning-IUCNGET-EXTENT-V330",
+    "band" : "0",
+    "collectionId" : "MachineLearning-IUCNGET-EXTENT-V330"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

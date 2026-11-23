@@ -15,101 +15,169 @@ action main:
 	
 
 	(
+//		(
+//			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)
+//			checkbutton("CM-v2-01" #cm_v2_01): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm1","Cameroon: CM-v2-01")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-02" #cm_v2_02): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm2","Cameroon: CM-v2-02")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-03" #cm_v2_03): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm3","Cameroon: CM-v2-03")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-04" #cm_v2_04): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm4","Cameroon: CM-v2-40")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-05" #cm_v2_05): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm5","Cameroon: CM-v2-05")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-06" #cm_v2_06): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm6","Cameroon: CM-v2-6")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-07" #cm_v2_07): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm7","Cameroon: CM-v2-07")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-08" #cm_v2_08): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm8","Cameroon: CM-v2-08")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-09" #cm_v2_09): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm9","Cameroon: CM-v2-09")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-10" #cm_v2_10): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm10","Cameroon: CM-v2-10")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-11" #cm_v2_11): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm11","Cameroon: CM-v2-11")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-12" #cm_v2_12): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm12","Cameroon: CM-v2-12")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-13" #cm_v2_13): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm13","Cameroon: CM-v2-13")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-14" #cm_v2_14): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm14","Cameroon: CM-v2-14")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-15" #cm_v2_15): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm15","Cameroon: CM-v2-15")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-16" #cm_v2_16): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm16","Cameroon: CM-v2-16")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-17" #cm_v2_17): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm17","Cameroon: CM-v2-17")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-18" #cm_v2_18): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm18","Cameroon: CM-v2-18")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-19" #cm_v2_19): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm19","Cameroon: CM-v2-19")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-20" #cm_v2_20): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm20","Cameroon: CM-v2-20")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-21" #cm_v2_01): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm21_congo_river_basin","Cameroon: Congo River Basin CM-v2-21")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-22" #cm_v2_01): (
+//				disable_ctxs("cameroon_4326_30m_2024_cm22_congo_river_basin","Cameroon: Congo River Basin CM-v2-22")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-22" #cm_v2_01): (
+//				disable_ctxs("cameroon_4326_30m_2024_cm22_congo_river_basin","Cameroon: Congo River Basin CM-v2-22")
+//				activate_noneu
+//			)			
+//		) :name "Cameroon" #cameroon	
+
+/////////////////////////
 		(
 			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)
-			checkbutton("CM-v2-01" #cm_v2_01): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm1","Cameroon: CM-v2-01")
+			checkbutton("Cameroon: Guider - Mayo-Oulo CM-v2-01" #cm_v2_01): (
+				disable_ctxs("esa.aries.contexts.cameroon_32633_30m_cm1_guider_mayo_oulo","Cameroon: CM-v2-01")
 				activate_noneu
 			)
-			checkbutton("CM-v2-02" #cm_v2_02): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm2","Cameroon: CM-v2-02")
+			checkbutton("Cameroon: Kilum-Ijim / Lake Oku - CM-v2-02" #cm_v2_02): (
+				disable_ctxs("esa.aries.contexts.cameroon_32633_30m_cm2_kilum_ijim_lake_oku","Cameroon: CM-v2-02")
 				activate_noneu
 			)
-			checkbutton("CM-v2-03" #cm_v2_03): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm3","Cameroon: CM-v2-03")
+			checkbutton("Cameroon: Betare-Oya - CM-v2-03" #cm_v2_03): (
+				disable_ctxs("esa.aries.contexts.cameroon_32633_30m_cm3_betare_oya","Cameroon: CM-v2-03")
 				activate_noneu
 			)
-			checkbutton("CM-v2-04" #cm_v2_04): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm4","Cameroon: CM-v2-40")
+			checkbutton("Cameroon: Abong-Mbang - CM-v2-04" #cm_v2_04): (
+				disable_ctxs("esa.aries.contexts.cameroon_32633_30m_cm4_abong_mbang","Cameroon: CM-v2-40")
 				activate_noneu
 			)
-			checkbutton("CM-v2-05" #cm_v2_05): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm5","Cameroon: CM-v2-05")
+			checkbutton("Cameroon: Campo-Ma'an / Kribi coast - CM-v2-05" #cm_v2_05): (
+				disable_ctxs("esa.aries.contexts.cameroon_32633_30m_cm5_campo_man_kribi_coast","Cameroon: CM-v2-05")
 				activate_noneu
 			)
-			checkbutton("CM-v2-06" #cm_v2_06): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm6","Cameroon: CM-v2-6")
+			checkbutton("Cameroon: Touboro - CM-v2-06" #cm_v2_06): (
+				disable_ctxs("esa.aries.contexts.cameroon_32633_30m_cm6_touboro","Cameroon: CM-v2-6")
 				activate_noneu
 			)
-			checkbutton("CM-v2-07" #cm_v2_07): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm7","Cameroon: CM-v2-07")
+			checkbutton("Cameroon: Foumban - Noun plain - CM-v2-07" #cm_v2_07): (
+				disable_ctxs("esa.aries.contexts.cameroon_32633_30m_cm7_foumban_noun_plain","Cameroon: CM-v2-07")
 				activate_noneu
 			)
-			checkbutton("CM-v2-08" #cm_v2_08): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm8","Cameroon: CM-v2-08")
+			checkbutton("Cameroon: Deng-Deng area - CM-v2-08" #cm_v2_08): (
+				disable_ctxs("esa.aries.contexts.cameroon_32633_30m_cm8_deng_deng_area","Cameroon: CM-v2-08")
 				activate_noneu
 			)
-			checkbutton("CM-v2-09" #cm_v2_09): (
+			checkbutton("Cameroon: Mbankomo - Mefou - CM-v2-09" #cm_v2_09): (
 				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm9","Cameroon: CM-v2-09")
 				activate_noneu
 			)
-			checkbutton("CM-v2-10" #cm_v2_10): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm10","Cameroon: CM-v2-10")
+			checkbutton("Cameroon: Banyo - Tignere plateau - CM-v2-10" #cm_v2_10): (
+				disable_ctxs("esa.aries.contexts.cameroon_32633_30m_cm10_banyo_tignere_plateau","Cameroon: CM-v2-10")
 				activate_noneu
 			)
-			checkbutton("CM-v2-11" #cm_v2_11): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm11","Cameroon: CM-v2-11")
+			checkbutton("Cameroon: Lake Chad shore - CM-v2-11" #cm_v2_11): (
+				disable_ctxs("esa.aries.contexts.cameroon_32633_30m_cm11_lake_chad_shore","Cameroon: CM-v2-11")
 				activate_noneu
 			)
-			checkbutton("CM-v2-12" #cm_v2_12): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm12","Cameroon: CM-v2-12")
+			checkbutton("Cameroon: Tibati - Ngaoundal - CM-v2-12" #cm_v2_12): (
+				disable_ctxs("esa.aries.contexts.cameroon_32633_30m_cm12_tibati_ngaoundal","Cameroon: CM-v2-12")
 				activate_noneu
 			)
-			checkbutton("CM-v2-13" #cm_v2_13): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm13","Cameroon: CM-v2-13")
+			checkbutton("Cameroon: Penja - Manjo - CM-v2-13" #cm_v2_13): (
+				disable_ctxs("esa.aries.contexts.cameroon_32633_30m_cm13_penja_manjo","Cameroon: CM-v2-13")
 				activate_noneu
 			)
-			checkbutton("CM-v2-14" #cm_v2_14): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm14","Cameroon: CM-v2-14")
+			checkbutton("Cameroon: Mount Cameroon - CM-v2-14" #cm_v2_14): (
+				disable_ctxs("esa.aries.contexts.cameroon_32633_30m_cm14_mount_cameroon","Cameroon: CM-v2-14")
 				activate_noneu
 			)
-			checkbutton("CM-v2-15" #cm_v2_15): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm15","Cameroon: CM-v2-15")
+			checkbutton("Cameroon: Lagdo Lake (Benoue) - CM-v2-15" #cm_v2_15): (
+				disable_ctxs("esa.aries.contexts.cameroon_32633_30m_cm15_lagdo_lake","Cameroon: CM-v2-15")
 				activate_noneu
-			)
-			checkbutton("CM-v2-16" #cm_v2_16): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm16","Cameroon: CM-v2-16")
-				activate_noneu
-			)
-			checkbutton("CM-v2-17" #cm_v2_17): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm17","Cameroon: CM-v2-17")
-				activate_noneu
-			)
-			checkbutton("CM-v2-18" #cm_v2_18): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm18","Cameroon: CM-v2-18")
-				activate_noneu
-			)
-			checkbutton("CM-v2-19" #cm_v2_19): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm19","Cameroon: CM-v2-19")
-				activate_noneu
-			)
-			checkbutton("CM-v2-20" #cm_v2_20): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm20","Cameroon: CM-v2-20")
-				activate_noneu
-			)
-			checkbutton("CM-v2-21" #cm_v2_01): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm21_congo_river_basin","Cameroon: Congo River Basin CM-v2-21")
-				activate_noneu
-			)
-			checkbutton("CM-v2-22" #cm_v2_01): (
-				disable_ctxs("cameroon_4326_30m_2024_cm22_congo_river_basin","Cameroon: Congo River Basin CM-v2-22")
-				activate_noneu
-			)
-			checkbutton("CM-v2-22" #cm_v2_01): (
-				disable_ctxs("cameroon_4326_30m_2024_cm22_congo_river_basin","Cameroon: Congo River Basin CM-v2-22")
-				activate_noneu
-			)			
+			)		
 		) :name "Cameroon" #cameroon	
+
+/////////////////////////
+
 			
 		(	
 			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)
