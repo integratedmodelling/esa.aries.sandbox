@@ -1123,105 +1123,105 @@ observe earth:Region named cameroon_4326_30m_2024_cm22_congo_river_basin
 observe earth:Region named cameroon_32633_30m_cm1_guider_mayo_oulo
     over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#site_id=1',
     			grid="30 m",
-                projection= "EPSG:32633"),
+                projection= "EPSG:4326"),//projection= "EPSG:32633"),
         time(start=2024, end=2025, step=1.year);
 
 //Kilum-Ijim / Lake Oku
 observe earth:Region named cameroon_32633_30m_cm2_kilum_ijim_lake_oku
     over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#site_id=2',
     			grid="30 m",
-                projection= "EPSG:32633"),
+                projection= "EPSG:4326"),//projection= "EPSG:32633"),
         time(start=2024, end=2025, step=1.year);
 
 //Betare-Oya
 observe earth:Region named cameroon_32633_30m_cm3_betare_oya
     over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#site_id=3',
     			grid="30 m",
-                projection= "EPSG:32633"),
+                projection= "EPSG:4326"),//projection= "EPSG:32633"),
         time(start=2024, end=2025, step=1.year);
 
 //Abong-Mbang
 observe earth:Region named cameroon_32633_30m_cm4_abong_mbang
     over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#site_id=4',
     			grid="30 m",
-                projection= "EPSG:32633"),
+                projection= "EPSG:4326"),//projection= "EPSG:32633"),
         time(start=2024, end=2025, step=1.year);      
 
 //Campo-Ma'an / Kribi coast
 observe earth:Region named cameroon_32633_30m_cm5_campo_man_kribi_coast
     over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#site_id=5',
     			grid="30 m",
-                projection= "EPSG:32633"),
+                projection= "EPSG:4326"),//projection= "EPSG:32633"),
         time(start=2024, end=2025, step=1.year);
 
 //Touboro
 observe earth:Region named cameroon_32633_30m_cm6_touboro
     over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#site_id=6',
     			grid="30 m",
-                projection= "EPSG:32633"),
+                projection= "EPSG:4326"),//projection= "EPSG:32633"),
         time(start=2024, end=2025, step=1.year);
  
 //Foumban - Noun plain        
 observe earth:Region named cameroon_32633_30m_cm7_foumban_noun_plain
     over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#site_id=7',
     			grid="30 m",
-                projection= "EPSG:32633"),
+                projection= "EPSG:4326"),//projection= "EPSG:32633"),
         time(start=2024, end=2025, step=1.year);
 
 //Deng-Deng area
 observe earth:Region named cameroon_32633_30m_cm8_deng_deng_area
     over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#site_id=8',
     			grid="30 m",
-                projection= "EPSG:32633"),
+                projection= "EPSG:4326"),//projection= "EPSG:32633"),
         time(start=2024, end=2025, step=1.year);  
 
 //Mbankomo - Mefou
 observe earth:Region named cameroon_32633_30m_cm9_mbankomo_mefou
     over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633site_id=9',
     			grid="30 m",
-                projection= "EPSG:32633"),
+                projection= "EPSG:4326"),//projection= "EPSG:32633"),
         time(start=2024, end=2025, step=1.year);
 
 //Banyo - Tignere plateau
 observe earth:Region named cameroon_32633_30m_cm10_banyo_tignere_plateau
     over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#site_id=10',
     			grid="30 m",
-                projection= "EPSG:32633"),
+                projection= "EPSG:4326"),//projection= "EPSG:32633"),
         time(start=2024, end=2025, step=1.year);
 
 //Lake Chad shore        
 observe earth:Region named cameroon_32633_30m_cm11_lake_chad_shore
     over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#site_id=11',
     			grid="30 m",
-                projection= "EPSG:32633"),
+                projection= "EPSG:4326"),//projection= "EPSG:32633"),
         time(start=2024, end=2025, step=1.year);
 
 //Tibati - Ngaoundal
 observe earth:Region named cameroon_32633_30m_cm12_tibati_ngaoundal
     over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#site_id=12',
     			grid="30 m",
-                projection= "EPSG:32633"),
+                projection= "EPSG:4326"),//projection= "EPSG:32633"),
         time(start=2024, end=2025, step=1.year);      
 
 //Penja - Manjo
 observe earth:Region named cameroon_32633_30m_cm13_penja_manjo
     over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#site_id=13',
     			grid="30 m",
-                projection= "EPSG:32633"),
+                projection= "EPSG:4326"),//projection= "EPSG:32633"),
         time(start=2024, end=2025, step=1.year);
 
 //Mount Cameroon
 observe earth:Region named cameroon_32633_30m_cm14_mount_cameroon
     over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#site_id=14',
     			grid="30 m",
-                projection= "EPSG:32633"),
+                projection= "EPSG:4326"),//projection= "EPSG:32633"),
         time(start=2024, end=2025, step=1.year);
 
 //Lagdo Lake (Benoue)        
 observe earth:Region named cameroon_32633_30m_cm15_lagdo_lake
     over space (urn = 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633#site_id=15',
     			grid="30 m",
-                projection= "EPSG:32633"),
+                projection= "EPSG:4326"),//projection= "EPSG:32633"),
         time(start=2024, end=2025, step=1.year);
 
 
