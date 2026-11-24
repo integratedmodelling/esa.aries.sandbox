@@ -485,42 +485,42 @@ define IUCN_GET_LEVEL_CONSISTENCY_TABLE as {{
 	nca.ecosystem.iucn:BorealCoolTemperatePalustrineWetland		|	nca.ecosystem.iucn:BorealCoolTemperatePalustrineWetland		|	nca.ecosystem.iucn:PalustrineWetland					|	nca.ecosystem.iucn:TerrestrialFreshwater		|	true		|	et_result_comparison:Level_3,
 	nca.ecosystem.iucn:BorealTemperateMontanePeatBog			|	nca.ecosystem.iucn:BorealTemperateMontanePeatBog			|	nca.ecosystem.iucn:PalustrineWetland					|	nca.ecosystem.iucn:TerrestrialFreshwater		|	true		|	et_result_comparison:Level_3,
 
-//	nca.ecosystem.iucn:RiverStream								|	#															|	nca.ecosystem.iucn:RiverStream							|	nca.ecosystem.iucn:Freshwater					|	true		|	et_result_comparison:Level_2,	// level 2 - F1	
-//	nca.ecosystem.iucn:Lake										|	#															|	nca.ecosystem.iucn:Lake									|	nca.ecosystem.iucn:Freshwater					|	true		|	et_result_comparison:Level_2,	// level 2 - F2
-//	nca.ecosystem.iucn:ArtificialWetland						|	#															|	nca.ecosystem.iucn:ArtificialWetland					|	nca.ecosystem.iucn:Freshwater					|	true		|	et_result_comparison:Level_2,	// level 2 - F3
-//	nca.ecosystem.iucn:MarineShelf								|	#															|	nca.ecosystem.iucn:MarineShelf							|	nca.ecosystem.iucn:Marine						|	true		|	et_result_comparison:Level_2,	// level 2 - M1
-//	nca.ecosystem.iucn:PelagicOceanWater						|	#															|	nca.ecosystem.iucn:PelagicOceanWater					|	nca.ecosystem.iucn:Marine						|	true		|	et_result_comparison:Level_2,	// level 2 - M2
-//	nca.ecosystem.iucn:DeepSeaFloor								|	#															|	nca.ecosystem.iucn:DeepSeaFloor							|	nca.ecosystem.iucn:Marine						|	true		|	et_result_comparison:Level_2,	// level 2 - M3
-//	nca.ecosystem.iucn:AnthropogenicMarine						|	#															|	nca.ecosystem.iucn:AnthropogenicMarine					|	nca.ecosystem.iucn:Marine						|	true		|	et_result_comparison:Level_2,	// level 2 - M4
-//	nca.ecosystem.iucn:SubterraneanLithic						|	#															|	nca.ecosystem.iucn:SubterraneanLithic					|	nca.ecosystem.iucn:Subterranean					|	true		|	et_result_comparison:Level_2,	// level 2 - S1
-//	nca.ecosystem.iucn:AnthropogenicSubterraneanVoidBiome		|	#															|	nca.ecosystem.iucn:AnthropogenicSubterraneanVoidBiome	|	nca.ecosystem.iucn:Subterranean					|	true		|	et_result_comparison:Level_2,	// level 2 - S2
-//	nca.ecosystem.iucn:TropicalSubtropicalForest				|	#															|	nca.ecosystem.iucn:TropicalSubtropicalForest			|	nca.ecosystem.iucn:Terrestrial					|	true		|	et_result_comparison:Level_2,	// level 2 - T1
-//	nca.ecosystem.iucn:TemperateBorealForestWoodland			|	#															|	nca.ecosystem.iucn:TemperateBorealForestWoodland		|	nca.ecosystem.iucn:Terrestrial					|	true		|	et_result_comparison:Level_2,	// level 2 - T2
-//	nca.ecosystem.iucn:ShrublandShrubbyWoodland					|	#															|	nca.ecosystem.iucn:ShrublandShrubbyWoodland				|	nca.ecosystem.iucn:Terrestrial					|	true		|	et_result_comparison:Level_2,	// level 2 - T3
-//	nca.ecosystem.iucn:SavannaGrassland							|	#															|	nca.ecosystem.iucn:SavannaGrassland						|	nca.ecosystem.iucn:Terrestrial					|	true		|	et_result_comparison:Level_2,	// level 2 - T4
-//	nca.ecosystem.iucn:DesertSemidesert							|	#															|	nca.ecosystem.iucn:DesertSemidesert						|	nca.ecosystem.iucn:Terrestrial					|	true		|	et_result_comparison:Level_2,	// level 2 - T5
-//	nca.ecosystem.iucn:PolarAlpine								|	#															|	nca.ecosystem.iucn:PolarAlpine							|	nca.ecosystem.iucn:Terrestrial					|	true		|	et_result_comparison:Level_2,	// level 2 - T6
-//	nca.ecosystem.iucn:IntensiveLandUseSystem					|	#															|	nca.ecosystem.iucn:IntensiveLandUseSystem				|	nca.ecosystem.iucn:Terrestrial					|	true		|	et_result_comparison:Level_2,	// level 2 - T7
-//	nca.ecosystem.iucn:SemiconfinedTransitionalWater			|	#															|	nca.ecosystem.iucn:SemiconfinedTransitionalWater		|	nca.ecosystem.iucn:FreshwaterMarine				|	true		|	et_result_comparison:Level_2,	// level 2 - FM1   
-//	nca.ecosystem.iucn:BrackishTidal							|	#															|	nca.ecosystem.iucn:BrackishTidal						|	nca.ecosystem.iucn:MarineFreshwaterTerrestrial	|	true		|	et_result_comparison:Level_2,	// level 2 - MFT1
-//	nca.ecosystem.iucn:Shoreline								|	#															|	nca.ecosystem.iucn:Shoreline							|	nca.ecosystem.iucn:MarineTerrestrial			|	true		|	et_result_comparison:Level_2,	// level 2 - MT1
-//	nca.ecosystem.iucn:SupralittoralCoastal						|	#															|	nca.ecosystem.iucn:SupralittoralCoastal					|	nca.ecosystem.iucn:MarineTerrestrial			|	true		|	et_result_comparison:Level_2,	// level 2 - MT2
-//	nca.ecosystem.iucn:AnthropogenicShoreline					|	#															|	nca.ecosystem.iucn:AnthropogenicShoreline				|	nca.ecosystem.iucn:MarineTerrestrial			|	true		|	et_result_comparison:Level_2,	// level 2 - MT3
-//	nca.ecosystem.iucn:SubterraneanFreshwaterBiome				|	#															|	nca.ecosystem.iucn:SubterraneanFreshwaterBiome			|	nca.ecosystem.iucn:SubterraneanFreshwater		|	true		|	et_result_comparison:Level_2,	// level 2 - SF1
-//	nca.ecosystem.iucn:AnthropogenicSubterraneanFreshwater		|	#															|	nca.ecosystem.iucn:AnthropogenicSubterraneanFreshwater	|	nca.ecosystem.iucn:SubterraneanFreshwater		|	true		|	et_result_comparison:Level_2,	// level 2 - SF2
-//	nca.ecosystem.iucn:SubterraneanTidal						|	#															|	nca.ecosystem.iucn:SubterraneanTidal					|	nca.ecosystem.iucn:SubterraneanMarine			|	true		|	et_result_comparison:Level_2,	// level 2 - SM1
-//	nca.ecosystem.iucn:PalustrineWetland						|	#															|	nca.ecosystem.iucn:PalustrineWetland					|	nca.ecosystem.iucn:TerrestrialFreshwater		|	true		|	et_result_comparison:Level_2,	// level 2 - TF1
-//
-//	nca.ecosystem.iucn:Freshwater								|	#															|	#														|	nca.ecosystem.iucn:Freshwater					|	true		|	et_result_comparison:Level_1,	// level 1 - F --------------------
-//	nca.ecosystem.iucn:Marine									|	#															|	#														|	nca.ecosystem.iucn:Marine						|	true		|	et_result_comparison:Level_1,	// level 1 - M --------------------
-//	nca.ecosystem.iucn:Subterranean								|	#															|	#														|	nca.ecosystem.iucn:Subterranean					|	true		|	et_result_comparison:Level_1,	// level 1 - S --------------------
-//	nca.ecosystem.iucn:Terrestrial								|	#															|	#														|	nca.ecosystem.iucn:Terrestrial					|	true		|	et_result_comparison:Level_1,	// level 1 - T --------------------
-//	nca.ecosystem.iucn:FreshwaterMarine							|	#															|	#														|	nca.ecosystem.iucn:FreshwaterMarine				|	true		|	et_result_comparison:Level_1,	// level 1 - FM --------------------
-//	nca.ecosystem.iucn:MarineFreshwaterTerrestrial				|	#															|	#														|	nca.ecosystem.iucn:MarineFreshwaterTerrestrial	|	true		|	et_result_comparison:Level_1,	// level 1 - MFT --------------------
-//	nca.ecosystem.iucn:MarineTerrestrial						|	#															|	#														|	nca.ecosystem.iucn:MarineTerrestrial			|	true		|	et_result_comparison:Level_1,	// level 1 - MT --------------------
-//	nca.ecosystem.iucn:SubterraneanFreshwater					|	#															|	#														|	nca.ecosystem.iucn:SubterraneanFreshwater		|	true		|	et_result_comparison:Level_1,	// level 1 - SF --------------------
-//	nca.ecosystem.iucn:SubterraneanMarine						|	#															|	#														|	nca.ecosystem.iucn:SubterraneanMarine			|	true		|	et_result_comparison:Level_1,	// level 1 - SM --------------------
-//	nca.ecosystem.iucn:TerrestrialFreshwater					|	#															|	#														|	nca.ecosystem.iucn:TerrestrialFreshwater		|	true		|	et_result_comparison:Level_1,	// level 1 - TF --------------------          
+	nca.ecosystem.iucn:RiverStream								|	#															|	nca.ecosystem.iucn:RiverStream							|	nca.ecosystem.iucn:Freshwater					|	true		|	et_result_comparison:Level_2,	// level 2 - F1	
+	nca.ecosystem.iucn:Lake										|	#															|	nca.ecosystem.iucn:Lake									|	nca.ecosystem.iucn:Freshwater					|	true		|	et_result_comparison:Level_2,	// level 2 - F2
+	nca.ecosystem.iucn:ArtificialWetland						|	#															|	nca.ecosystem.iucn:ArtificialWetland					|	nca.ecosystem.iucn:Freshwater					|	true		|	et_result_comparison:Level_2,	// level 2 - F3
+	nca.ecosystem.iucn:MarineShelf								|	#															|	nca.ecosystem.iucn:MarineShelf							|	nca.ecosystem.iucn:Marine						|	true		|	et_result_comparison:Level_2,	// level 2 - M1
+	nca.ecosystem.iucn:PelagicOceanWater						|	#															|	nca.ecosystem.iucn:PelagicOceanWater					|	nca.ecosystem.iucn:Marine						|	true		|	et_result_comparison:Level_2,	// level 2 - M2
+	nca.ecosystem.iucn:DeepSeaFloor								|	#															|	nca.ecosystem.iucn:DeepSeaFloor							|	nca.ecosystem.iucn:Marine						|	true		|	et_result_comparison:Level_2,	// level 2 - M3
+	nca.ecosystem.iucn:AnthropogenicMarine						|	#															|	nca.ecosystem.iucn:AnthropogenicMarine					|	nca.ecosystem.iucn:Marine						|	true		|	et_result_comparison:Level_2,	// level 2 - M4
+	nca.ecosystem.iucn:SubterraneanLithic						|	#															|	nca.ecosystem.iucn:SubterraneanLithic					|	nca.ecosystem.iucn:Subterranean					|	true		|	et_result_comparison:Level_2,	// level 2 - S1
+	nca.ecosystem.iucn:AnthropogenicSubterraneanVoidBiome		|	#															|	nca.ecosystem.iucn:AnthropogenicSubterraneanVoidBiome	|	nca.ecosystem.iucn:Subterranean					|	true		|	et_result_comparison:Level_2,	// level 2 - S2
+	nca.ecosystem.iucn:TropicalSubtropicalForest				|	#															|	nca.ecosystem.iucn:TropicalSubtropicalForest			|	nca.ecosystem.iucn:Terrestrial					|	true		|	et_result_comparison:Level_2,	// level 2 - T1
+	nca.ecosystem.iucn:TemperateBorealForestWoodland			|	#															|	nca.ecosystem.iucn:TemperateBorealForestWoodland		|	nca.ecosystem.iucn:Terrestrial					|	true		|	et_result_comparison:Level_2,	// level 2 - T2
+	nca.ecosystem.iucn:ShrublandShrubbyWoodland					|	#															|	nca.ecosystem.iucn:ShrublandShrubbyWoodland				|	nca.ecosystem.iucn:Terrestrial					|	true		|	et_result_comparison:Level_2,	// level 2 - T3
+	nca.ecosystem.iucn:SavannaGrassland							|	#															|	nca.ecosystem.iucn:SavannaGrassland						|	nca.ecosystem.iucn:Terrestrial					|	true		|	et_result_comparison:Level_2,	// level 2 - T4
+	nca.ecosystem.iucn:DesertSemidesert							|	#															|	nca.ecosystem.iucn:DesertSemidesert						|	nca.ecosystem.iucn:Terrestrial					|	true		|	et_result_comparison:Level_2,	// level 2 - T5
+	nca.ecosystem.iucn:PolarAlpine								|	#															|	nca.ecosystem.iucn:PolarAlpine							|	nca.ecosystem.iucn:Terrestrial					|	true		|	et_result_comparison:Level_2,	// level 2 - T6
+	nca.ecosystem.iucn:IntensiveLandUseSystem					|	#															|	nca.ecosystem.iucn:IntensiveLandUseSystem				|	nca.ecosystem.iucn:Terrestrial					|	true		|	et_result_comparison:Level_2,	// level 2 - T7
+	nca.ecosystem.iucn:SemiconfinedTransitionalWater			|	#															|	nca.ecosystem.iucn:SemiconfinedTransitionalWater		|	nca.ecosystem.iucn:FreshwaterMarine				|	true		|	et_result_comparison:Level_2,	// level 2 - FM1   
+	nca.ecosystem.iucn:BrackishTidal							|	#															|	nca.ecosystem.iucn:BrackishTidal						|	nca.ecosystem.iucn:MarineFreshwaterTerrestrial	|	true		|	et_result_comparison:Level_2,	// level 2 - MFT1
+	nca.ecosystem.iucn:Shoreline								|	#															|	nca.ecosystem.iucn:Shoreline							|	nca.ecosystem.iucn:MarineTerrestrial			|	true		|	et_result_comparison:Level_2,	// level 2 - MT1
+	nca.ecosystem.iucn:SupralittoralCoastal						|	#															|	nca.ecosystem.iucn:SupralittoralCoastal					|	nca.ecosystem.iucn:MarineTerrestrial			|	true		|	et_result_comparison:Level_2,	// level 2 - MT2
+	nca.ecosystem.iucn:AnthropogenicShoreline					|	#															|	nca.ecosystem.iucn:AnthropogenicShoreline				|	nca.ecosystem.iucn:MarineTerrestrial			|	true		|	et_result_comparison:Level_2,	// level 2 - MT3
+	nca.ecosystem.iucn:SubterraneanFreshwaterBiome				|	#															|	nca.ecosystem.iucn:SubterraneanFreshwaterBiome			|	nca.ecosystem.iucn:SubterraneanFreshwater		|	true		|	et_result_comparison:Level_2,	// level 2 - SF1
+	nca.ecosystem.iucn:AnthropogenicSubterraneanFreshwater		|	#															|	nca.ecosystem.iucn:AnthropogenicSubterraneanFreshwater	|	nca.ecosystem.iucn:SubterraneanFreshwater		|	true		|	et_result_comparison:Level_2,	// level 2 - SF2
+	nca.ecosystem.iucn:SubterraneanTidal						|	#															|	nca.ecosystem.iucn:SubterraneanTidal					|	nca.ecosystem.iucn:SubterraneanMarine			|	true		|	et_result_comparison:Level_2,	// level 2 - SM1
+	nca.ecosystem.iucn:PalustrineWetland						|	#															|	nca.ecosystem.iucn:PalustrineWetland					|	nca.ecosystem.iucn:TerrestrialFreshwater		|	true		|	et_result_comparison:Level_2,	// level 2 - TF1
+
+	nca.ecosystem.iucn:Freshwater								|	#															|	#														|	nca.ecosystem.iucn:Freshwater					|	true		|	et_result_comparison:Level_1,	// level 1 - F --------------------
+	nca.ecosystem.iucn:Marine									|	#															|	#														|	nca.ecosystem.iucn:Marine						|	true		|	et_result_comparison:Level_1,	// level 1 - M --------------------
+	nca.ecosystem.iucn:Subterranean								|	#															|	#														|	nca.ecosystem.iucn:Subterranean					|	true		|	et_result_comparison:Level_1,	// level 1 - S --------------------
+	nca.ecosystem.iucn:Terrestrial								|	#															|	#														|	nca.ecosystem.iucn:Terrestrial					|	true		|	et_result_comparison:Level_1,	// level 1 - T --------------------
+	nca.ecosystem.iucn:FreshwaterMarine							|	#															|	#														|	nca.ecosystem.iucn:FreshwaterMarine				|	true		|	et_result_comparison:Level_1,	// level 1 - FM --------------------
+	nca.ecosystem.iucn:MarineFreshwaterTerrestrial				|	#															|	#														|	nca.ecosystem.iucn:MarineFreshwaterTerrestrial	|	true		|	et_result_comparison:Level_1,	// level 1 - MFT --------------------
+	nca.ecosystem.iucn:MarineTerrestrial						|	#															|	#														|	nca.ecosystem.iucn:MarineTerrestrial			|	true		|	et_result_comparison:Level_1,	// level 1 - MT --------------------
+	nca.ecosystem.iucn:SubterraneanFreshwater					|	#															|	#														|	nca.ecosystem.iucn:SubterraneanFreshwater		|	true		|	et_result_comparison:Level_1,	// level 1 - SF --------------------
+	nca.ecosystem.iucn:SubterraneanMarine						|	#															|	#														|	nca.ecosystem.iucn:SubterraneanMarine			|	true		|	et_result_comparison:Level_1,	// level 1 - SM --------------------
+	nca.ecosystem.iucn:TerrestrialFreshwater					|	#															|	#														|	nca.ecosystem.iucn:TerrestrialFreshwater		|	true		|	et_result_comparison:Level_1,	// level 1 - TF --------------------          
 	#															|	#															|	#														|	#												|	false		|	et_result_comparison:UnMapped
 }};	
 

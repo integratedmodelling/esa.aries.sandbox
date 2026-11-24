@@ -1,0 +1,39 @@
+{
+  "urn" : "local:alessio.bulckaen:esa.aries.sandbox:RuleBased-V502_items_completed",
+  "version" : "0.0.1",
+  "adapterType" : "stac",
+  "localPath" : "esa.aries.sandbox/resources/RuleBased-V502_items_completed.v0.0.1",
+  "geometry" : "s2",
+  "projectName" : "esa.aries.sandbox",
+  "localName" : "RuleBased-V502_items_completed",
+  "type" : "OBJECT",
+  "resourceTimestamp" : 1795443000294,
+  "metadata" : {
+    "im:keywords" : "",
+    "dc:comment" : "This is the STAC metadata for the openEO job 'j-2610282326294892bf4ffa25fb69bb6d'",
+    "im:notes" : "",
+    "dc:title" : "",
+    "dc:url" : "https://catalogue.weed.apex.esa.int/collections/RuleBased-V502",
+    "dc:creator" : "",
+    "im:thematic-area" : "",
+    "dc:originator" : "",
+    "im:geographic-area" : "",
+    "dc:source" : ""
+  },
+  "parameters" : {
+    "collection" : "https://catalogue.weed.apex.esa.int/collections/RuleBased-EXTENT-V502",
+    "band" : "0",
+    "collectionId" : "RuleBased-EXTENT-V502"
+  },
+  "localPaths" : [ ],
+  "history" : [ ],
+  "notifications" : [ ],
+  "attributes" : [ ],
+  "spatialExtent" : null,
+  "dependencies" : null,
+  "outputs" : null,
+  "categorizables" : [ ],
+  "codelists" : [ ],
+  "availability" : null,
+  "exportFormats" : { }
+}

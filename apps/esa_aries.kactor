@@ -15,94 +15,174 @@ action main:
 	
 
 	(
+//		(
+//			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)
+//			checkbutton("CM-v2-01" #cm_v2_01): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm1","Cameroon: CM-v2-01")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-02" #cm_v2_02): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm2","Cameroon: CM-v2-02")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-03" #cm_v2_03): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm3","Cameroon: CM-v2-03")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-04" #cm_v2_04): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm4","Cameroon: CM-v2-40")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-05" #cm_v2_05): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm5","Cameroon: CM-v2-05")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-06" #cm_v2_06): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm6","Cameroon: CM-v2-6")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-07" #cm_v2_07): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm7","Cameroon: CM-v2-07")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-08" #cm_v2_08): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm8","Cameroon: CM-v2-08")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-09" #cm_v2_09): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm9","Cameroon: CM-v2-09")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-10" #cm_v2_10): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm10","Cameroon: CM-v2-10")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-11" #cm_v2_11): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm11","Cameroon: CM-v2-11")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-12" #cm_v2_12): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm12","Cameroon: CM-v2-12")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-13" #cm_v2_13): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm13","Cameroon: CM-v2-13")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-14" #cm_v2_14): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm14","Cameroon: CM-v2-14")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-15" #cm_v2_15): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm15","Cameroon: CM-v2-15")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-16" #cm_v2_16): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm16","Cameroon: CM-v2-16")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-17" #cm_v2_17): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm17","Cameroon: CM-v2-17")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-18" #cm_v2_18): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm18","Cameroon: CM-v2-18")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-19" #cm_v2_19): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm19","Cameroon: CM-v2-19")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-20" #cm_v2_20): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm20","Cameroon: CM-v2-20")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-21" #cm_v2_01): (
+//				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm21_congo_river_basin","Cameroon: Congo River Basin CM-v2-21")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-22" #cm_v2_01): (
+//				disable_ctxs("cameroon_4326_30m_2024_cm22_congo_river_basin","Cameroon: Congo River Basin CM-v2-22")
+//				activate_noneu
+//			)
+//			checkbutton("CM-v2-22" #cm_v2_01): (
+//				disable_ctxs("cameroon_4326_30m_2024_cm22_congo_river_basin","Cameroon: Congo River Basin CM-v2-22")
+//				activate_noneu
+//			)			
+//		) :name "Cameroon" #cameroon	
+
+/////////////////////////
 		(
 			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)
-			checkbutton("CM-v2-01" #cm_v2_01): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm1","Cameroon: CM-v2-01")
+			checkbutton("Cameroon: Guider - Mayo-Oulo CM-v2-01" #cm_v2_01): (
+				disable_ctxs("esa.aries.contexts.cameroon_32633_30m_cm1_guider_mayo_oulo","Cameroon: CM-v2-01")
 				activate_noneu
 			)
-			checkbutton("CM-v2-02" #cm_v2_02): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm2","Cameroon: CM-v2-02")
+			checkbutton("Cameroon: Kilum-Ijim / Lake Oku - CM-v2-02" #cm_v2_02): (
+				disable_ctxs("esa.aries.contexts.cameroon_32633_30m_cm2_kilum_ijim_lake_oku","Cameroon: CM-v2-02")
 				activate_noneu
 			)
-			checkbutton("CM-v2-03" #cm_v2_03): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm3","Cameroon: CM-v2-03")
+			checkbutton("Cameroon: Betare-Oya - CM-v2-03" #cm_v2_03): (
+				disable_ctxs("esa.aries.contexts.cameroon_32633_30m_cm3_betare_oya","Cameroon: CM-v2-03")
 				activate_noneu
 			)
-			checkbutton("CM-v2-04" #cm_v2_04): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm4","Cameroon: CM-v2-40")
+			checkbutton("Cameroon: Abong-Mbang - CM-v2-04" #cm_v2_04): (
+				disable_ctxs("esa.aries.contexts.cameroon_32633_30m_cm4_abong_mbang","Cameroon: CM-v2-40")
 				activate_noneu
 			)
-			checkbutton("CM-v2-05" #cm_v2_05): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm5","Cameroon: CM-v2-05")
+			checkbutton("Cameroon: Campo-Ma'an / Kribi coast - CM-v2-05" #cm_v2_05): (
+				disable_ctxs("esa.aries.contexts.cameroon_32633_30m_cm5_campo_man_kribi_coast","Cameroon: CM-v2-05")
 				activate_noneu
 			)
-			checkbutton("CM-v2-6" #cm_v2_06): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm6","Cameroon: CM-v2-6")
+			checkbutton("Cameroon: Touboro - CM-v2-06" #cm_v2_06): (
+				disable_ctxs("esa.aries.contexts.cameroon_32633_30m_cm6_touboro","Cameroon: CM-v2-6")
 				activate_noneu
 			)
-			checkbutton("CM-v2-07" #cm_v2_07): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm7","Cameroon: CM-v2-07")
+			checkbutton("Cameroon: Foumban - Noun plain - CM-v2-07" #cm_v2_07): (
+				disable_ctxs("esa.aries.contexts.cameroon_32633_30m_cm7_foumban_noun_plain","Cameroon: CM-v2-07")
 				activate_noneu
 			)
-			checkbutton("CM-v2-08" #cm_v2_08): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm8","Cameroon: CM-v2-08")
+			checkbutton("Cameroon: Deng-Deng area - CM-v2-08" #cm_v2_08): (
+				disable_ctxs("esa.aries.contexts.cameroon_32633_30m_cm8_deng_deng_area","Cameroon: CM-v2-08")
 				activate_noneu
 			)
-			checkbutton("CM-v2-09" #cm_v2_09): (
+			checkbutton("Cameroon: Mbankomo - Mefou - CM-v2-09" #cm_v2_09): (
 				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm9","Cameroon: CM-v2-09")
 				activate_noneu
 			)
-			checkbutton("CM-v2-10" #cm_v2_10): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm10","Cameroon: CM-v2-10")
+			checkbutton("Cameroon: Banyo - Tignere plateau - CM-v2-10" #cm_v2_10): (
+				disable_ctxs("esa.aries.contexts.cameroon_32633_30m_cm10_banyo_tignere_plateau","Cameroon: CM-v2-10")
 				activate_noneu
 			)
-			checkbutton("CM-v2-11" #cm_v2_11): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm11","Cameroon: CM-v2-11")
+			checkbutton("Cameroon: Lake Chad shore - CM-v2-11" #cm_v2_11): (
+				disable_ctxs("esa.aries.contexts.cameroon_32633_30m_cm11_lake_chad_shore","Cameroon: CM-v2-11")
 				activate_noneu
 			)
-			checkbutton("CM-v2-12" #cm_v2_12): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm12","Cameroon: CM-v2-12")
+			checkbutton("Cameroon: Tibati - Ngaoundal - CM-v2-12" #cm_v2_12): (
+				disable_ctxs("esa.aries.contexts.cameroon_32633_30m_cm12_tibati_ngaoundal","Cameroon: CM-v2-12")
 				activate_noneu
 			)
-			checkbutton("CM-v2-13" #cm_v2_13): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm13","Cameroon: CM-v2-13")
+			checkbutton("Cameroon: Penja - Manjo - CM-v2-13" #cm_v2_13): (
+				disable_ctxs("esa.aries.contexts.cameroon_32633_30m_cm13_penja_manjo","Cameroon: CM-v2-13")
 				activate_noneu
 			)
-			checkbutton("CM-v2-14" #cm_v2_14): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm14","Cameroon: CM-v2-14")
+			checkbutton("Cameroon: Mount Cameroon - CM-v2-14" #cm_v2_14): (
+				disable_ctxs("esa.aries.contexts.cameroon_32633_30m_cm14_mount_cameroon","Cameroon: CM-v2-14")
 				activate_noneu
 			)
-			checkbutton("CM-v2-15" #cm_v2_15): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm15","Cameroon: CM-v2-15")
+			checkbutton("Cameroon: Lagdo Lake (Benoue) - CM-v2-15" #cm_v2_15): (
+				disable_ctxs("esa.aries.contexts.cameroon_32633_30m_cm15_lagdo_lake","Cameroon: CM-v2-15")
 				activate_noneu
-			)
-			checkbutton("CM-v2-16" #cm_v2_16): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm16","Cameroon: CM-v2-16")
-				activate_noneu
-			)
-			checkbutton("CM-v2-17" #cm_v2_17): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm17","Cameroon: CM-v2-17")
-				activate_noneu
-			)
-			checkbutton("CM-v2-18" #cm_v2_18): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm18","Cameroon: CM-v2-18")
-				activate_noneu
-			)
-			checkbutton("CM-v2-19" #cm_v2_19): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm19","Cameroon: CM-v2-19")
-				activate_noneu
-			)
-			checkbutton("CM-v2-20" #cm_v2_20): (
-				disable_ctxs("esa.aries.contexts.cameroon_4326_30m_2024_cm20","Cameroon: CM-v2-20")
-				activate_noneu
-			)
+			)		
 		) :name "Cameroon" #cameroon	
+
+/////////////////////////
+
 			
 		(	
 			label(#DRR_CONTEXTS width="100%" fsize="0.95em" :left)
-			checkbutton("CO_v2_01" #co_v2_01): (
-				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co1","Colombia: CO_v2_01")
+			checkbutton("Colombia: Nechí, Bajo Cauca, Antioquia - CO_v2_01" #co_v2_01): (
+				disable_ctxs("esa.aries.contexts.colombia_4326_30m_2024_co1","Colombia: Nechí, Bajo Cauca, Antioquia - CO_v2_01")
 				activate_noneu
 			)			
 			checkbutton("CO_v2_02" #co_v2_02): (
@@ -244,7 +324,7 @@ action main:
 				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz1","Czech Republic: CZ_v2_01")
 				activate_eu
 			)
-8			checkbutton("CZ_v2_02 " #cz_v2_02): (
+			checkbutton("CZ_v2_02 " #cz_v2_02): (
 				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz2","Czech Republic: CZ_v2_02")
 				activate_eu
 			)
@@ -284,7 +364,7 @@ action main:
 				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz11","Czech Republic: CZ_v2_11")
 				activate_eu
 			)
-8			checkbutton("CZ_v2_12 " #cz_v2_12): (
+			checkbutton("CZ_v2_12 " #cz_v2_12): (
 				disable_ctxs("esa.aries.contexts.czech_4326_10m_2024_cz12","Czech Republic: CZ_v2_12")
 				activate_eu
 			)
@@ -1078,7 +1158,7 @@ action main:
 	(	
 			separator("Query Ecosystem Types according to:" :iconname "sprout-outline" )
 			(
-				(
+				label(#ML_RESULTS width="100%" fsize="0.95em" :left)
 					checkbutton("Machine Learning (IUCN GET) results" #noneu_mlr :tooltip "Machine Learning (IUCN GET) results"): (
 						alert("This model is computed on demand and may take up to a few hours to process.<br/>If your results don't appear immediately, the computation is running in the background.")
 						submit(esa.aries.ecosystem_extent.ecosystem_type_iucn_get_level3_machine_learning)
@@ -1087,32 +1167,47 @@ action main:
 						alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
 								If your results don't appear immediately, the computation is running in the background.")
 						submit(esa.aries.ecosystem_extent_table.ecosystem_typology_extent_iucn_machine_learning_static)				
-					)					
-					checkbutton("Rule-based (IUCN GET) results" #noneu_rbigr :tooltip "Rule-based (IUCN GET) results"): (
-						alert("This model is computed on demand and may take up to a few hours to process.<br/>If your results don't appear immediately, the computation is running in the background.")
-						submit(esa.aries.ecosystem_extent.ecosystem_type_iucn_get_level3_rule_based) : submit(esa.aries.ecosystem_extent.ecosystem_characteristics)
 					)
-					checkbutton("Rule-based (IUCN GET) summary table" #noneu_rbigst :tooltip "Rule-based (IUCN GET) summary table"): (
-						alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
-								If your results don't appear immediately, the computation is running in the background.")
-						submit(esa.aries.ecosystem_extent_table.ecosystem_typology_extent_iucn_get_rule_based_basic)				
-					)
-					checkbutton("Hybrid modelling" #noneu_hm :tooltip "Hybrid modelling" :disabled)
-					
-					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Machine Learning (IUCN GET) results" #noneu_a2mlr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
+					checkbutton("Indicator A.2 KMGBF - Extent of Natural Ecosystems from Machine Learning (IUCN GET) results" #noneu_a2mlr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
 						alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
 								If your results don't appear immediately, the computation is running in the background.")
 						submit(esa.aries.ecosystem_extent.ecosystem_type_iucn_get_level3_machine_learning)
 						submit(esa.aries.ecosystem_extent_table.natural_ecosystem_extent_iucn_get_machine_learning_net_change)
 					)
-					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Rule-based (IUCN GET) results" #noneu_a2rbr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
+					
+					separator(:empty)
+				label(#RB_RESULTS width="100%" fsize="0.95em" :left)					
+					checkbutton("Rule-based (IUCN GET) results" #noneu_rbigr :tooltip "Rule-based (IUCN GET) results"): (
+						alert("This model is computed on demand and may take up to a few hours to process.<br/>If your results don't appear immediately, the computation is running in the background.")
+						submit(esa.aries.ecosystem_extent.ecosystem_type_iucn_get_level3_rule_based)// : submit(esa.aries.ecosystem_extent.ecosystem_characteristics)
+					)
+					checkbutton("Rule-based (IUCN GET) summary table" #noneu_rbigst :tooltip "Rule-based (IUCN GET) summary table"): (
+						alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
+								If your results don't appear immediately, the computation is running in the background.")
+						submit(esa.aries.ecosystem_extent_table.ecosystem_typology_extent_iucn_get_rule_based_static)				
+					)
+					checkbutton("Indicator A.2 KMGBF - Extent of Natural Ecosystems from Rule-based (IUCN GET) results" #noneu_a2rbr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)"): (
 						 alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
 								If your results don't appear immediately, the computation is running in the background.")
 						submit(esa.aries.ecosystem.naturalness.natural_ecosystem_extent_iucn_get_rule_based)
 						submit(esa.aries.ecosystem.naturalness.gbf_indicator_a2_natural_ecosystem_percentage_iucn_get_rule_based_static) 
-					)						
+					)
+					
+					separator(:empty)
+				label(#REF_DATA width="100%" fsize="0.95em" :left)
+					checkbutton("Reference data points from Global Validation dataset (IUCN GET)" #noneu_ref_data :tooltip "Reference data points from Global Validation dataset: original data and IUCN GET classification (rasterized points)"): (
+						submit(esa.aries.ecosystem.reference.global_validation_points) : submit(esa.aries.ecosystem.reference.global_validation_data_iucn_get)
+					)
+										
+					separator(:empty)
+				label(#HM_RESULTS width="100%" fsize="0.95em" :left)
+					checkbutton("Hybrid modelling" #noneu_hm :tooltip "Hybrid modelling" :disabled)
+					separator(:empty)
+
 				) :hidden #noneu_obs								
 				(
+				
+				label(#ML_RESULTS width="100%" fsize="0.95em" :left)
 					checkbutton("Machine Learning (EUNIS classification) results" #eu_mlr :tooltip "Machine Learning (EUNIS classification) results"): (
 						alert("This model is computed on demand and may take up to a few hours to process.<br/>If your results don't appear immediately, the computation is running in the background.")
 						submit(esa.aries.ecosystem_extent.ecosystem_type_eunis_level2_machine_learning)
@@ -1121,39 +1216,37 @@ action main:
 						alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
 								If your results don't appear immediately, the computation is running in the background.")
 						submit(esa.aries.ecosystem_extent_table.ecosystem_typology_extent_eunis_machine_learning_static)				
-					)						
+					)
+					checkbutton("Indicator A.2 KMGBF - Extent of Natural Ecosystems from Machine Learning (IUCN GET) results" #eu_a2mlr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)":disabled): (
+						alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
+								If your results don't appear immediately, the computation is running in the background.")
+						submit(esa.aries.ecosystem.naturalness.eunis_natural_ecosystem_extent)
+						submit(esa.aries.ecosystem.naturalness.natural_ecosystem_extent_eunis) 
+					)											
+					
+					separator(:empty)
+				label(#RB_RESULTS width="100%" fsize="0.95em" :left)					
 					checkbutton("Rule-based (IUCN GET) results" #eu_rbigr :tooltip "Rule-based (IUCN GET) results" :disabled): (
 						alert("This model is computed on demand and may take up to a few hours to process.<br/>If your results don't appear immediately, the computation is running in the background.")
-						submit(esa.aries.ecosystem_extent.ecosystem_type_iucn_get_level3_rule_based) : submit(esa.aries.ecosystem_extent.ecosystem_characteristics)
+						submit(esa.aries.ecosystem_extent.ecosystem_type_iucn_get_level3_rule_based)// : submit(esa.aries.ecosystem_extent.ecosystem_characteristics)
 					)
 					checkbutton("Rule-based (IUCN GET) summary table" #eu_rbigst :tooltip "Rule-based (IUCN GET) summary table" :disabled): (
 						alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
 								If your results don't appear immediately, the computation is running in the background.")
 						submit(esa.aries.ecosystem_extent_table.ecosystem_typology_extent_iucn_get_rule_based_static)				
-					)					
+					)
+
+					separator(:empty)
+				label(#HM_RESULTS width="100%" fsize="0.95em" :left)											
 					checkbutton("Hybrid modelling" #eu_hm :tooltip "Hybrid modelling" :disabled)
-					
-					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Machine Learning (EUNIS) results" #ey_a2mlr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)":disabled ): (
-						alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
-								If your results don't appear immediately, the computation is running in the background.")
-						submit(esa.aries.ecosystem.naturalness.eunis_natural_ecosystem_extent)
-						submit(esa.aries.ecosystem.naturalness.natural_ecosystem_extent_eunis)
-					)
-					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Rule-based (IUCN GET) results" #eu_a2rbr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)" :disabled): (
-						alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
-								If your results don't appear immediately, the computation is running in the background.")
-						submit(esa.aries.ecosystem.naturalness.natural_ecosystem_extent_iucn_get_rule_based)
-						submit(esa.aries.ecosystem.naturalness.gbf_indicator_a2_natural_ecosystem_percentage_iucn_get_rule_based_static) 
-					)
-					checkbutton("Headline Indicator A.2 KMGBF - Extent of Natural Ecosystem from Machine Learning (IUCN GET) results" #eu_a2rbr :tooltip "Headline Indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (GBF)" :disabled): (
-						alert("Some intermediate results needed to run this model are computed on demand <br/> and may take up to a few hours to process.<br/> 
-								If your results don't appear immediately, the computation is running in the background.")
-						submit(esa.aries.ecosystem.naturalness.natural_ecosystem_extent_iucn_get_machine_learning)
-						submit(esa.aries.ecosystem.naturalness.gbf_indicator_a2_natural_ecosystem_percentage_iucn_get__machine_learning_static) 
-					)					
+
+					separator(:empty)
+				label(#REF_DATA width="100%" fsize="0.95em" :left)
+					checkbutton("Reference data points from Global Validation dataset (EUNIS)" #eu_ref_data :tooltip "Reference data points from Global Validation dataset: original data and EUNIS classification (rasterized points)"): (
+						submit(esa.aries.ecosystem.reference.global_validation_points) : submit(esa.aries.ecosystem.reference.global_validation_data_eunis)
+					)										
 					hybrid.disable					
 				) :hidden #eu_obs
-			)
 	) :hidden #queries
 	(
 			label(context_label width="100%" :info #header_label)
@@ -1174,10 +1267,15 @@ action main:
 	
 		
 	action activate_noneu: (
+//		eu_obs.hide
+//    	eu_computation_links.hide	
 		noneu_obs.show
 		noneu_computation_links.show
 	)
+	
 	action activate_eu: (
+//	    noneu_obs.hide
+//	    noneu_computation_links.hide    
 		eu_obs.show
 		eu_computation_links.show
 	)
@@ -1195,6 +1293,11 @@ action main:
 	action reset_buttons: (
 		headers.hide
 		queries.hide
+//    	noneu_obs.hide
+//    	eu_obs.hide
+//
+//    	noneu_computation_links.hide
+//    	eu_computation_links.hide			
 		context(:reset)
 		reset(:wait)
 	)
