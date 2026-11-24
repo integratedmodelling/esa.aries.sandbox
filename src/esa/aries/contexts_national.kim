@@ -7,29 +7,87 @@ observe earth:Region named cameroon_2024
                 projection= "EPSG:4326"),
         time(start=2024, end=2025, step=1.year);
 
-model each 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633'
-	as im:Observed earth:Region;
+/*****************
+ *** SEMANTICS ***
+ * 
+ * Different kind of areas are defined so as to avoid the bundle of different regions into the Region concept, when observing 
+ * (this happens even if they are accompanied by an attribute (esa.aries.model_approach:RuleBased or esa.aries.model_approach:MachineLearning). 
+ *
+ *****************/
+thing PriorityArea 
+    "Observed priority areas."
+    is im:Observed earth:Region;
 
-model 'local:alessio.bulckaen:esa.aries.sandbox:RuleBased-V502_items_completed'
-	as presence of esa.aries.model_approach:RuleBased earth:Region named rule_based_areas_computed;
+thing RuleBasedRegion
+    "Computed rule-based spatial regions."
+    is esa.aries.model_approach:RuleBased earth:Region;
+
+thing MachineLearningRegion
+    "Computed machine-learning spatial regions."
+    is esa.aries.model_approach:MachineLearning earth:Region;
+
+abstract attribute RuleBasedClassification
+    "Classification categories for rule-based priority evaluation."
+    has children
+        ComputedRuleBasedArea,
+        ComputedRuleBasedPriorityArea,
+        NonComputedRuleBasedPriorityArea;   
+        
+abstract attribute MachineLearningClassification
+    "Classification categories for machine learning priority evaluation."
+    has children
+        ComputedMachineLearningArea,
+        ComputedMachineLearningPriorityArea,
+        NonComputedMachineLearningPriorityArea;   
+
+/*****************
+ *** RESOURCES ***
+******************/
+
+model each 'local:justus.muhando:esa.aries.sandbox:esa_weed_cameroon_validation_pa_20km_epsg32633'
+	as esa.aries.contexts_national:PriorityArea;
 
 model each 'local:alessio.bulckaen:esa.aries.sandbox:RuleBased-V502_items_completed'
-	as esa.aries.model_approach:RuleBased earth:Region named rule_based_areas_computed;
+	as RuleBasedRegion named rule_based_areas_computed;
 
 model each 'local:alessio.bulckaen:esa.aries.sandbox:MachineLearning-IUCNGET-EXTENT-V330_items_completed'	
-	as esa.aries.model_approach:MachineLearning earth:Region named machine_learning_areas_computed;
+	as MachineLearningRegion named machine_learning_areas_computed;
 	
 model each 'local:alessio.bulckaen:esa.aries.sandbox:MachineLearning-EUNIS2021plus-EXTENT-V320_items_completed'	
-	as esa.aries.model_approach:MachineLearning earth:Region named machine_learning_eunis_areas_computed;
+	as MachineLearningRegion named machine_learning_eunis_areas_computed;
 
-number rulebased_computed_priorty_areas
-observing
-    presence of im:Observed earth:Region
-        named priority_areas,
-    presence of esa.aries.model_approach:RuleBased earth:Region
-        named rule_based_areas_computed;
-set to [
-    (priority_areas == true && rule_based_areas_computed == true)
-        ? 1
-        : nodata
-]; 
+/**************
+ *** MODELS ***
+***************/
+
+@colormap(values = {
+    esa.aries.contexts_national:ComputedRuleBasedArea            : (168,228,160), 
+    esa.aries.contexts_national:ComputedRuleBasedPriorityArea    : (60,179,113),
+    esa.aries.contexts_national:NonComputedRuleBasedPriorityArea : (205,92,92)
+}, opacity = 0.75)	
+model type of esa.aries.contexts_national:RuleBasedClassification
+    observing
+        distance to PriorityArea    		named priority_dist,
+        distance to RuleBasedRegion 		named rb_dist
+    lookup (priority_dist, rb_dist, ?) into
+        priority_dist | rb_dist | classes
+        ----------------------------------------------------------------------
+        0             | 0     	| esa.aries.contexts_national:ComputedRuleBasedPriorityArea,
+        0             | > 0     | esa.aries.contexts_national:NonComputedRuleBasedPriorityArea,
+        > 0           | 0       | esa.aries.contexts_national:ComputedRuleBasedArea;
+
+@colormap(values = {
+    esa.aries.contexts_national:ComputedMachineLearningArea            : (115,194,251), 
+    esa.aries.contexts_national:ComputedMachineLearningPriorityArea    : (65,105,225),
+    esa.aries.contexts_national:NonComputedMachineLearningPriorityArea : (232,97,0)
+}, opacity = 0.75)	
+model type of esa.aries.contexts_national:MachineLearningClassification
+    observing
+        distance to PriorityArea    		named priority_dist,
+        distance to MachineLearningRegion 	named ml_dist
+    lookup (priority_dist, ml_dist, ?) into
+        priority_dist | ml_dist	| classes
+        ----------------------------------------------------------------------
+        0             | 0  		| esa.aries.contexts_national:ComputedMachineLearningPriorityArea,
+        0             | > 0 	| esa.aries.contexts_national:NonComputedMachineLearningPriorityArea,
+        > 0           | 0       | esa.aries.contexts_national:ComputedMachineLearningArea;
